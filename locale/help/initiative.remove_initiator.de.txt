@@ -1,0 +1,3 @@
+= Initiator entfernen =
+
+Du kannst dich oder einen anderen Initiator entfernen, sofern nach dem Entfernen noch mindestens ein Initiator existiert. Um die Initiative insgesamt aufzugeben, wähle bitte ,,Initiative zurückziehen''.

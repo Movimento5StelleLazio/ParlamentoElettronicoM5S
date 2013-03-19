@@ -1,0 +1,1 @@
+Please choose a login name. It will not be visible for other users and you will only use it for logging in. The login name is case-sensitive.

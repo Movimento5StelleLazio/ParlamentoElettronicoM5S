@@ -1,0 +1,11 @@
+= Issue =
+
+This page lists all initiatives belonging to this issue. If you click on ""Add my interest"", you will be treated as equal to the members of the superior areas of this issue, which means that you count for the basic population for discussion in this issue. This has an impact on the supporter quorum, which initiatives have to reach.
+
+Declared interest is required to be able to directly support initiatives in this issue or to propose suggestions. As long as you are marked as interested in this issue, your outgoing delegations are postponed until the phases ""new"", ""discussion"" and ""frozen"" are finished and the issue is in voting. As soon as you support an initiative of this issue, your interest will be automatically added. Removing your interest also removes all direct support for initiatives of this issues and re-activates a previously postponed delegation.
+
+Issues run through the phases ""new"", ""discussion"", ""frozen"", ""voting"", and ""finished"", except when they are canceled beforehand due to lack of supporters of initiatives.
+
+During the phases ""new"" and ""discussion"" you should support **all** initiatives that you can agree with generally (or under certain conditions), and make suggestions for improvements (you can find details on the initiative page). Hereby you give the initiators the chance to improve the draft. During this phase you can also start your own (competing) initiative for this issue and ask people to support it.
+
+Initiatives reaching a certain quorum, will be taken into the final voting. Support of an initiative during the phases ""new"", ""discussion"" and ""frozen"" does not imply the same decision during final voting.

@@ -1,0 +1,12 @@
+= Welcome to LiquidFeedback and your homepage =
+All over the system, you'll find these boxes with help texts. You can switch off each help text, by clicking on "hide this help message" in the upper right corner of the yellow box, and switch it on again, by clicking on the small blue question mark in the menu bar above.
+
+Below you find: 
+- **Home:**
+-- **My areas:** subject areas you want to participate in
+-- **All areas in my units:** All subject areas of those organizational units you're eligible voter in
+-- **All units:** All organizational units
+- **Latest events:** Events in your subject areas and your issues, as well as the global timeline
+- **Open issues:** All issues, which are currently open, i.e. new, in discussion, frozen or for voting
+- **Closed issues:** All issues, where voting has been finished, or which have been canceled
+- **Members:** All active members. After you clicking on a particular member, you can add this member to your personal contact list, in order to be able to delegate to that member.

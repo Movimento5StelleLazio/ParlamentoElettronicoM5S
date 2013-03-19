@@ -1,0 +1,11 @@
+= Abstimmung =
+
+Zu Beginn der Abstimmung befinden sich alle Initiativen im Feld Enthaltung. Beginne am besten mit deinem Favoriten und ziehe ihn mit der Maus in das Feld Zustimmung. Danach wählst du die nächste Initiative, der du zustimmen möchtest und ziehst sie
+- in die gleiche grüne Box, falls du dieser Initiative gleichberechtigt zustimmen möchtest oder
+- zwischen die Zustimmungs- und Enthaltungsbox, falls diese Initiative dein Ersatzwunsch sein soll.
+
+Auf diese Weise fährst du fort und legst die Präferenzreihenfolge der Initiativen, denen du zustimmen möchtest fest, wobei du gleichwertige Initiativen jeweils in die gleiche Box hineinziehst. Dann legst du deine Enthaltungen und Ablehnungen fest, wobei du auch die Ablehnungen in eine Rangreihenfolge bringen kannst, falls eine der Initiativen so etwas wie das ,,kleinere Übel'' darstellen sollte.
+
+**Wichtig:** Verlasse diese Seite über die Schaltfläche ,,Stimmabgabe abschließen''. Bis zum Ende der Abstimmung kannst du deine Angaben jederzeit ändern. Es werden keine Zwischenergebnisse der Abstimmung veröffentlicht. Die Unterstützerangaben auf der Themenübersichtsseite beziehen sich auf die abgeschlossene Diskussion, beziehen sich jeweils auf die einzelne Initiative und sind nur sehr bedingt geeignet, zwischen den Initiativen zu vergleichen. Insbesondere enthalten sie keinerlei Informationen über Präferenzen. Darüber hinaus kann sich der Teilnehmerkreis von Diskussion und Abstimmung erheblich unterscheiden.
+
+**Achtung:** Auf einigen Plattformen (zum Beispiel Smartphones oder Tablet-Computern) ist das Ziehen von Initiativen mit der Maus nicht möglich. In diesem Falle können die Pfeile links neben den jeweiligen Initiativen verwendet werden.

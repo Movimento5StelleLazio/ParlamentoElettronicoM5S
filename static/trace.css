@@ -1,0 +1,145 @@
+#trace_show {
+  cursor: pointer;
+  float: right;
+}
+
+.trace_list {
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.trace_list .trace_list {
+  border-top: 1px solid;
+  margin-bottom: 0px;
+}
+
+.trace_list li {
+  margin: 3px;
+  padding: 0px;
+}
+
+.trace_head {
+  font-weight: bold;
+  margin: 1px;
+}
+
+.trace_error {
+  border: 3px solid red;
+  background-color: black;
+  color: #c00000;
+  text-align: center;
+  text-decoration: blink;
+}
+
+.trace_error_position {
+  color: red;
+  text-decoration: blink;
+  font-weight: bold;
+}
+
+.trace_config {
+  border: 1px solid #608000;
+  background-color: #ffffff;
+  color: #608000;
+}
+
+.trace_config .trace_list {
+  border-color: #608000;
+}
+
+.trace_request {
+  border: 1px solid #6000ff;
+  background-color: #c080ff;
+  color: #6000ff;
+}
+
+.trace_request .trace_list {
+  border-color: #6000ff;
+}
+
+.trace_filter {
+  border: 1px solid #606060;
+  background-color: #c0c0c0;
+  color: #606060;
+}
+
+.trace_filter .trace_list {
+  border-color: #606060;
+}
+
+.trace_view {
+  border: 1px solid #0000ff;
+  background-color: #40c0ff;
+  color: #0000ff;
+}
+
+.trace_view .trace_list {
+  border-color: #0000ff;
+}
+
+.trace_action_success {
+  border: 1px solid #006000;
+  background-color: #80ff80;
+  color: #006000;
+}
+
+.trace_action_success .trace_list {
+  border-color: #006000;
+}
+
+.trace_action_softfail {
+  border: 1px solid #600000;
+  background-color: #ff6020;
+  color: #600000;
+}
+
+.trace_action_softfail .trace_list {
+  border-color: #600000;
+}
+
+.trace_action_status {
+  font-weight: bold;
+}
+
+.trace_action_neutral {
+  border: 1px solid #600000;
+  background-color: #ffc040;
+  color: #600000;
+}
+
+.trace_action_neutral .trace_list {
+  border-color: #600000;
+}
+
+.trace_redirect, .trace_forward {
+  border: 1px solid #404000;
+  background-color: #c08040;
+  color: #404000;
+}
+
+.trace_redirect .trace_list, .trace_forward .trace_list {
+  border-color: #404000;
+}
+
+.trace_exectime {
+  border: 1px solid black;
+  background-color: #404040;
+  color: white;
+}
+
+.trace_exectime .trace_list {
+  border-color: white;
+}
+
+.trace_close {
+  border: 1px solid black;
+  background-color: #605040;
+  margin: 3px;
+  padding: 3px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+

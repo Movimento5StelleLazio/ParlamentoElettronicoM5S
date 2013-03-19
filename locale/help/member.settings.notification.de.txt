@@ -1,0 +1,2 @@
+=Benachrichtigungseinstellungen=
+Hier kannst du einstellen, ob du überhaupt und wenn ja welche Benachrichtigungen du vom System per E-Mail erhalten möchtest.

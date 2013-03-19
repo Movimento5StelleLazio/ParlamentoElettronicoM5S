@@ -1,0 +1,5 @@
+= Profil =
+
+Alle Angaben sind freiwillig. Im Profil erscheinen nur die Felder, die nicht leer sind.
+
+Screen-Name, Anmeldename sowie das Kennwort lassen sich im Benutzermenü unter Einstellungen ändern.
