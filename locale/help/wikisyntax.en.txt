@@ -1,0 +1,6 @@
+==== Wiki Help ====
+
+You can choose between this different syntaxes:
+
+[wikisyntax_rocketwiki.html RocketWiki]
+[wikisyntax_compat.html Traditional wiki syntax]

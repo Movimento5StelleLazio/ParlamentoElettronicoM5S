@@ -1,0 +1,9 @@
+=Profile page=
+Here you can learn,
+- what this member says about him- or herself,
+- which areas he or she is a member of,
+- in which issues and initiatives he or she participates
+- which delegations the member has received and given, and
+- which contacts the member has published.
+=add to contacts=
+You can add this member to your list of contacts (and also remove him or her from it, again, of course). Please note that you can only delegate to members, who are on your list of contacts.

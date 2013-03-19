@@ -1,0 +1,3 @@
+= Revoke initiative =
+
+You can revoke this initiative. This cannot be rolled back, but you can, of course, start a new initiative anytime. You can recommend the supporters an alternative initiative. For doing so you are offered all initiatives supported by you.

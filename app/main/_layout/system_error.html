@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>LiquidFeedback Error</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="__BASEURL__/static/trace.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .title {
+        font-size: 150%;
+        font-weight: bold;
+      }
+      .layout_trace {
+        left: 0;
+      }
+      a {
+        background-color: #ddd;
+        color: #000;
+        padding: 1ex;
+        margin: 1ex;
+        line-height: 300%;
+        border: 1px solid #777;
+      }
+      hr {
+        margin-top: 2ex;
+        margin-bottom: 2ex;
+      }
+    </style>
+  </head>
+  <body class="system_error">
+
+    <div class="title">
+      <img src="__BASEURL__/static/lang/en.png" />
+      Ooops, a system error occured
+    </div>
+    <p>
+      Most probably you found a software bug. Don't panic, you can now choose one of the following options:
+    </p>
+
+    <nobr><a href="__BASEURL__">Go to start page</a></nobr>
+    <nobr><a href="#" onclick="window.location.reload()">Retry request</a></nobr>
+    <nobr><a href="http://trac.public-software-group.org/projects/lf" target="_blank">Create bug report</a></nobr>
+
+    <hr />
+
+    <div class="title">
+      <img src="__BASEURL__/static/lang/de.png" />
+      Leider ist ein Systemfehler aufgetreten
+    </div>
+    <p>
+      Du hast vermutlich gerade einen Fehler in der Software entdeckt. Das ist kein Grund zur Panik, dir bleiben die folgenden Optionen:
+    </p>
+
+    <nobr><a href="__BASEURL__">Weiter zur Startseite</a></nobr>
+    <nobr><a href="#" onclick="window.location.reload()">Anfrage wiederholen</a></nobr>
+    <nobr><a href="http://trac.public-software-group.org/projects/lf" target="_blank">Fehlerbericht erstellen</a></nobr>
+
+    <hr />
+    <p>
+      If you write a bug report, please include the following output in your bug report.<br />
+      Falls Du einen Fehlerbericht erstellst, füge bitte die folgenden Ausgaben mit ein.
+    </p>
+    <tt style="font-size: 75%;"><!-- WEBMCP SLOT system_error --></tt>
+
+
+    <div class="layout_trace" id="layout_trace" style="xdisplay: none">
+      <div id="trace_show" onclick="document.getElementById('trace_content').style.display='block';this.style.display='none';" style="display: none;">TRACE</div>
+      <div id="trace_content">
+        <!-- WEBMCP SLOT trace -->
+      <div class="trace_close" onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">close</div>
+    </div>
+
+  </body>
+</html>

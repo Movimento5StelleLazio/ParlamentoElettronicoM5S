@@ -1,0 +1,3 @@
+= Database download =
+
+For auditability reasons all members can download a copy of the entire database. But for security and data privacy reasons certain data (e.g. passwords and email addresses) will be lacking. The data format is SQL as used for the PostgreSQL database compressed with gzip.

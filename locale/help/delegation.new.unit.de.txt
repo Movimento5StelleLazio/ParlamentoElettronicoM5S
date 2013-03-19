@@ -1,0 +1,5 @@
+= Delegation für Gliederung =
+
+Die Delegation für eine Gliederung gilt immer dann, wenn man sich nicht selbst beteiligt und es keine Delegation auf der Ebene des jeweiligen Themenbereichs oder des Themas gibt. Beachte, dass Delegationen für eine übergeordnete Gliederungsebene nicht automatisch für untergeordnete Gliederungsebenen gelten. 
+
+**Achtung:** Delegieren kannst man nur an Mitglieder in der eigenen Kontaktliste. Um ein Mitglied zur Kontaktliste hinzuzufügen ist die Seite des jeweiligen Mitglieds aufzurufen. Diese findet man z.B. in der jeweiligen Gliederung unter dem Reiter ,,Stimmberechtigte''. Durch einen Klick auf den Benutzer gelangt man zur Seite des jeweiligen Mitglieds, auf der man dieses Mitglied zu den persönlichen Kontakten hinzufügen kann.

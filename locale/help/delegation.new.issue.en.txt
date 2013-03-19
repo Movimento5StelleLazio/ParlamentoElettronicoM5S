@@ -1,0 +1,5 @@
+= Delegation for this issue =
+
+A delegation for this issue takes precedence over a potentially existing global delegation and/or a delegation for the superior area. If you added your interest outgoing delegations will be suspended during the discussion phase, but will be active during the final voting. You can only delegate to members on your contact list. You can extend the contact list anytime in the ,,Members'' area.
+
+**Notice:** You can only delegate to members, who you have added to your list of contacts. You can find other members under the tabulator ""Eligible voters"" in their corresponding unit. Click on the member to visit their member page, then click on ""Add to my contacts"" to add this member to your personal contact list.

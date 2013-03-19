@@ -1,0 +1,5 @@
+= Delegation for this area =
+
+You can delegate your vote for this area (independent of your membership in the area) to a person on your contact list. This delegation takes precedence over a potentially existing global delegation, but only, if you don't participate yourself and if you have not given a issue-specific delegation for the respective issue. Please go to the respective issue page for making issue-specific delegations.
+
+**Notice:** You can only delegate to members, who you have added to your list of contacts. You can find other members under the tabulator ""Eligible voters"" in their corresponding unit. Click on the member to visit their member page, then click on ""Add to my contacts"" to add this member to your personal contact list.

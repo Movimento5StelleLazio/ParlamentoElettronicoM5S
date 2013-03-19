@@ -1,0 +1,4 @@
+=personal list of contacts=
+In order to find other members more quickly, you can add them to your personal list of contacts. On the profile page of the respective member you will find a link for doing so. If you publish a contact, others can see this member as listed on your list of contacts.
+
+**Important:** For improved ease-of-use your list of contacts will be shown to you when you delegate. In order to delegate to a member, you must first add him or her to your contacts. Removing a contact does not revoke the delegation, though.

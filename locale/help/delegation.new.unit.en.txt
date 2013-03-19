@@ -1,0 +1,5 @@
+= Unit delegation =
+
+A unit delegation is always active if you don't participate yourself and there is no delegation on the level of the respective area or issue. Note that unit delegations for a superordinate unit are not automatically inherited to subdivisions.
+
+**Notice:** You can only delegate to members, who you have added to your list of contacts. You can find other members under the tabulator ""Eligible voters"" in their corresponding unit. Click on the member to visit their member page, then click on ""Add to my contacts"" to add this member to your personal contact list.

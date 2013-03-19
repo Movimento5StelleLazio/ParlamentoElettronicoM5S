@@ -1,0 +1,12 @@
+= Willkommen bei LiquidFeedback und auf deiner Startseite =
+Überall im System finden sich Kästen wie dieser mit Hilfetexten. Man kann jeden Hilfetext mit einem Klick auf "Diesen Hilfetext ausblenden" rechts oben im gelben Kasten ausblenden und durch einen Klick auf das kleine blaue Fragezeichen oben in der Menüzeile wieder einblenden.
+
+Unten finden sich folgende Ansichten:
+- **Startseite:** Eine Unterauswahl zwischen:
+-- **Meine Themengebiete:** Themenbereiche, an denen teilgenommen wird
+-- **Alle Themengebiete in meinen Gliederungen:** alle Themenbereiche in Gliederungen mit Stimmberechtigung
+-- **Alle Gliederungen:** Alle Gliederungen, unabhängig von der Stimmberechtigung
+- **Letzte Ereignisse:** Ereignisse aus den eigenen Themenbereichen und Themen sowie die globale Zeitlinie
+- **Offene Themen:** Alle Themen, die zur Zeit offen sind, also Neu, in Diskussion, Eingefroren oder in Abstimmung
+- **Geschlossene Themen:** Alle Themen, die bereits abgestimmt sind oder die abgebrochen wurden
+- **Mitglieder:** Alle aktiven Mitglieder. Nach einem Klick auf ein bestimmtes Mitglied kann man dieses zur persönlichen Kontaktliste hinzufügen, um später an dieses Mitglied delegieren zu können.
