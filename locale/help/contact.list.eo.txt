@@ -1,0 +1,4 @@
+=Persona kontaktlisto=
+Vi povas aldoni aliajn membrojn al via persona kontaktlisto, por ke vi trovu ilin pli rapide. En la profilpaĝo de la respektiva membro vi trovas ligilon por aldoni. Se vi publikigas kontakton, aliaj povas vidi, ke tiu ĉi membro estas en via kontaktlisto. 
+
+**Grave:** Por pliigi vian komforton, oni montras al vi dum delegado vian personan kontaktliston. Por povi delegi al membro vi devas unue aldoni lin kiel kontakton. Nuligi kontakton tamen ne kaŭzas revokon de la delegacio.

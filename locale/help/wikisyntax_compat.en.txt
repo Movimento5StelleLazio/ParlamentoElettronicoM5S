@@ -1,0 +1,31 @@
+<- [wikisyntax.html Wiki Help]
+
+==== Traditional Wiki-Syntax ====
+- ++Headings++
+-- = Main Heading (H1) =
+-- == Heading (H2) ==
+-- === Sub-Heading (H3) ===
+-- ==== Sub-Sub-Heading (H4) ====
+- ++Horizontal line++
+-- ---
+- ++Unnumbered lists++
+-- * Toplevel Entry
+-- ** Sub Entry
+- ++Numbered list++
+-- # Toplevel Entry
+-- ## Sub Entry
+- ++Font style++
+-- {{'''bold'''}}
+-- {{''italic''}}
+-- {{<tag>possible tags: big, small, sup, sub, tt, nobr</tag>}}
+-- {{{{no special interpretation of formatting characters}}}}
+- ++Text flow++
+-- non-breaking(_)space
+-- soft(-)hypen
+- ++Dashes++
+-- En{{{--}}}Dash
+-- Em{{{---}}}Dash
+- ++Line break++
+-- {{<br>}}
+- ++Links++
+-- {{[http://example.org/ link text]}}

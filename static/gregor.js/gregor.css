@@ -1,0 +1,92 @@
+.gregor_sheet {
+  border:          1px solid black;
+  border-collapse: collapse;
+  margin:          0;
+  padding:         0;
+  background:      #fff;
+  color:           #000;
+}
+.gregor_sheet th, .gregor_sheet td {
+  margin: 0;
+  font-size: 70%;
+}
+.gregor_year, .gregor_month {
+  background-color: #ddd;
+  border-bottom:    1px solid black;
+  font-weight:      normal;
+  text-align:       center;
+}
+.gregor_year a, .gregor_month a {
+  color:           #000;
+  text-decoration: none;
+}
+.gregor_year a:hover, .gregor_month a:hover {
+  color: #f00;
+}
+.gregor_weekday {
+  font-size:   80%;
+  padding-top: 0.5em;
+}
+.gregor_day {
+  padding-bottom: 0.35em;
+}
+
+.gregor_weekday,
+.gregor_day {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+.gregor_weeks_left .gregor_weekday,
+.gregor_weeks_left .gregor_day {
+  padding-left: 0;
+  padding-right: 0.5em;
+}
+.gregor_weeks_right .gregor_weekday,
+.gregor_weeks_right .gregor_day {
+  padding-left: 0.5em;
+  padding-right: 0;
+}
+.gregor_weekday {
+  text-align: center;
+}
+.gregor_weeks_left .gregor_week {
+  padding-left:  0.25em;
+  padding-right: 0.5em;
+}
+.gregor_weeks_right .gregor_week {
+  padding-left:  1em;
+  padding-right: 0.25em;
+}
+.gregor_week {
+  color:       #666;
+  font-size:   80%;
+  font-weight: normal;
+  text-align:  right;
+}
+td.gregor_day {
+  text-align: right;
+}
+td.gregor_day a {
+  background-color: #ddd;
+  color:            #000;
+  display:          block;
+  padding-bottom:   0.25ex;
+  padding-right:    0.25em;
+  padding-top:      0.25ex;
+  text-decoration:  none;
+  width:            2em;
+}
+td.gregor_day.gregor_sat a {
+  background-color: #bbb;
+}
+td.gregor_day.gregor_sun a {
+  background-color: #ea9;
+}
+td.gregor_day.gregor_today a {
+  font-weight: bold;
+}
+td.gregor_day.gregor_selected a {
+  background-color: #444;
+  color:            #fff;
+}
+

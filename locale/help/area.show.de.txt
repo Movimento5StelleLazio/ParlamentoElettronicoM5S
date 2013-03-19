@@ -1,0 +1,15 @@
+= Themenbereich =
+
+Hier finden sich jeweils unter:
+- **Letzte Ereignisse:** Alle Ereignisse im Themenbereich
+- **Offene Themen:** Alle Themen des Themenbereichs, die zur Zeit offen sind, also Neu, in Diskussion, Eingefroren oder in Abstimmung
+- **Geschlossene Themen:** Alle Themen des Themenbereichs, die bereits abgestimmt sind oder die abgebrochen wurden
+- **Teilnehmer:** Stimmberechtigte, die sich dazu entschieden haben, sich im Themenbereich einzubringen
+- **Delegationen:** Auf Themenbereichsebene gesetzte Delegationen (Delegationen auf darüberliegender Gliederungsebene, sowie Delegationen auf darunterliegender Themenebene werden hier nicht aufgeführt)
+
+Sofern die Stimmberechtigung in der Gliederung vorhanden ist, kann man sich durch einen Klick auf "An diesem Themengebiet teilnehmen" als Teilnehmer des Themengebietes eintragen. Dies hat folgende Konsequenzen:
+- Der jeweilige Themenbereich wird auf der Startseite unter "Meine Themengebiete" angezeigt.
+- Man zählt zur Grundgesamtheit der Diskussionsteilnehmer von Themen im Themengebiet. Dies wirkt sich auf das von Initiativen zu erreichende Unterstützerquorum aus.
+- Benachrichtigungen zu Ereignissen im jeweiligen Themenbereich werden verschickt, sofern die Benachrichtigungseinstellungen entsprechend eingestellt sind. Die Benachrichtigungseinstellungen finden sich unter "Einstellungen" im Benutzermenü ganz rechts oben.
+
+Delegationen im Themenbereich wirken sich auf alle Themen aus, bei denen keine abweichende Delegationseinstellung vermerkt ist. Ist keine Delegationseinstellung im Themenbereich vorhanden, gilt ggf. eine Delegation auf Gliederungsebene. Bei eigenem Interesse an einem Thema, wird eine eventuell vorhandene Delegation zunächst ausgesetzt. Ebenso werden Delegationen dort ausgesetzt, wo man selbst an der Endabstimmung teilnimmt.

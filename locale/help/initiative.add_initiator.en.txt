@@ -1,0 +1,3 @@
+= Invite initiator =
+
+Here you can invite a person on your contact list to collaborate with equal rights on the draft. The invited member must first accept the invitation in order to become an initiator (and be displayed as such). **Attention:** All initiators have the same rights and can remove other initiators.

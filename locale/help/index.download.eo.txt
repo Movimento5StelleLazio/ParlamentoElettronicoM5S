@@ -1,0 +1,3 @@
+= Elŝuto de la datumbazo =
+
+Por plua evaluado ĉiu membro povas elŝuti kopion de la tuta datumbazo. Ĉe tio tamen certaj informoj (ekzemple pasvortoj kaj retpoŝtadresoj) estas forviŝitaj pro sekurecaj kaj datumprotektaj kialoj. La datumformato estas gzip-kunpremita SQL por la datumbazo PostgreSQL.

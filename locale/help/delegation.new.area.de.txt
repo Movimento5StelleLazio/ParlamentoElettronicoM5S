@@ -1,0 +1,5 @@
+= Delegation für diesen Themenbereich =
+
+Man kann die eigene Stimme für diesen Themenbereich (unabhängig von der Mitgliedschaft im Themenbereich) an eine Person in der persönlichen Kontaktliste delegieren. Diese Delegation hat gegenüber einer eventuell vorhandenen Gliederungsdelegation Vorrang, gilt jedoch nur dann, wenn keine eigene Beteiligung am Thema besteht bzw. nicht selbst abgestimmt wird und man für das jeweilige Thema keine themenspezifische Delegation erteilt hat.
+
+**Achtung:** Delegieren kann man nur an Mitglieder in der eigenen Kontaktliste. Um ein Mitglied zur Kontaktliste hinzuzufügen ist die Seite des jeweiligen Mitglieds aufzurufen. Diese findet man z.B. in der jeweiligen Gliederung unter dem Reiter ,,Stimmberechtigte''. Durch einen Klick auf den Benutzer gelangt man zur Seite des jeweiligen Mitglieds, auf der man dieses Mitglied zu den persönlichen Kontakten hinzufügen kann.

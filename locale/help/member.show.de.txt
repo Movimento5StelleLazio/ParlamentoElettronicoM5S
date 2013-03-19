@@ -1,0 +1,9 @@
+=Profilseite=
+Hier kann man erfahren,
+- was dieses Mitglied über sich selbst mitteilt,
+- in welchen Themenbereichen es Mitglied ist,
+- an welchen Themen und Initiativen es sich beteiligt
+- welche Delegationen das Mitglied erhalten und erteilt und
+- welche Kontakte das Mitglied veröffentlicht hat.
+=zu den Kontakten hinzufügen=
+Hier kann man das Mitglied außerdem zur eigenen Kontaktliste hinzufügen (und es natürlich auch wieder von dieser entfernen). Bitte beachte, dass man nur an Mitglieder delegieren kann, die man auf die eigene Kontaktliste gesetzt hat.

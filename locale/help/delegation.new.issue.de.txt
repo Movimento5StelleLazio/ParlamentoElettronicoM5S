@@ -1,0 +1,4 @@
+= Delegation für dieses Thema =
+Eine Delegation zu diesem Thema geht einer eventuell vorhandenen globalen Delegation und/oder Delegation für den übergeordneten Themenbereich vor. Bei angemeldetem Interesse werden ausgehende Delegationen während der Phasen ,,Neu'', ,,Diskussion'' und ,,Eingefroren'' ausgesetzt, gelten aber in der Endabstimmung, sofern nicht selbst abgestimmt wird.
+
+**Achtung:** Delegieren kannst man nur an Mitglieder in der eigenen Kontaktliste. Um ein Mitglied zur Kontaktliste hinzuzufügen ist die Seite des jeweiligen Mitglieds aufzurufen. Diese findet man z.B. in der jeweiligen Gliederung unter dem Reiter ,,Stimmberechtigte''. Durch einen Klick auf den Benutzer gelangt man zur Seite des jeweiligen Mitglieds, auf der man dieses Mitglied zu den persönlichen Kontakten hinzufügen kann.

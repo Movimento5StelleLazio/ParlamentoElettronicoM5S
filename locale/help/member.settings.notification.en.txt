@@ -1,0 +1,2 @@
+=Notification settings=
+Please choose which notifications you like to receive from the system by email.

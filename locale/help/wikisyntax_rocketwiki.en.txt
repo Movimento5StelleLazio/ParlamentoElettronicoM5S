@@ -1,0 +1,52 @@
+<- [wikisyntax.html Wiki Help]
+
+==== RocketWiki ====
+- ++Headings++
+-- ==== Main Heading (H1) ====
+-- === Heading (H2) ===
+-- == Sub-Heading (H3) ==
+-- = Sub-Sub-Heading (H4) =
+- ++Horizontal line++
+-- ---
+- ++Unnumbered lists++
+-- - Toplevel Entry
+-- -- Sub Entry
+- ++Numbered list++
+-- # Toplevel Entry
+-- ## Sub Entry
+- ++Font style++
+-- {{**bold**}}
+-- {{//italic//}}
+-- {{__underlined__}}
+-- {{++big++}}
+-- {{%%small%%}}
+-- {{||monospaced||}}
+-- {{&&no line break&&}}
+-- {{{{no special interpretation of formatting characters}}}}
+- ++Quotes++
+-- {{""normal english quotes""}}
+-- {{"""single english quotes"""}}
+-- {{,,normal german quotes''}}
+-- {{,,,single german quotes'''}}
+-- {{<<normal french quotes>>}}
+-- {{<<<single french quotes>>>}}
+- ++Text flow++
+-- non-breaking(_)space
+-- soft(-)hypen
+- ++Special characters++
+-- {{{EUR}}} sign
+-- German umlauts: {{{Ae} {Oe} {Ue} {ae} {oe} {ue}}}
+-- German SZ-ligature: {{{sz} or {ss}}}
+-- Mid{{{.}}}dot
+-- Ellipsis {{{...}}}
+-- Arrows {{{->} {=>} {<->}}} etc. 
+-- {{{C} 2009, Registered{R}, Trademark{TM}}}
+-- {{360{deg} 0{'} 0{''}}} **=>** 360{deg} 0{'} 0{''}
+-- {{{1/4} + {1/2} = {3/4}}} **=>** {1/4} + {1/2} = {3/4}
+-- {{10{%o} = 1%}} **=>** 10{%o} = 1%
+-- {{(5 {-} 1) {x} 3 {/} 4 {=} 3}} **=>** (5 {-} 1) {x} 3 {/} 4 {=} 3
+- ++Dashes++
+-- En{{{--}}}Dash
+-- Em{{{---}}}Dash
+- ++Links++
+-- {{[http://example.org/ link text]}}

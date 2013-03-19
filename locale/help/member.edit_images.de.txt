@@ -1,0 +1,6 @@
+= Bilder =
+
+Format: JPG
+Avatar:  max. 48 x 48 Pixel, für den Avatar bevorzugt ein quadratisches Bild
+Foto: max. 250 x 250 Pixel
+Größere Bilder werden herunterskaliert, alle Bilder werden recodiert und von Profilen befreit.
