@@ -1,0 +1,2 @@
+=Rimuovi Autore= 
+e' possibile rimuovere se stessi o un altro Autore, se dopo la rimozione rimarra' almeno un Autore. Nel caso si voglia abbandonare l'intera Proposta in quanto tale, selezionare //Revoca Proposta//.
