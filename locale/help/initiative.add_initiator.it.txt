@@ -1,2 +1,3 @@
-= Invita Autore =
-Qui e' possibile invitare un'Utente della propria lista di contatti a collaborare con pari diritti nella realizzazione di una bozza di Proposta. L'Utente invitato deve prima accettare l'invito per diventare un Autore (ed essere visualizzato come tale). **Attenzione:** tutti gli Autori hanno gli stessi diritti sulla bozza di Proposta e sono in grado di rimuovere altri Autori.
+= __Invito autori/proponenti__ =
+Qui è possibile invitare uno dei propri contatti a collaborare con pari diritti alla bozza della proposta. I membri invitati devono accettare l'invito per potere diventare "proponenti" (ed essere visualizzati come tali).
+**Attenzione** Tutti gli iniziatori hanno pari diritti e possono rimuovere altri iniziatori.
