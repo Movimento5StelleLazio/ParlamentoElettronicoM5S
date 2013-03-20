@@ -1,9 +1,10 @@
-=Pagina del Profilo=
-Qui e' possibile visualizzare,
-- cio' che l'utente ha scritto di se stesso o di se stessa,
-- in quali Aree lui o lei sono partecipi,
-- quali Temi e Proposte lui o lei seguono
-- le deleghe in uscita ed in entrata e
-- i contatti che l'utente ha reso pubblici.
-=Aggiungi ai Contatti=
-E' possibile aggiungere questo Utente alla lista dei propri contatti (ed anche rimuoverlo/a da essa, ovviamente). Nota bene: e' possibile delegare solo gli utenti che sono stai aggiunti preventivamente nell'elenco di contatti.
+=== __Profilo utente__ ===
+In questa sezione è possibile sapere:
+- cosa gli utenti dicono di se stessi;
+- in quali aree sono attivi;
+- in quali questioni od iniziative stanno partecipando;
+- quali deleghe hanno ricevuto o dato;
+- i loro contatti pubblici.
+
+=== __Aggiungere ai contatti__ ===
+E' possibile aggiungere (o rimuovere se già presente) questo utente alla propria lista contatti. Si ricorda che è possibile assegnare le deleghe solamente agli utenti presenti nei propri contatti.
