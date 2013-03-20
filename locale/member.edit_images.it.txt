@@ -1,5 +1,0 @@
-=Immagini= 
-Formato: JPG
-Avatar: max. 48 x 48 pixel, l'immagine per il tuo Avatar e' preferibile sia di forma quadrata
-Immagine: max. 250 x 250 pixel
-Immagini piu' grandi saranno ridimensionate, tutte le immagini verranno ricodificate ed i dati di profilo rimossi.

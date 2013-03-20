@@ -1,1 +1,0 @@
-Scegliete un nome utente di login. Non sara' visibile per agli altri utenti e verra' utilizzato solo per l'accesso Il nome utente di login e' case-sensitive.
