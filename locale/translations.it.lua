@@ -747,4 +747,7 @@ return {
 ["with winner"] = "con vincitore";
 ["without winner"] = "senza vincitore";
 ["xmpp"] = "XMPP (Jabber)";
+["This tax identification number (Codice Fiscale) is invalid!"] = "Codice Fiscale non valido";
+["This Codice Fiscale is already used by someone else! Please contact the system administrator."] = "Questo Codice Fiscale e' gia' utilizzato!";
+["Codice Fiscale"] = "Codice Fiscale";
 }
