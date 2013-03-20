@@ -1,1 +1,1 @@
-Scegliete un nome, ad esempio il vostro vero nome o un nick name. Questo nome sara' visibile a tutti gli altri utenti, al fine di identificarvi. Per ragioni di trasparenza la history dei nomi e' disponibile per la tutti gli utenti sul vostro profilo.
+Scegliere un nome, per esempio il proprio nome reale od un soprannome(nick name). Questo nome sarà visibile agli altri utenti per identificarti. Per ragioni di trasparenza la cronologia del nome è visualizzata sul profilo pubblico.

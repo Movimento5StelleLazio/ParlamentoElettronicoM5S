@@ -1,1 +1,1 @@
-Scegliete un nome utente di login. Non sara' visibile per agli altri utenti e verra' utilizzato solo per l'accesso Il nome utente di login e' case-sensitive.
+Selezionare un nome d'accesso. Non sarà visibile agli altri utenti ed è necessario solo per l'accesso al sistema. Il nome d'accesso è sensibile alle maiuscole-minuscole (case-sensitive).

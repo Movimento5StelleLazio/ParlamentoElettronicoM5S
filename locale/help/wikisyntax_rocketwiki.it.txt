@@ -1,51 +1,52 @@
 <- [wikisyntax.html Wiki Help]
-==== RocketWiki ====
-- ++ Intestazione++
--- ==== Titolo Principale (H1)  ====
--- === Titolo (H2) ===
--- == Sotto-Titolo (H3) ==
--- = Sotto-Sotto-Titolo (H4) =
-- ++Linea Orizzontale++
+
+==== __RocketWiki__ ====
+- ++Titoli++
+-- ==== titolo principale (H1) ====
+-- === titolo livello 2(H2) ===
+-- == titolo livello 3 (H3) ==
+-- = titolo livello 4 (H4) =
+- ++Linea orizzontale++
 -- ---
-- ++Lista Puntata++
--- - Voce Principale
--- -- Voce Secondaria
-- ++Liste Numerata++
--- # Voce Principale
--- ## Voce Secondaria
-- ++Stile Font++
+- ++Liste puntate++
+-- - voce principale
+-- -- voce secondaria
+- ++Liste numerate++
+-- # voce principale
+-- ## voce secondaria
+- ++Stile caratteri++
 -- {{**grassetto**}}
--- {{//corsivo//}}
+-- {{//italico//}}
 -- {{__sottolineato__}}
--- {{++Piu' Grande++}}
--- {{%%Piu' piccolo%%}}
--- {{||monospace||}}
--- {{&&no line break&&}}
--- {{{{ Nessuna interpretazione particolare di formattazione caratteri}}}}
-- ++Citazioni++
+-- {{++grande++}}
+-- {{%%piccolo%%}}
+-- {{||spaziatura fissa||}}
+-- {{&&senza interruzione di riga&&}}
+-- {{{{nessuna interpretazione dei caratteri di formattazione}}}}
+- ++Virgolette++
 -- {{""virgolette inglesi""}}
--- {{"""virgolette singole inlgesi"""}}
+-- {{"""singole virgolette inglesi"""}}
 -- {{,,virgolette tedesche''}}
--- {{,,,virgolette singole tedesche'''}}
+-- {{,,,singole virgolette tedesche'''}}
 -- {{<<virgolette francesi>>}}
--- {{<<<virgolette single francesi>>>}}
-- ++Flusso di Testo++
--- Spazio(_)unificatore
--- Tratto(-)unificatore
-- ++Caratteri Speciali++
--- {{{EUR}}} simbolo
--- Metafonesi Tedesche: {{{Ae} {Oe} {Ue} {ae} {oe} {ue}}}
--- Doppia esse tedesca: {{{sz} or {ss}}}
--- punto{{{.}}}mediano
--- Elissi {{{...}}}
--- Frecce {{{->} {=>} {<->}}} etc. 
--- {{{C} 2009, Registered{R}, Trademark{TM}}}
+-- {{<<<singole virgolette francesi>>>}}
+- ++Flusso del testo++
+-- spazio{{(_)}}che non può andare a capo (non-breaking space)
+-- punto di pos{{(-)}}sibile a capo della parola (softhypen)
+- ++Caratteri speciali++
+-- simbolo {{{EUR}}}
+-- dieresi {{{Ae} {Oe} {Ue} {ae} {oe} {ue}}}
+-- legature {{{sz} or {ss}}}
+-- punto{{{.}}}centrale
+-- etc{{{...}}}
+-- frecce {{{->} {=>} {<->}}} etc. 
+-- {{{C} 2012, Registered{R}, Trademark{TM}}}
 -- {{360{deg} 0{'} 0{''}}} **=>** 360{deg} 0{'} 0{''}
 -- {{{1/4} + {1/2} = {3/4}}} **=>** {1/4} + {1/2} = {3/4}
 -- {{10{%o} = 1%}} **=>** 10{%o} = 1%
 -- {{(5 {-} 1) {x} 3 {/} 4 {=} 3}} **=>** (5 {-} 1) {x} 3 {/} 4 {=} 3
-- ++Lineette++
--- Lineetta{{{--}}}En
--- Lineetta{{{---}}}Em
+- ++Trattini++
+-- {{{--}}} trattino corto
+-- {{{---}}} trattino lungo
 - ++Links++
--- {{[http://example.org/ testo visualizzato cliccabile]}}
+-- {{[http://example.org/ testo del link]}}

@@ -1,3 +1,5 @@
-= Delega per la Sezione =
-Una delega per la Sezione e' sempre attiva se non si partecipa direttamente e se non vi e' alcuna delega a livello delle rispettive aree o temi. Si noti che le deleghe per sezioni di livello superiore non vengono automaticamente ereditate dalle sottosezioni.
-**Nota:** e' possibile delegare solo gli Utenti che sono stati aggiunti alla propria lista di contatti. Potete trovare altri Utenti sotto la scheda ""Utenti con diritto di Voto"" nella sezione corrispondente. Cliccate sull'utente per visitare la corrispondente pagina-utente, quindi fate clic su ""Aggiungi ai miei contatti"" per aggiungere l'utente alla vostra lista di contatti personali.
+=== __Delega per unità__ === 
+Una delega per unità è sempre attiva se non si partecipa direttamente e se non è presente una delega specifica per le rispettive aree o questioni. Si ricorda che le deleghe di unità non vengono automaticamente ereditate dalle eventuali sotto-unità.
+E' possibile delegare solo membri della propria lista contatti (potete, in ogni momento, ampliare la vostra lista contatti nell'area 'Utenti')!
+
+**Nota:** Potete trovare altri membri selezionando la tab ""Potenziali votanti"" nella nell'unità corrispondente. Cliccare sul partecipante per visualizzare il suo profilo ed utilizzare ""Aggiungi ai miei contatti"" per aggiungerlo alla propria lista contatti.

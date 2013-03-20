@@ -1,1 +1,2 @@
-Attualmente sono configurate le seguenti Politiche. Non tutte le Politiche sono disponibili in ogni Area.
+Le seguenti regole/politiche definiscono l'utilizzo della piattaforma.
+Alcune regole possono essere valide solo per determinate aree tematiche.

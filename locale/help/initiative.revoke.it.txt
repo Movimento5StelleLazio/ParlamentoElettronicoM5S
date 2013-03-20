@@ -1,2 +1,3 @@
-=Revoca Proposta= 
-Puoi revocare questa Proposta. Questa operazione non puo' essere annullata, ma e' possibile, ovviamente, avviare una nuova Proposta in qualsiasi momento. E' possibile consigliare ai sostenitori una Proposta alternativa. Per agevolarvi in questo, vi viene presentata la lista di tutte le Proposte da voi sostenute.
+= __Revoca della proposta__ =
+E' possibile revocare questa proposta. L'operazione non può essere annullata, ma è possibile ricrearne una uguale in qualsiasi momento.
+A seguito della revoca è possibile suggerire agli attuali sostenitori una proposta alternativa fra quelle da voi supportate.

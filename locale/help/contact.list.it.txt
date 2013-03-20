@@ -1,3 +1,6 @@
-=Lista personale contatti=
-Per trovare gli altri utenti piu' velocemente, e' possibile aggiungerli alla vostra lista personale di contatti. Sulla pagina del profilo del rispettivo Utente troverete il link Aggiungi ai miei contatti. Se si pubblica un contatto, gli altri Utenti potranno vederlo elencato nella vostra lista di contatti. 
-**Importante:** Per una migliore facilita' d'uso, l'elenco dei contatti vi sara' mostrato quando configurate una delegate. Al fine di delegare un Utente, e' necessario prima aggiungere lui o lei ai propri contatti. La rimozione di un contatto dalla Lista non revoca la delega.
+=== __Lista personale dei contatti__ ===
+Per velocizzare la ricerca di altri membri nelle proprie operazioni, è possibile aggiungere gli stessi alla lista personale dei contatti.
+Per aggiungere un utente alla lista visualizzare il suo profilo e selezionare 'Aggiungi ai miei contatti'. 
+Per rendere visibile un proprio contatto agli altri utenti selezionare 'Pubblica'; i nuovi contatti sono sempre nascosti.
+
+** Importante:** La lista contatti viene mostrata quando si seleziona una delega. Per poter delegare un utente è necessario aggiungerlo alla lista contatti. Rimuovere un contatto non revoca automaticamente le deleghe!
