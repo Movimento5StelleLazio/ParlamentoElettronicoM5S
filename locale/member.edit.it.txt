@@ -1,0 +1,3 @@
+=Profilo= 
+Tutte le informazioni qui inserite sono volontarie. Solo i campi non-vuoti verranno visualizzati nel vostro profilo.
+Potete cambiare il vostro nome, il nick di login e la password nel vostro menu utente in alto a destra alla voce ""Configurazione"".
