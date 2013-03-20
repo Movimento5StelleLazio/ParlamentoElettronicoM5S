@@ -1,0 +1,30 @@
+<- [Help Wiki wikisyntax.html]
+==== Tradizionale sintassi Wiki-====
+- ++Intestazione++
+-- = Titolo Principale (H1) =
+-- == Titolo (H2) ==
+-- === Sotto-Titolo (H3) ===
+-- ==== Sotto-Sotto-Titolo (H4) ====
+- ++Linea Orizzontale++
+-- ---
+- ++Lista Puntata++
+-- * Voce Principale
+-- ** Voce Secondaria
+- ++Liste Numerata++
+-- # Voce Principale
+-- ## Voce Secondaria
+- ++Stile Font++
+-- {{'''grassetto'''}}
+-- {{''corsivo''}}
+-- {{<tag> tag accettati: big, small, sup, sub, tt, nobr</tag>}}
+-- {{{{Nessuna interpretazione particolare di formattazione caratteri}}}}
+- ++Flusso di Testo++
+-- Spazio(_)unificatore
+-- Tratto(-)unificatore
+- ++Lineette++
+-- Lineetta{{{--}}}En
+-- Lineetta{{{---}}}Em
+- ++A Capo++
+-- {{<br>}}
+- ++Links++
+-- {{[http://example.org/ testo visualizzato cliccabile]}}

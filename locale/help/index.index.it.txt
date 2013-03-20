@@ -1,0 +1,11 @@
+= Benvenuti su LiquidFeedback e nella vostra home page =
+In tutto il sistema, troverete questi rettangoli con testi descrittivi di aiuto. e' possibile disattivare ogni testo di aiuto, cliccando su "Nascondi questo messaggio d'aiuto" in alto a destra della casella e riattivarli, cliccando sul piccolo punto interrogativo blu nella barra dei menu in alto.
+Qui di seguito troverete: 
+- **Home**
+-- **Le mie aree:** aree alle quali si desidera partecipare
+-- **Tutte le aree nelle mie Sezioni:** Tutte le aree delle Sezioni nelle quali avete diritto di voto
+-- **Tutte le Sezioni:** Tutte le Sezioni presenti
+- **Ultimi eventi:** Eventi delle aree e dei vostri temi, cosi' come la cronologia globale
+- **Temi Aperti:** Tutti i Temi che sono attualmente aperti, vale a dire nella fase nuovo, dibattito, verifica o votazione
+- **Temi chiusi:** Tutti i Temi la cui votazione e' conclusa o che sono stati cancellati
+- **Utenti:** Tutti gli utenti attivi. Dopo aver cliccato su di un particolare Utente e' possibile aggiungerlo alla propria lista di contatti personali, al fine di potergli concedere una o piu' deleghe.

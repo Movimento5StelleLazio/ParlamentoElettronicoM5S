@@ -1,0 +1,12 @@
+= Area =
+Qui troverete:
+-**Ultimi eventi:** Eventi di quest'Area
+-**Temi aperti:** Temi di quest'Area, che sono attualmente aperti, vale a dire nella fase nuovo, dibattito, verifica o votazione
+-**Temi chiusi:** Temi di quest'area, la cui votazione e' conclusa o che sono stati cancellati
+-**Partecipanti:** Aventi diritto al voto che hanno deciso di essere partecipi di quest'Area
+-**Delegazioni:** Impostazioni di delega di altri membri per quest'Area (deleghe per Sezione e per Tema non sono elencate qui)
+Gli aventi diritto al voto possono indicare di voler essere partecipi a quest'Area. Per partecipare cliccate su "Partecipa a quest'area". Questo comporta le seguenti conseguenze:
+- L'area verra' visualizzata sulla vostra homepage in corrispondenza della scheda "Le mie aree".
+- Si accresce la popolazione base per le discussioni del tema. Questo ha un impatto sul quorum di sostenitori che le Proposte devono raggiungere.
+- Verranno inviate notifiche via e-mail sugli eventi dell'Area fin quando le impostazioni di notifica saranno in tal modo configurate. Le impostazioni di notifica possono essere modificate cliccando su "Impostazioni" nel menu utente in alto a destra.
+La vostra delega per l'Area ha effetto su tutti i Temi in cui non vi siano deleghe divergenti da voi impostate. Quando non impostate una delega per l'Area potrebbe valere la delega per la Sezione. Se siete Interessati ad un particolare Tema, le potenziali deleghe esistenti saranno posposte al voto. La votazione diretta su di un Tema annulla una delegazione esistente.
