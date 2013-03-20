@@ -1,0 +1,2 @@
+=Configurazione delle Notifiche=
+In questa pagina potete scegliere quali notifiche desiderate ricevere dal sistema via e-mail.

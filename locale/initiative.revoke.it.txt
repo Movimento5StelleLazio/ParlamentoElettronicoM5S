@@ -1,0 +1,2 @@
+=Revoca Proposta= 
+Puoi revocare questa Proposta. Questa operazione non puo' essere annullata, ma e' possibile, ovviamente, avviare una nuova Proposta in qualsiasi momento. E' possibile consigliare ai sostenitori una Proposta alternativa. Per agevolarvi in questo, vi viene presentata la lista di tutte le Proposte da voi sostenute.
