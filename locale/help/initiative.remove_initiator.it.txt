@@ -1,0 +1,3 @@
+= __Rimozione autori/proponenti__ = 
+E' possibile rimuovere voi stessi od altri proponenti se alla fine dell'elimininazione resta almeno un autore.
+Per poter abbandonare l'intera iniziativa si prega di selezionare "Revoca iniziativa".

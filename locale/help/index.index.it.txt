@@ -1,0 +1,12 @@
+==== __Benvenuti sulla vostra Homepage in LiquidFeedback__ ====
+Nelle varie pagine del portale troverete questi riquadri di aiuto. Potrete nascondere i singoli testi cliccando su "Nascondi questo messaggio d'aiuto" in alto a destra nel riquadro giallo e riattivarli cliccando sull'icona blu di aiuto.
+
+Sotto troverete questi pulsanti: 
+- **Homepage:**
+-- **Le mie aree:** visualizza le aree tematiche in cui state partecipando
+-- **Tutte le aree delle mie unità:** visualizza tutte le aree tematiche delle unità organizzative in cui avete diritto di voto
+-- **Tutte le unità:** visualizza tutte le unità organizzative
+- **Ultimi eventi:** visualizza gli eventi delle proprie aree e questioni oppure la cronologia globale
+- **Questioni aperte:** visualizza tutte le questioni attualmente aperte (ovvero nelle fasi di nuovo, in discussione, congelato od in votazione)
+- **Questioni chiuse:** visualizza tutte le questioni con votazione conclusa o che sono state annullate
+- **Utenti:** visualizza tutti i gli utenti attivi. Dopo aver selezionato un particolare utente, potete aggiungerlo alla vostra lista contatti per potergli assegnare una delega.

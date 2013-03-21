@@ -1,0 +1,16 @@
+= __Proposte alternative, supporto e suggerimenti__ =
+Durante la fase di discussione potete supportare la proposta dando importanti feedback circa il livello di approvazione della bozza. Inoltre, tramite i suggerimenti di modifica, potete comunicare cosa può essere migliorato od indicare in quali condizioni sareste disposti a dare il vostro supporto.
+Potete anche esprimere il vostro parere sui suggerimenti degli altri partecipanti (incrementando/diminuendo il peso dei suggerimenti). I suggerimenti ritenuti validi possono essere marcati spostando la propria opinione da "neutrale" a "deve"(se ritenuto mandatorio) o "dovrebbe"; alternativamente è possibile spostare la propria opinione su "non dovrebbe" o "non deve" se lo si ritiene peggiorativo od inaccettabile.
+
+= __Modifica bozze e implementazione suggerimenti__ =
+A seguito dei suggerimenti (classificati e quantificati) gli autori decidono cosa migliorare, aggiungere o cambiare nella bozza. La bozza, se modificata, viene sottoposta ai sostenitori per conferma. Gli stessi possono poi annotare se dal loro punto di vista i suggerimenti sono stati sufficientemente implementati (P.S. i singoli sostenitori potrebbero esprimere giudizi piuttosto differenti).
+
+= __Invitare ulteriori autori o revocare una proposta__ =
+Un proponente può invitarne altri garantendo pari diritti alla stesura della bozza. I proponenti possono revocare la proposta ed eventualmente suggerire un alternativa ai sostenitori.
+
+= __Se non si è ascoltati__ =
+Se, per inspiegabili ragioni, i vostri suggerimenti non sono ascoltati dai proponenti è possibile, in ogni momento fino al termine del congelamento, iniziare una propria proposta alternativa.
+
+= __Disapprovare una proposta__ =
+Se si disapprova totalmente un'iniziativa, non si deve fare nulla sulla pagina della stessa ma supportare solamente le iniziative per le quali si è positivi e/o inziare una propria proposta relativa alla questione. Se non si è già partecipanti dell'area è possibile aumentare la base di persone conteggiate per raggiungere il quorum diventando membro oppure aggiungendo il proprio interesse alla questione senza dare il supporto alla proposta. E' possibile ottenere lo stesso risultato delegando un membro dell'area o un mebro interessato alla questione che non supporta la proposta in questione.
+**Solo durante lo stato di "Nuovo":** Se la questione appare ancora nello stato "nuovo" e di fatto non si vuole discuterne occorre diventare membri dell'area o aggiungere l'interesse alla questione senza fare però nessun suggerimento (che vi renderebbe eventuali sostenitori). Inoltre non si deve iniziare subito una proposta alternativa che potrebbe portare la questione sopra il livello di ammissione.

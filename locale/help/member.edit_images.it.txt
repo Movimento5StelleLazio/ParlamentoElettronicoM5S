@@ -1,0 +1,6 @@
+=== __Immagini__ ===
+Le immagini devono essere caricate in formato JPEG/JPG, le immagini più grandi della risoluzione indicata verranno automaticamente ridimensionate.
+Premendo il pulsante di salvataggio entrambe le immagini verranno reimpostate.
+
+ Avatar: max. 48 x 48 pixels (è preferibile un immagine quadrata per il proprio avatar)
+Profilo: max. 250 x 250 pixels

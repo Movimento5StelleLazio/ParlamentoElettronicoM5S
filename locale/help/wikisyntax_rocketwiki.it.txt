@@ -1,0 +1,52 @@
+<- [wikisyntax.html Wiki Help]
+
+==== __RocketWiki__ ====
+- ++Titoli++
+-- ==== titolo principale (H1) ====
+-- === titolo livello 2(H2) ===
+-- == titolo livello 3 (H3) ==
+-- = titolo livello 4 (H4) =
+- ++Linea orizzontale++
+-- ---
+- ++Liste puntate++
+-- - voce principale
+-- -- voce secondaria
+- ++Liste numerate++
+-- # voce principale
+-- ## voce secondaria
+- ++Stile caratteri++
+-- {{**grassetto**}}
+-- {{//italico//}}
+-- {{__sottolineato__}}
+-- {{++grande++}}
+-- {{%%piccolo%%}}
+-- {{||spaziatura fissa||}}
+-- {{&&senza interruzione di riga&&}}
+-- {{{{nessuna interpretazione dei caratteri di formattazione}}}}
+- ++Virgolette++
+-- {{""virgolette inglesi""}}
+-- {{"""singole virgolette inglesi"""}}
+-- {{,,virgolette tedesche''}}
+-- {{,,,singole virgolette tedesche'''}}
+-- {{<<virgolette francesi>>}}
+-- {{<<<singole virgolette francesi>>>}}
+- ++Flusso del testo++
+-- spazio{{(_)}}che non può andare a capo (non-breaking space)
+-- punto di pos{{(-)}}sibile a capo della parola (softhypen)
+- ++Caratteri speciali++
+-- simbolo {{{EUR}}}
+-- dieresi {{{Ae} {Oe} {Ue} {ae} {oe} {ue}}}
+-- legature {{{sz} or {ss}}}
+-- punto{{{.}}}centrale
+-- etc{{{...}}}
+-- frecce {{{->} {=>} {<->}}} etc. 
+-- {{{C} 2012, Registered{R}, Trademark{TM}}}
+-- {{360{deg} 0{'} 0{''}}} **=>** 360{deg} 0{'} 0{''}
+-- {{{1/4} + {1/2} = {3/4}}} **=>** {1/4} + {1/2} = {3/4}
+-- {{10{%o} = 1%}} **=>** 10{%o} = 1%
+-- {{(5 {-} 1) {x} 3 {/} 4 {=} 3}} **=>** (5 {-} 1) {x} 3 {/} 4 {=} 3
+- ++Trattini++
+-- {{{--}}} trattino corto
+-- {{{---}}} trattino lungo
+- ++Links++
+-- {{[http://example.org/ testo del link]}}

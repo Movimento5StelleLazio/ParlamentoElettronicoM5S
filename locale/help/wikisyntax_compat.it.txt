@@ -1,0 +1,31 @@
+<- [wikisyntax.html Aiuto Wiki]
+
+==== __Sintassi Wiki tradizionale__ ====
+- ++Titoli++
+-- = Titolo principale (H1) =
+-- == Titolo livello 2 (H2) ==
+-- === Titolo livello 3 (H3) ===
+-- ==== Titolo livello 4 (H4) ====
+- ++Linea orizzontale++
+-- ---
+- ++Liste puntate++
+-- * Voce principale
+-- ** Voce secondaria
+- ++Liste numerate++
+-- # Voce principale
+-- ## Voce secondaria
+- ++Stile caratteri++
+-- {{'''grassetto'''}}
+-- {{''italico''}}
+-- {{<tag>tags possibili: big, small, sup, sub, tt, nobr</tag>}}
+-- {{{{nessuna interpretazione dei caratteri di formattazione}}}}
+- ++Flusso del testo++
+-- spazio(_)che non può andare a capo (non-breaking space)
+-- punto di pos(-)sibile a capo della parola (softhypen)
+- ++Trattini++
+-- {{{--}}} trattino corto
+-- {{{---}}} trattino lungo
+- ++Interruzione di linea++
+-- {{<br>}}
+- ++Links++
+-- {{[http://example.org/ testo del link]}}

@@ -1,0 +1,10 @@
+=== __Profilo utente__ ===
+In questa sezione è possibile sapere:
+- cosa gli utenti dicono di se stessi;
+- in quali aree sono attivi;
+- in quali questioni od iniziative stanno partecipando;
+- quali deleghe hanno ricevuto o dato;
+- i loro contatti pubblici.
+
+=== __Aggiungere ai contatti__ ===
+E' possibile aggiungere (o rimuovere se già presente) questo utente alla propria lista contatti. Si ricorda che è possibile assegnare le deleghe solamente agli utenti presenti nei propri contatti.

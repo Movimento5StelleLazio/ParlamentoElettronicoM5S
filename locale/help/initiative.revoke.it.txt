@@ -1,0 +1,3 @@
+= __Revoca della proposta__ =
+E' possibile revocare questa proposta. L'operazione non può essere annullata, ma è possibile ricrearne una uguale in qualsiasi momento.
+A seguito della revoca è possibile suggerire agli attuali sostenitori una proposta alternativa fra quelle da voi supportate.

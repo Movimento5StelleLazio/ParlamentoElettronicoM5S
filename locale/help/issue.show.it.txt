@@ -1,0 +1,11 @@
+=== __Questione__ ===
+Questa pagina elenca tutte le proposte relative a questa questione. Aggiungendo il vostro "interesse", verrete contati, assieme ai partecipanti dell'area, nella popolazione base per il conteggio dei quorum. Aumentando la popolazione base aumenta anche il numero assoluto di sostenitori necessari per il superamento dei quorum.
+
+Dichiarare il proprio interesse è necessario per sostenere o proporre suggerimenti nelle proposte di questa questione; fino a quando sarete direttamente interessati alla questione le vostre eventuali deleghe, in questa specifica questione, saranno sospese fino alla votazione.
+L'interesse viene aggiunto automaticamente se supportate una singola proposta o inviate suggerimenti. Rimuovendo il proprio interesse si rimuove anche il supporto alle singole proposte e vengono riattivate le eventiali deleghe presenti.
+
+Le proposte attraversano le fasi di "nuovo", "discussione", "congelamento", "votazione " e "concluso" tranne quando vengono annullati anticipatamente per mancanza di sostenitori.
+
+Durante le fasi di "nuovo", "discussione" dovreste supportare **tutte** le iniziative ccon le quali potreste concordare a livello generale(o a determinate condizioni) e fare suggerimenti di miglioramento (potete trovare maggiori dettagli sulla pagina delle proposte). In questo modo darete agli autori la possibilità di migliorare la bozza proposta. Durante questa fase potete anche lanciare una vostra proposta(alternativa) per questa questione e chiedere agli utenti di sostenerla.
+ 
+Le proposte che raggiungeranno il quorum previsto al termine del congelamento andranno in votazione finale. Sostenere una proposta durante le fasi ""Nuovo"", ""Dibattito"" e ""Congelamento"" non implica la stessa decisione nella votazione finale. 

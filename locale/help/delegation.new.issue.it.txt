@@ -1,0 +1,5 @@
+=== __Delega per questione__ ===
+Una delega per questa questione ha precedenza rispetto ad una potenziale/esistente delega globale e/o ad una delega dell'area tematica. Aggiungendo l'interesse, la delega uscente viene sospesa durante la fase di discussione, ma è attiva nel voto finale se non si effettua la votazione prima della chiusura.
+E' possibile delegare solo membri della propria lista contatti (potete, in ogni momento, ampliare la vostra lista contatti nell'area 'Utenti')!
+
+**Nota:** Potete trovare altri membri selezionando la tab ""Potenziali votanti"" nella nell'unità corrispondente. Cliccare sul partecipante per visualizzare il suo profilo ed utilizzare ""Aggiungi ai miei contatti"" per aggiungerlo alla propria lista contatti.

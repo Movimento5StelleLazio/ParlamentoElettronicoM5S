@@ -1,0 +1,5 @@
+=== __Delega per area tematica__ ===  
+E' possibile delegare il voto per quest'area (indipendentemente dal ruolo che si ha nell'area) ad una persona della lista contatti. Questa delega ha precedenza rispetto ad una potenziale esistente delega globale ma solamente se non si partecipa direttamente e se nessuna delega è stata data rispetto ad una particolare questione. Per attivare la delega di una specifica questione vedere la pagina relativa alla questione stessa.
+E' possibile delegare solo membri della propria lista contatti (potete, in ogni momento, ampliare la vostra lista contatti nell'area 'Utenti')!
+
+**Nota:** Potete trovare altri membri selezionando la tab ""Potenziali votanti"" nella nell'unità corrispondente. Cliccare sul partecipante per visualizzare il suo profilo ed utilizzare ""Aggiungi ai miei contatti"" per aggiungerlo alla propria lista contatti.

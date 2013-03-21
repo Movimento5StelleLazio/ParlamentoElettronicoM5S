@@ -1,0 +1,1 @@
+Selezionare un nome d'accesso. Non sarà visibile agli altri utenti ed è necessario solo per l'accesso al sistema. Il nome d'accesso è sensibile alle maiuscole-minuscole (case-sensitive).

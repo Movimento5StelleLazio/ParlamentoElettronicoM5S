@@ -1,0 +1,14 @@
+=== __Area tematica__ ===
+Qui potete trovare:
+- **Ultimi eventi:** Eventi dell'area in ordine cronologico
+- **Questioni aperte:** Questioni dell'area che sono attualmente aperte, ovvero: nuove, in discussione, congelate e in votazione
+- **Questioni chiuse:** Questioni dell'area che hanno concluso la votazione o non sono state ammesse
+- **Partecipanti:** Persone che hanno deciso di partecipare a quest'area
+- **Deleghe:** Attuali deleghe degli altri utenti attive per l'area (le deleghe di unità e questione non sono visualizzate qui)
+
+Se si ha diritto di voto in quest'area è possibile indicare la propria partecipazione cliccando su "Partecipa in quest'Area". La partecipazione comporta:
+- La visualizzazione dell'area nella propria Homepage quando si seleziona "Le mie Aree"
+- Verrete contati nella popolazione base per le questioni dell'area. Questo ha un impatto sui quorum che le iniziative devono raggiungere; se non partecipate attivamente rischiate di bloccare i lavori dell'area!
+- Riceverete la notifica degli eventi dell'area a seconda delle vostre impostazioni. Potete modificare le impostazioni di notifica cliccando su "Impostazioni" nel menu utente in alto a destra.
+
+Le deleghe impostate per l'area hanno effetto su tutte le questioni della stessa a meno di una specifica delega per una questione. Se non settate nessuna delega di area verrà ereditata la delega di unità, se presente. Se siete interessati ad una questione le possibili deleghe verranno sospese fino al termine della votazione. Il voto diretto nelle questioni scavalca sempre le eventuali deleghe presenti!

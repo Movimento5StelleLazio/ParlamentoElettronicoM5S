@@ -1,0 +1,4 @@
+=== __Download del database__ ===
+Per questioni di verificabilità, tutti i membri possono scaricare una copia del database completo.
+Per motivi di sicurezza e privacy, alcune informazioni (per esempio passwords, indirizzi email ..) non sono visibili.
+I dati sono in formato SQL come utlizzati dal database PostgreSQL e compressi con gzip.

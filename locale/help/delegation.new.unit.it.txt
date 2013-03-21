@@ -1,0 +1,5 @@
+=== __Delega per unità__ === 
+Una delega per unità è sempre attiva se non si partecipa direttamente e se non è presente una delega specifica per le rispettive aree o questioni. Si ricorda che le deleghe di unità non vengono automaticamente ereditate dalle eventuali sotto-unità.
+E' possibile delegare solo membri della propria lista contatti (potete, in ogni momento, ampliare la vostra lista contatti nell'area 'Utenti')!
+
+**Nota:** Potete trovare altri membri selezionando la tab ""Potenziali votanti"" nella nell'unità corrispondente. Cliccare sul partecipante per visualizzare il suo profilo ed utilizzare ""Aggiungi ai miei contatti"" per aggiungerlo alla propria lista contatti.

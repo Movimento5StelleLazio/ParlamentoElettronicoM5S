@@ -1,0 +1,3 @@
+= __Invito autori/proponenti__ =
+Qui è possibile invitare uno dei propri contatti a collaborare con pari diritti alla bozza della proposta. I membri invitati devono accettare l'invito per potere diventare "proponenti" (ed essere visualizzati come tali).
+**Attenzione** Tutti gli iniziatori hanno pari diritti e possono rimuovere altri iniziatori.

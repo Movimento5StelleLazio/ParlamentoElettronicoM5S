@@ -1,0 +1,14 @@
+==== __Votazione__ ====
+All'inizio della votazione tutti i voti saranno impostati su 'Astensione'.
+Si raccomanda di iniziare dalla proposta favorita e spostare il voto su 'Favorevole'. Dopodiché selezionare le proposte che si ritiene accettabili spostando il voto su:
+- 'Favorevole' se si vuole approvarla come alternativa;
+- fra 'Astensione' e 'Favorevole' se si vuole approvarla come seconda scelta.
+
+Continuando in questo modo è possibile definire una lista di preferenze per le varie proposte alternative. Definire successivamente la lista delle iniziative disapprovate; anche in questo caso è possibile definire una priorità fra le scelte disapprovate, una sorta di "male minore".
+
+**//__Attenzione__//**
+Abbandonare la pagina con il pulsante "Registra voto"; è possibile cambiare il voto fino alla chiusura del periodo di votazione!
+Durante la votazione non verrà visualizzato nessun risultato parziale. Le informazioni sul supporto della singola iniziativa non sono indicate per effettuare una comparazione fra diverse iniziative e non contengono informazioni sulle preferenze. Inoltre il gruppo di partecipanti alla discussione può essere molto diverso da quelli che effettivamente votano.
+
+**//__Nota__//**
+Su alcune piattaforme (per es. smartphone o tablet computer) la funzione di trascinamento non è possibile. In questi casi utilizzare le freccie 'su' e 'giu' per ogni proposta.
