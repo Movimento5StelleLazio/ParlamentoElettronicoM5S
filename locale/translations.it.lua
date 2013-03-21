@@ -771,6 +771,9 @@ return {
 ["with winner"] = "con vincitore";
 ["without"] = "senza";
 ["without winner"] = "senza vincitore";
+["This tax identification number (Codice Fiscale) is invalid!"] = "Codice Fiscale non valido";
+["This Codice Fiscale is already used by someone else! Please contact the system administrator."] = "Questo Codice Fiscale e' gia' utilizzato!";
+["Codice Fiscale"] = "Codice Fiscale";
 ["xmpp"] = "XMPP(Jabber)";
 ["year [interval ago]"] = "anno";
 ["year [interval time left]"] = "anno";
