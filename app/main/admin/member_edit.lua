@@ -40,6 +40,7 @@ ui.form{
       ui.field.text{     label = _"Login name",        name = "login" }
     end
     ui.field.boolean{  label = _"Admin?",       name = "admin" }
+    ui.field.boolean{  label = _"Elected?",       name = "elected" }
 
     slot.put("<br />")
     

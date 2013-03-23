@@ -28,6 +28,10 @@ if identification then
   end
 end
 member.identification = identification
+local elected = param.get("elected", atom.boolean)
+if elected ~= nil then
+  member.elected = elected
+end
 
 local err = member:try_save()
 

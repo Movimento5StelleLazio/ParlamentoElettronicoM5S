@@ -45,6 +45,9 @@ ui.form{
     if member.name then
       ui.field.text{ label = _"Screen name", name = "name" }
     end
+    if member.elected then
+      ui.field.boolean{ label = _"Elected?", name = "elected" }
+    end
     if include_private_data and member.login then
       ui.field.text{    label = _"Login name", name = "login" }
       ui.field.text{    label = _"Notification email", name = "notify_email" }
