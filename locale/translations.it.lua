@@ -778,4 +778,5 @@ return {
 ["years [interval ago]"] = "anni";
 ["years [interval time left]"] = "anni";
 ["years [interval]"] = "anni";
+["Elected?"] = "Eletto?";
 }
