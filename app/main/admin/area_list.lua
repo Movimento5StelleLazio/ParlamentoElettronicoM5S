@@ -35,6 +35,15 @@ ui.actions(function()
       view = "area_list",
       params = { show_not_in_use = true, unit_id = unit_id }
     }
+
+    slot.put(" &middot; ")
+
+    ui.link{
+      text = _"Copy areas as template",
+      module = "admin",
+      view = "",
+      params = { unit_id = unit_id }
+    }
   end
 
 end)
