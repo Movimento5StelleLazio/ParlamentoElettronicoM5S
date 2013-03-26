@@ -56,9 +56,6 @@ ui.form{
     if member.email and #member.email > 0 then
       ui.field.text{ label = _"email", name = "email" }
     end
-    if member.codice_fiscale and #member.codice_fiscale > 0 then
-      ui.field.text{ label = _"Codice Fiscale", name = "codice_fiscale" }
-    end
     if member.xmpp_address and #member.xmpp_address > 0 then
       ui.field.text{ label = _"xmpp", name = "xmpp_address" }
     end
