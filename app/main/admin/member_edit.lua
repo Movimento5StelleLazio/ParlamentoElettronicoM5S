@@ -41,6 +41,7 @@ ui.form{
       ui.field.text{     label = _"Codice Fiscale",        name = "codice_fiscale" }
     end
     ui.field.boolean{  label = _"Admin?",       name = "admin" }
+    ui.field.boolean{  label = _"Elected?",       name = "elected" }
 
     slot.put("<br />")
     
