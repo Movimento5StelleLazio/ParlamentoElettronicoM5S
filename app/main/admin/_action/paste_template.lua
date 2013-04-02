@@ -4,16 +4,13 @@ trace.debug("deactive="..tostring(param.get("deactive",atom.boolean)))
 local deactive=param.get("deactive",atom.boolean)
 local unitId=param.get("unit_id")
 local templateId=param.get("templateTypePaste")
-local areas
+local areas=Area:build_selector({unit_id=unitId}):exec()
+trace.debug("areas:"..#areas)
 
 if deactive then
     -- disattiva tutte le aree precedenti 
     trace.debug("disattivazione delle aree in corso...")
     trace.debug("unitId="..unitId)
-    
-    areas=Area:build_selector({unit_id=unitId}):exec()
-    trace.debug("areas:"..#areas)
-    
     for i,area in ipairs(areas) do
         area.active=false
         area:save()
