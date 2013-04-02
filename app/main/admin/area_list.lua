@@ -35,18 +35,33 @@ ui.actions(function()
       view = "area_list",
       params = { show_not_in_use = true, unit_id = unit_id }
     }
-
+    
+    
+    slot.put(" &middot; ")
+ 
+    ui.link{
+      text = _"Save areas as template",
+      module = "admin",
+      view = "save_areas_template",
+      params = {  unit_name = unit.name, unit_id = unit_id , areas=areas}
+    }     
+    
+    
     slot.put(" &middot; ")
 
     ui.link{
-      text = _"Copy areas as template",
+      text = _"Paste areas from template",
       module = "admin",
-      view = "",
-      params = { unit_id = unit_id }
+      view = "paste_areas_template",
+      params = {  unit_name = unit.name, unit_id = unit_id , areas=areas }
     }
+    
   end
 
 end)
+
+ 
+
 
 
 ui.list{
