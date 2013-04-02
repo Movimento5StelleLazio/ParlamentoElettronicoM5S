@@ -30,15 +30,15 @@ for t,templateArea in ipairs(templateAreas) do
     newArea= Area:new()
     newArea.unit_id=unitId
     newArea.active=templateArea.active
-    
-    for q,area in ipairs(areas) do
-    
-        if area.name ==  templateArea.name then 
+    trace.debug("areas.length:"..#areas)
+    newArea.name=templateArea.name
+    for q,_area in ipairs(areas) do
+       
+        if _area.name ==  templateArea.name then 
+            trace.debug("templateArea.name="..templateArea.name)
             numConflicts=numConflicts+1
-            templateArea.name=templateArea.name.."_"..numConflicts
-            else 
-              templateArea.name=templateArea.name
-             
+            newArea.name=templateArea.name.."_"..numConflicts
+            
         end
     
     end
