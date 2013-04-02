@@ -5,7 +5,7 @@ local deactive=param.get("deactive",atom.boolean)
 local unitId=param.get("unit_id")
 local templateId=param.get("templateTypePaste")
 local areas=Area:build_selector({unit_id=unitId}):exec()
-trace.debug("areas:"..#areas)
+trace.debug("areas.length="..#areas)
 
 if deactive then
     -- disattiva tutte le aree precedenti 
@@ -20,7 +20,7 @@ end
  
 
 local newArea
-local newAreaAllowedPolicy=AllowedPolicy:new()
+local newAreaAllowedPolicy
 local templateAreas=TemplateArea:build_selector({templateId=templateId}):exec()
 
 local templateAreaPolicy 
@@ -30,7 +30,7 @@ for t,templateArea in ipairs(templateAreas) do
     newArea= Area:new()
     newArea.unit_id=unitId
     newArea.active=templateArea.active
-    trace.debug("areas.length:"..#areas)
+    
     newArea.name=templateArea.name
     for q,_area in ipairs(areas) do
        
@@ -47,21 +47,25 @@ for t,templateArea in ipairs(templateAreas) do
     newArea:save()
     
     trace.debug("templateArea.id="..templateArea.id)
+    trace.debug("newArea.id="..newArea.id)
     
     templateAreaPolicySelector=TemplateAreaAllowedPolicy:build_selector({area_id=templateArea.id}):exec()
-    
+    newAreaAllowedPolicy=AllowedPolicy:new()
+   
     if #templateAreaPolicySelector>0 then
-   -- trace.debug("templateAreaPolicy="..templateAreaPolicy)        
-       templateAreaPolicy=templateAreaPolicySelector[1]
+         templateAreaPolicy=templateAreaPolicySelector[1]
+         trace.debug("templateAreaPolicy="..templateAreaPolicy.policy_id)        
         
-        local duplicateAllowedPolicy=AllowedPolicy:by_pk(templateAreaPolicy.template_area_id,templateAreaPolicy.policy_id)
+         trace.debug("templateAreaPolicy.template_area_id="..newArea.id)
+         trace.debug("templateAreaPolicy.policy_id="..templateAreaPolicy.policy_id)
         
-        if not duplicateAllowedPolicy then
-        newAreaAllowedPolicy.area_id=templateAreaPolicy.template_area_id
+      
+         
+        newAreaAllowedPolicy.area_id=newArea.id
         newAreaAllowedPolicy.policy_id=templateAreaPolicy.policy_id
         newAreaAllowedPolicy.default_policy=templateAreaPolicy.default_policy
         newAreaAllowedPolicy:save()
-        end
+       
     end
 end
 
