@@ -83,6 +83,8 @@ return {
 ["Area delegation"] = "Delega dell'area";
 ["Area list of '#{unit_name}'"] = "Aree tematiche di '#{unit_name}'";
 ["Areas"] = "Aree tematiche";
+["Areas have been added"] = "Aree importate con seccesso";
+["Areas Not active before paste"] = "Disattiva le aree esitenti prima di incollare";
 ["Author"] = "Autore";
 ["Avatar"] = false;
 ["Back"] = "Indietro";
@@ -426,6 +428,8 @@ return {
 ["Parent unit"] = "Unità superiore";
 ["Participants"] = "Partecipanti";
 ["Participate in this area"] = "Partecipa in quest'Area";
+["Paste areas from template"]= "Incolla Aree da Template";
+["Paste Template"]= "Incolla Template";
 ["Password"] = false;
 ["Password (repeat)"] = "Password (ripetere)";
 ["Password has been reset successfully"] = "La password è stata reimpostata correttamente";
@@ -494,6 +498,7 @@ return {
 ["Revoked at"] = "Revocata il";
 ["Saturday"] = "Sabato";
 ["Save"] = "Salva";
+["Save areas as template"] = "Salva Aree come Template";
 ["Save current filter"] = "Salva filtro corrente";
 ["Save timeline filters"] = "Salva filtro cronologia";
 ["Saved as contact"] = "Salva come contatto";
@@ -565,6 +570,12 @@ return {
 ["Supporters"] = "Sostenitori";
 ["Supporters (before begin of voting)"] = "Sostenitori (prima del voto)";
 ["Syntax help"] = "Guida alla formattazione";
+["Template Areas"]= "Aree del Template";
+["Template Description"]= "Descrizione";
+["Template has been added"]="Template salvato con successo";
+["Template Name"]= "Nome";
+["Template Name to paste"]="Template da Incollare";
+["Template Type"]="Salva su Template";
 ["Terms of use"] = "Condizioni d'uso";
 ["The code you've entered is invalid"] = "Il codice inserito non è valido";
 ["The draft of this initiative has been updated!"] = "La bozza di questa proposta è stata aggiornata!";
@@ -771,6 +782,9 @@ return {
 ["with winner"] = "con vincitore";
 ["without"] = "senza";
 ["without winner"] = "senza vincitore";
+["This tax identification number (Codice Fiscale) is invalid!"] = "Codice Fiscale non valido";
+["This Codice Fiscale is already used by someone else! Please contact the system administrator."] = "Questo Codice Fiscale e' gia' utilizzato!";
+["Codice Fiscale"] = "Codice Fiscale";
 ["xmpp"] = "XMPP(Jabber)";
 ["year [interval ago]"] = "anno";
 ["year [interval time left]"] = "anno";
@@ -778,4 +792,7 @@ return {
 ["years [interval ago]"] = "anni";
 ["years [interval time left]"] = "anni";
 ["years [interval]"] = "anni";
+["< new >"]="<nuovo>";
+["< select template >"]="seleziona template...";
+["Elected?"] = "Eletto?";
 }
