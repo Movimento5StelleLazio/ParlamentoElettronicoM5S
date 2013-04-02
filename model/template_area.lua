@@ -9,6 +9,7 @@ TemplateArea:add_reference{
   ref = 'policy'
 }
 
+
 -- Anche policy e' da modificare
 
 function TemplateArea.object_get:default_policy()

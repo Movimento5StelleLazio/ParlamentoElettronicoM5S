@@ -1,7 +1,6 @@
 Template = mondelefant.new_class()
 Template.table = 'template'
 
-
 function Template:build_selector(args)
   local selector = self:new_selector()
   return selector

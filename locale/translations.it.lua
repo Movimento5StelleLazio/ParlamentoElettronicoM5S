@@ -796,3 +796,4 @@ return {
 ["< select template >"]="seleziona template...";
 ["Elected?"] = "Eletto?";
 }
+

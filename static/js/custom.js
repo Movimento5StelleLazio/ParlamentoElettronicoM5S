@@ -1,5 +1,3 @@
-
-
 if (document.getElementById("template_name_field_save"))
 	{
 		document.getElementById("template_name_field_save").value="";

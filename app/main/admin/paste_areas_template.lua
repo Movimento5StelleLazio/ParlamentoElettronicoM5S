@@ -1,5 +1,3 @@
-
-
 local _template = Template:get_all_templates()
 
  
@@ -22,10 +20,6 @@ end
 
    
 ui.title(_("Unit '#{name}'", { name = param.get("unit_name") }))
-
- 
-
-
 
 ui.form{
   attr = { class = "vertical" },
@@ -127,10 +121,5 @@ end
 slot.put("</script>")
 
 ui.script{ static = "js/custom.js" }
-
-
-
-
-
 
 

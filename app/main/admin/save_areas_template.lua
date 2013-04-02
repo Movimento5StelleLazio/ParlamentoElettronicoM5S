@@ -1,4 +1,3 @@
-
 local _template = Template:get_all_templates()
 
 local _listTemplate={
@@ -67,6 +66,7 @@ ui.form{
   end
 }
 
+-- javascript context
 
 slot.put("<script>")
 
