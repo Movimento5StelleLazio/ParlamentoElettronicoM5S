@@ -1,0 +1,72 @@
+trace.debug("templateTypePaste="..param.get("templateTypePaste"))
+trace.debug("deactive="..tostring(param.get("deactive",atom.boolean)))
+
+local deactive=param.get("deactive",atom.boolean)
+local unitId=param.get("unit_id")
+local templateId=param.get("templateTypePaste")
+local areas
+
+if deactive then
+    -- disattiva tutte le aree precedenti 
+    trace.debug("disattivazione delle aree in corso...")
+    trace.debug("unitId="..unitId)
+    
+    areas=Area:build_selector({unit_id=unitId}):exec()
+    trace.debug("areas:"..#areas)
+    
+    for i,area in ipairs(areas) do
+        area.active=false
+        area:save()
+    end
+end
+
+ 
+
+local newArea
+local newAreaAllowedPolicy=AllowedPolicy:new()
+local templateAreas=TemplateArea:build_selector({templateId=templateId}):exec()
+
+local templateAreaPolicy 
+local templateAreaPolicySelector
+local numConflicts=0
+for t,templateArea in ipairs(templateAreas) do
+    newArea= Area:new()
+    newArea.unit_id=unitId
+    newArea.active=templateArea.active
+    
+    for q,area in ipairs(areas) do
+    
+        if area.name ==  templateArea.name then 
+            numConflicts=numConflicts+1
+            templateArea.name=templateArea.name.."_"..numConflicts
+            else 
+              templateArea.name=templateArea.name
+             
+        end
+    
+    end
+    
+    newArea.description=templateArea.description
+    newArea:save()
+    
+    trace.debug("templateArea.id="..templateArea.id)
+    
+    templateAreaPolicySelector=TemplateAreaAllowedPolicy:build_selector({area_id=templateArea.id}):exec()
+    
+    if #templateAreaPolicySelector>0 then
+   -- trace.debug("templateAreaPolicy="..templateAreaPolicy)        
+       templateAreaPolicy=templateAreaPolicySelector[1]
+        
+        local duplicateAllowedPolicy=AllowedPolicy:by_pk(templateAreaPolicy.template_area_id,templateAreaPolicy.policy_id)
+        
+        if not duplicateAllowedPolicy then
+        newAreaAllowedPolicy.area_id=templateAreaPolicy.template_area_id
+        newAreaAllowedPolicy.policy_id=templateAreaPolicy.policy_id
+        newAreaAllowedPolicy.default_policy=templateAreaPolicy.default_policy
+        newAreaAllowedPolicy:save()
+        end
+    end
+end
+
+
+slot.put_into("notice", _"Areas have been added")

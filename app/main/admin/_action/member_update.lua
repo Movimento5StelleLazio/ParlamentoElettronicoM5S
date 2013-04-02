@@ -20,6 +20,19 @@ local name = param.get("name")
 if name then
   member.name = name
 end
+local codice_fiscale = param.get("codice_fiscale")
+if codice_fiscale then
+  if #codice_fiscale  ~= 16 then
+    slot.put_into("error", _"This tax identification number (Codice Fiscale) is invalid!")
+     request.redirect{
+      mode   = "redirect",
+      module = "admin",
+      view   = "member_list",
+     }
+    return false
+  end
+  member.codice_fiscale = string.upper(codice_fiscale)
+end
 local identification = param.get("identification")
 if identification then
   identification = util.trim(identification)
@@ -28,6 +41,10 @@ if identification then
   end
 end
 member.identification = identification
+local elected = param.get("elected", atom.boolean)
+if elected ~= nil then
+  member.elected = elected
+end
 
 local err = member:try_save()
 
