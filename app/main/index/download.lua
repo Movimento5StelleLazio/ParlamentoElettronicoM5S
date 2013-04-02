@@ -5,14 +5,14 @@ end
 slot.put_into("title", _"Download database export")
 
 slot.select("actions", function()
-  ui.link{
-    content = function()
-        ui.image{ static = "icons/16/cancel.png" }
-        slot.put(_"Cancel")
-    end,
-    module = "index",
-    view = "index"
-  }
+      ui.link{
+        content = function()
+            ui.image{ static = "icons/16/cancel.png" }
+            slot.put(_"Cancel")
+        end,
+        module = "index",
+        view = "index"
+      }
 end)
 
 util.help("index.download", _"Download")

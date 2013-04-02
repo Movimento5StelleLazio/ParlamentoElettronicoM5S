@@ -1,5 +1,0 @@
-=== __Aiuto Wiki__ ===
-
-E' possibile scegliere fra queste sintassi Wiki disponibili:
-[wikisyntax_rocketwiki.html RocketWiki]
-[wikisyntax_compat.html Sintassi Wiki tradizionale]
