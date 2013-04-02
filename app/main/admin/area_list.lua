@@ -39,7 +39,7 @@ ui.actions(function()
     
     slot.put(" &middot; ")
  
-  ui.link{
+    ui.link{
       text = _"Save areas as template",
       module = "admin",
       view = "save_areas_template",
