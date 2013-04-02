@@ -48,33 +48,23 @@ local areaCompleta
     templateArea.description=_area.description
     templateArea:save()
     
-    local allowedPolicy=db:query( "SELECT * FROM allowed_policy" )
+    trace.debug("query: SELECT * FROM allowed_policy WHERE area_id=".._area.id)
+    local allowPolicy= db:query({ "SELECT * FROM allowed_policy WHERE area_id=?",_area.id} )
+    trace.debug("#allowPolicy="..#allowPolicy)
       
-        for j,allow in ipairs(allowedPolicy) do
-        
-            if allow then
-            
-                if allow.area_id == templateArea.id then
-                
-                    trace.debug("allowedPolicy.template_area_id="..templateArea.id)
-                    trace.debug("allowedPolicy.policy_id="..allow.policy_id)
-                    trace.debug("allowedPolicy.default_policy="..tostring(allow.default_policy))
-                   
-                    -- table tamplate_area_policy
-                    templateAreaAllowedPolicy=TemplateAreaAllowedPolicy:new()
-                    templateAreaAllowedPolicy.template_area_id=templateArea.id
-                    templateAreaAllowedPolicy.policy_id=allow.policy_id
-                    templateAreaAllowedPolicy.default_policy=allow.default_policy
-                    
-                    templateAreaAllowedPolicy:save()
-                        
-                end
-                
-            end
+        if #allowPolicy==1 then
+        trace.debug("allowPolicy.area_id="..tostring(allowPolicy[1].area_id))
+        trace.debug("allowPolicy.policy_id="..tostring(allowPolicy[1].policy_id))
+        trace.debug("allowPolicy.default_policy="..tostring(allowPolicy[1].default_policy))
+                       
+        -- table tamplate_area_policy
+        templateAreaAllowedPolicy=TemplateAreaAllowedPolicy:new()
+        templateAreaAllowedPolicy.template_area_id=templateArea.id
+        templateAreaAllowedPolicy.policy_id=allowPolicy[1].policy_id
+        templateAreaAllowedPolicy.default_policy=allowPolicy[1].default_policy
+        templateAreaAllowedPolicy:save()
         end
         
-       
-
     end
  
 
