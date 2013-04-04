@@ -1,13 +1,13 @@
 local lat = param.get("lat")
 local lon = param.get("lon")
 if app.session.member_id then
-  local memberConnection = MemberConnection:new()
-  memberConnection.member_id=app.session.member_id
+  local memberLogin = MemberLogin:new()
+  memberLogin.member_id=app.session.member_id
   if lat and lon then
-    memberConnection.position = lat..","..lon
+    memberLogin.position = lat..","..lon
   else
-    memberConnection.position = nil
+    memberLogin.position = nil
   end
-  memberConnection.login_time="now"
-  memberConnection:save()
+  memberLogin.login_time="now"
+  memberLogin:save()
 end
