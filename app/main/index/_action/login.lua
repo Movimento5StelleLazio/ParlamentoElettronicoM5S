@@ -74,6 +74,11 @@ if member then
   if config.etherpad then
     do_etherpad_auth(member)
   end
+  slot.put('<p>Finding your location: <span id="status">checking...</span></p>')
+  slot.put('<div id="map" style="width: 100%; height: 100%"></div>')
+  ui.script{ external = "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" }
+  ui.script{ external = "https://maps.googleapis.com/maps/api/js?sensor=false" }
+  ui.script{ static = "js/pos.js" }
 else
   slot.select("error", function()
     ui.tag{ content = _'Invalid login name or password!' }
