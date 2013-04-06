@@ -1,0 +1,186 @@
+
+.menuDiv
+{
+	
+	background-color: yellow;
+	border-radius: 12px;
+	width: 100%;
+	height: 80%;
+	
+	
+}
+
+.pulsanteFiltriDiv{
+	
+	background-color: blue;
+    border-radius: 12px 12px 12px 12px;
+    height: 30%;
+    position: relative;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    color: white;
+    font-weight: bold;
+}
+
+
+.parlamentoDiv
+{
+    
+    background-color: transparent;
+    border-radius: 12px 12px 12px 12px;
+   
+    
+    position: relative;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    
+}   
+
+.parlamentoImg{
+
+margin-left: 100px;
+    margin-top: -150px;
+
+}
+
+
+.containerIssueDiv
+{
+	background-color: white;
+    float: inherit;
+    height: 130%;
+    width: 103%;
+    margin-left: -8px;
+}
+.votazioniDiv
+{
+    
+    background-color: #f2f19a;
+    border-radius: 8px;
+    width: 45%;
+    float: left;
+    padding: 20px;  
+    height:auto;  
+}
+
+
+
+.spazioDiv{
+    
+    background-color: transparent;
+    float: left;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    width: 2.4%;
+    
+}
+
+.proposteDiv
+{
+    
+   background-color: #ebe2aa;
+    border-radius: 8px;
+    float: left;
+   height:auto;
+    position: relative;
+    width: 45%;
+    padding: 20px;    
+}
+
+.headerDiv{
+	
+	background-color: white;
+    height: 80px;
+    width: 100%;
+	
+	
+}
+.paginate{
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.titolo
+{
+	font-size: 34px;
+    left: 100px;
+    position: relative;
+	 
+}
+.issueDiv{
+	
+	width: 470px;
+	height: 220px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.issue_ext{
+	 
+    clear: left;
+    height: 180px;
+    top: -20px;
+    position: relative;
+}
+.infoIssueDiv
+{
+	background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    background-color: orange;
+    border-radius: 16px 16px 16px 16px;
+    float: left;
+    height: 80px;
+    margin-left: 7px;
+    width: 50%;
+    padding-left: 10px;
+    padding-top:5px;
+    color: white;
+}
+
+.event_name{
+	font-weight: bold;
+}
+.pulsanteVediDettaglio
+{
+	 
+	cursor: pointer;
+    height: 40px;
+    margin-left: 90px;
+    margin-top: 13px;
+    width: 140px;
+}
+
+
+.faseDiv
+{
+	box-shadow: 2px 2px 4px #CCCCCC;
+	background-color: white;
+    border: thin solid black;
+    border-radius: 8px 8px 8px 8px;
+    color: red;
+    font-weight: normal;
+    height: 45px;
+    left: 265px;
+    margin-right: 20px;
+    position: relative;
+    width: 240px;
+    top: -3px;
+    
+	
+}
+
+.labelFase{
+	left: 10px;
+    position: relative;
+    top: -52px;
+}
+
+.spazioIssue
+{
+	width:100%;
+	height:24px;
+}
