@@ -4,6 +4,7 @@ creazione singola issue
 
 local events = param.get("events", "table")
 local event_id_show=param.get("event_id_show",  atom.integer)
+ 
 
 local issue = param.get("issue", "table")
 local initiative_limit = param.get("initiative_limit", atom.integer)
@@ -38,11 +39,14 @@ elseif issue.is_interested_by_delegation_to_member_id then
 end
 
 
+local _event_name
+local _event_state
+local stato_issue="..."
 
-
-
+ 
 
 --------------issueDiv: contenitore generale della issue
+
 ui.tag{
     tag="div",
     attr={class="issueDiv"},
@@ -62,29 +66,30 @@ ui.tag{
            
                       for i, event in ipairs(events) do
                                
-                            local event_name = event.event_name
-                            local event_image
-                           -- slot.put("event.state ="..event.state.."<br>")
-                             
+                            _event_name = event.event_name
+                            _event_state=event.state
+                             local event_image
+                         
                          if event.issue_id==issue.id then  
                             if event.event == "issue_state_changed" then
                               if event.state == "discussion" then
-                                event_name = _"Discussion started"
+                                _event_name = _"Discussion started"
                                 event_image = "comments.png"
                               elseif event.state == "verification" then
-                                event_name = _"Verification started"
+                                _event_name = _"Verification started"
                                 event_image = "lock.png"
                               elseif event.state == "voting" then
-                                event_name = _"Voting started"
+                                _event_name = _"Voting started"
                                 event_image = "email_open.png"
                               elseif event.state == "finished_with_winner" then
-                                event_name = event.state_name
+                                _event_name = event.state_name
                                 event_image = "award_star_gold_2.png"
                               elseif event.state == "finished_without_winner" then
-                                event_name = event.state_name
+                                _event_name = event.state_name
                                 event_image = "cross.png"
                               else
-                                event_name = event.state_name
+                                _event_name = event.state_name
+                                
                               end
                               if event_image then
                                 ui.image{ static = "icons/16/" .. event_image }
@@ -99,7 +104,7 @@ ui.tag{
                             else
                               days_ago_text = _("#{date} at #{time}", { date = format.date(event.occurrence.date), time = format.time(event.occurrence, { hide_seconds = true }) })
                             end
-                            ui.tag{ attr = { class = "event_name" }, content = event_name }
+                            ui.tag{ attr = { class = "event_name" }, content = _event_name }
                             slot.put("<br />") 
                             ui.tag{ content = days_ago_text }
                       end
@@ -382,20 +387,26 @@ ui.container{ attr = {  class = "issue_ext "..class }, content = function()
  
 }
 
+--fase della proposta      
 
--------------fase della proposta      
        ui.container{ 
        
-       attr = {  class = "faseDiv" }, 
-       content = function()
-       
-        ui.tag{
-        tag="span",
-        attr={class="labelFase"},
-        content="provaaaaaaaa"
-        
-        }
-       end
+           attr = {  class = "faseDiv" }, 
+           content = function()
+            
+           if _event_state=="admission" then
+            
+                    stato_issue="CERCA SOSTENITORI"
+            
+           end
+            
+            ui.tag{
+            tag="span",
+            attr={class="labelFase_".._event_state},
+            content="FASE: "..stato_issue
+            
+            }
+           end
        }
 
 

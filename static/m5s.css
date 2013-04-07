@@ -1,21 +1,58 @@
 
+
+
 .menuDiv
 {
-	
-	background-color: yellow;
-	border-radius: 12px;
-	width: 100%;
-	height: 80%;
-	
-	
+    background-color: #FFFFCC;
+    border-color: yellow;
+    border-radius: 12px 12px 12px 12px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    height: 450px;
+    width: 100%;
+    text-align: center;
+    
 }
 
+.welcomeText
+{
+ 	color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    margin-top: 10px;
+    line-height: normal;
+    font-size: 18px;
+}
+
+.sceltaText
+{
+	font-size:32px;
+    color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    margin-top: 10px;
+    line-height: 40px;
+}
+
+.pulsantiMenuHomepageDiv{
+	background-color:transparent;
+	height: 160px;
+	width: 100%;
+}
+.menuButton
+{
+	float: left;
+}
+.testoPulsantiMenuHomepage{
+	  
+	   width: 50px;
+	   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	
+}
 .pulsanteFiltriDiv{
 	
-	background-color: blue;
+	background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-    height: 30%;
-    position: relative;
+    height: 100px;
     width: 100%;
     margin-left:auto;
     margin-right:auto;
@@ -23,14 +60,21 @@
     font-weight: bold;
 }
 
-
+.pulsanteFiltri
+{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	height: 80px;
+	left: 400px;
+}
 .parlamentoDiv
 {
     
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
    
-    
+    height:100%;
     position: relative;
     width: 100%;
     margin-left:auto;
@@ -40,7 +84,7 @@
 
 .parlamentoImg{
 
-margin-left: 100px;
+    margin-left: 100px;
     margin-top: -150px;
 
 }
@@ -50,7 +94,7 @@ margin-left: 100px;
 {
 	background-color: white;
     float: inherit;
-    height: 130%;
+    
     width: 103%;
     margin-left: -8px;
 }
@@ -62,7 +106,7 @@ margin-left: 100px;
     width: 45%;
     float: left;
     padding: 20px;  
-    height:auto;  
+    height:auto;
 }
 
 
@@ -81,10 +125,10 @@ margin-left: 100px;
 .proposteDiv
 {
     
-   background-color: #ebe2aa;
+    background-color: #ebe2aa;
     border-radius: 8px;
     float: left;
-   height:auto;
+    height:auto;
     position: relative;
     width: 45%;
     padding: 20px;    
@@ -102,7 +146,7 @@ margin-left: 100px;
 	
 	margin-left: auto;
 	margin-right: auto;
-	
+	height: 100%;
 }
 
 .titolo
@@ -124,7 +168,7 @@ margin-left: 100px;
 	 
     clear: left;
     height: 180px;
-    top: -20px;
+    top: -35px;
     position: relative;
 }
 .infoIssueDiv
@@ -149,8 +193,8 @@ margin-left: 100px;
 	 
 	cursor: pointer;
     height: 40px;
-    margin-left: 90px;
-    margin-top: 13px;
+    margin-left: 50px;
+ 
     width: 140px;
 }
 
@@ -168,16 +212,30 @@ margin-left: 100px;
     margin-right: 20px;
     position: relative;
     width: 240px;
-    top: -3px;
+    top: 0px;
     
 	
 }
 
 .labelFase{
-	left: 10px;
+	font-size: 17px;
+    left: 1px;
     position: relative;
-    top: -52px;
+    top: 13px;
+    
 }
+
+.labelFase_admission{
+    color: darkred;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+   
+    top: 15px;
+    
+}
+
 
 .spazioIssue
 {

@@ -12,7 +12,7 @@ elseif for_state == "closed" then
   issues_selector:add_where("issue.closed NOTNULL")
 end
 
----------------info box
+--info box
 
  
  
@@ -37,10 +37,9 @@ elseif for_unit then
 --  event_selector:join("event_seen_by_member", nil, { "event_seen_by_member.id = event.id AND event_seen_by_member.seen_by_member_id = ?", app.session.member_id })
 end
 local last_event_id
+local events = event_selector:exec()
 
-  local events = event_selector:exec()
-
- 
+local direct_voter
 
  
  ui.container{ attr = { class = "containerIssueDiv" },
@@ -61,12 +60,17 @@ local last_event_id
 
         for i, issue in ipairs(issues) do
 --singola issue
-
-          
-          execute.view{ module = "issue", view = "_show_ext", params = {
-            issue = issue, for_listing = true, for_member = for_member , events=events,event_id_show=i
-          } }
-          
+                    if app.session.member_id then
+                        direct_voter = issue.member_info.direct_voted
+                    end 
+                    if not direct_voter then
+                       execute.view{ module = "issue", view = "_show_ext", params = {
+                        issue = issue, for_listing = true, for_member = for_member , events=events,event_id_show=i
+                      } }
+                      
+                  end
+                  
+           
 --spazio div         
           ui.container
           {

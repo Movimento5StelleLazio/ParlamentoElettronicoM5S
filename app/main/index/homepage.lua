@@ -9,11 +9,12 @@ local issues=issues_selector
 --local issues_selector = param.get("issues_selector", "table")
  
  
+local welcomeText="TI TROVI NELL'ASSEMBLEA ELETTRONICA DEL M5S LAZIO DEDICATA ALLA COSA PUBBLICA.\n"
+welcomeText=welcomeText.."QUI SI DISCUTONO LEGGI E PROVVEDIMENTI CHE RIGUARDANO LA REGIONE E I SUOI CITTADINI."
 
 
 
-
-ui.title(_"Home")
+--ui.title(_"Home")
 slot.put("<br />")
 
 --menu parlamento
@@ -25,27 +26,127 @@ ui.container{
         
         content=function()
         
-        ui.field.text{
-           label          = "test menuDiv",   
-           }
-
+               ui.tag{
+                    tag = "pre",
+                    
+                   attr={class="welcomeText", readonly="true"},
+                   content        = "BENVENUTO "..app.session.member.name..",\n"..welcomeText,  
+                   multiline=true
+                   }
+                   
+                   
+               slot.put("<br />")   
+                 
+               ui.tag{
+                    tag = "pre",
+                    
+                   attr={class="sceltaText", readonly="true"},
+                   content        = "COSA VUOI FARE?".."\n".."SCEGLI PREMENDO UNO DI QUESTI BOTTONI:",  
+                   multiline=true
+                   }  
+                
+                
+               -- slot.put("<a   class='button green'><pre style='text-align: center;'>LEGGI LE NUOVE <br>PROPOSTE<br>DEI CITTADINI</pre></a> ")
+                
+            ui.container
+            {  
+                attr={id="pulsantiMenuHomepageDiv", class="pulsantiMenuHomepageDiv"},
+               content=function()   
+               
+               --pulsante 1
+               ui.tag{
+                    tag = "a", 
+                    attr={class="button green menuButton"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "pre",
+                            attr={class="text-align: center; ", readonly="true", onclick="alert('molla il mouse!')"},
+                           content        ="LEGGI LE NUOVE\nPROPOSTE\nDEI CITTADINI",  
+                           multiline=true
+                        }  
+                    end-- fine tag.content
+                } 
+                
+                 --pulsante 2
+               ui.tag{
+                    tag = "a", 
+                    attr={class="button green menuButton"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "pre",
+                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           content        ="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE",  
+                           multiline=true
+                        }  
+                    end-- fine tag.content
+                } 
+                
+                    --pulsante 3
+               ui.tag{
+                    tag = "a", 
+                    attr={class="button green menuButton"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "pre",
+                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nPORTAVOCE M5S",  
+                           multiline=true
+                        }  
+                    end-- fine tag.content
+                } 
+                
+                
+                      --pulsante 4
+               ui.tag{
+                    tag = "a", 
+                    attr={class="button green menuButton"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "pre",
+                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nGRUPPI POLITICI",  
+                           multiline=true
+                        }  
+                    end-- fine tag.content
+                }  
+                
+                    
+               end -- fine container.content
+            }
+            
         end
 }
 
 
 slot.put("<br /><br />")
 
----pulsanti filtro
+--pulsanti filtro
 ui.container{
 
         attr={id="pulsanteFiltriDiv", class="pulsanteFiltriDiv"},
         
         content=function()
         
-        ui.field.text{
-           label          = "Applica Filtri",   
-           }
-
+         
+                      --pulsante FILTRI
+               ui.tag{
+                    tag = "a", 
+                    attr={class="pulsanteFiltri button green"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "pre",
+                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           content        ="APPLICA FILTRI",  
+                           multiline=true
+                        }  
+                    end-- fine tag.content
+                }  
+                
         end
 }
 
@@ -114,22 +215,25 @@ ui.container{
                   end
                   }
                      
-                     
+           
+               
 ---------------Paginazione
                 execute.view{
                       module = "issue",
-                      view   = "_list_ext",
+                      view   = "_votazioni_ext",
                       id     = "idLista",
                       params = {
                                  
                                 for_state = "open",
-                                issues_selector = issues_selector, for_area = true   
+                                issues_selector = issues_selector, 
+                                for_area = true,
+                                view="votazioni"
                                 },
                     }
                     end
                     }
                     
-                    
+                  
 ----------spazio tra i div Votazioni e Proposte
                 ui.container{
             
@@ -180,12 +284,14 @@ ui.container{
              
                      execute.view{
                       module = "issue",
-                      view   = "_list_ext",
+                      view   = "_proposte_ext",
                       id     = "idLista",
                       params = {
                                  
                                 for_state = "open",
-                                issues_selector = issues_selector, for_area = true   
+                                issues_selector = issues_selector,
+                                for_area = true,
+                                view="proposte"
                                 },
                     }
              
