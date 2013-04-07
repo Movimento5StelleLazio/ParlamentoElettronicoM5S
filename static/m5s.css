@@ -188,14 +188,27 @@
 .event_name{
 	font-weight: bold;
 }
+
+
 .pulsanteVediDettaglio
 {
 	 
-	cursor: pointer;
-    height: 40px;
-    margin-left: 50px;
- 
-    width: 140px;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 25px;
+    float: left;
+     
+}
+
+.testoPulsanteVediDettaglio{
+	
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+   
+	
 }
 
 
@@ -216,7 +229,14 @@
     
 	
 }
-
+.initiative_link{
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 270px;
+}
 .labelFase{
 	font-size: 17px;
     left: 1px;

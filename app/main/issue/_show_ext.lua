@@ -116,8 +116,24 @@ ui.tag{
           
 ---------pulsante "vedi dettaglio"      
           
-         slot.put("<input type='button' class='pulsanteVediDettaglio' value='VEDI DETTAGLIO'></input> ")
-    
+        -- slot.put("<input type='button' class='pulsanteVediDettaglio' value='VEDI DETTAGLIO'></input> ")
+        
+            
+            
+             ui.tag{
+                    tag = "a", 
+                    attr={class="pulsanteVediDettaglio button green ", style="width:150px; height:25px; font-size:12px;margin-left:30px" , onclick="alert('molla il mouse!')"},
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "span",
+                           attr={class="testoPulsanteVediDettaglio", readonly="true"},
+                           content        ="VEDI DETTAGLIO",  
+                           multiline=false
+                        }  
+                    end-- fine tag.content
+                }  
+        
     end
     }
     
