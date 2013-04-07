@@ -103,6 +103,8 @@
     float: left;
     padding: 20px;  
     height:auto;
+    
+    
 }
 
 
@@ -147,8 +149,9 @@
 
 .titolo
 {
+	
 	font-size: 34px;
-    left: 100px;
+    left: 105px;
     position: relative;
 	 
 }
@@ -247,11 +250,38 @@
     font-size: 17px;
     left: 4px;
     position: absolute;
-   
+    top: 15px;
+    
+}
+ 
+.labelFase_discussion{
+    color: tomato;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
     top: 15px;
     
 }
 
+.labelFase_verification{
+    color: blue;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
+.labelFase_voting{
+    color: green;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
 
 .spazioIssue
 {

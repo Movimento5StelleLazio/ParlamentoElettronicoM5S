@@ -27,17 +27,10 @@ if event_max_id then
   event_selector:add_where{ "event.id < ?", event_max_id }
 end
   
-if for_member then
-  event_selector:add_where{ "event.member_id = ?", for_member.id }
-elseif for_unit then
-  event_selector:join("area", nil, "area.id = issue.area_id")
-  event_selector:add_where{ "area.unit_id = ?", for_unit.id }
  
---elseif not global then
---  event_selector:join("event_seen_by_member", nil, { "event_seen_by_member.id = event.id AND event_seen_by_member.seen_by_member_id = ?", app.session.member_id })
-end
+ 
 local last_event_id
-local events = event_selector:exec()
+local events = event_selector: add_where{ "event.member_id = ?", app.session.member.id }:exec()
 
 local direct_voter
 
@@ -57,17 +50,48 @@ local direct_voter
 
 --contenitore issue
       ui.container{ attr = { class = "issues" }, content = function()
-
+        
+         local _issue={}
+         local _events={}
+         
+         trace.debug("#events="..#events)
+         for j,event in ipairs(events) do
+                            
+              if  event.member_id  ==    app.session.member.id then
+                 _events[j]=event
+                 trace.debug(" event.member_id == app.session.member.id :: "..event.member_id.."=="..app.session.member.id)
+              end
+              
+         end
+        
+        trace.debug("#_events="..#_events)
+        
+        local issue_rendered=0
         for i, issue in ipairs(issues) do
 --singola issue
                     if app.session.member_id then
                         direct_voter = issue.member_info.direct_voted
                     end 
                     if not direct_voter then
-                       execute.view{ module = "issue", view = "_show_ext", params = {
-                        issue = issue, for_listing = true, for_member = for_member , events=events,event_id_show=i
-                      } }
-                      
+                    
+                            if  #events>0   then
+                                    
+                                    for t,_e in ipairs(_events)  do
+                                    
+                                        if _e.issue_id==issue.id then
+                                        _issue=issue
+                                        end
+                                    end
+                                    
+                                    if #_issue>0 then
+                                      execute.view{ module = "issue", view = "_show_ext", params = {
+                                        issue = _issue, for_listing = true, for_member = for_member , events=_events, event_id_show=i
+                                      } }
+                                      
+                                      issue_rendered=issue_rendered+1
+                                      _issue={}
+                                    end
+                            end  
                   end
                   
            
@@ -79,7 +103,16 @@ local direct_voter
           end
           }
           
-        end
+        end --fine for
+   --label "nessuna issue presente"    
+          trace.debug("issue_rendered="..issue_rendered)  
+          if  issue_rendered==0 then     
+            ui.tag{tag="pre",
+                    attr={style="font-style: italic;color:grey;margin-left:150px;"},
+                    content=_"No initiatives suggested"
+                    }
+          end          
+                
       end }
     end
   }

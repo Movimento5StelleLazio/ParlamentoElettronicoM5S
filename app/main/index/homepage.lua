@@ -254,13 +254,13 @@ ui.container{
                     
                     content=function()
                   
- --------immagine parlamento
+             --------immagine parlamento
                  ui.image{
                         attr = { class = "parlamentoImg" },
                         static = "parlamento_icon_small.png"
                       }             
                   
- ----------spazio div         
+             ----------spazio div         
                   ui.container
                   {
                   attr={class="spazioIssue"},
@@ -268,38 +268,38 @@ ui.container{
                   end
                   } 
                     
-                    ui.tag{
+                  ui.tag{
                        tag="span",
                        attr={class="titolo"},
                        content="Le Tue Proposte"
-                       }
+                  }
              
              ----------spazio div         
                   ui.container
                   {
-                  attr={class="spazioIssue"},
-                  content=function()
-                  end
+                      attr={class="spazioIssue"},
+                      content=function()
+                      end
                   }
                      
-             
-                     execute.view{
+             ----issue render
+                  execute.view{
                       module = "issue",
                       view   = "_proposte_ext",
                       id     = "idLista",
                       params = {
                                  
-                                for_state = "open",
-                                issues_selector = issues_selector,
-                                for_area = true,
-                                view="proposte"
+                                    for_state = "open",
+                                    issues_selector = issues_selector,
+                                    for_area = true,
+                                    view="proposte"
                                 },
-                    }
+                  }
              
                     
                     
-                    end
-                    }
+                  end
+               }
                     
         slot.put("<br /><br />")
         end

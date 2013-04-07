@@ -409,19 +409,31 @@ ui.container{ attr = {  class = "issue_ext "..class }, content = function()
        
            attr = {  class = "faseDiv" }, 
            content = function()
-            
+            --'admission', 'discussion', 'verification', 'voting',
            if _event_state=="admission" then
             
-                    stato_issue="CERCA SOSTENITORI"
-            
+                  stato_issue=_"Find Supporters"
+           
+           elseif _event_state=='discussion' then
+           
+                  stato_issue=_"Discussion"
+                  
+           elseif _event_state=='verification' then
+           
+                  stato_issue= _"Frozen"
+           
+           elseif _event_state=='voting'  then
+                  
+                  stato_issue=_"Voting"
            end
             
-            ui.tag{
-            tag="span",
-            attr={class="labelFase_".._event_state},
-            content="FASE: "..stato_issue
             
+           ui.tag{
+                tag="span",
+                attr={class="labelFase_".._event_state},
+                content="FASE: "..stato_issue
             }
+            
            end
        }
 

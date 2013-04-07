@@ -43,7 +43,7 @@ local view=param.get("view")
 local direct_voter
 
 
-
+local issue_rendered=0
  
 ui.container{ attr = { class = "containerIssueDiv" },
      content = function()
@@ -71,6 +71,8 @@ ui.container{ attr = { class = "containerIssueDiv" },
                           execute.view{ module = "issue", view = "_show_ext", params = {
                             issue = issue, for_listing = true, for_member = for_member , events=events,event_id_show=i
                           } }
+                          
+                          issue_rendered=issue_rendered+1
                    end
               
 --spazio div         
@@ -81,7 +83,17 @@ ui.container{ attr = { class = "containerIssueDiv" },
           end
           }
           
-        end
+        end --fine for
+        
+        
+         if  issue_rendered==0 then     
+            ui.tag{tag="pre",
+                    attr={style="font-style: italic;color:grey;margin-left:135px;"},
+                    content="No initiatives voted"
+                    }
+          end     
+        
+        
       end }
     end
   }
