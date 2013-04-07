@@ -27,8 +27,7 @@ ui.container{
         content=function()
         
                ui.tag{
-                    tag = "pre",
-                    
+                   tag = "pre",
                    attr={class="welcomeText", readonly="true"},
                    content        = "BENVENUTO "..app.session.member.name..",\n"..welcomeText,  
                    multiline=true
@@ -38,15 +37,14 @@ ui.container{
                slot.put("<br />")   
                  
                ui.tag{
-                    tag = "pre",
-                    
+                   tag = "pre",
                    attr={class="sceltaText", readonly="true"},
                    content        = "COSA VUOI FARE?".."\n".."SCEGLI PREMENDO UNO DI QUESTI BOTTONI:",  
                    multiline=true
                    }  
                 
                 
-               -- slot.put("<a   class='button green'><pre style='text-align: center;'>LEGGI LE NUOVE <br>PROPOSTE<br>DEI CITTADINI</pre></a> ")
+            --slot.put("<a   class='button green'><pre style='text-align: center;'>LEGGI LE NUOVE <br>PROPOSTE<br>DEI CITTADINI</pre></a> ")
                 
             ui.container
             {  
@@ -56,42 +54,42 @@ ui.container{
                --pulsante 1
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton"},
+                    attr={class="button green menuButton", onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
                            tag = "pre",
-                            attr={class="text-align: center; ", readonly="true", onclick="alert('molla il mouse!')"},
+                            attr={class="text-align: center; ", readonly="true"},
                            content        ="LEGGI LE NUOVE\nPROPOSTE\nDEI CITTADINI",  
                            multiline=true
                         }  
                     end-- fine tag.content
                 } 
                 
-                 --pulsante 2
+               --pulsante 2
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton"},
+                    attr={class="button green menuButton", onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
                            tag = "pre",
-                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           attr={class="text-align: center;", readonly="true"},
                            content        ="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE",  
                            multiline=true
                         }  
                     end-- fine tag.content
                 } 
                 
-                    --pulsante 3
+               --pulsante 3
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton"},
+                    attr={class="button green menuButton" , onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
                            tag = "pre",
-                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           attr={class="text-align: center;", readonly="true"},
                            content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nPORTAVOCE M5S",  
                            multiline=true
                         }  
@@ -99,20 +97,23 @@ ui.container{
                 } 
                 
                 
-                      --pulsante 4
+               --pulsante 4
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton"},
+                    attr={class="button green menuButton" , onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
                            tag = "pre",
-                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           attr={class="text-align: center;", readonly="true"},
                            content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nGRUPPI POLITICI",  
                            multiline=true
                         }  
                     end-- fine tag.content
                 }  
+                
+                
+                
                 
                     
                end -- fine container.content
@@ -127,12 +128,12 @@ slot.put("<br /><br />")
 --pulsanti filtro
 ui.container{
 
-        attr={id="pulsanteFiltriDiv", class="pulsanteFiltriDiv"},
+        attr={id="pulsanteFiltriDiv", class="pulsanteFiltriDiv" , onclick="alert('molla il mouse!')"},
         
         content=function()
         
          
-                      --pulsante FILTRI
+               --pulsante FILTRI
                ui.tag{
                     tag = "a", 
                     attr={class="pulsanteFiltri button green"},
@@ -140,7 +141,7 @@ ui.container{
                     
                         ui.tag{
                            tag = "pre",
-                           attr={class="text-align: center;", readonly="true", onclick="alert('molla il mouse!')"},
+                           attr={class="text-align: center;", readonly="true"},
                            content        ="APPLICA FILTRI",  
                            multiline=true
                         }  

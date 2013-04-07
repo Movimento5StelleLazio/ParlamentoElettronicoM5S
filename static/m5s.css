@@ -70,16 +70,13 @@
 }
 .parlamentoDiv
 {
-    
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-   
     height:100%;
     position: relative;
     width: 100%;
     margin-left:auto;
     margin-right:auto;
-    
 }   
 
 .parlamentoImg{
@@ -94,7 +91,6 @@
 {
 	background-color: white;
     float: inherit;
-    
     width: 103%;
     margin-left: -8px;
 }
@@ -103,7 +99,7 @@
     
     background-color: #f2f19a;
     border-radius: 8px;
-    width: 45%;
+    width: 44%;
     float: left;
     padding: 20px;  
     height:auto;
@@ -118,7 +114,7 @@
     height: 100%;
     padding: 0;
     position: relative;
-    width: 2.4%;
+    width: 2.6%;
     
 }
 
