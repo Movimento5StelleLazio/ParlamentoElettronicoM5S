@@ -74,17 +74,15 @@ if member then
   if config.etherpad then
     do_etherpad_auth(member)
   end
- 
-  ui.script{ external = "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" }
-  ui.script{ external = "https://maps.googleapis.com/maps/api/js?sensor=false" }
-  ui.script{ static = "js/pos.js" }
-  local lastLogin = member:get_last_login_data()
-  if lastLogin and lastLogin.position and lastLogin.login_time then
-    slot.put_into("notice","position: "..lastLogin.position.."@ "..lastLogin.login_time)
-  else
-    slot.put_into("error", "Cannot retrieve coordinates")
-  end
   
+  local memberLogin = MemberLogin:new()
+  memberLogin.member_id=app.session.member_id
+  memberLogin.login_time=member.last_login
+  memberLogin:save()
+ 
+  ui.script{ static = "js/position.js" }
+  ui.script{ script = 'set_login_position("'..config.absolute_base_url..'member/update_position.html");'}
+ 
 else
   slot.select("error", function()
     ui.tag{ content = _'Invalid login name or password!' }
