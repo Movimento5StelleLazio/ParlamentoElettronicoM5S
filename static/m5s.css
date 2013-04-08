@@ -17,7 +17,7 @@
 
 .welcomeText
 {
- 	color: black;
+	color: black;
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     margin-top: 10px;
     line-height: normal;
@@ -343,16 +343,17 @@
 
 #arrow_right {
   position: absolute;
-  right: 200px;
+  right: 220px;
   top: 0px;
 }
 
 #welcome_footer_box_right {
   position: absolute;
+  text-align: center;
   right: 0px;
   top: 0px;
-  width: 180px;
-  height:100px;
+  width: 160px;
+  height: 80px;
 }
 
 #welcome_middle_box {
@@ -371,26 +372,34 @@
   position: absolute;
   bottom: 20px;
   left: 130px;
-  width: 284px;
+  text-align: center;
+  width: 254px;
   height: 100px;
 }
 
 #welcome_middle_box_right {
   position: absolute;
   bottom: 20px;
+  text-align: center;
   right: 130px;
-  width: 284px;
+  width: 254px;
   height: 100px;
 }
 
 #welcome_parlamento_left {
   position: absolute;
-  bottom: 110px;
-  left: 132px;
+  bottom: 120px;
+  left: 142px;
 }
 
 #welcome_parlamento_right {
   position: absolute;
-  bottom: 110px;
-  right: 132px;
+  bottom: 120px;
+  right: 142px;
+}
+
+#button_text {
+  text-align: center;
+  vertical-align: center;
+  margin: 0.5em;
 }

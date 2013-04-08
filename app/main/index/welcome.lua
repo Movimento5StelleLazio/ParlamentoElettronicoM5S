@@ -16,23 +16,21 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
         attr = {class = "welcome_text_l"}, 
         content= _("#{realname}, your last login was on #{last_login_date} at #{last_login_time}", {
           realname = member.realname,
-          last_login_date =  format.date(member.last_login),
+          last_login_date = format.date(member.last_login),
           last_login_time = format.time(member.last_login)
         }) 
       }
       local lastLogin = member:get_last_login_data()
+          slot.put('<div float="left" id="location">TEST </div>')
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
-        if lastLogin.geolat and lastLogin.geolng then
-          slot.put('<span id="location" />')
           ui.script{ script = 'codeLatLng('..lastLogin.geolat..','..lastLogin.geolng..',"location",_"from  ");'}
-        end
       else
         trace.debug('Cannot retrieve coordinates')
       end
       slot.put("<br />")
       ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
-      ui.link{ attr = {class = "no_deco"}, module="index", view="index", content=function()
+      ui.link{ attr = {class = "no_deco"}, module="index", view="homepage", content=function()
         ui.container{ attr = {id = "welcome_middle_box_left", class="button orange menuButton" }, content=function()
           ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
         end}
