@@ -74,6 +74,15 @@ if member then
   if config.etherpad then
     do_etherpad_auth(member)
   end
+  
+  local memberLogin = MemberLogin:new()
+  memberLogin.member_id=app.session.member_id
+  memberLogin.login_time=member.last_login
+  memberLogin:save()
+ 
+  ui.script{ static = "js/position.js" }
+  ui.script{ script = 'set_login_position("'..config.absolute_base_url..'member/update_position.html");'}
+ 
 else
   slot.select("error", function()
     ui.tag{ content = _'Invalid login name or password!' }
