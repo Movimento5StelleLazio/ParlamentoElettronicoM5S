@@ -89,7 +89,7 @@ ui.container{ attr = { class = "containerIssueDiv" },
          if  issue_rendered==0 then     
             ui.tag{tag="pre",
                     attr={style="font-style: italic;color:grey;margin-left:135px;"},
-                    content="No initiatives voted"
+                    content=_"No initiatives voted"
                     }
           end     
         
