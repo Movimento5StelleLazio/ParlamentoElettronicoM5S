@@ -31,6 +31,15 @@ Member:add_reference{
 
 Member:add_reference{
   mode          = '1m',
+  to            = "MemberLogin",
+  this_key      = 'id',
+  that_key      = 'member_id',
+  ref           = 'member_login',
+  back_ref      = 'member'
+}
+
+Member:add_reference{
+  mode          = '1m',
   to            = "Contact",
   this_key      = 'id',
   that_key      = 'member_id',
@@ -587,6 +596,16 @@ function Member.object:has_polling_right_for_unit_id(unit_id)
     end
   end
   return self.__units_with_polling_right_hash[unit_id] and true or false
+end
+
+function Member.object:get_last_login_data()
+  local selector = MemberLogin:new_selector()
+    :add_where{ "member_id = ?", app.session.member.id }
+    :add_order_by('"login_time" DESC')
+    :limit(1)
+    :offset(1)
+    :optional_object_mode()
+  return selector:exec()
 end
 
 function Member.object:get_delegatee_member(unit_id, area_id, issue_id)
