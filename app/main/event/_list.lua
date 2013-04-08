@@ -66,6 +66,7 @@ filters.content = function()
       ui.container{ attr = { class = "event_info" }, content = function()
         local event_name = event.event_name
         local event_image
+         slot.put("event.state =="..event.state.." ")
         if event.event == "issue_state_changed" then
           if event.state == "discussion" then
             event_name = _"Discussion started"

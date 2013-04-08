@@ -223,6 +223,7 @@ return {
 ["Everything"] = "Tutto";
 ["External memberships"] = "Partecipanti esterni";
 ["External posts"] = "Messaggi esterni";
+["Find Supporters"]="CERCA SOSTENITORI";
 ["Finish voting"] = "Registra voto";
 ["Finished"] = "Chiuso";
 ["Finished (with winner)"] = "Chiuso (con vincitore)";
@@ -381,6 +382,8 @@ return {
 ["No default"] = "Nessun valore di default";
 ["No delegation"] = "Nessuna delega";
 ["No events selected to list"] = "Nessun evento selezionato da visualizzare";
+["No initiatives suggested"]="(nessuna proposta presente)";
+["No initiatives voted"]="(nessuna votazione effettuata)";
 ["No more events available"] = "Nessun altro evento da visualizzare";
 ["No multistage majority"] = false;
 ["No notifications at all"] = "Nessuna notifica";
