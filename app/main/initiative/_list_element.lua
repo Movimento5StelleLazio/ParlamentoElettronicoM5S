@@ -125,7 +125,7 @@ ui.container{ attr = { class = class }, content = function()
     end }
   end
     
-  ui.container{ attr = { class = "name" }, content = function()
+  ui.container{ attr = { class = "name initiative_link"  }, content = function()
     local link_class = "initiative_link"
     if initiative.revoked then
       link_class = "revoked"
