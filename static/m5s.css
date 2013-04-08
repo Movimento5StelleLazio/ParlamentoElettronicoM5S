@@ -41,6 +41,7 @@
 .menuButton
 {
 	float: left;
+	cursor:pointer;
 }
 .testoPulsantiMenuHomepage{
 	  
