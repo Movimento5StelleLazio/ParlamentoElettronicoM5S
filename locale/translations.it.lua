@@ -196,6 +196,7 @@ return {
 ["Discussion starts soon"] = "Discussione imminente";
 ["Discussion time"] = "Tempo di discussione";
 ["Discussion with initiators"] = "Discussione con gli autori";
+["Do filters"]="APPLICA FILTRI";
 ["Do not vote directly"] = false;
 ["Download"] = false;
 ["Download database export"] = false;
@@ -247,6 +248,15 @@ return {
 ["Hint"] = "Suggerimento";
 ["History"] = "Cronologia";
 ["Home"] = "Homepage";
+["Homepage Choose action:"]="SCEGLI PREMENDO UNO DI QUESTI BOTTONI:";
+["Homepage read new issues"]="LEGGI LE NUOVE\nPROPOSTE\nDEI CITTADINI";
+["Homepage read m5s issues"]="LEGGI E VOTA LE\nPROPOSTE DEI\nPORTAVOCE M5S";
+["Homepage read other issues"]="LEGGI E VOTA LE\nPROPOSTE DEI\nGRUPPI POLITICI";
+["Homepage welcome text"]="TI TROVI NELL'ASSEMBLEA ELETTRONICA DEL M5S LAZIO DEDICATA ALLA COSA PUBBLICA.\n";
+["Homepage welcome text2"]="QUI SI DISCUTONO LEGGI E PROVVEDIMENTI CHE RIGUARDANO LA REGIONE E I SUOI CITTADINI.";
+["Homepage welcome"]="BENVENUTO";
+["Homepage what to do?"]="COSA VUOI FARE?";
+["Homepage write new issue"]="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE";
 ["I consider suggestion as"] = "Ritengo il suggerimento";
 ["I like to receive notifications by email about events in my areas and issues:"] = "Desidero ricevere le notifiche eMail per gli eventi delle mie aree e questioni:";
 ["Id"] = false;

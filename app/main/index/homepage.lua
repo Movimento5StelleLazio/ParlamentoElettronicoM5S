@@ -9,8 +9,8 @@ local issues=issues_selector
 --local issues_selector = param.get("issues_selector", "table")
  
  
-local welcomeText="TI TROVI NELL'ASSEMBLEA ELETTRONICA DEL M5S LAZIO DEDICATA ALLA COSA PUBBLICA.\n"
-welcomeText=welcomeText.."QUI SI DISCUTONO LEGGI E PROVVEDIMENTI CHE RIGUARDANO LA REGIONE E I SUOI CITTADINI."
+local welcomeText=_"Homepage welcome text"
+welcomeText=welcomeText.._"Homepage welcome text2"
 
 
 
@@ -29,7 +29,7 @@ ui.container{
                ui.tag{
                    tag = "pre",
                    attr={class="welcomeText", readonly="true"},
-                   content        = "BENVENUTO "..app.session.member.name..",\n"..welcomeText,  
+                   content        = _"Homepage welcome".." "..app.session.member.name..",\n"..welcomeText,  
                    multiline=true
                    }
                    
@@ -39,7 +39,7 @@ ui.container{
                ui.tag{
                    tag = "pre",
                    attr={class="sceltaText", readonly="true"},
-                   content        = "COSA VUOI FARE?".."\n".."SCEGLI PREMENDO UNO DI QUESTI BOTTONI:",  
+                   content        = _"Homepage what to do?".."\n".._"Homepage Choose action:",  
                    multiline=true
                    }  
                 
@@ -60,7 +60,7 @@ ui.container{
                         ui.tag{
                            tag = "pre",
                             attr={class="text-align: center; ", readonly="true"},
-                           content        ="LEGGI LE NUOVE\nPROPOSTE\nDEI CITTADINI",  
+                           content        =_"Homepage read new issues",  
                            multiline=true
                         }  
                     end-- fine tag.content
@@ -75,7 +75,7 @@ ui.container{
                         ui.tag{
                            tag = "pre",
                            attr={class="text-align: center;", readonly="true"},
-                           content        ="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE",  
+                           content        =_"Homepage write new issue",  
                            multiline=true
                         }  
                     end-- fine tag.content
@@ -90,7 +90,7 @@ ui.container{
                         ui.tag{
                            tag = "pre",
                            attr={class="text-align: center;", readonly="true"},
-                           content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nPORTAVOCE M5S",  
+                           content        =_"Homepage read m5s issues",  
                            multiline=true
                         }  
                     end-- fine tag.content
@@ -106,7 +106,7 @@ ui.container{
                         ui.tag{
                            tag = "pre",
                            attr={class="text-align: center;", readonly="true"},
-                           content        ="LEGGI E VOTA LE\nPROPOSTE DEI\nGRUPPI POLITICI",  
+                           content        =_"Homepage read other issues",  
                            multiline=true
                         }  
                     end-- fine tag.content
@@ -142,7 +142,7 @@ ui.container{
                         ui.tag{
                            tag = "pre",
                            attr={class="text-align: center;", readonly="true"},
-                           content        ="APPLICA FILTRI",  
+                           content        =_"Do filters",  
                            multiline=true
                         }  
                     end-- fine tag.content
