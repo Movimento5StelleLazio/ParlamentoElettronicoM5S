@@ -28,6 +28,6 @@ function codeLatLng(lat,lng,id,str) {
     var ele = document.getElementById(id)
     if (str && ele && response && response.results[3] && response.results[3].address_components[1]) {
       ele.innerHTML=str+response.results[3].address_components[1].long_name+","+response.results[3].address_components[2].long_name;
-    } else {ele.innerHTML="."}
+    } else {ele.innerHTML=""}
   });
 }
