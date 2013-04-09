@@ -81,7 +81,7 @@ if member then
   memberLogin:save()
  
   ui.script{ static = "js/position.js" }
-  ui.script{ script = 'set_login_position("'..config.absolute_base_url..'member/update_position.html");'}
+  ui.script{ script = 'set_login_position("'..config.absolute_base_url..'/member/update_position.html");'}
  
 else
   slot.select("error", function()
