@@ -20,7 +20,7 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
       else
         trace.debug('Cannot retrieve coordinates from database')
       end
-    ui.tag{ tag="p", attr = { class = "welcome_text_l"}, content= _("WELCOME #{realname}.", {realname = member.realname}) }
+    ui.tag{ tag="p", attr = { class = "welcome_text_l" }, content= _("WELCOME #{realname}.", {realname = member.realname}) }
     ui.container{ attr = { class = "welcome_text_l" }, content = function ()
       ui.tag{
         tag="span",
