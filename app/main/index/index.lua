@@ -1,18 +1,9 @@
 if app.session.member_id then
   util.help("index.index", _"Home")
 
-  local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1]
-  slot.put_into("error", 'gui_preset: '..gui_preset)
-
-  if gui_preset and config.gui_preset then
-    for i=1, #config.gui_preset do
-      slot.put_into("error", 'gui_preset: "'..config.gui_preset[i].name..'" gui_preset: "'..gui_preset..'"')
-      if config.gui_preset[i].name and config.gui_preset[i].name  == gui_preset then
-        execute.view{ module = "index", view = config.gui_preset[i].start_page }
-        break
-      end
-    end
-  end
+  execute.view{
+    module = "index", view = "_index_member"
+  }
 
 elseif app.session:has_access("anonymous") then
   if config.motd_public then
