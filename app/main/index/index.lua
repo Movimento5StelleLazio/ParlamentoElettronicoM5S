@@ -1,6 +1,13 @@
 if app.session.member_id then
   util.help("index.index", _"Home")
 
+  local gui_preset=db:query('SELECT gui_preset FROM system_setting')
+  if gui_preset and config.gui_preset then
+    for i in config.gui_preset do
+      slot.put_into("error", "gui_preset: "..config.gui_preset.name)
+    end
+    slot.put_into("error", "gui_preset: "..gui_preset)
+  end
   execute.view{
     module = "index", view = "_index_member"
   }
