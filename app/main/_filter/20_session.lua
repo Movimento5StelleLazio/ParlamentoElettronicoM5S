@@ -21,4 +21,12 @@ if locale.get("lang") == "de" then
   }
 end
 
+if locale.get("lang") == "it" then
+  locale.set{
+    date_format = 'DD/MM/YYYY',
+    time_format = 'HH:MM{:SS}',
+    decimal_point = ','
+  }
+end
+
 execute.inner()
