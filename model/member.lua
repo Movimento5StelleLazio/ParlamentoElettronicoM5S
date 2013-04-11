@@ -601,6 +601,7 @@ end
 function Member.object:get_last_login_data()
   local selector = MemberLogin:new_selector()
     :add_where{ "member_id = ?", app.session.member.id }
+--    :add_where{ "login_time < ?", self.last_login }
     :add_order_by('"login_time" DESC')
     :limit(1)
     :offset(1)
