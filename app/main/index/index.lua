@@ -10,4 +10,3 @@ else
     end
   end
 end
-execute.view{ module = "index", view = "_index_default" }
