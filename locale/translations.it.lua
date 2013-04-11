@@ -141,6 +141,7 @@ return {
 ["Collective opinion of supporters"] = "Opinione collettiva dei sostenitori";
 ["Commit suggestion"] = "Invia suggerimento";
 ["Compare"] = "Compara";
+["Configuration"]="Configurazione";
 ["Configure notifications now"] = "Configura notifiche adesso";
 ["Confirm"] = "Conferma";
 ["Confirmation code"] = "Codice di conferma";
