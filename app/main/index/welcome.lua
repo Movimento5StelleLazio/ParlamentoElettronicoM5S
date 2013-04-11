@@ -10,7 +10,6 @@ ui.container{
 
 ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
   if app.session.member_id then     
-    locale.set{date_format="DD/MM/YYYY"}
  
     -- Codifica coordinate memorizzate in member_login
     local lastLogin = member:get_last_login_data()
@@ -35,7 +34,6 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
       ui.tag{tag="span",attr = { id = "location", class = "welcome_text_l"}}
     end}
   end
-
       slot.put("<br />")
       ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
@@ -58,6 +56,3 @@ ui.container{ attr = {id = "welcome_footer_container" }, content=function()
     ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGISTRATION GUIDE"}
   end}
 end}
-
-slot.put("<br />")
-slot.put("<br />")
