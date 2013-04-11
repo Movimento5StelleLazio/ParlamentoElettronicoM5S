@@ -23,4 +23,11 @@ ui.tag{ tag = "ul", content = function()
       view = "member_list",
     }
   end }
+  ui.tag{ tag= "li", content = function()
+    ui.link{
+      text = _"Configuration",
+      module = "admin",
+      view = "configuration",
+    }
+  end }
 end }
