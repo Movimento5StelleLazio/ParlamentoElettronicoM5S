@@ -1,11 +1,15 @@
-local member = Member:by_id(app.session.member.id)
-
 ui.container{
-  attr = {id = "welcome_title_box" }, 
-  content = function() 
+  attr = {id = "welcome_title_box" },
+  content = function()
     slot.put( "<p  class = \"welcome_text_xl\">".._"5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO".."</p>")
   end
 }
+
+if app.session.member_id then
+  util.help("index.index", _"Home")
+
+
+local member = Member:by_id(app.session.member.id)
 
 
 ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
@@ -48,6 +52,62 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
 
 end}
 
+else
+
+  if config.motd_public then
+    local help_text = config.motd_public
+    ui.container{
+      attr = { class = "wiki motd" },
+      content = function()
+        slot.put(format.wiki_text(help_text))
+      end
+    }
+  end
+
+
+ui.container{ attr = { class = "loginDiv" }, content = function ()
+  ui.tag{ tag = "p", attr = { class = "welcomeText" }, content = _"Closed user group, please login to participate." }
+
+  ui.form{
+  attr = { class = "login" },
+  module = 'index',
+  action = 'login',
+  routing = {
+    ok = {
+      mode   = 'redirect',
+      module = param.get("redirect_module") or "index",
+      view = param.get("redirect_view") or "index",
+      id = param.get("redirect_id"),
+    },
+    error = {
+      mode   = 'forward',
+      module = 'index',
+      view   = 'login',
+    }
+  },
+  content = function()
+    ui.field.text{
+      attr = { id = "username_field" },
+      label     = _'login name',
+      html_name = 'login',
+      value     = ''
+    }
+    ui.script{ script = 'document.getElementById("username_field").focus();' }
+    ui.field.password{
+      label     = _'Password',
+      html_name = 'password',
+      value     = ''
+    }
+    ui.submit{
+      text = _'Login'
+    }
+  end
+}
+end}
+
+slot.put('<br />')
+slot.put('<br />')
+
 ui.container{ attr = {id = "welcome_footer_container" }, content=function()
   ui.tag{  tag="img", attr = { id = "welcome_footer_box_left" , src="../static/simbolo_movimento.png", alt="Movimento 5 Stelle"} }
   ui.tag{ tag="p", attr = { id = "welcome_footer_box_middle" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
@@ -56,3 +116,5 @@ ui.container{ attr = {id = "welcome_footer_container" }, content=function()
     ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGISTRATION GUIDE"}
   end}
 end}
+
+end

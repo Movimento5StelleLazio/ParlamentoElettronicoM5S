@@ -290,6 +290,18 @@
 	height:24px;
 }
 
+.loginDiv
+{
+    background-color: #FFFFCC;
+    border-color: yellow;
+    border-radius: 12px 12px 12px 12px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    width: 100%;
+    text-align: left;
+}
+
 #welcome_title_box {
   border-top-left-radius: 40px 40px;
   border-top-right-radius: 40px 40px;
@@ -331,7 +343,7 @@
   left: 0px;
   top: 0px;
   width:100px;
-  height:100px;
+  height: 100%;
 }
 
 #welcome_footer_box_middle {
@@ -339,7 +351,7 @@
   top: 0px;
   left:100px;
   width: 700px;
-  height:100px;
+  height: 100%;
 }
 
 #arrow_right {
@@ -349,12 +361,14 @@
 }
 
 #welcome_footer_box_right {
+  padding: 0px;
+  margin: auto;
   position: absolute;
   text-align: center;
   right: 0px;
   top: 0px;
   width: 160px;
-  height: 80px;
+  height: 100%;
 }
 
 #welcome_middle_box {
@@ -389,17 +403,17 @@
 
 #welcome_parlamento_left {
   position: absolute;
-  bottom: 120px;
+  bottom: 135px;
   left: 142px;
 }
 
 #welcome_parlamento_right {
   position: absolute;
-  bottom: 120px;
+  bottom: 135px;
   right: 142px;
 }
 
-#button_text {
+.button_text {
   text-align: center;
   vertical-align: center;
   margin: 0.5em;
