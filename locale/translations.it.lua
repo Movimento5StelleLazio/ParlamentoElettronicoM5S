@@ -16,6 +16,12 @@ return {
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
+["BACK TO PREVIOUS PAGE"]="TORNA ALLA PAGINA PRECEDENTE";
+["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
+["CHOOSE THE THEMATIC AREA"]="SCEGLI L'AREA TEMATICA";
+["SHOW ALL AREAS"]="MOSTRA TUTTE LE AREE";
+["SHOW ONLY PARTECIPATED AREAS"]="MOSTRA SOLO LE AREE A CUI PARTECIPI";
+["THEMATIC AREAS"]="AREE TEMATICHE";
 ["#{name}\n\n"] = "#{name}\n\n";
 ["#{number} Image(s) has been deleted"] = "#{number} immagine(i) eliminata(e)";
 ["#{number} Image(s) has been updated"] = "#{number} immagine(i) aggiornata(e)";
