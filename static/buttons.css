@@ -59,11 +59,11 @@ Following additional class names are supported:
     background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
     background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
     background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
-
+/*
     -webkit-transition: background .2s ease-in-out;
     -moz-transition:    background .2s ease-in-out;
     transition:         background .2s ease-in-out;
-    
+  */  
 /* color */
     color:              hsl(0, 0%, 40%) !important;
     background-color:   hsl(0, 0%, 75%);
