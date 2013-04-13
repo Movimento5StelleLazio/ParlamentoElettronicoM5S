@@ -115,14 +115,10 @@ ui.tag{
           }
           
 ---------pulsante "vedi dettaglio"      
-          
-        -- slot.put("<input type='button' class='pulsanteVediDettaglio' value='VEDI DETTAGLIO'></input> ")
-        
-            
             
              ui.tag{
                     tag = "a", 
-                    attr={class="pulsanteVediDettaglio button green ", style="width:150px; height:25px; font-size:12px;margin-left:30px" , onclick="alert('molla il mouse!')"},
+                    attr={class="pulsanteVediDettaglio button orange ", style="width:150px; height:25px; font-size:12px;margin-left:30px" , onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
@@ -140,9 +136,7 @@ ui.tag{
     
 ---------dati issue
 ui.container{ attr = {  class = "issue_ext "..class }, content = function()
-    
-      --execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
-    
+     
       if for_listing then
         ui.container{ attr = { class = "content" }, content = function()
           ui.link{

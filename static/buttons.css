@@ -115,6 +115,7 @@ button.button:hover {
 /* -------------- colours -------------- */
 
 .button.orange {
+	cursor: pointer;
     color:              hsl(39, 100%, 30%) !important;
     background-color:   hsl(39, 100%, 50%);
 

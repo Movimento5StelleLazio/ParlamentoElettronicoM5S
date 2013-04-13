@@ -12,23 +12,23 @@ config.instance_name = "Instance name"
 config.app_service_provider = "Snake Oil<br/>10000 Berlin<br/>Germany"
 
 
--- Liquidfeedback Layout 
----------------------------------------------------------------------------
---[[config.gui_preset = {
-  {
-    name="M5S",
-    start_page="_welcome"
-  },
-  {
-    name="Maintenance",
-    start_page="_maintenance"
-  },
-  {
-    name="default",
-    start_page="_index_default"
-  }
-}
-]]--
+-- Liquidfeedback Layout  (default value="default")
+-- -------------------------------------------------------------------------
+--config.gui_preset = {
+--  {
+--    name="M5S",
+--    start_page="_welcome"
+--  },
+--  {
+--    name="Maintenance",
+--    start_page="_maintenance"
+--  },
+--  {
+--    name="default",
+--    start_page="_index_default"
+--  }
+--}
+
 
 -- A rocketwiki formatted text the user has to accept while registering
 -- ------------------------------------------------------------------------

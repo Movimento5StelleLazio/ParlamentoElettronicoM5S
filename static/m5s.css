@@ -41,7 +41,7 @@
 .menuButton
 {
 	float: left;
-	cursor:pointer;
+	 
 }
 .testoPulsantiMenuHomepage{
 	  
@@ -59,6 +59,7 @@
     margin-right:auto;
     color: white;
     font-weight: bold;
+    
 }
 
 .pulsanteFiltri
