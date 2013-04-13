@@ -112,11 +112,7 @@ ui.container{
                     end-- fine tag.content
                 }  
                 
-                
-                
-                
-                    
-               end -- fine container.content
+              end -- fine container.content
             }
             
         end
@@ -170,9 +166,7 @@ ui.container{
         
         
         content=function()
-        
-           
-       
+      
                    
 -------le tue votazioni
         ui.container{
@@ -187,10 +181,6 @@ ui.container{
                         attr = { class = "parlamentoImg" },
                         static = "parlamento_icon_small.png"
                       }
-           
-                   
-                   
-                  
                     
       ----------spazio div         
                   ui.container

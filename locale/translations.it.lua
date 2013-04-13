@@ -347,6 +347,7 @@ return {
 ["Logout successful"] = "Utente disconnesso";
 ["Manage filter"] = "Gestisci filtro";
 ["Manage timeline filters"] = "Gestisci filtri cronologia";
+["Maintenance"]="Manutenzione";
 ["Member"] = "Utente";
 ["Member '#{member}'"] = "Utente '#{member}'";
 ["Member has been removed from initiators"] = "Utente rimosso dagli autori";
