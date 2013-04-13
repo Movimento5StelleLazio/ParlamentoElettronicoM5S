@@ -44,7 +44,7 @@ ui.container{
                    }  
                 
                 
-            --slot.put("<a   class='button green'><pre style='text-align: center;'>LEGGI LE NUOVE <br>PROPOSTE<br>DEI CITTADINI</pre></a> ")
+            --slot.put("<a   class='button orange'><pre style='text-align: center;'>LEGGI LE NUOVE <br>PROPOSTE<br>DEI CITTADINI</pre></a> ")
                 
             ui.container
             {  
@@ -54,7 +54,7 @@ ui.container{
                --pulsante 1
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton", onclick="alert('molla il mouse!')"},
+                    attr={class="button orange menuButton", onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
@@ -69,7 +69,7 @@ ui.container{
                --pulsante 2
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton", onclick="alert('molla il mouse!')"},
+                    attr={class="button orange menuButton", onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
@@ -84,7 +84,7 @@ ui.container{
                --pulsante 3
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton" , onclick="alert('molla il mouse!')"},
+                    attr={class="button orange menuButton" , onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
@@ -100,7 +100,7 @@ ui.container{
                --pulsante 4
                ui.tag{
                     tag = "a", 
-                    attr={class="button green menuButton" , onclick="alert('molla il mouse!')"},
+                    attr={class="button orange menuButton" , onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
@@ -136,7 +136,7 @@ ui.container{
                --pulsante FILTRI
                ui.tag{
                     tag = "a", 
-                    attr={class="pulsanteFiltri button green"},
+                    attr={class="pulsanteFiltri button orange"},
                     content=function()
                     
                         ui.tag{
