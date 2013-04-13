@@ -35,10 +35,10 @@ ui.form{
   content = function()
     ui.field.text{     label = _"Identification", name = "identification" }
     ui.field.text{     label = _"Notification email", name = "notify_email" }
+    ui.field.text{     label = _"Codice Fiscale",        name = "codice_fiscale" }
     if member and member.activated then
       ui.field.text{     label = _"Screen name",        name = "name" }
       ui.field.text{     label = _"Login name",        name = "login" }
-      ui.field.text{     label = _"Codice Fiscale",        name = "codice_fiscale" }
     end
     ui.field.boolean{  label = _"Admin?",       name = "admin" }
     ui.field.boolean{  label = _"Elected?",       name = "elected" }

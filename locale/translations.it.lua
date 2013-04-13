@@ -21,7 +21,16 @@ return {
 ["#{number} Image(s) has been updated"] = "#{number} immagine(i) aggiornata(e)";
 ["#{policy_name} ##{issue_id}"] = false;
 ["#{policy} ##{id}"] = false;
+["#{realname}, your last login was on #{last_login_date} at #{last_login_time}"]="#{realname}, il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
+["WELCOME #{realname}."]="BENVENUTO #{realname}.";
+["from "]="da ";
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
+["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
+["5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO"]="PARLAMENTO ELETTRONICO<br />MOVIMENTO 5 STELLE<br />REGIONE LAZIO";
+["ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"]="SEI UN CITTADINO DEL LAZIO E VUOI ISCRIVERTI? ECCO COME FARE:";
+["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA MOVIMENTO 5 STELLE";
+["REGISTRATION GUIDE"]="GUIDA ALLA ISCRIZIONE";
+["REGIONE LAZIO ASSEMBLY"]="ASSEMBLEA REGIONE LAZIO";
 ["(new window)"] = "(nuova finestra)";
 [")) == "] = false;
 ["+ #{weight}"] = false;
@@ -132,6 +141,7 @@ return {
 ["Collective opinion of supporters"] = "Opinione collettiva dei sostenitori";
 ["Commit suggestion"] = "Invia suggerimento";
 ["Compare"] = "Compara";
+["Configuration"]="Configurazione";
 ["Configure notifications now"] = "Configura notifiche adesso";
 ["Confirm"] = "Conferma";
 ["Confirmation code"] = "Codice di conferma";

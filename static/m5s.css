@@ -17,7 +17,7 @@
 
 .welcomeText
 {
- 	color: black;
+	color: black;
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     margin-top: 10px;
     line-height: normal;
@@ -288,4 +288,133 @@
 {
 	width:100%;
 	height:24px;
+}
+
+.loginDiv
+{
+    background-color: #FFFFCC;
+    border-color: yellow;
+    border-radius: 12px 12px 12px 12px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    width: 100%;
+    text-align: left;
+}
+
+#welcome_title_box {
+  border-top-left-radius: 40px 40px;
+  border-top-right-radius: 40px 40px;
+  border-bottom-left-radius: 40px 40px;
+  border-bottom-right-radius: 40px 40px;
+  border: 12px solid yellow;
+  background-color: white;
+  margin: 1% 5% 1% 5%;
+}
+
+.welcome_text_xl {
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: xx-large;
+  vertical-align: middle;
+  float: center;
+}
+
+.welcome_text_l {
+  margin: 5px;
+  text-align: center;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: large;
+  vertical-align: middle;
+  float: center;
+}
+
+#welcome_footer_container {
+  position: relative;
+  padding: 0px;
+  border: 0px;
+  height: 100px;
+}
+
+#welcome_footer_box_left {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100px;
+  height: 100%;
+}
+
+#welcome_footer_box_middle {
+  position: absolute;
+  top: 0px;
+  left:100px;
+  width: 700px;
+  height: 100%;
+}
+
+#arrow_right {
+  position: absolute;
+  right: 220px;
+  top: 0px;
+}
+
+#welcome_footer_box_right {
+  padding: 0px;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  top: 0px;
+  width: 160px;
+  height: 100%;
+}
+
+#welcome_middle_box {
+  margin-top: 2ex;
+  margin-bottom: 1ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 450px;
+  position: relative;
+}
+
+#welcome_middle_box_left {
+  position: absolute;
+  bottom: 20px;
+  left: 130px;
+  text-align: center;
+  width: 254px;
+  height: 110px;
+}
+
+#welcome_middle_box_right {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  right: 130px;
+  width: 254px;
+  height: 110px;
+}
+
+#welcome_parlamento_left {
+  position: absolute;
+  bottom: 135px;
+  left: 142px;
+}
+
+#welcome_parlamento_right {
+  position: absolute;
+  bottom: 135px;
+  right: 142px;
+}
+
+.button_text {
+  text-align: center;
+  vertical-align: center;
+  margin: 0.5em;
 }
