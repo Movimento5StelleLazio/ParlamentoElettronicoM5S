@@ -26,77 +26,22 @@ end}
 
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
-ui.container{ attr = { class="unit_issue_box"}, content=function()
+ui.container{ attr = { class="unit_bottom_box"}, content=function()
   -- Implementare la logica per mostrare la scritta corretta
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _"THEMATIC AREAS" }
   ui.link { attr = { id = "unit_button_left", class="button orange menuButton"  }, content = function()
-    ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ALL AREAS" }
+    ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ALL AREAS" }
   end}
   ui.link { attr = { id = "unit_button_right", class="button orange menuButton"  }, content = function()
-    ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ONLY PARTECIPATED AREAS" }
+    ui.tag { tag = "p",  attr = { class  = "button_text"  }, content = _"SHOW ONLY PARTECIPATED AREAS" }
   end}
+  
+  ui.container{ attr = { class="unit_areas_box"}, content=function()
+    execute.view{  
+      module = "area",
+      view = "_list",
+      params = { areas_selector = areas_selector, member = app.session.member }
+    }
+  end}
+
 end}
-
-local delegations_selector = Delegation:new_selector()
-  :join("member", "truster", "truster.id = delegation.truster_id AND truster.active")
-  :join("privilege", "truster_privilege", "truster_privilege.member_id = truster.id AND truster_privilege.unit_id = delegation.unit_id AND truster_privilege.voting_right")
-  :join("member", "trustee", "trustee.id = delegation.trustee_id AND truster.active")
-  :join("privilege", "trustee_privilege", "trustee_privilege.member_id = trustee.id AND trustee_privilege.unit_id = delegation.unit_id AND trustee_privilege.voting_right")
-  :add_where{ "delegation.unit_id = ?", unit.id }
-
-local open_issues_selector = Issue:new_selector()
-  :join("area", nil, "area.id = issue.area_id")
-  :add_where{ "area.unit_id = ?", unit.id }
-  :add_where("issue.closed ISNULL")
-  :add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
-
-local closed_issues_selector = Issue:new_selector()
-  :join("area", nil, "area.id = issue.area_id")
-  :add_where{ "area.unit_id = ?", unit.id }
-  :add_where("issue.closed NOTNULL")
-  :add_order_by("issue.closed DESC")
-
-local tabs = {
-  module = "unit",
-  view = "show",
-  id = unit.id
-}
-
-tabs[#tabs+1] = {
-  name = "areas",
-  label = _"Areas",
-  module = "area",
-  view = "_list",
-  params = { areas_selector = areas_selector, member = app.session.member }
-}
-
-tabs[#tabs+1] = {
-  name = "timeline",
-  label = _"Latest events",
-  module = "event",
-  view = "_list",
-  params = { for_unit = unit }
-}
-
-tabs[#tabs+1] = {
-  name = "open",
-  label = _"Open issues",
-  module = "issue",
-  view = "_list",
-  params = {
-    for_state = "open",
-    issues_selector = open_issues_selector, for_unit = true
-  }
-}
-tabs[#tabs+1] = {
-  name = "closed",
-  label = _"Closed issues",
-  module = "issue",
-  view = "_list",
-  params = {
-    for_state = "closed",
-    issues_selector = closed_issues_selector, for_unit = true
-  }
-}
-
---ui.tabs(tabs)
