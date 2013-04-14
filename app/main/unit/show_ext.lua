@@ -1,5 +1,6 @@
 local unit_id = param.get("unit_id")
 local unit_selector = param.get("unit_selector")
+local areas_selector = param.get("areas_selector")
 local filter_areas = param.get("filter_areas")
 
 if not app.session.member_id then
@@ -8,15 +9,20 @@ end
 
 local member = app.session.member
 
-local areas_selector = Area:build_selector{ active = true }
+if not areas_selector then
+  areas_selector = Area:build_selector{ active = true }
+end 
 
 if unit_id then
   areas_selector:add_where{ "area.unit_id = ?", unit_id }
   -- A single unit id was passed
 elseif unit_selector then
+  -- Decomment this if unit_selector was not executed on level 2
+  -- units = unit_selector:exec()
   for i, unit in ipairs(units) do
 --[[
     TODO: build an area_selector based on selected units
+    The unit_selector must be built using the :add_field("id","unit_id", "grouped") function
     areas_selector:left_join( ?)
 --]]
   end
