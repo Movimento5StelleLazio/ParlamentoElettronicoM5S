@@ -67,6 +67,7 @@ return {
 ["All areas in my units"] = "Tutte le aree delle mie unità";
 ["All issues"] = "Tutte le questioni";
 ["All of them"] = "Ognuna di queste";
+["All phases"] = "Qualsiasi fase";
 ["All units"] = "Tutte le unità";
 ["Any"] = "Tutti";
 ["Any phase"] = "Qualsiasi fase";
@@ -118,6 +119,7 @@ return {
 ["Canceled (during verification due to revocation)"] = "Annullato (revocato durante il congelamento)";
 ["Canceled (issue not accepted)"] = "Annullato (questione non ammessa)";
 ["Canceled (no initiative admitted)"] = "Annullato (nessuna proposta ammessa)";
+["Canceled phase"] = "Annullato";
 ["Change area delegation"] = "Cambia delega dell'Area";
 ["Change email"] = "Cambia eMail";
 ["Change email address"] = "Cambia indirizzo eMail";
@@ -137,6 +139,7 @@ return {
 ["Choose member"] = "Seleziona utente";
 ["Closed"] = "Chiuso";
 ["Closed issues"] = "Questioni chiuse";
+["Closed phase"] = "Chiuso";
 ["Closed user group, please login to participate."] = "Gruppo chiuso, accedere per partecipare.";
 ["Collective opinion of supporters"] = "Opinione collettiva dei sostenitori";
 ["Commit suggestion"] = "Invia suggerimento";
@@ -200,6 +203,7 @@ return {
 ["Discard voting"] = "Annulla votazione";
 ["Discuss with initiators"] = "Discuti con gli autori";
 ["Discussion"] = "Discussione";
+["Discussion phase"]="Discussione";
 ["Discussion URL"] = "URL di discussione";
 ["Discussion on issue"] = "Discussione proposta";
 ["Discussion started"] = "Discussione iniziata";
@@ -242,6 +246,7 @@ return {
 ["Free timing"] = false;
 ["Friday"] = "Venerdì";
 ["Frozen"] = "Congelato";
+["Frozen phase"] = "Congelato";
 ["Fully frozen at"] = "Questione congelata il";
 ["Generate API key"] = "Genera chiave API";
 ["Global delegation"] = "Delega globale";
@@ -395,6 +400,7 @@ return {
 ["New password"] = "Nuova password";
 ["New passwords does not match."] = "Le password non corrispondono.";
 ["New passwords is too short."] = "Password troppo corta.";
+["New phase"]="Nuovo";
 ["New suggestion"] = "Nuovo suggerimento";
 ["Newest"] = "Ultimo";
 ["No"] = false;
@@ -444,6 +450,7 @@ return {
 ["Open"] = "Aperto";
 ["Open initiatives you are supporting which has been updated their draft:"] = "Iniziative da te supportate che hanno aggiornato la bozza:";
 ["Open issues"] = "Questioni aperte";
+["Open phase"]="Aperto";
 ["Opinions"] = "Opinioni";
 ["Options"] = "Opzioni";
 ["Organizational unit"] = "Unità organizzativa";
@@ -681,6 +688,7 @@ return {
 ["Voting started"] = "Votazione iniziata";
 ["Voting starts soon"] = "Votazione imminente";
 ["Voting time"] = "Tempo di voto";
+["Voting phase"] = "Votazione";
 ["We couldn't deliver a confirmation mail to this address. Please check entered email address."] = "Impossibile inviare eMail di conferma a questo indirizzo. Verificare indirizzo eMail.";
 ["We have sent an email with activation link already in the last hour. Please try again later."] = "eMail di attivazione già inviata nell'ultima ora. Riprovare più tardi.";
 ["Website"] = "Sito WEB";
