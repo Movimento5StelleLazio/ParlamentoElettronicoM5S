@@ -1,5 +1,5 @@
---local unit_id = param.get_id()
 local unit_id = param.get("unit_id")
+local unit_selector = param.get("unit_selector")
 local filter_areas = param.get("filter_areas")
 
 if not app.session.member_id then
@@ -8,7 +8,23 @@ end
 
 local member = app.session.member
 
-local areas_selector = Area:build_selector{ active = true, unit_id = unit_id }
+local areas_selector = Area:build_selector{ active = true }
+
+if unit_id then
+  areas_selector:add_where{ "area.unit_id = ?", unit_id }
+  -- A single unit id was passed
+elseif unit_selector then
+  for i, unit in ipairs(units) do
+--[[
+    TODO: build an area_selector based on selected units
+    areas_selector:left_join( ?)
+--]]
+  end
+else
+  slot.put_into("error", "No unit_id or unit_selector was provided!")
+  return false
+end
+
 areas_selector:add_order_by("member_weight DESC")
 
 if filter_areas == "my_areas" then
