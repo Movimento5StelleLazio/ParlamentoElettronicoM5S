@@ -17,7 +17,7 @@
 
 .welcomeText
 {
-	color: black;
+    color: black;
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     margin-top: 10px;
     line-height: normal;
@@ -26,7 +26,7 @@
 
 .sceltaText
 {
-	font-size:32px;
+    font-size:32px;
     color: black;
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     margin-top: 10px;
@@ -81,10 +81,8 @@
 }   
 
 .parlamentoImg{
-
     margin-left: 100px;
     margin-top: -150px;
-
 }
 
 
@@ -314,21 +312,18 @@
 
 .welcome_text_xl {
   margin: 5px;
+  color: black;
   text-align: center;
-  font-weight: bold;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   font-size: xx-large;
-  vertical-align: middle;
-  float: center;
 }
 
 .welcome_text_l {
   margin: 5px;
+  color: black;
   text-align: center;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   font-size: large;
-  vertical-align: middle;
-  float: center;
 }
 
 #welcome_footer_container {
@@ -413,8 +408,71 @@
   right: 142px;
 }
 
+.unit_header_box {
+  margin-top: 2ex;
+  margin-bottom: 2ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 175px;
+}
+
+#unit_button_back {
+  float: left;
+  text-align: center;
+  width: 190px;
+}
+
+#unit_button_left {
+  margin-left: 290px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+
+#unit_button_right {
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+
+.unit_bottom_box {
+  margin-top: 150px;
+  margin-bottom: 1ex;
+  background-color: #ebe2aa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.unit_areas_box {
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 190px;
+  padding: 20px;
+}
+
+#unit_parlamento_img{
+  position: absolute;
+  z-index: 1;
+  margin-left: 410px;
+  margin-bottom: -30px;
+}
+
+#unit_title {
+  margin-top: 40px;
+}
+
+#unit_arrow_back {
+  height: 55px;
+  width: 55px;
+  float: left;
+}
+
 .button_text {
+  text-decoration: none;
   text-align: center;
   vertical-align: center;
-  margin: 0.5em;
+  margin: 0.3em;
 }
