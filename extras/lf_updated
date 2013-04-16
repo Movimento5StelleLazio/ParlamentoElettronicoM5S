@@ -1,0 +1,17 @@
+#!/bin/sh
+
+PIDFILE="/var/run/lf_updated.pid"
+PID=$$
+
+if [ -f "${PIDFILE}" ] && kill -CONT $( cat "${PIDFILE}" ); then
+  echo "lf_updated is already running."
+  exit 1
+fi
+
+echo "${PID}" > "${PIDFILE}"
+
+while true; do
+  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update dbname=liquid_feedback 2>&1 | logger -t "lf_updated"'
+  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update_suggestion_order dbname=liquid_feedback 2>&1 | logger -t "lf_updated"'
+  sleep 5
+done
