@@ -63,7 +63,7 @@ config.use_terms_checkboxes = {
   
 -- Absolute base url of application
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "https://62.75.171.10/lf"
+config.absolute_base_url = "/lf"
 
 
 -- Connection information for the LiquidFeedback database
