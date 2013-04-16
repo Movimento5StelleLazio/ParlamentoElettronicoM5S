@@ -22,6 +22,8 @@ return {
 ["SHOW ALL AREAS"]="MOSTRA TUTTE LE AREE";
 ["SHOW ONLY PARTECIPATED AREAS"]="MOSTRA SOLO LE AREE A CUI PARTECIPI";
 ["THEMATIC AREAS"]="AREE TEMATICHE";
+["ELECTEDS THEMATIC AREAS"]="AREE TEMATICHE DEGLI ELETTI";
+["CITIZENS THEMATIC AREAS"]="AREE TEMATICHE DEI CITTADINI";
 ["#{name}\n\n"] = "#{name}\n\n";
 ["#{number} Image(s) has been deleted"] = "#{number} immagine(i) eliminata(e)";
 ["#{number} Image(s) has been updated"] = "#{number} immagine(i) aggiornata(e)";
