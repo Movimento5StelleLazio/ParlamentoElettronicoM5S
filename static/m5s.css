@@ -49,6 +49,36 @@
 	   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	
 }
+
+
+.phaseText
+{
+	color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 22px;
+    line-height: normal;
+    margin-top: 29px;
+    text-align: center;
+    height: 10px;
+    float: left;
+    width: 100%;
+}
+
+.categoryText
+{
+	
+	color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 22px;
+    line-height: normal;
+    margin-top: 29px;
+    text-align: center;
+    height: 10px;
+    float: left;
+    width: 100%;
+	
+}
+
 .pulsanteFiltriDiv{
 	
 	background-color: transparent;
@@ -209,11 +239,10 @@
 	border: thin solid black;
     height: 0;
     margin-left: 90px;
-    margin-top: 76px;
+    margin-top: 138px;
     opacity: 0.24;
     position: absolute;
     width: 80%;
-    
 }
 
 .pulsantiCategoria{

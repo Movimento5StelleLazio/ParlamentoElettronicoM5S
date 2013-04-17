@@ -5,13 +5,13 @@ local for_state = param.get("for_state")
 local for_unit = param.get("for_unit", atom.boolean)
 local for_area = param.get("for_area", atom.boolean)
 
-
+--[[
 if for_state == "open" then
   issues_selector:add_where("issue.closed ISNULL")
 elseif for_state == "closed" then
   issues_selector:add_where("issue.closed NOTNULL")
 end
-
+]]--
 --info box
 
  
@@ -30,7 +30,45 @@ end
  
  
 local last_event_id
-local events = event_selector: add_where{ "event.member_id = ?", app.session.member.id }:exec()
+
+event_selector: add_where{ "event.member_id = ?", app.session.member.id }
+
+if for_state then
+
+    if for_state=="open" then
+        event_selector:add_where("event.state in ('admission', 'discussion', 'verification', 'voting')")
+    end
+    
+    if for_state=="New" then
+         event_selector:add_where("event.state = 'admission'")
+    end
+    
+    if for_state=="Discussion" then
+         event_selector:add_where("event.state = 'discussion'")
+    end
+    
+    if for_state=="Frozen" then
+         event_selector: add_where("event.state = 'verification'")
+    end
+    
+    if for_state=="Voting" then
+         event_selector: add_where("event.state = 'voting'")
+    end
+    
+    if for_state=="Closed" then
+         event_selector: add_where("event.state IN ('finished_with_winner', 'finished_without_winner')")
+    end
+    
+    if for_state=="Canceled" then
+         event_selector: add_where("event.state IN ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification')")
+    
+    end
+    
+    
+end
+
+
+local events = event_selector:exec()
 
 local direct_voter
 
@@ -54,7 +92,7 @@ local direct_voter
          local _issue={}
          local _events={}
          
-         trace.debug("#events="..#events)
+         trace.debug("#events(for_state="..for_state..")="..#events)
          for j,event in ipairs(events) do
                             
               if  event.member_id  ==    app.session.member.id then
@@ -98,8 +136,8 @@ local direct_voter
 --spazio div         
           ui.container
           {
-          attr={class="spazioIssue"},
-          content=function()
+              attr={class="spazioIssue"},
+              content=function()
           end
           }
           
@@ -109,7 +147,7 @@ local direct_voter
           if  issue_rendered==0 then     
             ui.tag{tag="pre",
                     attr={style="font-style: italic;color:grey;margin-left:150px;"},
-                    content=_"No initiatives suggested"
+                    content=_"No issue suggested"
                     }
           end          
                 

@@ -5,13 +5,13 @@ local for_state = param.get("for_state")
 local for_unit = param.get("for_unit", atom.boolean)
 local for_area = param.get("for_area", atom.boolean)
 
-
+--[[
 if for_state == "open" then
   issues_selector:add_where("issue.closed ISNULL")
 elseif for_state == "closed" then
   issues_selector:add_where("issue.closed NOTNULL")
 end
-
+]]--
 --info box
 
  
@@ -36,17 +36,15 @@ elseif for_unit then
 --elseif not global then
 --  event_selector:join("event_seen_by_member", nil, { "event_seen_by_member.id = event.id AND event_seen_by_member.seen_by_member_id = ?", app.session.member_id })
 end
-local last_event_id
+
 local events = event_selector:exec()
 
 local view=param.get("view")
 local direct_voter
-
-
 local issue_rendered=0
  
 ui.container{ attr = { class = "containerIssueDiv" },
-     content = function()
+content = function()
         
 --issueDIv
  ui.paginate{
@@ -89,7 +87,7 @@ ui.container{ attr = { class = "containerIssueDiv" },
          if  issue_rendered==0 then     
             ui.tag{tag="pre",
                     attr={style="font-style: italic;color:grey;margin-left:135px;"},
-                    content=_"No initiatives voted"
+                    content=_"No issue voted"
                     }
           end     
         

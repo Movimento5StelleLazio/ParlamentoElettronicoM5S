@@ -7,7 +7,7 @@ local issues_selector =Issue:new_selector()
 local issues=issues_selector
   :add_where("issue.closed ISNULL")
   :add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
-  :exec()
+  --:exec()
 
 
 local issue_state=param.get("issue_state")
@@ -173,6 +173,12 @@ ui.container{
                               content= function()
                               
                               
+                                           ui.tag{
+                                                   tag = "pre",
+                                                   attr={class="phaseText", readonly="true"},
+                                                   content        = "FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:",  
+                                                   multiline=true
+                                                   }
                               
                               --pulsante 1
                                 ui.link{
@@ -204,15 +210,15 @@ ui.container{
                                             class = "btnOpenPhase button orange ",
                                             style="width: 85px;height:20px;",
                                             onclick="document.getElementById('btnOpenPhase').setAttribute('class','btnOpenPhase button green');"
-                                             },
-                                    params  = { issue_state ="Open",filter_state=true },
+                                           },
+                                    params  = { issue_state ="Open", filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
                                                attr={class="testoPulsanteFiltri", readonly="true"},
                                                content        =_"Open phase" 
                                                
-                                            }  
+                                          }  
                                     end
                                      
                                     }
@@ -228,7 +234,7 @@ ui.container{
                                             style="width: 85px;height:20px;",
                                             onclick="document.getElementById('btnNewPhase').setAttribute('class','btnNewPhase button green');"
                                              },
-                                    params  = { issue_state ="New",filter_state=true },
+                                    params  = { issue_state ="New", filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
@@ -381,12 +387,22 @@ ui.container{
                       
                               attr={id="pulsantiCategoria" ,class="pulsantiCategoria"},
                               content= function()
-                              
+                               
+                                         ui.tag{
+                                                   tag = "pre",
+                                                   attr={class="categoryText", readonly="true"},
+                                                   content        = "FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:",  
+                                                   multiline=true
+                                                   }
+                                                   
                               --pulsanti
                                 ui.container{
                       
                                       attr={id="pulsantiCategoriaDiv" ,class="pulsantiCategoriaDiv"},
                                       content= function()
+                                      
+                                      
+                                      
                               
                                --pulsante 1
                                   
@@ -399,7 +415,7 @@ ui.container{
                                             style="width: 95px;height:20px;",
                                             onclick="document.getElementById('btnInterestedPhase').setAttribute('class','btnInterestedPhase button green');"
                                            },
-                                    params  = { issue_state ="Canceled",filter_state=true },
+                                    params  = { issue_state ="Interested",filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
@@ -424,7 +440,7 @@ ui.container{
                                             style="width: 85px;height:20px;",
                                             onclick="document.getElementById('btnInitiatedPhase').setAttribute('class','btnInitiatedPhase button green');"
                                            },
-                                    params  = { issue_state ="Canceled",filter_state=true },
+                                    params  = { issue_state ="Initiated",filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
@@ -449,7 +465,7 @@ ui.container{
                                             style="width: 85px;height:20px;",
                                             onclick="document.getElementById('btnSupportedPhase').setAttribute('class','btnSupportedPhase button green');"
                                            },
-                                    params  = { issue_state ="Canceled",filter_state=true },
+                                    params  = { issue_state ="Supported",filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
@@ -474,11 +490,11 @@ ui.container{
                                             style="width: 100px;height:20px;",
                                             onclick="document.getElementById('btnPotentiallyPhase').setAttribute('class','btnPotentiallyPhase button green');"
                                            },
-                                    params  = { issue_state ="Canceled",filter_state=true },
+                                    params  = { issue_state ="Potentially",filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
-                                               attr={class="testoPulsanteFiltri testoPotenzialmenteSostenuto", style="line",readonly="true"},
+                                               attr={ class="testoPulsanteFiltri testoPotenzialmenteSostenuto", style="line",readonly="true"},
                                                content        =  _"Potentially supported"
                                                
                                             }  
@@ -498,7 +514,7 @@ ui.container{
                                             style="width: 85px;height:20px;",
                                             onclick="document.getElementById('btnVotedPhase').setAttribute('class','btnVotedPhase button green');"
                                            },
-                                    params  = { issue_state ="Canceled",filter_state=true },
+                                    params  = { issue_state ="Voted",filter_state=true },
                                     content=function()
                                     ui.tag{
                                                tag = "span",
@@ -522,12 +538,12 @@ ui.container{
                 
                  --linea di separazione
                       ui.container{
-                                    attr={id="lineDiv2" ,class="lineDiv",style="margin-top:153px"},
+                                    attr={id="lineDiv2" ,class="lineDiv",style="margin-top:284px;"},
                                     content=""
                                   }
                 
-                
-                   -- pulsanti categoria
+                --[[
+                   -- pulsanti unità
                       ui.container{
                       
                               attr={id="pulsantiUnita" ,class="pulsantiUnita"},
@@ -549,7 +565,7 @@ ui.container{
                                                 style="width: 95px;height:20px;",
                                                 onclick="document.getElementById('btnAllUnitsPhase').setAttribute('class','btnAllUnitsPhase button green');"
                                                },
-                                      params  = { issue_state ="Canceled",filter_state=true },
+                                      params  = { issue_state ="AllUnits",filter_state=true },
                                       content=function()
                                       ui.tag{
                                                    tag = "span",
@@ -572,7 +588,7 @@ ui.container{
                                                 style="width: 95px;height:20px;",
                                                 onclick="document.getElementById('btnMyUnitsPhase').setAttribute('class','btnMyUnitsPhase button green');"
                                                },
-                                      params  = { issue_state ="Canceled",filter_state=true },
+                                      params  = { issue_state ="MyUnits",filter_state=true },
                                       content=function()
                                       ui.tag{
                                                    tag = "span",
@@ -596,7 +612,7 @@ ui.container{
                                                 style="width: 95px;height:20px;",
                                                 onclick="document.getElementById('btnMyAreasPhase').setAttribute('class','btnMyAreasPhase button green');"
                                                },
-                                      params  = { issue_state ="Canceled",filter_state=true },
+                                      params  = { issue_state ="MyAreas",filter_state=true },
                                       content=function()
                                       ui.tag{
                                                    tag = "span",
@@ -611,10 +627,10 @@ ui.container{
                                  end
                                  }-- contenitore pulsanti unità
                         
-                        
+                       
                      end
                      }       
-                    
+                     ]]--
                 
              
                end -- contenitore Pulsanti Filtri
@@ -631,7 +647,7 @@ ui.container{
  ----------spazio div         
                   ui.container
                   {
-                  attr={class="spazioIssue", style="height:130px"},
+                  attr={class="spazioIssue", style="height:170px"},
                   content=function()
                   end
                   } 

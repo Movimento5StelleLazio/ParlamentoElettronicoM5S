@@ -409,8 +409,8 @@ return {
 ["No default"] = "Nessun valore di default";
 ["No delegation"] = "Nessuna delega";
 ["No events selected to list"] = "Nessun evento selezionato da visualizzare";
-["No initiatives suggested"]="(nessuna proposta presente)";
-["No initiatives voted"]="(nessuna votazione effettuata)";
+["No issue suggested"]="(nessuna proposta presente)";
+["No issue voted"]="(nessuna votazione effettuata)";
 ["No more events available"] = "Nessun altro evento da visualizzare";
 ["No multistage majority"] = false;
 ["No notifications at all"] = "Nessuna notifica";
