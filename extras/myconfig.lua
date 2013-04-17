@@ -22,15 +22,23 @@ config.gui_preset = {
     units = {
       eletti = {
         unit_id = 1,
-        title = _"ELECTEDS THEMATIC AREAS"
+        unit_title = _"ELECTEDS THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:"
       },
       cittadini = {
         unit_id = 2,
-        title = _"CITIZENS THEMATIC AREAS"
+        unit_title = _"CITIZENS THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:"
       },
       iscritti = {
         unit_id = 3,
-        title = _"THEMATIC AREAS"
+        unit_title = _"THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:"
+      },
+      altri_gruppi = {
+        unit_id = 4,
+        unit_title = _"THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:"
       }
     }
   },

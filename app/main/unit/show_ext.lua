@@ -49,7 +49,7 @@ end}
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(config.gui_preset.M5S.units[unit_name].title) or _"THEMATIC AREAS" }
+  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(config.gui_preset.M5S.units[unit_name].unit_title) or _"THEMATIC AREAS" }
   ui.link { 
     attr = { id = "unit_button_left", class="button orange menuButton"  }, 
     module = "unit",
