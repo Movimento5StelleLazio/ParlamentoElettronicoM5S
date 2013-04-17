@@ -470,9 +470,25 @@
   float: left;
 }
 
+#area_filter_button {
+  width: 220;
+  height: 130px;
+}
+
 .button_text {
   text-decoration: none;
   text-align: center;
   vertical-align: center;
   margin: 0.3em;
+}
+
+.area_filter_header_box {
+  margin-top: 2ex;
+  margin-bottom: 2ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 300px;
 }
