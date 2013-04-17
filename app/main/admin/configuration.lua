@@ -7,9 +7,10 @@ local guis = {
 }
 
 local selected_gui_preset
-for i, gui in ipairs(config.gui_preset) do
-  guis[#guis+1] = { id = i, name = gui.name }
-  if gui.name == gui_preset then
+
+for i, v in pairs(config.gui_preset) do
+  guis[#guis+1] = { id = i, name = v.name }
+  if v.name == gui_preset then
     selected_gui_preset = i
   end
 end

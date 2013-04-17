@@ -1,4 +1,4 @@
-local unit_id = param.get("unit_id",atom.integer)
+local unit_id = param.get_id()
 local filter_areas = param.get("filter_areas")
 
 if not app.session.member_id then
@@ -54,7 +54,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     attr = { id = "unit_button_left", class="button orange menuButton"  }, 
     module = "unit",
     view = "show_ext",
-    params = { unit_id = unit_id },
+    id = unit_id,
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ALL AREAS" }
     end
@@ -63,7 +63,8 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     attr = { id = "unit_button_right", class="button orange menuButton"  },
     module = "unit",
     view = "show_ext",
-    params = { unit_id = unit_id, filter_areas = "my_areas"},
+    id = unit_id,
+    params = { filter_areas = "my_areas"},
     content = function()
       ui.tag { tag = "p",  attr = { class  = "button_text"  }, content = _"SHOW ONLY PARTECIPATED AREAS" }
     end
