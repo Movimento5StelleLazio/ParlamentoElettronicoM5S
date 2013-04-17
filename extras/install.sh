@@ -152,6 +152,8 @@ echo "Restarting update daemon..."
 
 echo "Starting notifyd..."
 echo "Starting lf_notifyd (send_notification_loop)..."
+sleep 2
+
 ${NOTIFYD} 
 rm nohup.out 2>/dev/null
 

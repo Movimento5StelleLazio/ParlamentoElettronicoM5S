@@ -6,12 +6,3 @@ if gui_preset and config.gui_preset and config.gui_preset[gui_preset]and config.
 else
   execute.view{ module = "index", view = "_index_default" }
 end
-
---if not gui_preset or not config.gui_preset then
---  execute.view{ module = "index", view = "_index_default" }
---else
---  if config.gui_preset[gui_preset].name == gui_preset then
---    execute.view{ module = "index", view = config.gui_preset[gui_preset].start_page }
---    return
---  end
---end
