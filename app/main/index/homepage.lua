@@ -61,9 +61,11 @@ ui.container{
                content=function()   
                
                --pulsante 1
-               ui.tag{
-                    tag = "a", 
-                    attr={class="button orange menuButton", onclick="alert('molla il mouse!')"},
+               ui.link{
+                    attr={class="button orange menuButton"},
+                    module="unit",
+                    view="show_ext",
+                    id=config.gui_preset.M5S.units["cittadini"].unit_id,
                     content=function()
                     
                         ui.tag{
@@ -91,9 +93,11 @@ ui.container{
                 } 
                 
                --pulsante 3
-               ui.tag{
-                    tag = "a", 
-                    attr={class="button orange menuButton" , onclick="alert('molla il mouse!')"},
+               ui.link{
+                    attr={class="button orange menuButton"},
+                    module="unit",
+                    view="show_ext",
+                    id=config.gui_preset.M5S.units["eletti"].unit_id,
                     content=function()
                     
                         ui.tag{
@@ -107,9 +111,11 @@ ui.container{
                 
                 
                --pulsante 4
-               ui.tag{
-                    tag = "a", 
-                    attr={class="button orange menuButton" , onclick="alert('molla il mouse!')"},
+               ui.link{
+                    attr={class="button orange menuButton"},
+                    module="unit",
+                    view="show_ext",
+                    id=config.gui_preset.M5S.units["altri_gruppi"].unit_id,
                     content=function()
                     
                         ui.tag{
