@@ -15,7 +15,7 @@ for i,v in pairs(config.gui_preset.M5S.units) do
   if config.gui_preset.M5S.units[i].unit_id == area.unit_id then unit_name = i end
 end
  
-if not config.gui_preset.M5S.units[unit_name] then
+if not config.gui_preset.M5S.units[unit_name] or not config.gui_preset.M5S.units[unit_name].area_filter_title then
   slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
   return false
 end
