@@ -36,19 +36,32 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
             last_login_time = format.time(lastLogin.login_time)
           })
         }
-        ui.tag{tag="span",attr = { id = "location", class = "welcome_text_l"}}
+        ui.tag{ tag="span", attr = { id = "location", class = "welcome_text_l"}}
       end}
     end
   end
       slot.put("<br />")
       ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
-      ui.link{ attr = {id = "welcome_middle_box_left", class="button orange menuButton"}, module="index", view="homepage", content=function()
-        ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
-      end}
-      ui.link{ attr = {id = "welcome_middle_box_right", class="button orange menuButton" }, content=function()
-        ui.tag{ tag="p", attr = {class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-      end}
+      ui.link{ 
+        attr = {id = "welcome_middle_box_left", 
+        class="button orange menuButton"}, 
+        module="index", 
+        view="homepage", 
+        content=function()
+          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
+        end
+      }
+      ui.link{ 
+        attr = {id = "welcome_middle_box_right", 
+        class="button orange menuButton" }, 
+        module="unit", 
+        view="show_ext", 
+        id=config.gui_preset.M5S.units["iscritti"].unit_id,
+        content=function()
+          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+        end
+      }
       ui.image{  attr = { id = "welcome_parlamento_left" }, static="parlamento_icon_small.png" }
       ui.image{  attr = { id = "welcome_parlamento_right" }, static="parlamento_icon_small.png" }
 
