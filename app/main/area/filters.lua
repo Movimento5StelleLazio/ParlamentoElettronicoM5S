@@ -37,7 +37,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
    ui.link {
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
-    view = "show",
+    view = "show_ext",
     params = { tab = "open", filter = "new"},
     id = area.id,
     content = function()
@@ -47,7 +47,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
    ui.link {
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
-    view = "show",
+    view = "show_ext",
     params = { tab = "open", filter = "accepted"},
     id = area.id,
     content = function()
@@ -57,7 +57,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   ui.link {
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
-    view = "show",
+    view = "show_ext",
     params = { tab = "closed"},
     id = area.id,
     content = function()
