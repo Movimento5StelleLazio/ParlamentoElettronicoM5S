@@ -1412,3 +1412,9 @@ a.not_voted {
 	margin: 0 auto;
 	max-width: 1130px;
 }
+
+/* MODIFICHE MASSIMILIANO */
+a, #navigation_right ul li a {
+    font-size: 1.3em;
+}
+
