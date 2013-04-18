@@ -1,4 +1,4 @@
-
+body { font-size: 62.5%; }
 
 
 .menuDiv
@@ -642,8 +642,11 @@
   margin: 5px;
   color: black;
   text-align: center;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: xx-large;
+  font-family: Arial, sans-serif;
+  /*font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: xx-large;*/
+ font-size: 2.4em;
+ 
 }
 
 .welcome_text_l {
