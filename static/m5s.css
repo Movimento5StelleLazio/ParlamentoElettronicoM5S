@@ -1,6 +1,3 @@
-body { font-size: 62.5%; }
-
-
 .menuDiv
 {
     background-color: #FFFFCC;
@@ -629,10 +626,11 @@ body { font-size: 62.5%; }
 }
 
 #welcome_title_box {
-  border-top-left-radius: 40px 40px;
+  /*border-top-left-radius: 40px 40px;
   border-top-right-radius: 40px 40px;
   border-bottom-left-radius: 40px 40px;
-  border-bottom-right-radius: 40px 40px;
+  border-bottom-right-radius: 40px 40px;*/
+  border-radius: 40px 40px;
   border: 12px solid yellow;
   background-color: white;
   margin: 1% 5% 1% 5%;
@@ -642,10 +640,10 @@ body { font-size: 62.5%; }
   margin: 5px;
   color: black;
   text-align: center;
-  font-family: Arial, sans-serif;
-  /*font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: xx-large;*/
- font-size: 2.4em;
+  /*font-family: Arial, sans-serif;*/
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  /*font-size: xx-large;*/
+ font-size: 3.2em;
  
 }
 
