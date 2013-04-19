@@ -19,11 +19,11 @@ end
 
 local issue_desc
 if filter == "open" then
-  issue_desc = config.gui_preset.M5S.units[unit_name].issue_desc_open
+  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_open)
 elseif filter == "closed_or_canceled" then
-  issue_desc = config.gui_preset.M5S.units[unit_name].issue_desc_closed_or_canceled
+  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_closed_or_canceled)
 elseif filter == "new" then
-  issue_desc = config.gui_preset.M5S.units[unit_name].issue_desc_new
+  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_new)
 else
   slot.put_into("error", "Invalid filter selected")
   return false
@@ -64,7 +64,7 @@ end}
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issue_desc) }
+  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = issue_desc }
 
 ui.link {
     attr = { id = "area_show_ext_button", class="button orange menuButton"  },
