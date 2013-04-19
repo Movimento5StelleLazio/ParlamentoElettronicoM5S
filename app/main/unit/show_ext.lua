@@ -32,11 +32,17 @@ if not unit_name then
   return false
 end
 
+local return_view = "homepage"
+
+if unit_name == "iscritti" then
+  return_view = "index"
+end
+
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.link { 
     attr = { id = "unit_button_back", class="button orange menuButton"  }, 
     module = "index",
-    view = "homepage",
+    view = return_view,
     content = function()
       ui.image{ attr = { id = "unit_arrow_back" }, static = "arrow_left.png" }
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
