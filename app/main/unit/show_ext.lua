@@ -73,7 +73,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
   ui.container{ attr = { class="unit_areas_box"}, content=function()
     execute.view{  
       module = "area",
-      view = "_list",
+      view = "_list_ext",
       params = { areas_selector = areas_selector, member = app.session.member }
     }
   end}
