@@ -1535,7 +1535,7 @@ a, #navigation_right ul li a {
     font-weight: bold;
     
 }
-
+/*
 .containerFiltriDiv{
     
     background-color: transparent;
@@ -1545,7 +1545,7 @@ a, #navigation_right ul li a {
     margin-left:auto;
     margin-right:auto;
  
-}
+}*/
 
 .containerPulsantiFiltri{
 
@@ -1559,11 +1559,12 @@ a, #navigation_right ul li a {
 
 .pulsanteFiltri
 {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    height: 80px;
-    left: 400px;
+    /* height: 80px;
+    left: 400px;margin-left: auto;
+    margin-right: auto;*/
+   margin: 0 auto;
+   text-align: center;
+   padding: 2em 0;
 }
 
 .pulsantiFase{
