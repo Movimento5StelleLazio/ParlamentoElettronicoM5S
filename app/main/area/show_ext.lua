@@ -25,7 +25,7 @@ if invert ~= true and invert ~= false then
   invert = false
 end
  
--- Boolean inline inverter
+-- Boolean values inline inverter
 function inv(var)
   if var then return false end
   return true
@@ -39,36 +39,28 @@ else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
   
+-- This holds issue-oriented description text for shown issues
 local issue_desc
 
 local issues_selector = area:get_reference_selector("issues")
-if filter == "open" then
+if state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open
   issues_selector:add_where("issue.closed ISNULL")
-elseif filter == "closed_or_canceled" then
+  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
+elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
   issues_selector:add_where("issue.closed NOTNULL")
-elseif filter == "new" then
+  :add_order_by("issue.closed DESC")
+elseif state == "new" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_new
 else
-  slot.put_into("error", "Invalid filter selected")
-  return false
+  state = "open"
 end
   
-
-local open_issues_selector = area:get_reference_selector("issues")
-  :add_where("issue.closed ISNULL")
-  :add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
-
-local closed_issues_selector = area:get_reference_selector("issues")
-  :add_where("issue.closed NOTNULL")
-  :add_order_by("issue.closed DESC")
-
-local members_selector = area:get_reference_selector("members"):add_where("member.active")
-local delegations_selector = area:get_reference_selector("delegations")
-  :join("member", "truster", "truster.id = delegation.truster_id AND truster.active")
-  :join("member", "trustee", "trustee.id = delegation.trustee_id AND trustee.active")
-
+-- Checking order
+if not orderby then
+  orderby = "supporters"
+end 
 
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.link {
@@ -95,7 +87,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { filter=filter, orderby="supporters", invert=invert},
+    params = { state=state, orderby="supporters", invert=invert},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
     end
@@ -106,7 +98,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { filter=filter, orderby="creation_date", invert=invert },
+    params = { state=state, orderby="creation_date", invert=invert },
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
     end
@@ -117,7 +109,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { filter=filter, orderby="last_event", invert=invert},
+    params = { state=state, orderby="last_event", invert=invert},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
     end
@@ -128,7 +120,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { filter=filter, orderby=orderby, invert=inv(invert)},
+    params = { state=state, orderby=orderby, invert=inv(invert)},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
     end
@@ -139,7 +131,7 @@ ui.container{ attr = { class="area_issue_box"}, content=function()
       module = "issue",
       view = "_list",
       params = {
-        for_state = "open",
+        for_state = state,
         issues_selector = issues_selector, for_area = true
       }
     }
@@ -148,14 +140,7 @@ ui.container{ attr = { class="area_issue_box"}, content=function()
 
 end}
 
-
-
-
-
-
-
-
-
+--[[
 
 
 local tabs = {
@@ -214,5 +199,6 @@ if app.session:has_access("all_pseudonymous") then
       params = { delegations_selector = delegations_selector }
     }
 end
+ui.tabs(tabs)
 
---ui.tabs(tabs)
+--]]
