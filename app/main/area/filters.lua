@@ -15,14 +15,14 @@ for i,v in pairs(config.gui_preset.M5S.units) do
   if config.gui_preset.M5S.units[i].unit_id == area.unit_id then unit_name = i end
 end
  
-if not config.gui_preset.M5S.units[unit_name] or not config.gui_preset.M5S.units[unit_name].area_filter_title then
+if not config.gui_preset.M5S.units[unit_name] then
   slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
   return false
 end
 
 
 ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
-  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _("#{realname}, you are now in the Regione Lazio Assembly", {realname = app.session.member.realname}) }
+  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset.M5S.units[unit_name].assembly_title, {realname = app.session.member.realname}) }
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _(config.gui_preset.M5S.units[unit_name].area_filter_title) }
   ui.link {
     attr = { id = "area_filter_button", class="button orange menuButton"  },
@@ -38,7 +38,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
     view = "show_ext",
-    params = { tab = "open", filter = "new"},
+    params = { filter = "new"},
     id = area.id,
     content = function()
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE IN CERCA DI SOSTENITORI" }
@@ -48,7 +48,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
     view = "show_ext",
-    params = { tab = "open", filter = "accepted"},
+    params = { filter = "open"},
     id = area.id,
     content = function()
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE ATTUALMENTE IN DICSCUSSIONE" }
@@ -58,7 +58,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     attr = { id = "area_filter_button", class="button orange menuButton"  },
     module = "area",
     view = "show_ext",
-    params = { tab = "closed"},
+    params = { filter = "closed_or_canceled"},
     id = area.id,
     content = function()
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE COMPLETATE O RITIRATE" }
