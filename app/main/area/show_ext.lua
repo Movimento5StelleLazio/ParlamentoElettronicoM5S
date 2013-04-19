@@ -1,5 +1,5 @@
 local area = Area:by_id(param.get_id())
-local filter = param.get("filter")
+local state = param.get("state")
 local orderby = param.get("orderby")
 local invert = param.get("invert",atom.boolean)
 
@@ -40,8 +40,8 @@ else
 end
   
 local issue_desc
-local issues_selector = area:get_reference_selector("issues")
 
+local issues_selector = area:get_reference_selector("issues")
 if filter == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open
   issues_selector:add_where("issue.closed ISNULL")
