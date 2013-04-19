@@ -9,6 +9,7 @@ app.html_title.subtitle = _("Area")
 
 util.help("area.show")
 
+-- Get the unit name from the configuration file
 local unit_name
 for i,v in pairs(config.gui_preset.M5S.units) do
   if config.gui_preset.M5S.units[i].unit_id == area.unit_id then unit_name = i end
@@ -19,10 +20,25 @@ if not config.gui_preset.M5S.units[unit_name] then
   return false
 end
 
+-- Set the invert order param
 if invert ~= true and invert ~= false then
   invert = false
 end
+ 
+-- Boolean inline inverter
+function inv(var)
+  if var then return false end
+  return true
+end
 
+-- Determines the invert order button text
+local inv_txt
+if not invert then
+  inv_txt = _"INVERT ORDER FROM ASCENDING TO DESCENDING"
+else
+  inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
+end
+  
 local issue_desc
 local issues_selector = area:get_reference_selector("issues")
 
@@ -31,6 +47,7 @@ if filter == "open" then
   issues_selector:add_where("issue.closed ISNULL")
 elseif filter == "closed_or_canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
+  issues_selector:add_where("issue.closed NOTNULL")
 elseif filter == "new" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_new
 else
@@ -51,12 +68,6 @@ local members_selector = area:get_reference_selector("members"):add_where("membe
 local delegations_selector = area:get_reference_selector("delegations")
   :join("member", "truster", "truster.id = delegation.truster_id AND truster.active")
   :join("member", "trustee", "trustee.id = delegation.trustee_id AND trustee.active")
-
-
-function inv(var)
-  if var then return false end
-  return true
-end
 
 
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
@@ -119,7 +130,7 @@ ui.link {
     id = area.id,
     params = { filter=filter, orderby=orderby, invert=inv(invert)},
     content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"INVERT ORDER FROM DESCENDING TO ASCENDING" }
+      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
     end
   }
 
@@ -129,7 +140,7 @@ ui.container{ attr = { class="area_issue_box"}, content=function()
       view = "_list",
       params = {
         for_state = "open",
-        issues_selector = open_issues_selector, for_area = true
+        issues_selector = issues_selector, for_area = true
       }
     }
   end

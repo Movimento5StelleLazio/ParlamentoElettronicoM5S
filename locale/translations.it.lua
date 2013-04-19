@@ -15,6 +15,11 @@ return {
 ["#{interval_text} [interval]"] = "#{interval_text}";
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
+["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
+["ORDER BY DATE OF CREATION"]="ORDINA PER LA DATA DI IMMISSIONE";
+["ORDER BY LAST EVENT DATE"]="ORDINA PER LA DATA DELL'ULTIMO EVENTO";
+["INVERT ORDER FROM DESCENDING TO ASCENDING"]="INVERTI ORDINE DA DISCENDENTE A ASCENDENTE";
+["INVERT ORDER FROM ASCENDING TO DESCENDING"]="INVERTI ORDINE DA ASCENDENTE A DISCENDENTE";
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
 ["BACK TO PREVIOUS PAGE"]="TORNA ALLA PAGINA PRECEDENTE";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
