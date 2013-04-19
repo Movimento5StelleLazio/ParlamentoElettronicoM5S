@@ -17,11 +17,9 @@ body {
     line-height: 1.2;
     color: #000;
    /* background: #fff;
-    
     background-image: url("back.png");
     background: url("back.png") repeat #F8F8F9;*/
-   background: #f8f8f9;
-    
+    background: #f8f8f9;
     padding: 0;
     margin: 0;
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
