@@ -1,5 +1,7 @@
 local area = Area:by_id(param.get_id())
 local filter = param.get("filter")
+local orderby = param.get("orderby")
+local invert = param.get("invert",atom.boolean)
 
 
 app.html_title.title = area.name
@@ -17,13 +19,20 @@ if not config.gui_preset.M5S.units[unit_name] then
   return false
 end
 
+if invert ~= true and invert ~= false then
+  invert = false
+end
+
 local issue_desc
+local issues_selector = area:get_reference_selector("issues")
+
 if filter == "open" then
-  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_open)
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open
+  issues_selector:add_where("issue.closed ISNULL")
 elseif filter == "closed_or_canceled" then
-  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_closed_or_canceled)
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
 elseif filter == "new" then
-  issue_desc = _(config.gui_preset.M5S.units[unit_name].issue_desc_new)
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_new
 else
   slot.put_into("error", "Invalid filter selected")
   return false
@@ -44,6 +53,10 @@ local delegations_selector = area:get_reference_selector("delegations")
   :join("member", "trustee", "trustee.id = delegation.trustee_id AND trustee.active")
 
 
+function inv(var)
+  if var then return false end
+  return true
+end
 
 
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
@@ -64,13 +77,14 @@ end}
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = issue_desc }
+  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
 
 ui.link {
     attr = { id = "area_show_ext_button", class="button orange menuButton"  },
     module = "area",
     view = "show_ext",
     id = area.id,
+    params = { filter=filter, orderby="supporters", invert=invert},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
     end
@@ -81,6 +95,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
+    params = { filter=filter, orderby="creation_date", invert=invert },
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
     end
@@ -91,6 +106,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
+    params = { filter=filter, orderby="last_event", invert=invert},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
     end
@@ -101,6 +117,7 @@ ui.link {
     module = "area",
     view = "show_ext",
     id = area.id,
+    params = { filter=filter, orderby=orderby, invert=inv(invert)},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"INVERT ORDER FROM DESCENDING TO ASCENDING" }
     end
