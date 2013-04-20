@@ -77,7 +77,7 @@ elseif state == "closed" then
 --  issues_selector:add_order_by("issue.closed "..ord)
 
 elseif state == "canceled" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed
   issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
 --  issues_selector:add_order_by("issue.closed "..ord)
 
