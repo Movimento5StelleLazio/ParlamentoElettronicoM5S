@@ -2278,3 +2278,849 @@ a, #navigation_right ul li a {
   padding: 1ex;
   height: 300px;
 }
+=======
+
+
+
+.menuDiv
+{
+    background-color: #FFFFCC;
+    border-color: yellow;
+    border-radius: 12px 12px 12px 12px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    height: 450px;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.welcomeText
+{
+    color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    margin-top: 10px;
+    line-height: normal;
+    font-size: 18px;
+}
+
+.sceltaText
+{
+    font-size:32px;
+    color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    margin-top: 10px;
+    line-height: 40px;
+}
+
+.pulsantiMenuHomepageDiv{
+	background-color:transparent;
+	height: 160px;
+	width: 100%;
+}
+.menuButton
+{
+	float: left;
+	 
+}
+.testoPulsantiMenuHomepage{
+	  
+	   width: 50px;
+	   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	
+}
+
+
+.phaseText
+{
+	color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 22px;
+    line-height: normal;
+    margin-top: 29px;
+    text-align: center;
+    height: 10px;
+    float: left;
+    width: 100%;
+}
+
+.categoryText
+{
+	
+	color: black;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 22px;
+    line-height: normal;
+    margin-top: 29px;
+    text-align: center;
+    height: 10px;
+    float: left;
+    width: 100%;
+	
+}
+
+.pulsanteFiltriDiv{
+	
+	background-color: transparent;
+    border-radius: 12px 12px 12px 12px;
+    height: 100px;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.containerFiltriDiv{
+    
+    background-color: transparent;
+    border-radius: 12px 12px 12px 12px;
+    width: 100%;
+    height: 140px;
+    margin-left:auto;
+    margin-right:auto;
+ 
+}
+
+.containerPulsantiFiltri{
+
+	background-color: transparent;
+	display: none;
+	width: 100%;
+	height: 170px; 
+}
+
+
+
+.pulsanteFiltri
+{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	height: 80px;
+	left: 400px;
+}
+
+.pulsantiFase{
+    
+    float:left;
+}
+
+.testoPulsanteFiltri{
+    
+    font-size: 14px;
+    margin: -26px -25px -25px;
+    margin-top: -26px;
+    position: relative;
+    top: -4px;
+}
+
+
+.btnAllPhase{
+	font-size:12px;
+	float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+.btnOpenPhase{
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+ 
+
+.btnNewPhase{
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+
+.btnDiscussionPhase{
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+
+.btnFrozenPhase{
+	 font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+.btnVotationPhase{
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+.btnClosedPhase
+{
+	font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+	
+}
+
+.btnCanceledPhase{
+	
+	font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+	
+}
+
+.lineDiv
+{
+	
+	border: thin solid black;
+    height: 0;
+    margin-left: 90px;
+    margin-top: 138px;
+    opacity: 0.24;
+    position: absolute;
+    width: 80%;
+}
+
+.pulsantiCategoria{
+	
+	float: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+	
+}
+
+.pulsantiCategoriaDiv{
+    
+    float: left;
+    margin-left: 200px;
+    margin-right: auto;
+    
+}
+.btnInterestedPhase{
+    
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+    
+}
+
+
+.btnInitiatedPhase{
+    
+    font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+    
+}
+
+.btnSupportedPhase{
+	  font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+	
+}
+
+.btnPotentiallyPhase
+{
+	
+	font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+	
+}
+
+
+.testoPotenzialmenteSostenuto{
+	
+	line-height: 12px;
+    margin: 0;
+    text-align: center;
+}
+.btnVotedPhase{
+	  font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
+.pulsantiUnitaDiv
+{
+	
+	float: left;
+    margin-left: 200px;
+    margin-right: auto;
+	
+}
+
+
+.pulsantiUnita
+{
+
+	float: left;
+    margin-left: 120px;
+    margin-right: auto;
+    margin-top: 10px;
+	
+}
+
+.btnAllUnitsPhase
+{
+	text-align: center;
+	float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    
+}
+
+.btnMyUnitsPhase
+{
+    text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    
+}
+
+
+.testoMyUnits {
+    line-height: 12px;
+    margin: 0;
+    text-align: center;
+}
+
+.btnMyAreasPhase
+{
+    text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    
+}
+
+
+
+
+.parlamentoDiv
+{
+    background-color: transparent;
+    border-radius: 12px 12px 12px 12px;
+    height:100%;
+    position: relative;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+}   
+
+.parlamentoImg{
+    margin-left: 100px;
+    margin-top: -150px;
+}
+
+
+.containerIssueDiv
+{
+	background-color: white;
+    float: inherit;
+    width: 103%;
+    margin-left: -8px;
+}
+.votazioniDiv
+{
+    background-color: #f2f19a;
+    border-radius: 8px;
+    width: 44%;
+    float: left;
+    padding: 20px;  
+    height:auto;
+}
+
+.spazioDiv
+{
+    
+    background-color: transparent;
+    float: left;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    width: 2.6%;
+}
+
+.proposteDiv
+{
+    background-color: #ebe2aa;
+    border-radius: 8px;
+    float: left;
+    height:auto;
+    position: relative;
+    width: 45%;
+    padding: 20px;    
+}
+
+.headerDiv
+{
+	background-color: white;
+    height: 80px;
+    width: 100%;
+}
+
+.paginate{
+	
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+}
+
+.titolo
+{
+	
+	font-size: 34px;
+    left: 105px;
+    position: relative;
+	 
+}
+.issueDiv{
+	
+	width: 470px;
+	height: 220px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.issue_ext{
+	 
+    clear: left;
+    height: 180px;
+    top: -35px;
+    position: relative;
+}
+.infoIssueDiv
+{
+	background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    background-color: orange;
+    border-radius: 16px 16px 16px 16px;
+    float: left;
+    height: 80px;
+    margin-left: 7px;
+    width: 50%;
+    padding-left: 10px;
+    padding-top:5px;
+    color: white;
+}
+
+.event_name{
+	font-weight: bold;
+}
+
+
+.pulsanteVediDettaglio
+{
+	 
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 25px;
+    float: left;
+     
+}
+
+.testoPulsanteVediDettaglio{
+	
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+   
+	
+}
+
+
+.faseDiv
+{
+	box-shadow: 2px 2px 4px #CCCCCC;
+	background-color: white;
+    border: thin solid black;
+    border-radius: 8px 8px 8px 8px;
+    color: red;
+    font-weight: normal;
+    height: 45px;
+    left: 265px;
+    margin-right: 20px;
+    position: relative;
+    width: 240px;
+    top: 0px;
+    
+	
+}
+.initiative_link{
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 270px;
+}
+.labelFase{
+	font-size: 17px;
+    left: 1px;
+    position: relative;
+    top: 13px;
+    
+}
+
+.labelFase_admission{
+    color: darkred;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
+ 
+.labelFase_discussion{
+    color: tomato;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
+
+.labelFase_verification{
+    color: blue;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
+.labelFase_voting{
+    color: green;
+    float: right;
+    font-size: 17px;
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    
+}
+
+.spazioIssue
+{
+	width:100%;
+	height:24px;
+}
+
+.loginDiv
+{
+    background-color: #FFFFCC;
+    border-color: yellow;
+    border-radius: 12px 12px 12px 12px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    width: 100%;
+    text-align: left;
+}
+
+#welcome_title_box {
+  border-top-left-radius: 40px 40px;
+  border-top-right-radius: 40px 40px;
+  border-bottom-left-radius: 40px 40px;
+  border-bottom-right-radius: 40px 40px;
+  border: 12px solid yellow;
+  background-color: white;
+  margin: 1% 5% 1% 5%;
+}
+
+.welcome_text_xl {
+  margin: 5px;
+  color: black;
+  text-align: center;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: xx-large;
+}
+
+.welcome_text_l {
+  margin: 5px;
+  color: black;
+  text-align: center;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: large;
+}
+
+#welcome_footer_container {
+  position: relative;
+  padding: 0px;
+  border: 0px;
+  height: 100px;
+}
+
+#welcome_footer_box_left {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100px;
+  height: 100%;
+}
+
+#welcome_footer_box_middle {
+  position: absolute;
+  top: 0px;
+  left:100px;
+  width: 700px;
+  height: 100px;
+}
+
+#arrow_right {
+  position: absolute;
+  right: 202px;
+  top: 0px;
+}
+
+#welcome_footer_box_right {
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  top: -10px;
+  width: 160px;
+  height: 80px;
+}
+
+#welcome_middle_box {
+  margin-top: 2ex;
+  margin-bottom: 1ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 450px;
+  position: relative;
+}
+
+#welcome_middle_box_left {
+  position: absolute;
+  bottom: 20px;
+  left: 130px;
+  text-align: center;
+  width: 254px;
+  height: 110px;
+}
+
+#welcome_middle_box_right {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  right: 130px;
+  width: 254px;
+  height: 110px;
+}
+
+#welcome_parlamento_left {
+  position: absolute;
+  bottom: 135px;
+  left: 142px;
+}
+
+#welcome_parlamento_right {
+  position: absolute;
+  bottom: 135px;
+  right: 142px;
+}
+
+.unit_header_box {
+  margin-top: 2ex;
+  margin-bottom: 2ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 175px;
+}
+
+#unit_button_back {
+  text-align: center;
+  width: 190px;
+}
+
+#unit_button_left {
+  margin-left: 290px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+
+#unit_button_right {
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+
+.unit_bottom_box {
+  margin-top: 150px;
+  margin-bottom: 1ex;
+  background-color: #ebe2aa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.unit_areas_box {
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 190px;
+  padding: 20px;
+}
+
+.area_issue_box {
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 190px;
+  padding: 20px;
+}
+
+#unit_parlamento_img{
+  position: absolute;
+  z-index: 1;
+  margin-left: 410px;
+  margin-bottom: -30px;
+}
+
+#unit_title {
+  margin-top: 40px;
+}
+
+#unit_arrow_back {
+  height: 55px;
+  width: 55px;
+  float: left;
+}
+
+#area_filter_button {
+  width: 214px;
+  height: 130px;
+}
+
+.button_text {
+  text-align: center;
+  margin: 0.3em;
+}
+
+.area_filter_header_box {
+  margin-top: 2ex;
+  margin-bottom: 2ex;
+  border-radius: 8px;
+  border: 1px solid #ffe900;
+  background-color: #fffbce;
+  color: #000;
+  padding: 1ex;
+  height: 300px;
+}
+
+#area_show_ext_button {
+ width: 210px;
+ height: 120px;
+}
+
+.filter_button {
+  text-align: center;
+  float: left;
+  padding: 5px;
+  width: 85px;
+  height:20px;
+}
+
+.filter_button_text {
+  margin: 0.3em;
+/*  position: relative;
+  top: -4px;
+*/  font-size: 14px;
+}
