@@ -21,7 +21,7 @@ if not config.gui_preset.M5S.units[unit_name] then
 end
 
 local button_margin
-if unit_name ~= "cittadini" and unit_name ~= "eletti" then
+if unit_name ~= "cittadini" and unit_name ~= "iscritti" then
   button_margin = "left: 140px;"
 end
 
@@ -38,7 +38,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
     end
   }
-  if unit_name == "cittadini" or unit_name == "eletti" then
+  if unit_name == "cittadini" or unit_name == "iscritti" then
     ui.link {
       attr = { id = "area_filter_button", class="button orange menuButton"  },
       module = "area",
