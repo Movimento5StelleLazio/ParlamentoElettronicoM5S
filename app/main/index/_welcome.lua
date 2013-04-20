@@ -41,7 +41,8 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
     end
   end
       slot.put("<br />")
-      ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
+      --ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
+      ui.tag{ tag="h2", content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
       ui.link{ 
         attr = {id = "welcome_middle_box_left", 

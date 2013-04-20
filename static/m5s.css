@@ -134,11 +134,11 @@ a.active {
 }
 
 h1 {
-    font-size: 150%;
+    font-size: 2.2em;
 }
 
 h2 {
-    font-size: 125%;
+    font-size: 1.25em;
 }
 
 .inline {
@@ -2106,7 +2106,7 @@ a, #navigation_right ul li a {
   color: black;
   text-align: center;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: large;
+  font-size:1.6em;
 }
 
 #welcome_footer_container {
