@@ -23,22 +23,36 @@ config.gui_preset = {
       eletti = {
         unit_id = 1,
         unit_title = _"ELECTEDS THEMATIC AREAS",
-        area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:"
+        area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:",
+        assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
+        issues_desc_open =_"Electeds Initiatives In Discussion",
+        issues_desc_closed_or_canceled = _"Electeds Initiatives Completed or Retired"
       },
       cittadini = {
         unit_id = 2,
         unit_title = _"CITIZENS THEMATIC AREAS",
-        area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:"
+        area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:",
+        assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
+        issues_desc_open =_"Citizens Initiatives In Discussion",
+        issues_desc_closed_or_canceled = _"Citizens Initiatives Completed or Retired",
+        issues_desc_new =  _"Citizens Initiatives Looking For Supporters"
       },
       iscritti = {
         unit_id = 3,
-        unit_title = _"THEMATIC AREAS",
-        area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:"
+        unit_title = _"M5S MEMBERS THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:",
+        assembly_title = _"#{realname}, you are now in the Regione Lazio Internal Assembly",
+        issues_desc_open =_"M5S Members Initiatives In Discussion",
+        issues_desc_closed_or_canceled = _"M5S Members Initiatives Completed or Retired",
+        issues_desc_new =  _"M5S Members Initiatives Looking For Supporters"
       },
       altri_gruppi = {
         unit_id = 4,
-        unit_title = _"THEMATIC AREAS",
-        area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:"
+        unit_title = _"OTHER POLITICAL GROUPS THEMATIC AREAS",
+        area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:",
+        assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
+        issues_desc_open =_"Other Groups Initiatives In Discussion",
+        issues_desc_closed_or_canceled = _"Other Groups Initiatives Completed or Retired"
       }
     }
   },
