@@ -77,7 +77,7 @@ elseif state == "closed" then
 --  issues_selector:add_order_by("issue.closed "..ord)
 
 elseif state == "canceled" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Canceled:"
   issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
 --  issues_selector:add_order_by("issue.closed "..ord)
 
@@ -119,26 +119,37 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
 end}
 
   -- Filters div
-  ui.container{ attr = { id  = "area_show_ext_filter_box" }, content = function()
+  ui.link {
+    attr = { id = "area_show_ext_openfilter_button", class="button orange menuButton",onclick = "alert('TBD');"  },
+    module = "area",
+    view = "show_ext",
+    id = area.id,
+    content = function()
+      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"APPLY FILTERS" }
+    end
+  }
 
-    ui.link { 
-      attr = { id = "area_show_ext_openfilter_button", class="button orange menuButton",onclick = "alert('TBD');"  },
-      module = "area",
-      view = "show_ext",
-      id = area.id,
-      content = function()
-        ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"APPLY FILTERS" }
-      end
-    }
+--[[
+  ui.container{ attr = { id = "area_show_ext_filters_box", class = "area_show_ext_filters_box" }, content = function()
 
     ui.container{ attr = { id  = "area_show_ext_filter_phase_box" }, content = function()
+      ui.link{
+        attr = { id = "a", class="button orange filter_button",onclick = "alert('TBD');"  },
+        module = "area",
+        view = "show_ext",
+        id = area.id,
+        params = { state=state, orderby=orderby, invert=invert},
+        content = function()
+          ui.tag {  tag = "p", attr = { class  = "filter_button_text"  }, content = "blablabla" }
+        end
+      }
     end }
 
     ui.container{ attr = { id  = "area_show_ext_filter_category_box" }, content = function()
     end }
     
   end }
-
+--]]
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()

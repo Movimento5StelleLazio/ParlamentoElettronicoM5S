@@ -809,8 +809,9 @@
 }
 
 .button_text {
-  text-align: center;
   margin: 0.3em;
+  font: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
 .area_filter_header_box {
@@ -842,4 +843,16 @@
 /*  position: relative;
   top: -4px;
 */  font-size: 14px;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+#area_show_ext_filters_box{
+  width: 100%;
+  height: 230px;
+  border: solid black 1px;
+}
+
+#area_show_ext_openfilter_button{
+  top: 20px;
+  left: 220px;
 }
