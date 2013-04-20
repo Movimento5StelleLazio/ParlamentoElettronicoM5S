@@ -1,6 +1,5 @@
 
 
-
 local issues_selector =Issue:new_selector()
  
   
@@ -157,10 +156,10 @@ ui.container{
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                           attr={class="text-align: center;", readonly="true"},
-                           content        =_"Do filters",  
-                           multiline=true
+                           --tag = "pre",
+                           --attr={class="text-align: center;", readonly="true"},
+                           content        =_"Do filters"--,  
+                           --multiline=true
                         }  
                     end-- fine tag.content
                 }  
