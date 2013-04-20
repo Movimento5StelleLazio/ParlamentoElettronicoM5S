@@ -176,6 +176,7 @@ return {
 ["Closed user group, please login to participate."] = "Gruppo chiuso, accedere per partecipare.";
 ["Collective opinion of supporters"] = "Opinione collettiva dei sostenitori";
 ["Commit suggestion"] = "Invia suggerimento";
+["Commission phase"]="in Commissione";
 ["Compare"] = "Compara";
 ["Configuration"]="Configurazione";
 ["Configure notifications now"] = "Configura notifiche adesso";
@@ -271,6 +272,9 @@ return {
 ["Everything"] = "Tutto";
 ["External memberships"] = "Partecipanti esterni";
 ["External posts"] = "Messaggi esterni";
+["Filter Phase"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
+["Filter Category"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
+["Filter Unit"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["Find Supporters"]="CERCA SOSTENITORI";
 ["Finish voting"] = "Registra voto";
 ["Finished"] = "Chiuso";
@@ -458,6 +462,7 @@ return {
 ["Not accepted yet"] = "Non ancora accettato";
 ["Not approved"] = "Non approvata";
 ["Not approved (rank #{rank})"] = "Non approvato (grado #{rank})";
+["Not My areas"]="Aree non mie";
 ["Not voted"] = "Non votato";
 ["Not voted issues"] = "Questioni non votate";
 ["Notification address unconfirmed"] = "Indirizzo eMail di verifica non confermato";
@@ -534,6 +539,9 @@ return {
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
 ["Profile"] = "Profilo";
+["Public Citiziens units"]="Unità Pubbliche Cittadini";
+["Public Elected units"]="Unità Pubbliche Eletti";
+["Public other groups units"]="Unità Pubbliche altri Gruppi";
 ["Publish"] = "Pubblica";
 ["Published"] = "Pubblico";
 ["Quorum"] = "Quorum";
@@ -775,6 +783,7 @@ return {
 ["Your name has been changed"] = "Nome aggiornato correttamente";
 ["Your page has been updated"] = "Pagina personale aggiornata";
 ["Your password has been updated successfully"] = "Password aggiornata correttamente";
+["Your Proposals"]="Le Tue Proposte";
 ["Your rating has been deleted"] = "La tua valutazione è stata rimossa";
 ["Your rating has been updated"] = "La tua valutazione è stata aggiornata";
 ["Your suggestion has been added"] = "Il tuo suggerimento è stato aggiunto";
@@ -782,6 +791,7 @@ return {
 ["Your support has been removed from this initiative"] = "Il tuo supporto è stato rimosso da questa proposta";
 ["Your support has been updated to the latest draft"] = "Il tuo supporto è stato aggiornato all'ultima bozza";
 ["Your vote has been discarded. Delegation rules apply if set."] = "Il tuo voto è stato ritirato. Dove applicabile sarà attiva la delega.";
+["Your Voting"]="Le tue Votazioni";
 ["Z-A"] = false;
 ["[Name of Language]"] = "Italiano";
 ["[No voting privilege]"] = "[Nessun privilegio di voto]";

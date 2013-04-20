@@ -14,20 +14,43 @@ config.app_service_provider = "Snake Oil<br/>10000 Berlin<br/>Germany"
 
 -- Liquidfeedback Layout  (default value="default")
 -- -------------------------------------------------------------------------
---config.gui_preset = {
---  {
---    name="M5S",
---    start_page="_welcome"
+-- config.gui_preset = {
+--  default = {
+--    name = "default",
+--    start_page = "_index_default"
+--  }, 
+--  M5S = {
+--    name = "M5S",
+--    start_page = "_welcome",
+--    units = {
+--     eletti = {
+--        unit_id = 1,
+--        unit_title = _"ELECTEDS THEMATIC AREAS",
+--        area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:"
+--      },
+--      cittadini = {
+--        unit_id = 2,
+--        unit_title = _"CITIZENS THEMATIC AREAS",
+--        area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:"
+--     },
+--      iscritti = {
+--        unit_id = 3,
+--        unit_title = _"THEMATIC AREAS",
+--        area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:"
+--     },
+--      altri_gruppi = {
+--        unit_id = 4,
+--        unit_title = _"THEMATIC AREAS",
+--        area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:"
+--      }
+--    }
 --  },
---  {
---    name="Maintenance",
---    start_page="_maintenance"
---  },
---  {
---    name="default",
---    start_page="_index_default"
+--  test = {
+--    name = "test",
+--    start_page = "_welcome"
 --  }
 --}
+
 
 
 -- A rocketwiki formatted text the user has to accept while registering
