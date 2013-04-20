@@ -20,12 +20,16 @@ if not config.gui_preset.M5S.units[unit_name] then
   return false
 end
 
+local button_margin
+if unit_name ~= "cittadini" and unit_name ~= "eletti" then
+  button_margin = "left: 140px;"
+end
 
 ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset.M5S.units[unit_name].assembly_title, {realname = app.session.member.realname}) }
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _(config.gui_preset.M5S.units[unit_name].area_filter_title) }
   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton"  },
+    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
     module = "unit",
     view = "show_ext",
     id = area.unit_id,
@@ -34,18 +38,20 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
     end
   }
-   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton"  },
-    module = "area",
-    view = "show_ext",
-    params = { state = "new"},
-    id = area.id,
-    content = function()
-      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE IN CERCA DI SOSTENITORI" }
-    end
-  }
-   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton"  },
+  if unit_name == "cittadini" or unit_name == "eletti" then
+    ui.link {
+      attr = { id = "area_filter_button", class="button orange menuButton"  },
+      module = "area",
+      view = "show_ext",
+      params = { state = "new"},
+      id = area.id,
+      content = function()
+        ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE IN CERCA DI SOSTENITORI" }
+      end
+    }
+  end
+  ui.link {
+    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
     module = "area",
     view = "show_ext",
     params = { state = "open"},
@@ -55,7 +61,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     end
   }
   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton"  },
+    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
     module = "area",
     view = "show_ext",
     params = { state = "closed"},

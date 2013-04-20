@@ -2,7 +2,7 @@ local area = Area:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby")
 local invert = param.get("invert",atom.boolean)
-
+local member = app.session.member
 
 app.html_title.title = area.name
 app.html_title.subtitle = _("Area")
@@ -25,12 +25,6 @@ if invert ~= true and invert ~= false then
   invert = false
 end
  
--- Boolean values inline inverter
-function inv(var)
-  if var then return false end
-  return true
-end
-
 -- Determines the invert order button text
 local inv_txt
 if not invert then
@@ -45,14 +39,16 @@ local issue_desc
 local issues_selector = area:get_reference_selector("issues")
 if state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open
-  issues_selector:add_where("issue.closed ISNULL")
+--  issues_selector:add_where("issue.closed ISNULL")
+  issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
   issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
 elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
   issues_selector:add_where("issue.closed NOTNULL")
-  :add_order_by("issue.closed DESC")
+  issues_selector:add_order_by("issue.closed DESC")
 elseif state == "new" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_new
+  issues_selector:add_where("issue.state = 'admission'")
 else
   state = "open"
 end
@@ -61,6 +57,9 @@ end
 if not orderby then
   orderby = "supporters"
 end 
+
+-- Used to align buttons
+local button_margin
 
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.link {
@@ -82,19 +81,23 @@ ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
 
-ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton"  },
-    module = "area",
-    view = "show_ext",
-    id = area.id,
-    params = { state=state, orderby="supporters", invert=invert},
-    content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
-    end
-  }
+  if unit_name == "cittadini" or unit_name == "iscritti" then
+    ui.link {
+      attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+      module = "area",
+      view = "show_ext",
+      id = area.id,
+      params = { state=state, orderby="supporters", invert=invert},
+      content = function()
+        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+      end
+    }
+  else
+    button_margin = "left: 140px;" 
+  end
 
-ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+  ui.link {
+    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
     module = "area",
     view = "show_ext",
     id = area.id,
@@ -104,8 +107,8 @@ ui.link {
     end
   }
 
-ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+  ui.link {
+    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
     module = "area",
     view = "show_ext",
     id = area.id,
@@ -115,90 +118,32 @@ ui.link {
     end
   }
 
-ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+  ui.link {
+    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby=orderby, invert=inv(invert)},
+    params = { state=state, orderby=orderby, invert=not(invert)},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
     end
   }
 
-ui.container{ attr = { class="area_issue_box"}, content=function()
-    execute.view{
-      module = "issue",
-      view = "_list",
-      params = {
-        for_state = state,
-        issues_selector = issues_selector, for_area = true
-      }
-    }
-  end
-}
-
-end}
-
---[[
-
-
-local tabs = {
-  module = "area",
-  view = "show_tab",
-  static_params = { area_id = area.id },
-}
-
-tabs[#tabs+1] = {
-  name = "timeline",
-  label = _"Latest events",
-  module = "event",
-  view = "_list",
-  params = { for_area = area }
-}
-
-tabs[#tabs+1] = {
-  name = "open",
-  label = _"Open issues",
-  module = "issue",
-  view = "_list",
-  params = {
-    for_state = "open",
-    issues_selector = open_issues_selector, for_area = true
-  }
-}
-tabs[#tabs+1] = {
-  name = "closed",
-  label = _"Closed issues",
-  module = "issue",
-  view = "_list",
-  params = {
-    for_state = "closed",
-    issues_selector = closed_issues_selector, for_area = true
-  }
-}
-
-if app.session:has_access("all_pseudonymous") then
-  tabs[#tabs+1] =
-    {
-      name = "members",
-      label = _"Participants" .. " (" .. tostring(members_selector:count()) .. ")",
-      icon = { static = "icons/16/group.png" },
-      module = "member",
-      view = "_list",
-      params = { members_selector = members_selector }
-    }
-
-  tabs[#tabs+1] =
-    {
-      name = "delegations",
-      label = _"Delegations" .. " (" .. tostring(delegations_selector:count()) .. ")",
-      icon = { static = "icons/16/table_go.png" },
-      module = "delegation",
-      view = "_list",
-      params = { delegations_selector = delegations_selector }
-    }
-end
-ui.tabs(tabs)
-
---]]
+  ui.container{ attr = { class="area_issue_box"}, content=function()
+    ui.paginate{
+      per_page = tonumber(param.get("per_page") or 25),
+      selector = issues_selector,
+      content = function()
+        local issues = issues_selector:exec()
+        issues:load_everything_for_member_id(member and member.id or nil)
+  
+        ui.container{ attr = { class = "issues" }, content = function()
+          for i, issue in ipairs(issues) do
+            execute.view{ module = "issue", view = "_show", params = {
+              issue = issue, for_listing = true, for_member = member
+            } }
+          end
+        end }
+    end }
+  end }
+end }
