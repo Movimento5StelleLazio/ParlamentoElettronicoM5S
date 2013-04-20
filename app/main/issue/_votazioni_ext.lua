@@ -46,7 +46,7 @@ local issue_rendered=0
 ui.container{ attr = { class = "containerIssueDiv" },
 content = function()
         
---issueDIv
+--issueDiv
  ui.paginate{
     
     per_page = tonumber(param.get("per_page") or 25),

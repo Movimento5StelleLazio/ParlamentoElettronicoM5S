@@ -20,11 +20,7 @@ end
 
 trace.debug("filter: issue_state="..issue_state)
  
-local welcomeText=_"Homepage welcome text"
-welcomeText=welcomeText.._"Homepage welcome text2"
-
-
-
+ 
 --ui.title(_"Home")
 slot.put("<br />")
 
@@ -34,18 +30,29 @@ execute.view{module="index", view ="homepage_menu"}
 slot.put("<br /><br />")
 
 --containerFiltri 
-execut.view{module="index" , view="homepage_filter"}
+execute.view{
+        module="index" ,
+        view="_filter_ext" , 
+        params={ 
+                level=2 ,
+                module="index", 
+                routing_page="homepage" 
+                }
+        }
  
 
- ----------spazio div         
+
+
+
+       ----------spazio div         
  ui.container{
-                  attr={class="spazioIssue", style="height:170px"},
+                  attr={class="spazioIssue", style="height:170px;width:100%;"},
                   content=function()
                   end
             } 
-
-
-
+            
+            
+            
 ---container leggi
 ui.container{
 
@@ -53,7 +60,7 @@ ui.container{
         
         
         content=function()
-      
+
                    
 -------le tue votazioni
         ui.container{
@@ -81,7 +88,7 @@ ui.container{
                ui.tag{
                        tag="span",
                        attr={class="titolo"},
-                       content="Le Tue Votazioni"
+                       content= _"Your Voting"
                        }
              
              
@@ -109,7 +116,7 @@ ui.container{
                                 },
                     }
                     end
-                    }
+                }
                     
                   
 ----------spazio tra i div Votazioni e Proposte
@@ -148,7 +155,7 @@ ui.container{
                   ui.tag{
                        tag="span",
                        attr={class="titolo"},
-                       content="Le Tue Proposte"
+                       content=_"Your Proposals"
                   }
              
              ----------spazio div         
@@ -190,7 +197,7 @@ if filter_state then
  }
   ui.script{
          script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
-              .."document.getElementById('containerFiltriDiv').style.height='280px';"
+            
  }
  
 end

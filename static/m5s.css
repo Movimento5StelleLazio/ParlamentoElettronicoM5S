@@ -54,13 +54,13 @@
 .phaseText
 {
 	color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    font-size: 22px;
-    line-height: normal;
-    margin-top: 29px;
-    text-align: center;
-    height: 10px;
     float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 22px;
+    height: 23px;
+    line-height: normal;
+    margin-top: 0;
+    text-align: center;
     width: 100%;
 }
 
@@ -68,16 +68,34 @@
 {
 	
 	color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    font-size: 22px;
-    line-height: normal;
-    margin-top: 29px;
-    text-align: center;
-    height: 10px;
     float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 22px;
+    height: 23px;
+    line-height: normal;
+    margin-top: 0;
+    text-align: center;
     width: 100%;
 	
 }
+
+
+
+.unitText
+{
+    
+    color: black;
+    float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 22px;
+    height: 23px;
+    line-height: normal;
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
+    
+}
+
 
 .pulsanteFiltriDiv{
 	
@@ -96,10 +114,12 @@
     
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
+    float: inherit;
+    
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
     width: 100%;
-    height: 140px;
-    margin-left:auto;
-    margin-right:auto;
  
 }
 
@@ -207,6 +227,19 @@
     vertical-align: middle;
 }
 
+.btnCommissionPhase
+{
+	
+	font-size:12px;
+    float: left;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    width: 90px;
+    vertical-align: middle;
+}
+
 .btnClosedPhase
 {
 	font-size:12px;
@@ -239,9 +272,10 @@
 	border: thin solid black;
     height: 0;
     margin-left: 90px;
-    margin-top: 138px;
+    margin-top: 0;
     opacity: 0.24;
-    position: absolute;
+    position: relative;
+    top: 100px;
     width: 80%;
 }
 
@@ -250,7 +284,7 @@
 	float: left;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 30px;
 	
 }
 
@@ -261,7 +295,7 @@
     margin-right: auto;
     
 }
-.btnInterestedPhase{
+.btnInterested{
     
     font-size:12px;
     float: left;
@@ -275,7 +309,7 @@
 }
 
 
-.btnInitiatedPhase{
+.btnInitiated{
     
     font-size:12px;
     float: left;
@@ -288,7 +322,7 @@
     
 }
 
-.btnSupportedPhase{
+.btnSupported{
 	  font-size:12px;
     float: left;
     height: 20px;
@@ -300,7 +334,7 @@
 	
 }
 
-.btnPotentiallyPhase
+.btnPotentially
 {
 	
 	font-size:12px;
@@ -321,7 +355,7 @@
     margin: 0;
     text-align: center;
 }
-.btnVotedPhase{
+.btnVoted{
 	  font-size:12px;
     float: left;
     height: 20px;
@@ -336,7 +370,7 @@
 {
 	
 	float: left;
-    margin-left: 200px;
+    margin-left: 40px;
     margin-right: auto;
 	
 }
@@ -346,9 +380,9 @@
 {
 
 	float: left;
-    margin-left: 120px;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 30px;
 	
 }
 
@@ -365,6 +399,14 @@
     width: 90px;
     
 }
+
+.testoPulsanteAllUnits
+{
+	
+	vertical-align: middle;
+	top: 0;
+}
+
 
 .btnMyUnitsPhase
 {
@@ -385,6 +427,7 @@
     line-height: 12px;
     margin: 0;
     text-align: center;
+    top: 0;
 }
 
 .btnMyAreasPhase
@@ -402,6 +445,102 @@
 }
 
 
+.btnPublicCitiziensUnitsPhase
+{
+	text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+
+.testoPublicCitiziensUnits
+{
+	 
+	 vertical-align: middle;
+	 line-height: 12px;
+     margin: 0;
+     text-align: center;
+     
+	
+}
+
+.btnPublicElectedUnitsPhase
+{
+	text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+
+.testoPublicElectedUnits
+{
+	 vertical-align: middle;
+     line-height: 12px;
+     margin: 0;
+     text-align: center;
+     
+}
+
+
+.testoPublicOtherGroupsUnits
+{
+	 vertical-align: middle;
+     line-height: 12px;
+     margin: 0;
+     text-align: center;
+}
+.btnPublicOtherGroupsUnitsPhase
+{
+	text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+	
+}
+
+.testoMyAreas
+{
+     top: 0;
+    vertical-align: middle;
+}
+
+
+.btnNotMyAreasPhase
+{
+	
+	text-align: center;
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+	
+}
+
+.testoNotMyAreas
+{
+	 top: 0;
+    vertical-align: middle;
+}
+
 
 
 .parlamentoDiv
@@ -417,7 +556,8 @@
 
 .parlamentoImg{
     margin-left: 100px;
-    margin-top: -150px;
+    margin-top: -50px;
+    position: relative;
 }
 
 
