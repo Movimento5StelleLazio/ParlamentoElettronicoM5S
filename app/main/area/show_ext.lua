@@ -78,9 +78,14 @@ if not orderby then
   orderby = "creation_date"
 end 
 
-
 if orderby == "creation_date" then
   issues_selector:add_order_by("issue.created"..ord)
+elseif orderby == "supporters" then
+  --issues_selector:add_order_by(""..ord)
+elseif orderby == "last_event" then
+  --issues_selector:add_order_by(""..ord)
+else
+
 end
 
 -- Used to align buttons
