@@ -24,7 +24,6 @@ trace.debug("filter: issue_state="..issue_state)
 --ui.title(_"Home")
 slot.put("<br />")
 
---menu parlamento
 execute.view{module="index", view ="homepage_menu"}
 
 slot.put("<br /><br />")
