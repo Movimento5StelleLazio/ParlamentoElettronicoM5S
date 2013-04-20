@@ -1,5 +1,5 @@
 local unit_id = param.get_id()
-local filter_areas = param.get("filter_areas")
+local filter = param.get("filter")
 
 if not app.session.member_id then
   return false
@@ -9,7 +9,7 @@ local member = app.session.member
 areas_selector = Area:build_selector{ active = true }
 areas_selector:add_order_by("member_weight DESC")
 
-if filter_areas == "my_areas" then
+if filter == "my_areas" then
   areas_selector:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", member.id })
 else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
@@ -32,17 +32,23 @@ if not unit_name then
   return false
 end
 
+local return_view = "homepage"
+
+if unit_name == "iscritti" then
+  return_view = "index"
+end
+
 ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.link { 
     attr = { id = "unit_button_back", class="button orange menuButton"  }, 
     module = "index",
-    view = "homepage",
+    view = return_view,
     content = function()
       ui.image{ attr = { id = "unit_arrow_back" }, static = "arrow_left.png" }
       ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
     end
   }
-  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _("#{realname}, you are now in the Regione Lazio Assembly", {realname = member.realname}) }
+  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset.M5S.units[unit_name].assembly_title, {realname = member.realname}) }
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _"CHOOSE THE THEMATIC AREA" }
 end}
 
@@ -64,7 +70,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "unit",
     view = "show_ext",
     id = unit_id,
-    params = { filter_areas = "my_areas"},
+    params = { filter = "my_areas"},
     content = function()
       ui.tag { tag = "p",  attr = { class  = "button_text"  }, content = _"SHOW ONLY PARTECIPATED AREAS" }
     end
