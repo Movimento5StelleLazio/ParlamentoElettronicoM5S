@@ -43,7 +43,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
       attr = { id = "area_filter_button", class="button orange menuButton"  },
       module = "area",
       view = "show_ext",
-      params = { state = "new"},
+      params = { state = "admission"},
       id = area.id,
       content = function()
         ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE IN CERCA DI SOSTENITORI" }

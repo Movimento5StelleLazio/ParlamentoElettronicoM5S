@@ -47,30 +47,42 @@ end
 
 local issues_selector = area:get_reference_selector("issues")
 if state == "open" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or "Open:"
   issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
 --  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
 
-elseif state == "new" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_new
+elseif state == "admission" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or "Admission:"
   issues_selector:add_where("issue.state = 'admission'")
 
 elseif state == "development" then
-  -- TODO issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Development:"
   issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
 
+elseif state == "discussion" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Discussion phase:"
+  issues_selector:add_where("issue.state = 'discussion'")
+
 elseif state == "voting" then
-  -- TODO issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_voting
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Voting phase:"
   issues_selector:add_where("issue.state = 'voting'")
 
 elseif state == "verification" then
-  -- TODO issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_verification
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Verfication phase:"
   issues_selector:add_where("issue.state = 'verification'")
 
 elseif state == "closed" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Closed:"
   issues_selector:add_where("issue.closed NOTNULL")
 --  issues_selector:add_order_by("issue.closed "..ord)
+
+elseif state == "canceled" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed_or_canceled
+  issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
+--  issues_selector:add_order_by("issue.closed "..ord)
+
+else
+ 
 end
   
 -- Checking orderby
