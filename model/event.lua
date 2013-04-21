@@ -7,6 +7,7 @@ Event:add_reference{
   this_key      = 'issue_id',
   that_key      = 'id',
   ref           = 'issue',
+  back_ref      = 'event'
 }
 
 Event:add_reference{

@@ -1,7 +1,7 @@
 local area = Area:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby")
-local invert = param.get("invert",atom.boolean)
+local desc = param.get("desc",atom.boolean)
 local member = app.session.member
 
 app.html_title.title = area.name
@@ -20,14 +20,14 @@ if not config.gui_preset.M5S.units[unit_name] then
   return false
 end
 
--- Set the invert order param
-if invert ~= true and invert ~= false then
-  invert = false
+-- Set the desc order param
+if desc ~= true and desc ~= false then
+  desc = false
 end
  
--- Determines the invert order button text
+-- Determines the desc order button text
 local inv_txt
-if not invert then
+if not desc then
   inv_txt = _"INVERT ORDER FROM ASCENDING TO DESCENDING"
 else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
@@ -37,35 +37,52 @@ end
 local issue_desc
 
 local ord = ""
-if invert then
-  ord = " DESC"
-end
+if desc then ord = " DESC" end
 
+local category
 local issues_selector = area:get_reference_selector("issues")
+
+--[[
+execute.chunk{
+  module    = "issue",
+  chunk     = "_filter_ext"
+  id        = area.id,
+  params    = { state=state, orderby=orderby, desc=desc, issues_selector=issues_selector }
+}
+--]]
+
+-- Filter part. This should be include in a separate file like issue/_filter_ext.lua 
+-- and loaded via execute.chunk(...)
 
 if state == "admission" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or "Admission:"
   issues_selector:add_where("issue.state = 'admission'")
+  category=1
 
 elseif state == "development" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Development:"
   issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
+  category=2
 
 elseif state == "discussion" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Discussion phase:"
   issues_selector:add_where("issue.state = 'discussion'")
+  category=2
 
 elseif state == "voting" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Voting phase:"
   issues_selector:add_where("issue.state = 'voting'")
+  category=2
 
 elseif state == "verification" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Verfication phase:"
   issues_selector:add_where("issue.state = 'verification'")
+  category=2
 
 elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Closed:"
   issues_selector:add_where("issue.closed NOTNULL")
+  category=3
   --issues_selector:add_order_by("issue.closed "..ord)
 
 elseif state == "canceled" then
@@ -82,28 +99,32 @@ else
 end
   
 -- Checking orderby
-if not orderby then
-  orderby = "creation_date"
-end 
-
-if orderby == "creation_date" then
-  issues_selector:add_order_by("issue.created"..ord)
-
-elseif orderby == "supporters" then
-  issues_selector:add_field("issue.*")
+if orderby == "supporters" then
   issues_selector:add_field("COUNT (*)","supporters")
   issues_selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
   issues_selector:add_group_by("issue.id")
   issues_selector:add_order_by("supporters"..ord)
 
 elseif orderby == "event" then
-  issues_selector:add_field("issue.*")
-  issues_selector:add_field("event.occurrence","occurrence")
-  issues_selector:left_join("event",nil,"issue.id = event.issue_id")
-  issues_selector:add_order_by("occurrence"..ord)
-else
 
+  --[[
+  -- Still trying to figure out how to make this work
+  -- select issue.* , event.occurrence from issue left join event on issue.id = event.issue_id order by event.occurrence;
+ 
+  issues_selector:add_field("event.occurrence")
+  issues_selector:left_join("event",nil,"issue.id = event.issue_id")
+  issues_selector:add_order_by("event.occurrence"..ord)
+  --]]
+
+  issues_selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
+
+else
+  orderby = "creation_date"
+  issues_selector:add_order_by("issue.created"..ord)
 end
+
+-- End of filter part.
+
 
 -- Used to align buttons
 local button_margin
@@ -123,38 +144,21 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_xl"}, content = _"CHOOSE THE INITIATIVE TO EXAMINE:" }
 end}
 
-  -- Filters div
-  ui.link {
-    attr = { id = "area_show_ext_openfilter_button", class="button orange menuButton",onclick = "alert('TBD');"  },
-    module = "area",
-    view = "show_ext",
-    id = area.id,
-    content = function()
-      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"APPLY FILTERS" }
-    end
+execute.view{
+  module="index" ,
+  view="_filter_ext" ,
+  params={
+    level=5,
+    category=category,
+    module="area",
+    routing_page="show_ext",
+    state=state, 
+    orderby=orderby, 
+    desc=desc
   }
+}
 
---[[
-  ui.container{ attr = { id = "area_show_ext_filters_box", class = "area_show_ext_filters_box" }, content = function()
-
-    ui.container{ attr = { id  = "area_show_ext_filter_phase_box" }, content = function()
-      ui.link{
-        attr = { id = "a", class="button orange filter_button",onclick = "alert('TBD');"  },
-        module = "area",
-        view = "show_ext",
-        id = area.id,
-        params = { state=state, orderby=orderby, invert=invert},
-        content = function()
-          ui.tag {  tag = "p", attr = { class  = "filter_button_text"  }, content = "blablabla" }
-        end
-      }
-    end }
-
-    ui.container{ attr = { id  = "area_show_ext_filter_category_box" }, content = function()
-    end }
     
-  end }
---]]
 ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
@@ -167,7 +171,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
       module = "area",
       view = "show_ext",
       id = area.id,
-      params = { state=state, orderby="supporters", invert=invert},
+      params = { state=state, orderby="supporters", desc=desc},
       content = function()
         ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
       end
@@ -181,7 +185,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby="creation_date", invert=invert },
+    params = { state=state, orderby="creation_date", desc=desc },
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
     end
@@ -192,7 +196,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby="event", invert=invert},
+    params = { state=state, orderby="event", desc=desc},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
     end
@@ -203,7 +207,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby=orderby, invert=not(invert)},
+    params = { state=state, orderby=orderby, desc=not(desc)},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
     end
