@@ -944,6 +944,7 @@
 }
 
 #area_filter_button {
+  text-align: center;
   width: 214px;
   height: 130px;
 }
@@ -966,6 +967,7 @@
 }
 
 #area_show_ext_button {
+ text-align: center;
  width: 210px;
  height: 120px;
 }
