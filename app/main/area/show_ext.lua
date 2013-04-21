@@ -41,17 +41,9 @@ if invert then
   ord = " DESC"
 end
 
-if not state then
-  state = "open"
-end
-
 local issues_selector = area:get_reference_selector("issues")
-if state == "open" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or "Open:"
-  issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
---  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
 
-elseif state == "admission" then
+if state == "admission" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or "Admission:"
   issues_selector:add_where("issue.state = 'admission'")
 
@@ -74,14 +66,18 @@ elseif state == "verification" then
 elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Closed:"
   issues_selector:add_where("issue.closed NOTNULL")
---  issues_selector:add_order_by("issue.closed "..ord)
+  --issues_selector:add_order_by("issue.closed "..ord)
 
 elseif state == "canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Canceled:"
   issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
---  issues_selector:add_order_by("issue.closed "..ord)
+ -- issues_selector:add_order_by("issue.closed "..ord)
 
 else
+  state = "open" 
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or "Open:"
+  issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
+--  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
  
 end
   
@@ -92,10 +88,19 @@ end
 
 if orderby == "creation_date" then
   issues_selector:add_order_by("issue.created"..ord)
+
 elseif orderby == "supporters" then
-  --issues_selector:add_order_by(""..ord)
-elseif orderby == "last_event" then
-  --issues_selector:add_order_by(""..ord)
+  issues_selector:add_field("issue.*")
+  issues_selector:add_field("COUNT (*)","supporters")
+  issues_selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
+  issues_selector:add_group_by("issue.id")
+  issues_selector:add_order_by("supporters"..ord)
+
+elseif orderby == "event" then
+  issues_selector:add_field("issue.*")
+  issues_selector:add_field("event.occurrence","occurrence")
+  issues_selector:left_join("event",nil,"issue.id = event.issue_id")
+  issues_selector:add_order_by("occurrence"..ord)
 else
 
 end
@@ -187,7 +192,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby="last_event", invert=invert},
+    params = { state=state, orderby="event", invert=invert},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
     end
