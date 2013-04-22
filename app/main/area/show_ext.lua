@@ -51,48 +51,49 @@ execute.chunk{
 }
 --]]
 
+----------------------------------------------------------------------------------------
 -- Filter part. This should be include in a separate file like issue/_filter_ext.lua 
 -- and loaded via execute.chunk(...)
 
 if state == "admission" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or "Admission:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or Issue:get_state_name_for_state('admission')
   issues_selector:add_where("issue.state = 'admission'")
   category=1
 
 elseif state == "development" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Development:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or _"Development"
   issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
   category=2
 
 elseif state == "discussion" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Discussion phase:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('discussion')
   issues_selector:add_where("issue.state = 'discussion'")
   category=2
 
 elseif state == "voting" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Voting phase:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('voting')
   issues_selector:add_where("issue.state = 'voting'")
   category=2
 
 elseif state == "verification" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or "Verfication phase:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('verification')
   issues_selector:add_where("issue.state = 'verification'")
   category=2
 
 elseif state == "closed" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Closed:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Closed"
   issues_selector:add_where("issue.closed NOTNULL")
   category=3
   --issues_selector:add_order_by("issue.closed "..ord)
 
 elseif state == "canceled" then
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or "Canceled:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Canceled"
   issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
  -- issues_selector:add_order_by("issue.closed "..ord)
 
 else
   state = "open" 
-  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or "Open:"
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
   issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
 --  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
  
@@ -123,6 +124,7 @@ else
   issues_selector:add_order_by("issue.created"..ord)
 end
 
+----------------------------------------------------------------------------------------
 -- End of filter part.
 
 
@@ -214,6 +216,12 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
   }
 
   ui.container{ attr = { class="area_issue_box"}, content=function()
+    execute.view{
+      module="issue" ,
+      view="_list_ext" ,
+      params={ issues_selector=issues_selector, member=member }
+  }
+--[[
     ui.paginate{
       per_page = tonumber(param.get("per_page") or 25),
       selector = issues_selector,
@@ -229,5 +237,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
           end
         end }
     end }
+--]]
+
   end }
 end }
