@@ -44,7 +44,7 @@ execute.chunk{
     orderby=orderby, 
     desc=desc,
     interest=interest,
-    issues_selector=issues_selector
+    selector=issues_selector
   }
 }
 
@@ -174,23 +174,6 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
       view="_list_ext" ,
       params={ issues_selector=issues_selector, member=member }
   }
---[[
-    ui.paginate{
-      per_page = tonumber(param.get("per_page") or 25),
-      selector = issues_selector,
-      content = function()
-        local issues = issues_selector:exec()
-        issues:load_everything_for_member_id(member and member.id or nil)
-  
-        ui.container{ attr = { class = "issues" }, content = function()
-          for i, issue in ipairs(issues) do
-            execute.view{ module = "issue", view = "_show", params = {
-              issue = issue, for_listing = true, for_member = member
-            } }
-          end
-        end }
-    end }
---]]
 
   end }
 end }
