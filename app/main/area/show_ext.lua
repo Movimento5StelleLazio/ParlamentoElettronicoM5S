@@ -2,6 +2,7 @@ local area = Area:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby")
 local desc = param.get("desc",atom.boolean)
+local interest = param.get("interest")
 local member = app.session.member
 
 app.html_title.title = area.name
@@ -33,100 +34,52 @@ else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
   
--- This holds issue-oriented description text for shown issues
-local issue_desc
-
-local ord = ""
-if desc then ord = " DESC" end
-
-local category
 local issues_selector = area:get_reference_selector("issues")
 
---[[
 execute.chunk{
   module    = "issue",
-  chunk     = "_filter_ext"
-  id        = area.id,
-  params    = { state=state, orderby=orderby, desc=desc, issues_selector=issues_selector }
+  chunk     = "_filters_ext",
+  params    = { 
+    state=state, 
+    orderby=orderby, 
+    desc=desc,
+    interest=interest,
+    issues_selector=issues_selector
+  }
 }
---]]
 
-----------------------------------------------------------------------------------------
--- Filter part. This should be include in a separate file like issue/_filter_ext.lua 
--- and loaded via execute.chunk(...)
+-- Category, used for routing
+local category
+
+-- This holds issue-oriented description text for shown issues
+local issues_desc
 
 if state == "admission" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or Issue:get_state_name_for_state('admission')
-  issues_selector:add_where("issue.state = 'admission'")
   category=1
-
 elseif state == "development" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or _"Development"
-  issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
   category=2
-
 elseif state == "discussion" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('discussion')
-  issues_selector:add_where("issue.state = 'discussion'")
   category=2
-
 elseif state == "voting" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('voting')
-  issues_selector:add_where("issue.state = 'voting'")
   category=2
-
 elseif state == "verification" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('verification')
-  issues_selector:add_where("issue.state = 'verification'")
   category=2
-
 elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Closed"
-  issues_selector:add_where("issue.closed NOTNULL")
   category=3
-  --issues_selector:add_order_by("issue.closed "..ord)
-
 elseif state == "canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Canceled"
-  issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
- -- issues_selector:add_order_by("issue.closed "..ord)
-
-else
-  state = "open" 
+  category=3
+elseif state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
-  issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
---  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
- 
-end
-  
--- Checking orderby
-if orderby == "supporters" then
-  issues_selector:add_field("COUNT (*)","supporters")
-  issues_selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
-  issues_selector:add_group_by("issue.id")
-  issues_selector:add_order_by("supporters"..ord)
-
-elseif orderby == "event" then
-
-  --[[
-  -- Still trying to figure out how to make this work
-  -- select issue.* , event.occurrence from issue left join event on issue.id = event.issue_id order by event.occurrence;
- 
-  issues_selector:add_field("event.occurrence")
-  issues_selector:left_join("event",nil,"issue.id = event.issue_id")
-  issues_selector:add_order_by("event.occurrence"..ord)
-  --]]
-
-  issues_selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
-
 else
-  orderby = "creation_date"
-  issues_selector:add_order_by("issue.created"..ord)
+  issues_desc = _"Unknown"
 end
-
-----------------------------------------------------------------------------------------
--- End of filter part.
-
 
 -- Used to align buttons
 local button_margin

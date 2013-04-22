@@ -1,14 +1,68 @@
-local member = param.get("member", "table")
-local for_member = param.get("for_member", "table")
 local state = param.get("state")
-local for_unit = param.get("for_unit", atom.boolean)
-local for_area = param.get("for_area", atom.boolean)
+local orderby = param.get("orderby")
+local unit_name = param.get("unit_name")
+local desc =  param.get("desc", atom.boolean)
+local interest = param.get("interest")
+local issues_selector = param.get("issues_selector", "table")
 
-local for_events = param.get("for_events", atom.boolean)
+--local for_member = param.get("for_member", "table")
+--local for_unit = param.get("for_unit", atom.boolean)
+--local for_area = param.get("for_area", atom.boolean)
+--local for_events = param.get("for_events", atom.boolean)
+--local filters = {}
+--local filter = { name = "filter" }
 
-local filters = {}
+local ord = ""
+if desc then ord = " DESC" end
 
-local filter = { name = "filter" }
+if state == "admission" then
+  issues_selector:add_where("issue.state = 'admission'")
+
+elseif state == "development" then
+  issues_selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
+
+elseif state == "discussion" then
+  issues_selector:add_where("issue.state = 'discussion'")
+
+elseif state == "voting" then
+  issues_selector:add_where("issue.state = 'voting'")
+
+elseif state == "verification" then
+  issues_selector:add_where("issue.state = 'verification'")
+
+elseif state == "closed" then
+  issues_selector:add_where("issue.closed NOTNULL")
+  --issues_selector:add_order_by("issue.closed "..ord)
+
+elseif state == "canceled" then
+  issues_selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
+ -- issues_selector:add_order_by("issue.closed "..ord)
+
+else
+  state = "open"
+  issues_selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
+--  issues_selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
+
+end
+
+-- Checking orderby
+if orderby == "supporters" then
+  issues_selector:add_field("COUNT (*)","supporters")
+  issues_selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
+  issues_selector:add_group_by("issue.id")
+  issues_selector:add_order_by("supporters"..ord)
+
+elseif orderby == "event" then
+
+  -- TODO
+  issues_selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
+
+else
+  orderby = "creation_date"
+  issues_selector:add_order_by("issue.created"..ord)
+end
+
+--[[
   
 if state ~= "closed" then
   filter[#filter+1] = {
@@ -384,3 +438,4 @@ function filters:get_filter(group, name)
 end
 
 return filters
+--]]
