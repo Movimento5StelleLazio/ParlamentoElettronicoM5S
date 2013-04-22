@@ -77,6 +77,8 @@ elseif state == "canceled" then
   category=3
 elseif state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
+elseif state == "any" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_any or _"Any"
 else
   issues_desc = _"Unknown"
 end

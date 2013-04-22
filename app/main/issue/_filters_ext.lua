@@ -18,27 +18,31 @@ local ord = ""
 if desc then ord = " DESC" end
 
 if state == "admission" then
-  selector:add_where("issue.state = 'admission'")
---  selector:add_where("issue.accepted ISNULL AND issue.closed ISNULL")
+--  selector:add_where("issue.state = 'admission'")
+  selector:add_where("issue.accepted ISNULL AND issue.closed ISNULL")
 
 elseif state == "development" then
-  selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
+--  selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
+  selector:add_where("issue.accepted NOTNULL AND issue.closed ISNULL")
 
 elseif state == "discussion" then
-  selector:add_where("issue.state = 'discussion'")
+--  selector:add_where("issue.state = 'discussion'")
+  selector:add_where("issue.accepted NOTNULL AND issue.half_frozen ISNULL AND issue.closed ISNULL")
 
 elseif state == "voting" then
-  selector:add_where("issue.state = 'voting'")
+--  selector:add_where("issue.state = 'voting'")
+  selector:add_where("issue.fully_frozen NOTNULL AND issue.closed ISNULL")
 
 elseif state == "verification" then
-  selector:add_where("issue.state = 'verification'")
+--  selector:add_where("issue.state = 'verification'")
+  selector:add_where("issue.half_frozen NOTNULL AND issue.fully_frozen ISNULL")
 
 elseif state == "closed" then
   selector:add_where("issue.closed NOTNULL")
-  --selector:add_order_by("issue.closed "..ord)
 
 elseif state == "finished" then
-  selector:add_where("issue.state IN ('finished_with_winner', 'finished_without_winner')")
+--  selector:add_where("issue.state IN ('finished_with_winner', 'finished_without_winner')")
+  selector:add_where("issue.closed NOTNULL AND issue.fully_frozen NOTNULL")
 
 elseif state == "finished_with_winner" then
   selector:add_where("issue.state = 'finished_with_winner'")
@@ -47,11 +51,12 @@ elseif state == "finished_without_winner" then
   selector:add_where("issue.state = 'finished_without_winner'")
 
 elseif state == "canceled" then
-  selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
- -- selector:add_order_by("issue.closed "..ord)
+--  selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
+  selector:add_where("issue.closed NOTNULL AND issue.fully_frozen ISNULL")
 
 elseif state == "open" then
-  selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
+--  selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
+  selector:add_where("issue.closed ISNULL")
 --  selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
 
 else
@@ -62,17 +67,21 @@ end
 -- Filtering interest
 if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or interest == "interested" or interest == "supported" or interest == "potentially_supported" or interest == 'voted'  or interest == 'not_voted' ) then
 
-  if interest ~=  "not_interested" then
+  -- Not interested
+  if interest ==  "not_interested" then
+  -- TODO Not working using CASE WHEN :(
+    selector:left_join("interest", "filter_interest", { "filter_interest.issue_id = issue.id AND filter_interest.member_id = ? ", member.id })
+    selector:add_where("filter_interest.member_id ISNULL AND issue.fully_frozen ISNULL AND issue.closed ISNULL")
+--    selector:left_join("direct_interest_snapshot", "filter_interest_s", { "filter_interest_s.issue_id = issue.id AND filter_interest_s.member_id = ? AND filter_interest_s.event = issue.latest_snapshot_event", member.id })
+--    selector:left_join("delegating_interest_snapshot", "filter_d_interest_s", { "filter_d_interest_s.issue_id = issue.id AND filter_d_interest_s.member_id = ? AND filter_d_interest_s.event = issue.latest_snapshot_event", member.id })
+--    selector:add_where("CASE WHEN issue.fully_frozen ISNULL AND issue.closed ISNULL THEN filter_interest.member_id ISNULL ELSE filter_interest_s.member_id ISNULL END OR filter_d_interest_s.member_id ISNULL")
+  else
+
   -- Default joins for interest
     selector:left_join("interest", "filter_interest", { "filter_interest.issue_id = issue.id AND filter_interest.member_id = ? ", member.id })
     selector:left_join("direct_interest_snapshot", "filter_interest_s", { "filter_interest_s.issue_id = issue.id AND filter_interest_s.member_id = ? AND filter_interest_s.event = issue.latest_snapshot_event", member.id })
     selector:left_join("delegating_interest_snapshot", "filter_d_interest_s", { "filter_d_interest_s.issue_id = issue.id AND filter_d_interest_s.member_id = ? AND filter_d_interest_s.event = issue.latest_snapshot_event", member.id }) 
     selector:add_where("CASE WHEN issue.fully_frozen ISNULL AND issue.closed ISNULL THEN filter_interest.member_id NOTNULL ELSE filter_interest_s.member_id NOTNULL END OR filter_d_interest_s.member_id NOTNULL")
-  else
-    selector:left_join("interest", "filter_interest", { "filter_interest.issue_id = issue.id AND filter_interest.member_id = ? ", member.id })
-    selector:left_join("direct_interest_snapshot", "filter_interest_s", { "filter_interest_s.issue_id = issue.id AND filter_interest_s.member_id = ? AND filter_interest_s.event = issue.latest_snapshot_event", member.id })
-    selector:left_join("delegating_interest_snapshot", "filter_d_interest_s", { "filter_d_interest_s.issue_id = issue.id AND filter_d_interest_s.member_id = ? AND filter_d_interest_s.event = issue.latest_snapshot_event", member.id })
-    selector:add_where("CASE WHEN issue.fully_frozen ISNULL AND issue.closed ISNULL THEN filter_interest.member_id ISNULL ELSE filter_interest_s.member_id ISNULL END OR filter_d_interest_s.member_id ISNULL")
   end
 
   -- Initiated
@@ -109,7 +118,8 @@ if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or i
     selector:left_join("non_voter", nil, { "non_voter.issue_id = issue.id AND non_voter.member_id = ?", member.id })
     selector:add_where("non_voter.member_id ISNULL")
   end
-
+else
+  interest = "any"
 end
 
 -- Checking orderby
