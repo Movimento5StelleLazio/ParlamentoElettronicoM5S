@@ -1,18 +1,8 @@
 local issues_selector = param.get("issues_selector", "table")
 local member = param.get("for_member", "table") or app.session.member
-local for_member = param.get("for_member", "table")
 local for_state = param.get("for_state")
 local for_unit = param.get("for_unit", atom.boolean)
-local for_area = param.get("for_area", atom.boolean)
 
---[[
-if for_state == "open" then
-  issues_selector:add_where("issue.closed ISNULL")
-elseif for_state == "closed" then
-  issues_selector:add_where("issue.closed NOTNULL")
-end
-]]--
---info box
 
  
  
@@ -27,15 +17,8 @@ if event_max_id then
   event_selector:add_where{ "event.id < ?", event_max_id }
 end
   
-if for_member then
-  event_selector:add_where{ "event.member_id = ?", for_member.id }
-elseif for_unit then
-  event_selector:join("area", nil, "area.id = issue.area_id")
-  event_selector:add_where{ "area.unit_id = ?", for_unit.id }
+event_selector:add_where{ "event.member_id = ?",  app.session.member.id}
  
---elseif not global then
---  event_selector:join("event_seen_by_member", nil, { "event_seen_by_member.id = event.id AND event_seen_by_member.seen_by_member_id = ?", app.session.member_id })
-end
 
 local events = event_selector:exec()
 
@@ -67,7 +50,7 @@ content = function()
                     end             
                   if direct_voter then  
                           execute.view{ module = "issue", view = "_show_ext", params = {
-                            issue = issue, for_listing = true, for_member = for_member , events=events,event_id_show=i
+                            issue = issue, for_listing = true,  events=events,event_id_show=i
                           } }
                           
                           issue_rendered=issue_rendered+1

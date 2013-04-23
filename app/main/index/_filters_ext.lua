@@ -20,7 +20,7 @@ ui.container{
                         class="pulsanteFiltri button orange", 
                         onclick="document.getElementById('pulsanteApplicaFiltri').style.display='none';"
                               .."document.getElementById('containerPulsantiFiltri').style.display='block';"
-                             -- .."document.getElementById('containerFiltriDiv').style.height='270px';"
+                             
                         },
                     content=function()
                     
@@ -41,21 +41,17 @@ ui.container{
                       content=function()
                      
                      if level==2 or level==5 then
-                     
-                      -- pulsanti fase
+                     -- pulsanti fase
                       ui.container{
                       
                               attr={id="pulsantiFase" ,class="pulsantiFase"},
                               content= function()
-                              
-                              
-                                           ui.tag{
-                                                   tag = "span",
-                                                   attr={class="phaseText", readonly="true"},
-                                                   content        = _"Filter Phase",  
-                                                   multiline=true
-                                                   }
-                              
+                               ui.tag{
+                                         tag = "span",
+                                         attr={class="phaseText", readonly="true"},
+                                         content        = _"Filter Phase",  
+                                          multiline=true
+                                      }
                               
                               if level==2 then   
                               --pulsante 1
@@ -79,9 +75,6 @@ ui.container{
                                         end
                                   }
                              
-                                
-                                
-                              
                               --pulsante 2
                                    ui.link{
                                     module = module,
@@ -103,10 +96,6 @@ ui.container{
                                         end
                                          
                                     }
-                               
-                               
-                               
-                               
                                
                               --pulsante 3
                               
@@ -298,12 +287,10 @@ ui.container{
                       } -- fine pulsanti Fase
               
                       
-              
                       ui.container{
                                     attr={id="lineDiv" ,class="lineDiv"},
                                     content=""
                                   }
-                      
                       
                       end 
                       
@@ -655,17 +642,10 @@ ui.container{
                                                     }  
                                             end
                                         } --pulsante 7
-                
-                
-                
-                
-                
-                
-                
+                 
                                  end
                                  }-- contenitore pulsanti unità
-                        
-                      
+                            
                      end
                      }       
                     

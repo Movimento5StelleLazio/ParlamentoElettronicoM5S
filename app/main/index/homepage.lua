@@ -31,7 +31,7 @@ slot.put("<br /><br />")
 --containerFiltri 
 execute.view{
         module="index" ,
-        view="_filter_ext" , 
+        view="_filters_ext" , 
         params={ 
                 level=2 ,
                 module="index", 
@@ -107,10 +107,8 @@ ui.container{
                       view   = "_votazioni_ext",
                       id     = "idLista",
                       params = {
-                                 
                                 for_state = issue_state,
                                 issues_selector = issues_selector, 
-                                for_area = true,
                                 view="votazioni"
                                 },
                     }
@@ -171,11 +169,9 @@ ui.container{
                       view   = "_proposte_ext",
                       id     = "idLista",
                       params = {
-                                 
-                                    for_state = issue_state,
-                                    issues_selector = issues_selector,
-                                    for_area = true,
-                                    view="proposte"
+                                  for_state = issue_state,
+                                  issues_selector = issues_selector,
+                                  view="proposte"
                                 },
                   }
              

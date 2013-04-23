@@ -1,18 +1,9 @@
 local issues_selector = param.get("issues_selector", "table")
 local member = param.get("for_member", "table") or app.session.member
-local for_member = param.get("for_member", "table")
 local for_state = param.get("for_state")
 local for_unit = param.get("for_unit", atom.boolean)
-local for_area = param.get("for_area", atom.boolean)
 
---[[
-if for_state == "open" then
-  issues_selector:add_where("issue.closed ISNULL")
-elseif for_state == "closed" then
-  issues_selector:add_where("issue.closed NOTNULL")
-end
-]]--
---info box
+ 
 
  
  
@@ -123,7 +114,7 @@ local direct_voter
                                     
                                     if #_issue>0 then
                                       execute.view{ module = "issue", view = "_show_ext", params = {
-                                        issue = _issue, for_listing = true, for_member = for_member , events=_events, event_id_show=i
+                                        issue = _issue, for_listing = true, events=_events, event_id_show=i
                                       } }
                                       
                                       issue_rendered=issue_rendered+1
@@ -142,6 +133,7 @@ local direct_voter
           }
           
         end --fine for
+  
    --label "nessuna issue presente"    
           trace.debug("issue_rendered="..issue_rendered)  
           if  issue_rendered==0 then     
