@@ -101,6 +101,7 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_xl"}, content = _"CHOOSE THE INITIATIVE TO EXAMINE:" }
 end}
 
+--[[
 execute.view{
   module="index" ,
   view="_filter_ext" ,
@@ -109,9 +110,48 @@ execute.view{
     category=category,
     module="area",
     routing_page="show_ext",
-    state=state, 
-    orderby=orderby, 
+    state=state,
+    orderby=orderby,
     desc=desc
+  }
+}
+--]]
+
+btns = {
+  state = {
+    "any",
+    "open",
+    "development",
+    "closed",
+    "admission",
+    "voting",
+    "verification",
+    "canceled",
+    "finished",
+    "finished_with_winner",
+    "finished_without_winner"
+  },
+  interest = {
+    "interested",
+    "initiated",
+    "not_interested",
+    "supported",
+    "potentially_supported",
+    "voted",
+    "not_voted"
+  }
+}
+
+execute.chunk{
+  module = "issue" ,
+  chunk = "_filters_btn" ,
+  id = area.id,
+  params = {
+    state = state,
+    orderby = orderby,
+    desc = desc,
+    interest = interest,
+    btns = btns
   }
 }
 
