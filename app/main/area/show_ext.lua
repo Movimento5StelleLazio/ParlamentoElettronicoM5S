@@ -132,6 +132,7 @@ btns = {
     "finished_without_winner"
   },
   interest = {
+    "any",
     "interested",
     "initiated",
     "not_interested",
