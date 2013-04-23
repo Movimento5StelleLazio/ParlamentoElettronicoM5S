@@ -169,7 +169,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
       module = "area",
       view = "show_ext",
       id = area.id,
-      params = { state=state, orderby="supporters", desc=desc},
+      params = { state=state, orderby="supporters", interest=interest, desc=desc},
       content = function()
         ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
       end
@@ -183,7 +183,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby="creation_date", desc=desc },
+    params = { state=state, orderby="creation_date", interest=interest, desc=desc },
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
     end
@@ -194,7 +194,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby="event", desc=desc},
+    params = { state=state, orderby="event", interest=interest, desc=desc},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
     end
@@ -205,7 +205,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     module = "area",
     view = "show_ext",
     id = area.id,
-    params = { state=state, orderby=orderby, desc=not(desc)},
+    params = { state=state, orderby=orderby, interest=interest, desc=not(desc)},
     content = function()
       ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
     end
