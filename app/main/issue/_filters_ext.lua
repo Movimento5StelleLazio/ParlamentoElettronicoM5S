@@ -1,18 +1,56 @@
 local state = param.get("state")
 local orderby = param.get("orderby")
-local unit_name = param.get("unit_name")
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local selector = param.get("selector", "table")
-
 local member = app.session.member
 
---local for_member = param.get("for_member", "table")
---local for_unit = param.get("for_unit", atom.boolean)
---local for_area = param.get("for_area", atom.boolean)
---local for_events = param.get("for_events", atom.boolean)
---local filters = {}
---local filter = { name = "filter" }
+--[[
+This module is called via execute.chunk() from app/main/area/show_ext.lua
+
+It accepts the following parameters:
+
+## selector ##
+
+ * This is a pre-created issues selector
+
+## state ##
+
+ * open
+ * admission
+ * development
+ * discussion
+ * voting
+ * verification
+ * closed
+ * finished
+ * finished_with_winner
+ * finished_without_winner
+ * canceled
+ * any
+
+## orderby ##
+
+ * event
+ * supporters
+ * creation_date
+
+## desc ##
+
+ * true
+ * false
+
+## interest ##
+
+ * interested
+ * not_interested -- TODO Snapshots
+ * supported
+ * potentially_supported
+ * voted
+ * not_voted
+ * any
+
+--]]
 
 local ord = ""
 if desc then ord = " DESC" end
