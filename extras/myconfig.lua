@@ -141,7 +141,7 @@ config.default_lang = "it"
 
 -- Prefix of all automatic mails, defaults to "[Liquid Feedback] "
 -- ------------------------------------------------------------------------
--- config.mail_subject_prefix = "[LiquidFeedback] "
+config.mail_subject_prefix = "Parlamento Elettronico M5S "
 
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
