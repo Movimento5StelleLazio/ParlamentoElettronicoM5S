@@ -30,12 +30,16 @@ else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
   
-local issues_selector
---if orderby == "event" then
---  issues_selector = Event:new_selector()
---else
-  issues_selector = area:get_reference_selector("issues")
---end
+local selector,module,view 
+if orderby == "event" then
+  selector = Event:new_selector()
+  module = "event"
+  view = "_list_ext"
+else
+  selector = area:get_reference_selector("issues")
+  module = "issue"
+  view = "_list_ext"
+end
 
 execute.chunk{
   module    = "issue",
@@ -45,7 +49,7 @@ execute.chunk{
     orderby=orderby, 
     desc=desc,
     interest=interest,
-    selector=issues_selector
+    selector=selector
   }
 }
 
@@ -217,9 +221,9 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
   
     ui.container{ attr = { class="area_issue_box"}, content=function()
       execute.view{
-        module="issue" ,
-        view="_list_ext" ,
-        params={ issues_selector=issues_selector, member=member }
+        module=module ,
+        view=view ,
+        params={ selector=selector, member=member }
     }
   
     end }
