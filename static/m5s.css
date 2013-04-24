@@ -907,8 +907,11 @@
 }
 
 .unit_bottom_box {
+/*
   margin-top: 150px;
   margin-bottom: 1ex;
+*/
+  margin-top: -1em;
   background-color: #ebe2aa;
   border-radius: 8px;
   padding: 20px;
@@ -929,10 +932,16 @@
 }
 
 #unit_parlamento_img{
+/*
   position: absolute;
-  z-index: 1;
+*/
+/*  z-index: 1;
+*/
+  margin-left: auto;
+  margin-right: auto;
   margin-left: 410px;
-  margin-bottom: -30px;
+  margin-bottom: -1em;
+
 }
 
 #unit_title {
@@ -949,11 +958,12 @@
   text-align: center;
   width: 214px;
   height: 130px;
+  padding: 0em;
 }
 
 .button_text {
-  margin: 0.3em;
-  font: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  margin: auto;
+  font-size: 0.8em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
@@ -974,7 +984,7 @@
   height: 120px;
 }
 
-#flt_btn_apply {
+#flt_btn_apply, #flt_btn_delete {
   text-align: center;
   margin: 1em auto 1em auto;
 }
@@ -987,14 +997,27 @@
 }
 
 .flt_btn_head_title {
-  margin: 0.4em;
+  margin: auto;
   font-size: 2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
 .flt_btn_box {
+  margin: 0.6em auto 0.6em auto;
+  padding: 0.4em;
+  border-bottom: 0.15em solid black;
   float: left;
   text-align: center;
+  width: 100%;
+}
+
+#flt_box {
+  height: auto;
+}
+
+#area_show_bottom_box {
+  float: left;
+  width: 100%;
 }
 
 

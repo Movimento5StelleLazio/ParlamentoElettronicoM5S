@@ -205,6 +205,7 @@ elseif orderby == "event" then
 --  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
   selector:limit(25)
   selector:add_field("now()::date - event.occurrence::date", "time_ago")
+--  selector:join("issue", nil, "issue.id = event.issue_id")
   selector:join("event", nil, "issue.id = event.issue_id")
   selector:add_order_by("event.id"..ord)
 else

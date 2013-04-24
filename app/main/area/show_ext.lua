@@ -1,9 +1,10 @@
 local area = Area:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby")
-local desc = param.get("desc",atom.boolean)
+local desc = param.get("desc",atom.boolean) or false
 local interest = param.get("interest")
 local member = app.session.member
+local ftl_btns = param.get("ftl_btns",atom.boolean) or false
 
 app.html_title.title = area.name
 app.html_title.subtitle = _("Area")
@@ -21,11 +22,6 @@ if not config.gui_preset.M5S.units[unit_name] then
   return false
 end
 
--- Set the desc order param
-if desc ~= true and desc ~= false then
-  desc = false
-end
- 
 -- Determines the desc order button text
 local inv_txt
 if not desc then
@@ -34,7 +30,12 @@ else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
   
-local issues_selector = area:get_reference_selector("issues")
+local issues_selector
+--if orderby == "event" then
+--  issues_selector = Event:new_selector()
+--else
+  issues_selector = area:get_reference_selector("issues")
+--end
 
 execute.chunk{
   module    = "issue",
@@ -118,24 +119,26 @@ execute.view{
 --]]
 
 btns = {
+  default_state = 'development',
   state = {
     "any",
     "open",
     "development",
-    "closed",
     "admission",
     "voting",
     "verification",
     "canceled",
     "finished",
     "finished_with_winner",
-    "finished_without_winner"
+    "finished_without_winner",
+    "closed"
   },
+  default_interest = 'any',
   interest = {
     "any",
     "interested",
-    "initiated",
     "not_interested",
+    "initiated",
     "supported",
     "potentially_supported",
     "voted",
@@ -152,71 +155,73 @@ execute.chunk{
     orderby = orderby,
     desc = desc,
     interest = interest,
-    btns = btns
+    btns = btns,
+    ftl_btns = ftl_btns
   }
 }
 
-    
-ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
-
-ui.container{ attr = { class="unit_bottom_box"}, content=function()
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
-
-  -- TODO Remove hard-coded check and test if area policy has a non null admission time instead
-  if unit_name == "cittadini" or unit_name == "iscritti" then
+ui.container{ attr = { id="area_show_bottom_box"}, content=function()
+  ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
+  
+  ui.container{ attr = { class="unit_bottom_box"}, content=function()
+    ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
+  
+    -- TODO Remove hard-coded check and test if area policy has a non null admission time instead
+    if unit_name == "cittadini" or unit_name == "iscritti" then
+      ui.link {
+        attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+        module = "area",
+        view = "show_ext",
+        id = area.id,
+        params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+        content = function()
+          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+        end
+      }
+    else
+      button_margin = "left: 140px;" 
+    end
+  
     ui.link {
-      attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
       module = "area",
       view = "show_ext",
       id = area.id,
-      params = { state=state, orderby="supporters", interest=interest, desc=desc},
+      params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
       content = function()
-        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
       end
     }
-  else
-    button_margin = "left: 140px;" 
-  end
-
-  ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-    module = "area",
-    view = "show_ext",
-    id = area.id,
-    params = { state=state, orderby="creation_date", interest=interest, desc=desc },
-    content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
-    end
-  }
-
-  ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-    module = "area",
-    view = "show_ext",
-    id = area.id,
-    params = { state=state, orderby="event", interest=interest, desc=desc},
-    content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
-    end
-  }
-
-  ui.link {
-    attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-    module = "area",
-    view = "show_ext",
-    id = area.id,
-    params = { state=state, orderby=orderby, interest=interest, desc=not(desc)},
-    content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
-    end
-  }
-
-  ui.container{ attr = { class="area_issue_box"}, content=function()
-    execute.view{
-      module="issue" ,
-      view="_list_ext" ,
-      params={ issues_selector=issues_selector, member=member }
-  }
-
+  
+    ui.link {
+      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
+      module = "area",
+      view = "show_ext",
+      id = area.id,
+      params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
+      content = function()
+        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
+      end
+    }
+  
+    ui.link {
+      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
+      module = "area",
+      view = "show_ext",
+      id = area.id,
+      params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
+      content = function()
+        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
+      end
+    }
+  
+    ui.container{ attr = { class="area_issue_box"}, content=function()
+      execute.view{
+        module="issue" ,
+        view="_list_ext" ,
+        params={ issues_selector=issues_selector, member=member }
+    }
+  
+    end }
   end }
 end }
