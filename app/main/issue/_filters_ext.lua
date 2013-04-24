@@ -64,7 +64,7 @@ if state == "admission" then
   end
 elseif state == "development" then
   if orderby == "event" then
-    selector:add_where("event.state = in ('discussion', 'verification', 'voting')")
+    selector:add_where("event.state in ('discussion', 'verification', 'voting')")
   else
 --  selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
     selector:add_where("issue.accepted NOTNULL AND issue.closed ISNULL")
@@ -205,7 +205,7 @@ elseif orderby == "event" then
 --  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
   selector:limit(25)
   selector:add_field("now()::date - event.occurrence::date", "time_ago")
-  selector:join("event", nil, "issue.id = event.issue_id")
+  selector:join("issue", nil, "issue.id = event.issue_id")
   selector:add_order_by("event.id"..ord)
 else
   orderby = "creation_date"
