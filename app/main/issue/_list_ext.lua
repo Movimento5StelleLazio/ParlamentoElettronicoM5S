@@ -1,4 +1,4 @@
-local issues_selector = param.get("issues_selector", "table")
+local issues_selector = param.get("selector", "table")
 local member = param.get("for_member", "table") or app.session.member
 
 ui.paginate{
