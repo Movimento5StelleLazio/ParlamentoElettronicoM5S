@@ -40,6 +40,17 @@ Issue:add_reference{
   default_order = 'initiative.admitted DESC NULLS LAST, initiative.rank NULLS LAST, initiative.harmonic_weight DESC NULLS LAST, id'
 }
 
+-- Reference to use with orderby ?
+Issue:add_reference{
+  mode          = '1m',
+  to            = "Event",
+  this_key      = 'id',
+  that_key      = 'issue_id',
+  ref           = 'event',
+  back_ref      = 'issue',
+  default_order = 'event.occurrence'
+}
+
 Issue:add_reference{
   mode          = '1m',
   to            = "Interest",
