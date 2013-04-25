@@ -56,13 +56,9 @@ It accepts the following parameters:
 local ord = ""
 if desc then ord = " DESC" end
 
--- Checking orderby
-if orderby == "event" then
-  selector:add_field("now()::date - event.occurrence::date", "time_ago")
-  selector:add_field("max(event.id)")
-  selector:join("issue", nil, {"issue.id = event.issue_id AND issue.area_id = ?", area_id })
---  selector:add_where("issue.area_id = ?", area_id)
-end
+-- Join with event table, the most recent event data is taken
+selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
+selector:left_join("event", nil, "issue.id = event.issue_id")
 
 if state == "admission" then
 --  selector:add_where("issue.state = 'admission'")
@@ -164,15 +160,11 @@ if orderby == "supporters" then
   selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
   selector:add_group_by("issue.id")
   selector:add_order_by("supporters"..ord)
-
 elseif orderby == "event" then
---  Simplified version
---  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
-  selector:add_order_by("event.id"..ord)
-  selector:add_group_by("event.id")
-  selector:add_group_by("_interest.member_id,_delegating_interest.delegate_member_ids")
+  selector:add_order_by("time_ago"..ord)
 else
   orderby = "creation_date"
   selector:add_order_by("issue.id"..ord)
 end
-  selector:limit(25)
+selector:add_group_by("issue.id")
+selector:limit(25)
