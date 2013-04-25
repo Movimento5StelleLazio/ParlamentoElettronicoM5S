@@ -44,6 +44,7 @@ end
 execute.chunk{
   module    = "issue",
   chunk     = "_filters_ext",
+  id = area.id,
   params    = { 
     state=state, 
     orderby=orderby, 

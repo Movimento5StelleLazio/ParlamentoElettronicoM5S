@@ -949,6 +949,8 @@
 }
 
 #unit_arrow_back {
+  margin-top: 10%;
+  margin-left: 0.2em;
   height: 55px;
   width: 55px;
   float: left;
