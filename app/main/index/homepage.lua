@@ -1,6 +1,3 @@
-
-
-
 local issues_selector =Issue:new_selector()
  
   
@@ -14,7 +11,7 @@ local issue_state=param.get("issue_state")
 local filter_state=param.get("filter_state",atom.boolean)
 
 if not issue_state then
-issue_state="open"
+    issue_state="open"
 end
 
 
