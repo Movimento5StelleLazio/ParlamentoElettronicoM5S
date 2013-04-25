@@ -51,25 +51,17 @@ ui.container{
                 } 
                 
                --pulsante 2
-               ui.link{
-                    
-                    attr={class="button orange menuButton"},
-                    module = "initiative",
-                    view = "wizard_new",
-                    params = { 
-                                      unit={name="LazionM5S"},
-                                      area = {name="testAreaName"} 
-                                    },
+               ui.tag{
+                    tag = "a", 
+                    attr={class="button orange menuButton", onclick="alert('molla il mouse!')"},
                     content=function()
                     
                         ui.tag{
                            tag = "pre",
                            attr={class="text-align: center;", readonly="true"},
                            content        =_"Homepage write new issue",  
-                           multiline=true,
-                          
+                           multiline=true
                         }  
-                        
                     end-- fine tag.content
                 } 
                 
