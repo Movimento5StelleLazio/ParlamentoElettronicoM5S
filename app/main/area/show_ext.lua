@@ -107,31 +107,18 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
 end}
 
 --[[
-execute.view{
-  module="index" ,
-  view="_filter_ext" ,
-  params={
-    level=5,
-    category=category,
-    module="area",
-    routing_page="show_ext",
-    state=state,
-    orderby=orderby,
-    desc=desc
-  }
-}
---]]
-
-btns = {
+local btns = {
   default_state = 'development',
   state = {
     "any",
     "open",
     "development",
     "admission",
+    "discussion",
     "voting",
     "verification",
     "canceled",
+    "committee",
     "finished",
     "finished_with_winner",
     "finished_without_winner",
@@ -149,6 +136,28 @@ btns = {
     "not_voted"
   }
 }
+--]]
+
+if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
+btns = {
+  default_state = 'development',
+  state = { "discussion", "verification", "voting", "committee" },
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+elseif state == "closed" then
+btns = {
+  default_state = 'closed',
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+elseif state == "admission" then  
+  btns = {
+  default_state = 'admission',
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+end
 
 execute.chunk{
   module = "issue" ,

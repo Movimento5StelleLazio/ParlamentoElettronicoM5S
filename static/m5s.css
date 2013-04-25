@@ -990,7 +990,8 @@
 }
 
 .flt_btn_txt {
-  float: left;
+/*  float: left; */
+  display: inline-block;
   width: auto;
   font-size: 1.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
@@ -1008,6 +1009,7 @@
   border-bottom: 0.15em solid black;
   float: left;
   text-align: center;
+  white-space: nowrap;
   width: 100%;
 }
 

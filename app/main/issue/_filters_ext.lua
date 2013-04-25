@@ -55,6 +55,12 @@ It accepts the following parameters:
 local ord = ""
 if desc then ord = " DESC" end
 
+-- Checking orderby
+if orderby == "event" then
+  selector:add_field("now()::date - event.occurrence::date", "time_ago")
+  selector:join("issue", nil, "issue.id = event.issue_id")
+end
+
 if state == "admission" then
   if orderby == "event" then
     selector:add_where("event.state = 'admission'")
@@ -136,7 +142,7 @@ end
 
 
 -- Filtering interest
-if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or interest == "interested" or interest == "supported" or interest == "potentially_supported" or interest == 'voted'  or interest == 'not_voted' ) then
+if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or interest == "interested" or interest == "initiated" or interest == "supported" or interest == "potentially_supported" or interest == 'voted'  or interest == 'not_voted' ) then
 
   -- Not interested
   if interest ==  "not_interested" then
@@ -204,8 +210,6 @@ elseif orderby == "event" then
   -- TODO
 --  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
   selector:limit(25)
-  selector:add_field("now()::date - event.occurrence::date", "time_ago")
-  selector:join("issue", nil, "issue.id = event.issue_id")
   selector:add_order_by("event.id"..ord)
 else
   orderby = "creation_date"
