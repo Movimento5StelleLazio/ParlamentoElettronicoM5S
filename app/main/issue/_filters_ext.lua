@@ -59,6 +59,7 @@ if desc then ord = " DESC" end
 -- Checking orderby
 if orderby == "event" then
   selector:add_field("now()::date - event.occurrence::date", "time_ago")
+  selector:add_field("max(event.id)")
   selector:join("issue", nil, {"issue.id = event.issue_id AND issue.area_id = ?", area_id })
 --  selector:add_where("issue.area_id = ?", area_id)
 end
@@ -152,6 +153,7 @@ if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or i
     selector:left_join("non_voter", nil, { "non_voter.issue_id = issue.id AND non_voter.member_id = ?", member.id })
     selector:add_where("non_voter.member_id ISNULL")
   end
+ 
 else
   interest = "any"
 end
@@ -164,9 +166,11 @@ if orderby == "supporters" then
   selector:add_order_by("supporters"..ord)
 
 elseif orderby == "event" then
-  -- TODO
+--  Simplified version
 --  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
   selector:add_order_by("event.id"..ord)
+  selector:add_group_by("event.id")
+  selector:add_group_by("_interest.member_id,_delegating_interest.delegate_member_ids")
 else
   orderby = "creation_date"
   selector:add_order_by("issue.id"..ord)

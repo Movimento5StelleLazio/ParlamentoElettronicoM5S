@@ -158,6 +158,36 @@ elseif state == "admission" then
   default_interest = 'any',
   interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
 }
+else
+  btns = {
+  default_state = 'development',
+    state = {
+      "any",
+      "open",
+      "development",
+      "admission",
+      "discussion",
+      "voting",
+      "verification",
+      "canceled",
+      "committee",
+      "finished",
+      "finished_with_winner",
+      "finished_without_winner",
+      "closed"
+    },
+    default_interest = 'any',
+    interest = {
+      "any",
+      "interested",
+      "not_interested",
+      "initiated",
+      "supported",
+      "potentially_supported",
+      "voted",
+      "not_voted"
+    }
+  }
 end
 
 execute.chunk{
