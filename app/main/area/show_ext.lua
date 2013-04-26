@@ -67,6 +67,12 @@ elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Closed"
 elseif state == "canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Canceled"
+elseif state == "finished" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished"
+elseif state == "finished_with_winner" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished (with winner)"
+elseif state == "finished_without_winner" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished (without winner)"
 elseif state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
 elseif state == "any" then

@@ -30,7 +30,7 @@ local txt_map = {
     canceled = _"Canceled",
     finished = _"Finished",
     finished_with_winner = _"Finished (with winner)",
-    finished_without_winner = _"Finished (without winner)",
+    finished_without_winner = _"Finished (without winner)"
   },
   interest = {
     any = _"Any category",

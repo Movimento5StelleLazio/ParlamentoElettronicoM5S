@@ -997,6 +997,7 @@
 }
 
 #unit_arrow_back {
+  margin-top: 1.4em;
   height: 55px;
   width: 55px;
   float: left;
@@ -1011,7 +1012,7 @@
 
 .button_text {
   margin: auto;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
@@ -1038,7 +1039,7 @@
 }
 
 .flt_btn_txt {
-  float: left;
+  display: inline-block;
   width: auto;
   font-size: 1.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
