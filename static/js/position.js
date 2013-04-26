@@ -30,7 +30,7 @@ function codelatlng(lat,lng,id,str) {
     data: { latlng: lat+","+lng, sensor: "false" }
     }).done(function( response ) { 
       var ele = document.getElementById(id)
-      if (str && ele && response && response.results[3] && response.results[3].address_components[1]) {
+      if (str && ele && response && response.results && response.results[3] && response.results[3].address_components[1]) {
         ele.innerHTML=str+response.results[3].address_components[1].long_name+", "+response.results[3].address_components[2].long_name+".";
       } else {
  //       alert("trace: codeLatLng(): Error retrieving response");

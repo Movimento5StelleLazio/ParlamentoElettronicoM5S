@@ -131,6 +131,7 @@ return {
 ["Author"] = "Autore";
 ["Avatar"] = false;
 ["Back"] = "Indietro";
+["Back Phase"]="TORNA ALLA PAGINA PRECEDENTE";
 ["Back to initiative"] = "Ritorna alla proposta";
 ["Back to timeline"] = "Ritorna alla cronologia";
 ["Ballot of '#{member_name}' for issue ##{issue_id}"] = "Scrutinio di '#{member_name}' per la questione ##{issue_id}";
@@ -193,6 +194,7 @@ return {
 ["Create / edit policy"] = "Crea / modifica regola";
 ["Create alternative initiative"] = "Crea proposta alternativa";
 ["Create new area"] = "Crea nuova area";
+["Create new initiative"]="CREA UNA NUOVA PROPOSTA";
 ["Create new issue"] = "Crea nuova questione";
 ["Create new policy"] = "Crea nuova regola";
 ["Create new unit"] = "Crea nuova unità";
@@ -276,14 +278,8 @@ return {
 ["Filter Phase"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
 ["Filter Category"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
 ["Filter Unit"]="MOSTRA SOLO LE SEGUENTI UNITA':";
-["Any category"]="Qualsiasi categoria";
-["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
-["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
-["SHOW ONLY THE FOLLOWING UNITS"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["Find Supporters"]="CERCA SOSTENITORI";
 ["Finish voting"] = "Registra voto";
-["Development"] = "Svolgimento";
-["Not interested"] = "Non interessato";
 ["Finished"] = "Chiuso";
 ["Finished (with winner)"] = "Chiuso (con vincitore)";
 ["Finished (without winner)"] = "Chiuso (senza vincitore)";
@@ -447,6 +443,7 @@ return {
 ["New phase"]="Nuovo";
 ["New suggestion"] = "Nuovo suggerimento";
 ["Newest"] = "Ultimo";
+["Next Phase"]="REGISTRA LA SCELTA E PASSA ALLA PROSSIMA FASE";
 ["No"] = false;
 ["No admission needed"] = false;
 ["No changes to your images were made"] = "Nessun cambiamento alle proprie immagini";
@@ -878,4 +875,3 @@ return {
 ["< select template >"]="seleziona template...";
 ["Elected?"] = "Eletto?";
 }
-
