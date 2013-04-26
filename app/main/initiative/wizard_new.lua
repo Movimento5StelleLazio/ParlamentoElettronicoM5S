@@ -13,7 +13,7 @@ local step=param.get("step",atom.integer)
 local btnBackModule = "initiative"
 local btnBackView = "wizard_new"
 
-if not step  or step==0 then
+if not step  or step <= 1 then
     step=1
     btnBackModule ="index"
     btnBackView = "homepage"
