@@ -171,6 +171,7 @@ return {
 ["Choose initiator"] = "Seleziona autore";
 ["Choose member"] = "Seleziona utente";
 ["Closed"] = "Chiuso";
+["Committee"] = "In commissione";
 ["Closed issues"] = "Questioni chiuse";
 ["Closed phase"] = "Chiuso";
 ["Closed user group, please login to participate."] = "Gruppo chiuso, accedere per partecipare.";
