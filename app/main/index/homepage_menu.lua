@@ -6,8 +6,6 @@ welcomeText=welcomeText.._"Homepage welcome text2"
 ui.container{
 
         attr={id="menuDiv", class="menuDiv"},
-        
-        
         content=function()
         
                ui.tag{
