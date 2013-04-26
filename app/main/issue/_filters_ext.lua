@@ -1,3 +1,4 @@
+local area_id =  param.get_id()
 local state = param.get("state")
 local orderby = param.get("orderby")
 local desc =  param.get("desc", atom.boolean)
@@ -55,88 +56,47 @@ It accepts the following parameters:
 local ord = ""
 if desc then ord = " DESC" end
 
+-- Join with event table, the most recent event data is taken
+selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
+selector:left_join("event", nil, "issue.id = event.issue_id")
+
 if state == "admission" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'admission'")
-  else
 --  selector:add_where("issue.state = 'admission'")
-    selector:add_where("issue.accepted ISNULL AND issue.closed ISNULL")
-  end
+  selector:add_where("issue.accepted ISNULL AND issue.closed ISNULL")
 elseif state == "development" then
-  if orderby == "event" then
-    selector:add_where("event.state in ('discussion', 'verification', 'voting')")
-  else
 --  selector:add_where("issue.state in ('discussion', 'verification', 'voting')")
-    selector:add_where("issue.accepted NOTNULL AND issue.closed ISNULL")
-  end
+  selector:add_where("issue.accepted NOTNULL AND issue.closed ISNULL")
 elseif state == "discussion" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'discussion'")
-  else
 --  selector:add_where("issue.state = 'discussion'")
-    selector:add_where("issue.accepted NOTNULL AND issue.half_frozen ISNULL AND issue.closed ISNULL")
-  end
+  selector:add_where("issue.accepted NOTNULL AND issue.half_frozen ISNULL AND issue.closed ISNULL")
 elseif state == "voting" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'voting'")
-  else
 --  selector:add_where("issue.state = 'voting'")
-    selector:add_where("issue.fully_frozen NOTNULL AND issue.closed ISNULL")
-  end
+  selector:add_where("issue.fully_frozen NOTNULL AND issue.closed ISNULL")
 elseif state == "verification" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'verification'")
-  else
 --  selector:add_where("issue.state = 'verification'")
-    selector:add_where("issue.half_frozen NOTNULL AND issue.fully_frozen ISNULL")
-  end
+  selector:add_where("issue.half_frozen NOTNULL AND issue.fully_frozen ISNULL")
 elseif state == "closed" then
-  if orderby == "event" then
-    selector:add_where("event.state IN ('finished_with_winner', 'finished_without_winner', 'canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification')")
-  else
-    selector:add_where("issue.closed NOTNULL")
-  end
+  selector:add_where("issue.closed NOTNULL")
 elseif state == "finished" then
-  if orderby == "event" then
-    selector:add_where("event.state IN ('finished_with_winner', 'finished_without_winner')")
-  else
 --  selector:add_where("issue.state IN ('finished_with_winner', 'finished_without_winner')")
-    selector:add_where("issue.closed NOTNULL AND issue.fully_frozen NOTNULL")
-  end
+  selector:add_where("issue.closed NOTNULL AND issue.fully_frozen NOTNULL")
 elseif state == "finished_with_winner" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'finished_with_winner'")
-  else
-    selector:add_where("issue.state = 'finished_with_winner'")
-  end
+  selector:add_where("issue.state = 'finished_with_winner'")
 elseif state == "finished_without_winner" then
-  if orderby == "event" then
-    selector:add_where("event.state = 'finished_without_winner'")
-  else
-    selector:add_where("issue.state = 'finished_without_winner'")
-  end
+  selector:add_where("issue.state = 'finished_without_winner'")
 elseif state == "canceled" then
-  if orderby == "event" then
-    selector:add_where("event.state IN ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification')")
-  else
 --  selector:add_where("issue.state in ('canceled_revoked_before_accepted', 'canceled_issue_not_accepted', 'canceled_after_revocation_during_discussion', 'canceled_after_revocation_during_verification', 'canceled_no_initiative_admitted')")
-    selector:add_where("issue.closed NOTNULL AND issue.fully_frozen ISNULL")
-  end
+  selector:add_where("issue.closed NOTNULL AND issue.fully_frozen ISNULL")
 elseif state == "open" then
-  if orderby == "event" then
-    selector:add_where("event.state in ('admission', 'discussion', 'verification', 'voting')")
-  else
 --  selector:add_where("issue.state in ('admission', 'discussion', 'verification', 'voting')")
-    selector:add_where("issue.closed ISNULL")
---  selector:add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
-  end
+  selector:add_where("issue.closed ISNULL")
 else
   state = "any"
 end
 
 
 -- Filtering interest
-if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or interest == "interested" or interest == "supported" or interest == "potentially_supported" or interest == 'voted'  or interest == 'not_voted' ) then
+if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or interest == "interested" or interest == "initiated" or interest == "supported" or interest == "potentially_supported" or interest == 'voted'  or interest == 'not_voted' ) then
 
   -- Not interested
   if interest ==  "not_interested" then
@@ -189,6 +149,7 @@ if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or i
     selector:left_join("non_voter", nil, { "non_voter.issue_id = issue.id AND non_voter.member_id = ?", member.id })
     selector:add_where("non_voter.member_id ISNULL")
   end
+ 
 else
   interest = "any"
 end
@@ -199,15 +160,11 @@ if orderby == "supporters" then
   selector:left_join("supporter",nil,"issue.id = supporter.issue_id")
   selector:add_group_by("issue.id")
   selector:add_order_by("supporters"..ord)
-
 elseif orderby == "event" then
-  -- TODO
---  selector:add_order_by("coalesce(issue.closed, issue.fully_frozen, issue.half_frozen, issue.accepted, issue.created)")
-  selector:limit(25)
-  selector:add_field("now()::date - event.occurrence::date", "time_ago")
-  selector:join("issue", nil, "issue.id = event.issue_id")
-  selector:add_order_by("event.id"..ord)
+  selector:add_order_by("time_ago"..ord)
 else
   orderby = "creation_date"
-  selector:add_order_by("issue.created"..ord)
+  selector:add_order_by("issue.id"..ord)
 end
+selector:add_group_by("issue.id")
+selector:limit(25)

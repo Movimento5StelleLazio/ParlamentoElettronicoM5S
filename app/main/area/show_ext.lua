@@ -30,20 +30,13 @@ else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
   
-local selector,module,view 
-if orderby == "event" then
-  selector = Event:new_selector()
-  module = "event"
-  view = "_list_ext"
-else
-  selector = area:get_reference_selector("issues")
-  module = "issue"
-  view = "_list_ext"
-end
+local selector
+selector = area:get_reference_selector("issues")
 
 execute.chunk{
   module    = "issue",
   chunk     = "_filters_ext",
+  id = area.id,
   params    = { 
     state=state, 
     orderby=orderby, 
@@ -61,25 +54,20 @@ local issues_desc
 
 if state == "admission" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_admission or Issue:get_state_name_for_state('admission')
-  category=1
 elseif state == "development" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or _"Development"
-  category=2
 elseif state == "discussion" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('discussion')
-  category=2
 elseif state == "voting" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('voting')
-  category=2
 elseif state == "verification" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or Issue:get_state_name_for_state('verification')
-  category=2
+elseif state == "committee" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_development or _"Committee"
 elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Closed"
-  category=3
 elseif state == "canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Canceled"
-  category=3
 elseif state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
 elseif state == "any" then
@@ -107,31 +95,18 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
 end}
 
 --[[
-execute.view{
-  module="index" ,
-  view="_filter_ext" ,
-  params={
-    level=5,
-    category=category,
-    module="area",
-    routing_page="show_ext",
-    state=state,
-    orderby=orderby,
-    desc=desc
-  }
-}
---]]
-
-btns = {
+local btns = {
   default_state = 'development',
   state = {
     "any",
     "open",
     "development",
     "admission",
+    "discussion",
     "voting",
     "verification",
     "canceled",
+    "committee",
     "finished",
     "finished_with_winner",
     "finished_without_winner",
@@ -149,6 +124,58 @@ btns = {
     "not_voted"
   }
 }
+--]]
+
+if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
+btns = {
+  default_state = 'development',
+  state = { "discussion", "verification", "voting", "committee" },
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+elseif state == "closed" then
+btns = {
+  default_state = 'closed',
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+elseif state == "admission" then  
+  btns = {
+  default_state = 'admission',
+  default_interest = 'any',
+  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+}
+else
+  btns = {
+  default_state = 'development',
+    state = {
+      "any",
+      "open",
+      "development",
+      "admission",
+      "discussion",
+      "voting",
+      "verification",
+      "canceled",
+      "committee",
+      "finished",
+      "finished_with_winner",
+      "finished_without_winner",
+      "closed"
+    },
+    default_interest = 'any',
+    interest = {
+      "any",
+      "interested",
+      "not_interested",
+      "initiated",
+      "supported",
+      "potentially_supported",
+      "voted",
+      "not_voted"
+    }
+  }
+end
 
 execute.chunk{
   module = "issue" ,
@@ -221,8 +248,8 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
   
     ui.container{ attr = { class="area_issue_box"}, content=function()
       execute.view{
-        module=module ,
-        view=view ,
+        module="issue" ,
+        view="_list_ext",
         params={ selector=selector, member=member }
     }
   

@@ -15,17 +15,7 @@ local color
 local default_state =  btns.default_state
 local default_interest =  btns.default_interest
 
--- Display filters button depending on flt_btns flag
-if ftl_btns then
-  d1 = "none"
-  d2 = "block"
-else
-  d1 = "block"
-  d2 = "none"
-end
-
 -- Filter buttons text mapping
-
 local txt_map = {
   state = {
     open = _"Open",
@@ -33,8 +23,10 @@ local txt_map = {
     any = _"Any phase",
     development = _"Development",
     admission = _"New",
-    voting = _"Voting",
+    discussion = _"Discussion",
     verification = _"Frozen",
+    voting = _"Voting",
+    committee = _"Committee",
     canceled = _"Canceled",
     finished = _"Finished",
     finished_with_winner = _"Finished (with winner)",
@@ -51,81 +43,50 @@ local txt_map = {
     not_voted = _"Not voted"
   }
 }
-
 ui.container{ attr = { id = "", class = ""}, content = function()
-  
-    ui.tag {
-      tag = "a",
-      attr = { 
-        id = "flt_btn_apply", 
-        class = "button orange",
-        style = "display: "..d1..";",
-        onclick = "document.getElementById('flt_box').style.display='block';"
-          .."document.getElementById('flt_btn_apply').style.display='none';"
-      },
+  if not ftl_btns then
+    ui.link { 
+      attr = { id = "flt_btn_apply", class = "button orange" },
+      module = module, view = view, id = id,
+      params = { state = state, orderby = orderby, desc = desc, interest = interest, ftl_btns = true },
       content = _"APPLY FILTERS"
     }
-
-  ui.container{  attr = { id = "flt_box", class = "", style="display: "..d2..";"}, content = function()
-    ui.link {
-      attr = { id = "flt_btn_delete", class = "button orange"},
-      module = module,
-      view = view,
-      id = id,
-      params = {
-        state = default_state,
-        orderby = orderby,
-        desc = desc,
-        interest = default_interest,
-        ftl_btns = false
-      },
-      content = _"REMOVE FILTERS"
-    }
-    
-    ui.container{  attr = { class = "flt_btn_box"}, content = function()
-       
-      ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
-      for i=1, #btns.state do
-        if state == btns.state[i] then color = "green" else color = "orange" end
-        ui.link {
-          attr = { id = "flt_btn_"..btns.state[i], class = "button "..color.." flt_btn_txt"},
-          module = module,
-          view = view,
-          id = id,
-          params = {
-            state = btns.state[i],
-            orderby = orderby,
-            desc = desc,
-            interest = interest,
-            ftl_btns = true
-          },
-          content = txt_map.state[btns.state[i]]
-        }
+  else
+    ui.container{  attr = { id = "flt_box", class = "" }, content = function()
+      ui.link {
+        attr = { id = "flt_btn_delete", class = "button orange"},
+        module = module, view = view, id = id,
+        params = { state = default_state, orderby = orderby, desc = desc, interest = default_interest, ftl_btns = false },
+        content = _"REMOVE FILTERS"
+      }
+      if btns['state'] then
+        ui.container{  attr = { class = "flt_btn_box"}, content = function()
+          ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
+          for i=1, #btns.state do
+            if state == btns.state[i] then color = "green" else color = "orange" end
+            ui.link {
+              attr = { id = "flt_btn_"..btns.state[i], class = "button "..color.." flt_btn_txt"},
+              module = module, view = view, id = id, 
+              params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, ftl_btns = true },
+              content = txt_map.state[btns.state[i]]
+            }
+          end
+        end } 
       end
-    end } 
-
-    ui.container{  attr = { class = "flt_btn_box"}, content = function()
-
-      ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"  }
-      for i=1, #btns.interest do
-        if interest == btns.interest[i] then color = "green" else color = "orange" end
-        ui.link {
-          attr = { id = "flt_btn_"..btns.interest[i], class = "button "..color.." flt_btn_txt"},
-          module = module,
-          view = view,
-          id = id,
-          params = {
-            state = state,
-            orderby = orderby,
-            desc = desc,
-            interest =  btns.interest[i],
-            ftl_btns = true
-          },
-          content = txt_map.interest[btns.interest[i]]
-        }
+      if btns['interest'] then
+        ui.container{  attr = { class = "flt_btn_box"}, content = function()
+          ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"  }
+          for i=1, #btns.interest do
+            if interest == btns.interest[i] then color = "green" else color = "orange" end
+            ui.link {
+              attr = { id = "flt_btn_"..btns.interest[i], class = "button "..color.." flt_btn_txt"},
+              module = module, view = view, id = id,
+              params = { state = state, orderby = orderby, desc = desc, interest =  btns.interest[i], ftl_btns = true },
+              content = txt_map.interest[btns.interest[i]]
+            }
+          end
+        end } 
       end
-    end } 
-
-  end }
-
+    end }
+  end
 end }
