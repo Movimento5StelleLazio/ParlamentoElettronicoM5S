@@ -29,10 +29,9 @@ if not desc then
 else
   inv_txt = _"INVERT ORDER FROM DESCENDING TO ASCENDING"
 end
-  
-local selector
-selector = area:get_reference_selector("issues")
 
+local selector = area:get_reference_selector("issues")
+  
 execute.chunk{
   module    = "issue",
   chunk     = "_filters_ext",
@@ -147,7 +146,7 @@ elseif state == "admission" then
 }
 else
   btns = {
-  default_state = 'development',
+  default_state = 'any',
     state = {
       "any",
       "open",
