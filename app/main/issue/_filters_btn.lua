@@ -48,7 +48,7 @@ ui.container{ attr = { id = "", class = ""}, content = function()
     ui.link { 
       attr = { id = "flt_btn_apply", class = "button orange" },
       module = module, view = view, id = id,
-      params = { state = state, orderby = orderby, desc = desc, interest = interest, ftl_btns = true },
+      params = { state = state or default_state, orderby = orderby, desc = desc, interest = interest or default_interest, ftl_btns = true },
       content = _"APPLY FILTERS"
     }
   else
