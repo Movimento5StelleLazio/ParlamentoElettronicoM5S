@@ -138,7 +138,7 @@ btns = {
   default_interest = 'any',
   interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
 }
-elseif state == "closed" then
+elseif state == "closed" or state == "canceled" or state == "finished" then
 btns = {
   default_state = 'closed',
   default_interest = 'any',
