@@ -99,38 +99,6 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_xl"}, content = _"CHOOSE THE INITIATIVE TO EXAMINE:" }
 end}
 
---[[
-local btns = {
-  default_state = 'development',
-  state = {
-    "any",
-    "open",
-    "development",
-    "admission",
-    "discussion",
-    "voting",
-    "verification",
-    "canceled",
-    "committee",
-    "finished",
-    "finished_with_winner",
-    "finished_without_winner",
-    "closed"
-  },
-  default_interest = 'any',
-  interest = {
-    "any",
-    "interested",
-    "not_interested",
-    "initiated",
-    "supported",
-    "potentially_supported",
-    "voted",
-    "not_voted"
-  }
-}
---]]
-
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
 btns = {
   default_state = 'development',
@@ -178,6 +146,12 @@ else
       "potentially_supported",
       "voted",
       "not_voted"
+    },
+    default_scope = "any",
+    scope = {
+      "all_units",
+      "my_units",
+      "my_areas"
     }
   }
 end

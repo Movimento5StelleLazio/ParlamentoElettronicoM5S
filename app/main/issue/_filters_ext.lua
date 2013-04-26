@@ -1,8 +1,8 @@
-local area_id =  param.get_id()
 local state = param.get("state")
 local orderby = param.get("orderby")
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
+local scope = param.get("scope")
 local selector = param.get("selector", "table")
 local member = app.session.member
 
@@ -48,7 +48,7 @@ It accepts the following parameters:
  * supported
  * potentially_supported
  * voted
- * not_voted
+ * not_voted -- TODO working ?
  * any
 
 --]]
@@ -56,9 +56,14 @@ It accepts the following parameters:
 local ord = ""
 if desc then ord = " DESC" end
 
--- Join with event table, the most recent event data is taken
-selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
+-- Join with event table, the most recent event data is taken and aggregated into the issue record
+-- selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
+selector:add_field("min(now() - event.occurrence)", "time_ago")
 selector:left_join("event", nil, "issue.id = event.issue_id")
+
+-- Scope checking
+
+-- State checking
 
 if state == "admission" then
 --  selector:add_where("issue.state = 'admission'")
@@ -166,5 +171,6 @@ else
   orderby = "creation_date"
   selector:add_order_by("issue.id"..ord)
 end
+
 selector:add_group_by("issue.id")
 selector:limit(25)
