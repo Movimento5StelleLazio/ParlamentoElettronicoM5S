@@ -1039,6 +1039,7 @@
 }
 
 .flt_btn_txt {
+  white-space:nowrap;
   display: inline-block;
   width: auto;
   font-size: 1.2em;
