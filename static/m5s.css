@@ -34,26 +34,27 @@
 }
 
 .pulsantiMenuHomepageDiv{
-	background-color:transparent;
-	height: 160px;
-	width: 100%;
+    background-color:transparent;
+    height: 160px;
+    width: 100%;
 }
 .menuButton
 {
-	float: left;
-	 
+    float: left;
+    height: 130px;
+     
 }
 .testoPulsantiMenuHomepage{
-	  
-	   width: 50px;
-	   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-	
+      
+       width: 50px;
+       font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    
 }
 
 
 .phaseText
 {
-	color: black;
+    color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 22px;
@@ -66,8 +67,8 @@
 
 .categoryText
 {
-	
-	color: black;
+    
+    color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 22px;
@@ -76,7 +77,7 @@
     margin-top: 0;
     text-align: center;
     width: 100%;
-	
+    
 }
 
 
@@ -98,8 +99,8 @@
 
 
 .pulsanteFiltriDiv{
-	
-	background-color: transparent;
+    
+    background-color: transparent;
     border-radius: 12px 12px 12px 12px;
     height: 100px;
     width: 100%;
@@ -125,21 +126,31 @@
 
 .containerPulsantiFiltri{
 
-	background-color: transparent;
-	display: none;
-	width: 100%;
-	height: 170px; 
+    background-color: transparent;
+    display: none;
+    width: 100%;
+    height: 170px; 
 }
 
 
 
 .pulsanteFiltri
 {
-/*	margin-left: auto;
-	margin-right: auto;
-*/	text-align: center;
-	height: 80px;
-	left: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height:50px;
+    
+}
+
+.applicaFiltri
+{
+    position: relative;
+    text-align: center;
+    top: 12px;
+    vertical-align: middle;
+}
+    
 }
 
 .pulsantiFase{
@@ -153,15 +164,15 @@
     margin: -26px -25px -25px;
     margin-top: -26px;
     position: relative;
-    top: -4px;
+    top: 11px;
 }
 
 
 .btnAllPhase{
-	font-size:12px;
-	float: left;
+    font-size:12px;
+    float: left;
     height: 20px;
-    margin-left: 27px;
+    margin-left: 11px;
     margin-top: 7px;
     text-align: center;
     width: 90px;
@@ -206,7 +217,7 @@
 
 
 .btnFrozenPhase{
-	 font-size:12px;
+     font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -229,8 +240,8 @@
 
 .btnCommissionPhase
 {
-	
-	font-size:12px;
+    
+    font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -242,7 +253,7 @@
 
 .btnClosedPhase
 {
-	font-size:12px;
+    font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -250,12 +261,12 @@
     text-align: center;
     width: 90px;
     vertical-align: middle;
-	
+    
 }
 
 .btnCanceledPhase{
-	
-	font-size:12px;
+    
+    font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -263,13 +274,13 @@
     text-align: center;
     width: 90px;
     vertical-align: middle;
-	
+    
 }
 
 .lineDiv
 {
-	
-	border: thin solid black;
+    
+    border: thin solid black;
     height: 0;
     margin-left: 90px;
     margin-top: 0;
@@ -280,12 +291,12 @@
 }
 
 .pulsantiCategoria{
-	
-	float: left;
+    
+    float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-	
+    
 }
 
 .pulsantiCategoriaDiv{
@@ -323,7 +334,7 @@
 }
 
 .btnSupported{
-	  font-size:12px;
+      font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -331,13 +342,13 @@
     text-align: center;
     width: 90px;
     vertical-align: middle;
-	
+    
 }
 
 .btnPotentially
 {
-	
-	font-size:12px;
+    
+    font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -345,18 +356,18 @@
     text-align: center;
     width: 90px;
     vertical-align: middle;
-	
+    
 }
 
 
 .testoPotenzialmenteSostenuto{
-	
-	line-height: 12px;
+    
+    line-height: 12px;
     margin: 0;
     text-align: center;
 }
 .btnVoted{
-	  font-size:12px;
+      font-size:12px;
     float: left;
     height: 20px;
     margin-left: 27px;
@@ -368,28 +379,28 @@
 
 .pulsantiUnitaDiv
 {
-	
-	float: left;
+    
+    float: left;
     margin-left: 40px;
     margin-right: auto;
-	
+    
 }
 
 
 .pulsantiUnita
 {
 
-	float: left;
+    float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-	
+    
 }
 
 .btnAllUnitsPhase
 {
-	text-align: center;
-	float: left;
+    text-align: center;
+    float: left;
     font-size: 12px;
     height: 20px;
     margin-left: 27px;
@@ -402,9 +413,9 @@
 
 .testoPulsanteAllUnits
 {
-	
-	vertical-align: middle;
-	top: 0;
+    
+    vertical-align: middle;
+    top: 10px;
 }
 
 
@@ -427,7 +438,7 @@
     line-height: 12px;
     margin: 0;
     text-align: center;
-    top: 0;
+    top: 6px;
 }
 
 .btnMyAreasPhase
@@ -447,7 +458,7 @@
 
 .btnPublicCitiziensUnitsPhase
 {
-	text-align: center;
+    text-align: center;
     float: left;
     font-size: 12px;
     height: 20px;
@@ -460,18 +471,19 @@
 
 .testoPublicCitiziensUnits
 {
-	 
-	 vertical-align: middle;
-	 line-height: 12px;
+     
+     vertical-align: middle;
+     line-height: 12px;
      margin: 0;
      text-align: center;
+     top:0px;
      
-	
+    
 }
 
 .btnPublicElectedUnitsPhase
 {
-	text-align: center;
+    text-align: center;
     float: left;
     font-size: 12px;
     height: 20px;
@@ -484,24 +496,26 @@
 
 .testoPublicElectedUnits
 {
-	 vertical-align: middle;
+     vertical-align: middle;
      line-height: 12px;
      margin: 0;
      text-align: center;
+     top:0px;
      
 }
 
 
 .testoPublicOtherGroupsUnits
 {
-	 vertical-align: middle;
+     vertical-align: middle;
      line-height: 12px;
      margin: 0;
      text-align: center;
+     top:0px
 }
 .btnPublicOtherGroupsUnitsPhase
 {
-	text-align: center;
+    text-align: center;
     float: left;
     font-size: 12px;
     height: 20px;
@@ -510,20 +524,20 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-	
+    
 }
 
 .testoMyAreas
 {
-     top: 0;
+    top: 10px;
     vertical-align: middle;
 }
 
 
 .btnNotMyAreasPhase
 {
-	
-	text-align: center;
+    
+    text-align: center;
     float: left;
     font-size: 12px;
     height: 20px;
@@ -532,12 +546,12 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-	
+    
 }
 
 .testoNotMyAreas
 {
-	 top: 0;
+    top: 10px;
     vertical-align: middle;
 }
 
@@ -563,7 +577,7 @@
 
 .containerIssueDiv
 {
-	background-color: white;
+    background-color: white;
     float: inherit;
     width: 103%;
     margin-left: -8px;
@@ -602,36 +616,36 @@
 
 .headerDiv
 {
-	background-color: white;
+    background-color: white;
     height: 80px;
     width: 100%;
 }
 
 .paginate{
-	
-	margin-left: auto;
-	margin-right: auto;
-	height: 100%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
 }
 
 .titolo
 {
-	
-	font-size: 34px;
+    
+    font-size: 34px;
     left: 105px;
     position: relative;
-	 
+     
 }
 .issueDiv{
-	
-	width: 470px;
-	height: 220px;
-	margin-left: auto;
-	margin-right: auto;
-	
+    
+    width: 470px;
+    height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 .issue_ext{
-	 
+     
     clear: left;
     height: 180px;
     top: -35px;
@@ -639,7 +653,7 @@
 }
 .infoIssueDiv
 {
-	background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
     background-color: orange;
     border-radius: 16px 16px 16px 16px;
     float: left;
@@ -652,14 +666,14 @@
 }
 
 .event_name{
-	font-weight: bold;
+    font-weight: bold;
 }
 
 
 .pulsanteVediDettaglio
 {
-	 
-	margin-left: auto;
+     
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
     height: 25px;
@@ -668,20 +682,20 @@
 }
 
 .testoPulsanteVediDettaglio{
-	
+    
     float: left;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
    
-	
+    
 }
 
 
 .faseDiv
 {
-	box-shadow: 2px 2px 4px #CCCCCC;
-	background-color: white;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    background-color: white;
     border: thin solid black;
     border-radius: 8px 8px 8px 8px;
     color: red;
@@ -693,18 +707,18 @@
     width: 240px;
     top: 0px;
     
-	
+    
 }
 .initiative_link{
-	
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-o-text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 270px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 270px;
 }
 .labelFase{
-	font-size: 17px;
+    font-size: 17px;
     left: 1px;
     position: relative;
     top: 13px;
@@ -752,8 +766,8 @@
 
 .spazioIssue
 {
-	width:100%;
-	height:24px;
+    width:100%;
+    height:24px;
 }
 
 .loginDiv
@@ -769,17 +783,36 @@
 }
 
 
+.wizardContainer
+{
+    background-color: red;
+    float: left;
+    height: 100%;
+    width: 100%;
+    
+}
 .mainContainerWizard
 {
-	
-	background-color: cornsilk;
+    background-color: cornsilk;
     border: 1px solid black;
     border-radius: 0 0 0 0;
-    height: 85%;
+    height:100%;
     margin-left: auto;
     margin-right: auto;
     width: 98%;
 }
+
+.pulsantiWizard
+{
+     
+    font-size: 13px;
+    height: 100px;
+    position: relative;
+    text-align: -moz-center;
+    width: 150px;
+}
+
+
 
 /* Piero Fine */
 
@@ -964,8 +997,6 @@
 }
 
 #unit_arrow_back {
-  margin-top: 10%;
-  margin-left: 0.2em;
   height: 55px;
   width: 55px;
   float: left;
@@ -1007,8 +1038,7 @@
 }
 
 .flt_btn_txt {
-/*  float: left; */
-  display: inline-block;
+  float: left;
   width: auto;
   font-size: 1.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
@@ -1026,7 +1056,6 @@
   border-bottom: 0.15em solid black;
   float: left;
   text-align: center;
-  white-space: nowrap;
   width: 100%;
 }
 
