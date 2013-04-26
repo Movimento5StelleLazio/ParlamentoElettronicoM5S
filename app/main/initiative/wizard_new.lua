@@ -1,6 +1,11 @@
 local area=param.get("area" )
 local unit=param.get("unit" )
 
+local wizard_new_issue=param.get("wizard_new_issue","table")
+if not wizard_new_issue then
+         wizard_new_issue={}
+end
+
 
 local step=param.get("step",atom.integer)
 
@@ -99,18 +104,105 @@ ui.container
     -- step 1
             if step==1 then
             trace.debug("rendering view:"..step)
+           
             ui.container
             {
-                    attr={id="wizard_page_"..step, style="height:450px"},
+                    attr={id="wizard_page_"..step, class="basicWizardPage"},
                     content=function()
-                    
-                      ui.tag{
-                            tag="span",
-                            attr={class="titolo"},
-                            content=  "test page_"..step
-                          }
-                     end
+                     ui.container
+                        {
+                                attr={id="wizardTitoloArea",class="titoloWizardHead", style="text-align: center; width: 100%;"},
+                                content=function()
+                                  ui.tag{
+                                        tag="p",
+                                        attr={},
+                                        content=  "FASE "..step
+                                      }
+                                      
+                                  ui.tag{
+                                        tag="p",
+                                        attr={style="font-size:28px;"},
+                                        content=  _"How much time does your proposal need to be examined?"
+                                      }
+                                end
+                         }
+                         
+                      local tmp
+                      tmp = { 
+                                { id = 0, name = _"Please choose a policy" }
+                            }
+                      
+                      local _value=""
+                      if area then
+                          for i, allowed_policy in ipairs(area.allowed_policies) do
+                            if not allowed_policy.polling then
+                              tmp[#tmp+1] = allowed_policy
+                            end
+                          end   
+                          
+                        --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
                      
+                      end
+                    
+                    ui.container
+                    {
+                          attr={class="formSelect"},
+                          content=function() 
+                          ui.tag
+                          {     tag="select",
+                                attr={id="policyChooser", style="width:70%;height:30px;left: 20ex;position:relative;"},
+                                label ="",
+                                name = "policyId",
+                                content=function()
+                                
+                                    for v,k in ipairs(tmp) do
+                                    
+                                          ui.tag{
+                                          tag     = "option",
+                                          attr    = {
+                                                        value    = k.name,
+                                                       
+                                                       
+                                                     },
+                                          content = format.string(k.name)
+                                          }
+                                    end
+                                
+                                end
+                           }
+                         
+                         
+                          ui.tag{
+                                tag = "div",
+                                attr={style="left: 50ex;position:relative;"},
+                                content = function()
+                                  ui.tag{
+                                    tag = "label",
+                                    attr = { class = "ui_field_label" },
+                                    content = function() slot.put("&nbsp;") end,
+                                  }
+                                  ui.tag{
+                                    content = function()
+                                      ui.link{
+                                        text = _"Information about the available policies",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                      slot.put(" ")
+                                      ui.link{
+                                        attr = { target = "_blank" },
+                                        text = _"(new window)",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                    end
+                                  }--fine tag
+                                end
+                              } --fine tag 
+                         
+                     end
+                     }--fine div
+                   end
              }
             
             end
@@ -329,16 +421,6 @@ ui.container
             
             
             
-               ui.field.hidden{ 
-                                name = "unit", 
-                                value = unit
-                               }        
-                                     
-                ui.field.hidden{ 
-                                 name = "area", 
-                                 value = area
-                                }        
-            
             
             
             --pulsanti
@@ -408,3 +490,17 @@ ui.container
          }
 end --fine wizardContainer
 }
+
+ ui.field.hidden{ 
+                 name = "wizard_new_issue", 
+                 value = wizard_new_issue
+                }        
+                                     
+ui.field.hidden{ 
+                 name = "area", 
+                 value = area
+                }        
+            
+
+
+

@@ -821,10 +821,11 @@
 
 .wizardContainer
 {
-    background-color: red;
+   background-color: #FFFFCC;
     float: left;
     height: 100%;
     width: 100%;
+    margin-top: 2em;
     
 }
 .mainContainerWizard
@@ -836,6 +837,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 98%;
+    margin-top: 20px;
 }
 
 .pulsantiWizard
@@ -857,7 +859,27 @@
     right: 1ex;
 }
 
+.formSelect
+{
+	float: left;
+   
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+}
+
+.basicWizardPage
+{
+	height:450px; 
+	background-color: #FFFFCC;
+}
+
 /* Piero Fine */
+
+
+
+
 
 /* Puccio Inizio */
 

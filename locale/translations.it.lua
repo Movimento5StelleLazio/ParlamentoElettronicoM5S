@@ -315,6 +315,7 @@ return {
 ["Homepage welcome"]="BENVENUTO";
 ["Homepage what to do?"]="COSA VUOI FARE?";
 ["Homepage write new issue"]="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE";
+["How much time does your proposal need to be examined?"]="CHE TEMPI RICHIEDE LA TUA PROPOSTA PER ESSERE ESAMINATA?";
 ["I consider suggestion as"] = "Ritengo il suggerimento";
 ["I like to receive notifications by email about events in my areas and issues:"] = "Desidero ricevere le notifiche eMail per gli eventi delle mie aree e questioni:";
 ["Id"] = false;
