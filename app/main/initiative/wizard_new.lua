@@ -4,12 +4,21 @@ local unit=param.get("unit" )
 
 local step=param.get("step",atom.integer)
 
+
+local btnBackModule = "initiative"
+local btnBackView = "wizard_new"
+
 if not step  or step==0 then
-step=1
+    step=1
+    btnBackModule ="index"
+    btnBackView = "homepage"
 end
 
 local previus_page=step-1
 local next_page=step+1
+
+
+
 
 ui.container
 {
@@ -21,23 +30,61 @@ ui.container
                 attr={id="wizard_head",style="height:150px"},
                 content=function()
                 
-                  ui.tag{
-                        tag="span",
-                        attr={class="titolo"},
-                        content= _"Create new initiative"
-                      }
-               
-                  ui.tag{
-                        tag="span",
-                        attr={class="titolo"},
-                        content= _"Unit" 
-                      }
-                      
-                  ui.tag{
-                        tag="span",
-                        attr={class="titolo"},
-                        content= _"Area" 
-                      }      
+                
+                  ui.container
+                        {
+                                attr={id="wizardTitolo",class="titoloWizardHead"},
+                                content=function()
+                                      ui.tag{
+                                            tag="pre",
+                                            attr={class="titoloWizard" },
+                                            content= _"Create new initiative"
+                                          }
+                                          
+                                          
+                                end
+                         }
+                   
+                
+                  ui.container
+                        {
+                                attr={id="wizardTitoloUnita",class="titoloWizardHead", style="height:30px;diplay:block"},
+                                content=function()
+                                      ui.tag{
+                                            tag="p",
+                                            attr={class="wizardHeader",style="top: -2ex;"},
+                                            content= _"Unit"..":"
+                                          
+                                          }
+                                      ui.tag{
+                                            tag="p",
+                                            attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
+                                            content="testUnit"
+                                           }
+                                end
+                         }
+                                
+                                  
+                  ui.container
+                        {
+                                attr={id="wizardTitoloArea",class="titoloWizardHead", style="height:30px"},
+                                content=function()
+                                      ui.tag{
+                                            tag="p",
+                                            attr={ class="wizardHeader" ,style="top: -2ex;"},
+                                            content= _"Area"..":"
+                                            
+                                          }
+                                       ui.tag{
+                                            tag="p",
+                                             attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
+                                            content="testArea"
+                                           }
+                                end
+                         }                       
+                                
+                       
+                        
                 end
         
         }
@@ -252,7 +299,7 @@ ui.container
                     
                       ui.tag{
                              tag="span",
-                             attr={class="titolo"},
+                             attr={class="titoloWizard"},
                              content=  "test page_"..step
                           }
                      end
@@ -282,6 +329,17 @@ ui.container
             
             
             
+               ui.field.hidden{ 
+                                name = "unit", 
+                                value = unit
+                               }        
+                                     
+                ui.field.hidden{ 
+                                 name = "area", 
+                                 value = area
+                                }        
+            
+            
             
             --pulsanti
             
@@ -293,11 +351,11 @@ ui.container
                --pulsante Previuos
                      ui.link{
                                  attr={id="btnPreviuos",class="button orange menuButton pulsantiWizard",style="float:left"},
-                                 module = "initiative",
-                                 view = "wizard_new",
+                                 module = btnBackModule,
+                                 view = btnBackView,
                                  params = { 
-                                                unit={name="LazionM5S"},
-                                                area = {name="testAreaName"},
+                                                --unit={name="LazionM5S"},
+                                                --area = {name="testAreaName"},
                                                 step=previus_page 
                                            },
                                  content=function()
@@ -325,8 +383,8 @@ ui.container
                              module = "initiative",
                              view = "wizard_new",
                              params = { 
-                                            unit={name="LazionM5S"},
-                                            area = {name="testAreaName"},
+                                            --unit={name="LazionM5S"},
+                                            --area = {name="testAreaName"},
                                             step=next_page 
                                        },
                              content=function()

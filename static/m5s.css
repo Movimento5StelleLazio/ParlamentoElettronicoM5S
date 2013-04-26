@@ -578,7 +578,7 @@
 .containerIssueDiv
 {
     background-color: white;
-    float: inherit;
+    float: left;
     width: 103%;
     margin-left: -8px;
 }
@@ -607,7 +607,7 @@
 {
     background-color: #ebe2aa;
     border-radius: 8px;
-    float: left;
+    float: right;
     height:auto;
     position: relative;
     width: 45%;
@@ -631,11 +631,47 @@
 .titolo
 {
     
+    float: left;
     font-size: 34px;
     left: 105px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
+    text-align: justify;
      
 }
+
+.titoloWizard
+{
+    
+    float: left;
+    font-size: 34px;
+    left: 295px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+     
+}
+
+.titoloWizardHead
+{
+	 
+     
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 34px;
+   width: 100%;
+   float:left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: justify;
+	
+}
+
+
 .issueDiv{
     
     width: 470px;
@@ -812,7 +848,14 @@
     width: 150px;
 }
 
-
+.wizardHeader
+{
+	float: left;
+    position: relative;
+    text-align: right;
+    width: 50%;
+    right: 1ex;
+}
 
 /* Piero Fine */
 

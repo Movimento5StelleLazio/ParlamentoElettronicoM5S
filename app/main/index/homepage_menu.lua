@@ -55,9 +55,8 @@ ui.container{
                     module = "initiative",
                     view = "wizard_new",
                     params = { 
-                                      unit={name="LazionM5S"},
-                                      area = {name="testAreaName"} 
-                                    },
+                                   step=0   
+                              },
                     content=function()
                     
                         ui.tag{
