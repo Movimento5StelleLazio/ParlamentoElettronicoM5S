@@ -25,8 +25,8 @@ ui.container{
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                           attr={class="text-align: center;", readonly="true"},
+                           tag = "span",
+                           attr={class="applicaFiltri", readonly="true"},
                            content        =_"Do filters",  
                            multiline=true
                         }  
@@ -54,6 +54,7 @@ ui.container{
                                       }
                               
                               if level==2 then   
+                              
                               --pulsante 1
                                 ui.link{
                                     module = module,
@@ -61,7 +62,7 @@ ui.container{
                                     attr = {
                                             id="btnAllPhase",
                                             class = "btnAllPhase  button orange " ,
-                                            style="width: 80px; height:20px;",
+                                            style="width: 90px; height:40px;",
                                             onclick="document.getElementById('btnAllPhase').setAttribute('class','btnAllPhase button green');"
                                              },
                                     params  = { issue_state ="All",filter_state=true },
@@ -82,7 +83,7 @@ ui.container{
                                     attr = {
                                             id="btnOpenPhase",
                                             class = "btnOpenPhase button orange ",
-                                            style="width: 60px;height:20px;",
+                                            style="width: 70px; height:40px;",
                                             onclick="document.getElementById('btnOpenPhase').setAttribute('class','btnOpenPhase button green');"
                                            },
                                     params  = { issue_state ="Open", filter_state=true },
@@ -105,7 +106,7 @@ ui.container{
                                     attr = {
                                             id="btnNewPhase",
                                             class = "btnNewPhase button orange ",
-                                            style="width: 60px;height:20px;",
+                                            style="width: 70px; height:40px;",
                                             onclick="document.getElementById('btnNewPhase').setAttribute('class','btnNewPhase button green');"
                                              },
                                     params  = { issue_state ="New", filter_state=true },
@@ -132,7 +133,7 @@ ui.container{
                                     attr = {
                                             id="btnDiscussionPhase",
                                             class = "btnDiscussionPhase button orange ",
-                                            style="width: 80px;height:20px;",
+                                            style="width: 80px; height:40px;",
                                             onclick="document.getElementById('btnDiscussionPhase').setAttribute('class','btnDiscussionPhase button green');"
                                              },
                                     params  = { issue_state ="Discussion",filter_state=true },
@@ -157,7 +158,7 @@ ui.container{
                                     attr = {
                                             id="btnFrozenPhase", 
                                             class = "btnFrozenPhase button orange ", 
-                                            style="width: 70px;height:20px;",
+                                            style="width: 70px; height:40px;",
                                             onclick="document.getElementById('btnFrozenPhase').setAttribute('class','btnFrozenPhase button green');"
                                            },
                                     params  = { issue_state ="Frozen",filter_state=true },
@@ -183,7 +184,7 @@ ui.container{
                                     attr = {
                                             id="btnVotationPhase", 
                                             class = "btnVotationPhase button orange ", 
-                                            style="width: 70px;height:20px;",
+                                            style="width: 80px; height:40px;",
                                             onclick="document.getElementById('btnVotationPhase').setAttribute('class','btnVotationPhase button green');"
                                             },
                                     params  = { issue_state ="Votation",filter_state=true },
@@ -211,7 +212,7 @@ ui.container{
                                     attr = {
                                             id="btnCommissionPhase",
                                             class = "btnCommissionPhase button orange ", 
-                                            style="width: 90px;height:20px;",
+                                            style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnCommissionPhase').setAttribute('class','btnCommissionPhase button green');"
                                            },
                                     params  = { issue_state ="Commission",filter_state=true },
@@ -239,7 +240,7 @@ ui.container{
                                     attr = {
                                             id="btnClosedPhase",
                                             class = "btnClosedPhase button orange ", 
-                                            style="width: 60px;height:20px;",
+                                           style="width: 60px; height:40px;",
                                             onclick="document.getElementById('btnClosedPhase').setAttribute('class','btnClosedPhase button green');"
                                            },
                                     params  = { issue_state ="Closed",filter_state=true },
@@ -263,7 +264,7 @@ ui.container{
                                     attr = {
                                             id="btnCanceledPhase",
                                             class = "btnCanceledPhase button orange",
-                                            style="width: 60px;height:20px;",
+                                            style="width: 70px; height:40px;",
                                             onclick="document.getElementById('btnCanceledPhase').setAttribute('class','btnCanceledPhase button green');"
                                            },
                                     params  = { issue_state ="Canceled",filter_state=true },
@@ -326,7 +327,7 @@ ui.container{
                                     attr = {
                                             id="btnInterestedPhase",
                                             class = "btnInterestedPhase button orange",
-                                            style="width: 95px;height:20px;",
+                                           style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnInterestedPhase').setAttribute('class','btnInterestedPhase button green');"
                                            },
                                     params  = { issue_state ="Interested",filter_state=true },
@@ -351,7 +352,7 @@ ui.container{
                                     attr = {
                                             id="btnInitiatedPhase",
                                             class = "btnInitiatedPhase button orange",
-                                            style="width: 85px;height:20px;",
+                                           style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnInitiatedPhase').setAttribute('class','btnInitiatedPhase button green');"
                                            },
                                     params  = { issue_state ="Initiated",filter_state=true },
@@ -376,7 +377,7 @@ ui.container{
                                     attr = {
                                             id="btnSupportedPhase",
                                             class = "btnSupportedPhase button orange",
-                                            style="width: 85px;height:20px;",
+                                            style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnSupportedPhase').setAttribute('class','btnSupportedPhase button green');"
                                            },
                                     params  = { issue_state ="Supported",filter_state=true },
@@ -401,7 +402,7 @@ ui.container{
                                     attr = {
                                             id="btnPotentiallyPhase",
                                             class = "btnPotentiallyPhase button orange",
-                                            style="width: 100px;height:20px;",
+                                            style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnPotentiallyPhase').setAttribute('class','btnPotentiallyPhase button green');"
                                            },
                                     params  = { issue_state ="Potentially",filter_state=true },
@@ -425,7 +426,7 @@ ui.container{
                                     attr = {
                                             id="btnVotedPhase",
                                             class = "btnVotedPhase button orange",
-                                            style="width: 85px;height:20px;",
+                                            style="width: 100px; height:40px;",
                                             onclick="document.getElementById('btnVotedPhase').setAttribute('class','btnVotedPhase button green');"
                                            },
                                     params  = { issue_state ="Voted",filter_state=true },
@@ -487,7 +488,7 @@ ui.container{
                                       attr = {
                                                 id="btnAllUnitsPhase",
                                                 class = "btnAllUnitsPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                               style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnAllUnitsPhase').setAttribute('class','btnAllUnitsPhase button green');"
                                                },
                                       params  = { issue_state ="AllUnits",filter_state=true },
@@ -510,7 +511,7 @@ ui.container{
                                       attr = {
                                                 id="btnMyUnitsPhase",
                                                 class = "btnMyUnitsPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                                style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnMyUnitsPhase').setAttribute('class','btnMyUnitsPhase button green');"
                                                },
                                       params  = { issue_state ="MyUnits", filter_state=true },
@@ -534,7 +535,7 @@ ui.container{
                                       attr = {
                                                 id="btnPublicCitiziensUnitsPhase",
                                                 class = "btnPublicCitiziensUnitsPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                                 style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnPublicCitiziensUnitsPhase').setAttribute('class','btnPublicCitiziensUnitsPhase button green');"
                                                },
                                       params  = { issue_state ="PublicCitiziensUnits", filter_state=true },
@@ -558,7 +559,7 @@ ui.container{
                                       attr = {
                                                 id="btnPublicElectedUnitsPhase",
                                                 class = "btnPublicElectedUnitsPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                                style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnPublicElectedUnitsPhase').setAttribute('class','btnPublicElectedUnitsPhase button green');"
                                                
                                               },
@@ -581,7 +582,7 @@ ui.container{
                                       attr = {
                                                 id="btnPublicOtherGroupsUnitsPhase",
                                                 class = "btnPublicOtherGroupsUnitsPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                              style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnPublicOtherGroupsUnitsPhase').setAttribute('class','btnPublicOtherGroupsUnitsPhase button green');"
                                                },
                                       params  = { issue_state ="PublicOtherGroupsUnits", filter_state=true },
@@ -606,7 +607,7 @@ ui.container{
                                       attr = {
                                                 id="btnMyAreasPhase",
                                                 class = "btnMyAreasPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                               style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnMyAreasPhase').setAttribute('class','btnMyAreasPhase button green');"
                                                },
                                       params  = { issue_state ="MyAreas",filter_state=true },
@@ -629,7 +630,7 @@ ui.container{
                                       attr = {
                                                 id="btnNotMyAreasPhase",
                                                 class = "btnNotMyAreasPhase button orange",
-                                                style="width: 95px;height:30px;",
+                                               style="width: 100px; height:40px;",
                                                 onclick="document.getElementById('btnNotMyAreasPhase').setAttribute('class','btnNotMyAreasPhase button green');"
                                                },
                                       params  = { issue_state ="NotMyAreas",filter_state=true },

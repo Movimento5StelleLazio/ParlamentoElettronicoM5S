@@ -42,8 +42,8 @@ ui.container{
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                            attr={class="text-align: center; ", readonly="true"},
+                           tag = "span",
+                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
                            content        =_"Homepage read new issues",  
                            multiline=true
                         }  
@@ -51,17 +51,25 @@ ui.container{
                 } 
                 
                --pulsante 2
-               ui.tag{
-                    tag = "a", 
-                    attr={class="button orange menuButton", onclick="alert('molla il mouse!')"},
+               ui.link{
+                    
+                    attr={class="button orange menuButton"},
+                    module = "initiative",
+                    view = "wizard_new",
+                    params = { 
+                                      unit={name="LazionM5S"},
+                                      area = {name="testAreaName"} 
+                                    },
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                           attr={class="text-align: center;", readonly="true"},
+                           tag = "span",
+                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
                            content        =_"Homepage write new issue",  
-                           multiline=true
+                           multiline=true,
+                          
                         }  
+                        
                     end-- fine tag.content
                 } 
                 
@@ -74,8 +82,8 @@ ui.container{
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                           attr={class="text-align: center;", readonly="true"},
+                           tag = "span",
+                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
                            content        =_"Homepage read m5s issues",  
                            multiline=true
                         }  
@@ -92,8 +100,8 @@ ui.container{
                     content=function()
                     
                         ui.tag{
-                           tag = "pre",
-                           attr={class="text-align: center;", readonly="true"},
+                           tag = "span",
+                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
                            content        =_"Homepage read other issues",  
                            multiline=true
                         }  

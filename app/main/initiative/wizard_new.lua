@@ -13,7 +13,7 @@ local next_page=step+1
 
 ui.container
 {
-    attr={id="wizardContainer" , style="background-color: red; "},
+    attr={id="wizardContainer" , class="wizardContainer"},
     content=function()
 
         ui.container
@@ -54,7 +54,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                    attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -76,7 +76,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                     ui.tag{
@@ -95,7 +95,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                      attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -114,7 +114,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -133,7 +133,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                      attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -147,30 +147,14 @@ ui.container
             
             end
             
-            
-            if step==5 then
-            trace.debug("rendering view:"..step)
-            ui.container
-            {
-                    attr={id="wizard_page_"..step},
-                    content=function()
-                    
-                      ui.tag{
-                             tag="span",
-                             attr={class="titolo"},
-                             content=  "test page_"..step
-                          }
-                     end
-                     
-             }
-            
-            end
+           
+      
             
             if step==6 then
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -184,48 +168,13 @@ ui.container
             
             end
             
-            
-            if step==6 then
-            trace.debug("rendering view:"..step)
-            ui.container
-            {
-                    attr={id="wizard_page_"..step},
-                    content=function()
-                    
-                      ui.tag{
-                             tag="span",
-                             attr={class="titolo"},
-                             content=  "test page_"..step
-                          }
-                     end
-                     
-             }
-            
-            end
+           
             
             if step==7 then
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
-                    content=function()
-                    
-                      ui.tag{
-                             tag="span",
-                             attr={class="titolo"},
-                             content=  "test page_"..step
-                          }
-                     end
-                     
-             }
-            
-            end
-            
-            if step==7 then
-            trace.debug("rendering view:"..step)
-            ui.container
-            {
-                    attr={id="wizard_page_"..step},
+                      attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -244,7 +193,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                      ui.tag{
@@ -262,7 +211,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                      attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -280,7 +229,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -298,7 +247,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -317,7 +266,7 @@ ui.container
             trace.debug("rendering view:"..step)
             ui.container
             {
-                    attr={id="wizard_page_"..step},
+                     attr={id="wizard_page_"..step, style="height:450px"},
                     content=function()
                     
                       ui.tag{
@@ -336,13 +285,14 @@ ui.container
             
             --pulsanti
             
-            ui.container
+            ui.tag
             {
-                attr={id="pulsanti" , style="position: relative;top: 65%;width:90%;margin-left: auto;margin-right: auto;"},
+            tag="div",
+                attr={id="pulsanti" , style="position: relative;top: -140px;width:90%;margin-left: auto;margin-right: auto;"},
                 content=function()
                --pulsante Previuos
                      ui.link{
-                                 attr={id="btnPreviuos",class="button orange menuButton",style="font-size: 13px;text-align: -moz-center;width: 130px;"},
+                                 attr={id="btnPreviuos",class="button orange menuButton pulsantiWizard",style="float:left"},
                                  module = "initiative",
                                  view = "wizard_new",
                                  params = { 
@@ -371,7 +321,7 @@ ui.container
                  
                    --pulsante Next
                   ui.link{
-                             attr={id="btnNext",class="button orange menuButton", style="font-size: 13px;text-align: -moz-center;width: 130px;float:right;"},
+                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right"},
                              module = "initiative",
                              view = "wizard_new",
                              params = { 
@@ -390,11 +340,11 @@ ui.container
                                     }  
                                     
                                 end-- fine tag.content
-                        } -- fine pulsante previuos
+                        } -- fine pulsante next
                     
                 end
             
-            }-- fine pulsanti
+            }-- fine pulsanti container
 
          end
          }
