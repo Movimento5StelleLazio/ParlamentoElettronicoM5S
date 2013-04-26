@@ -37,6 +37,9 @@ return {
 ["CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE DI ALTRI GRUPPI POLITICI VUOI LEGGERE:";
 ["APPLY FILTERS"]="APPLICA FILTRI";
 ["REMOVE FILTERS"]="ELIMINA FILTRI";
+["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
+["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
+["SHOW ONLY THE FOLLOWING UNITS"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
