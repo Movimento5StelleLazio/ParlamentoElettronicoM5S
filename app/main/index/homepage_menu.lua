@@ -2,7 +2,6 @@ local welcomeText=_"Homepage welcome text"
 welcomeText=welcomeText.._"Homepage welcome text2"
 
 
-
 ui.container{
 
         attr={id="menuDiv", class="menuDiv"},
