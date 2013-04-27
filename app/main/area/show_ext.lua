@@ -67,6 +67,12 @@ elseif state == "closed" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Closed"
 elseif state == "canceled" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Canceled"
+elseif state == "finished" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished"
+elseif state == "finished_with_winner" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished (with winner)"
+elseif state == "finished_without_winner" then
+  issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_closed or _"Finished (without winner)"
 elseif state == "open" then
   issues_desc = config.gui_preset.M5S.units[unit_name].issues_desc_open or _"Open"
 elseif state == "any" then
@@ -93,38 +99,6 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_xl"}, content = _"CHOOSE THE INITIATIVE TO EXAMINE:" }
 end}
 
---[[
-local btns = {
-  default_state = 'development',
-  state = {
-    "any",
-    "open",
-    "development",
-    "admission",
-    "discussion",
-    "voting",
-    "verification",
-    "canceled",
-    "committee",
-    "finished",
-    "finished_with_winner",
-    "finished_without_winner",
-    "closed"
-  },
-  default_interest = 'any',
-  interest = {
-    "any",
-    "interested",
-    "not_interested",
-    "initiated",
-    "supported",
-    "potentially_supported",
-    "voted",
-    "not_voted"
-  }
-}
---]]
-
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
 btns = {
   default_state = 'development',
@@ -132,7 +106,7 @@ btns = {
   default_interest = 'any',
   interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
 }
-elseif state == "closed" then
+elseif state == "closed" or state == "canceled" or state == "finished" then
 btns = {
   default_state = 'closed',
   default_interest = 'any',
@@ -172,6 +146,12 @@ else
       "potentially_supported",
       "voted",
       "not_voted"
+    },
+    default_scope = "any",
+    scope = {
+      "all_units",
+      "my_units",
+      "my_areas"
     }
   }
 end
