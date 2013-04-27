@@ -52,6 +52,29 @@ ui.container{
                     
                     attr={class="button orange menuButton"},
                     module = "wizard",
+                    view = "show_ext",
+                    id=config.gui_preset.M5S.units["eletti"].unit_id,
+                    content=function()
+                    
+                        ui.tag{
+                           tag = "span",
+                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
+                           content        =_"Homepage write new issue",  
+                           multiline=true,
+                          
+                        }  
+                        
+                    end-- fine tag.content
+                } 
+                
+                
+                --[[
+                
+                  --pulsante 2
+               ui.link{
+                    
+                    attr={class="button orange menuButton"},
+                    module = "wizard",
                     view = "wizard_new_initiative",
                     params = { 
                                    unit_id=config.gui_preset.M5S.units["eletti"].unit_id
@@ -69,6 +92,7 @@ ui.container{
                     end-- fine tag.content
                 } 
                 
+                ]]--
                --pulsante 3
                ui.link{
                     attr={class="button orange menuButton"},

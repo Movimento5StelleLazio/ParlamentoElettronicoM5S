@@ -1,3 +1,5 @@
+local area_id=param.get("area_id",atom.integer)
+local unit_id=param.get("unit_id",atom.integer)
 
 local page=param.get("page",atom.integer)
 
@@ -46,7 +48,7 @@ ui.container
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
-                                area_id=1,
+                                area_id=area_id,
                                 unit_id=unit_id,
                                 page=page
                         },
@@ -56,6 +58,8 @@ ui.container
                               module = 'wizard',
                               view = 'wizard_new_initiative',
                               params = {
+                                           area_id=area_id,
+                                           unit_id=unit_id,
                                            page=page+1
                                           },
                             },
@@ -67,7 +71,7 @@ ui.container
                           }, 
                        content=function()
                     
-           
+                       --inserire qui
             
             
                        end --fine contenuto
@@ -75,7 +79,7 @@ ui.container
                    }--fine form
             --------------------------------------------------------
             
-          --pulsanti
+           --pulsanti
             execute.view{
                             module="wizard",
                             view="_pulsanti",
@@ -85,8 +89,7 @@ ui.container
                                      page=page
                                     }
                          }
-                           
-                   
+                          
            
         end             
      }
