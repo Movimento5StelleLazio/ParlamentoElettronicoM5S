@@ -57,9 +57,36 @@ local ord = ""
 if desc then ord = " DESC" end
 
 -- Join with event table, the most recent event data is taken and aggregated into the issue record
--- selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
+
+--Working on 9.1
 selector:add_field("min(now() - event.occurrence)", "time_ago")
 selector:left_join("event", nil, "issue.id = event.issue_id")
+selector:add_group_by("issue.id")
+selector:add_group_by("issue.area_id")
+selector:add_group_by("issue.policy_id")
+selector:add_group_by("issue.state")
+selector:add_group_by("issue.created")
+selector:add_group_by("issue.accepted")
+selector:add_group_by("issue.half_frozen")
+selector:add_group_by("issue.fully_frozen")
+selector:add_group_by("issue.closed")
+selector:add_group_by("issue.cleaned")
+selector:add_group_by("issue.admission_time")
+selector:add_group_by("issue.discussion_time")
+selector:add_group_by("issue.verification_time")
+selector:add_group_by("issue.voting_time")
+selector:add_group_by("issue.snapshot")
+selector:add_group_by("issue.latest_snapshot_event")
+selector:add_group_by("issue.population")
+selector:add_group_by("issue.voter_count")
+selector:add_group_by("issue.status_quo_schulze_rank")
+selector:add_group_by("issue.phase_finished")
+selector:add_group_by("issue.title")
+selector:add_group_by("issue.brief_description")
+selector:add_group_by("issue.keywords")
+selector:add_group_by("issue.problem_description")
+selector:add_group_by("issue.aim_description")
+------------------------------------------------------------------
 
 -- Scope checking
 
@@ -172,5 +199,4 @@ else
   selector:add_order_by("issue.id"..ord)
 end
 
-selector:add_group_by("issue.id")
 selector:limit(25)
