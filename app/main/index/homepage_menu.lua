@@ -52,12 +52,11 @@ ui.container{
                ui.link{
                     
                     attr={class="button orange menuButton"},
-                    module = "initiative",
-                    view = "wizard_new",
+                    module = "wizard",
+                    view = "wizard_new_initiative",
                     params = { 
-                                      unit={name="LazionM5S"},
-                                      area = {name="testAreaName"} 
-                                    },
+                                   unit_id=config.gui_preset.M5S.units["eletti"].unit_id
+                              },
                     content=function()
                     
                         ui.tag{
