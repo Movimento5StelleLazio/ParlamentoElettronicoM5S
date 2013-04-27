@@ -53,7 +53,7 @@ ui.container{
                     
                     attr={class="button orange menuButton"},
                     module = "wizard",
-                    view = "wizard_new",
+                    view = "wizard_new_initiative",
                     params = { 
                                    unit_id=config.gui_preset.M5S.units["eletti"].unit_id
                               },
