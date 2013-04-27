@@ -1,3 +1,5 @@
+local area_id=param.get("area_id",atom.integer)
+local unit_id=param.get("unit_id",atom.integer)
 
 local page=param.get("page",atom.integer)
 
@@ -46,7 +48,7 @@ ui.container
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
-                                area_id=1,
+                                area_id=area_id,
                                 unit_id=unit_id,
                                 page=page
                         },
@@ -56,6 +58,8 @@ ui.container
                               module = 'wizard',
                               view = 'wizard_new_initiative',
                               params = {
+                                           area_id=area_id,
+                                           unit_id=unit_id,
                                            page=page+1
                                           },
                             },
@@ -67,7 +71,7 @@ ui.container
                           }, 
                        content=function()
                     
-           
+                       --inserire qui
             
             
                        end --fine contenuto
@@ -75,64 +79,17 @@ ui.container
                    }--fine form
             --------------------------------------------------------
             
-            --pulsanti
-            ui.tag
-            {
-            tag="div",
-                attr={id="pulsanti" , style="position: relative;top: 100px;width:90%;margin-left: auto;margin-right: auto;"},
-                content=function()
-               --pulsante Previuos
-                     ui.link{
-                                 attr={id="btnPreviuos",class="button orange menuButton pulsantiWizard",style="float:left"},
-                                 module = btnBackModule,
-                                 view = btnBackView,
-                                 params = { 
-                                                --unit={name="LazionM5S"},
-                                                --area = {name="testAreaName"},
-                                                page=previus_page 
-                                           },
-                                 content=function()
-                                    
-                                        ui.tag{
-                                           tag = "p",
-                                           attr={style="text-align: center; width:80px", readonly="true"},
-                                           content        =_"Back Phase".."\n <<",  
-                                           multiline=true
-                                          
-                                        }  
-                                        
-                                    end-- fine tag.content
-                            } -- fine pulsante previuos
-                            
-                   ui.container{
-                                 attr={id="spazioDiv", class="spazioDiv"},
-                                 content=function()
-                                 end
-                                }        
-                 
-                   --pulsante Next
-                  ui.tag{
-                             tag="button",
-                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right",onclick="document.getElementById('wizardForm"..page.."').submit();"},
-                             
-                             content=function()
-                                
-                                    ui.tag{
-                                       tag = "p",
-                                       attr={style="text-align: center; width:80px", readonly="true"},
-                                       content        =_"Next Phase".."    >>",  
-                                       multiline=true
-                                      
-                                    }  
-                                    
-                                end-- fine tag.content
-                        } -- fine pulsante next
-                    
-                end
-            
-            }-- fine pulsanti container
-                
-                   
+           --pulsanti
+            execute.view{
+                            module="wizard",
+                            view="_pulsanti",
+                            params={
+                                     btnBackModule = "wizard",
+                                     btnBackView = "wizard_new_initiative",
+                                     page=page
+                                    }
+                         }
+                          
            
         end             
      }
