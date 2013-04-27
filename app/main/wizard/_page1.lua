@@ -111,11 +111,7 @@ local next_page=page+1
                               }
                           
                           
-                         
-                        
-                             --slot.put('<input type="hidden"  name="area" value="'..area..'">')         
-                                
-                         
+                          
                              
                           ui.tag{
                                 tag = "div",
@@ -155,7 +151,6 @@ local next_page=page+1
                      }--fine form
                      
              
-             --pulsanti
              
              --pulsanti
             execute.view{
