@@ -52,10 +52,10 @@ ui.container{
                ui.link{
                     
                     attr={class="button orange menuButton"},
-                    module = "initiative",
+                    module = "wizard",
                     view = "wizard_new",
                     params = { 
-                                   step=0   
+                                   unit_id=config.gui_preset.M5S.units["eletti"].unit_id
                               },
                     content=function()
                     

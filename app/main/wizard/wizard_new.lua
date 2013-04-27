@@ -1,26 +1,33 @@
-local area=param.get("area" )
-local unit=param.get("unit" )
+local area=param.get("area","table")
+local unit_id=param.get("unit_id")
 
-local wizard_new_issue=param.get("wizard_new_issue","table")
+ 
+if not area then
+    area={}
+end
+ 
+ 
+
+local wizard_new_issue=param.get("wizard_new_issue")
 if not wizard_new_issue then
          wizard_new_issue={}
 end
 
 
-local step=param.get("step",atom.integer)
+local page=param.get("page",atom.integer)
 
 
 local btnBackModule = "initiative"
 local btnBackView = "wizard_new"
 
-if not step  or step <= 1 then
-    step=1
+if not page  or page <= 1 then
+    page=1
     btnBackModule ="index"
     btnBackView = "homepage"
 end
 
-local previus_page=step-1
-local next_page=step+1
+local previus_page=page-1
+local next_page=page+1
 
 
 
@@ -94,29 +101,29 @@ ui.container
         
         }
 
-trace.debug("step="..step)
+trace.debug("page="..page)
 
 ui.container
 {
     attr={id="mainContainerWizard" , class="mainContainerWizard"},
     content=function()
     
-    -- step 1
-            if step==1 then
-            trace.debug("rendering view:"..step)
+    -- page 1
+            if page==1 then
+            trace.debug("rendering view:"..page)
            
             ui.container
             {
-                    attr={id="wizard_page_"..step, class="basicWizardPage"},
+                    attr={id="wizard_page_"..page, class="basicWizardPage"},
                     content=function()
-                     ui.container
+                    ui.container
                         {
                                 attr={id="wizardTitoloArea",class="titoloWizardHead", style="text-align: center; width: 100%;"},
                                 content=function()
                                   ui.tag{
                                         tag="p",
                                         attr={},
-                                        content=  "FASE "..step
+                                        content=  "FASE "..page
                                       }
                                       
                                   ui.tag{
@@ -133,7 +140,8 @@ ui.container
                             }
                       
                       local _value=""
-                      if area then
+                      if #area>0 then
+                       
                           for i, allowed_policy in ipairs(area.allowed_policies) do
                             if not allowed_policy.polling then
                               tmp[#tmp+1] = allowed_policy
@@ -141,44 +149,67 @@ ui.container
                           end   
                           
                         --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
-                     
+                        else
+                         
                       end
-                    
-                    ui.container
+                   
+                    ui.form
                     {
+                        method = "post",
+                        attr={id="wizardForm"..page},
+                        module = 'initiative',
+                        action = 'wizard_new_save',
+                        params={
+                                area_id=1,
+                                unit_id=unit_id,
+                                page=page
+                        },
+                        routing = {
+                            ok = {
+                              mode   = 'redirect',
+                              module = 'initiative',
+                              view   = 'wizard_new',
+                               params = {
+                                           page=page+1
+                                          },
+                            },
+                            error = {
+                              mode   = '',
+                               module = 'initiative',
+                              view   = 'wizard_new',
+                            }
+                          }, 
+                       content=function()
+                    
+                        ui.container
+                        {
                           attr={class="formSelect"},
                           content=function() 
-                          ui.tag
-                          {     tag="select",
-                                attr={id="policyChooser", style="width:70%;height:30px;left: 20ex;position:relative;"},
-                                label ="",
-                                name = "policyId",
-                                content=function()
-                                
-                                    for v,k in ipairs(tmp) do
-                                    
-                                          ui.tag{
-                                          tag     = "option",
-                                          attr    = {
-                                                        value    = k.name,
-                                                       
-                                                       
-                                                     },
-                                          content = format.string(k.name)
-                                          }
-                                    end
-                                
-                                end
-                           }
+                          
+                           ui.field.select{
+                                attr = { id = "policyChooser", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;left: 20ex;position:relative;"},
+                                label =  "",
+                                name = 'policyChooser',
+                                foreign_records = tmp,
+                                foreign_id = "id",
+                                foreign_name = "name",
+                                value =  ""
+                              }
+                          
+                          
                          
+                        
+                             --slot.put('<input type="hidden"  name="area" value="'..area..'">')         
+                                
                          
+                             
                           ui.tag{
                                 tag = "div",
-                                attr={style="left: 50ex;position:relative;"},
+                                attr={style="position:relative;"},
                                 content = function()
                                   ui.tag{
                                     tag = "label",
-                                    attr = { class = "ui_field_label" },
+                                    attr = { class = "ui_field_label",style="margin-left:28em;" },
                                     content = function() slot.put("&nbsp;") end,
                                   }
                                   ui.tag{
@@ -200,28 +231,37 @@ ui.container
                                 end
                               } --fine tag 
                          
+                         end
+                         }--fine div formSelect
+                     
+                        
+                        
                      end
-                     }--fine div
+                     
+                     }--fine form
+                     
+                        
+       
                    end
              }
             
-            end
+            end --fine page1
             
             
-            -- step 2
+            -- page 2
             
-            if step==2 then
+            if page==2 then
             
-            trace.debug("rendering view:"..step)
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                     ui.tag{
                             tag="span",
                             attr={class="titolo"},
-                            content=  "test page_"..step
+                            content=  "test page_"..page
                           }
                      end
                      
@@ -230,17 +270,17 @@ ui.container
             end
             
             
-            if step==3 then
-            trace.debug("rendering view:"..step)
+            if page==3 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                      attr={id="wizard_page_"..step, style="height:450px"},
+                      attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -249,17 +289,17 @@ ui.container
             end
             
             
-            if step==4 then
-            trace.debug("rendering view:"..step)
+            if page==4 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -268,17 +308,17 @@ ui.container
             end
             
             
-            if step==5 then
-            trace.debug("rendering view:"..step)
+            if page==5 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                      attr={id="wizard_page_"..step, style="height:450px"},
+                      attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -289,17 +329,17 @@ ui.container
            
       
             
-            if step==6 then
-            trace.debug("rendering view:"..step)
+            if page==6 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -309,17 +349,17 @@ ui.container
             
            
             
-            if step==7 then
-            trace.debug("rendering view:"..step)
+            if page==7 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                      attr={id="wizard_page_"..step, style="height:450px"},
+                      attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -328,17 +368,17 @@ ui.container
             end
             
             
-            if step==8 then
-            trace.debug("rendering view:"..step)
+            if page==8 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                      ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -346,17 +386,17 @@ ui.container
             
             end
             
-            if step==9 then
-            trace.debug("rendering view:"..step)
+            if page==9 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                      attr={id="wizard_page_"..step, style="height:450px"},
+                      attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -364,17 +404,17 @@ ui.container
             
             end
             
-            if step==10 then
-            trace.debug("rendering view:"..step)
+            if page==10 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -382,17 +422,17 @@ ui.container
             
             end
             
-            if step==11 then
-            trace.debug("rendering view:"..step)
+            if page==11 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titoloWizard"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -401,17 +441,17 @@ ui.container
             end
             
             
-            if step==12 then
-            trace.debug("rendering view:"..step)
+            if page==12 then
+            trace.debug("rendering view:"..page)
             ui.container
             {
-                     attr={id="wizard_page_"..step, style="height:450px"},
+                     attr={id="wizard_page_"..page, style="height:450px"},
                     content=function()
                     
                       ui.tag{
                              tag="span",
                              attr={class="titolo"},
-                             content=  "test page_"..step
+                             content=  "test page_"..page
                           }
                      end
                      
@@ -438,7 +478,7 @@ ui.container
                                  params = { 
                                                 --unit={name="LazionM5S"},
                                                 --area = {name="testAreaName"},
-                                                step=previus_page 
+                                                page=previus_page 
                                            },
                                  content=function()
                                     
@@ -460,15 +500,10 @@ ui.container
                                 }        
                  
                    --pulsante Next
-                  ui.link{
-                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right"},
-                             module = "initiative",
-                             view = "wizard_new",
-                             params = { 
-                                            --unit={name="LazionM5S"},
-                                            --area = {name="testAreaName"},
-                                            step=next_page 
-                                       },
+                  ui.tag{
+                             tag="button",
+                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+                             
                              content=function()
                                 
                                     ui.tag{
@@ -491,16 +526,7 @@ ui.container
 end --fine wizardContainer
 }
 
- ui.field.hidden{ 
-                 name = "wizard_new_issue", 
-                 value = wizard_new_issue
-                }        
-                                     
-ui.field.hidden{ 
-                 name = "area", 
-                 value = area
-                }        
-            
+          
 
 
 
