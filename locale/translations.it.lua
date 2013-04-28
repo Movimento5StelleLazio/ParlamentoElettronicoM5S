@@ -844,6 +844,8 @@ return {
 ["months [interval ago]"] = "mesi";
 ["months [interval time left]"] = "mesi";
 ["months [interval]"] = "mesi";
+["day [interval ago]"] = "giorno";
+["days [interval ago]"] = "giorni";
 ["more unsatisfied"] = "molto insoddisfatto";
 ["must"] = "deve";
 ["must not"] = "non deve";
