@@ -31,34 +31,34 @@ elseif issue.is_interested_by_delegation_to_member_id then
 end
 
 local arrow_offset = 31
-local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 62,62,62,68,68,64,66 
+local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 62,62,71,68,68,64,66 
 if issue.state == "admission" then
   event_name = _"New issue"
-  admission_offset = 42
+  admission_offset = 45
 elseif issue.state == "discussion" then
   event_name = _"Discussion started"
   event_image = "comments.png"
-  discussion_offset = 42
+  discussion_offset = 45
   arrow_offset = 98
 elseif issue.state == "verification" then
   event_name = _"Verification started"
   event_image = "lock.png"
-  verification_offset = 42
+  verification_offset = 50
   arrow_offset = 161
 elseif issue.state == "voting" then
   event_name = _"Voting started"
   event_image = "email_open.png"
-  voting_offset = 48
+  voting_offset = 49
   arrow_offset = 224
 elseif issue.state == "committee" then
   event_name = _"Committee started"
   event_image = "lock.png"
-  committee_offset = 48
+  committee_offset = 49
   arrow_offset = 298
 elseif issue.state == "committee_voting" then
   event_name = _"Committee voting started"
   event_image = "email_open.png"
-  committee_voting_offset = 44
+  committee_voting_offset = 49
   arrow_offset = 361
 elseif issue.closed  then
   event_image = "cross.png"
