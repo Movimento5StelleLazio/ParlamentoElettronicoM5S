@@ -1135,5 +1135,77 @@
   width: 100%;
 }
 
+.issue_state_info {
+  background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+  background-color: orange;
+  border-radius: 16px 16px 16px 16px;
+  float: left;
+  height: 80px;
+  margin-left: 7px;
+  width: 50%;
+  padding-left: 10px;
+  padding-top:5px;
+  color: white;
+}
+
+.phases_box{
+  position: relative;
+  border: 1px solid black;
+  height: 162px;
+  width: 522px;
+  margin-bottom: -1.45em;
+}
+
+.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
+/*  border: 1px solid black; */
+  clear: both;
+  position: absolute;
+  z-index: 9;
+}
+
+.phases_bar {
+  position: absolute;
+  z-index: 9;
+  height: 162px;
+  width: 522px;
+/*  margin-left: 0em;
+  margin-bottom -2em; */
+}
+.current_phase_arrow {
+  position: absolute;
+  z-index: 10;
+  margin-top: 29px;
+  margin-left: 31px;
+  height: 70px;
+  width: 70px;
+}
+.admission {
+  margin-top: 62px;
+  margin-left: 42px;
+}
+.discussion {
+  margin-top: 62px;
+  margin-left: 110px;
+}
+.verification {
+  margin-top: 62px;
+  margin-left: 180px;
+}
+.voting {
+  margin-top: 68px;
+  margin-left: 245px;
+}
+.committee {
+  margin-top: 68px;
+  margin-left: 317px;
+}
+.committee_voting {
+  margin-top: 64px;
+  margin-left: 380px;
+}
+.finished {
+  margin-top: 66px;
+  margin-left: 452px;
+}
 
 /* Puccio Fine */
