@@ -387,6 +387,13 @@ ui.container{ attr = { class = class }, content = function()
   end }
 end }
 
+ui.link{ 
+  attr = { id = "issue_see_det_"..issue.id, class = "button orange issue_see_det" },
+  module = "issue",
+  view = "show",
+  id = issue.id,
+  content= _"SEE DETAILS"
+}
 
 end }
 

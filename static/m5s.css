@@ -1173,6 +1173,15 @@
   height: 100%;
 }
 
+.issue_see_det {
+  text-align: center;
+  float: right;
+  padding: 0.4em;
+  margin-top: -3.6em;
+  font-size: 2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
 .issue_ext2{
   width: 100%;
   top: -35px;
