@@ -23,47 +23,91 @@ elseif vote_comment_able then
 end  
 
 
-local class = "issue"
+local class = "issue issue_ext2"
 if issue.is_interested then
   class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
   class = class .. " interested_by_delegation"
 end
 
-local admission_zidx, discussion_zidx, verification_zidx, voting_zidx, committee_zidx, committee_voting_zidx, finished_zidx = 9,9,9,9,9,9,9
 local arrow_offset = 31
+local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 62,62,62,68,68,64,66 
+local issue_info_state_style
 if issue.state == "admission" then
-  admission_zidx = 12 
+  event_name = _"New issue"
+  admission_offset = 42
 elseif issue.state == "discussion" then
-  discussion_zidx = 12
+  event_name = _"Discussion started"
+  event_image = "comments.png"
+  discussion_offset = 42
   arrow_offset = 98
 elseif issue.state == "verification" then
-  verification_zidx = 12
+  event_name = _"Verification started"
+  event_image = "lock.png"
+  verification_offset = 42
   arrow_offset = 161
 elseif issue.state == "voting" then
+  event_name = _"Voting started"
+  event_image = "email_open.png"
+  voting_offset = 48
   arrow_offset = 224
-  voting_zidx = 12
 elseif issue.state == "committee" then
+  event_name = _"Committee started"
+  event_image = "lock.png"
+  committee_offset = 48
   arrow_offset = 298
-  committee_zidx = 12
 elseif issue.state == "committee_voting" then
+  event_name = _"Committee voting started"
+  event_image = "email_open.png"
+  committee_voting_offset = 44
   arrow_offset = 361
-  committee_voting_zidx = 12
 elseif issue.closed  then
+  event_image = "cross.png"
+  if issue.state == "finished_with_winner" then 
+    event_name = _"Finished (with winner)" 
+    event_image = "award_star_gold_2.png"
+  elseif issue.state == "finished_without_winner" then
+    event_name = _"Finished (without winner)"
+    event_image = "cross.png"   
+  elseif issue.state == 'canceled_revoked_before_accepted' then
+    issue_info_state_style = "font-size: 1.5em;"
+    event_name = _"Canceled (before accepted due to revocation)"
+  elseif issue.state == 'canceled_issue_not_accepted' then
+    issue_info_state_style = "font-size: 1.5em;"
+    event_name = _"Canceled (issue not accepted)"
+  elseif issue.state == 'canceled_after_revocation_during_discussion' then
+    issue_info_state_style = "font-size: 1.5em;"
+    event_name = _"Canceled (during discussion due to revocation)"
+  elseif issue.state == 'canceled_after_revocation_during_verification' then
+    issue_info_state_style = "font-size: 1.5em;"
+    event_name = _"Canceled (during verification due to revocation)"
+  elseif issue.state == 'canceled_no_initiative_admitted' then
+    issue_info_state_style = "font-size: 1.5em;"
+    event_name = _"Canceled (no initiative admitted)"
+  end
+  finished_offset = 46
   arrow_offset = 432
-  finished_zidx = 12
 end
 
-  ui.container{ attr = { id = "phases_box"..issue.id, class = "phases_box"}, content = function()
-    ui.image{  attr = { id = "current_phase_arrow"..issue.id, class = "current_phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/current_phase_arrow.svg" }
-    ui.image{  attr = { id = "phases_bar"..issue.id, class = "phases_bar" }, static="svg/phases_bar.svg" }
-    ui.image{  attr = { id = "admission"..issue.id, class = "admission", style = "z-index: "..admission_zidx..";" }, static="svg/admission.svg" }
-    ui.image{  attr = { id = "discussion"..issue.id, class = "discussion", style = "z-index: "..discussion_zidx..";" }, static="svg/discussion.svg" }
-    ui.image{  attr = { id = "verification"..issue.id, class = "verification", style = "z-index: "..verification_zidx..";" }, static="svg/verification.svg" }
-    ui.image{  attr = { id = "voting"..issue.id, class = "voting", style = "z-index: "..voting_zidx..";" }, static="svg/voting.svg" }
-    ui.image{  attr = { id = "committee"..issue.id, class = "committee", style = "z-index: "..committee_zidx..";" }, static="svg/committee.svg" }
-    ui.image{  attr = { id = "committee_voting"..issue.id, class = "committee_voting", style = "z-index: "..committee_voting_zidx..";"  }, static="svg/voting.svg" }
-    ui.image{  attr = { id = "finished"..issue.id, class = "finished", style = "z-index: "..finished_zidx..";" }, static="svg/finished.svg" }
+ui.container{ attr = { class = "issue_box"}, content = function()
+
+ui.container{ attr = { class = "issue_state_info_box"}, content = function()
+  if event_image then
+    ui.image{ attr = { class = "issue_info_img"}, static = "icons/16/" .. event_image }
+  end
+  ui.tag{ tag = "p", attr = { class = 'issue_state_txt', style = issue_info_state_style or "" }, content = event_name or ""}
+end}
+
+  ui.container{ attr = { id = "phases_box_"..issue.id, class = "phases_box"}, content = function()
+    ui.image{  attr = { id = "phase_arrow_"..issue.id, class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg" }
+    ui.image{  attr = { id = "phases_bar_"..issue.id, class = "phases_bar" }, static = "svg/phases_bar.svg" }
+    ui.image{  attr = { id = "admission_"..issue.id, class = "admission", style = "margin-top: "..admission_offset.."px;" }, static="svg/admission.svg" }
+    ui.image{  attr = { id = "discussion_"..issue.id, class = "discussion", style = "margin-top: "..discussion_offset.."px;" }, static="svg/discussion.svg" }
+    ui.image{  attr = { id = "verification_"..issue.id, class = "verification", style = "margin-top: "..verification_offset.."px;" }, static="svg/verification.svg" }
+    ui.image{  attr = { id = "voting_"..issue.id, class = "voting", style = "margin-top: "..voting_offset.."px;" }, static="svg/voting.svg" }
+    ui.image{  attr = { id = "committee_"..issue.id, class = "committee", style = "margin-top: "..committee_offset.."px;" }, static="svg/committee.svg" }
+    ui.image{  attr = { id = "committee_voting_"..issue.id, class = "committee_voting", style = "margin-top: "..committee_voting_offset.."px;" }, static="svg/voting.svg" }
+    ui.image{  attr = { id = "finished_"..issue.id, class = "finished", style = "margin-top: "..finished_offset.."px;" }, static="svg/finished.svg" }
   end}
 
 
@@ -321,5 +365,8 @@ ui.container{ attr = { class = class }, content = function()
       }
     }
   end }
+end }
+
+
 end }
 

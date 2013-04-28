@@ -681,7 +681,6 @@
     
 }
 .issue_ext{
-     
     clear: left;
     height: 180px;
     top: -35px;
@@ -1135,32 +1134,60 @@
   width: 100%;
 }
 
-.issue_state_info {
+.issue_state_info_box {
+  position: absolute;
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
-  background-color: orange;
-  border-radius: 16px 16px 16px 16px;
-  float: left;
+  border-radius: 16px 16px 0px 0px;
   height: 80px;
   margin-left: 7px;
-  width: 50%;
+  width: 32em;
   padding-left: 10px;
   padding-top:5px;
   color: white;
+  margin-top: 4.3em;
+}
+
+.issue_state_txt {
+  font-size: 2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  border: 1px solid black;
+  float: left;
+  margin-top: 7px;
+}
+
+.issue_info_img {
+  height: 27px;
+  width: 27px;
+  margin-top: 7px;
+  margin-right: 7px;
+  border: 1px solid black;
+  float: left;
+  margin-right: 7px;
+}
+
+.issue_box {
+  height: 100%;
+}
+
+.issue_ext2{
+  width: 100%;
+  top: -35px;
+  position: relative;
+  margin-bottom: 0em;
 }
 
 .phases_box{
   position: relative;
-  border: 1px solid black;
   height: 162px;
   width: 522px;
-  margin-bottom: -1.45em;
+  margin-bottom: 1.2em;
+  float: right;
 }
 
 .admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
-/*  border: 1px solid black; */
   clear: both;
   position: absolute;
-  z-index: 9;
+  z-index: 11;
 }
 
 .phases_bar {
@@ -1168,10 +1195,8 @@
   z-index: 9;
   height: 162px;
   width: 522px;
-/*  margin-left: 0em;
-  margin-bottom -2em; */
 }
-.current_phase_arrow {
+.phase_arrow {
   position: absolute;
   z-index: 10;
   margin-top: 29px;

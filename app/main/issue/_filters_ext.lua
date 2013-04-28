@@ -59,7 +59,8 @@ if desc then ord = " DESC" end
 -- Join with event table, the most recent event data is taken and aggregated into the issue record
 
 --Working on 9.1
-selector:add_field("min(now() - event.occurrence)", "time_ago")
+--selector:add_field("min(now() - event.occurrence)", "time_ago")
+selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
 selector:left_join("event", nil, "issue.id = event.issue_id")
 selector:add_group_by("issue.id")
 selector:add_group_by("issue.area_id")
