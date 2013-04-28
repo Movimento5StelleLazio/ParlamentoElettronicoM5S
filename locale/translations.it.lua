@@ -222,6 +222,8 @@ return {
 ["Delete"] = "Elimina";
 ["Delete filter"] = "Elimina filtro";
 ["Description"] = "Descrizione";
+["Description note"]="NOTA: In questo campo vanno riassunte in poche parole il problema (la condizione che rende necessario un intervento) e l'obiettivo da raggiungere (la condizione che si ipotizza la migliore di quella attuale ed auspicabile";
+["Description to the problem you want to solve"]="BREVE DESCRIZIONE DELLA QUESTIONE:";
 ["Details"] = "Dettagli";
 ["Developer settings"] = "Settaggi sviluppatore";
 ["Diff"] = "Differenze";
@@ -294,6 +296,9 @@ return {
 ["Generate API key"] = "Genera chiave API";
 ["Global delegation"] = "Delega globale";
 ["Global search"] = "Ricerca globale";
+["Give a title to the problem you want to solve"]="INSERISCI UN TITOLO PER LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
+["Give a description to the problem you want to solve"]="DESCRIVI IN BREVE LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
+["Give a title to the issue you want to propose"]="INSERISCI IL TITOLO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Half frozen at"] = "Inizio verifica il";
 ["Hello\n\n"] = "Ciao\n\n";
 ["Hello "] = "Ciao ";
@@ -334,6 +339,7 @@ return {
 ["Indirect majority numerator"] = "Numeratore maggioranza indiretta";
 ["Indirect majority positive"] = "Maggioranza indiretta positiva";
 ["Information about the available policies"] = "Informazioni sulle regole disponibili";
+["Information about the available Technical Areas"]="Informazioni sulle Aree di Competenza disponibili";
 ["Initiated"] = "Avviate";
 ["Initiative"] = "Proposta";
 ["Initiative ##{id}"] = "Proposta ##{id}";
@@ -350,6 +356,7 @@ return {
 ["Initiatives that invited you to become initiator:"] = "Proposte in cui sei invitato a partecipare come autore:";
 ["Initiator invites"] = "Inviti nuovi autori";
 ["Initiators"] = "Autori";
+["Insert question keywords"]="INSERISCI DELLE PAROLE CHIAVE CHE DESCRIVONO LA QUESTIONE";
 ["Interest not existent"] = "Interesse non presente";
 ["Interest removed"] = "Interesse rimosso";
 ["Interest updated"] = "Interesse aggiornato";
@@ -374,13 +381,22 @@ return {
 ["Issue finished"] = "Questione chiusa";
 ["Issue finished without voting"] = "Questione chiusa senza votazione";
 ["Issue frozen"] = "Questione congelata";
+["Issue note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
 ["Issue pad"] = "Pad della questione";
 ["Issue quorum"] = "Quorum questione";
 ["Issue quorum denumerator"] = "Denominatore quorum questione";
 ["Issue quorum numerator"] = "Numeratore quorum questione";
 ["Issue reached next phase"] = "La questione ha raggiunto la prossima fase";
+["Issue note"]="NOTA: In campo è necessario inserire il testo  della proposta verra e propria. La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati";
+["Issue text"]="TESTO DELLA PROPOSTA:";
+["Issue text title"]="INSERISCI IL TESTO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
+["Issue Title"]="TITOLO DELLA PROPOSTA:";
+["Issue description title"]="INSERISCI UNA BREVE DESCRIZIONE DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
+["Issue short description"]="BREVE DESCRIZIONE DELLA PROPOSTA:";
 ["Issues:"] = "Questioni:";
 ["JavaScript is disabled or not available."] = "JavaScript disabilitato o non disponibile.";
+["Keywords"]="PAROLE CHIAVE:";
+["Keywords note"]="NOTA: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
 ["Last activity (updated daily)"] = "Ultima attività (aggiornato giornalmente)";
 ["Last snapshot:"] = "Ultimo snapshot:";
 ["Latest draft created at #{date} #{time}"] = "Ultima revisione bozza creata il #{date} alle #{time}";
@@ -521,6 +537,7 @@ return {
 ["Please choose a name, i.e. your real name or your nick name. This name will be shown to others to identify you."] = "Scegliere un nome, ad esempio il tuo vero nome o il tuo nick name. Questo nome verrà mostrato agli altri per identificarti.";
 ["Please choose a password and enter it twice. The password is case sensitive."] = "Scegliere una password ed inserirla due volte. Attenzione ai caratteri maiuscoli e minuscoli.";
 ["Please choose a policy"] = "Selezionare regola di voto";
+["Please choose a tecnical area"]="Selezionare area di competenza";
 ["Please choose two different versions of the draft to compare"] = "Selezionare due differenti versioni della bozza da confrontare.";
 ["Please choose two versions of the draft to compare"] = "Scegliere due versioni della bozza da confrontare.";
 ["Please confirm your email address"] = "Per favore confermare indirizzo eMail";
@@ -544,6 +561,10 @@ return {
 ["Potentially supported"] = "Potenzialmente sostenute";
 ["Preview"] = "Anteprima";
 ["Preview voting comment"] = "Anteprima commento di voto";
+["Problem Title"]="TITOLO DELLA QUESTIONE:";
+["Problem description"]="DESCRIZIONE DEL PROBLEMA:";
+["Problem description title"]="DESCRIVI IL PROBLEMA O L'URGENZA CHE RICHIEDE L'INTERVENTO";
+["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cjui si vuole ottemperare con il documento proposto.";
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
 ["Profile"] = "Profilo";
@@ -650,6 +671,9 @@ return {
 ["Supporters"] = "Sostenitori";
 ["Supporters (before begin of voting)"] = "Sostenitori (prima del voto)";
 ["Syntax help"] = "Guida alla formattazione";
+["Target description"]="DESCRIZIONE DELL'OBIETTIVO";
+["Target description title"]="DESCRIVI L'OBIETTIVO CHE SI RITIENE NECESSARIO RAGGIUNGERE";
+["Target note"]="NOTA: In queso campo è necessario indicare lo scenario auspicato o il risultato che la proposta si pone di ottenere (es. giustizia sociale), oppure il prodotto legislativo che si desidera (es. nuova normativa),o le specifiche ed i requisiti del documento(es. limiti di spesa).";
 ["Template Areas"]= "Aree del Template";
 ["Template Description"]= "Descrizione";
 ["Template has been added"]="Template salvato con successo";
