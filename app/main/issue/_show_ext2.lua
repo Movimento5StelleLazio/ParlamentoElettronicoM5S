@@ -32,7 +32,6 @@ end
 
 local arrow_offset = 31
 local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 62,62,62,68,68,64,66 
-local issue_info_state_style
 if issue.state == "admission" then
   event_name = _"New issue"
   admission_offset = 42
@@ -70,22 +69,17 @@ elseif issue.closed  then
     event_name = _"Finished (without winner)"
     event_image = "cross.png"   
   elseif issue.state == 'canceled_revoked_before_accepted' then
-    issue_info_state_style = "font-size: 1.5em;"
     event_name = _"Canceled (before accepted due to revocation)"
   elseif issue.state == 'canceled_issue_not_accepted' then
-    issue_info_state_style = "font-size: 1.5em;"
     event_name = _"Canceled (issue not accepted)"
   elseif issue.state == 'canceled_after_revocation_during_discussion' then
-    issue_info_state_style = "font-size: 1.5em;"
     event_name = _"Canceled (during discussion due to revocation)"
   elseif issue.state == 'canceled_after_revocation_during_verification' then
-    issue_info_state_style = "font-size: 1.5em;"
     event_name = _"Canceled (during verification due to revocation)"
   elseif issue.state == 'canceled_no_initiative_admitted' then
-    issue_info_state_style = "font-size: 1.5em;"
     event_name = _"Canceled (no initiative admitted)"
   end
-  finished_offset = 46
+  finished_offset = 49
   arrow_offset = 432
 end
 
@@ -95,8 +89,32 @@ ui.container{ attr = { class = "issue_state_info_box"}, content = function()
   if event_image then
     ui.image{ attr = { class = "issue_info_img"}, static = "icons/16/" .. event_image }
   end
-  ui.tag{ tag = "p", attr = { class = 'issue_state_txt', style = issue_info_state_style or "" }, content = event_name or ""}
-end}
+  --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
+  ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = event_name or ""}
+
+  ui.tag{ tag = "p", attr = { class = "issue_state_time" }, content = function()
+    if issue.closed then
+      slot.put(" &middot; ")
+      ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
+    elseif issue.state_time_left then
+      slot.put(" &middot; ")
+      if issue.state_time_left:sub(1,1) == "-" then
+        if issue.state == "admission" then
+          ui.tag{ content = _("Discussion starts soon") }
+        elseif issue.state == "discussion" then
+          ui.tag{ content = _("Verification starts soon") }
+        elseif issue.state == "verification" then
+          ui.tag{ content = _("Voting starts soon") }
+        elseif issue.state == "voting" then
+          ui.tag{ content = _("Counting starts soon") }
+        end
+      else
+        ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+      end
+    end
+  end }
+
+end }
 
   ui.container{ attr = { id = "phases_box_"..issue.id, class = "phases_box"}, content = function()
     ui.image{  attr = { id = "phase_arrow_"..issue.id, class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg" }
@@ -142,6 +160,7 @@ ui.container{ attr = { class = class }, content = function()
     }
   end }
   
+--[[
   ui.tag{
     attr = { class = "content issue_policy_info" },
     tag = "div",
@@ -171,6 +190,7 @@ ui.container{ attr = { class = class }, content = function()
 
     end
   }
+--]]
 
   local links = {}
   

@@ -1139,30 +1139,33 @@
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
   border-radius: 16px 16px 0px 0px;
   height: 80px;
-  margin-left: 7px;
-  width: 32em;
-  padding-left: 10px;
-  padding-top:5px;
+  width: 34em;
+  padding: 5px;
   color: white;
   margin-top: 4.3em;
 }
 
 .issue_state_txt {
-  font-size: 2em;
+  margin-top: 3px;
+  margin-bottom: 1em;
+  font-size: 1.8em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  border: 1px solid black;
   float: left;
-  margin-top: 7px;
+}
+
+.issue_state_time {
+  font-size: 1.3em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  float: left;
+  margin: auto;
+  margin-top: 0em; 
 }
 
 .issue_info_img {
   height: 27px;
   width: 27px;
-  margin-top: 7px;
   margin-right: 7px;
-  border: 1px solid black;
   float: left;
-  margin-right: 7px;
 }
 
 .issue_box {
