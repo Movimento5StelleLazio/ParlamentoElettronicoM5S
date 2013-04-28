@@ -10,7 +10,7 @@ ui.paginate{
 
     ui.container{ attr = { class = "issues" }, content = function()
       for i, issue in ipairs(issues) do
-        execute.view{ module = "issue", view = "_show", params = {
+        execute.view{ module = "issue", view = "_show_ext2", params = {
           issue = issue, for_listing = true, for_member = member
          } }
       end
