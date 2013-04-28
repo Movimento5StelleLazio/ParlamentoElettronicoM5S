@@ -1139,7 +1139,7 @@
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
   border-radius: 16px 16px 0px 0px;
   height: 80px;
-  width: 34em;
+  width: 34.1em;
   padding: 5px;
   color: white;
   margin-top: 4.3em;
@@ -1151,6 +1151,7 @@
   font-size: 1.8em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   float: left;
+  min-width: 90%;
 }
 
 .issue_state_time {
