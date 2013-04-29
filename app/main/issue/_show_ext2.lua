@@ -31,24 +31,29 @@ elseif issue.is_interested_by_delegation_to_member_id then
 end
 
 local arrow_offset = 31
-local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 62,62,71,68,68,64,66 
+local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 55,58,72,64,58,64,66 
+
+-- Uncomment the following to use svgz instead of svg
+local svgz = ""
+--local svgz = "z"
+
 if issue.state == "admission" then
   event_name = _"New issue"
-  admission_offset = 45
+  admission_offset = 37
 elseif issue.state == "discussion" then
   event_name = _"Discussion started"
   event_image = "comments.png"
-  discussion_offset = 45
+  discussion_offset = 37
   arrow_offset = 98
 elseif issue.state == "verification" then
   event_name = _"Verification started"
   event_image = "lock.png"
-  verification_offset = 50
+  verification_offset = 53
   arrow_offset = 161
 elseif issue.state == "voting" then
   event_name = _"Voting started"
   event_image = "email_open.png"
-  voting_offset = 49
+  voting_offset = 46
   arrow_offset = 224
 elseif issue.state == "committee" then
   event_name = _"Committee started"
@@ -117,15 +122,15 @@ ui.container{ attr = { class = "issue_state_info_box"}, content = function()
 end }
 
   ui.container{ attr = { id = "phases_box_"..issue.id, class = "phases_box"}, content = function()
-    ui.image{  attr = { id = "phase_arrow_"..issue.id, class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg" }
-    ui.image{  attr = { id = "phases_bar_"..issue.id, class = "phases_bar" }, static = "svg/phases_bar.svg" }
-    ui.image{  attr = { id = "admission_"..issue.id, class = "admission", style = "margin-top: "..admission_offset.."px;" }, static="svg/admission.svg" }
-    ui.image{  attr = { id = "discussion_"..issue.id, class = "discussion", style = "margin-top: "..discussion_offset.."px;" }, static="svg/discussion.svg" }
-    ui.image{  attr = { id = "verification_"..issue.id, class = "verification", style = "margin-top: "..verification_offset.."px;" }, static="svg/verification.svg" }
-    ui.image{  attr = { id = "voting_"..issue.id, class = "voting", style = "margin-top: "..voting_offset.."px;" }, static="svg/voting.svg" }
-    ui.image{  attr = { id = "committee_"..issue.id, class = "committee", style = "margin-top: "..committee_offset.."px;" }, static="svg/committee.svg" }
-    ui.image{  attr = { id = "committee_voting_"..issue.id, class = "committee_voting", style = "margin-top: "..committee_voting_offset.."px;" }, static="svg/voting.svg" }
-    ui.image{  attr = { id = "finished_"..issue.id, class = "finished", style = "margin-top: "..finished_offset.."px;" }, static="svg/finished.svg" }
+    ui.image{  attr = { id = "phase_arrow_"..issue.id, class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
+    ui.image{  attr = { id = "phases_bar_"..issue.id, class = "phases_bar" }, static = "svg/phases_bar.svg"..svgz }
+    ui.image{  attr = { id = "admission_"..issue.id, class = "admission", style = "margin-top: "..admission_offset.."px;" }, static="svg/admission.svg"..svgz }
+    ui.image{  attr = { id = "discussion_"..issue.id, class = "discussion", style = "margin-top: "..discussion_offset.."px;" }, static="svg/discussion.svg"..svgz }
+    ui.image{  attr = { id = "verification_"..issue.id, class = "verification", style = "margin-top: "..verification_offset.."px;" }, static="svg/verification.svg"..svgz }
+    ui.image{  attr = { id = "voting_"..issue.id, class = "voting", style = "margin-top: "..voting_offset.."px;" }, static="svg/voting.svg"..svgz }
+    ui.image{  attr = { id = "committee_"..issue.id, class = "committee", style = "margin-top: "..committee_offset.."px;" }, static="svg/committee.svg"..svgz }
+    ui.image{  attr = { id = "committee_voting_"..issue.id, class = "committee_voting", style = "margin-top: "..committee_voting_offset.."px;" }, static="svg/voting.svg"..svgz }
+    ui.image{  attr = { id = "finished_"..issue.id, class = "finished", style = "margin-top: "..finished_offset.."px;" }, static="svg/finished.svg"..svgz }
   end}
 
 
