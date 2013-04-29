@@ -46,7 +46,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
       params = { state = "admission"},
       id = area.id,
       content = function()
-        ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE IN CERCA DI SOSTENITORI" }
+        ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"INITIATIVES LOOKING FOR SUPPORTERS" }
       end
     }
   end
@@ -57,7 +57,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     params = { state = "development"},
     id = area.id,
     content = function()
-      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE ATTUALMENTE IN DICSCUSSIONE" }
+      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"INITIATIVES NOW IN DISCUSSION" }
     end
   }
   ui.link {
@@ -67,7 +67,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     params = { state = "closed"},
     id = area.id,
     content = function()
-      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"PROPOSTE COMPLETATE O RITIRATE" }
+      ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"COMPLETED OR RETIRED INITIATIVES" }
     end
   }
   slot.put("<br />")
