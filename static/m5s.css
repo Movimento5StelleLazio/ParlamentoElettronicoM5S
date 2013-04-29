@@ -151,8 +151,6 @@
     vertical-align: middle;
 }
     
-}
-
 .pulsantiFase{
     
     float:left;
@@ -883,11 +881,7 @@
 /* Puccio Inizio */
 
 #welcome_title_box {
-  border-top-left-radius: 40px 40px;
-  border-top-right-radius: 40px 40px;
-  border-bottom-left-radius: 40px 40px;
-  border-bottom-right-radius: 40px 40px;
-  border: 12px solid yellow;
+  border: 12px solid orange;
   background-color: white;
   margin: 1% 5% 1% 5%;
 }
@@ -906,6 +900,20 @@
   text-align: center;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   font-size: large;
+}
+
+.welcome_text_s {
+  margin: 5px;
+  color: black;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: small;
+}
+
+#version_txt {
+  text-align: right;
+}
+
+#main_title {
 }
 
 #welcome_footer_container {
@@ -955,7 +963,7 @@
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
-  height: 450px;
+  height: 400px;
   position: relative;
 }
 
@@ -978,15 +986,19 @@
 }
 
 #welcome_parlamento_left {
+  height: 70px;
+  width: 121px;
   position: absolute;
-  bottom: 135px;
-  left: 142px;
+  bottom: 175px;
+  left: 223px;
 }
 
 #welcome_parlamento_right {
+  height: 70px;
+  width: 121px;
   position: absolute;
-  bottom: 135px;
-  right: 142px;
+  bottom: 175px;
+  right: 223px;
 }
 
 .unit_header_box {
