@@ -87,7 +87,8 @@ else
 
 
 ui.container{ attr = { class = "loginDiv" }, content = function ()
-  ui.tag{ tag = "p", attr = { class = "welcome_text_l" }, content = _"Closed user group, please login to participate." }
+  --ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Closed user group, please login to participate." }
+  ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Inserire il mome utente e la password per accedere:" }
   slot.put('<br />')
 
   ui.form{
@@ -120,7 +121,7 @@ ui.container{ attr = { class = "loginDiv" }, content = function ()
         html_name = 'password',
         value     = ''
       }
-      ui.submit{
+      ui.submit {
         text = _'Login'
       }
     end

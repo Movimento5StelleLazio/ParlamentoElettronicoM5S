@@ -669,7 +669,7 @@ div.notifications {
 .login input[type=text],.vertical input[type=text],.login input[type=password],.vertical input[type=password],.vertical textarea,#voting_form textarea,.vertical select
     {
     font-family: sans-serif;
-    font-size: 100%;
+    font-size: 130%;
     width: 68%;
     border: 1px solid #444;
     padding: 0.2ex 0.2em 0.2ex 0.2em;
@@ -688,7 +688,7 @@ div.notifications {
     {
     line-height: 180%;
     font-weight: bold;
-    color: #777;
+    color: black;
     width: 29%;
     display: block;
     float: left;
@@ -703,7 +703,7 @@ div.notifications {
 }
 
 .login input[type=text],.login input[type=password] {
-    width: 10em;
+    width: 14em;
 }
 
 .login div,.vertical div {
@@ -727,8 +727,8 @@ div.notifications {
 
 #voting_form input[type=submit],.login input[type=submit],.vertical input[type=submit]
     {
-    font-size: 100%;
-    margin-left: 29%;
+    font-size: 130%;
+    margin-left: 37%;
     background-color: #444444;
     color: #fff;
     border: none;

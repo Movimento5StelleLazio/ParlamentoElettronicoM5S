@@ -806,8 +806,7 @@
 .loginDiv
 {
     background-color: #FFFFCC;
-    border-color: yellow;
-    border-radius: 12px 12px 12px 12px;
+    border-color: orange;
     border-style: solid;
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
@@ -958,8 +957,7 @@
 #welcome_middle_box {
   margin-top: 2ex;
   margin-bottom: 1ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
+  border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
