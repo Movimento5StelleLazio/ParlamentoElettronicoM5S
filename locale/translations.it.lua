@@ -832,6 +832,7 @@ return {
 ["delete<br /><br />"] = "elimina<br /><br />";
 ["disabled"] = "disabilitato";
 ["email"] = "eMail";
+["SEE DETAILS"] = "VEDI DETTAGLI";
 ["global"] = "globale";
 ["i#{id}: #{name}"] = "i#{id}: #{name}";
 ["implemented"] = "implementato";
