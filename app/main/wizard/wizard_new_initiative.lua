@@ -1,17 +1,28 @@
-local area=param.get("area","table")
-local unit_id=param.get("unit_id")
+local area_id=param.get("area_id",atom.integer)
+local area_name="..."
+local unit_id=param.get("unit_id",atom.integer)
+local unit_name="..."
 
+local selector_unit= db:query( "SELECT * FROM unit WHERE id="..unit_id )
  
-if not area then
-    area={}
+
+trace.debug("#selector_unit="..#selector_unit)
+if #selector_unit==1 then
+unit_name=selector_unit[1].name
 end
+
+local selector_area= db:query( "SELECT * FROM area WHERE id="..area_id )
  
+
+trace.debug("#selector_area="..#selector_area)
+if #selector_area==1 then
+area_name=selector_area[1].name
+end
 
 local page=param.get("page",atom.integer)
 
 if not page  or page <= 1 then
     page=1
-    
 end
  
 
@@ -55,7 +66,7 @@ ui.container
                                       ui.tag{
                                             tag="p",
                                             attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
-                                            content="testUnit"
+                                            content=unit_name
                                            }
                                 end
                          }
@@ -74,7 +85,7 @@ ui.container
                                        ui.tag{
                                             tag="p",
                                              attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
-                                            content="testArea"
+                                            content=area_name
                                            }
                                 end
                          }                       
@@ -100,7 +111,9 @@ ui.container
                            module = "wizard", 
                            view = "_page1", 
                            params = {
-                                      page=page
+                                        area_id=area_id,
+                                        unit_id=unit_id,
+                                        page=page
                                      }
                          }
             
@@ -116,6 +129,8 @@ ui.container
                                module = "wizard", 
                                view = "_page2", 
                                params = {
+                                          area_id=area_id,
+                                          unit_id=unit_id,
                                           page=page
                                          }
                              }
@@ -129,7 +144,9 @@ ui.container
                                module = "wizard", 
                                view = "_page2", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             
@@ -142,7 +159,9 @@ ui.container
                                module = "wizard", 
                                view = "_page4", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             
@@ -155,7 +174,9 @@ ui.container
                                module = "wizard", 
                                view = "_page5", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -169,7 +190,9 @@ ui.container
                                module = "wizard", 
                                view = "_page6", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -182,7 +205,9 @@ ui.container
                                module = "wizard", 
                                view = "_page7", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -194,7 +219,9 @@ ui.container
                                module = "wizard", 
                                view = "_page8", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -205,7 +232,9 @@ ui.container
                                module = "wizard", 
                                view = "_page9", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -216,7 +245,9 @@ ui.container
                                module = "wizard", 
                                view = "_page10", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -227,7 +258,9 @@ ui.container
                                module = "wizard", 
                                view = "_page11", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
@@ -240,7 +273,9 @@ ui.container
                                module = "wizard", 
                                view = "_page12", 
                                params = {
-                                          page=page
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=page
                                          }
                              }
             end
