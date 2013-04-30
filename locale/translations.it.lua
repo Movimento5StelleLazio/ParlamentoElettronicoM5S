@@ -340,6 +340,7 @@ return {
 ["Indirect majority positive"] = "Maggioranza indiretta positiva";
 ["Information about the available policies"] = "Informazioni sulle regole disponibili";
 ["Information about the available Technical Areas"]="Informazioni sulle Aree di Competenza disponibili";
+["Insert Technical Areas"]="INSERISCI DELLE AREE DI COMPETENZA TECNICA NECESSARIE PER POTER VALUTARE LA TUA PROPOSTA";
 ["Initiated"] = "Avviate";
 ["Initiative"] = "Proposta";
 ["Initiative ##{id}"] = "Proposta ##{id}";
@@ -387,7 +388,7 @@ return {
 ["Issue quorum denumerator"] = "Denominatore quorum questione";
 ["Issue quorum numerator"] = "Numeratore quorum questione";
 ["Issue reached next phase"] = "La questione ha raggiunto la prossima fase";
-["Issue note"]="NOTA: In campo è necessario inserire il testo  della proposta verra e propria. La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati";
+["Issue note"]="NOTA: In campo è necessario inserire il testo  della proposta verra e propria. La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati sopra nel campo 'Descrizione del Risultato'.Sarà sempre possibilein seguito modificarla introducendo emendamenti. Tutte le versioni del documento saranno conservate e potranno essere consultate in qualsiasi momento in caso si volesse tornare ad una precedenteversione del testo.Altri Utenti potranno proporre loro emendamenti o sostenere emendamenti di loro pari, ma sarà sempre l'autore della proposta a decidere  se accettali o meno nel testo definitivo.Il testo definitivo se avrà superato il quorum di sostenitori sarà poi sottoposto alla votazione, in competizione con le eventuali proposte alternative degli altri utenti.";
 ["Issue text"]="TESTO DELLA PROPOSTA:";
 ["Issue text title"]="INSERISCI IL TESTO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Issue Title"]="TITOLO DELLA PROPOSTA:";

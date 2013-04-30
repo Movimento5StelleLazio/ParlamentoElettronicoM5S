@@ -71,20 +71,20 @@ if page==7 then
 end
 
 if page==8 then
-
     local issue_description=param.get("issue_description")
     wizard.issue_description=issue_description
     trace.debug("issue_description="..app.session.member.wizard.issue_description)
-
 end
 
 if page==9 then
-
-
-
+    local issue_draft=param.get("issue_draft")
+    wizard.issue_draft=issue_draft
+    trace.debug("issue_draft="..app.session.member.wizard.issue_draft)
 end
 
 if page==10 then
+
+ 
 
 end
 

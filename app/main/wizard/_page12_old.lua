@@ -34,7 +34,7 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"Issue text title"
+                                        content=  _"...."
                                       }
                                 end
                          }
@@ -44,7 +44,7 @@ ui.container
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page,style="height:100%"},
+                        attr={id="wizardForm"..page},
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
@@ -72,41 +72,9 @@ ui.container
                        content=function()
                     
                        --inserire qui
-                               ui.tag{
-                                   tag="div",
-                                   attr={style="width:100%;height:100%;text-align: center;"},
-                                   content=function()  
-                                   
-                                    ui.container
-                                    {
-                                        attr={style="width: 20%; position: relative; float: left; margin-left: 10em;"},
-                                        content=function()
-                                         ui.tag{
-                                            tag="p",
-                                            attr={style="text-align: right; float: right; font-size: 20px;"},
-                                            content=  _"Issue text"
-                                          }   
-                                        
-                                         ui.tag{
-                                            tag="p",
-                                            attr={style="float: left; font-size: 12px; text-align: right; width: 249px; margin-left: -33px;font-style: italic;"},
-                                            content=  _"Issue note"
-                                          }   
-                                          
-                                        end
-                                        
-                                     }   
-                                        ui.tag
-                                           {
-                                                tag="textarea",
-                                                attr={id="issue_draft",name="issue_draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 15px; width: 598px;"},
-                                                content=function()
-                                                end
-                                                
-                                           }
-                                    end
-                                }
-                           end --fine contenuto
+            
+            
+                       end --fine contenuto
                         
                    }--fine form
             --------------------------------------------------------
