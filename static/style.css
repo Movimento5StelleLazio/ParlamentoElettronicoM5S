@@ -730,7 +730,8 @@ div.notifications {
     margin-bottom: 0;
 }
 
-#voting_form input[type=submit],.login input[type=submit],.vertical input[type=submit]
+/*#voting_form input[type=submit],.login input[type=submit],.vertical input[type=submit]*/
+#voting_form input[type=submit],.vertical input[type=submit]
     {
     font-size: 130%;
     margin-left: 37%;

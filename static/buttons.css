@@ -26,7 +26,7 @@ Following additional class names are supported:
 
 
 /* -------------- THE button -------------- */
-.button {
+.login input[type=submit], .button {
 
 /* text */
     text-decoration:        none;
@@ -53,11 +53,9 @@ Following additional class names are supported:
 /* effects */
     border-top:         1px solid rgba(255,255,255,0.8);
     border-bottom:      1px solid rgba(0,0,0,0.1);
-/*
-    background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
-    background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
-    background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
-*/
+    background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.3) )), url(noise.png);
+    background-image:   -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%), url(noise.png);
+    background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.3) )), url(noise.png);
 
 /*
     -webkit-transition: background .2s ease-in-out;
@@ -92,7 +90,7 @@ button.button:hover {
 
 
 /* -------------- icon -------------- */
-.button:before {
+.login input:before[type=submit], .button:before {
     font:           1.2em/0 sans-serif;
     content:        attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
     margin-right: 6px;
@@ -115,10 +113,10 @@ button.button:hover {
 
 /* -------------- colours -------------- */
 
-.button.orange {
+.login input[type=submit], .button.orange {
     cursor: pointer;
 /*    color:              hsl(39, 100%, 30%) !important; */
-    background-color:   hsl(39, 100%, 60%);
+    background-color:   hsl(39, 100%, 70%);
 
     -webkit-box-shadow: /*inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, */ /* inner shadow */ 
                             hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
@@ -130,7 +128,10 @@ button.button:hover {
                             hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
                             rgba(0,0,0,0.3) 0 .6em 6px; /* drop shadow */
 }
-.button.orange:hover {  background-color: hsl(39, 100%, 65%); }
+.login:hover input:hover[type=submit] {  background-color: hsl(39, 100%, 75%); }
+
+.button.orange:hover {  background-color: hsl(39, 100%, 75%); }
+
 
 
 .button.blue {
@@ -198,7 +199,7 @@ button.button:hover {
 
 /* -------------- States -------------- */
 
-.button:hover {
+.login input:hover[type=submit], .button:hover {
     background-color:   hsl(0, 0%, 83%);
 }
 
@@ -224,7 +225,7 @@ button.button:hover {
     transform:          translateY(.2em);
 }
 
-.button:focus {
+.login input:focus[type=submit], .button:focus {
     outline: none;
     color: rgba(254,255,255,0.9) !important;
     text-shadow: rgba(0,0,0,0.2) 0 1px 2px;

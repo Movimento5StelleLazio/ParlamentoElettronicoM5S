@@ -942,6 +942,7 @@
 }
 
 #welcome_btn_register {
+  margin: 0em;
   float: right;
   width: 8em;
   padding: 1em;
@@ -964,7 +965,7 @@
   left: 130px;
   text-align: center;
   width: 254px;
-  height: 110px;
+  height: 115px;
 }
 
 #welcome_middle_box_right {
@@ -973,7 +974,14 @@
   text-align: center;
   right: 130px;
   width: 254px;
-  height: 110px;
+  height: 115px;
+}
+
+#welcome_btn_lazio {
+  margin-top: 0.4em;
+}
+
+#welcome_btn_internal {
 }
 
 #welcome_parlamento_left {
@@ -1083,7 +1091,7 @@
 }
 
 .ifbtn {
-  margin: auto;
+  display: inline-block;
   text-align: center;
   vertical-align: middle;
   font-size: 1.7em;
@@ -1266,4 +1274,10 @@
   margin-left: 452px;
 }
 
+.login input[type=submit]{
+  position: absolute;
+  margin-top: -2.9em;
+  margin-left: 25em;
+}
+  
 /* Puccio Fine */

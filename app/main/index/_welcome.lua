@@ -55,7 +55,7 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
         module="index", 
         view="homepage", 
         content=function()
-          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
+          ui.tag{ tag="p", attr = {id = "welcome_btn_lazio", class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
         end
       }
       ui.link{ 
@@ -65,7 +65,7 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
         view="show_ext", 
         id=config.gui_preset.M5S.units["iscritti"].unit_id,
         content=function()
-          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+          ui.tag{ tag="p", attr = {id = "welcome_btn_internal", class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
         end
       }
       ui.image{  attr = { id = "welcome_parlamento_left" }, static="parlamento_icon_small.png" }
