@@ -90,7 +90,7 @@ button.button:hover {
 
 
 /* -------------- icon -------------- */
-.login input:before[type=submit], .button:before {
+.login:before input:before[type=submit], .button:before {
     font:           1.2em/0 sans-serif;
     content:        attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
     margin-right: 6px;
@@ -199,13 +199,14 @@ button.button:hover {
 
 /* -------------- States -------------- */
 
-.login input:hover[type=submit], .button:hover {
+/*.login:hover input:hover[type=submit], .button:hover { */
+.button:hover {
     background-color:   hsl(0, 0%, 83%);
 }
 
 
 
-.button:active {
+.login:active input:active[type=submit], .button:active {
     background-image:   -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
     background-image:   -moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
     background-image:   gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
@@ -225,7 +226,7 @@ button.button:hover {
     transform:          translateY(.2em);
 }
 
-.login input:focus[type=submit], .button:focus {
+.login:focus input:focus[type=submit], .button:focus {
     outline: none;
     color: rgba(254,255,255,0.9) !important;
     text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
