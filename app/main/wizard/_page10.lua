@@ -98,12 +98,7 @@ local next_page=page+1
                           }, 
                        content=function()
                     
-<<<<<<< HEAD
-                       --inserire qui
-            
-            
-                       end --fine contenuto
-=======
+                       --contenuto
                        ui.container
                         {
                           attr={class="formSelect"},
@@ -191,23 +186,15 @@ local next_page=page+1
                          end
                          }--fine div formSelect
                      
->>>>>>> refs/heads/dev
-                        
-<<<<<<< HEAD
-                   }--fine form
-            --------------------------------------------------------
-            
-           --pulsanti
-=======
+ 
                         
                      end
-                     
-                     }--fine form
+                }--fine form
                      
              
              
              --pulsanti
->>>>>>> refs/heads/dev
+ 
             execute.view{
                             module="wizard",
                             view="_pulsanti",
@@ -218,13 +205,8 @@ local next_page=page+1
                                     }
                          }
                           
-<<<<<<< HEAD
+ 
            
         end             
      }
-=======
-             
-         
-     end
- }
->>>>>>> refs/heads/dev
+ 

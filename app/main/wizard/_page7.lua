@@ -73,12 +73,7 @@ ui.container
                           }, 
                        content=function()
                     
-<<<<<<< HEAD
-                       --inserire qui
-            
-            
-                       end --fine contenuto
-=======
+                    --contenuto
                            --inserire qui
                                ui.tag{
                                    tag="div",
@@ -94,7 +89,7 @@ ui.container
                                     end
                                 }
                            end --fine contenuto
->>>>>>> refs/heads/dev
+
                         
                    }--fine form
             --------------------------------------------------------

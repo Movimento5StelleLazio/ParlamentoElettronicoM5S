@@ -73,12 +73,7 @@ ui.container
                           }, 
                        content=function()
                     
-                       --inserire qui
-<<<<<<< HEAD
-            
-            
-                       end --fine contenuto
-=======
+                           --contenuto
                                ui.tag{
                                    tag="div",
                                    attr={style="width:100%;height:100%;text-align: center;"},
@@ -114,7 +109,7 @@ ui.container
                                     end
                                 }
                            end --fine contenuto
->>>>>>> refs/heads/dev
+ 
                         
                    }--fine form
             --------------------------------------------------------

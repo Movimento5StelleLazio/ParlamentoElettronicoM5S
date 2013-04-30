@@ -94,12 +94,7 @@ local next_page=page+1
                           }, 
                        content=function()
                     
-<<<<<<< HEAD
-                       --inserire qui
-            
-            
-                       end --fine contenuto
-=======
+                        --contenuto
                        ui.container
                         {
                           attr={class="formSelect",style="text-align: center;"},
@@ -115,24 +110,13 @@ local next_page=page+1
                          
                          end
                          }--fine div formSelect
-                     
->>>>>>> refs/heads/dev
-                        
-<<<<<<< HEAD
-                   }--fine form
+            
+            
+               }--fine form
             --------------------------------------------------------
             
            --pulsanti
-=======
-                        
-                     end
-                     
-                     }--fine form
-                     
-             
-             
-             --pulsanti
->>>>>>> refs/heads/dev
+ 
             execute.view{
                             module="wizard",
                             view="_pulsanti",
@@ -143,13 +127,7 @@ local next_page=page+1
                                     }
                          }
                           
-<<<<<<< HEAD
-           
-        end             
+      end             
      }
-=======
-             
-         
-     end
- }
->>>>>>> refs/heads/dev
+ 
+ 

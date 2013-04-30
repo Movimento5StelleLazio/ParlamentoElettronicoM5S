@@ -72,7 +72,7 @@ ui.container
                           }, 
                        content=function()
                     
-                           --inserire qui
+                           --contenuto
                                ui.tag{
                                    tag="div",
                                    attr={style="width:100%;text-align: center;"},
