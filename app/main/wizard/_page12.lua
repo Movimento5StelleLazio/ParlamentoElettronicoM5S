@@ -1,5 +1,6 @@
-local area_id=param.get("area_id",atom.integer)
-local unit_id=param.get("unit_id",atom.integer)
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
+ 
 
 local page=param.get("page",atom.integer)
 
@@ -93,3 +94,9 @@ ui.container
            
         end             
      }
+
+
+
+
+
+

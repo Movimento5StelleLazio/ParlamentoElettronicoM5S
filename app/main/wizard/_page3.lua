@@ -1,5 +1,6 @@
-local area_id=param.get("area_id",atom.integer)
-local unit_id=param.get("unit_id",atom.integer)
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
+ 
 
 local page=param.get("page",atom.integer)
 
@@ -34,7 +35,7 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"...."
+                                        content=  _"Give a description to the problem you want to solve"
                                       }
                                 end
                          }
@@ -44,7 +45,7 @@ ui.container
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page},
+                        attr={id="wizardForm"..page,style="height:100%"},
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
@@ -71,16 +72,52 @@ ui.container
                           }, 
                        content=function()
                     
-                       --inserire qui
-            
-            
-                       end --fine contenuto
+                       --contenuto
+ 
+                               ui.tag{
+                                   tag="div",
+                                   attr={style="width:100%;height:100%;text-align: center;"},
+                                   content=function()  
+                                   
+                                    ui.container
+                                    {
+                                        attr={style="width: 20%; position: relative; float: left; margin-left: 10em;"},
+                                        content=function()
+                                         ui.tag{
+                                            tag="p",
+                                            attr={style="text-align: right; float: right; font-size: 20px;"},
+                                            content=  _"Description to the problem you want to solve"
+                                          }   
+                                        
+                                         ui.tag{
+                                            tag="p",
+                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:12px;"},
+                                            content=  _"Description note"
+                                          }   
+                                          
+                                        end
+                                        
+                                     }   
+                                        ui.tag
+                                           {
+                                                tag="textarea",
+                                                attr={id="question_short_description",name="question_short_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
+                                               
+                                                content=function()
+                                                end
+                                                
+                                           }
+                                    end
+                                }
+                           end --fine contenuto
+ 
                         
                    }--fine form
             --------------------------------------------------------
             
            --pulsanti
             execute.view{
+                            
                             module="wizard",
                             view="_pulsanti",
                             params={
