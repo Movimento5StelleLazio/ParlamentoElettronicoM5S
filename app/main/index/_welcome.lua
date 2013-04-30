@@ -133,12 +133,15 @@ slot.put('<br />')
 slot.put('<br />')
 
 ui.container{ attr = {id = "welcome_footer_container" }, content=function()
-  ui.image{  attr = { id = "welcome_footer_box_left" }, static="simbolo_movimento.png" }
-  ui.tag{ tag="p", attr = { id = "welcome_footer_box_middle" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
-  ui.image{  attr = { id = "arrow_right" }, static="arrow_right.png"} 
+  ui.image{  attr = { id = "welcome_logo" }, static="simbolo_movimento.png" }
+  ui.tag{ tag="p", attr = { id = "welcome_register_txt" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
+  ui.image{  attr = { id = "welcome_arrow_right" }, static="arrow_right.png"} 
+  ui.link{ attr = {id = "welcome_btn_register" , class="button orange ifbtn"} , content= _"REGISTRATION GUIDE"}
+  --[[
   ui.container{ attr = {id = "welcome_footer_box_right", class="button orange menuButton" }, content=function()
     ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGISTRATION GUIDE"}
   end}
+  --]]
 end}
 
 end

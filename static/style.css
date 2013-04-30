@@ -406,6 +406,7 @@ form.unit_selector {
 }
 
 .area_head,.area_list .area_head {
+/*
   background: -webkit-linear-gradient(top, #ccc, #fff);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%,#fff));
 
@@ -413,10 +414,12 @@ form.unit_selector {
   background: -ms-linear-gradient(#ccc, #fff);
   background: -o-linear-gradient(#ccc, #fff);
   background: linear-gradient(#ccc, #fff);
+*/
   background-color: #fff;
 }
 
 .area_list .area>.content,.issue {
+/*
   background: -webkit-linear-gradient(top, #f7faff, #ffffff);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7faff), color-stop(100%,#ffffff));
 
@@ -424,6 +427,7 @@ form.unit_selector {
   background: -ms-linear-gradient(#f7faff, #ffffff);
   background: -o-linear-gradient(#f7faff, #ffffff);
   background: linear-gradient(#f7faff, #ffffff);
+*/
   background-color: #ffffff;
 }
 
@@ -832,11 +836,13 @@ div.notifications {
 }
 
 .area_list .area {
-  border-top: 1px solid #ccc;
+/*  border-top: 1px solid #ccc; */
+  border: 1px solid black;
+  margin-bottom: 0.2em;
 }
 
 .area_list .area:first-child {
-    border-top: none;
+/*    border-top: none; */
 }
 
 .area_list .unit_head {
