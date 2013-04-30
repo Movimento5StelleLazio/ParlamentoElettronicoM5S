@@ -309,9 +309,9 @@ form.unit_selector {
 .member_thumb,.member_statement,.suggestion_content,.slot_head,.area_list,.initiative_head,.issues .issue,.ui_tabs_links a,.ui_filter a,.help,.use_terms,.motd,.vote_info .content,.box,div.notifications
     {
     background-color: #fff;
-    box-shadow: #ccc 2px 2px 4px;
-    -mox-box-shadow: #ccc 2px 2px 4px;
-    -webkit-box-shadow: #ccc 2px 2px 4px;
+    box-shadow: #ccc 3px 3px 5px;
+    -mox-box-shadow: #ccc 3px 3px 5px;
+    -webkit-box-shadow: #ccc 3px 3px 5px;
 }
 
 .slot_head>div:last-child {

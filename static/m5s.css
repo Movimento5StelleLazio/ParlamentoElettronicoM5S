@@ -151,8 +151,6 @@
     vertical-align: middle;
 }
     
-}
-
 .pulsantiFase{
     
     float:left;
@@ -681,7 +679,6 @@
     
 }
 .issue_ext{
-     
     clear: left;
     height: 180px;
     top: -35px;
@@ -886,11 +883,7 @@
 /* Puccio Inizio */
 
 #welcome_title_box {
-  border-top-left-radius: 40px 40px;
-  border-top-right-radius: 40px 40px;
-  border-bottom-left-radius: 40px 40px;
-  border-bottom-right-radius: 40px 40px;
-  border: 12px solid yellow;
+  border: 12px solid orange;
   background-color: white;
   margin: 1% 5% 1% 5%;
 }
@@ -909,6 +902,20 @@
   text-align: center;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   font-size: large;
+}
+
+.welcome_text_s {
+  margin: 5px;
+  color: black;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: small;
+}
+
+#version_txt {
+  text-align: right;
+}
+
+#main_title {
 }
 
 #welcome_footer_container {
@@ -958,7 +965,7 @@
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
-  height: 450px;
+  height: 400px;
   position: relative;
 }
 
@@ -981,15 +988,19 @@
 }
 
 #welcome_parlamento_left {
+  height: 70px;
+  width: 121px;
   position: absolute;
-  bottom: 135px;
-  left: 142px;
+  bottom: 175px;
+  left: 223px;
 }
 
 #welcome_parlamento_right {
+  height: 70px;
+  width: 121px;
   position: absolute;
-  bottom: 135px;
-  right: 142px;
+  bottom: 175px;
+  right: 223px;
 }
 
 .unit_header_box {
@@ -1137,5 +1148,127 @@
   width: 100%;
 }
 
+.issue_state_info_box {
+  position: absolute;
+  background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+  border-radius: 16px 16px 0px 0px;
+  height: 8em;
+  width: 34.1em;
+  padding: 5px;
+  color: white;
+  margin-top: 2.3em;
+}
+
+.issue_state_txt {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  font-size: 1.8em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  float: left;
+  width: 85%;
+}
+
+.issue_state_time {
+  font-size: 1.3em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  float: left;
+  bottom: 0em; 
+  margin-left: 0.6em;
+  position: absolute;
+}
+
+.issue_info_img {
+  height: 27px;
+  width: 27px;
+  margin-right: 7px;
+  float: left;
+}
+
+.issue_box {
+  height: 100%;
+}
+
+.issue_see_det {
+  text-align: center;
+  float: right;
+  padding: 0.4em;
+  margin-top: -3.6em;
+  font-size: 2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.issue_ext2{
+  width: 100%;
+  top: -35px;
+  position: relative;
+  margin-bottom: 0em;
+}
+
+.phases_box{
+  position: relative;
+  height: 162px;
+  width: 522px;
+  margin-bottom: 1.2em;
+  float: right;
+}
+
+.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
+  clear: both;
+  position: absolute;
+  z-index: 11;
+}
+
+.phases_bar {
+  position: absolute;
+  z-index: 9;
+  height: 162px;
+  width: 522px;
+}
+.phase_arrow {
+  position: absolute;
+  z-index: 10;
+  margin-top: 29px;
+  margin-left: 31px;
+  height: 70px;
+  width: 70px;
+}
+.admission {
+  height: 60px;
+  width: 60px;
+  margin-top: 55px;
+  margin-left: 37px;
+}
+.discussion {
+  height: 65px;
+  width: 65px;
+  margin-top: 58px;
+  margin-left: 102px;
+}
+.verification {
+  height: 33px;
+  width: 33px;
+  margin-top: 72px;
+  margin-left: 181px;
+}
+.voting {
+  height: 48px;
+  width: 48px;
+  margin-top: 64px;
+  margin-left: 237px;
+}
+.committee {
+  height: 48px;
+  width: 48px;
+  margin-top: 64px;
+  margin-left: 309px;
+}
+.committee_voting {
+  margin-top: 64px;
+  margin-left: 380px;
+}
+.finished {
+  margin-top: 66px;
+  margin-left: 452px;
+}
 
 /* Puccio Fine */

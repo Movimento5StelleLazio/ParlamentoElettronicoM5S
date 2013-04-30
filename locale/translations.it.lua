@@ -23,6 +23,9 @@ return {
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
 ["BACK TO PREVIOUS PAGE"]="TORNA ALLA PAGINA PRECEDENTE";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
+["INITIATIVES LOOKING FOR SUPPORTERS"] = "PROPOSTE IN CERCA DI SOSTENITORI";
+["INITIATIVES NOW IN DISCUSSION"] = "PROPOSTE ATTUALMENTE IN DICSCUSSIONE";
+["COMPLETED OR RETIRED INITIATIVES"] = "PROPOSTE COMPLETATE O RITIRATE";
 ["CHOOSE THE INITIATIVE TO EXAMINE:"]="SCEGLI LA PROPOSTA DA ESAMINARE:";
 ["CHOOSE THE THEMATIC AREA"]="SCEGLI L'AREA TEMATICA";
 ["SHOW ALL AREAS"]="MOSTRA TUTTE LE AREE";
@@ -57,14 +60,14 @@ return {
 ["#{number} Image(s) has been updated"] = "#{number} immagine(i) aggiornata(e)";
 ["#{policy_name} ##{issue_id}"] = false;
 ["#{policy} ##{id}"] = false;
-["#{realname}, your last login was on #{last_login_date} at #{last_login_time}"]="#{realname}, il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
-["WELCOME #{realname}."]="BENVENUTO #{realname}.";
+["Your last login was on #{last_login_date} at #{last_login_time}"]="Il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
+["Welcome #{realname}."]="Benvenuto #{realname}.";
 ["from "]="da ";
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
 ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
 ["5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO"]="PARLAMENTO ELETTRONICO<br />MOVIMENTO 5 STELLE<br />REGIONE LAZIO";
 ["ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"]="SEI UN CITTADINO DEL LAZIO E VUOI ISCRIVERTI? ECCO COME FARE:";
-["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA MOVIMENTO 5 STELLE";
+["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA DEL MOVIMENTO 5 STELLE LAZIO";
 ["REGISTRATION GUIDE"]="GUIDA ALLA ISCRIZIONE";
 ["REGIONE LAZIO ASSEMBLY"]="ASSEMBLEA REGIONE LAZIO";
 ["(new window)"] = "(nuova finestra)";
@@ -857,6 +860,7 @@ return {
 ["delete<br /><br />"] = "elimina<br /><br />";
 ["disabled"] = "disabilitato";
 ["email"] = "eMail";
+["SEE DETAILS"] = "VEDI DETTAGLI";
 ["global"] = "globale";
 ["i#{id}: #{name}"] = "i#{id}: #{name}";
 ["implemented"] = "implementato";
@@ -869,6 +873,8 @@ return {
 ["months [interval ago]"] = "mesi";
 ["months [interval time left]"] = "mesi";
 ["months [interval]"] = "mesi";
+["day [interval ago]"] = "giorno";
+["days [interval ago]"] = "giorni";
 ["more unsatisfied"] = "molto insoddisfatto";
 ["must"] = "deve";
 ["must not"] = "non deve";

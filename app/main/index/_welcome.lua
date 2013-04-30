@@ -1,7 +1,9 @@
 ui.container{
   attr = {id = "welcome_title_box" },
   content = function()
-    slot.put( "<p  class = \"welcome_text_xl\">".._"5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO".."</p>")
+    slot.put("<br />")
+    slot.put( "<p id = \"main_title\" class = \"welcome_text_xl\">".._"5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO".."</p>")
+    ui.tag{ tag = "p", attr = {id = "version_txt", class = "welcome_text_s" }, content = "Versione 0.1" }
   end
 }
 
@@ -24,14 +26,13 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
       else
         trace.debug('Cannot retrieve coordinates from database')
       end
-    ui.tag{ tag="p", attr = { class = "welcome_text_l" }, content= _("WELCOME #{realname}.", {realname = member.realname}) }
+    ui.tag{ tag="p", attr = { class = "welcome_text_l" }, content= _("Welcome #{realname}.", {realname = member.realname}) }
     if lastLogin and lastLogin.login_time then
       ui.container{ attr = { class = "welcome_text_l" }, content = function ()
         ui.tag{
           tag="span",
-          attr = {class = "welcome_text_l"},
-          content= _("#{realname}, your last login was on #{last_login_date} at #{last_login_time}", {
-            realname = member.realname,
+          attr = {class = "welcome_text_l", style = "margin-right: 0px"},
+          content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
             last_login_date = format.date(lastLogin.login_time),
             last_login_time = format.time(lastLogin.login_time)
           })
@@ -41,8 +42,11 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
     end
   end
       slot.put("<br />")
-      --ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
-      ui.tag{ tag="h2", attr = { style = "text-align:center;"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
+      slot.put("<br />")
+      slot.put("<br />")
+      slot.put("<br />")
+      ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
+      --ui.tag{ tag="h1", attr = { style = "text-align:center;"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
 
       ui.link{ 
