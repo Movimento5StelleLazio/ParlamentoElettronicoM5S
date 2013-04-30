@@ -1,5 +1,11 @@
-local area_id=param.get("area_id",atom.integer)
-local unit_id=param.get("unit_id",atom.integer)
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
+
+ 
+if not area then
+    area={}
+end
+ 
 
 local page=param.get("page",atom.integer)
 
@@ -17,7 +23,7 @@ local previus_page=page-1
 local next_page=page+1
 
 
-ui.container
+ ui.container
             {
                     attr={id="wizard_page_"..page, class="basicWizardPage"},
                     content=function()
@@ -34,17 +40,34 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"...."
+                                        content=  _"How much time does your proposal need to be examined?"
                                       }
                                 end
                          }
                          
-            --------------------------------------------------------      
-            --contenuto specifico della pagina wizard    
-             ui.form
+                      local tmp
+                      tmp = { 
+                                { id = 0, name = _"Please choose a policy" }
+                            }
+                      
+                      local _value=""
+                      if #area>0 then
+                       
+                          for i, allowed_policy in ipairs(area.allowed_policies) do
+                            if not allowed_policy.polling then
+                              tmp[#tmp+1] = allowed_policy
+                            end
+                          end   
+                          
+                        --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
+                        else
+                         
+                      end
+                   
+                    ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page},
+                        attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
@@ -71,15 +94,29 @@ ui.container
                           }, 
                        content=function()
                     
-                       --inserire qui
+                        --contenuto
+                       ui.container
+                        {
+                          attr={class="formSelect",style="text-align: center;"},
+                          content=function() 
+                           
+                           
+                               ui.field.boolean{ name = "proposer", label = _"Citiziens", value = polling }
+                              
+                               ui.field.boolean{ name = "proposer", label = _"Elected M5S", value = polling }
+                              
+                               ui.field.boolean{ name = "proposer", label = _"Other groups", value = polling }  
+                           
+                         
+                         end
+                         }--fine div formSelect
             
             
-                       end --fine contenuto
-                        
-                   }--fine form
+               }--fine form
             --------------------------------------------------------
             
            --pulsanti
+ 
             execute.view{
                             module="wizard",
                             view="_pulsanti",
@@ -90,6 +127,7 @@ ui.container
                                     }
                          }
                           
-           
-        end             
+      end             
      }
+ 
+ 

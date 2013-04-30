@@ -827,14 +827,16 @@
 }
 .mainContainerWizard
 {
-    background-color: cornsilk;
+    background-color: #FFFFCC;
     border: 1px solid black;
     border-radius: 0 0 0 0;
-    height:100%;
-    margin-left: auto;
+    float: left;
+    height: 100%;
+    margin-left: 10px;
     margin-right: auto;
-    width: 98%;
     margin-top: 20px;
+    position: relative;
+    width: 98%;
 }
 
 .pulsantiWizard

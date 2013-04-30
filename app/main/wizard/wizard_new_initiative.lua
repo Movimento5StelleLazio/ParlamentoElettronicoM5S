@@ -1,7 +1,23 @@
-local area_id=param.get("area_id",atom.integer)
+local area_id=param.get("area_id" )  
 local area_name="..."
-local unit_id=param.get("unit_id",atom.integer)
+local unit_id=param.get("unit_id" ) 
 local unit_name="..."
+
+if not area_id  then
+    area_id=app.session.member.area_id
+    trace.debug("restore session area_id..."..app.session.member.area_id)
+else
+    app.session.member.area_id=area_id
+    trace.debug("saving session area_id..."..app.session.member.area_id)
+end
+
+if not unit_id then
+    unit_id=app.session.member.unit_id
+    trace.debug("restore session unit_id..."..app.session.member.unit_id)
+else
+    app.session.member.unit_id=unit_id
+    trace.debug("saving session unit_id..."..app.session.member.unit_id)
+end
 
 local selector_unit= db:query( "SELECT * FROM unit WHERE id="..unit_id )
  
@@ -142,7 +158,7 @@ ui.container
             trace.debug("rendering view:"..page)
              execute.view{ 
                                module = "wizard", 
-                               view = "_page2", 
+                               view = "_page3", 
                                params = {
                                            area_id=area_id,
                                            unit_id=unit_id,

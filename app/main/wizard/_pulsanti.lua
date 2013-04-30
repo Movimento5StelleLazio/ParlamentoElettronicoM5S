@@ -29,7 +29,7 @@ end
             ui.tag
             {
             tag="div",
-                attr={id="pulsanti" , style="position: relative;top: 100px;width:90%;margin-left: auto;margin-right: auto;"},
+                attr={id="pulsanti" , style="position: relative;width:90%;margin-left: auto;margin-right: auto;"},
                 content=function()
                --pulsante Previuos
                      ui.link{
@@ -37,8 +37,8 @@ end
                                  module = btnBackModule,
                                  view = btnBackView,
                                  params = { 
-                                                --unit={name="LazionM5S"},
-                                                --area = {name="testAreaName"},
+                                                unit_id=app.session.member.unit_id,
+                                                area_id=app.session.member.area_id,
                                                 page=btnBackParams 
                                            },
                                  content=function()
