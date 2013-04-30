@@ -91,7 +91,7 @@ ui.container
                                          ui.tag{
                                             tag="p",
                                             attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
-                                            content=  _"Issue note"
+                                            content=  _"Issue short note"
                                           }   
                                           
                                         end
@@ -100,7 +100,7 @@ ui.container
                                         ui.tag
                                            {
                                                 tag="textarea",
-                                                attr={id="issue_description", name="issue_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
+                                                attr={id="issue_description", name="issue_description",style="resize: none; float: left; font-size: 23px; margin-left: 15px; width: 598px; height: 12em;"},
                                                 content=function()
                                                 end
                                                 

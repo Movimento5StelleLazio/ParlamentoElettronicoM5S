@@ -382,7 +382,7 @@ return {
 ["Issue finished"] = "Questione chiusa";
 ["Issue finished without voting"] = "Questione chiusa senza votazione";
 ["Issue frozen"] = "Questione congelata";
-["Issue note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
+["Issue short note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
 ["Issue pad"] = "Pad della questione";
 ["Issue quorum"] = "Quorum questione";
 ["Issue quorum denumerator"] = "Denominatore quorum questione";
