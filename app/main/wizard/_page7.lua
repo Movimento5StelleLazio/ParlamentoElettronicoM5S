@@ -1,5 +1,7 @@
-local area_id=param.get("area_id",atom.integer)
-local unit_id=param.get("unit_id",atom.integer)
+ 
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
+ 
 
 local page=param.get("page",atom.integer)
 
@@ -34,7 +36,7 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"...."
+                                        content=  _"Give a title to the issue you want to propose"
                                       }
                                 end
                          }
@@ -44,7 +46,7 @@ ui.container
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page},
+                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
                         action = 'wizard_new_save',
                         params={
@@ -71,10 +73,28 @@ ui.container
                           }, 
                        content=function()
                     
+<<<<<<< HEAD
                        --inserire qui
             
             
                        end --fine contenuto
+=======
+                           --inserire qui
+                               ui.tag{
+                                   tag="div",
+                                   attr={style="width:100%;text-align: center;"},
+                                   content=function()     
+                                           ui.field.text
+                                           {
+                                                attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                name="issue_title",
+                                                label=_"Issue Title",
+                                                label_attr={style="font-size:20px;"}
+                                           }
+                                    end
+                                }
+                           end --fine contenuto
+>>>>>>> refs/heads/dev
                         
                    }--fine form
             --------------------------------------------------------
