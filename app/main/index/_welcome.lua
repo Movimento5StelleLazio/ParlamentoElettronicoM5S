@@ -55,7 +55,7 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
         module="index", 
         view="homepage", 
         content=function()
-          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
+          ui.tag{ tag="p", attr = {id = "welcome_btn_lazio", class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
         end
       }
       ui.link{ 
@@ -65,7 +65,7 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
         view="show_ext", 
         id=config.gui_preset.M5S.units["iscritti"].unit_id,
         content=function()
-          ui.tag{ tag="p", attr = {class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+          ui.tag{ tag="p", attr = {id = "welcome_btn_internal", class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
         end
       }
       ui.image{  attr = { id = "welcome_parlamento_left" }, static="parlamento_icon_small.png" }
@@ -87,7 +87,8 @@ else
 
 
 ui.container{ attr = { class = "loginDiv" }, content = function ()
-  ui.tag{ tag = "p", attr = { class = "welcome_text_l" }, content = _"Closed user group, please login to participate." }
+  --ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Closed user group, please login to participate." }
+  ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Inserire il mome utente e la password per accedere:" }
   slot.put('<br />')
 
   ui.form{
@@ -120,7 +121,7 @@ ui.container{ attr = { class = "loginDiv" }, content = function ()
         html_name = 'password',
         value     = ''
       }
-      ui.submit{
+      ui.submit {
         text = _'Login'
       }
     end
@@ -132,12 +133,15 @@ slot.put('<br />')
 slot.put('<br />')
 
 ui.container{ attr = {id = "welcome_footer_container" }, content=function()
-  ui.image{  attr = { id = "welcome_footer_box_left" }, static="simbolo_movimento.png" }
-  ui.tag{ tag="p", attr = { id = "welcome_footer_box_middle" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
-  ui.image{  attr = { id = "arrow_right" }, static="arrow_right.png"} 
+  ui.image{  attr = { id = "welcome_logo" }, static="simbolo_movimento.png" }
+  ui.tag{ tag="p", attr = { id = "welcome_register_txt" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
+  ui.image{  attr = { id = "welcome_arrow_right" }, static="arrow_right.png"} 
+  ui.link{ attr = {id = "welcome_btn_register" , class="button orange ifbtn"} , content= _"REGISTRATION GUIDE"}
+  --[[
   ui.container{ attr = {id = "welcome_footer_box_right", class="button orange menuButton" }, content=function()
     ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGISTRATION GUIDE"}
   end}
+  --]]
 end}
 
 end

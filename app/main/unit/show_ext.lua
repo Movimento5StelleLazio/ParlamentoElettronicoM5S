@@ -62,7 +62,7 @@ ui.container{ attr = { class="unit_bottom_box"}, content=function()
     view = "show_ext",
     id = unit_id,
     content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ALL AREAS" }
+      ui.tag {  tag = "p", attr = { class  = "button_text", style = "margin-top: 0.5em;"  }, content = _"SHOW ALL AREAS" }
     end
   }
   ui.link {
