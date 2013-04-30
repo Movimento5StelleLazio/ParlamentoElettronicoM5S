@@ -1046,6 +1046,12 @@
   padding: 20px;
 }
 
+#unit_btn_enter_area {
+  width: 5.3em;
+  height: .9em;
+  float: left;
+}
+
 .area_issue_box {
   background-color: white;
   border-radius: 8px;
@@ -1275,6 +1281,8 @@
 }
 
 .login input[type=submit]{
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
   position: absolute;
   margin-top: -2.9em;
   margin-left: 25em;
