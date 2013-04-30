@@ -90,7 +90,7 @@ ui.container
                                   
                   ui.container
                         {
-                                attr={id="wizardTitoloArea",class="titoloWizardHead", style="height:30px"},
+                                attr={id="wizardTitoloAreaHeader",class="titoloWizardHead", style="height:30px"},
                                 content=function()
                                       ui.tag{
                                             tag="p",
@@ -99,8 +99,9 @@ ui.container
                                             
                                           }
                                        ui.tag{
-                                            tag="p",
-                                             attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
+                                            tag="span",
+                                            attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 480px; top: 7px;"},
+                                            nultiline=false,
                                             content=area_name
                                            }
                                 end
