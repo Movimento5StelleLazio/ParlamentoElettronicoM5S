@@ -113,7 +113,7 @@ ui.container
         
         }
 
-trace.debug("page="..page)
+trace.debug("inital page="..page)
 
 ui.container
 {
