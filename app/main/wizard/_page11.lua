@@ -1,14 +1,8 @@
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
 
- 
-if not area then
-    area={}
-end
- 
-
 local page=param.get("page",atom.integer)
-
+local wizard=param.get("wizard","table")
 
 local btnBackModule = "wizard"
 local btnBackView = "wizard_new_initiative"
@@ -40,40 +34,23 @@ local next_page=page+1
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"How much time does your proposal need to be examined?"
+                                        content=  _"The proposals was presented by:"
                                       }
                                 end
                          }
                          
-                      local tmp
-                      tmp = { 
-                                { id = 0, name = _"Please choose a policy" }
-                            }
                       
-                      local _value=""
-                      if #area>0 then
-                       
-                          for i, allowed_policy in ipairs(area.allowed_policies) do
-                            if not allowed_policy.polling then
-                              tmp[#tmp+1] = allowed_policy
-                            end
-                          end   
-                          
-                        --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
-                        else
-                         
-                      end
                    
                     ui.form
                     {
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        action = 'wizard_new_save',
+                        view = 'wizard_new_initiative',
                         params={
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page
+                                page=page+1
                         },
                         routing = {
                             ok = {
@@ -93,7 +70,13 @@ local next_page=page+1
                             }
                           }, 
                        content=function()
-                    
+                         
+                      --parametri in uscita
+                     for i,k in ipairs(wizard) do
+                          ui.hidden_field{name=k.name ,value=k.value}
+                          trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                        end
+                     
                         --contenuto
                        ui.container
                         {
@@ -101,17 +84,17 @@ local next_page=page+1
                           content=function() 
                            
                            
-                               ui.field.boolean{ name = "proposer", label = _"Citiziens", value = polling }
+                               ui.field.boolean{ name = "proposer1", label = _"Citiziens", value = false }
                               
-                               ui.field.boolean{ name = "proposer", label = _"Elected M5S", value = polling }
+                               ui.field.boolean{ name = "proposer2", label = _"Elected M5S", value = false }
                               
-                               ui.field.boolean{ name = "proposer", label = _"Other groups", value = polling }  
+                               ui.field.boolean{ name = "proposer3", label = _"Other groups", value = false }  
                            
                          
                          end
                          }--fine div formSelect
             
-            
+                    end            
                }--fine form
             --------------------------------------------------------
             

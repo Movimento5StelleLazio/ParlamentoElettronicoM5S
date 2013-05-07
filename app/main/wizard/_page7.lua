@@ -4,7 +4,7 @@ local unit_id=param.get("unit_id" )
  
 
 local page=param.get("page",atom.integer)
-
+local wizard=param.get("wizard","table")
 
 local btnBackModule = "wizard"
 local btnBackView = "wizard_new_initiative"
@@ -46,13 +46,13 @@ ui.container
              ui.form
                     {
                         method = "post",
-                         attr={id="wizardForm"..page,style="height:80%"},
+                        attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        action = 'wizard_new_save',
+                        view = 'wizard_new_initiative',
                         params={
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page
+                                page=page+1
                         },
                         routing = {
                             ok = {
@@ -72,7 +72,13 @@ ui.container
                             }
                           }, 
                        content=function()
-                    
+                     
+                          --parametri in uscita
+                     for i,k in ipairs(wizard) do
+                          ui.hidden_field{name=k.name ,value=k.value}
+                          trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                        end
+                        
                     --contenuto
                            --inserire qui
                                ui.tag{
