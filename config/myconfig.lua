@@ -29,7 +29,7 @@ config.gui_preset = {
         issues_desc_closed = _"Electeds Initiatives Completed or Retired"
       },
       cittadini = {
-        unit_id = 2,
+        unit_id = 44,
         unit_title = _"CITIZENS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -38,7 +38,7 @@ config.gui_preset = {
         issues_desc_admission =  _"Citizens Initiatives Looking For Supporters"
       },
       iscritti = {
-        unit_id = 3,
+        unit_id = 64,
         unit_title = _"M5S MEMBERS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Internal Assembly",

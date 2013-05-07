@@ -3,10 +3,9 @@
 .menuDiv
 {
     background-color: #FFFFCC;
-    border-color: yellow;
-    border-radius: 12px 12px 12px 12px;
+    border-color: orange;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     box-shadow: 2px 2px 4px #CCCCCC;
     height: 450px;
     width: 100%;
@@ -805,8 +804,7 @@
 .loginDiv
 {
     background-color: #FFFFCC;
-    border-color: yellow;
-    border-radius: 12px 12px 12px 12px;
+    border-color: orange;
     border-style: solid;
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
@@ -919,48 +917,41 @@
 
 #welcome_footer_container {
   position: relative;
+  text-align: center;
+  vertical-align: middle;
   padding: 0px;
   border: 0px;
-  height: 100px;
+  height: 7.5em;
 }
 
-#welcome_footer_box_left {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width:100px;
-  height: 100%;
+#welcome_logo {
+  float: left;
+  width: 7.5em;
+  height: 7.5em;
 }
 
-#welcome_footer_box_middle {
-  position: absolute;
-  top: 0px;
-  left:100px;
-  width: 700px;
-  height: 100px;
+#welcome_register_txt {
+  margin-top: 0.4em;
+  float: left;
+  width: 21em;
 }
 
-#arrow_right {
-  position: absolute;
-  right: 202px;
-  top: 0px;
+#welcome_arrow_right {
+  float: left;
+  margin-top: 0.7em;
 }
 
-#welcome_footer_box_right {
-  margin: auto;
-  position: absolute;
-  text-align: center;
-  right: 0px;
-  top: -10px;
-  width: 160px;
-  height: 80px;
+#welcome_btn_register {
+  margin: 0em;
+  float: right;
+  width: 8em;
+  padding: 1em;
 }
 
 #welcome_middle_box {
   margin-top: 2ex;
   margin-bottom: 1ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
+  border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
@@ -974,7 +965,7 @@
   left: 130px;
   text-align: center;
   width: 254px;
-  height: 110px;
+  height: 115px;
 }
 
 #welcome_middle_box_right {
@@ -983,7 +974,14 @@
   text-align: center;
   right: 130px;
   width: 254px;
-  height: 110px;
+  height: 115px;
+}
+
+#welcome_btn_lazio {
+  margin-top: 0.4em;
+}
+
+#welcome_btn_internal {
 }
 
 #welcome_parlamento_left {
@@ -1005,8 +1003,7 @@
 .unit_header_box {
   margin-top: 2ex;
   margin-bottom: 2ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
+  border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
@@ -1022,13 +1019,13 @@
   margin-left: 290px;
   text-align: center;
   width: 200px;
-  height: 100px;
+  height: 115px;
 }
 
 #unit_button_right {
   text-align: center;
   width: 200px;
-  height: 100px;
+  height: 115px;
 }
 
 .unit_bottom_box {
@@ -1047,6 +1044,12 @@
   border-radius: 8px;
   margin-top: 190px;
   padding: 20px;
+}
+
+#unit_btn_enter_area {
+  width: 5.3em;
+  height: .9em;
+  float: left;
 }
 
 .area_issue_box {
@@ -1093,11 +1096,18 @@
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
+.ifbtn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
 .area_filter_header_box {
   margin-top: 2ex;
   margin-bottom: 2ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
+  border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
   padding: 1ex;
@@ -1270,4 +1280,12 @@
   margin-left: 452px;
 }
 
+.login input[type=submit]{
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  position: absolute;
+  margin-top: -2.9em;
+  margin-left: 25em;
+}
+  
 /* Puccio Fine */

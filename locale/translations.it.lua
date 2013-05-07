@@ -15,6 +15,7 @@ return {
 ["#{interval_text} [interval]"] = "#{interval_text}";
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
+["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
 ["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
 ["ORDER BY DATE OF CREATION"]="ORDINA PER LA DATA DI IMMISSIONE";
 ["ORDER BY LAST EVENT DATE"]="ORDINA PER LA DATA DELL'ULTIMO EVENTO";
