@@ -1,7 +1,205 @@
+function readParam(page)
+ 
+local objParam={}
+ 
+if page==1 then
+    
+   
+    --trace.debug("policy_id="..policy_id)
+    
+    --trace.debug("wizard_new_issue="..wizard_new_issue)
+    --app.session:save()
+end
+
+ 
+
+if page==2 then
+     
+     objParam[#objParam+1]={name="policy_id",value=param.get("policyChooser")}
+    
+end
+
+ 
+if page==3 then
+  
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+ 
+
+end
+
+
+if page==4 then
+
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+
+
+--local question_keywords=param.get("question_keywords")
+--question_keywords=question_keywords
+   
+end
+
+
+if page==5 then
+    
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   
+    
+   
+
+
+end
+
+if page==6 then
+
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+
+  
+end
+
+if page==7 then
+   
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+ 
+  
+    
+end
+
+if page==8 then
+    
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+    
+    
+    
+    --local issue_description=param.get("issue_description")
+    
+
+end
+
+if page==9 then
+
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
+
+
+   -- local issue_draft=param.get("issue_draft")
+     
+end
+
+if page==10 then
+ 
+ 
+
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
+   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+ 
+
+       
+end
+
+
+if page==11 then
+
+
+   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
+   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+   objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   
+
+
+end
+
+if page==12 then
+
+   objParam[#objParam+1]= {name="question_title",value=param.get("question_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
+   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+   objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   
+   local value
+   local proposer
+   if param.get("proposer1",atom.boolean) then
+   
+         value=param.get("proposer1",atom.boolean)
+         proposer="proposer1"
+   end
+   if  param.get("proposer2",atom.boolean) then
+   
+         value=param.get("proposer2",atom.boolean)
+         proposer="proposer2"
+   end
+   if  param.get("proposer3",atom.boolean) then
+       
+         value=param.get("proposer3",atom.boolean)
+         proposer="proposer3"
+    
+   end
+   
+   
+   objParam[#objParam+1]= {name=proposer,value=value}
+ 
+end
+
+
+return objParam
+end
+
+--///////////////////////////////////////////////////////////////// 
+
+
 local area_id=param.get("area_id" )  
 local area_name="..."
 local unit_id=param.get("unit_id" ) 
 local unit_name="..."
+ 
+
+ 
 
 if not area_id  then
     area_id=app.session.member.area_id
@@ -41,7 +239,26 @@ if not page  or page <= 1 then
     page=1
 end
  
-
+  
+ if page==12 then
+            trace.debug("rendering view:"..page)
+          
+            execute.view{ 
+                               module = "wizard", 
+                               view = "_page12", 
+                               params = {
+                                           wizard= readParam(page),
+                                           area_name=area_name,
+                                           area_id=area_id,
+                                           unit_name=unit_name,
+                                           unit_id=unit_id,
+                                           page=page
+                                         }
+                             }
+   return
+                             
+end
+            
 
 ui.container
 {
@@ -128,6 +345,7 @@ ui.container
                            module = "wizard", 
                            view = "_page1", 
                            params = {
+                                        wizard= readParam(page),
                                         area_id=area_id,
                                         unit_id=unit_id,
                                         page=page
@@ -137,15 +355,21 @@ ui.container
             end --fine page1
             
             
+            
+           
+                            
+                          
+           
             -- page 2
             
             if page==2 then
-            
+               
             trace.debug("rendering view:"..page)
-               execute.view{ 
+            execute.view{ 
                                module = "wizard", 
                                view = "_page2", 
                                params = {
+                                          wizard= readParam(page),
                                           area_id=area_id,
                                           unit_id=unit_id,
                                           page=page
@@ -154,13 +378,14 @@ ui.container
             
             end
             
-            
+             
             if page==3 then
             trace.debug("rendering view:"..page)
              execute.view{ 
                                module = "wizard", 
                                view = "_page3", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -176,6 +401,7 @@ ui.container
                                module = "wizard", 
                                view = "_page4", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -191,6 +417,7 @@ ui.container
                                module = "wizard", 
                                view = "_page5", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -207,6 +434,7 @@ ui.container
                                module = "wizard", 
                                view = "_page6", 
                                params = {
+                                            wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -222,6 +450,7 @@ ui.container
                                module = "wizard", 
                                view = "_page7", 
                                params = {
+                                            wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -236,6 +465,7 @@ ui.container
                                module = "wizard", 
                                view = "_page8", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -249,6 +479,7 @@ ui.container
                                module = "wizard", 
                                view = "_page9", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -262,6 +493,7 @@ ui.container
                                module = "wizard", 
                                view = "_page10", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -275,6 +507,7 @@ ui.container
                                module = "wizard", 
                                view = "_page11", 
                                params = {
+                                           wizard= readParam(page), 
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page
@@ -282,21 +515,7 @@ ui.container
                              }
             end
             
-            
-            if page==12 then
-            trace.debug("rendering view:"..page)
           
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page12", 
-                               params = {
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
               
            
          end
@@ -305,6 +524,4 @@ end --fine wizardContainer
 }
 
           
-
-
 

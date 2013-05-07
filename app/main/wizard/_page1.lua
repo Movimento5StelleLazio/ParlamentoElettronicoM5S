@@ -1,8 +1,7 @@
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
 
-
- 
+  
  
 
 local area_policies=AllowedPolicy:get_policy_by_area_id(area_id)
@@ -68,11 +67,12 @@ local next_page=page+1
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        action = 'wizard_new_save',
+                        view = 'wizard_new_initiative',
                         params={
+                                
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page
+                                page=page+1
                         },
                         routing = {
                             ok = {
@@ -80,6 +80,7 @@ local next_page=page+1
                               module = 'wizard',
                               view = 'wizard_new_initiative',
                               params = {
+                                           
                                            area_id=area_id,
                                            unit_id=unit_id,
                                            page=page+1
@@ -149,12 +150,16 @@ local next_page=page+1
                      }--fine form
                      
              
+             local view_params={}
+             view_params[#view_params+1]=  {}
+             
              
              --pulsanti
             execute.view{
                             module="wizard",
                             view="_pulsanti",
                             params={
+                                    
                                      btnBackModule = "wizard",
                                      btnBackView = "wizard_new_initiative",
                                      page=page

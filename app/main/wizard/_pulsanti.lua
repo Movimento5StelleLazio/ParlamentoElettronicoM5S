@@ -1,7 +1,7 @@
 
 
 local page=param.get("page",atom.integer)
-
+local wizard=param.get("wizard","table")
 
 local btnBackModule  
 local btnBackView  
@@ -64,7 +64,13 @@ end
                   ui.tag{
                              tag="a",
                              attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right",onclick="document.getElementById('wizardForm"..page.."').submit();"},
-                             
+                             module = "wizard",
+                             view = "wizard_new_initiative",
+                             params = { 
+                                                unit_id=app.session.member.unit_id,
+                                                area_id=app.session.member.area_id,
+                                                page=page 
+                                           },
                              content=function()
                                 
                                     ui.tag{
@@ -77,6 +83,30 @@ end
                                     
                                 end-- fine tag.content
                         } -- fine pulsante next
+--
+--                     ui.link{
+--                                 attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right"},
+--                                 module = "wizard",
+--                                 view = "wizard_new_initiative",
+--                                 params = { 
+--                                               wizard=wizard,
+--                                               unit_id=app.session.member.unit_id,
+--                                               area_id=app.session.member.area_id,
+--                                               page=page+1 
+--                                           },
+--                                 content=function()
+--                                    
+--                                        ui.tag{
+--                                           tag = "p",
+--                                           attr={style="text-align: center; width:80px", readonly="true"},
+--                                           content        =_"Next Phase".."    >>",  
+--                                           multiline=true
+--                                          
+--                                        }  
+--                                        
+--                                    end-- fine tag.content
+--                            } -- fine pulsante next
+--                        
                     
                 end
             
