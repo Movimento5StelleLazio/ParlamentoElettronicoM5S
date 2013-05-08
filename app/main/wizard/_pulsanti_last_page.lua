@@ -29,24 +29,23 @@ end
             ui.tag
             {
             tag="div",
-                attr={id="pulsanti" , style="position: relative;width:90%;margin-left: auto;margin-right: auto;"},
+                attr={id="pulsanti" , style="position: relative; float: left; text-align: center; left: 20em;top: 40px;"},
                 content=function()
-               --pulsante Previuos
+                
+               --pulsante anteprima
                      ui.link{
-                                 attr={id="btnPreviuos",class="button orange menuButton pulsantiWizard",style="float:left"},
-                                 module = btnBackModule,
-                                 view = btnBackView,
+                                 attr={id="btnAnteprima",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
+                                 module = "wizard",
+                                 view = "anteprima",
                                  params = { 
-                                                unit_id=app.session.member.unit_id,
-                                                area_id=app.session.member.area_id,
-                                                page=btnBackParams 
+                                                
                                            },
                                  content=function()
                                     
                                         ui.tag{
                                            tag = "p",
                                            attr={style="text-align: center; width:80px", readonly="true"},
-                                           content        =_"Back Phase".."\n <<",  
+                                           content        =_"Show preview",  
                                            multiline=true
                                           
                                         }  
@@ -60,10 +59,40 @@ end
                                  end
                                 }        
                  
+                 
+                 
+                      ui.link{
+                                 attr={id="btnSalvaPreview",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
+                                 module = "wizard",
+                                 view = "_save_preview",
+                                 params = { 
+                                                
+                                           },
+                                 content=function()
+                                    
+                                        ui.tag{
+                                           tag = "p",
+                                           attr={style="text-align: center; width:80px", readonly="true"},
+                                           content        =_"Save preview",  
+                                           multiline=true
+                                          
+                                        }  
+                                        
+                                    end-- fine tag.content
+                            } -- fine pulsante previuos
+                            
+                   ui.container{
+                                 attr={id="spazioDiv", class="spazioDiv"},
+                                 content=function()
+                                 end
+                                }        
+                 
+                 
+                 
                    --pulsante Next
                   ui.tag{
                              tag="a",
-                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;",onclick="document.getElementById('wizardForm"..page.."').submit();"},
                              module = "wizard",
                              view = "wizard_new_initiative",
                              params = { 
@@ -76,7 +105,7 @@ end
                                     ui.tag{
                                        tag = "p",
                                        attr={style="text-align: center; width:126px", readonly="true"},
-                                       content        =_"Next Phase".."    >>",  
+                                       content        =_"Save issue",  
                                        multiline=true
                                       
                                     }  
