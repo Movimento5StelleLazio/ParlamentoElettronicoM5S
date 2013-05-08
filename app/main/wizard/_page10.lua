@@ -1,18 +1,11 @@
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
 
- 
-if not area then
-    area={}
-end
- 
- 
- 
-
- 
 
 local page=param.get("page",atom.integer)
+local wizard=param.get("wizard","table")
 
+local area={}
 
 local btnBackModule = "wizard"
 local btnBackView = "wizard_new_initiative"
@@ -73,11 +66,11 @@ local next_page=page+1
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        action = 'wizard_new_save',
+                        view = 'wizard_new_initiative',
                         params={
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page
+                                page=page+1
                         },
                         routing = {
                             ok = {
@@ -98,6 +91,13 @@ local next_page=page+1
                           }, 
                        content=function()
                     
+                    
+                            --parametri in uscita
+                     for i,k in ipairs(wizard) do
+                          ui.hidden_field{name=k.name ,value=k.value}
+                          trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                        end
+                    
                        --contenuto
                        ui.container
                         {
@@ -111,44 +111,44 @@ local next_page=page+1
                                        ui.field.select{
                                             attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
                                             label =  "1° AREA DI COMPETENZA TECNICA:",
-                                            name = 'technicalChooser',
+                                            name = 'technical_area_1',
                                             foreign_records = tmp,
                                             foreign_id = "id",
                                             foreign_name = "name",
                                             value =  ""
                                           }
                                           
-                                           ui.field.select{
-                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
-                                            label =  "2° AREA DI COMPETENZA TECNICA:",
-                                            name = 'technicalChooser',
-                                            foreign_records = tmp,
-                                            foreign_id = "id",
-                                            foreign_name = "name",
-                                            value =  ""
-                                          }
-                                          
-                                               
-                                           ui.field.select{
-                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
-                                            label =  "3° AREA DI COMPETENZA TECNICA:",
-                                            name = 'technicalChooser',
-                                            foreign_records = tmp,
-                                            foreign_id = "id",
-                                            foreign_name = "name",
-                                            value =  ""
-                                          }
-                                          
-                                               
-                                           ui.field.select{
-                                            attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
-                                            label =  "4° AREA DI COMPETENZA TECNICA:",
-                                            name = 'technicalChooser',
-                                            foreign_records = tmp,
-                                            foreign_id = "id",
-                                            foreign_name = "name",
-                                            value =  ""
-                                          }
+--                                           ui.field.select{
+--                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+--                                            label =  "2° AREA DI COMPETENZA TECNICA:",
+--                                            name = 'technical_area_2',
+--                                            foreign_records = tmp,
+--                                            foreign_id = "id",
+--                                            foreign_name = "name",
+--                                            value =  ""
+--                                          }
+--                                          
+--                                               
+--                                           ui.field.select{
+--                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+--                                            label =  "3° AREA DI COMPETENZA TECNICA:",
+--                                            name = 'technical_area_3',
+--                                            foreign_records = tmp,
+--                                            foreign_id = "id",
+--                                            foreign_name = "name",
+--                                            value =  ""
+--                                          }
+--                                          
+--                                               
+--                                           ui.field.select{
+--                                            attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+--                                            label =  "4° AREA DI COMPETENZA TECNICA:",
+--                                            name = 'technical_area_4',
+--                                            foreign_records = tmp,
+--                                            foreign_id = "id",
+--                                            foreign_name = "name",
+--                                            value =  ""
+--                                          }
                                           
                                       end
                                       

@@ -161,6 +161,7 @@ return {
 ["Canceled (issue not accepted)"] = "Annullato (questione non ammessa)";
 ["Canceled (no initiative admitted)"] = "Annullato (nessuna proposta ammessa)";
 ["Canceled phase"] = "Annullato";
+["Citiziens"]="CITTADINI";
 ["Change area delegation"] = "Cambia delega dell'Area";
 ["Change email"] = "Cambia eMail";
 ["Change email address"] = "Cambia indirizzo eMail";
@@ -269,6 +270,7 @@ return {
 ["Edit my page"] = "Modifica la mia pagina";
 ["Edit my profile"] = "Modifica il mio profilo";
 ["Edit profile"] = "Modifica profilo";
+["Elected M5S"]="ELETTI DEL MOVIMENTO 5 STELLE";
 ["Eligible as winner"] = "Potenziali vincitori";
 ["Eligible voters"] = "Potenziali votanti";
 ["Email address"] = "Indirizzo eMail";
@@ -386,7 +388,7 @@ return {
 ["Issue finished"] = "Questione chiusa";
 ["Issue finished without voting"] = "Questione chiusa senza votazione";
 ["Issue frozen"] = "Questione congelata";
-["Issue note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
+["Issue short note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
 ["Issue pad"] = "Pad della questione";
 ["Issue quorum"] = "Quorum questione";
 ["Issue quorum denumerator"] = "Denominatore quorum questione";
@@ -522,6 +524,7 @@ return {
 ["Options"] = "Opzioni";
 ["Organizational unit"] = "Unità organizzativa";
 ["Other failures"] = "Altri difetti";
+["Other groups"]="ALTRI GRUPPI POLITICI";
 ["Outgoing delegations"] = "Deleghe attive";
 ["Parent unit"] = "Unità superiore";
 ["Participants"] = "Partecipanti";
@@ -606,6 +609,8 @@ return {
 ["Save"] = "Salva";
 ["Save areas as template"] = "Salva Aree come Template";
 ["Save current filter"] = "Salva filtro corrente";
+["Save preview"]="SALVA UNA BOZZA PRELIMINARE";
+["Save issue"]="SALVA E PUBBLICA LA TUA PROPOSTA";
 ["Save timeline filters"] = "Salva filtro cronologia";
 ["Saved as contact"] = "Salva come contatto";
 ["Saved contacts"] = "Contatti salvati";
@@ -644,6 +649,7 @@ return {
 ["Show policies in use"] = "Mostra regole in uso";
 ["Show policies not in use"] = "Mostra regole disabilitate";
 ["Show profile"] = "Visualizza profilo";
+["Show preview"]="VISUALIZZA ANTEPRIMA";
 ["So I'm"] = "Quindi sono";
 ["Software"] = "Software";
 ["Sorry, but there is not confirmed email address for your account. Please contact the administrator or support."] = "Spiacente, questo iscritto non ha un indirizzo eMail confermato. Contattare l'amministratore per il supporto.";
@@ -696,6 +702,7 @@ return {
 ["This initiative has not been admitted! It failed the quorum of #{quorum}."] = "Questa proposta non è stata ammessa! Mancato raggiungimento del quorum di #{quorum}.";
 ["This initiative is already revoked"] = "Questa proposta è già stata ritirata";
 ["This initiative is revoked"] = "Iniziativa ritirata";
+["The proposals was presented by:"]="LA PROPOSTA E' STATA AVANZATA DA:";
 ["This invite key is connected with the following information:"] = "Il codice d'invito è associato alle seguenti informazioni:";
 ["This issue has been canceled. It failed the quorum of #{quorum}."] = "Questa questione non è stata ammessa! Mancato raggiungimento del quorum di #{quorum}.";
 ["This issue is already closed."] = "Questione già chiusa.";
@@ -775,6 +782,8 @@ return {
 ["Wiki engine for statement"] = "Motore Wiki per ?statement?";
 ["Withdraw"] = "Ritira";
 ["Withdraw membership"] = "Ritira partecipazione";
+["WIZARD END"]="La tua proposta è pronta. Ricontrolla accuratamente i campi del modulo sottostante prima di salvare la tua proposta e sottoporla all'attenzione dell'assembla. Se  la proposta otterrà un numero sufficiente di sostenitori , sarà messa ai voti in competizioni con le eventuali proposte alternative che gli altri utenti avanzeranno per risolvere il problema da te indicato.";
+["WIZARD HEADER END"]="CREAZIONE NUOVA PROPOSTA COMPLETATA";
 ["Yes"] = "Si";
 ["Yesterday at #{time}"] = "Ieri alle #{time}";
 ["You already voted this issue"] = "Hai già votato questa questione";

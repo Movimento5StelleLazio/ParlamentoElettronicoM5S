@@ -1161,47 +1161,41 @@
   position: absolute;
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
   border-radius: 16px 16px 0px 0px;
-  height: 8em;
+  height: 4em;
   width: 34.1em;
   padding: 5px;
   color: white;
-  margin-top: 2.3em;
+  margin-top: 6.3em;
 }
 
 .issue_state_txt {
-  margin-top: 0em;
-  margin-bottom: 0em;
-  font-size: 1.8em;
+  display: inline-block;
+  margin: 0 0.2em 0 0.4em;
+  font-size: 1.4em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  float: left;
-  width: 85%;
 }
 
 .issue_state_time {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  float: left;
-  bottom: 0em; 
-  margin-left: 0.6em;
-  position: absolute;
 }
 
 .issue_info_img {
-  height: 27px;
-  width: 27px;
-  margin-right: 7px;
-  float: left;
+  display: inline-block;
+  margin: 0;
+  height: 1.4em;
+  width: 1.4em;
 }
 
 .issue_box {
-  height: 100%;
+  margin-top: 3em;
+ /* height: 100%; */
 }
 
 .issue_see_det {
   text-align: center;
-  float: right;
+  margin: -2.2em 0.2em auto auto;
   padding: 0.4em;
-  margin-top: -3.6em;
   font-size: 2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
@@ -1287,5 +1281,45 @@
   margin-top: -2.9em;
   margin-left: 25em;
 }
+
+.issue_title {
+  margin: 0.4em 0em 0.2em 0em;
+  font-size: 1.6em;
+  font-weight:bold;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.issue_brief_description {
+
+}
+
+.issue_vote_box {
+  display: inline-block;
+  position: absolute;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px #CCCCCC;
+  margin: -4em auto auto 0.2em;
+}
+
+.issue_vote_txt {
+  display: inline-block;
+  margin: 0.2em;
+  font-size: 2.2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.thumb {
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+}
   
+.initiative_list_ext {
+  border: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 16em;
+  margin: 0.4em;
+}
+
 /* Puccio Fine */
