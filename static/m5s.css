@@ -809,7 +809,7 @@
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 
@@ -916,36 +916,45 @@
 }
 
 #welcome_footer_container {
-  position: relative;
   text-align: center;
-  vertical-align: middle;
-  padding: 0px;
-  border: 0px;
   height: 7.5em;
 }
 
 #welcome_logo {
-  float: left;
-  width: 7.5em;
-  height: 7.5em;
+  vertical-align: middle;
+  display: inline-block;
+  margin: auto auto auto 0em;
+  width: 100px;
+  height: 100px;
 }
 
 #welcome_register_txt {
-  margin-top: 0.4em;
-  float: left;
-  width: 21em;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  margin: auto;
+  width: 41%;
 }
 
 #welcome_arrow_right {
-  float: left;
-  margin-top: 0.7em;
+  vertical-align: middle;
+  display: inline-block;
+  margin: auto;
+  width: 50px;
+  height: 50px;
 }
 
 #welcome_btn_register {
-  margin: 0em;
-  float: right;
-  width: 8em;
-  padding: 1em;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  display: inline-block;
+  margin: auto auto auto 1em;
+  width: 16%;
+  min-width: 5.2em;
+  padding: 0.6em;
 }
 
 #welcome_middle_box {
@@ -1275,11 +1284,19 @@
 }
 
 .login input[type=submit]{
+  vertical-align: middle;
+  display: inline-block;
   border-right: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
-  position: absolute;
-  margin-top: -2.9em;
-  margin-left: 25em;
+  margin: auto;
+}
+
+.usr_psw_box {
+  vertical-align: middle;
+  text-align: left;
+  width: 55%;
+  display: inline-block;
+  margin: 0em;
 }
 
 .issue_title {

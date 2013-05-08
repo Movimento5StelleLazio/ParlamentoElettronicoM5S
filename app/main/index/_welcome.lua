@@ -87,7 +87,6 @@ else
 
 
 ui.container{ attr = { class = "loginDiv" }, content = function ()
-  --ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Closed user group, please login to participate." }
   ui.tag{ tag = "p", attr = { class = "welcome_text_xl" }, content = _"Insert user name and password to access:" }
   slot.put('<br />')
 
@@ -109,18 +108,22 @@ ui.container{ attr = { class = "loginDiv" }, content = function ()
       }
     },
     content = function()
-      ui.field.text{
-        attr = { id = "username_field" },
-        label     = _'login name',
-        html_name = 'login',
-        value     = ''
-      }
-      ui.script{ script = 'document.getElementById("username_field").focus();' }
-      ui.field.password{
-        label     = _'Password',
-        html_name = 'password',
-        value     = ''
-      }
+      ui.container{
+        attr = { class = "usr_psw_box" },
+        content = function()
+        ui.field.text{
+          attr = { id = "username_field" },
+          label     = _'login name',
+          html_name = 'login',
+          value     = ''
+        }
+        ui.script{ script = 'document.getElementById("username_field").focus();' }
+        ui.field.password{
+          label     = _'Password',
+          html_name = 'password',
+          value     = ''
+        }
+      end}
       ui.submit {
         text = _'Login'
       }
@@ -134,14 +137,9 @@ slot.put('<br />')
 
 ui.container{ attr = {id = "welcome_footer_container" }, content=function()
   ui.image{  attr = { id = "welcome_logo" }, static="simbolo_movimento.png" }
-  ui.tag{ tag="p", attr = { id = "welcome_register_txt" , class = "welcome_text_xl" }, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
+  ui.tag{ tag="p", attr = { id = "welcome_register_txt"}, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
   ui.image{  attr = { id = "welcome_arrow_right" }, static="arrow_right.png"} 
-  ui.link{ attr = {id = "welcome_btn_register" , class="button orange ifbtn"} , content= _"REGISTRATION GUIDE"}
-  --[[
-  ui.container{ attr = {id = "welcome_footer_box_right", class="button orange menuButton" }, content=function()
-    ui.tag{ tag="p", attr = {class = "button_text" }, content= _"REGISTRATION GUIDE"}
-  end}
-  --]]
+  ui.link{ attr = {id = "welcome_btn_register" , class="button orange"} , content= _"REGISTRATION GUIDE"}
 end}
 
 end
