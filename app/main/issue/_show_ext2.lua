@@ -137,8 +137,11 @@ end }
 ui.container{ attr = { class = class }, content = function()
   execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
 
+
   if for_listing then
     ui.container{ attr = { class = "content" }, content = function()
+      ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
+      ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
       ui.link{
         module = "unit", view = "show", id = issue.area.unit_id,
         attr = { class = "unit_link" }, text = issue.area.unit.name
@@ -391,6 +394,13 @@ ui.container{ attr = { class = class }, content = function()
     }
   end }
 end }
+
+ui.container {
+  attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
+  content = function() 
+    ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = "IL TUO VOTO E'" }
+  end
+}
 
 ui.link{ 
   attr = { id = "issue_see_det_"..issue.id, class = "button orange issue_see_det" },

@@ -1188,14 +1188,13 @@
 }
 
 .issue_box {
-  height: 100%;
+ /* height: 100%; */
 }
 
 .issue_see_det {
   text-align: center;
-  float: right;
+  margin: -2.2em 0.2em auto auto;
   padding: 0.4em;
-  margin-top: -3.6em;
   font-size: 2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
@@ -1280,6 +1279,35 @@
   position: absolute;
   margin-top: -2.9em;
   margin-left: 25em;
+}
+
+.issue_title {
+  margin: 0.4em 0em 0.2em 0em;
+  font-size: 1.6em;
+  font-weight:bold;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.issue_brief_description {
+
+}
+
+.issue_vote_box {
+  display: inline-block;
+  position: absolute;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px #CCCCCC;
+  margin: -2.2em auto auto 0.2em;
+/*
+  height: 3em;
+  width: 15em;
+*/
+}
+
+.issue_vote_txt {
+  margin: 0.1em;
+  font-size: 2.2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
   
 /* Puccio Fine */
