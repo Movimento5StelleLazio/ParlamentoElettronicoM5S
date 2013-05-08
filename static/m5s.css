@@ -1188,6 +1188,7 @@
 }
 
 .issue_box {
+  margin-top: 3em;
  /* height: 100%; */
 }
 
@@ -1297,17 +1298,28 @@
   position: absolute;
   border: 1px solid black;
   box-shadow: 2px 2px 4px #CCCCCC;
-  margin: -2.2em auto auto 0.2em;
-/*
-  height: 3em;
-  width: 15em;
-*/
+  margin: -4em auto auto 0.2em;
 }
 
 .issue_vote_txt {
-  margin: 0.1em;
+  display: inline-block;
+  margin: 0.2em;
   font-size: 2.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
+
+.thumb {
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+}
   
+.initiative_list_ext {
+  border: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 16em;
+  margin: 0.4em;
+}
+
 /* Puccio Fine */
