@@ -1,0 +1,1 @@
+﻿UPDATE issue SET title = 'Titolo Questione Q'||issue.id, brief_description = 'Descrizione breve Q'||issue.id, problem_description = 'Descrizione problema Q'||issue.id, aim_description = 'Descrizione obiettivo Q'||issue.id;
