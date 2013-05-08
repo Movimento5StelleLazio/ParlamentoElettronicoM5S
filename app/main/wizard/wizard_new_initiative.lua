@@ -162,8 +162,8 @@ if page==12 then
    objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
    objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
    
-   local value
-   local proposer
+   local value=""
+   local proposer=""
    if param.get("proposer1",atom.boolean) then
    
          value=param.get("proposer1",atom.boolean)
