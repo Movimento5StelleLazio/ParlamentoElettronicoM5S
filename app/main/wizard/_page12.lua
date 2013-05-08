@@ -32,7 +32,12 @@ ui.container
                                       ui.link { 
                                         attr = { id = "unit_button_back", class="button orange menuButton"  }, 
                                         module = "wizard",
-                                        view = "_page11",
+                                        view = "wizard_new_initiative",
+                                        params={
+                                                area_id=area_id,
+                                                unit_id=unit_id,
+                                                page=11
+                                        },
                                         content = function()
                                           ui.image{ attr = { id = "unit_arrow_back" }, static = "arrow_left.png" }
                                           ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
@@ -127,6 +132,10 @@ ui.container
                     local issue_title
                     local issue_description
                     local issue_draft
+                    local proposer1=false
+                    local proposer2=false
+                    local proposer3=false
+                    
                     
                     --parametri in uscita
                      for i,k in ipairs(wizard) do
@@ -171,13 +180,27 @@ ui.container
                           issue_draft=k.value
                           end
                           
+                            
+                          if k.name=="proposer1" then
+                             proposer1=k.value
+                          end
+                          
+                           if k.name=="proposer2" then
+                             proposer2=k.value
+                          end
+                          
+                           if k.name=="proposer3" then
+                             proposer3=k.value
+                          end
+                          
+                          
                         end
                      
                         
                         
                           ui.container
                                     {
-                                      attr={class="formSelect",style="top: 15px;height:100%"},
+                                      attr={class="formSelect",style="top: 15px;height:100%;margin-bottom: 180px;"},
                                       content=function() 
                                       
                                       
@@ -251,13 +274,18 @@ ui.container
                                                 attr={id="wizard_page_"..page, style="background-color: lavender; height: 100em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
+                                                  ui.container
+                                                    {
+                                                            attr={id="wizard_page_"..page, style="background-color: yellow; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
+                                                            content=function()  
                                                          ui.tag{
                                                                 tag="span",
-                                                                attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 100%; top: 7px;"},
+                                                                attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
                                                                 nultiline=false,
                                                                 content="QUESTIONE"
                                                                }
-                                                        
+                                                        end
+                                                        }
                                                          --contenuto
                                                          
                                                          --TITOLO
@@ -445,12 +473,19 @@ ui.container
                                                     attr={id="wizard_part_2", style="background-color: lavender; height: 130em; position: relative; float: left; width: 100%; top: 150px;"},
                                                     content=function()  
                                                     
+                                                          ui.container
+                                                            {
+                                                                    attr={id="wizard_page_"..page, style="background-color: lightblue; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
+                                                                    content=function()  
                                                              ui.tag{
                                                                     tag="span",
-                                                                    attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 100%; top: 7px;"},
+                                                                   attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
                                                                     nultiline=false,
                                                                     content="PROPOSTA"
                                                                    }
+                                                                   
+                                                                   end
+                                                            }
                                         
                                                       --fine contenuto
                                         
@@ -559,7 +594,7 @@ ui.container
                                                                  attr={style="width: 100%; float: left; position: relative; text-align: left; top: 230px;"},
                                                                  content=function() 
                                                                    ui.field.select{
-                                                                        attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="position: relative; text-align: left; float: left; width: 60%; left: 47px;"},
+                                                                        attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="top: -4px;position: relative; text-align: left; float: left; width: 60%; left: 47px;"},
                                                                         label =  "1° AREA DI COMPETENZA TECNICA:",
                                                                         label_attr={style="height: 30px; position: relative; text-align: left; float: left; font-size: 16px; left: 60px; width: 28%;"},
                                                                         name = 'technical_area_1',
@@ -667,11 +702,11 @@ ui.container
                                                                             {
                                                                                attr={style="position: relative; height: 190px; text-align: left; line-height: 56px; margin-left: 60px;"},
                                                                                content=function()
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer1", label = _"Citiziens", value = false }
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer1", label = _"Citiziens", value = proposer1 }
                                                                               
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer2", label = _"Elected M5S", value = false }
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer2", label = _"Elected M5S", value = proposer2 }
                                                                               
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer3", label = _"Other groups", value = false }  
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer3", label = _"Other groups", value = proposer3 }  
                                                                         
                                                                                end
                                                                               }
@@ -705,14 +740,6 @@ ui.container
                                    
                                    
                                    
-                                    ui.tag
-                                        {
-                                        tag="div",
-                                        attr={style="text-align: center;height:180px; width: 100%; float: left; position: relative; "},
-                                        content=function()  
-                                        end
-                                        }
-                                    
             
             
                                      --pulsanti

@@ -44,7 +44,7 @@ end
                                     
                                         ui.tag{
                                            tag = "p",
-                                           attr={style="text-align: center; width:80px", readonly="true"},
+                                           attr={style="text-align: center; line-height: 25px; width: 150px; font-size: 22px;", readonly="true"},
                                            content        =_"Show preview",  
                                            multiline=true
                                           
@@ -72,7 +72,7 @@ end
                                     
                                         ui.tag{
                                            tag = "p",
-                                           attr={style="text-align: center; width:80px", readonly="true"},
+                                           attr={style="width: 150px; text-align: center; font-size: 22px; line-height: 20px;", readonly="true"},
                                            content        =_"Save preview",  
                                            multiline=true
                                           
@@ -104,7 +104,7 @@ end
                                 
                                     ui.tag{
                                        tag = "p",
-                                       attr={style="text-align: center; width:126px", readonly="true"},
+                                       attr={style="text-align: center; font-size: 22px; line-height: 20px; margin-top: 11px; width: 150px;", readonly="true"},
                                        content        =_"Save issue",  
                                        multiline=true
                                       
@@ -112,38 +112,14 @@ end
                                     
                                 end-- fine tag.content
                         } -- fine pulsante next
---
---                     ui.link{
---                                 attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right"},
---                                 module = "wizard",
---                                 view = "wizard_new_initiative",
---                                 params = { 
---                                               wizard=wizard,
---                                               unit_id=app.session.member.unit_id,
---                                               area_id=app.session.member.area_id,
---                                               page=page+1 
---                                           },
---                                 content=function()
---                                    
---                                        ui.tag{
---                                           tag = "p",
---                                           attr={style="text-align: center; width:80px", readonly="true"},
---                                           content        =_"Next Phase".."    >>",  
---                                           multiline=true
---                                          
---                                        }  
---                                        
---                                    end-- fine tag.content
---                            } -- fine pulsante next
---               
+              
 
- ui.tag
-                                        {
-                                        tag="div",
-                                        attr={style="text-align: center;height:120px; width: 100%; float: left; position: relative; "},
-                                        content=function()  
-                                        end
-                                        }         
+                        ui.tag{
+                                tag="div",
+                                attr={style="text-align: center;height:120px; width: 100%; float: left; position: relative; "},
+                                content=function()  
+                                end
+                                 }         
                     
                 end
             
