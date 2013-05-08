@@ -46,7 +46,7 @@ ui.container
                          
                          
                            ui.container
-                        {
+                            {
                                 attr={id="wizardTitoloUnita",class="titoloWizardHead", style="height:30px;diplay:block"},
                                 content=function()
                                       ui.tag{
@@ -61,7 +61,7 @@ ui.container
                                             content=unit_name
                                            }
                                 end
-                         }
+                             }
                                 
                                   
                   ui.container
@@ -124,7 +124,9 @@ ui.container
                     local question_keywords
                     local problem_description
                     local target_description
-                    
+                    local issue_title
+                    local issue_description
+                    local issue_draft
                     
                     --parametri in uscita
                      for i,k in ipairs(wizard) do
@@ -156,13 +158,26 @@ ui.container
                           target_description=k.value
                           end
                           
+                          
+                          if k.name=="issue_title" then
+                          issue_title=k.value
+                          end
+                          
+                          if k.name=="issue_description" then
+                          issue_description=k.value
+                          end
+                          
+                          if k.name=="issue_draft" then
+                          issue_draft=k.value
+                          end
+                          
                         end
                      
                         
                         
                           ui.container
                                     {
-                                      attr={class="formSelect",style="top: 15px;"},
+                                      attr={class="formSelect",style="top: 15px;height:100%"},
                                       content=function() 
                                       
                                       
@@ -233,7 +248,7 @@ ui.container
                                        
                                      ui.container
                                         {
-                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 80em; position: relative; float: left; width: 100%; top: 50px;"},
+                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 100em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
                                                          ui.tag{
@@ -421,6 +436,266 @@ ui.container
                                                 end --fine wizard_page
                                         }
                                                        
+                                        
+                                        
+                                        
+                                        
+                                           ui.container
+                                            {
+                                                    attr={id="wizard_part_2", style="background-color: lavender; height: 130em; position: relative; float: left; width: 100%; top: 150px;"},
+                                                    content=function()  
+                                                    
+                                                             ui.tag{
+                                                                    tag="span",
+                                                                    attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 100%; top: 7px;"},
+                                                                    nultiline=false,
+                                                                    content="PROPOSTA"
+                                                                   }
+                                        
+                                                      --fine contenuto
+                                        
+                                                      --TITOLO ISSUE
+                                                           ui.tag{
+                                                               tag="div",
+                                                               attr={style="left:5px;text-align: center; width: 100%; float: left; position: relative; top: 50px;"},
+                                                               content=function()     
+                                                                       ui.field.text
+                                                                       {
+                                                                            attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                                            name="issue_title",
+                                                                            label=_"Issue Title",
+                                                                            label_attr={style="font-size:20px"},
+                                                                            value=issue_title
+                                                                       }
+                                                                end
+                                                            }
+                                                            
+                                                            
+                                                            --DESCRIZIONE ISSUE
+                                                            ui.tag{
+                                                               tag="div",
+                                                               attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;"},
+                                                               content=function()  
+                                                               
+                                                                ui.container
+                                                                {
+                                                                    attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
+                                                                    content=function()
+                                                                     ui.tag{
+                                                                        tag="p",
+                                                                        attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                        content=  _"Issue short description"
+                                                                      }   
+                                                                    
+                                                                     ui.tag{
+                                                                        tag="p",
+                                                                        attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
+                                                                        content=  _"Issue short note"
+                                                                      }   
+                                                                      
+                                                                    end
+                                                                    
+                                                                 } 
+                                                                   
+                                                                 ui.tag
+                                                                       {
+                                                                            tag="textarea",
+                                                                            attr={id="issue_description", name="issue_description",style="resize: none; float: left; font-size: 23px; margin-left: 7px; width: 60%; height: 12em;"},
+                                                                            content=issue_description
+                                                                            
+                                                                       }
+                                                                       
+                                                                       
+                                                                end
+                                                            }
+                                                                                        
+                                                            
+                                                           --TESTO PROPOSTA
+                                                             ui.tag{
+                                                                   tag="div",
+                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative; top: 150px;"},
+                                                                   content=function()  
+                                                                   
+                                                                    ui.container
+                                                                    {
+                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
+                                                                        content=function()
+                                                                         ui.tag{
+                                                                            tag="p",
+                                                                            attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                            content=  _"Issue text"
+                                                                          }   
+                                                                        
+                                                                         ui.tag{
+                                                                            tag="p",
+                                                                            attr={style="float: left; font-size: 12px; text-align: right; width: 249px; margin-left: -33px;font-style: italic;"},
+                                                                            content=  _"Issue note"
+                                                                          }   
+                                                                          
+                                                                        end
+                                                                        
+                                                                     }   
+                                                                        ui.tag
+                                                                           {
+                                                                                tag="textarea",
+                                                                                attr={id="issue_draft",name="issue_draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 7px; width: 60%;"},
+                                                                                content=issue_draft
+                                                                                
+                                                                           }
+                                                                    end
+                                                                }
+                                                                                           
+                                                            
+                                                           local tmp
+                                                              tmp = { 
+                                                                        { id = 0, name = "<".._"Please choose a tecnical area"..">" }
+                                                                    }
+                                                              
+                                                             
+                                                            --AREA DI COMPETENZA
+                                                            
+                                                              ui.container
+                                                             {
+                                                                 attr={style="width: 100%; float: left; position: relative; text-align: left; top: 230px;"},
+                                                                 content=function() 
+                                                                   ui.field.select{
+                                                                        attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="position: relative; text-align: left; float: left; width: 60%; left: 47px;"},
+                                                                        label =  "1° AREA DI COMPETENZA TECNICA:",
+                                                                        label_attr={style="height: 30px; position: relative; text-align: left; float: left; font-size: 16px; left: 60px; width: 28%;"},
+                                                                        name = 'technical_area_1',
+                                                                        foreign_records = tmp,
+                                                                        foreign_id = "id",
+                                                                        foreign_name = "name",
+                                                                        value =  ""
+                                                                      }
+                                                                      
+                            --                                           ui.field.select{
+                            --                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+                            --                                            label =  "2° AREA DI COMPETENZA TECNICA:",
+                            --                                            name = 'technical_area_2',
+                            --                                            foreign_records = tmp,
+                            --                                            foreign_id = "id",
+                            --                                            foreign_name = "name",
+                            --                                            value =  ""
+                            --                                          }
+                            --                                          
+                            --                                               
+                            --                                           ui.field.select{
+                            --                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+                            --                                            label =  "3° AREA DI COMPETENZA TECNICA:",
+                            --                                            name = 'technical_area_3',
+                            --                                            foreign_records = tmp,
+                            --                                            foreign_id = "id",
+                            --                                            foreign_name = "name",
+                            --                                            value =  ""
+                            --                                          }
+                            --                                          
+                            --                                               
+                            --                                           ui.field.select{
+                            --                                            attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+                            --                                            label =  "4° AREA DI COMPETENZA TECNICA:",
+                            --                                            name = 'technical_area_4',
+                            --                                            foreign_records = tmp,
+                            --                                            foreign_id = "id",
+                            --                                            foreign_name = "name",
+                            --                                            value =  ""
+                            --                                          }
+                                                                      
+                                                                  end
+                                                                  
+                                                            }
+                                                         
+                                                      ui.tag{
+                                                            tag = "div",
+                                                            attr={style="text-align: left; width: 100%; float: left; position: relative; top: 230px;"},
+                                                            content = function()
+                                                             ui.tag{
+                                                                tag = "p",
+                                                                attr = { style="float: left; position: relative; margin: 0px 126px 4em 58px; text-align: right; width: 26%; font-style: italic;" },
+                                                                content=  _"Description note"
+                                                              }
+                                                              
+                                                              ui.tag{
+                                                                content = function()
+                                                                  ui.link{
+                                                                    text = _"Information about the available Technical Areas",
+                                                                    module = "policy",
+                                                                    view = "list"
+                                                                  }
+                                                                  slot.put(" ")
+                                                                  ui.link{
+                                                                    attr = { target = "_blank" },
+                                                                    text = _"(new window)",
+                                                                    module = "policy",
+                                                                    view = "list"
+                                                                  }
+                                                                end
+                                                              }--fine tag
+                                                            end
+                                                          } --fine tag 
+                                                     
+                                                            
+                                                       
+                                                       
+                                                        --PROPOSER    
+                                                            
+                                                            
+                                                            ui.tag{
+                                                                   tag="div",
+                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative; top: 290px;"},
+                                                                   content=function()  
+                                                                   
+                                                                    ui.container
+                                                                    {
+                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
+                                                                        content=function()
+                                                                         ui.tag{
+                                                                            tag="p",
+                                                                            attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                            content=   _"The proposals was presented by:"
+                                                                          }   
+                                                                        end
+                                                                   }
+                                                               
+                                                                ui.container
+                                                                    {
+                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 190px; margin-left: 0.6em; text-align: left; width: 60%;"},
+                                                                        content=function()
+                                                                        
+                                                                        
+                                                                         ui.container
+                                                                            {
+                                                                               attr={style="position: relative; height: 190px; text-align: left; line-height: 56px; margin-left: 60px;"},
+                                                                               content=function()
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer1", label = _"Citiziens", value = false }
+                                                                              
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer2", label = _"Elected M5S", value = false }
+                                                                              
+                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer3", label = _"Other groups", value = false }  
+                                                                        
+                                                                               end
+                                                                              }
+                                                                       end
+                                                               }
+                                                             
+                                                             end
+                                                             }--fine div formSelect
+                                                      
+                                                                                                
+                                                            
+                                                            
+                                                            
+                                                            
+                                             
+                                                    end --fine contenuto wizard_part_2
+                                            }
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                                       
                                      
                                      
@@ -428,37 +703,44 @@ ui.container
                                      }--fine div formSelect
                                  
                                    
+                                   
+                                   
+                                    ui.tag
+                                        {
+                                        tag="div",
+                                        attr={style="text-align: center;height:180px; width: 100%; float: left; position: relative; "},
+                                        content=function()  
+                                        end
+                                        }
+                                    
             
             
-            
-            
-            
-            
-            
-            
-            
+                                     --pulsanti
+                                    execute.view{
+                                                    module="wizard",
+                                                    view="_pulsanti_last_page",
+                                                    params={
+                                                             btnBackModule = "wizard",
+                                                             btnBackView = "wizard_new_initiative",
+                                                             page=page
+                                                            }
+                                                 }
+
+ 
+ 
+ 
+                                   
+                                    
                        end --fine contenuto
                         
                    }--fine form
             --------------------------------------------------------
             
-           --pulsanti
-            execute.view{
-                            module="wizard",
-                            view="_pulsanti",
-                            params={
-                                     btnBackModule = "wizard",
-                                     btnBackView = "wizard_new_initiative",
-                                     page=page
-                                    }
-                         }
+          
                           
            
         end             
      }
-
-
-
 
 
 
