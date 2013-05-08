@@ -609,6 +609,8 @@ return {
 ["Save"] = "Salva";
 ["Save areas as template"] = "Salva Aree come Template";
 ["Save current filter"] = "Salva filtro corrente";
+["Save preview"]="SALVA UNA BOZZA PRELIMINARE";
+["Save issue"]="SALVA E PUBBLICA LA TUA PROPOSTA";
 ["Save timeline filters"] = "Salva filtro cronologia";
 ["Saved as contact"] = "Salva come contatto";
 ["Saved contacts"] = "Contatti salvati";
@@ -647,6 +649,7 @@ return {
 ["Show policies in use"] = "Mostra regole in uso";
 ["Show policies not in use"] = "Mostra regole disabilitate";
 ["Show profile"] = "Visualizza profilo";
+["Show preview"]="VISUALIZZA ANTEPRIMA";
 ["So I'm"] = "Quindi sono";
 ["Software"] = "Software";
 ["Sorry, but there is not confirmed email address for your account. Please contact the administrator or support."] = "Spiacente, questo iscritto non ha un indirizzo eMail confermato. Contattare l'amministratore per il supporto.";

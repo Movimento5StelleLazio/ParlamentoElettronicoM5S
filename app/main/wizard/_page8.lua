@@ -72,13 +72,13 @@ ui.container
                        content=function()
                     
                        
-                          --parametri in uscita
-                     for i,k in ipairs(wizard) do
-                          ui.hidden_field{name=k.name ,value=k.value}
-                          trace.debug("[wizard] name="..k.name.." | value="..k.value)
-                        end
+                              --parametri in uscita
+                            for i,k in ipairs(wizard) do
+                              ui.hidden_field{name=k.name ,value=k.value}
+                              trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                            end
+                            
                         
-                    
                        --inserire qui
                                ui.tag{
                                    tag="div",
