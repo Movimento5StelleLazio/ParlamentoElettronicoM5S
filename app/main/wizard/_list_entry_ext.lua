@@ -2,6 +2,11 @@ local area = param.get("area", "table")
 local member = param.get("member", "table")
 
 ui.container{ attr = { class = "area" }, content = function()
+  
+  ui.link{
+      module = "wizard", view = "wizard_new_initiative", params = {area_id = area.id, unit_id=area.unit_id},
+      attr = { id = "unit_btn_enter_area", class = "button orange" }, content = _"AREA "..area.id
+  }
 
   execute.view{ module = "wizard", view = "_head_ext", params = { area = area, hide_unit = true, show_content = true, member = member } }
   
