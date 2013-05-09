@@ -43,33 +43,35 @@ ui.container{ attr = { id  = "welcome_middle_box" }, content = function()
   end
       slot.put("<br />")
       slot.put("<br />")
-      slot.put("<br />")
-      slot.put("<br />")
       ui.tag{ tag="p", attr = { class = "welcome_text_xl"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
       --ui.tag{ tag="h1", attr = { style = "text-align:center;"}, content= _"CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"}
 
 
-      ui.link{ 
-        attr = {id = "welcome_middle_box_left", 
-        class="button orange menuButton"}, 
-        module="index", 
-        view="homepage", 
+      ui.container{ 
+        attr = {id = "welcome_middle_box_left" },
         content=function()
-          ui.tag{ tag="p", attr = {id = "welcome_btn_lazio", class = "button_text" }, content= _"REGIONE LAZIO ASSEMBLY"}
+          ui.image{  attr = { id = "welcome_parlamento_left" }, static="parlamento_icon_small.png" }
+          ui.link{
+            module="index", 
+            view="homepage", 
+            attr = {id = "welcome_btn_lazio", class = "button orange" }, 
+            content= _"REGIONE LAZIO ASSEMBLY"
+          }
         end
       }
-      ui.link{ 
-        attr = {id = "welcome_middle_box_right", 
-        class="button orange menuButton" }, 
-        module="unit", 
-        view="show_ext", 
-        id=config.gui_preset.M5S.units["iscritti"].unit_id,
+      ui.container{ 
+        attr = {id = "welcome_middle_box_right" }, 
         content=function()
-          ui.tag{ tag="p", attr = {id = "welcome_btn_internal", class = "button_text" }, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+          ui.image{  attr = { id = "welcome_parlamento_right" }, static="parlamento_icon_small.png" }
+          ui.link{ 
+            attr = {id = "welcome_btn_internal", class = "button orange" }, 
+            module="unit", 
+            view="show_ext", 
+            id=config.gui_preset.M5S.units["iscritti"].unit_id,
+            content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"
+          }
         end
       }
-      ui.image{  attr = { id = "welcome_parlamento_left" }, static="parlamento_icon_small.png" }
-      ui.image{  attr = { id = "welcome_parlamento_right" }, static="parlamento_icon_small.png" }
 
 end}
 
