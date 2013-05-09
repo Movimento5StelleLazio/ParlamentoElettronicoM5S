@@ -16,6 +16,11 @@ return {
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
+["YOUR VOTE IS"]="IL TUO VOTO E'";
+["YES"]="SI";
+["NO"]="NO";
+[" INITIATIVES TO RESOLVE THE ISSUE"]=" PROPOSTE PER RISOLVERE LA QUESTIONE";
+[" INITIATIVE TO RESOLVE THE ISSUE"]=" PROPOSTA PER RISOLVERE LA QUESTIONE";
 ["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
 ["ORDER BY DATE OF CREATION"]="ORDINA PER LA DATA DI IMMISSIONE";
 ["ORDER BY LAST EVENT DATE"]="ORDINA PER LA DATA DELL'ULTIMO EVENTO";

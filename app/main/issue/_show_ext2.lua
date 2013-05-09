@@ -373,6 +373,13 @@ ui.container{ attr = { class = class }, content = function()
     end
   end
 --]]
+
+  if #issue.initiatives == 1 then
+    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  }
+  else
+    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
+  end
+
   ui.container{ attr = { class = "initiative_list_ext content" }, content = function()
 
     local initiatives_selector = issue:get_reference_selector("initiatives")
@@ -382,7 +389,7 @@ ui.container{ attr = { class = class }, content = function()
     end
     execute.view{
       module = "initiative",
-      view = "_list",
+      view = "_list_ext",
       params = {
         issue = issue,
         initiatives_selector = initiatives_selector,
@@ -390,14 +397,13 @@ ui.container{ attr = { class = class }, content = function()
         highlight_string = highlight_string,
         no_sort = true,
         limit = (for_listing or for_initiative) and 5 or nil,
+        hide_more_initiatives=false,
+        limit=25,
         for_member = for_member
       }
     }
   end }
 end }
-
-direct_voter=0
-issue_closed=1
 
 if app.session.member_id and issue.closed then
   ui.container {
@@ -405,9 +411,15 @@ if app.session.member_id and issue.closed then
     content = function()
       ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
       if direct_voter then
-        ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+        ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
+          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
+          ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+        end}
       else 
-        ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+        ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
+          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
+          ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+        end}
       end   
     end
   }

@@ -1180,6 +1180,17 @@
   width: 100%;
 }
 
+.initiative_count_txt {
+  vertical-align: middle;
+  border: 1px solid black;
+  background: #f8f9b2;
+  font-size: 1.6em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  color: #9a1919;
+  padding: 0.1em;
+  margin: 0.3em 0.3em 0 0.3em;
+}
+
 .issue_state_info_box {
   position: absolute;
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
@@ -1325,6 +1336,7 @@
 }
 
 .issue_vote_box {
+  vertical-align: middle;
   display: inline-block;
   position: absolute;
   border: 1px solid black;
@@ -1333,6 +1345,7 @@
 }
 
 .issue_vote_txt {
+  vertical-align: middle;
   display: inline-block;
   margin: 0.2em;
   font-size: 2.2em;
@@ -1340,9 +1353,26 @@
 }
 
 .thumb {
-  height: 3em;
-  width: 3em;
+  vertical-align: middle;
   display: inline-block;
+  height: 2.7em;
+  width: 2.7em;
+}
+
+.issue_thumb_cont_up {
+  vertical-align: middle;
+  display: inline-block;
+  border: 4px solid green;
+  border-radius: 15px;
+  margin: 0.2em;
+}
+
+.issue_thumb_cont_down {
+  vertical-align: middle;
+  display: inline-block;
+  border: 4px solid red;
+  border-radius: 15px;
+  margin: 0.2em;
 }
   
 .initiative_list_ext {
