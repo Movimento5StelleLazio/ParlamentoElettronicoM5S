@@ -137,8 +137,11 @@ end }
 ui.container{ attr = { class = class }, content = function()
   execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
 
+
   if for_listing then
     ui.container{ attr = { class = "content" }, content = function()
+      ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
+      ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
       ui.link{
         module = "unit", view = "show", id = issue.area.unit_id,
         attr = { class = "unit_link" }, text = issue.area.unit.name
@@ -199,6 +202,7 @@ ui.container{ attr = { class = class }, content = function()
 
   local links = {}
   
+--[[
   if vote_link_text then
     links[#links+1] ={
       content = vote_link_text,
@@ -368,8 +372,8 @@ ui.container{ attr = { class = class }, content = function()
       }
     end
   end
-
-  ui.container{ attr = { class = "initiative_list content" }, content = function()
+--]]
+  ui.container{ attr = { class = "initiative_list_ext content" }, content = function()
 
     local initiatives_selector = issue:get_reference_selector("initiatives")
     local highlight_string = param.get("highlight_string")
@@ -391,6 +395,24 @@ ui.container{ attr = { class = class }, content = function()
     }
   end }
 end }
+
+direct_voter=0
+issue_closed=1
+
+if app.session.member_id and issue.closed then
+  ui.container {
+    attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
+    content = function()
+      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
+      if direct_voter then
+        ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+      else 
+        ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+      end   
+    end
+  }
+end
+
 
 ui.link{ 
   attr = { id = "issue_see_det_"..issue.id, class = "button orange issue_see_det" },

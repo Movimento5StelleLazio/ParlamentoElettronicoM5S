@@ -809,7 +809,7 @@
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 
@@ -916,88 +916,111 @@
 }
 
 #welcome_footer_container {
-  position: relative;
   text-align: center;
-  vertical-align: middle;
-  padding: 0px;
-  border: 0px;
   height: 7.5em;
 }
 
 #welcome_logo {
-  float: left;
-  width: 7.5em;
-  height: 7.5em;
+  vertical-align: middle;
+  display: inline-block;
+  margin: auto auto auto 0em;
+  width: 100px;
+  height: 100px;
 }
 
 #welcome_register_txt {
-  margin-top: 0.4em;
-  float: left;
-  width: 21em;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  margin: auto;
+  width: 41%;
 }
 
 #welcome_arrow_right {
-  float: left;
-  margin-top: 0.7em;
+  vertical-align: middle;
+  display: inline-block;
+  margin: auto;
+  width: 50px;
+  height: 50px;
 }
 
 #welcome_btn_register {
-  margin: 0em;
-  float: right;
-  width: 8em;
-  padding: 1em;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  display: inline-block;
+  margin: auto auto auto 1em;
+  width: 16%;
+  min-width: 5.2em;
+  padding: 0.6em;
 }
 
 #welcome_middle_box {
+  margin: auto;
+  text-align: center;
   margin-top: 2ex;
   margin-bottom: 1ex;
   border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
-  padding: 1ex;
-  height: 400px;
+  padding: 1em;
   position: relative;
 }
 
 #welcome_middle_box_left {
-  position: absolute;
-  bottom: 20px;
-  left: 130px;
+  margin: auto;
+  display: inline-block;
   text-align: center;
-  width: 254px;
-  height: 115px;
+  height: 200px;
+  width: 253px;
+  padding: 1em;
 }
 
 #welcome_middle_box_right {
-  position: absolute;
-  bottom: 20px;
+  margin: auto;
+  display: inline-block;
   text-align: center;
-  right: 130px;
-  width: 254px;
-  height: 115px;
+  height: 200px;
+  width: 253px;
+  padding: 1em;
 }
 
 #welcome_btn_lazio {
-  margin-top: 0.4em;
+  margin: auto;
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  height: 70px;
+  padding-top: 30px;
 }
 
 #welcome_btn_internal {
+  font-size: 1.7em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  height: 90px;
 }
 
 #welcome_parlamento_left {
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
   height: 70px;
   width: 121px;
-  position: absolute;
-  bottom: 175px;
-  left: 223px;
 }
 
 #welcome_parlamento_right {
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
   height: 70px;
   width: 121px;
-  position: absolute;
-  bottom: 175px;
-  right: 223px;
 }
 
 .unit_header_box {
@@ -1161,47 +1184,41 @@
   position: absolute;
   background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
   border-radius: 16px 16px 0px 0px;
-  height: 8em;
+  height: 4em;
   width: 34.1em;
   padding: 5px;
   color: white;
-  margin-top: 2.3em;
+  margin-top: 6.3em;
 }
 
 .issue_state_txt {
-  margin-top: 0em;
-  margin-bottom: 0em;
-  font-size: 1.8em;
+  display: inline-block;
+  margin: 0 0.2em 0 0.4em;
+  font-size: 1.4em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  float: left;
-  width: 85%;
 }
 
 .issue_state_time {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  float: left;
-  bottom: 0em; 
-  margin-left: 0.6em;
-  position: absolute;
 }
 
 .issue_info_img {
-  height: 27px;
-  width: 27px;
-  margin-right: 7px;
-  float: left;
+  display: inline-block;
+  margin: 0;
+  height: 1.4em;
+  width: 1.4em;
 }
 
 .issue_box {
-  height: 100%;
+  margin-top: 3em;
+ /* height: 100%; */
 }
 
 .issue_see_det {
   text-align: center;
-  float: right;
+  margin: -2.2em 0.2em auto auto;
   padding: 0.4em;
-  margin-top: -3.6em;
   font-size: 2em;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
@@ -1281,11 +1298,59 @@
 }
 
 .login input[type=submit]{
+  vertical-align: middle;
+  display: inline-block;
   border-right: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
+  margin: auto;
+}
+
+.usr_psw_box {
+  vertical-align: middle;
+  text-align: left;
+  width: 55%;
+  display: inline-block;
+  margin: 0em;
+}
+
+.issue_title {
+  margin: 0.4em 0em 0.2em 0em;
+  font-size: 1.6em;
+  font-weight:bold;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.issue_brief_description {
+
+}
+
+.issue_vote_box {
+  display: inline-block;
   position: absolute;
-  margin-top: -2.9em;
-  margin-left: 25em;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px #CCCCCC;
+  margin: -4em auto auto 0.2em;
+}
+
+.issue_vote_txt {
+  display: inline-block;
+  margin: 0.2em;
+  font-size: 2.2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.thumb {
+  height: 3em;
+  width: 3em;
+  display: inline-block;
 }
   
+.initiative_list_ext {
+  border: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 16em;
+  margin: 0.4em;
+}
+
 /* Puccio Fine */
