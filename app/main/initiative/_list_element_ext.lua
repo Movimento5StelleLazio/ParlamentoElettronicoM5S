@@ -125,13 +125,13 @@ ui.container{ attr = { class = class }, content = function()
     end }
   end
     
-  ui.container{ attr = { class = "name initiative_link"  }, content = function()
+  ui.container{ attr = { class = "initiative_data_box"  }, content = function()
     local link_class = "initiative_link"
     if initiative.revoked then
       link_class = "revoked"
     end
     ui.link{
-      attr = { class = link_class },
+      attr = { class = "initiative_name" },
       content = function()
         local name
         if initiative.name_highlighted then
@@ -139,14 +139,13 @@ ui.container{ attr = { class = class }, content = function()
         else
           name = encode.html(initiative.shortened_name)
         end
-        ui.tag{ content = "i" .. initiative.id .. ": " }
-        slot.put(name)
+        ui.tag{ content = "i" .. initiative.id .. ": "..name }
       end,
       module  = "initiative",
       view    = "show",
       id      = initiative.id
     }
-        
+    ui.tag{ tag="p",attr = { class = "initiative_brief_description" }, content= initiative.brief_description}
   end }
 
 end }

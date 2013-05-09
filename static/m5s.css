@@ -1190,6 +1190,25 @@
   padding: 0.1em;
   margin: 0.3em 0.3em 0 0.3em;
 }
+.initiative_data_box{
+  line-height: 130%;
+  margin-left: 168px;
+  font-size: 115%;
+}
+
+.initiative_name{
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.initiative_brief_description{
+  margin-top: 0.2em;
+  color: #9a1919;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
 
 .issue_state_info_box {
   position: absolute;
