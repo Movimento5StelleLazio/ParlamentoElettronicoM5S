@@ -141,7 +141,12 @@ ui.container{ attr = {id = "welcome_footer_container" }, content=function()
   ui.image{  attr = { id = "welcome_logo" }, static="simbolo_movimento.png" }
   ui.tag{ tag="p", attr = { id = "welcome_register_txt"}, content= _"ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"}
   ui.image{  attr = { id = "welcome_arrow_right" }, static="arrow_right.png"} 
-  ui.link{ attr = {id = "welcome_btn_register" , class="button orange"} , content= _"REGISTRATION GUIDE"}
+  ui.link{ 
+    module = "index",
+    view = "register",
+    attr = {id = "welcome_btn_register" , class="button orange"}, 
+    content= _"REGISTRATION GUIDE"
+  }
 end}
 
 end

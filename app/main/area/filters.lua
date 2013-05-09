@@ -29,7 +29,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset.M5S.units[unit_name].assembly_title, {realname = app.session.member.realname}) }
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _(config.gui_preset.M5S.units[unit_name].area_filter_title) }
   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
+    attr = { class="area_filter_button button orange"  },
     module = "unit",
     view = "show_ext",
     id = area.unit_id,
@@ -40,7 +40,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   }
   if unit_name == "cittadini" or unit_name == "iscritti" then
     ui.link {
-      attr = { id = "area_filter_button", class="button orange menuButton"  },
+      attr = { class="area_filter_button button orange"  },
       module = "area",
       view = "show_ext",
       params = { state = "admission"},
@@ -51,7 +51,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     }
   end
   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
+    attr = { class="area_filter_button button orange"  },
     module = "area",
     view = "show_ext",
     params = { state = "development"},
@@ -61,7 +61,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
     end
   }
   ui.link {
-    attr = { id = "area_filter_button", class="button orange menuButton", style = button_margin or nil  },
+    attr = { class="area_filter_button button orange"  },
     module = "area",
     view = "show_ext",
     params = { state = "closed"},

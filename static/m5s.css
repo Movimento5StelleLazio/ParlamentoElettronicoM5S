@@ -1029,7 +1029,7 @@
   border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
-  padding: 1ex;
+  padding: 1em;
   height: 175px;
 }
 
@@ -1038,34 +1038,59 @@
   width: 190px;
 }
 
-#unit_button_left {
-  margin-left: 290px;
+.block-text {
+  width: 100%;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.unit_button_box{
+  display: inline-block;
   text-align: center;
+  height: 130px;
+  width: 100%;
+}
+
+#unit_img_box{
+  display: inline-block;
+  text-align: center;
+  height: 165px;
+  width: 100%;
+}
+
+#unit_button_left {
+  margin: 1em;
+  vertical-align: middle;
+  display: inline-block;
   width: 200px;
-  height: 115px;
+  height: 65px;
+  padding-top: 25px;
 }
 
 #unit_button_right {
-  text-align: center;
+  margin: 1em;
+  vertical-align: middle;
+  display: inline-block;
   width: 200px;
-  height: 115px;
+  height: 78px;
 }
 
 .unit_bottom_box {
-/*
-  margin-top: 150px;
-  margin-bottom: 1ex;
-*/
   margin-top: -1em;
   background-color: #ebe2aa;
   border-radius: 8px;
-  padding: 20px;
+  padding: 1em;
+  width: 100%;
 }
 
 .unit_areas_box {
+  display: inline-block;
+  width: 96%;
+  vertical-align: middle;
   background-color: white;
   border-radius: 8px;
-  margin-top: 190px;
+  margin-top: 60px;
   padding: 20px;
 }
 
@@ -1078,21 +1103,14 @@
 .area_issue_box {
   background-color: white;
   border-radius: 8px;
-  margin-top: 190px;
+  margin-top: 60px;
   padding: 20px;
 }
 
 #unit_parlamento_img{
-/*
-  position: absolute;
-*/
-/*  z-index: 1;
-*/
-  margin-left: auto;
-  margin-right: auto;
-  margin-left: 410px;
-  margin-bottom: -1em;
-
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
 }
 
 #unit_title {
@@ -1106,8 +1124,11 @@
   float: left;
 }
 
-#area_filter_button {
+.area_filter_button {
   text-align: center;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
   width: 214px;
   height: 130px;
   padding: 0em;
@@ -1133,11 +1154,14 @@
   border: 1px solid orange;
   background-color: #fffbce;
   color: #000;
-  padding: 1ex;
-  height: 300px;
+  padding: 2em;
+  text-align: center;
 }
 
-#area_show_ext_button {
+.area_show_ext_button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
   text-align: center;
   width: 210px;
   height: 120px;
@@ -1178,6 +1202,56 @@
 #area_show_bottom_box {
   float: left;
   width: 100%;
+}
+
+.initiative_count_txt {
+  vertical-align: middle;
+  border: 1px solid black;
+  background: #f8f9b2;
+  font-size: 1.6em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  color: #9a1919;
+  padding: 0.1em;
+  margin: 0.3em 0.3em 0 0.3em;
+}
+.initiative_data_box{
+  line-height: 130%;
+  margin-left: 168px;
+  font-size: 115%;
+}
+
+.initiative_name{
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.initiative_brief_description{
+  margin-top: 0.2em;
+  color: #9a1919;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.initiative_quorum_box {
+  position: absolute;
+  float: left;
+  bottom: 0em;
+  max-height: 16em;
+}
+
+.initiative_quorum_bar{
+  background: #246fa1;
+  width: 4px;
+  max-height: 15em;
+  min-height: 6em;
+}
+.initiative_quorum_txt{
+  margin: 0.2em auto 0.9em 0em;
+  color: #246fa1;
+  font-size: 1em;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
 .issue_state_info_box {
@@ -1325,6 +1399,7 @@
 }
 
 .issue_vote_box {
+  vertical-align: middle;
   display: inline-block;
   position: absolute;
   border: 1px solid black;
@@ -1333,6 +1408,7 @@
 }
 
 .issue_vote_txt {
+  vertical-align: middle;
   display: inline-block;
   margin: 0.2em;
   font-size: 2.2em;
@@ -1340,9 +1416,26 @@
 }
 
 .thumb {
-  height: 3em;
-  width: 3em;
+  vertical-align: middle;
   display: inline-block;
+  height: 2.7em;
+  width: 2.7em;
+}
+
+.issue_thumb_cont_up {
+  vertical-align: middle;
+  display: inline-block;
+  border: 4px solid green;
+  border-radius: 15px;
+  margin: 0.2em;
+}
+
+.issue_thumb_cont_down {
+  vertical-align: middle;
+  display: inline-block;
+  border: 4px solid red;
+  border-radius: 15px;
+  margin: 0.2em;
 }
   
 .initiative_list_ext {
