@@ -1038,6 +1038,13 @@
   width: 190px;
 }
 
+.block-text {
+  width: 100%;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .unit_button_box{
   display: inline-block;
   text-align: center;
@@ -1073,10 +1080,14 @@
   margin-top: -1em;
   background-color: #ebe2aa;
   border-radius: 8px;
-  padding: 20px;
+  padding: 1em;
+  width: 100%;
 }
 
 .unit_areas_box {
+  display: inline-block;
+  width: 96%;
+  vertical-align: middle;
   background-color: white;
   border-radius: 8px;
   margin-top: 60px;
