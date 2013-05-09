@@ -170,60 +170,67 @@ execute.chunk{
   }
 }
 
-ui.container{ attr = { id="area_show_bottom_box"}, content=function()
+ui.container{ attr = { id="unit_img_box"}, content=function()
   ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
+end }
+
+ui.container{ attr = { id="area_show_bottom_box"}, content=function()
   
   ui.container{ attr = { class="unit_bottom_box"}, content=function()
     ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
   
-    -- TODO Remove hard-coded check and test if area policy has a non null admission time instead
-    if unit_name == "cittadini" or unit_name == "iscritti" then
+    ui.container{ attr = { class="unit_button_box"}, content=function()
+  
+      -- TODO Remove hard-coded check and test if area policy has a non null admission time instead
+      if unit_name == "cittadini" or unit_name == "iscritti" then
+        ui.link {
+          attr = { class="area_show_ext_button button orange" },
+          module = "area",
+          view = "show_ext",
+          id = area.id,
+          params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+          content = function()
+            ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+          end
+        }
+      else
+        button_margin = "left: 140px;" 
+      end
+    
       ui.link {
-        attr = { id = "area_show_ext_button", class="button orange menuButton"  },
+        attr = { class="area_show_ext_button button orange" },
         module = "area",
         view = "show_ext",
         id = area.id,
-        params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+        params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
         content = function()
-          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
         end
       }
-    else
-      button_margin = "left: 140px;" 
-    end
   
-    ui.link {
-      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-      module = "area",
-      view = "show_ext",
-      id = area.id,
-      params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
-      content = function()
-        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
-      end
-    }
+      ui.link {
+        attr = { class="area_show_ext_button button orange" },
+        module = "area",
+        view = "show_ext",
+        id = area.id,
+        params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
+        content = function()
+          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
+        end
+      }
   
-    ui.link {
-      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-      module = "area",
-      view = "show_ext",
-      id = area.id,
-      params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
-      content = function()
-        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
-      end
-    }
-  
-    ui.link {
-      attr = { id = "area_show_ext_button", class="button orange menuButton", style = button_margin or nil  },
-      module = "area",
-      view = "show_ext",
-      id = area.id,
-      params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
-      content = function()
-        ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
-      end
-    }
+      ui.link {
+        attr = { class="area_show_ext_button button orange" },
+        module = "area",
+        view = "show_ext",
+        id = area.id,
+        params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
+        content = function()
+          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
+        end
+      }
+     
+    end }
   
     ui.container{ attr = { class="area_issue_box"}, content=function()
       execute.view{

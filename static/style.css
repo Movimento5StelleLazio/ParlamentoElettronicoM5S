@@ -626,13 +626,13 @@ a.delegation_info:hover,a.delegation_info:focus {
 
 .bargraph div {
     float: left;
-    margin-top: 0.5ex;
+ /*   margin-top: 0.5ex; */
     height: 1.3ex;
 }
 
 .bargraph .quorum {
-    margin-top: 0.2ex;
-    height: 1.9ex;
+    margin-top: -0.1ex; 
+    height: 2.0ex;
 }
 
 /*************************************************************************
@@ -979,6 +979,9 @@ div.notifications {
 
 .initiative .bar {
     margin-right: 0.3em;
+    border: 1px solid #777;
+    padding: 0.1em;
+    height: 1.3ex;
 }
 
 .initiative .rank,.initiative .bar,.initiative .interest {

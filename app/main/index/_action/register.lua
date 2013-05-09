@@ -227,7 +227,7 @@ if step > 2 then
   request.redirect{
     mode   = "redirect",
     module = "index",
-    view   = "login",
+    view   = "index",
   }
 end
   
