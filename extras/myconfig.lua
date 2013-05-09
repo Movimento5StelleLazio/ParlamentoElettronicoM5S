@@ -146,7 +146,7 @@ config.mail_subject_prefix = "Parlamento Elettronico M5S "
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
 -- config.mail_envelope_from = "liquidfeedback@example.com"
--- config.mail_from = { name = "LiquidFeedback", address = "liquidfeedback@example.com" }
+config.mail_from = { name = "Parlamento Elettronico M5S", address = "liquidfeedback@example.com" }
 -- config.mail_reply_to = { name = "Support", address = "support@example.com" }
 
 -- Configuration of password hashing algorithm (defaults to "crypt_sha512")

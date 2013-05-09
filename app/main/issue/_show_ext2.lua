@@ -380,6 +380,24 @@ ui.container{ attr = { class = class }, content = function()
     ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
   end
 
+
+--[[  
+  -- Quorum Bar
+    ui.container{ attr = { class = "initiative_quorum_box" }, content = function()
+      local policy = issue.policy
+      ui.tag{ 
+        tag = "p", 
+        attr = { class = "initiative_quorum_txt" }, 
+        content = _("Quorum (#{quorum})", {quorum = format.percentage(policy.issue_quorum_num / policy.issue_quorum_den) }) 
+      }
+      ui.container {
+        attr = { class = "initiative_quorum_bar" },
+        content = function()
+        end
+      }
+    end }
+--]]
+
   ui.container{ attr = { class = "initiative_list_ext content" }, content = function()
 
     local initiatives_selector = issue:get_reference_selector("initiatives")

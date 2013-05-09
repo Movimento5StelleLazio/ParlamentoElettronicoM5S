@@ -7,12 +7,14 @@ if not app.html_title.title then
 	app.html_title.title = _("Issue ##{id}", { id = issue.id })
 end
 
+--[[
 slot.select("head", function()
   execute.view{ module = "area", view = "_head", params = { area = issue.area } }
 end)
 
 util.help("issue.show")
 
+--]]
 slot.select("head", function()
   execute.view{ module = "issue", view = "_show", params = { issue = issue } }
 end )
