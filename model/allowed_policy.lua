@@ -22,6 +22,7 @@ function AllowedPolicy:get_policy_by_area_id(area_id)
     
     local _sel=AllowedPolicy:new_selector()
     :add_where{ "area_id = ?",area_id }
+    :add_where{ "default_policy=?",true}
     :optional_object_mode()
     :exec()
     trace.debug("_sel="..#_sel)
