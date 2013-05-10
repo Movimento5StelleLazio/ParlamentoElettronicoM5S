@@ -52,29 +52,30 @@ ui.container{ attr = { class  = "unit_header_box" }, content = function()
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _"CHOOSE THE THEMATIC AREA" }
 end}
 
-ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
+ui.container{ attr = { id="unit_img_box"}, content=function()
+  ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
+end }
 
 ui.container{ attr = { class="unit_bottom_box"}, content=function()
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(config.gui_preset.M5S.units[unit_name].unit_title) or _"THEMATIC AREAS" }
-  ui.link { 
-    attr = { id = "unit_button_left", class="button orange menuButton"  }, 
-    module = "wizard",
-    view = "show_ext",
-    id = unit_id,
-    content = function()
-      ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"SHOW ALL AREAS" }
-    end
-  }
-  ui.link {
-    attr = { id = "unit_button_right", class="button orange menuButton"  },
-    module = "wizard",
-    view = "show_ext",
-    id = unit_id,
-    params = { filter = "my_areas"},
-    content = function()
-      ui.tag { tag = "p",  attr = { class  = "button_text"  }, content = _"SHOW ONLY PARTECIPATED AREAS" }
-    end
-  }
+ 
+  ui.container{ attr = { class ="unit_button_box" }, content = function()
+    ui.tag { tag = "p", attr = { class  = "block-text welcome_text_xl"  }, content = _(config.gui_preset.M5S.units[unit_name].unit_title) or _"THEMATIC AREAS" }
+    ui.link { 
+      attr = { id = "unit_button_left", class="button orange"  }, 
+      module = "wizard",
+      view = "show_ext",
+      id = unit_id,
+      content = _"SHOW ALL AREAS" 
+    }
+    ui.link {
+      attr = { id = "unit_button_right", class="button orange"  },
+      module = "wizard",
+      view = "show_ext",
+      id = unit_id,
+      params = { filter = "my_areas"},
+      content =  _"SHOW ONLY PARTECIPATED AREAS" 
+    }
+  end }
   
   ui.container{ attr = { class="unit_areas_box"}, content=function()
     execute.view{  
