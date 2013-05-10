@@ -99,8 +99,8 @@ ui.container
                                    content=function()     
                                            ui.field.text
                                            {
-                                                attr={id="question_title",style=" font-size: 25px;height: 30px;width: 60%;"},
-                                                name="question_title",
+                                                attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                name="issue_title",
                                                 label=_"Problem Title",
                                                 label_attr={style="font-size:20px"}
                                            }

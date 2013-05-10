@@ -34,7 +34,7 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size: 28px; width: 80%; position: relative; text-align: center; margin-left: auto; margin-right: auto;"},
-                                        content=  _"Issue description title"
+                                        content=  _"Initiative description title"
                                       }
                                 end
                          }
@@ -92,13 +92,13 @@ ui.container
                                          ui.tag{
                                             tag="p",
                                             attr={style="text-align: right; float: right; font-size: 20px;"},
-                                            content=  _"Issue short description"
+                                            content=  _"Initiative short description"
                                           }   
                                         
                                          ui.tag{
                                             tag="p",
                                             attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
-                                            content=  _"Issue short note"
+                                            content=  _"Initiative short note"
                                           }   
                                           
                                         end
@@ -107,7 +107,7 @@ ui.container
                                         ui.tag
                                            {
                                                 tag="textarea",
-                                                attr={id="issue_description", name="issue_description",style="resize: none; float: left; font-size: 23px; margin-left: 15px; width: 598px; height: 12em;"},
+                                                attr={id="initiative_brief_description", name="initiative_brief_description",style="resize: none; float: left; font-size: 23px; margin-left: 15px; width: 598px; height: 12em;"},
                                                 content=function()
                                                 end
                                                 
