@@ -1,57 +1,42 @@
-/* Piero Inizio */
 
-.menuDiv
-{
+.menuDiv {
     background-color: #FFFFCC;
     border-color: orange;
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 2px 4px #CCCCCC;
     height: 450px;
-    width: 100%;
     text-align: center;
-    
+    width: 100%;
 }
-
-.welcomeText
-{
+.welcomeText {
     color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    margin-top: 10px;
-    line-height: normal;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 18px;
-}
-
-.sceltaText
-{
-    font-size:32px;
-    color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    line-height: normal;
     margin-top: 10px;
-    line-height: 40px;
 }
-
-.pulsantiMenuHomepageDiv{
-    background-color:transparent;
+.sceltaText {
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.pulsantiMenuHomepageDiv {
+    background-color: transparent;
     height: 160px;
     width: 100%;
 }
-.menuButton
-{
+.menuButton {
     float: left;
     height: 130px;
-     
 }
-.testoPulsantiMenuHomepage{
-      
-       width: 50px;
-       font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    
+.testoPulsantiMenuHomepage {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    width: 50px;
 }
-
-
-.phaseText
-{
+.phaseText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -62,10 +47,7 @@
     text-align: center;
     width: 100%;
 }
-
-.categoryText
-{
-    
+.categoryText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -75,14 +57,8 @@
     margin-top: 0;
     text-align: center;
     width: 100%;
-    
 }
-
-
-
-.unitText
-{
-    
+.unitText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -92,190 +68,144 @@
     margin-top: 0;
     text-align: center;
     width: 100%;
-    
 }
-
-
-.pulsanteFiltriDiv{
-    
+.pulsanteFiltriDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-    height: 100px;
-    width: 100%;
-    margin-left:auto;
-    margin-right:auto;
     color: white;
     font-weight: bold;
-    
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
-
-.containerFiltriDiv{
-    
+.containerFiltriDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
     float: inherit;
-    
     margin-left: auto;
     margin-right: auto;
     position: relative;
     width: 100%;
- 
 }
-
-.containerPulsantiFiltri{
-
+.containerPulsantiFiltri {
     background-color: transparent;
     display: none;
+    height: 170px;
     width: 100%;
-    height: 170px; 
 }
-
-
-
-.pulsanteFiltri
-{
+.pulsanteFiltri {
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    height:50px;
-    
 }
-
-.applicaFiltri
-{
+.applicaFiltri {
     position: relative;
     text-align: center;
     top: 12px;
     vertical-align: middle;
 }
-    
-.pulsantiFase{
-    
-    float:left;
+.pulsantiFase {
+    float: left;
 }
-
-.testoPulsanteFiltri{
-    
+.testoPulsanteFiltri {
     font-size: 14px;
     margin: -26px -25px -25px;
-    margin-top: -26px;
     position: relative;
     top: 11px;
 }
-
-
-.btnAllPhase{
-    font-size:12px;
+.btnAllPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 11px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.btnOpenPhase{
-    font-size:12px;
+.btnOpenPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
- 
-
-.btnNewPhase{
-    font-size:12px;
+.btnNewPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-
-.btnDiscussionPhase{
-    font-size:12px;
+.btnDiscussionPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-
-.btnFrozenPhase{
-     font-size:12px;
+.btnFrozenPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.btnVotationPhase{
-    font-size:12px;
+.btnVotationPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.btnCommissionPhase
-{
-    
-    font-size:12px;
+.btnCommissionPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.btnClosedPhase
-{
-    font-size:12px;
+.btnClosedPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.btnCanceledPhase{
-    
-    font-size:12px;
+.btnCanceledPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.lineDiv
-{
-    
+.lineDiv {
     border: thin solid black;
     height: 0;
     margin-left: 90px;
@@ -285,117 +215,84 @@
     top: 100px;
     width: 80%;
 }
-
-.pulsantiCategoria{
-    
+.pulsantiCategoria {
     float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    
 }
-
-.pulsantiCategoriaDiv{
-    
+.pulsantiCategoriaDiv {
     float: left;
     margin-left: 200px;
     margin-right: auto;
-    
 }
-.btnInterested{
-    
-    font-size:12px;
+.btnInterested {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-
-.btnInitiated{
-    
-    font-size:12px;
+.btnInitiated {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.btnSupported{
-      font-size:12px;
+.btnSupported {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.btnPotentially
-{
-    
-    font-size:12px;
+.btnPotentially {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-
-.testoPotenzialmenteSostenuto{
-    
+.testoPotenzialmenteSostenuto {
     line-height: 12px;
     margin: 0;
     text-align: center;
 }
-.btnVoted{
-      font-size:12px;
+.btnVoted {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.pulsantiUnitaDiv
-{
-    
+.pulsantiUnitaDiv {
     float: left;
     margin-left: 40px;
     margin-right: auto;
-    
 }
-
-
-.pulsantiUnita
-{
-
+.pulsantiUnita {
     float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    
 }
-
-.btnAllUnitsPhase
-{
-    text-align: center;
+.btnAllUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -404,20 +301,12 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoPulsanteAllUnits
-{
-    
-    vertical-align: middle;
+.testoPulsanteAllUnits {
     top: 10px;
+    vertical-align: middle;
 }
-
-
-.btnMyUnitsPhase
-{
-    text-align: center;
+.btnMyUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -426,35 +315,14 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-
 .testoMyUnits {
     line-height: 12px;
     margin: 0;
     text-align: center;
     top: 6px;
 }
-
-.btnMyAreasPhase
-{
-    text-align: center;
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-    
-}
-
-
-.btnPublicCitiziensUnitsPhase
-{
-    text-align: center;
+.btnMyAreasPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -464,22 +332,7 @@
     vertical-align: middle;
     width: 90px;
 }
-
-.testoPublicCitiziensUnits
-{
-     
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px;
-     
-    
-}
-
-.btnPublicElectedUnitsPhase
-{
-    text-align: center;
+.btnPublicCitiziensUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -489,29 +342,14 @@
     vertical-align: middle;
     width: 90px;
 }
-
-.testoPublicElectedUnits
-{
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px;
-     
-}
-
-
-.testoPublicOtherGroupsUnits
-{
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px
-}
-.btnPublicOtherGroupsUnitsPhase
-{
+.testoPublicCitiziensUnits {
+    line-height: 12px;
+    margin: 0;
     text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.btnPublicElectedUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -520,20 +358,36 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoMyAreas
-{
+.testoPublicElectedUnits {
+    line-height: 12px;
+    margin: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.testoPublicOtherGroupsUnits {
+    line-height: 12px;
+    margin: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.btnPublicOtherGroupsUnitsPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.testoMyAreas {
     top: 10px;
     vertical-align: middle;
 }
-
-
-.btnNotMyAreasPhase
-{
-    
-    text-align: center;
+.btnNotMyAreasPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -542,55 +396,40 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoNotMyAreas
-{
+.testoNotMyAreas {
     top: 10px;
     vertical-align: middle;
 }
-
-
-
-.parlamentoDiv
-{
+.parlamentoDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-    height:100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     width: 100%;
-    margin-left:auto;
-    margin-right:auto;
-}   
-
-.parlamentoImg{
+}
+.parlamentoImg {
     margin-left: 100px;
     margin-top: -50px;
     position: relative;
 }
-
-
-.containerIssueDiv
-{
+.containerIssueDiv {
     background-color: white;
     float: left;
-    width: 103%;
     margin-left: -8px;
+    width: 103%;
 }
-.votazioniDiv
-{
-    background-color: #f2f19a;
-    border-radius: 8px;
-    width: 44%;
+.votazioniDiv {
+    background-color: #F2F19A;
+    border-radius: 8px 8px 8px 8px;
     float: left;
-    padding: 20px;  
-    height:auto;
+    height: auto;
+    padding: 20px;
+    width: 44%;
 }
-
-.spazioDiv
-{
-    
+.spazioDiv {
     background-color: transparent;
     float: left;
     height: 100%;
@@ -598,35 +437,26 @@
     position: relative;
     width: 2.6%;
 }
-
-.proposteDiv
-{
-    background-color: #ebe2aa;
-    border-radius: 8px;
+.proposteDiv {
+    background-color: #EBE2AA;
+    border-radius: 8px 8px 8px 8px;
     float: right;
-    height:auto;
+    height: auto;
+    padding: 20px;
     position: relative;
     width: 45%;
-    padding: 20px;    
 }
-
-.headerDiv
-{
+.headerDiv {
     background-color: white;
     height: 80px;
     width: 100%;
 }
-
-.paginate{
-    
+.paginate {
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
 }
-
-.titolo
-{
-    
+.titolo {
     float: left;
     font-size: 34px;
     left: 105px;
@@ -634,196 +464,146 @@
     margin-right: auto;
     position: relative;
     text-align: justify;
-     
 }
-
-.titoloWizard
-{
-    
+.titoloWizard {
     float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 34px;
     left: 295px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
     position: relative;
     text-align: center;
-    margin-top: 10px;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-     
 }
-
-.titoloWizardHead
-{
-	 
-     
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+.titoloWizardHead {
+    float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 34px;
-   width: 100%;
-   float:left;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     text-align: justify;
-	
+    width: 100%;
 }
-
-
-.issueDiv{
-    
-    width: 470px;
+.issueDiv {
     height: 220px;
     margin-left: auto;
     margin-right: auto;
-    
+    width: 470px;
 }
-.issue_ext{
+.issue_ext {
     clear: left;
     height: 180px;
-    top: -35px;
     position: relative;
+    top: -35px;
 }
-.infoIssueDiv
-{
-    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
-    background-color: orange;
+.infoIssueDiv {
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center orange;
     border-radius: 16px 16px 16px 16px;
+    color: white;
     float: left;
     height: 80px;
     margin-left: 7px;
-    width: 50%;
     padding-left: 10px;
-    padding-top:5px;
-    color: white;
+    padding-top: 5px;
+    width: 50%;
 }
-
-.event_name{
+.event_name {
     font-weight: bold;
 }
-
-
-.pulsanteVediDettaglio
-{
-     
+.pulsanteVediDettaglio {
+    float: left;
+    height: 25px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    height: 25px;
-    float: left;
-     
 }
-
-.testoPulsanteVediDettaglio{
-    
+.testoPulsanteVediDettaglio {
     float: left;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
-   
-    
 }
-
-
-.faseDiv
-{
-    box-shadow: 2px 2px 4px #CCCCCC;
+.faseDiv {
     background-color: white;
     border: thin solid black;
     border-radius: 8px 8px 8px 8px;
+    box-shadow: 2px 2px 4px #CCCCCC;
     color: red;
     font-weight: normal;
     height: 45px;
     left: 265px;
     margin-right: 20px;
     position: relative;
+    top: 0;
     width: 240px;
-    top: 0px;
-    
-    
 }
-.initiative_link{
-    
+.initiative_link {
     overflow: hidden;
     text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
     white-space: nowrap;
     width: 270px;
 }
-.labelFase{
+.labelFase {
     font-size: 17px;
     left: 1px;
     position: relative;
     top: 13px;
-    
 }
-
-.labelFase_admission{
+.labelFase_admission {
     color: darkred;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
- 
-.labelFase_discussion{
+.labelFase_discussion {
     color: tomato;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-
-.labelFase_verification{
+.labelFase_verification {
     color: blue;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-.labelFase_voting{
+.labelFase_voting {
     color: green;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-
-.spazioIssue
-{
-    width:100%;
-    height:24px;
+.spazioIssue {
+    height: 24px;
+    width: 100%;
 }
-
-.loginDiv
-{
+.loginDiv {
     background-color: #FFFFCC;
     border-color: orange;
     border-style: solid;
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
-
-
-.wizardContainer
-{
-   background-color: #FFFFCC;
+.wizardContainer {
+    background-color: #FFFFCC;
     float: left;
     height: 100%;
-    width: 100%;
     margin-top: 2em;
-    
+    width: 100%;
 }
-.mainContainerWizard
-{
+.mainContainerWizard {
     background-color: #FFFFCC;
     border: 1px solid black;
     border-radius: 0 0 0 0;
@@ -835,615 +615,520 @@
     position: relative;
     width: 98%;
 }
-
-.pulsantiWizard
-{
-     
+.pulsantiWizard {
     font-size: 13px;
     height: 100px;
     position: relative;
     text-align: -moz-center;
     width: 150px;
 }
-
-.wizardHeader
-{
-	float: left;
+.wizardHeader {
+    float: left;
     position: relative;
+    right: 1ex;
     text-align: right;
     width: 50%;
-    right: 1ex;
 }
-
-.formSelect
-{
-	float: left;
-   
+.formSelect {
+    float: left;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     width: 100%;
 }
-
-.basicWizardPage
-{
-	height:450px; 
-	background-color: #FFFFCC;
+.basicWizardPage {
+    background-color: #FFFFCC;
+    height: 450px;
 }
-
-/* Piero Fine */
-
-
-
-
-
-/* Puccio Inizio */
-
 #welcome_title_box {
-  border: 12px solid orange;
-  background-color: white;
-  margin: 1% 5% 1% 5%;
+    background-color: white;
+    border: 12px solid orange;
+    margin: 1% 5%;
 }
-
 .welcome_text_xl {
-  margin: 5px;
-  color: black;
-  text-align: center;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: xx-large;
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: xx-large;
+    margin: 5px;
+    text-align: center;
 }
-
 .welcome_text_l {
-  margin: 5px;
-  color: black;
-  text-align: center;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: large;
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: large;
+    margin: 5px;
+    text-align: center;
 }
-
 .welcome_text_s {
-  margin: 5px;
-  color: black;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: small;
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: small;
+    margin: 5px;
 }
-
 #version_txt {
-  text-align: right;
+    text-align: right;
 }
-
 #main_title {
 }
-
 #welcome_footer_container {
-  text-align: center;
-  height: 7.5em;
+    height: 7.5em;
+    text-align: center;
 }
-
 #welcome_logo {
-  vertical-align: middle;
-  display: inline-block;
-  margin: auto auto auto 0em;
-  width: 100px;
-  height: 100px;
+    display: inline-block;
+    height: 100px;
+    margin: auto auto auto 0;
+    vertical-align: middle;
+    width: 100px;
 }
-
 #welcome_register_txt {
-  vertical-align: middle;
-  display: inline-block;
-  font-size: 1.7em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  margin: auto;
-  width: 41%;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    margin: auto;
+    vertical-align: middle;
+    width: 41%;
 }
-
 #welcome_arrow_right {
-  vertical-align: middle;
-  display: inline-block;
-  margin: auto;
-  width: 50px;
-  height: 50px;
+    display: inline-block;
+    height: 50px;
+    margin: auto;
+    vertical-align: middle;
+    width: 50px;
 }
-
 #welcome_btn_register {
-  vertical-align: middle;
-  text-align: center;
-  font-size: 1.7em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  display: inline-block;
-  margin: auto auto auto 1em;
-  width: 16%;
-  min-width: 5.2em;
-  padding: 0.6em;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    margin: auto auto auto 1em;
+    min-width: 5.2em;
+    padding: 0.6em;
+    text-align: center;
+    vertical-align: middle;
+    width: 16%;
 }
-
 #welcome_middle_box {
-  margin: auto;
-  text-align: center;
-  margin-top: 2ex;
-  margin-bottom: 1ex;
-  border: 1px solid orange;
-  background-color: #fffbce;
-  color: #000;
-  padding: 1em;
-  position: relative;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    margin: 2ex auto 1ex;
+    padding: 1em;
+    position: relative;
+    text-align: center;
 }
-
 #welcome_middle_box_left {
-  margin: auto;
-  display: inline-block;
-  text-align: center;
-  height: 200px;
-  width: 253px;
-  padding: 1em;
+    display: inline-block;
+    height: 200px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    width: 253px;
 }
-
 #welcome_middle_box_right {
-  margin: auto;
-  display: inline-block;
-  text-align: center;
-  height: 200px;
-  width: 253px;
-  padding: 1em;
+    display: inline-block;
+    height: 200px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    width: 253px;
 }
-
 #welcome_btn_lazio {
-  margin: auto;
-  font-size: 1.7em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  margin: auto;
-  display: inline-block;
-  vertical-align: middle;
-  height: 70px;
-  padding-top: 30px;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    height: 70px;
+    margin: auto;
+    padding-top: 30px;
+    vertical-align: middle;
 }
-
 #welcome_btn_internal {
-  font-size: 1.7em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  margin: auto;
-  display: inline-block;
-  vertical-align: middle;
-  height: 90px;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    height: 90px;
+    margin: auto;
+    vertical-align: middle;
 }
-
 #welcome_parlamento_left {
-  margin: auto;
-  vertical-align: middle;
-  display: inline-block;
-  height: 70px;
-  width: 121px;
+    display: inline-block;
+    height: 70px;
+    margin: auto;
+    vertical-align: middle;
+    width: 121px;
 }
-
 #welcome_parlamento_right {
-  margin: auto;
-  vertical-align: middle;
-  display: inline-block;
-  height: 70px;
-  width: 121px;
+    display: inline-block;
+    height: 70px;
+    margin: auto;
+    vertical-align: middle;
+    width: 121px;
 }
-
 .unit_header_box {
-  margin-top: 2ex;
-  margin-bottom: 2ex;
-  border: 1px solid orange;
-  background-color: #fffbce;
-  color: #000;
-  padding: 1em;
-  height: 175px;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    height: 175px;
+    margin-bottom: 2ex;
+    margin-top: 2ex;
+    padding: 1em;
 }
-
 #unit_button_back {
-  text-align: center;
-  width: 190px;
+    text-align: center;
+    width: 190px;
 }
-
 .block-text {
-  width: 100%;
-  margin: auto;
-  vertical-align: middle;
-  display: inline-block;
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
+    width: 100%;
 }
-
-.unit_button_box{
-  display: inline-block;
-  text-align: center;
-  height: 130px;
-  width: 100%;
+.unit_button_box {
+    display: inline-block;
+    height: 130px;
+    text-align: center;
+    width: 100%;
 }
-
-#unit_img_box{
-  display: inline-block;
-  text-align: center;
-  height: 165px;
-  width: 100%;
+#unit_img_box {
+    display: inline-block;
+    height: 165px;
+    text-align: center;
+    width: 100%;
 }
-
 #unit_button_left {
-  margin: 1em;
-  vertical-align: middle;
-  display: inline-block;
-  width: 200px;
-  height: 65px;
-  padding-top: 25px;
+    display: inline-block;
+    height: 65px;
+    margin: 1em;
+    padding-top: 25px;
+    vertical-align: middle;
+    width: 200px;
 }
-
 #unit_button_right {
-  margin: 1em;
-  vertical-align: middle;
-  display: inline-block;
-  width: 200px;
-  height: 78px;
+    display: inline-block;
+    height: 78px;
+    margin: 1em;
+    vertical-align: middle;
+    width: 200px;
 }
-
 .unit_bottom_box {
-  margin-top: -1em;
-  background-color: #ebe2aa;
-  border-radius: 8px;
-  padding: 1em;
-  width: 100%;
+    background-color: #EBE2AA;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: -1em;
+    padding: 1em;
+    width: 100%;
 }
-
 .unit_areas_box {
-  display: inline-block;
-  width: 96%;
-  vertical-align: middle;
-  background-color: white;
-  border-radius: 8px;
-  margin-top: 60px;
-  padding: 20px;
+    background-color: white;
+    border-radius: 8px 8px 8px 8px;
+    display: inline-block;
+    margin-top: 60px;
+    padding: 20px;
+    vertical-align: middle;
+    width: 96%;
 }
-
 #unit_btn_enter_area {
-  width: 5.3em;
-  height: .9em;
-  float: left;
+    float: left;
+    height: 0.9em;
+    width: 5.3em;
 }
-
 .area_issue_box {
-  background-color: white;
-  border-radius: 8px;
-  margin-top: 60px;
-  padding: 20px;
+    background-color: white;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 60px;
+    padding: 20px;
 }
-
-#unit_parlamento_img{
-  display: inline-block;
-  vertical-align: middle;
-  margin: auto;
+#unit_parlamento_img {
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
 }
-
 #unit_title {
-  margin-top: 40px;
+    margin-top: 40px;
 }
-
 #unit_arrow_back {
-  margin-top: 1.4em;
-  height: 55px;
-  width: 55px;
-  float: left;
+    float: left;
+    height: 55px;
+    margin-top: 1.4em;
+    width: 55px;
 }
-
 .area_filter_button {
-  text-align: center;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  width: 214px;
-  height: 130px;
-  padding: 0em;
+    display: inline-block;
+    height: 130px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 214px;
 }
-
 .button_text {
-  margin: auto;
-  font-size: 0.9em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 0.9em;
+    margin: auto;
 }
-
 .ifbtn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1.7em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    text-align: center;
+    vertical-align: middle;
 }
-
 .area_filter_header_box {
-  margin-top: 2ex;
-  margin-bottom: 2ex;
-  border: 1px solid orange;
-  background-color: #fffbce;
-  color: #000;
-  padding: 2em;
-  text-align: center;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    margin-bottom: 2ex;
+    margin-top: 2ex;
+    padding: 2em;
+    text-align: center;
 }
-
 .area_show_ext_button {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  text-align: center;
-  width: 210px;
-  height: 120px;
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 210px;
 }
-
 #flt_btn_apply, #flt_btn_delete {
-  text-align: center;
-  margin: 1em auto 1em auto;
+    margin: 1em auto;
+    text-align: center;
 }
-
 .flt_btn_txt {
-  white-space:nowrap;
-  display: inline-block;
-  width: auto;
-  font-size: 1.2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    white-space: nowrap;
+    width: auto;
 }
-
 .flt_btn_head_title {
-  margin: auto;
-  font-size: 2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2em;
+    margin: auto;
 }
-
 .flt_btn_box {
-  margin: 0.6em auto 0.6em auto;
-  padding: 0.4em;
-  border-bottom: 0.15em solid black;
-  float: left;
-  text-align: center;
-  width: 100%;
+    border-bottom: 0.15em solid black;
+    float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
-
 #flt_box {
-  height: auto;
+    height: auto;
 }
-
 #area_show_bottom_box {
-  float: left;
-  width: 100%;
+    float: left;
+    width: 100%;
 }
-
 .initiative_count_txt {
-  vertical-align: middle;
-  border: 1px solid black;
-  background: #f8f9b2;
-  font-size: 1.6em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  color: #9a1919;
-  padding: 0.1em;
-  margin: 0.3em 0.3em 0 0.3em;
+    background: none repeat scroll 0 0 #F8F9B2;
+    border: 1px solid black;
+    color: #9A1919;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.6em;
+    margin: 0.3em 0.3em 0;
+    padding: 0.1em;
+    vertical-align: middle;
 }
-.initiative_data_box{
-  line-height: 130%;
-  margin-left: 168px;
-  font-size: 115%;
+.initiative_data_box {
+    font-size: 115%;
+    line-height: 130%;
+    margin-left: 168px;
 }
-
-.initiative_name{
-  font-weight: bold;
-  font-size: 1.2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+.initiative_name {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
 }
-
-.initiative_brief_description{
-  margin-top: 0.2em;
-  color: #9a1919;
-  font-weight: bold;
-  font-size: 1em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+.initiative_brief_description {
+    color: #9A1919;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0.2em;
 }
-
 .initiative_quorum_box {
-  position: absolute;
-  float: left;
-  bottom: 0em;
-  max-height: 16em;
+    bottom: 0;
+    float: left;
+    max-height: 16em;
+    position: absolute;
 }
-
-.initiative_quorum_bar{
-  background: #246fa1;
-  width: 4px;
-  max-height: 15em;
-  min-height: 6em;
+.initiative_quorum_bar {
+    background: none repeat scroll 0 0 #246FA1;
+    max-height: 15em;
+    min-height: 6em;
+    width: 4px;
 }
-.initiative_quorum_txt{
-  margin: 0.2em auto 0.9em 0em;
-  color: #246fa1;
-  font-size: 1em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+.initiative_quorum_txt {
+    color: #246FA1;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1em;
+    margin: 0.2em auto 0.9em 0;
 }
-
 .issue_state_info_box {
-  position: absolute;
-  background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
-  border-radius: 16px 16px 0px 0px;
-  height: 4em;
-  width: 34.1em;
-  padding: 5px;
-  color: white;
-  margin-top: 6.3em;
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    border-radius: 16px 16px 0 0;
+    color: white;
+    height: 4em;
+    margin-top: 6.3em;
+    padding: 5px;
+    position: absolute;
+    width: 34.1em;
 }
-
 .issue_state_txt {
-  display: inline-block;
-  margin: 0 0.2em 0 0.4em;
-  font-size: 1.4em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.4em;
+    margin: 0 0.2em 0 0.4em;
 }
-
 .issue_state_time {
-  font-size: 1.2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
 }
-
 .issue_info_img {
-  display: inline-block;
-  margin: 0;
-  height: 1.4em;
-  width: 1.4em;
+    display: inline-block;
+    height: 1.4em;
+    margin: 0;
+    width: 1.4em;
 }
-
 .issue_box {
-  margin-top: 3em;
- /* height: 100%; */
+    margin-top: 3em;
 }
-
 .issue_see_det {
-  text-align: center;
-  margin: -2.2em 0.2em auto auto;
-  padding: 0.4em;
-  font-size: 2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2em;
+    margin: -2.2em 0.2em auto auto;
+    padding: 0.4em;
+    text-align: center;
 }
-
-.issue_ext2{
-  width: 100%;
-  top: -35px;
-  position: relative;
-  margin-bottom: 0em;
+.issue_ext2 {
+    margin-bottom: 0;
+    position: relative;
+    top: -35px;
+    width: 100%;
 }
-
-.phases_box{
-  position: relative;
-  height: 162px;
-  width: 522px;
-  margin-bottom: 1.2em;
-  float: right;
+.phases_box {
+    float: right;
+    height: 162px;
+    margin-bottom: 1.2em;
+    position: relative;
+    width: 522px;
 }
-
-.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
-  clear: both;
-  position: absolute;
-  z-index: 11;
+.admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
+    clear: both;
+    position: absolute;
+    z-index: 11;
 }
-
 .phases_bar {
-  position: absolute;
-  z-index: 9;
-  height: 162px;
-  width: 522px;
+    height: 162px;
+    position: absolute;
+    width: 522px;
+    z-index: 9;
 }
 .phase_arrow {
-  position: absolute;
-  z-index: 10;
-  margin-top: 29px;
-  margin-left: 31px;
-  height: 70px;
-  width: 70px;
+    height: 70px;
+    margin-left: 31px;
+    margin-top: 29px;
+    position: absolute;
+    width: 70px;
+    z-index: 10;
 }
 .admission {
-  height: 60px;
-  width: 60px;
-  margin-top: 55px;
-  margin-left: 37px;
+    height: 60px;
+    margin-left: 37px;
+    margin-top: 55px;
+    width: 60px;
 }
 .discussion {
-  height: 65px;
-  width: 65px;
-  margin-top: 58px;
-  margin-left: 102px;
+    height: 65px;
+    margin-left: 102px;
+    margin-top: 58px;
+    width: 65px;
 }
 .verification {
-  height: 33px;
-  width: 33px;
-  margin-top: 72px;
-  margin-left: 181px;
+    height: 33px;
+    margin-left: 181px;
+    margin-top: 72px;
+    width: 33px;
 }
 .voting {
-  height: 48px;
-  width: 48px;
-  margin-top: 64px;
-  margin-left: 237px;
+    height: 48px;
+    margin-left: 237px;
+    margin-top: 64px;
+    width: 48px;
 }
 .committee {
-  height: 48px;
-  width: 48px;
-  margin-top: 64px;
-  margin-left: 309px;
+    height: 48px;
+    margin-left: 309px;
+    margin-top: 64px;
+    width: 48px;
 }
 .committee_voting {
-  margin-top: 64px;
-  margin-left: 380px;
+    margin-left: 380px;
+    margin-top: 64px;
 }
 .finished {
-  margin-top: 66px;
-  margin-left: 452px;
+    margin-left: 452px;
+    margin-top: 66px;
 }
-
-.login input[type=submit]{
-  vertical-align: middle;
-  display: inline-block;
-  border-right: 1px solid rgba(0,0,0,0.1);
-  border-left: 1px solid rgba(0,0,0,0.1);
-  margin: auto;
+.login input[type="submit"] {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
 }
-
 .usr_psw_box {
-  vertical-align: middle;
-  text-align: left;
-  width: 55%;
-  display: inline-block;
-  margin: 0em;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+    width: 55%;
 }
-
 .issue_title {
-  margin: 0.4em 0em 0.2em 0em;
-  font-size: 1.6em;
-  font-weight:bold;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0.4em 0 0.2em;
 }
-
 .issue_brief_description {
-
 }
-
 .issue_vote_box {
-  vertical-align: middle;
-  display: inline-block;
-  position: absolute;
-  border: 1px solid black;
-  box-shadow: 2px 2px 4px #CCCCCC;
-  margin: -4em auto auto 0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    display: inline-block;
+    margin: -4em auto auto 0.2em;
+    position: absolute;
+    vertical-align: middle;
 }
-
 .issue_vote_txt {
-  vertical-align: middle;
-  display: inline-block;
-  margin: 0.2em;
-  font-size: 2.2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2.2em;
+    margin: 0.2em;
+    vertical-align: middle;
 }
-
 .thumb {
-  vertical-align: middle;
-  display: inline-block;
-  height: 2.7em;
-  width: 2.7em;
+    display: inline-block;
+    height: 2.7em;
+    vertical-align: middle;
+    width: 2.7em;
 }
-
 .issue_thumb_cont_up {
-  vertical-align: middle;
-  display: inline-block;
-  border: 4px solid green;
-  border-radius: 15px;
-  margin: 0.2em;
+    border: 4px solid green;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
 }
-
 .issue_thumb_cont_down {
-  vertical-align: middle;
-  display: inline-block;
-  border: 4px solid red;
-  border-radius: 15px;
-  margin: 0.2em;
+    border: 4px solid red;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
 }
-  
 .initiative_list_ext {
-  border: 1px solid black;
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 16em;
-  margin: 0.4em;
+    border: 1px solid black;
+    margin: 0.4em;
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-
-/* Puccio Fine */
