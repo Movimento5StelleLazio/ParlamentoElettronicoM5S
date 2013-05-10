@@ -137,8 +137,11 @@ end }
 ui.container{ attr = { class = class }, content = function()
   execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
 
+
   if for_listing then
     ui.container{ attr = { class = "content" }, content = function()
+      ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
+      ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
       ui.link{
         module = "unit", view = "show", id = issue.area.unit_id,
         attr = { class = "unit_link" }, text = issue.area.unit.name
@@ -199,6 +202,7 @@ ui.container{ attr = { class = class }, content = function()
 
   local links = {}
   
+--[[
   if vote_link_text then
     links[#links+1] ={
       content = vote_link_text,
@@ -368,8 +372,33 @@ ui.container{ attr = { class = class }, content = function()
       }
     end
   end
+--]]
 
-  ui.container{ attr = { class = "initiative_list content" }, content = function()
+  if #issue.initiatives == 1 then
+    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  }
+  else
+    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
+  end
+
+
+--[[  
+  -- Quorum Bar
+    ui.container{ attr = { class = "initiative_quorum_box" }, content = function()
+      local policy = issue.policy
+      ui.tag{ 
+        tag = "p", 
+        attr = { class = "initiative_quorum_txt" }, 
+        content = _("Quorum (#{quorum})", {quorum = format.percentage(policy.issue_quorum_num / policy.issue_quorum_den) }) 
+      }
+      ui.container {
+        attr = { class = "initiative_quorum_bar" },
+        content = function()
+        end
+      }
+    end }
+--]]
+
+  ui.container{ attr = { class = "initiative_list_ext content" }, content = function()
 
     local initiatives_selector = issue:get_reference_selector("initiatives")
     local highlight_string = param.get("highlight_string")
@@ -378,7 +407,7 @@ ui.container{ attr = { class = class }, content = function()
     end
     execute.view{
       module = "initiative",
-      view = "_list",
+      view = "_list_ext",
       params = {
         issue = issue,
         initiatives_selector = initiatives_selector,
@@ -386,16 +415,39 @@ ui.container{ attr = { class = class }, content = function()
         highlight_string = highlight_string,
         no_sort = true,
         limit = (for_listing or for_initiative) and 5 or nil,
+        hide_more_initiatives=false,
+        limit=25,
         for_member = for_member
       }
     }
   end }
 end }
 
+if app.session.member_id and issue.closed then
+  ui.container {
+    attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
+    content = function()
+      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
+      if direct_voter then
+        ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
+          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
+          ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+        end}
+      else 
+        ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
+          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
+          ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+        end}
+      end   
+    end
+  }
+end
+
+
 ui.link{ 
   attr = { id = "issue_see_det_"..issue.id, class = "button orange issue_see_det" },
   module = "issue",
-  view = "show",
+  view = "show_ext",
   id = issue.id,
   content= _"SEE DETAILS"
 }
