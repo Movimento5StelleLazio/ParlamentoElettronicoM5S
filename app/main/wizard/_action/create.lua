@@ -92,7 +92,7 @@ if not issue then
   issue.aim_description=param.get("aim_description")
   
   
-  issue.keywords=param.get("issue_kyewords")
+  issue.keywords=param.get("issue_keywords")
   
   if policy.polling then
     issue.accepted = 'now'
@@ -148,24 +148,30 @@ if param.get("polling", atom.boolean) and app.session.member:has_polling_right_f
 end
 initiative.issue_id = issue.id
 initiative.name = name
-param.update(initiative, "discussion_url")
-
+trace.debug("line 151")
 initiative.title=param.get("initiative_title")
 initiative.brief_description=param.get("initiative_brief_description")
 initiative.competence_fields=param.get("technical_area_1")
 initiative.author_type=""
-
-local proposer
-if param.get("proposer1") then
-initiative.author_type="other"
-end
-if param.get("proposer2") then
-initiative.author_type="elected"
-end
-if param.get("proposer3") then
+trace.debug("line 156")
+local proposer1=param.get("proposer1",atom.boolean)
+if proposer1 then
 initiative.author_type="other"
 end
 
+local proposer2=param.get("proposer2",atom.boolean)
+if proposer2 then
+initiative.author_type="other"
+end
+
+local proposer3=param.get("proposer3",atom.boolean)
+if proposer3 then
+initiative.author_type="other"
+end
+
+trace.debug("line 168")
+param.update(initiative, "discussion_url")
+trace.debug("line 170")
 initiative:save()
 
 
