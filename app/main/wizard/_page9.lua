@@ -35,7 +35,7 @@ ui.container
                                   ui.tag{
                                         tag="p",
                                         attr={style="font-size:28px;"},
-                                        content=  _"Issue text title"
+                                        content=  _"Draft text title"
                                       }
                                 end
                          }
@@ -89,13 +89,13 @@ ui.container
                                          ui.tag{
                                             tag="p",
                                             attr={style="text-align: right; float: right; font-size: 20px;"},
-                                            content=  _"Issue text"
+                                            content=  _"Draft text"
                                           }   
                                         
                                          ui.tag{
                                             tag="p",
                                             attr={style="float: left; font-size: 12px; text-align: right; width: 249px; margin-left: -33px;font-style: italic;"},
-                                            content=  _"Issue note"
+                                            content=  _"Draft note"
                                           }   
                                           
                                         end
@@ -104,7 +104,7 @@ ui.container
                                         ui.tag
                                            {
                                                 tag="textarea",
-                                                attr={id="issue_draft",name="issue_draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 15px; width: 598px;"},
+                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 15px; width: 598px;"},
                                                 content=function()
                                                 end
                                                 

@@ -15,15 +15,15 @@ end
 
 if page==2 then
      
-     objParam[#objParam+1]={name="policy_id",value=param.get("policyChooser")}
+     objParam[#objParam+1]= {name="policy_id",value=param.get("policyChooser")}
     
 end
 
  
 if page==3 then
   
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
  
 
 end
@@ -31,9 +31,9 @@ end
 
 if page==4 then
 
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
 
 
 --local question_keywords=param.get("question_keywords")
@@ -44,10 +44,10 @@ end
 
 if page==5 then
     
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
    
     
    
@@ -57,10 +57,10 @@ end
 
 if page==6 then
 
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
    objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
 
   
@@ -68,12 +68,12 @@ end
 
 if page==7 then
    
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
    objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
  
   
     
@@ -81,13 +81,13 @@ end
 
 if page==8 then
     
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
     
     
     
@@ -98,14 +98,14 @@ end
 
 if page==9 then
 
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
 
 
    -- local issue_draft=param.get("issue_draft")
@@ -116,15 +116,15 @@ if page==10 then
  
  
 
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
-   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
  
 
        
@@ -134,15 +134,15 @@ end
 if page==11 then
 
 
-   objParam[#objParam+1]={name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]={name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
-   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
    objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
    
 
@@ -151,15 +151,15 @@ end
 
 if page==12 then
 
-   objParam[#objParam+1]= {name="question_title",value=param.get("question_title")}
-   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="question_short_description",value=param.get("question_short_description")}
-   objParam[#objParam+1]= {name="question_keywords",value=param.get("question_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="target_description",value=param.get("target_description")}
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="issue_description",value=param.get("issue_description")}
-   objParam[#objParam+1]= {name="issue_draft",value=param.get("issue_draft")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
    objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
    
    local value=""
