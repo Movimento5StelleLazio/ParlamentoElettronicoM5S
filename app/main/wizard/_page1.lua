@@ -14,7 +14,7 @@ dataSource = {
 if #area_policies>0 then
                        
          for i, allowed_policy in ipairs(area_policies) do
-            dataSource[#dataSource+1] = {id=i, name=allowed_policy.name  }
+            dataSource[#dataSource+1] = {id=allowed_policy.id, name=allowed_policy.name  }
          end   
                           
  else
