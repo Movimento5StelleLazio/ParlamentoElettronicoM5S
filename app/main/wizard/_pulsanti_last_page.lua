@@ -92,9 +92,7 @@ end
                    --pulsante Next
                   ui.tag{
                              tag="a",
-                             attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;",onclick="document.getElementById('wizardForm"..page.."').submit();"},
-                             module = "wizard",
-                             view = "wizard_new_initiative",
+                             attr={id="btnSaveIssue",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;",onclick="document.getElementById('wizardForm"..page.."').submit();"},
                              params = { 
                                                 unit_id=app.session.member.unit_id,
                                                 area_id=app.session.member.area_id,

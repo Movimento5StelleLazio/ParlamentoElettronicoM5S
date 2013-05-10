@@ -97,7 +97,7 @@ ui.container
                         method = "post",
                         attr={id="wizardForm"..page},
                         module = 'wizard',
-                        action = 'wizard_new_save',
+                        action = 'create',
                         params={
                                 area_id=area_id,
                                 unit_id=unit_id,
@@ -106,8 +106,8 @@ ui.container
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              module = 'index',
+                              view = 'homepage',
                               params = {
                                            area_id=area_id,
                                            unit_id=unit_id,
@@ -118,20 +118,25 @@ ui.container
                               mode   = '',
                               module = 'wizard',
                               view = 'wizard_new_initiative',
+                              params = {
+                                           area_id=area_id,
+                                           unit_id=unit_id,
+                                           page=12
+                                          },
                             }
                           }, 
                        content=function()
                     
                        
                     local policy_id={}
-                    local question_title
-                    local question_short_description
-                    local question_keywords
-                    local problem_description
-                    local target_description
                     local issue_title
-                    local issue_description
-                    local issue_draft
+                    local issue_brief_description
+                    local issue_keywords
+                    local problem_description
+                    local aim_description
+                    local initiative_title
+                    local initiative_brief_description
+                    local draft
                     local proposer1=false
                     local proposer2=false
                     local proposer3=false
@@ -147,37 +152,37 @@ ui.container
                           end
                           
                             
-                          if k.name=="question_title" then
-                          question_title=k.value
+                          if k.name=="issue_title" then
+                          issue_title=k.value
                           end
                           
-                          if k.name=="question_short_description" then
-                          question_short_description=k.value
+                          if k.name=="issue_brief_description" then
+                          issue_brief_description=k.value
                           end
                           
-                          if k.name=="question_keywords" then
-                          question_keywords=k.value
+                          if k.name=="issue_keywords" then
+                          issue_keywords=k.value
                           end
                           
                           if k.name=="problem_description" then
                           problem_description=k.value
                           end
                           
-                          if k.name=="target_description" then
-                          target_description=k.value
+                          if k.name=="aim_description" then
+                          aim_description=k.value
                           end
                           
                           
-                          if k.name=="issue_title" then
-                          issue_title=k.value
+                          if k.name=="initiative_title" then
+                          initiative_title=k.value
                           end
                           
-                          if k.name=="issue_description" then
-                          issue_description=k.value
+                          if k.name=="initiative_brief_description" then
+                          initiative_brief_description=k.value
                           end
                           
-                          if k.name=="issue_draft" then
-                          issue_draft=k.value
+                          if k.name=="draft" then
+                          draft=k.value
                           end
                           
                             
@@ -295,11 +300,11 @@ ui.container
                                                                content=function()     
                                                                        ui.field.text
                                                                        {
-                                                                            attr={id="question_title",style=" font-size: 25px;height: 30px;width: 60%;"},
-                                                                            name="question_title",
+                                                                            attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                                            name="issue_title",
                                                                             label=_"Problem Title",
                                                                             label_attr={style="font-size:20px"},
-                                                                            value=question_title
+                                                                            value=issue_title
                                                                        }
                                                                 end
                                                             }
@@ -336,7 +341,7 @@ ui.container
                                                                                 tag="textarea",
                                                                                 attr={id="question_short_description",name="question_short_description",style="resize: none; float: left; font-size: 23px; height: 228px; margin-left: 8px; width: 60%;"},
                                                                                
-                                                                                content=question_short_description
+                                                                                content=issue_brief_description
                                                                                 
                                                                            }
                                                                     end
@@ -373,7 +378,7 @@ ui.container
                                                                            {
                                                                                 tag="textarea",
                                                                                 attr={id="question_keywords",name="question_keywords",style="resize: none; float: left; font-size: 23px; height: 228px; width: 60%; margin-left: 7px;"},
-                                                                                content=question_keywords
+                                                                                content=issue_keywords
                                                                                 
                                                                            }
                                                                     end
@@ -447,8 +452,8 @@ ui.container
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="target_description",name="target_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 7px; width: 60%;"},
-                                                                                content=target_description
+                                                                                attr={id="aim_description",name="aim_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 7px; width: 60%;"},
+                                                                                content=aim_description
                                                                                 
                                                                            }
                                                                     end
@@ -500,7 +505,7 @@ ui.container
                                                                             name="issue_title",
                                                                             label=_"Issue Title",
                                                                             label_attr={style="font-size:20px"},
-                                                                            value=issue_title
+                                                                            value=initiative_title
                                                                        }
                                                                 end
                                                             }
@@ -519,13 +524,13 @@ ui.container
                                                                      ui.tag{
                                                                         tag="p",
                                                                         attr={style="text-align: right; float: right; font-size: 20px;"},
-                                                                        content=  _"Issue short description"
+                                                                        content=  _"Initiative short description"
                                                                       }   
                                                                     
                                                                      ui.tag{
                                                                         tag="p",
                                                                         attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
-                                                                        content=  _"Issue short note"
+                                                                        content=  _"Initiative short note"
                                                                       }   
                                                                       
                                                                     end
@@ -535,8 +540,8 @@ ui.container
                                                                  ui.tag
                                                                        {
                                                                             tag="textarea",
-                                                                            attr={id="issue_description", name="issue_description",style="resize: none; float: left; font-size: 23px; margin-left: 7px; width: 60%; height: 12em;"},
-                                                                            content=issue_description
+                                                                            attr={id="initiative_brief_description", name="initiative_brief_description",style="resize: none; float: left; font-size: 23px; margin-left: 7px; width: 60%; height: 12em;"},
+                                                                            content=initiative_brief_description
                                                                             
                                                                        }
                                                                        
@@ -558,13 +563,13 @@ ui.container
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: right; font-size: 20px;"},
-                                                                            content=  _"Issue text"
+                                                                            content=  _"Draft text"
                                                                           }   
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="float: left; font-size: 12px; text-align: right; width: 249px; margin-left: -33px;font-style: italic;"},
-                                                                            content=  _"Issue note"
+                                                                            content=  _"Draft note"
                                                                           }   
                                                                           
                                                                         end
@@ -573,8 +578,8 @@ ui.container
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="issue_draft",name="issue_draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 7px; width: 60%;"},
-                                                                                content=issue_draft
+                                                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 7px; width: 60%;"},
+                                                                                content=draft
                                                                                 
                                                                            }
                                                                     end
@@ -711,7 +716,14 @@ ui.container
                                                                                end
                                                                               }
                                                                        end
-                                                               }
+                                                                    }
+                                                                    
+                                                                    
+                                                               ui.field.hidden{
+                                                                               name="formatting_engine",
+                                                                               value="rocketwiki"
+                                                                               }
+                                                                    
                                                              
                                                              end
                                                              }--fine div formSelect

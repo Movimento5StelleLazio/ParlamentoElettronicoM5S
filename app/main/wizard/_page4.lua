@@ -108,7 +108,7 @@ ui.container
                                         ui.tag
                                            {
                                                 tag="textarea",
-                                                attr={id="question_keywords",name="question_keywords",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
+                                                attr={id="issue_keywords",name="issue_keywords",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
                                                 content=function()
                                                 end
                                                 

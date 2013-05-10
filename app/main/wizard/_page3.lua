@@ -107,7 +107,7 @@ ui.container
                                         ui.tag
                                            {
                                                 tag="textarea",
-                                                attr={id="question_short_description",name="question_short_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
+                                                attr={id="issue_brief_description",name="issue_brief_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
                                                
                                                 content=function()
                                                 end
