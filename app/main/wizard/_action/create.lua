@@ -200,6 +200,6 @@ slot.put_into("notice", _"Initiative successfully created")
 
 request.redirect{
   module = "initiative",
-  view = "show",
+  view = "show_ext",
   id = initiative.id
 }
