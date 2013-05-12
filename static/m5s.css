@@ -767,7 +767,7 @@
     background-color: #FFFBCE;
     border: 1px solid orange;
     color: #000000;
-    height: 175px;
+    min-height: 175px;
     margin-bottom: 2ex;
     margin-top: 2ex;
     padding: 1em;
@@ -783,10 +783,7 @@
     width: 100%;
 }
 .unit_button_box {
-    display: inline-block;
-    height: 130px;
     text-align: center;
-    width: 100%;
 }
 #unit_img_box {
     display: inline-block;
@@ -814,16 +811,13 @@
     border-radius: 8px 8px 8px 8px;
     margin-top: -1em;
     padding: 1em;
-    width: 100%;
+    min-width: 280px;
 }
 .unit_areas_box {
     background-color: white;
     border-radius: 8px 8px 8px 8px;
-    display: inline-block;
-    margin-top: 60px;
     padding: 20px;
     vertical-align: middle;
-    width: 96%;
 }
 #unit_btn_enter_area {
     float: left;
@@ -969,8 +963,9 @@
     height: 4em;
     margin-top: 6.3em;
     padding: 5px;
-    position: absolute;
-    width: 34.1em;
+    display: inline-block;
+    max-width: 34.1em;
+    width: 100%;
 }
 .issue_state_txt {
     display: inline-block;
@@ -989,28 +984,53 @@
     width: 1.4em;
 }
 .issue_box {
-    margin-top: 3em;
 }
 .issue_see_det {
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 2em;
-    margin: -2.2em 0.2em auto auto;
     padding: 0.4em;
     text-align: center;
+    display: inline-block;
+    margin: 0.2em;
 }
 .issue_ext2 {
-    margin-bottom: 0;
-    position: relative;
-    top: -35px;
-    width: 100%;
+    box-shadow: #ccc 3px 3px 5px;
+    -webkit-box-shadow: #ccc 3px 3px 5px;
+    overflow: hidden;
+    border: 1px solid #777;
 }
+
+.issue_ext2 .content {
+  padding: 5px 10px 5px 10px;
+  line-height: 120%;
+}
+
+.issue_ext2 .title {
+  font-weight: bold;
+  font-size: 115%;
+}
+
+.issue_ext2 .unit_link {
+  margin: 0;
+}
+
+.issue_ext2 .area_link {
+  margin: 0 8px 0 8px;
+}
+
 .phases_box {
-    float: right;
+    display: inline-block;
+    margin-bottom: -1.9em;
     height: 162px;
-    margin-bottom: 1.2em;
-    position: relative;
     width: 522px;
 }
+
+@media screen and (max-width: 540px) {
+  .phases_box, .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished, .phases_bar, .phase_arrow  {
+    display: hidden;
+  }
+}
+
 .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
     clear: both;
     position: absolute;
@@ -1089,13 +1109,14 @@
     margin: 0.4em 0 0.2em;
 }
 .issue_brief_description {
+  padding: 0.4em;
+  margin:0;
 }
 .issue_vote_box {
+    text-align: center;
     border: 1px solid black;
     box-shadow: 2px 2px 4px #CCCCCC;
     display: inline-block;
-    margin: -4em auto auto 0.2em;
-    position: absolute;
     vertical-align: middle;
 }
 .issue_vote_txt {
