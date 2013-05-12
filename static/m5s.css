@@ -964,8 +964,8 @@
     margin-top: 6.3em;
     padding: 5px;
     display: inline-block;
-    max-width: 34.1em;
-    width: 100%;
+    max-width: 27em;
+    width: 97%;
 }
 .issue_state_txt {
     display: inline-block;
@@ -984,20 +984,21 @@
     width: 1.4em;
 }
 .issue_box {
+  margin-bottom: 2em;
 }
 .issue_see_det {
-    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 2em;
-    padding: 0.4em;
-    text-align: center;
-    display: inline-block;
-    margin: 0.2em;
+  font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+  font-size: 2em;
+  padding: 0.4em;
+  text-align: center;
+  display: inline-block;
 }
 .issue_ext2 {
-    box-shadow: #ccc 3px 3px 5px;
-    -webkit-box-shadow: #ccc 3px 3px 5px;
-    overflow: hidden;
-    border: 1px solid #777;
+  box-shadow: #ccc 3px 3px 5px;
+  -webkit-box-shadow: #ccc 3px 3px 5px;
+  overflow: hidden;
+  border: 1px solid #777;
+  margin-bottom: 0.4em;
 }
 
 .issue_ext2 .content {
@@ -1025,9 +1026,9 @@
     width: 522px;
 }
 
-@media screen and (max-width: 540px) {
-  .phases_box, .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished, .phases_bar, .phase_arrow  {
-    display: hidden;
+@media screen and (max-width: 1024px) {
+  .phases_box {
+    display: none;
   }
 }
 
