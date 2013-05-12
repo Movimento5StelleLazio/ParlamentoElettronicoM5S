@@ -260,5 +260,6 @@ config.enable_debug_trace = true
 -- ========================================================================
 -- Do main initialisation (DO NOT REMOVE FOLLOWING SECTION)
 -- ========================================================================
+slot.set_layout("m5s")
 
 execute.config("init")
