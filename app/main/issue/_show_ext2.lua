@@ -23,7 +23,7 @@ elseif vote_comment_able then
 end  
 
 
-local class = "issue issue_ext2"
+local class = "issue_ext2"
 if issue.is_interested then
   class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
