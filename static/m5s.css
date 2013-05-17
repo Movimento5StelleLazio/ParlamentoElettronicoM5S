@@ -5,33 +5,47 @@
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 2px 4px #CCCCCC;
-    height: 450px;
     text-align: center;
     width: 100%;
+    padding-bottom: 4em;
 }
 .welcomeText {
     color: black;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 18px;
-    line-height: normal;
-    margin-top: 10px;
+    font-size:large;
+    margin: 5px;
+    text-align: center;
 }
 .sceltaText {
     color: black;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 32px;
-    line-height: 40px;
-    margin-top: 10px;
+    font-size: xx-large;
+    margin: 5px;
+    text-align: center;
+    
+    
 }
 .pulsantiMenuHomepageDiv {
     background-color: transparent;
     height: 160px;
     width: 100%;
 }
-.menuButton {
-    float: left;
-    height: 130px;
+ 
+
+.menuButton
+{
+	display: inline-block;
+    margin-top: 3em;
+    text-align: center;
+    width: 20em;
+   
 }
+
+.filterButton
+{
+	
+}
+
 .testoPulsantiMenuHomepage {
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     width: 50px;
@@ -108,6 +122,7 @@
 }
 .pulsantiFase {
     float: left;
+    width: 100%;
 }
 .testoPulsanteFiltri {
     font-size: 14px;
@@ -207,12 +222,13 @@
 }
 .lineDiv {
     border: thin solid black;
+    float: left;
     height: 0;
     margin-left: 90px;
-    margin-top: 0;
+    margin-top: 15px;
     opacity: 0.24;
     position: relative;
-    top: 100px;
+   
     width: 80%;
 }
 .pulsantiCategoria {
@@ -404,6 +420,7 @@
 .parlamentoDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
+    display: inline-block;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -425,6 +442,7 @@
     background-color: #F2F19A;
     border-radius: 8px 8px 8px 8px;
     float: left;
+    display:inline-block;
     height: auto;
     padding: 20px;
     width: 44%;
@@ -441,6 +459,7 @@
     background-color: #EBE2AA;
     border-radius: 8px 8px 8px 8px;
     float: right;
+        display:inline-block;
     height: auto;
     padding: 20px;
     position: relative;
