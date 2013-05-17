@@ -43,7 +43,11 @@
 
 .filterButton
 {
-	
+	display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    white-space: nowrap;
+    width: auto;
 }
 
 .testoPulsantiMenuHomepage {
@@ -101,12 +105,12 @@
     margin-right: auto;
     position: relative;
     width: 100%;
+    
 }
 .containerPulsantiFiltri {
-    background-color: transparent;
-    display: none;
-    height: 170px;
-    width: 100%;
+     background-color: transparent;
+     display: none;
+     height: 26em;
 }
 .pulsanteFiltri {
     height: 50px;
@@ -122,6 +126,9 @@
 }
 .pulsantiFase {
     float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
     width: 100%;
 }
 .testoPulsanteFiltri {
@@ -132,14 +139,20 @@
 }
 .btnAllPhase {
     float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 11px;
-    margin-top: 7px;
     text-align: center;
-    vertical-align: middle;
-    width: 90px;
+    height: 40px; 
+    vertical-align: middle; 
+    margin: auto; 
+    display: inline-block; 
+    width: 90px; 
+    font-size: 1.3em; 
+    padding-top: 12px;
+    
 }
+
+/*
+height: 40px; vertical-align: middle; margin: auto; display: inline-block; width: 90px; font-size: 1.3em; padding-top: 12px;
+*/
 .btnOpenPhase {
     float: left;
     font-size: 12px;
@@ -303,10 +316,11 @@
     margin-right: auto;
 }
 .pulsantiUnita {
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
+        float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
 .btnAllUnitsPhase {
     float: left;
