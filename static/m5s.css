@@ -5,33 +5,51 @@
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 2px 4px #CCCCCC;
-    height: 450px;
     text-align: center;
     width: 100%;
+    padding-bottom: 4em;
 }
 .welcomeText {
     color: black;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 18px;
-    line-height: normal;
-    margin-top: 10px;
+    font-size:large;
+    margin: 5px;
+    text-align: center;
 }
 .sceltaText {
     color: black;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 32px;
-    line-height: 40px;
-    margin-top: 10px;
+    font-size: xx-large;
+    margin: 5px;
+    text-align: center;
+    
+    
 }
 .pulsantiMenuHomepageDiv {
     background-color: transparent;
     height: 160px;
     width: 100%;
 }
-.menuButton {
-    float: left;
-    height: 130px;
+ 
+
+.menuButton
+{
+	display: inline-block;
+    margin-top: 3em;
+    text-align: center;
+    width: 20em;
+   
 }
+
+.filterButton
+{
+	display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    white-space: nowrap;
+    width: auto;
+}
+
 .testoPulsantiMenuHomepage {
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     width: 50px;
@@ -87,12 +105,12 @@
     margin-right: auto;
     position: relative;
     width: 100%;
+    
 }
 .containerPulsantiFiltri {
-    background-color: transparent;
-    display: none;
-    height: 170px;
-    width: 100%;
+     background-color: transparent;
+     display: none;
+     height: 26em;
 }
 .pulsanteFiltri {
     height: 50px;
@@ -108,6 +126,10 @@
 }
 .pulsantiFase {
     float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
 .testoPulsanteFiltri {
     font-size: 14px;
@@ -115,104 +137,28 @@
     position: relative;
     top: 11px;
 }
-.btnAllPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 11px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnOpenPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnNewPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnDiscussionPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnFrozenPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnVotationPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnCommissionPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnClosedPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
-.btnCanceledPhase {
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-}
+ 
+
+/*
+height: 40px; vertical-align: middle; margin: auto; display: inline-block; width: 90px; font-size: 1.3em; padding-top: 12px;
+*/
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 .lineDiv {
     border: thin solid black;
+    float: left;
     height: 0;
     margin-left: 90px;
-    margin-top: 0;
+    margin-top: 15px;
     opacity: 0.24;
     position: relative;
-    top: 100px;
+   
     width: 80%;
 }
 .pulsantiCategoria {
@@ -288,9 +234,10 @@
 }
 .pulsantiUnita {
     float: left;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
 .btnAllUnitsPhase {
     float: left;
@@ -404,6 +351,7 @@
 .parlamentoDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
+    display: inline-block;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -425,6 +373,7 @@
     background-color: #F2F19A;
     border-radius: 8px 8px 8px 8px;
     float: left;
+    display:inline-block;
     height: auto;
     padding: 20px;
     width: 44%;
@@ -441,6 +390,7 @@
     background-color: #EBE2AA;
     border-radius: 8px 8px 8px 8px;
     float: right;
+        display:inline-block;
     height: auto;
     padding: 20px;
     position: relative;

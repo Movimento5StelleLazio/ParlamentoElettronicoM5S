@@ -46,58 +46,48 @@ ui.container{
                       
                               attr={id="pulsantiFase" ,class="pulsantiFase"},
                               content= function()
-                               ui.tag{
-                                         tag = "span",
+                              ui.tag{
+                                         tag = "p",
                                          attr={class="phaseText", readonly="true"},
                                          content        = _"Filter Phase",  
-                                          multiline=true
+                                         multiline=true
                                       }
                               
                               if level==2 then   
                               
-                              --pulsante 1
-                                ui.link{
-                                    module = module,
-                                    view = routing_page,
-                                    attr = {
-                                            id="btnAllPhase",
-                                            class = "btnAllPhase  button orange " ,
-                                            style="width: 90px; height:40px;",
-                                            onclick="document.getElementById('btnAllPhase').setAttribute('class','btnAllPhase button green');"
-                                             },
-                                    params  = { issue_state ="All",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =_"All phases"  
-                                                   
-                                                }  
-                                        end
-                                  }
-                             
+                                
+                                  --pulsante 1
+                                    ui.link{
+                                        module = module,
+                                        view = routing_page,
+                                        attr = {
+                                                id="btnAllPhase",
+                                                class = "button orange filterButton" ,
+                                                onclick="document.getElementById('btnAllPhase').setAttribute('class','filterButton button green');"
+                                                 },
+                                        params  = { issue_state ="All",filter_state=true },
+                                        content        =_"All phases"  
+                                      }
+                                      
+                                    
+                               
                               --pulsante 2
                                    ui.link{
                                     module = module,
                                     view = routing_page,
                                     attr = {
                                             id="btnOpenPhase",
-                                            class = "btnOpenPhase button orange ",
-                                            style="width: 70px; height:40px;",
-                                            onclick="document.getElementById('btnOpenPhase').setAttribute('class','btnOpenPhase button green');"
+                                            class = "button orange filterButton",
+                                            
+                                            onclick="document.getElementById('btnOpenPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Open", filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =_"Open phase" 
-                                                   
-                                              }  
-                                        end
+                                    content        =  _"Open phase" 
                                          
                                     }
+                                   
                                
+                                                           
                               --pulsante 3
                               
                                 ui.link{
@@ -105,105 +95,79 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnNewPhase",
-                                            class = "btnNewPhase button orange ",
-                                            style="width: 70px; height:40px;",
-                                            onclick="document.getElementById('btnNewPhase').setAttribute('class','btnNewPhase button green');"
+                                            class = " button orange filterButton",
+                                           
+                                            onclick="document.getElementById('btnNewPhase').setAttribute('class','filterButton button green');"
                                              },
                                     params  = { issue_state ="New", filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        = _"New phase" 
-                                                   
-                                                }  
-                                        end
+                                    content        = _"New phase" 
                                         
                                     
                                     }
+                                    
+                                    
                                end
                                 
                                 
                                if level==2 or (level==5 and category==2) then
                                 
+                                
+                                                         
                                 --pulsante 4
                                   ui.link{
                                     module = module,
                                     view = routing_page,
                                     attr = {
                                             id="btnDiscussionPhase",
-                                            class = "btnDiscussionPhase button orange ",
-                                            style="width: 80px; height:40px;",
-                                            onclick="document.getElementById('btnDiscussionPhase').setAttribute('class','btnDiscussionPhase button green');"
+                                            class = " button orange filterButton",
+                                           
+                                            onclick="document.getElementById('btnDiscussionPhase').setAttribute('class','filterButton button green');"
                                              },
                                     params  = { issue_state ="Discussion",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Discussion phase"
-                                                   
-                                                }  
-                                        end
+                                    content        =  _"Discussion phase"
                                         
                                     
                                     }
+                                    
                                
                                   --pulsante 5
                                   
-                                  
+                                                                     
                                     ui.link{
                                     module = module,
                                     view = routing_page,
                                     attr = {
                                             id="btnFrozenPhase", 
-                                            class = "btnFrozenPhase button orange ", 
-                                            style="width: 70px; height:40px;",
-                                            onclick="document.getElementById('btnFrozenPhase').setAttribute('class','btnFrozenPhase button green');"
+                                            class = " button orange filterButton", 
+                                            
+                                            onclick="document.getElementById('btnFrozenPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Frozen",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Frozen phase" 
-                                                   
-                                                }  
-                                        end
-                                        
-                                    
+                                     content        =  _"Frozen phase" 
                                     }
-                                
+                                    
                                
                                   --pulsante 6
-                                
+                                                                
                                 
                                    ui.link{
                                     module = module,
                                     view = routing_page,
                                     attr = {
                                             id="btnVotationPhase", 
-                                            class = "btnVotationPhase button orange ", 
-                                            style="width: 80px; height:40px;",
-                                            onclick="document.getElementById('btnVotationPhase').setAttribute('class','btnVotationPhase button green');"
+                                            class = "button orange filterButton", 
+                                            
+                                            onclick="document.getElementById('btnVotationPhase').setAttribute('class','filterButton button green');"
                                             },
                                     params  = { issue_state ="Votation",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        = _"Voting phase" 
-                                                   
-                                                }  
-                                        end
-                                        
+                                   content        = _"Voting phase" 
                                     
                                     }
                                 
+                               
                                 
                                 
-                                
-                                
+                                                             
                                  --pulsante 7
                                 
                                   ui.link{
@@ -211,48 +175,33 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnCommissionPhase",
-                                            class = "btnCommissionPhase button orange ", 
-                                            style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnCommissionPhase').setAttribute('class','btnCommissionPhase button green');"
+                                            class = "button orange filterButton", 
+                                         
+                                            onclick="document.getElementById('btnCommissionPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Commission",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Commission phase"
-                                                   
-                                                }  
-                                        end
+                                    content        =  _"Commission phase"
                                         
                                     
                                     }
                                    
-                                
+                                  
                                 end 
                                 
                                 if level==2 then
                                 --pulsante 8
-                                
+                               
                                   ui.link{
                                     module = module,
                                     view = routing_page,
                                     attr = {
                                             id="btnClosedPhase",
-                                            class = "btnClosedPhase button orange ", 
-                                           style="width: 60px; height:40px;",
-                                            onclick="document.getElementById('btnClosedPhase').setAttribute('class','btnClosedPhase button green');"
+                                            class = "button orange filterButton", 
+                                           
+                                            onclick="document.getElementById('btnClosedPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Closed",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Closed phase"
-                                                   
-                                                }  
-                                        end
-                                        
+                                      content        =  _"Closed phase"
                                     
                                     }
                                    
@@ -263,35 +212,28 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnCanceledPhase",
-                                            class = "btnCanceledPhase button orange",
-                                            style="width: 70px; height:40px;",
-                                            onclick="document.getElementById('btnCanceledPhase').setAttribute('class','btnCanceledPhase button green');"
+                                            class = "button orange filterButton",
+                                            
+                                            onclick="document.getElementById('btnCanceledPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Canceled",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Canceled phase"
-                                                   
-                                                }  
-                                        end
+                                   content        =  _"Canceled phase"
                                     
                                     
                                     }-- fine pulsante 9
-                                    
+                                   
                                     
                                     end
-                                    
+                                      
+                               ui.container{
+                                    attr={id="lineDiv" ,class="lineDiv"},
+                                    content=""
+                                  }  
                                    
                               end 
                       } -- fine pulsanti Fase
               
-                      
-                      ui.container{
-                                    attr={id="lineDiv" ,class="lineDiv"},
-                                    content=""
-                                  }
+                  
                       
                       end 
                       
@@ -304,7 +246,7 @@ ui.container{
                               content= function()
                                
                                          ui.tag{
-                                                   tag = "span",
+                                                   tag = "p",
                                                    attr={class="categoryText", readonly="true"},
                                                    content        = _"Filter Category",  
                                                    multiline=true
@@ -326,20 +268,12 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnInterestedPhase",
-                                            class = "btnInterestedPhase button orange",
-                                           style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnInterestedPhase').setAttribute('class','btnInterestedPhase button green');"
+                                            class = "button orange filterButton",
+                                           
+                                            onclick="document.getElementById('btnInterestedPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Interested",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Interested"
-                                                   
-                                                }  
-                                        end
-                                    
+                                    content        =  _"Interested"
                                     
                                     }
                                     
@@ -351,19 +285,12 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnInitiatedPhase",
-                                            class = "btnInitiatedPhase button orange",
-                                           style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnInitiatedPhase').setAttribute('class','btnInitiatedPhase button green');"
+                                            class = "button orange filterButton",
+                                          
+                                            onclick="document.getElementById('btnInitiatedPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Initiated",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Initiated"
-                                                   
-                                                }  
-                                    end
+                                   content        =  _"Initiated"
                                     
                                     
                                     }
@@ -376,19 +303,12 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnSupportedPhase",
-                                            class = "btnSupportedPhase button orange",
-                                            style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnSupportedPhase').setAttribute('class','btnSupportedPhase button green');"
+                                            class = "button orange filterButton",
+                                             
+                                            onclick="document.getElementById('btnSupportedPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Supported",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Supported"
-                                                   
-                                                }  
-                                        end
+                                  content        =  _"Supported"
                                     
                                     
                                     }
@@ -401,21 +321,12 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnPotentiallyPhase",
-                                            class = "btnPotentiallyPhase button orange",
-                                            style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnPotentiallyPhase').setAttribute('class','btnPotentiallyPhase button green');"
+                                            class = " button orange filterButton",
+                                            
+                                            onclick="document.getElementById('btnPotentiallyPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Potentially",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={ class="testoPulsanteFiltri testoPotenzialmenteSostenuto", style="line",readonly="true"},
-                                                   content        =  _"Potentially supported"
-                                                   
-                                                }  
-                                        end
-                                    
-                                    
+                                    content        =  _"Potentially supported"
                                     }
                               
                                  --pulsante 5
@@ -425,19 +336,12 @@ ui.container{
                                     view = routing_page,
                                     attr = {
                                             id="btnVotedPhase",
-                                            class = "btnVotedPhase button orange",
-                                            style="width: 100px; height:40px;",
-                                            onclick="document.getElementById('btnVotedPhase').setAttribute('class','btnVotedPhase button green');"
+                                            class = " button orange filterButton",
+                                            
+                                            onclick="document.getElementById('btnVotedPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Voted",filter_state=true },
-                                    content=function()
-                                        ui.tag{
-                                                   tag = "span",
-                                                   attr={class="testoPulsanteFiltri", readonly="true"},
-                                                   content        =  _"Voted"
-                                                   
-                                                }  
-                                        end
+                                     content        =  _"Voted"
                                         
                                     
                                     }
@@ -445,17 +349,17 @@ ui.container{
                               
                               end
                               }
-                              
+                               --linea di separazione
+                             ui.container{
+                                    attr={id="lineDiv2" ,class="lineDiv" },
+                                    content=""
+                                  }
                               
                               end
                       }   --fine pulsanti categoria     
                
                 
-                 --linea di separazione
-                      ui.container{
-                                    attr={id="lineDiv2" ,class="lineDiv",style="margin-top:125px;"},
-                                    content=""
-                                  }
+                
                 
                     end
                     
@@ -468,7 +372,7 @@ ui.container{
                               content= function()
                               
                                ui.tag{
-                                                   tag = "span",
+                                                   tag = "p",
                                                    attr={class="unitText", readonly="true"},
                                                    content        = _"Filter Unit",  
                                                    multiline=true
@@ -487,19 +391,12 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnAllUnitsPhase",
-                                                class = "btnAllUnitsPhase button orange",
-                                               style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnAllUnitsPhase').setAttribute('class','btnAllUnitsPhase button green');"
+                                                class = "button orange filterButton",
+                                               
+                                                onclick="document.getElementById('btnAllUnitsPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="AllUnits",filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoPulsanteAllUnits", readonly="true"},
-                                                       content        =  _"All units"
-                                                       
-                                                    }  
-                                            end
+                                        content        =  _"All units"
                                         } --pulsante 1
                                         
                                         
@@ -510,19 +407,12 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnMyUnitsPhase",
-                                                class = "btnMyUnitsPhase button orange",
-                                                style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnMyUnitsPhase').setAttribute('class','btnMyUnitsPhase button green');"
+                                                class = " button orange filterButton",
+                                                
+                                                onclick="document.getElementById('btnMyUnitsPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="MyUnits", filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoMyUnits", readonly="true"},
-                                                       content        =  _"My units"
-                                                       
-                                                    }  
-                                            end
+                                      content        =  _"My units"
                                         } --pulsante 2
                                           
                 
@@ -534,19 +424,12 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnPublicCitiziensUnitsPhase",
-                                                class = "btnPublicCitiziensUnitsPhase button orange",
-                                                 style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnPublicCitiziensUnitsPhase').setAttribute('class','btnPublicCitiziensUnitsPhase button green');"
+                                                class = "button orange filterButton",
+                                               
+                                                onclick="document.getElementById('btnPublicCitiziensUnitsPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="PublicCitiziensUnits", filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoPublicCitiziensUnits", readonly="true"},
-                                                       content        =  _"Public Citiziens units"
-                                                       
-                                                    }  
-                                            end
+                                       content        =  _"Public Citiziens units"
                                         } --pulsante 3
                                           
                 
@@ -558,20 +441,13 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnPublicElectedUnitsPhase",
-                                                class = "btnPublicElectedUnitsPhase button orange",
-                                                style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnPublicElectedUnitsPhase').setAttribute('class','btnPublicElectedUnitsPhase button green');"
+                                                class = "button orange filterButton",
+                                                
+                                                onclick="document.getElementById('btnPublicElectedUnitsPhase').setAttribute('class','filterButton button green');"
                                                
                                               },
                                       params  = { issue_state ="PublicElectedUnits", filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoPublicElectedUnits", readonly="true"},
-                                                       content        =  _"Public Elected units"
-                                                       
-                                                    }  
-                                            end
+                                       content        =  _"Public Elected units"
                                         } --pulsante 4
                                           
                 
@@ -581,19 +457,12 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnPublicOtherGroupsUnitsPhase",
-                                                class = "btnPublicOtherGroupsUnitsPhase button orange",
-                                              style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnPublicOtherGroupsUnitsPhase').setAttribute('class','btnPublicOtherGroupsUnitsPhase button green');"
+                                                class = "button orange filterButton",
+                                              
+                                                onclick="document.getElementById('btnPublicOtherGroupsUnitsPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="PublicOtherGroupsUnits", filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoPublicOtherGroupsUnits", readonly="true"},
-                                                       content        =  _"Public other groups units"
-                                                       
-                                                    }  
-                                            end
+                                       content        =  _"Public other groups units"
                                         } --pulsante 5
                                           
                 
@@ -606,19 +475,12 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnMyAreasPhase",
-                                                class = "btnMyAreasPhase button orange",
-                                               style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnMyAreasPhase').setAttribute('class','btnMyAreasPhase button green');"
+                                                class = "button orange filterButton",
+                                               
+                                                onclick="document.getElementById('btnMyAreasPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="MyAreas",filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoMyAreas", readonly="true"},
-                                                       content        =  _"My areas"
-                                                       
-                                                    }  
-                                            end
+                                      content        =  _"My areas"
                                         } --pulsante 6
                 
                 
@@ -629,23 +491,21 @@ ui.container{
                                       view = routing_page,
                                       attr = {
                                                 id="btnNotMyAreasPhase",
-                                                class = "btnNotMyAreasPhase button orange",
-                                               style="width: 100px; height:40px;",
-                                                onclick="document.getElementById('btnNotMyAreasPhase').setAttribute('class','btnNotMyAreasPhase button green');"
+                                                class = "button orange filterButton",
+                                              
+                                                onclick="document.getElementById('btnNotMyAreasPhase').setAttribute('class','filterButton button green');"
                                                },
                                       params  = { issue_state ="NotMyAreas",filter_state=true },
-                                      content=function()
-                                          ui.tag{
-                                                       tag = "span",
-                                                       attr={class="testoPulsanteFiltri testoNotMyAreas", readonly="true"},
-                                                       content        =  _"Not My areas"
-                                                       
-                                                    }  
-                                            end
+                                      content        =  _"Not My areas"
                                         } --pulsante 7
                  
                                  end
                                  }-- contenitore pulsanti unità
+                            
+                               ui.container{
+                                    attr={id="lineDiv" ,class="lineDiv"},
+                                    content=""
+                                  }  
                             
                      end
                      }       
@@ -653,11 +513,7 @@ ui.container{
                  end --fine end pulsanti unità
              
              
-              --linea di separazione
-                      ui.container{
-                                    attr={id="lineDiv3" ,class="lineDiv",style="margin-top:130px;"},
-                                    content=""
-                                  }
+             
              
                end -- contenitore Pulsanti Filtri
              
