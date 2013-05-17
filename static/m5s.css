@@ -1,59 +1,60 @@
 
-/* Piero Inizio */
-
-.menuDiv
-{
+.menuDiv {
     background-color: #FFFFCC;
-    border-color: yellow;
-    border-radius: 12px 12px 12px 12px;
+    border-color: orange;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     box-shadow: 2px 2px 4px #CCCCCC;
-    height: 450px;
+    text-align: center;
     width: 100%;
+    padding-bottom: 4em;
+}
+.welcomeText {
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size:large;
+    margin: 5px;
+    text-align: center;
+}
+.sceltaText {
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: xx-large;
+    margin: 5px;
     text-align: center;
     
+    
 }
-
-.welcomeText
-{
-    color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    margin-top: 10px;
-    line-height: normal;
-    font-size: 18px;
-}
-
-.sceltaText
-{
-    font-size:32px;
-    color: black;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    margin-top: 10px;
-    line-height: 40px;
-}
-
-.pulsantiMenuHomepageDiv{
-    background-color:transparent;
+.pulsantiMenuHomepageDiv {
+    background-color: transparent;
     height: 160px;
     width: 100%;
 }
+ 
+
 .menuButton
 {
-    float: left;
-    height: 130px;
-     
-}
-.testoPulsantiMenuHomepage{
-      
-       width: 50px;
-       font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    
+	display: inline-block;
+    margin-top: 3em;
+    text-align: center;
+    width: 20em;
+   
 }
 
-
-.phaseText
+.filterButton
 {
+	display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    white-space: nowrap;
+    width: auto;
+}
+
+.testoPulsantiMenuHomepage {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    width: 50px;
+}
+.phaseText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -64,10 +65,7 @@
     text-align: center;
     width: 100%;
 }
-
-.categoryText
-{
-    
+.categoryText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -77,14 +75,8 @@
     margin-top: 0;
     text-align: center;
     width: 100%;
-    
 }
-
-
-
-.unitText
-{
-    
+.unitText {
     color: black;
     float: left;
     font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -94,312 +86,243 @@
     margin-top: 0;
     text-align: center;
     width: 100%;
-    
 }
-
-
-.pulsanteFiltriDiv{
-    
+.pulsanteFiltriDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-    height: 100px;
-    width: 100%;
-    margin-left:auto;
-    margin-right:auto;
     color: white;
     font-weight: bold;
-    
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
-
-.containerFiltriDiv{
-    
+.containerFiltriDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
     float: inherit;
-    
     margin-left: auto;
     margin-right: auto;
     position: relative;
     width: 100%;
- 
+    
 }
-
-.containerPulsantiFiltri{
-
-    background-color: transparent;
-    display: none;
-    width: 100%;
-    height: 170px; 
+.containerPulsantiFiltri {
+     background-color: transparent;
+     display: none;
+     height: 26em;
 }
-
-
-
-.pulsanteFiltri
-{
+.pulsanteFiltri {
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    height:50px;
-    
 }
-
-.applicaFiltri
-{
+.applicaFiltri {
     position: relative;
     text-align: center;
     top: 12px;
     vertical-align: middle;
 }
-    
+.pulsantiFase {
+    float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
-
-.pulsantiFase{
-    
-    float:left;
-}
-
-.testoPulsanteFiltri{
-    
+.testoPulsanteFiltri {
     font-size: 14px;
     margin: -26px -25px -25px;
-    margin-top: -26px;
     position: relative;
     top: 11px;
 }
-
-
-.btnAllPhase{
-    font-size:12px;
+.btnAllPhase {
     float: left;
-    height: 20px;
-    margin-left: 11px;
-    margin-top: 7px;
     text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-.btnOpenPhase{
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
- 
-
-.btnNewPhase{
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-
-.btnDiscussionPhase{
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-
-.btnFrozenPhase{
-     font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-.btnVotationPhase{
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-.btnCommissionPhase
-{
-    
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
-}
-
-.btnClosedPhase
-{
-    font-size:12px;
-    float: left;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    width: 90px;
-    vertical-align: middle;
+    height: 40px; 
+    vertical-align: middle; 
+    margin: auto; 
+    display: inline-block; 
+    width: 90px; 
+    font-size: 1.3em; 
+    padding-top: 12px;
     
 }
 
-.btnCanceledPhase{
-    
-    font-size:12px;
+/*
+height: 40px; vertical-align: middle; margin: auto; display: inline-block; width: 90px; font-size: 1.3em; padding-top: 12px;
+*/
+.btnOpenPhase {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.lineDiv
-{
-    
+.btnNewPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnDiscussionPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnFrozenPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnVotationPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnCommissionPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnClosedPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnCanceledPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.lineDiv {
     border: thin solid black;
+    float: left;
     height: 0;
     margin-left: 90px;
-    margin-top: 0;
+    margin-top: 15px;
     opacity: 0.24;
     position: relative;
-    top: 100px;
+   
     width: 80%;
 }
-
-.pulsantiCategoria{
-    
+.pulsantiCategoria {
     float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    
 }
-
-.pulsantiCategoriaDiv{
-    
+.pulsantiCategoriaDiv {
     float: left;
     margin-left: 200px;
     margin-right: auto;
-    
 }
-.btnInterested{
-    
-    font-size:12px;
+.btnInterested {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-
-.btnInitiated{
-    
-    font-size:12px;
+.btnInitiated {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.btnSupported{
-      font-size:12px;
+.btnSupported {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-.btnPotentially
-{
-    
-    font-size:12px;
+.btnPotentially {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
-    
+    width: 90px;
 }
-
-
-.testoPotenzialmenteSostenuto{
-    
+.testoPotenzialmenteSostenuto {
     line-height: 12px;
     margin: 0;
     text-align: center;
 }
-.btnVoted{
-      font-size:12px;
+.btnVoted {
     float: left;
+    font-size: 12px;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
     text-align: center;
-    width: 90px;
     vertical-align: middle;
+    width: 90px;
 }
-
-.pulsantiUnitaDiv
-{
-    
+.pulsantiUnitaDiv {
     float: left;
     margin-left: 40px;
     margin-right: auto;
-    
 }
-
-
-.pulsantiUnita
-{
-
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    
-}
-
-.btnAllUnitsPhase
-{
+.pulsantiUnita {
+        float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
     text-align: center;
+    width: 100%;
+}
+.btnAllUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -408,20 +331,12 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoPulsanteAllUnits
-{
-    
-    vertical-align: middle;
+.testoPulsanteAllUnits {
     top: 10px;
+    vertical-align: middle;
 }
-
-
-.btnMyUnitsPhase
-{
-    text-align: center;
+.btnMyUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -430,35 +345,14 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-
 .testoMyUnits {
     line-height: 12px;
     margin: 0;
     text-align: center;
     top: 6px;
 }
-
-.btnMyAreasPhase
-{
-    text-align: center;
-    float: left;
-    font-size: 12px;
-    height: 20px;
-    margin-left: 27px;
-    margin-top: 7px;
-    text-align: center;
-    vertical-align: middle;
-    width: 90px;
-    
-}
-
-
-.btnPublicCitiziensUnitsPhase
-{
-    text-align: center;
+.btnMyAreasPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -468,22 +362,7 @@
     vertical-align: middle;
     width: 90px;
 }
-
-.testoPublicCitiziensUnits
-{
-     
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px;
-     
-    
-}
-
-.btnPublicElectedUnitsPhase
-{
-    text-align: center;
+.btnPublicCitiziensUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -493,29 +372,14 @@
     vertical-align: middle;
     width: 90px;
 }
-
-.testoPublicElectedUnits
-{
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px;
-     
-}
-
-
-.testoPublicOtherGroupsUnits
-{
-     vertical-align: middle;
-     line-height: 12px;
-     margin: 0;
-     text-align: center;
-     top:0px
-}
-.btnPublicOtherGroupsUnitsPhase
-{
+.testoPublicCitiziensUnits {
+    line-height: 12px;
+    margin: 0;
     text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.btnPublicElectedUnitsPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -524,20 +388,36 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoMyAreas
-{
+.testoPublicElectedUnits {
+    line-height: 12px;
+    margin: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.testoPublicOtherGroupsUnits {
+    line-height: 12px;
+    margin: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.btnPublicOtherGroupsUnitsPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.testoMyAreas {
     top: 10px;
     vertical-align: middle;
 }
-
-
-.btnNotMyAreasPhase
-{
-    
-    text-align: center;
+.btnNotMyAreasPhase {
     float: left;
     font-size: 12px;
     height: 20px;
@@ -546,55 +426,42 @@
     text-align: center;
     vertical-align: middle;
     width: 90px;
-    
 }
-
-.testoNotMyAreas
-{
+.testoNotMyAreas {
     top: 10px;
     vertical-align: middle;
 }
-
-
-
-.parlamentoDiv
-{
+.parlamentoDiv {
     background-color: transparent;
     border-radius: 12px 12px 12px 12px;
-    height:100%;
+    display: inline-block;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     width: 100%;
-    margin-left:auto;
-    margin-right:auto;
-}   
-
-.parlamentoImg{
+}
+.parlamentoImg {
     margin-left: 100px;
     margin-top: -50px;
     position: relative;
 }
-
-
-.containerIssueDiv
-{
+.containerIssueDiv {
     background-color: white;
-    float: inherit;
-    width: 103%;
-    margin-left: -8px;
-}
-.votazioniDiv
-{
-    background-color: #f2f19a;
-    border-radius: 8px;
-    width: 44%;
     float: left;
-    padding: 20px;  
-    height:auto;
+    margin-left: -8px;
+    width: 103%;
 }
-
-.spazioDiv
-{
-    
+.votazioniDiv {
+    background-color: #F2F19A;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    display:inline-block;
+    height: auto;
+    padding: 20px;
+    width: 44%;
+}
+.spazioDiv {
     background-color: transparent;
     float: left;
     height: 100%;
@@ -602,471 +469,721 @@
     position: relative;
     width: 2.6%;
 }
-
-.proposteDiv
-{
-    background-color: #ebe2aa;
-    border-radius: 8px;
-    float: left;
-    height:auto;
+.proposteDiv {
+    background-color: #EBE2AA;
+    border-radius: 8px 8px 8px 8px;
+    float: right;
+        display:inline-block;
+    height: auto;
+    padding: 20px;
     position: relative;
     width: 45%;
-    padding: 20px;    
 }
-
-.headerDiv
-{
+.headerDiv {
     background-color: white;
     height: 80px;
     width: 100%;
 }
-
-.paginate{
-    
+.paginate {
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
 }
-
-.titolo
-{
-    
+.titolo {
+    float: left;
     font-size: 34px;
     left: 105px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-     
+    text-align: justify;
 }
-.issueDiv{
-    
-    width: 470px;
+.titoloWizard {
+    float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 34px;
+    left: 295px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    position: relative;
+    text-align: center;
+}
+.titoloWizardHead {
+    float: left;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 34px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: justify;
+    width: 100%;
+}
+.issueDiv {
     height: 220px;
     margin-left: auto;
     margin-right: auto;
-    
+    width: 470px;
 }
-.issue_ext{
-     
+.issue_ext {
     clear: left;
     height: 180px;
-    top: -35px;
     position: relative;
+    top: -35px;
 }
-.infoIssueDiv
-{
-    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
-    background-color: orange;
+.infoIssueDiv {
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center orange;
     border-radius: 16px 16px 16px 16px;
+    color: white;
     float: left;
     height: 80px;
     margin-left: 7px;
-    width: 50%;
     padding-left: 10px;
-    padding-top:5px;
-    color: white;
+    padding-top: 5px;
+    width: 50%;
 }
-
-.event_name{
+.event_name {
     font-weight: bold;
 }
-
-
-.pulsanteVediDettaglio
-{
-     
+.pulsanteVediDettaglio {
+    float: left;
+    height: 25px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    height: 25px;
-    float: left;
-     
 }
-
-.testoPulsanteVediDettaglio{
-    
+.testoPulsanteVediDettaglio {
     float: left;
     height: 20px;
     margin-left: 27px;
     margin-top: 7px;
-   
-    
 }
-
-
-.faseDiv
-{
-    box-shadow: 2px 2px 4px #CCCCCC;
+.faseDiv {
     background-color: white;
     border: thin solid black;
     border-radius: 8px 8px 8px 8px;
+    box-shadow: 2px 2px 4px #CCCCCC;
     color: red;
     font-weight: normal;
     height: 45px;
     left: 265px;
     margin-right: 20px;
     position: relative;
+    top: 0;
     width: 240px;
-    top: 0px;
-    
-    
 }
-.initiative_link{
-    
+.initiative_link {
     overflow: hidden;
     text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
     white-space: nowrap;
     width: 270px;
 }
-.labelFase{
+.labelFase {
     font-size: 17px;
     left: 1px;
     position: relative;
     top: 13px;
-    
 }
-
-.labelFase_admission{
+.labelFase_admission {
     color: darkred;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
- 
-.labelFase_discussion{
+.labelFase_discussion {
     color: tomato;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-
-.labelFase_verification{
+.labelFase_verification {
     color: blue;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-.labelFase_voting{
+.labelFase_voting {
     color: green;
     float: right;
     font-size: 17px;
     left: 4px;
     position: absolute;
     top: 15px;
-    
 }
-
-.spazioIssue
-{
-    width:100%;
-    height:24px;
+.spazioIssue {
+    height: 24px;
+    width: 100%;
 }
-
-.loginDiv
-{
+.loginDiv {
     background-color: #FFFFCC;
-    border-color: yellow;
-    border-radius: 12px 12px 12px 12px;
+    border-color: orange;
     border-style: solid;
     border-width: 2px;
     box-shadow: 2px 2px 4px #CCCCCC;
+    text-align: center;
     width: 100%;
-    text-align: left;
 }
-
-
-.wizardContainer
-{
-    background-color: red;
+.wizardContainer {
+    background-color: #FFFFCC;
     float: left;
     height: 100%;
+    margin-top: 2em;
     width: 100%;
-    
 }
-.mainContainerWizard
-{
-    background-color: cornsilk;
+.mainContainerWizard {
+    background-color: #FFFFCC;
     border: 1px solid black;
     border-radius: 0 0 0 0;
-    height:100%;
-    margin-left: auto;
+    float: left;
+    height: 100%;
+    margin-left: 10px;
     margin-right: auto;
+    margin-top: 20px;
+    position: relative;
     width: 98%;
 }
-
-.pulsantiWizard
-{
-     
+.pulsantiWizard {
     font-size: 13px;
     height: 100px;
     position: relative;
     text-align: -moz-center;
     width: 150px;
 }
-
-
-
-/* Piero Fine */
-
-/* Puccio Inizio */
-
+.wizardHeader {
+    float: left;
+    position: relative;
+    right: 1ex;
+    text-align: right;
+    width: 50%;
+}
+.formSelect {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+}
+.basicWizardPage {
+    background-color: #FFFFCC;
+    height: 450px;
+}
 #welcome_title_box {
-  border-top-left-radius: 40px 40px;
-  border-top-right-radius: 40px 40px;
-  border-bottom-left-radius: 40px 40px;
-  border-bottom-right-radius: 40px 40px;
-  border: 12px solid yellow;
-  background-color: white;
-  margin: 1% 5% 1% 5%;
+    background-color: white;
+    border: 12px solid orange;
+    margin: 1% 5%;
 }
-
 .welcome_text_xl {
-  margin: 5px;
-  color: black;
-  text-align: center;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: xx-large;
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: xx-large;
+    margin: 5px;
+    text-align: center;
 }
-
 .welcome_text_l {
-  margin: 5px;
-  color: black;
-  text-align: center;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-  font-size: large;
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: large;
+    margin: 5px;
+    text-align: center;
 }
-
+.welcome_text_s {
+    color: black;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: small;
+    margin: 5px;
+}
+#version_txt {
+    text-align: right;
+}
+#main_title {
+}
 #welcome_footer_container {
-  position: relative;
-  padding: 0px;
-  border: 0px;
-  height: 100px;
+    height: 7.5em;
+    text-align: center;
 }
-
-#welcome_footer_box_left {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width:100px;
-  height: 100%;
+#welcome_logo {
+    display: inline-block;
+    height: 100px;
+    margin: auto auto auto 0;
+    vertical-align: middle;
+    width: 100px;
 }
-
-#welcome_footer_box_middle {
-  position: absolute;
-  top: 0px;
-  left:100px;
-  width: 700px;
-  height: 100px;
+#welcome_register_txt {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    margin: auto;
+    vertical-align: middle;
+    width: 41%;
 }
-
-#arrow_right {
-  position: absolute;
-  right: 202px;
-  top: 0px;
+#welcome_arrow_right {
+    display: inline-block;
+    height: 50px;
+    margin: auto;
+    vertical-align: middle;
+    width: 50px;
 }
-
-#welcome_footer_box_right {
-  margin: auto;
-  position: absolute;
-  text-align: center;
-  right: 0px;
-  top: -10px;
-  width: 160px;
-  height: 80px;
+#welcome_btn_register {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    margin: auto auto auto 1em;
+    min-width: 5.2em;
+    padding: 0.6em;
+    text-align: center;
+    vertical-align: middle;
+    width: 16%;
 }
-
 #welcome_middle_box {
-  margin-top: 2ex;
-  margin-bottom: 1ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
-  background-color: #fffbce;
-  color: #000;
-  padding: 1ex;
-  height: 450px;
-  position: relative;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    margin: 2ex auto 1ex;
+    padding: 1em;
+    position: relative;
+    text-align: center;
 }
-
 #welcome_middle_box_left {
-  position: absolute;
-  bottom: 20px;
-  left: 130px;
-  text-align: center;
-  width: 254px;
-  height: 110px;
+    display: inline-block;
+    height: 200px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    width: 253px;
 }
-
 #welcome_middle_box_right {
-  position: absolute;
-  bottom: 20px;
-  text-align: center;
-  right: 130px;
-  width: 254px;
-  height: 110px;
+    display: inline-block;
+    height: 200px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    width: 253px;
 }
-
+#welcome_btn_lazio {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    height: 70px;
+    margin: auto;
+    padding-top: 30px;
+    vertical-align: middle;
+}
+#welcome_btn_internal {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    height: 90px;
+    margin: auto;
+    vertical-align: middle;
+}
 #welcome_parlamento_left {
-  position: absolute;
-  bottom: 135px;
-  left: 142px;
+    display: inline-block;
+    height: 70px;
+    margin: auto;
+    vertical-align: middle;
+    width: 121px;
 }
-
 #welcome_parlamento_right {
-  position: absolute;
-  bottom: 135px;
-  right: 142px;
+    display: inline-block;
+    height: 70px;
+    margin: auto;
+    vertical-align: middle;
+    width: 121px;
 }
-
 .unit_header_box {
-  margin-top: 2ex;
-  margin-bottom: 2ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
-  background-color: #fffbce;
-  color: #000;
-  padding: 1ex;
-  height: 175px;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    min-height: 175px;
+    margin-bottom: 2ex;
+    margin-top: 2ex;
+    padding: 1em;
 }
-
 #unit_button_back {
-  text-align: center;
-  width: 190px;
+    text-align: center;
+    width: 190px;
 }
-
+.block-text {
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
+    width: 100%;
+}
+.unit_button_box {
+    text-align: center;
+}
+#unit_img_box {
+    display: inline-block;
+    height: 165px;
+    text-align: center;
+    width: 100%;
+}
 #unit_button_left {
-  margin-left: 290px;
-  text-align: center;
-  width: 200px;
-  height: 100px;
+    display: inline-block;
+    height: 65px;
+    margin: 1em;
+    padding-top: 25px;
+    vertical-align: middle;
+    width: 200px;
 }
-
 #unit_button_right {
-  text-align: center;
-  width: 200px;
-  height: 100px;
+    display: inline-block;
+    height: 78px;
+    margin: 1em;
+    vertical-align: middle;
+    width: 200px;
 }
-
 .unit_bottom_box {
-/*
-  margin-top: 150px;
-  margin-bottom: 1ex;
-*/
-  margin-top: -1em;
-  background-color: #ebe2aa;
-  border-radius: 8px;
-  padding: 20px;
+    background-color: #EBE2AA;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: -1em;
+    padding: 1em;
+    min-width: 280px;
 }
-
 .unit_areas_box {
-  background-color: white;
-  border-radius: 8px;
-  margin-top: 190px;
-  padding: 20px;
+    background-color: white;
+    border-radius: 8px 8px 8px 8px;
+    padding: 20px;
+    vertical-align: middle;
 }
-
+#unit_btn_enter_area {
+    float: left;
+    height: 0.9em;
+    width: 5.3em;
+}
 .area_issue_box {
-  background-color: white;
-  border-radius: 8px;
-  margin-top: 190px;
-  padding: 20px;
+    background-color: white;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 60px;
+    padding: 20px;
 }
-
-#unit_parlamento_img{
-/*
-  position: absolute;
-*/
-/*  z-index: 1;
-*/
-  margin-left: auto;
-  margin-right: auto;
-  margin-left: 410px;
-  margin-bottom: -1em;
-
+#unit_parlamento_img {
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
 }
-
 #unit_title {
-  margin-top: 40px;
+    margin-top: 40px;
 }
-
 #unit_arrow_back {
-  height: 55px;
-  width: 55px;
-  float: left;
+    float: left;
+    height: 55px;
+    margin-top: 1.4em;
+    width: 55px;
 }
-
-#area_filter_button {
-  text-align: center;
-  width: 214px;
-  height: 130px;
-  padding: 0em;
+.area_filter_button {
+    display: inline-block;
+    height: 130px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 214px;
 }
-
 .button_text {
-  margin: auto;
-  font-size: 0.8em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 0.9em;
+    margin: auto;
 }
-
+.ifbtn {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.7em;
+    text-align: center;
+    vertical-align: middle;
+}
 .area_filter_header_box {
-  margin-top: 2ex;
-  margin-bottom: 2ex;
-  border-radius: 8px;
-  border: 1px solid #ffe900;
-  background-color: #fffbce;
-  color: #000;
-  padding: 1ex;
-  height: 300px;
+    background-color: #FFFBCE;
+    border: 1px solid orange;
+    color: #000000;
+    margin-bottom: 2ex;
+    margin-top: 2ex;
+    padding: 2em;
+    text-align: center;
 }
-
-#area_show_ext_button {
-  text-align: center;
-  width: 210px;
-  height: 120px;
+.area_show_ext_button {
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 210px;
 }
-
 #flt_btn_apply, #flt_btn_delete {
-  text-align: center;
-  margin: 1em auto 1em auto;
+    margin: 1em auto;
+    text-align: center;
 }
-
 .flt_btn_txt {
-  float: left;
-  width: auto;
-  font-size: 1.2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    white-space: nowrap;
+    width: auto;
 }
-
 .flt_btn_head_title {
-  margin: auto;
-  font-size: 2em;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2em;
+    margin: auto;
 }
-
 .flt_btn_box {
-  margin: 0.6em auto 0.6em auto;
-  padding: 0.4em;
-  border-bottom: 0.15em solid black;
-  float: left;
-  text-align: center;
-  width: 100%;
+    border-bottom: 0.15em solid black;
+    float: left;
+    margin: 0.6em auto;
+    padding: 0.4em;
+    text-align: center;
+    width: 100%;
 }
-
 #flt_box {
-  height: auto;
+    height: auto;
 }
-
 #area_show_bottom_box {
-  float: left;
-  width: 100%;
+    float: left;
+    width: 100%;
+}
+.initiative_count_txt {
+    background: none repeat scroll 0 0 #F8F9B2;
+    border: 1px solid black;
+    color: #9A1919;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.6em;
+    margin: 0.3em 0.3em 0;
+    padding: 0.1em;
+    vertical-align: middle;
+}
+.initiative_data_box {
+    font-size: 115%;
+    line-height: 130%;
+    margin-left: 168px;
+}
+.initiative_name {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.initiative_brief_description {
+    color: #9A1919;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0.2em;
+}
+.initiative_quorum_box {
+    bottom: 0;
+    float: left;
+    max-height: 16em;
+    position: absolute;
+}
+.initiative_quorum_bar {
+    background: none repeat scroll 0 0 #246FA1;
+    max-height: 15em;
+    min-height: 6em;
+    width: 4px;
+}
+.initiative_quorum_txt {
+    color: #246FA1;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1em;
+    margin: 0.2em auto 0.9em 0;
+}
+.issue_state_info_box {
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    border-radius: 16px 16px 0 0;
+    color: white;
+    height: 4em;
+    margin-top: 6.3em;
+    padding: 5px;
+    display: inline-block;
+    max-width: 27em;
+    width: 97%;
+}
+.issue_state_txt {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.4em;
+    margin: 0 0.2em 0 0.4em;
+}
+.issue_state_time {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.2em;
+}
+.issue_info_img {
+    display: inline-block;
+    height: 1.4em;
+    margin: 0;
+    width: 1.4em;
+}
+.issue_box {
+  margin-bottom: 2em;
+}
+.issue_see_det {
+  font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+  font-size: 2em;
+  padding: 0.4em;
+  text-align: center;
+  display: inline-block;
+}
+.issue_ext2 {
+  box-shadow: #ccc 3px 3px 5px;
+  -webkit-box-shadow: #ccc 3px 3px 5px;
+  overflow: hidden;
+  border: 1px solid #777;
+  margin-bottom: 0.4em;
 }
 
+.issue_ext2 .content {
+  padding: 5px 10px 5px 10px;
+  line-height: 120%;
+}
 
-/* Puccio Fine */
+.issue_ext2 .title {
+  font-weight: bold;
+  font-size: 115%;
+}
+
+.issue_ext2 .unit_link {
+  margin: 0;
+}
+
+.issue_ext2 .area_link {
+  margin: 0 8px 0 8px;
+}
+
+.phases_box {
+    display: inline-block;
+    margin-bottom: -1.9em;
+    height: 162px;
+    width: 522px;
+}
+
+@media screen and (max-width: 1024px) {
+  .phases_box {
+    display: none;
+  }
+}
+
+.admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
+    clear: both;
+    position: absolute;
+    z-index: 11;
+}
+.phases_bar {
+    height: 162px;
+    position: absolute;
+    width: 522px;
+    z-index: 9;
+}
+.phase_arrow {
+    height: 70px;
+    margin-left: 31px;
+    margin-top: 29px;
+    position: absolute;
+    width: 70px;
+    z-index: 10;
+}
+.admission {
+    height: 60px;
+    margin-left: 37px;
+    margin-top: 55px;
+    width: 60px;
+}
+.discussion {
+    height: 65px;
+    margin-left: 102px;
+    margin-top: 58px;
+    width: 65px;
+}
+.verification {
+    height: 33px;
+    margin-left: 181px;
+    margin-top: 72px;
+    width: 33px;
+}
+.voting {
+    height: 48px;
+    margin-left: 237px;
+    margin-top: 64px;
+    width: 48px;
+}
+.committee {
+    height: 48px;
+    margin-left: 309px;
+    margin-top: 64px;
+    width: 48px;
+}
+.committee_voting {
+    margin-left: 380px;
+    margin-top: 64px;
+}
+.finished {
+    margin-left: 452px;
+    margin-top: 66px;
+}
+.login input[type="submit"] {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
+}
+.usr_psw_box {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+    width: 55%;
+}
+.issue_title {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0.4em 0 0.2em;
+}
+.issue_brief_description {
+  padding: 0.4em;
+  margin:0;
+}
+.issue_vote_box {
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    display: inline-block;
+    vertical-align: middle;
+}
+.issue_vote_txt {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2.2em;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.thumb {
+    display: inline-block;
+    height: 2.7em;
+    vertical-align: middle;
+    width: 2.7em;
+}
+.issue_thumb_cont_up {
+    border: 4px solid green;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.issue_thumb_cont_down {
+    border: 4px solid red;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.initiative_list_ext {
+    border: 1px solid black;
+    margin: 0.4em;
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
