@@ -29,7 +29,7 @@ end
             ui.tag
             {
             tag="div",
-                attr={id="pulsanti" , style="position: relative; float: left; text-align: center; left: 20em;top: 40px;"},
+                attr={id="pulsanti" , style="position: relative; float: left; text-align: center; top: 40px; left: 9em;"},
                 content=function()
                 
                --pulsante anteprima
