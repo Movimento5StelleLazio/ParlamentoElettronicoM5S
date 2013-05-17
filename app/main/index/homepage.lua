@@ -42,7 +42,7 @@ execute.view{
 
        ----------spazio div         
  ui.container{
-                  attr={class="spazioIssue", style="height:170px;width:100%;"},
+                  attr={class="spazioIssue", style="height:100px;width:100%;"},
                   content=function()
                   end
             } 
@@ -178,8 +178,9 @@ if filter_state then
            .."document.getElementById('containerPulsantiFiltri').style.display='block';"
  }
   ui.script{
-         script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
-            
+        -- script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
+        script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','filterButton button green');"
+             
  }
  
 end
