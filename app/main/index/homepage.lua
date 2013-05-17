@@ -113,17 +113,7 @@ ui.container{
                 }
                     
                   
-----------spazio tra i div Votazioni e Proposte
-                ui.container{
-            
-                     attr={id="spazioDiv", class="spazioDiv"},
-                     
-                     content=function()
-                     
-                    end
-                    }
-                     
-                     
+                   
                      
 ---------Le Tue Proposte
              ui.container{
