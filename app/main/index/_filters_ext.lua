@@ -55,6 +55,7 @@ ui.container{
                               
                               if level==2 then   
                               
+ 
                                 
                                   --pulsante 1
                                     ui.link{
@@ -71,6 +72,7 @@ ui.container{
                                       
                                     
                                
+ 
                               --pulsante 2
                                    ui.link{
                                     module = module,
@@ -82,12 +84,9 @@ ui.container{
                                             onclick="document.getElementById('btnOpenPhase').setAttribute('class','filterButton button green');"
                                            },
                                     params  = { issue_state ="Open", filter_state=true },
-                                    content        =  _"Open phase" 
-                                         
-                                    }
-                                   
-                               
-                                                           
+                                   content        =_"Open phase" 
+                                   }
+ 
                               --pulsante 3
                               
                                 ui.link{
@@ -105,14 +104,14 @@ ui.container{
                                     
                                     }
                                     
-                                    
+                                   
                                end
                                 
                                 
                                if level==2 or (level==5 and category==2) then
                                 
                                 
-                                                         
+ 
                                 --pulsante 4
                                   ui.link{
                                     module = module,
@@ -132,7 +131,7 @@ ui.container{
                                
                                   --pulsante 5
                                   
-                                                                     
+ 
                                     ui.link{
                                     module = module,
                                     view = routing_page,
@@ -145,11 +144,9 @@ ui.container{
                                     params  = { issue_state ="Frozen",filter_state=true },
                                      content        =  _"Frozen phase" 
                                     }
-                                    
-                               
+                             
                                   --pulsante 6
-                                                                
-                                
+ 
                                    ui.link{
                                     module = module,
                                     view = routing_page,
@@ -163,11 +160,7 @@ ui.container{
                                    content        = _"Voting phase" 
                                     
                                     }
-                                
-                               
-                                
-                                
-                                                             
+ 
                                  --pulsante 7
                                 
                                   ui.link{
@@ -184,13 +177,12 @@ ui.container{
                                         
                                     
                                     }
-                                   
                                   
                                 end 
                                 
                                 if level==2 then
                                 --pulsante 8
-                               
+ 
                                   ui.link{
                                     module = module,
                                     view = routing_page,
@@ -204,9 +196,9 @@ ui.container{
                                       content        =  _"Closed phase"
                                     
                                     }
-                                   
+                                 
                                   --pulsante 9
-                                  
+                                 
                                    ui.link{
                                     module = module,
                                     view = routing_page,
@@ -221,9 +213,8 @@ ui.container{
                                     
                                     
                                     }-- fine pulsante 9
-                                   
-                                    
-                                    end
+ 
+                              end
                                       
                                ui.container{
                                     attr={id="lineDiv" ,class="lineDiv"},

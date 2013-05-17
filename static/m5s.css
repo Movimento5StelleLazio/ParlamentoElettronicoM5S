@@ -137,19 +137,102 @@
     position: relative;
     top: 11px;
 }
- 
+.btnAllPhase {
+    float: left;
+    text-align: center;
+    height: 40px; 
+    vertical-align: middle; 
+    margin: auto; 
+    display: inline-block; 
+    width: 90px; 
+    font-size: 1.3em; 
+    padding-top: 12px;
+    
+}
 
 /*
 height: 40px; vertical-align: middle; margin: auto; display: inline-block; width: 90px; font-size: 1.3em; padding-top: 12px;
 */
- 
- 
- 
- 
- 
- 
- 
- 
+.btnOpenPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnNewPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnDiscussionPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnFrozenPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnVotationPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnCommissionPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnClosedPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.btnCanceledPhase {
+    float: left;
+    font-size: 12px;
+    height: 20px;
+    margin-left: 27px;
+    margin-top: 7px;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
 .lineDiv {
     border: thin solid black;
     float: left;
@@ -233,7 +316,7 @@ height: 40px; vertical-align: middle; margin: auto; display: inline-block; width
     margin-right: auto;
 }
 .pulsantiUnita {
-    float: left;
+        float: left;
     margin: 0.6em auto;
     padding: 0.4em;
     text-align: center;
