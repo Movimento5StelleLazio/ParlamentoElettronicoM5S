@@ -1,4 +1,5 @@
 slot.set_layout("m5s_bs")
+
 slot.put( "<br/>")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()

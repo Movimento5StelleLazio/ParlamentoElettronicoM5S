@@ -20,12 +20,13 @@ if [ "z$(id -u)" != "z0" ];then
 fi
 
 auto=no
-copyonly=no
+fast=no
 while [ $# -gt 0 ]
 do
     case "$1" in
     (-a) auto=yes;;
     (-h) echo "Usage: $0 [-a] [-h]"; echo "  -a    :Non interactive installation"; echo "  -h    :Print this help message"; exit 0;;
+    (-f) fast=yes;;
     (-*) echo "Unrecognized option $1" 1>&2; exit 1;;
     (*)  break;;
     esac
@@ -33,6 +34,12 @@ do
 done
 
 export LANG=en_US.UTF-8
+
+if [ "z${fast}" == "zyes" ]; then
+   cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,utils} ${FRONTENDDST}/
+   echo "Fast copy done"
+   exit 0
+fi
 
 if [ "z${auto}" == "zno" ];then
 	echo ""
