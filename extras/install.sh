@@ -181,4 +181,9 @@ sleep 2
 ${NOTIFYD} 
 rm nohup.out 2>/dev/null
 
+echo "Cleaining..."
+cd ${WEBMCPSRC}
+make clean 1>/dev/null
+cd -
+
 echo "Installation complete..."
