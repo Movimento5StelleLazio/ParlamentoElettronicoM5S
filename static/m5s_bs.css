@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -3em;
+}
+
+.footer, .push {
+  height: 3em;
+}
+
+.btn {
+  -webkit-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+     -moz-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+          box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+}
+
+#m5s_logo{
+  height: 70px;
+  width: 70px;
+  max-width:  70px;
+}
