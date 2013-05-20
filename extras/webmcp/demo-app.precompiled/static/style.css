@@ -1,0 +1,383 @@
+/*
+ * ********** body ***********
+ */
+
+body {
+	background-color: #ddd;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 10pt;
+}
+
+body, td, th, input, select {
+	font-size: 10pt;
+}
+
+div {
+	padding: 0px;
+	margin: 0px;
+}
+
+/*
+ * ********** Logo ***********
+ */
+
+.layout_logo {
+	background: #fff;
+	border: 1px solid #444;
+	border-left: none;
+	border-top: none;
+	color: #444;
+	float: left;
+	height: 2.29em;
+	margin-bottom: 2ex;
+	padding-bottom: 0.3ex;
+	padding-left: 0.3ex;
+	padding-top: 0.3ex;
+}
+
+.logo {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.logo img {
+	height: 2.29em;
+	margin-bottom: -0.7em;
+}
+
+/*
+ * ********** Top navigation ***********
+ */
+
+.layout_topnav {
+	float: left;
+	margin-bottom: 2em;
+	margin-left: 2ex;
+}
+
+.slot_topnav .nav {
+	background: #fff;
+	border: 1px solid #444;
+	border-top: none;
+	color: #000;
+	display: block;
+	float: left;
+	font-weight: bold;
+	height: 2.29em;
+	margin-right: 1ex;
+	padding-bottom: 0.3ex;
+	padding-left: 0.3ex;
+	padding-right: 1ex;
+	padding-top: 0.3ex;
+	text-decoration: none;
+}
+
+
+
+.vertical .lang_chooser {
+  margin-left: 25ex;
+  margin-bottom: 1ex;
+}
+
+.vertical .lang_chooser div {
+  margin-right: 1ex;
+}
+
+.lang_chooser div {
+  float: left;
+  text-align: center;
+}
+
+.lang_chooser a {
+  color: #000;
+  font-size: 75%;
+}
+
+.lang_chooser img {
+  display: block;
+}
+
+.lang_chooser img {
+  border: 1px solid white;
+}
+
+.lang_chooser a:hover img {
+  border: 1px solid #444;
+}
+
+.lang_chooser a:hover {
+  background: #444;
+  color: #fff;
+}
+
+
+.slot_topnav a:hover {
+  background: #444;
+  color: #fff;
+}
+
+/*
+ * ********** Content ***********
+ */
+
+.layout_content {
+	margin-left: 2ex;
+	margin-right: 2ex;
+}
+
+
+/*
+ * ********** Messages ***********
+ */
+
+.layout_notice, .layout_error, .layout_warning {
+	background:	#fff;
+	font-weight: bold;
+	right: 2ex;
+	line-height: 1.7em;
+	position: absolute;
+	top: 2ex;
+	width: 60ex;
+	-moz-opacity:0.7;
+}
+
+.slot_notice, .slot_warning, .slot_error {
+	padding: 2ex;
+}
+
+.slot_notice {
+	color: green;
+	border: 2px solid green;
+}
+
+.slot_warning {
+	color: orange;
+	border: 2px solid orange;
+}
+
+.slot_error {
+	color: red;
+	border: 2px solid red;
+}
+
+
+
+/*
+ * ********** Title, Actions and Main ***********
+ */
+
+.layout_title {
+	background: #fff;
+	border: 1px solid #444;
+	border-bottom: none;
+	padding: 0.5ex;
+	font-size: 120%;
+	font-weight: bold;
+	float: left;
+}
+
+.layout_title .object_class {
+	float: left;
+	font-size: 0.7em;
+	font-weight: normal;
+	margin-right: 1ex;
+}
+
+.layout_actions {
+	background: #444;
+	border-left: 1px solid #444;
+	padding-top: 0.5ex;
+	padding-bottom: 0.5ex;
+}
+
+.slot_actions a {
+	color: #fff;
+	text-decoration: none;
+	padding: 0.5ex;
+}
+
+.slot_actions a:hover {
+	background: #ccc;
+	color: #444;
+}
+
+.slot_main {
+	background: #fff;
+	border: 1px solid #444;
+	border-top: none;
+	padding: 2ex;
+	padding-bottom: 0px;
+}
+
+
+
+/*
+ * ********** ui ***********
+ */
+
+
+form.ui_link {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+}
+
+.vertical {
+  margin-bottom: 1em;
+}
+
+.vertical:after, .vertical div:after {
+  clear: left;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.vertical label {
+  float: left;
+  width: 25ex;
+  padding-top: 0.7em;
+  font-size: 80%;
+  font-weight: bold;
+  color: #666;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.vertical select,
+.vertical input,
+.vertical textarea,
+.vertical span {
+  margin-left: 1em;
+  margin-bottom: 2ex;
+}
+
+.vertical textarea {
+  border: none;
+  border: 1px dotted #777;
+  padding: 0px;
+}
+
+.vertical input, 
+.vertical select {
+  border: 1px dotted #777;
+}
+
+.vertical textarea {
+  width: 80ex;
+  height: 5em;
+  font-family: sans-serif;
+  font-size: 100%;
+  padding: 0.5ex;
+}
+
+input[type=text] {
+  background: #fff;
+  padding: 0.5ex;
+}
+
+input[type=submit] {
+  margin-left: 25ex;
+  border: 1px dotted #777;
+}
+
+input[type=submit]:hover {
+  border: 1px solid #777;
+}
+
+/* ui.list */
+
+table.ui_list {
+	border-collapse: collapse;
+}
+
+ul.ui_list {
+	padding: 0px;
+	margin: 0px;
+}
+
+.ui_list li {
+	clear: left;
+	list-style-type: none;
+}
+
+.ui_list_title {
+	font-size: 110%;
+	font-weight: bold;
+	margin-bottom: 0.2em;
+}
+
+
+li.ui_list_head {
+	font-weight: bold;
+	background: #777;
+	color: #fff;
+}
+
+.ui_list li:hover,
+.ui_list tr:hover {
+	background: #ddd;
+}
+
+.ui_list li.ui_list_head:hover,
+.ui_list tr.ui_list_head:hover {
+	background: #777;
+}
+
+.ui_list a {
+	text-decoration: none;
+	color: #000;
+	border-bottom: 1px dashed #777;
+}
+
+.ui_list a:hover {
+  border-bottom: 1px solid #000;
+}
+
+.ui_list li div {
+  float: left;
+}
+
+.ui_list td {
+  vertical-align: top;
+}
+
+.ui_list li div,
+.ui_list td {
+  padding-top: 0.4ex;
+  padding-bottom: 0.4ex;
+  padding-right: 0.4em;
+}
+
+.ui_list li div div {
+  padding: 0px;
+}
+
+.ui_list li div a {
+  text-decoration: none;
+  color: #000;
+}
+
+.ui_list_col_align_right {
+  text-align: right;
+}
+
+.ui_paginate_select {
+  text-align: center;
+}
+
+.ui_paginate_select a {
+  padding-left: 1ex;
+  padding-right: 1ex;
+  background-color: #ccc;
+  color: #000;
+}
+
+.ui_paginate_select a.active,
+.ui_paginate_select a:hover {
+  background-color: #444;
+  color: #fff;
+}

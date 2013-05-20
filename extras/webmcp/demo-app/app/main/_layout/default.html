@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>WebMCP Demo Application</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="__BASEURL__/static/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="__BASEURL__/static/trace.css" />
+  </head>
+  <body>
+    <div class="layout_logo">
+      <div class="logo">
+        <img src="__BASEURL__/static/logo.png"> Demo
+      </div>
+    </div>
+    <div class="layout_topnav">
+      <div class="topnav" id="topnav">
+        <!-- WEBMCP SLOT topnav -->
+      </div>
+    </div>
+    <br style="clear: left;">
+    <div class="layout_sidenav">
+      <div class="sidenav" id="sidenav">
+        <!-- WEBMCP SLOT sidenav -->
+      </div>
+    </div>
+    <div class="layout_content">
+      <div class="layout_title">
+        <!-- WEBMCP SLOT title -->
+      </div>
+      <br style="clear: left;">
+      <div class="layout_actions">
+        <!-- WEBMCP SLOT actions -->
+      </div>
+      <div class="layout_main">
+        <!-- WEBMCP SLOT main -->
+      </div>
+      <div class="layout_trace" id="layout_trace" style="xdisplay: none">
+	    <div id="trace_show" onclick="document.getElementById('trace_content').style.display='block';this.style.display='none';">TRACE</div>
+        <div id="trace_content" style="display: none;">
+          <!-- WEBMCP SLOT trace -->
+	      <div class="trace_close" onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">
+	        close
+	      </div>
+	    </div>
+      </div>
+    </div>
+    <div class="layout_notice" id="layout_notice" onclick="document.getElementById('layout_notice').style.display='none';">
+      <!-- WEBMCP SLOT notice -->
+    </div>
+    <div class="layout_warning" id="layout_warning" onclick="document.getElementById('layout_warning').style.display='none';">
+      <!-- WEBMCP SLOT warning -->
+    </div>
+    <div class="layout_error" id="layout_error" onclick="document.getElementById('layout_error').style.display='none';">
+      <!-- WEBMCP SLOT error -->
+    </div>
+  </body>
+  <script>
+  </script>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>webmcp demo application</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="__BASEURL__/static/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="__BASEURL__/static/trace.css" />
+  </head>
+  <body class="system_error">
+    <div class="layout_content">
+      <div class="layout_title">
+        <div class="title">
+          <br />
+          <br />
+          System message
+        </div>
+      </div>
+      <br style="clear: left;">
+      <div class="layout_actions">
+        &nbsp;
+      </div>
+      <div class="layout_main">
+        <div class="main">
+          <tt><!-- WEBMCP SLOT system_error --></tt>
+          <br />
+          <br />
+          <br />
+          <br />
+          <button onclick="window.location.reload()">Retry request</button>
+          <a href="__BASEURL__">index</a>
+        </div>
+      </div>
+    </div>
+      <div class="layout_trace" id="layout_trace" style="xdisplay: none">
+	    <div id="trace_show" onclick="document.getElementById('trace_content').style.display='block';this.style.display='none';" style="display: none;">TRACE</div>
+        <div id="trace_content">
+	        <!-- WEBMCP SLOT trace -->
+	        <div class="trace_close" onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">close</div>
+	    </div>
+      </div>
+  </body>
+</html>
