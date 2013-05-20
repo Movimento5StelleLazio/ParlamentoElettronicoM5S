@@ -1,0 +1,22 @@
+# C compiler command
+CC = cc
+
+# linker command
+LD = ld
+
+# filename extension for shared libraries
+SLIB_EXT = so
+
+# C compiler flags
+# TODO: check alternatives to -D_GNU_SOURCE -fPIC
+#       using libtool?
+CFLAGS = -O2 -D_GNU_SOURCE -fPIC -Wall -I /usr/include -I /usr/local/include -I /usr/include/lua5.1
+
+# additional C compiler flags for parts which depend on PostgreSQL
+CFLAGS_PGSQL = -I /usr/include/postgresql -I /usr/include/postgresql/server -I /usr/local/include/postgresql -I /usr/local/include/postgresql/server
+
+# linker flags
+LDFLAGS = -shared -L /usr/lib -L /usr/local/lib
+
+# additional linker flags for parts which depend on PostgreSQL
+LDFLAGS_PGSQL =
