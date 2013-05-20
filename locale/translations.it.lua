@@ -68,6 +68,7 @@ return {
 ["#{policy} ##{id}"] = false;
 ["Your last login was on #{last_login_date} at #{last_login_time}"]="Il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
 ["Welcome #{realname}."]="Benvenuto #{realname}.";
+["Welcome <strong>#{realname}</strong>."]="Benvenuto <strong>#{realname}</strong>.";
 ["from "]="da ";
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
 ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
