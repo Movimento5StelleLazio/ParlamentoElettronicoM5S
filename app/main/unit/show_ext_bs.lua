@@ -1,8 +1,8 @@
+slot.set_layout("m5s_bs")
+
 local unit_id = param.get_id()
 local filter = param.get("filter")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
-
-slot.set_layout("m5s_bs")
 
 if not app.session.member_id then
   return false
@@ -42,26 +42,31 @@ if unit_name == "iscritti" then
 end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
-
   ui.container{ attr = { class  = "well span8 offset2" }, content = function()
-
-    ui.link { 
-      attr = { id = "unit_button_back", class="button orange menuButton"  }, 
-      module = "index",
-      view = return_view,
-      content = function()
-        ui.image{ attr = { id = "unit_arrow_back" }, static = "arrow_left.png" }
-        ui.tag { tag = "p", attr = { class  = "button_text"  }, content = _"BACK TO PREVIOUS PAGE" }
-      end
-    }
+    ui.container{ attr = { class  = "container-fluid" }, content = function()
+      ui.container{ attr = { class  = "row-fluid" }, content = function()
+        ui.container { attr = { class  = "span1" }, content = function()
+          ui.container { attr = { class  = "btn-group" }, content = function()
+            ui.link{
+              attr = { id = "unit_button_back", class="btn btn-primary"  },
+              module = "index",
+              view = return_view,
+              content = function()
+                ui.tag{ tag ="i" , attr = { class = "icon-arrow-left" }, content=""}
+                slot.put(_"BACK TO PREVIOUS PAGE")
+              end
+            }
+          end }
+        end }
+      end }
 
     ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
 
 
     ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _"CHOOSE THE THEMATIC AREA" }
  
+    end }
   end }
-
 end }
 
 ui.container{ attr = { id="unit_img_box"}, content=function()
