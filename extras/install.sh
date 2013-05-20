@@ -2,8 +2,10 @@
 
 FRONTENDSRC=/opt/ParlamentoElettronicoM5S
 CORESRC=/opt/ParlamentoElettronicoM5SCore
+WEBMCPSRC=/opt/ParlamentoElettronicoM5S/extras/webmcp
 FRONTENDDST=/opt/liquid_feedback_frontend
 COREDST=/opt/liquid_feedback_core
+WEBMCPDST=/opt/webmcp
 HELPDIR=${FRONTENDDST}/locale/help/
 ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
 CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
@@ -41,8 +43,10 @@ if [ "z${auto}" == "zno" ];then
 	echo "-------------------------------------------------------------------------"
 	echo -e "Frontend source: \t${FRONTENDSRC}"
 	echo -e "Core source: \t\t${CORESRC}"
+	echo -e "WebMCP source: \t${WEBMCPSRC}"
 	echo -e "Frontend destination: \t${FRONTENDDST}"
 	echo -e "Core destination: \t${COREDST}"
+	echo -e "WebMCP destination: \t${WEBMCPDST}"
 	echo -e "Rocketwiki binary: \t${ROCKETWIKICMD}"
 	echo -e "Configuration file: \t${CONFIGFILE}"
 	echo -e "lf_updated script: \t${LFUPDATED}"
@@ -93,6 +97,7 @@ if ! [ -f "${ROCKETWIKICMD}" ]; then
         exit 1
 fi
 
+rm -rf ${FRONTENDDST} 2>/dev/null
 mkdir -p ${FRONTENDDST} 
 if ! [ -d "${FRONTENDDST}" ]; then
 	echo "Unable to create directory ${COREDST}"
@@ -100,6 +105,7 @@ if ! [ -d "${FRONTENDDST}" ]; then
 	exit 1
 fi	
 
+rm -rf ${COREDST}  2>/dev/null
 mkdir -p ${COREDST} 
 if ! [ -d "${COREDST}" ]; then
 	echo "Unable to create directory ${COREDST}"
@@ -107,8 +113,18 @@ if ! [ -d "${COREDST}" ]; then
 	exit 1
 fi	
 
+rm -rf ${WEBMCPDST} 2>/dev/null
+mkdir -p ${WEBMCPDST}
+if ! [ -d "${WEBMCPDST}" ]; then
+        echo "Unable to create directory ${WEBMCPDST}"
+        echo "Installation failed!"
+        exit 1
+fi
+
 echo "Installing Frontend..."
-cp -a ${FRONTENDSRC}/* ${FRONTENDDST}
+cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+mkdir -p ${FRONTENDDST}/config/
+cp ${FRONTENDSRC}/config/init.lua ${FRONTENDDST}/config/
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp
@@ -124,6 +140,9 @@ cp -a ${CORESRC}/* ${COREDST}
 
 echo "Installing configuration file..."
 cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+
+echo "Installing WebMCP..."
+cp -a ${WEBMCPSRC}/* ${WEBMCPDST}
 
 echo "Converting help files with rocketwiki..."
 find ${FRONTENDDST}/locale/help/ -name "*.txt" | while read file; do

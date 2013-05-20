@@ -31,7 +31,7 @@ function codelatlng(lat,lng,id,str) {
     }).done(function( response ) { 
       var ele = document.getElementById(id)
       if (str && ele && response && response.results && response.results[3] && response.results[3].address_components[1]) {
-        ele.innerHTML=str+response.results[3].address_components[1].long_name+", "+response.results[3].address_components[2].long_name+".";
+        ele.innerHTML=str+"<strong>"+response.results[3].address_components[1].long_name+", "+response.results[3].address_components[2].long_name+"."+"</strong>";
       } else {
  //       alert("trace: codeLatLng(): Error retrieving response");
         ele.innerHTML="";

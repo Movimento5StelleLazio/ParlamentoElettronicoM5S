@@ -1,0 +1,6 @@
+framework/env/convert and framework/env/ui_deprecated are deprecated!
+
+They will be replaced by:
+- framework/env/format
+- framework/env/parse
+- framework/env/ui
