@@ -43,63 +43,70 @@ end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span8 offset2" }, content = function()
-    ui.container{ attr = { class  = "container-fluid" }, content = function()
-      ui.container{ attr = { class  = "row-fluid" }, content = function()
-        ui.container { attr = { class  = "span1" }, content = function()
-          ui.container { attr = { class  = "btn-group" }, content = function()
-            ui.link{
-              attr = { id = "unit_button_back", class="btn btn-primary"  },
-              module = "index",
-              view = return_view,
-              content = function()
-                ui.tag{ tag ="i" , attr = { class = "icon-arrow-left" }, content=""}
-                slot.put(_"BACK TO PREVIOUS PAGE")
-              end
-            }
-          end }
-        end }
-      end }
-
-    ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
-
-
-    ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _"CHOOSE THE THEMATIC AREA" }
- 
+    ui.container{ attr = { class  = "row-fluid" }, content = function()
+      ui.link{
+        attr = { class="span4 btn btn-primary btn-large"  },
+        module = "index",
+        view = return_view,
+        content = function()
+          ui.tag{ tag ="i" , attr = { class = "iconic white arrow-left" }, content=""}
+          slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
+        end
+      }
+      ui.tag { 
+        tag = "h4", 
+        attr = { class  = "span8 text-center"}, 
+        content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) 
+      }
+    end }
+    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
+      ui.tag { tag = "h3", attr = { class  = "span12 text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
     end }
   end }
 end }
 
-ui.container{ attr = { id="unit_img_box"}, content=function()
-  ui.image{ attr = { id = "unit_parlamento_img" }, static = "parlamento_icon_small.png" }
+ui.container{ attr = { class="row-fluid text-center"}, content=function()
+  ui.container{ attr = { class="span4 offset4 text-center"}, content=function()
+    ui.image{ attr = { id = "parlamento_img" }, static = "parlamento_icon_small.png" }
+  end }
 end }
 
-ui.container{ attr = { class="unit_bottom_box"}, content=function()
- 
-  ui.container{ attr = { class ="unit_button_box" }, content = function()
-    ui.tag { tag = "p", attr = { class  = "block-text welcome_text_xl"  }, content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" }
-    ui.link { 
-      attr = { id = "unit_button_left", class="button orange"  }, 
-      module = "unit",
-      view = "show_ext",
-      id = unit_id,
-      content = _"SHOW ALL AREAS" 
-    }
-    ui.link {
-      attr = { id = "unit_button_right", class="button orange"  },
-      module = "unit",
-      view = "show_ext",
-      id = unit_id,
-      params = { filter = "my_areas"},
-      content =  _"SHOW ONLY PARTECIPATED AREAS" 
-    }
+ui.container{ attr = { class="row-fluid"}, content=function()
+  ui.container{ attr = { class ="span12 well" }, content = function()
+    ui.container{ attr = { class ="row-fluid" }, content = function()
+      ui.tag { 
+        tag = "h3", 
+        attr = { class  = "span12 text-center"  }, 
+        content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
+      }
+    end }
+    ui.container{ attr = { class ="row-fluid" }, content = function()
+      ui.link { 
+        attr = { class="span3 offset2 btn btn-primary btn-large"  }, 
+        module = "unit",
+        view = "show_ext_bs",
+        id = unit_id,
+        content = _"SHOW ALL AREAS" 
+      }
+      ui.container{ attr = { class ="span2" }, content = ""}
+      ui.link {
+        attr = { class="span3 btn btn-primary btn-large"  },
+        module = "unit",
+        view = "show_ext_bs",
+        id = unit_id,
+        params = { filter = "my_areas"},
+        content =  _"SHOW ONLY PARTECIPATED AREAS" 
+      }
+    end }
+    ui.container{ attr = { class="row-fluid"}, content=function() 
+      ui.container{ attr = { class ="span2" }, content = ""}
+    end }
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      execute.view{  
+        module = "area",
+        view = "_list_ext_bs",
+        params = { areas_selector = areas_selector, member = app.session.member }
+      }
+    end }
   end }
-  
-  ui.container{ attr = { class="unit_areas_box"}, content=function()
-    execute.view{  
-      module = "area",
-      view = "_list_ext",
-      params = { areas_selector = areas_selector, member = app.session.member }
-    }
-  end}
-
 end}
