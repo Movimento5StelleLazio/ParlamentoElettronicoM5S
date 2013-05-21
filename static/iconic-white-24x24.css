@@ -1,0 +1,343 @@
+/**
+ * Iconic iconset by P.J. Onori (http://www.somerandomdude.com/work/iconic/)
+ *
+ * Generated with iconic-css-sprite-sheet - https://github.com/endel/iconic-css-sprite-sheet
+ * by Endel Dreyer - http://github.com/endel
+ *
+ * Color: white
+ * Size: 24x24
+ * Date: 2013-05-21
+ */
+
+.iconic.white { 
+  background: url(iconic-white-24x24.png); 
+  width: 24px; 
+  height: 24px; 
+  display: inline-block; 
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 24px;
+  vertical-align: text-top;
+  background-position: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+
+.iconic.white.volume-mute { background-position: 0px 0px; }
+
+.iconic.white.loop-alt4 { background-position: -24px 0px; }
+
+.iconic.white.aperture { background-position: -48px 0px; }
+
+.iconic.white.comment-alt3-stroke { background-position: -72px 0px; }
+
+.iconic.white.document-alt-fill { background-position: -96px 0px; }
+
+.iconic.white.umbrella { background-position: -120px 0px; }
+
+.iconic.white.cloud-download { background-position: -144px 0px; }
+
+.iconic.white.moon-fill { background-position: -168px 0px; }
+
+.iconic.white.ampersand { background-position: -192px 0px; }
+
+.iconic.white.award-stroke { background-position: -216px 0px; }
+
+.iconic.white.right-quote-alt { background-position: -240px 0px; }
+
+.iconic.white.arrow-left-alt2 { background-position: -264px 0px; }
+
+.iconic.white.move-horizontal-alt2 { background-position: -288px 0px; }
+
+.iconic.white.cursor { background-position: -312px 0px; }
+
+.iconic.white.tag-stroke { background-position: -336px 0px; }
+
+.iconic.white.document-fill { background-position: -360px 0px; }
+
+.iconic.white.volume { background-position: -384px 0px; }
+
+.iconic.white.last { background-position: -408px 0px; }
+
+.iconic.white.bolt { background-position: -432px 0px; }
+
+.iconic.white.info { background-position: -456px 0px; }
+
+.iconic.white.share { background-position: -480px 0px; }
+
+.iconic.white.image { background-position: -504px 0px; }
+
+.iconic.white.award-fill { background-position: -528px 0px; }
+
+.iconic.white.denied-alt { background-position: -552px 0px; }
+
+.iconic.white.arrow-up-alt1 { background-position: -576px 0px; }
+
+.iconic.white.left-quote-alt { background-position: -600px 0px; }
+
+.iconic.white.pause { background-position: -624px 0px; }
+
+.iconic.white.unlock-fill { background-position: -648px 0px; }
+
+.iconic.white.right-quote { background-position: -672px 0px; }
+
+.iconic.white.trash-stroke { background-position: -696px 0px; }
+
+.iconic.white.new-window { background-position: -720px 0px; }
+
+.iconic.white.pilcrow { background-position: -744px 0px; }
+
+.iconic.white.pen-alt-stroke { background-position: -768px 0px; }
+
+.iconic.white.fullscreen { background-position: -792px 0px; }
+
+.iconic.white.spin { background-position: -816px 0px; }
+
+.iconic.white.cloud-upload { background-position: -840px 0px; }
+
+.iconic.white.arrow-up { background-position: -864px 0px; }
+
+.iconic.white.map-pin-alt { background-position: -888px 0px; }
+
+.iconic.white.spin-alt { background-position: -912px 0px; }
+
+.iconic.white.arrow-up-alt2 { background-position: -936px 0px; }
+
+.iconic.white.arrow-left-alt1 { background-position: -960px 0px; }
+
+.iconic.white.cd { background-position: -984px 0px; }
+
+.iconic.white.eyedropper { background-position: -1008px 0px; }
+
+.iconic.white.folder-stroke { background-position: -1032px 0px; }
+
+.iconic.white.fork { background-position: -1056px 0px; }
+
+.iconic.white.arrow-down { background-position: -1080px 0px; }
+
+.iconic.white.home { background-position: -1104px 0px; }
+
+.iconic.white.beaker { background-position: -1128px 0px; }
+
+.iconic.white.eject { background-position: -1152px 0px; }
+
+.iconic.white.key-stroke { background-position: -1176px 0px; }
+
+.iconic.white.stop { background-position: -1200px 0px; }
+
+.iconic.white.chat-alt-stroke { background-position: -1224px 0px; }
+
+.iconic.white.loop-alt1 { background-position: -1248px 0px; }
+
+.iconic.white.arrow-left { background-position: -1272px 0px; }
+
+.iconic.white.aperture-alt { background-position: -1296px 0px; }
+
+.iconic.white.move-horizontal { background-position: -1320px 0px; }
+
+.iconic.white.magnifying-glass-alt { background-position: -1344px 0px; }
+
+.iconic.white.arrow-down-alt1 { background-position: -1368px 0px; }
+
+.iconic.white.camera { background-position: -1392px 0px; }
+
+.iconic.white.undo { background-position: -1416px 0px; }
+
+.iconic.white.comment-alt3-fill { background-position: -1440px 0px; }
+
+.iconic.white.link { background-position: -1464px 0px; }
+
+.iconic.white.play-alt { background-position: -1488px 0px; }
+
+.iconic.white.pen-alt-fill { background-position: -1512px 0px; }
+
+.iconic.white.plus-alt { background-position: -1536px 0px; }
+
+.iconic.white.first { background-position: -1560px 0px; }
+
+.iconic.white.rss-alt { background-position: -1584px 0px; }
+
+.iconic.white.plus { background-position: -1608px 0px; }
+
+.iconic.white.pin { background-position: -1632px 0px; }
+
+.iconic.white.move { background-position: -1656px 0px; }
+
+.iconic.white.moon-stroke { background-position: -1680px 0px; }
+
+.iconic.white.rss { background-position: -1704px 0px; }
+
+.iconic.white.loop { background-position: -1728px 0px; }
+
+.iconic.white.user { background-position: -1752px 0px; }
+
+.iconic.white.cog-alt { background-position: -1776px 0px; }
+
+.iconic.white.cog { background-position: -1800px 0px; }
+
+.iconic.white.sun-alt-stroke { background-position: -1824px 0px; }
+
+.iconic.white.book { background-position: -1848px 0px; }
+
+.iconic.white.hash { background-position: -1872px 0px; }
+
+.iconic.white.target { background-position: -1896px 0px; }
+
+.iconic.white.arrow-right-alt2 { background-position: -1920px 0px; }
+
+.iconic.white.brush { background-position: -1944px 0px; }
+
+.iconic.white.layers-alt { background-position: -1968px 0px; }
+
+.iconic.white.x-alt { background-position: -1992px 0px; }
+
+.iconic.white.arrow-right { background-position: -2016px 0px; }
+
+.iconic.white.sun { background-position: -2040px 0px; }
+
+.iconic.white.unlock-stroke { background-position: -2064px 0px; }
+
+.iconic.white.curved-arrow { background-position: -2088px 0px; }
+
+.iconic.white.upload { background-position: -2112px 0px; }
+
+.iconic.white.compass { background-position: -2136px 0px; }
+
+.iconic.white.article { background-position: -2160px 0px; }
+
+.iconic.white.trash-fill { background-position: -2184px 0px; }
+
+.iconic.white.movie { background-position: -2208px 0px; }
+
+.iconic.white.dial { background-position: -2232px 0px; }
+
+.iconic.white.key-fill { background-position: -2256px 0px; }
+
+.iconic.white.download { background-position: -2280px 0px; }
+
+.iconic.white.calendar-alt-fill { background-position: -2304px 0px; }
+
+.iconic.white.check-alt { background-position: -2328px 0px; }
+
+.iconic.white.lock-fill { background-position: -2352px 0px; }
+
+.iconic.white.chart { background-position: -2376px 0px; }
+
+.iconic.white.move-vertical-alt2 { background-position: -2400px 0px; }
+
+.iconic.white.arrow-down-alt2 { background-position: -2424px 0px; }
+
+.iconic.white.brush-alt { background-position: -2448px 0px; }
+
+.iconic.white.fullscreen-exit-alt { background-position: -2472px 0px; }
+
+.iconic.white.denied { background-position: -2496px 0px; }
+
+.iconic.white.comment-alt1-fill { background-position: -2520px 0px; }
+
+.iconic.white.clock { background-position: -2544px 0px; }
+
+.iconic.white.fullscreen-alt { background-position: -2568px 0px; }
+
+.iconic.white.bars-alt { background-position: -2592px 0px; }
+
+.iconic.white.book-alt2 { background-position: -2616px 0px; }
+
+.iconic.white.box { background-position: -2640px 0px; }
+
+.iconic.white.move-alt1 { background-position: -2664px 0px; }
+
+.iconic.white.tag-fill { background-position: -2688px 0px; }
+
+.iconic.white.book-alt { background-position: -2712px 0px; }
+
+.iconic.white.transfer { background-position: -2736px 0px; }
+
+.iconic.white.move-vertical-alt1 { background-position: -2760px 0px; }
+
+.iconic.white.loop-alt3 { background-position: -2784px 0px; }
+
+.iconic.white.comment-alt2-stroke { background-position: -2808px 0px; }
+
+.iconic.white.pen { background-position: -2832px 0px; }
+
+.iconic.white.map-pin-fill { background-position: -2856px 0px; }
+
+.iconic.white.move-horizontal-alt1 { background-position: -2880px 0px; }
+
+.iconic.white.star { background-position: -2904px 0px; }
+
+.iconic.white.beaker-alt { background-position: -2928px 0px; }
+
+.iconic.white.mail { background-position: -2952px 0px; }
+
+.iconic.white.at { background-position: -2976px 0px; }
+
+.iconic.white.steering-wheel { background-position: -3000px 0px; }
+
+.iconic.white.left-quote { background-position: -3024px 0px; }
+
+.iconic.white.lock-stroke { background-position: -3048px 0px; }
+
+.iconic.white.chat-alt-fill { background-position: -3072px 0px; }
+
+.iconic.white.equalizer { background-position: -3096px 0px; }
+
+.iconic.white.pen-alt2 { background-position: -3120px 0px; }
+
+.iconic.white.wrench { background-position: -3144px 0px; }
+
+.iconic.white.folder-fill { background-position: -3168px 0px; }
+
+.iconic.white.minus-alt { background-position: -3192px 0px; }
+
+.iconic.white.document-stroke { background-position: -3216px 0px; }
+
+.iconic.white.document-alt-stroke { background-position: -3240px 0px; }
+
+.iconic.white.book { background-position: -3264px 0px; }
+
+.iconic.white.mic { background-position: -3288px 0px; }
+
+.iconic.white.calendar-alt-stroke { background-position: -3312px 0px; }
+
+.iconic.white.iphone { background-position: -3336px 0px; }
+
+.iconic.white.play { background-position: -3360px 0px; }
+
+.iconic.white.question-mark { background-position: -3384px 0px; }
+
+.iconic.white.chat { background-position: -3408px 0px; }
+
+.iconic.white.move-alt2 { background-position: -3432px 0px; }
+
+.iconic.white.map-pin-stroke { background-position: -3456px 0px; }
+
+.iconic.white.fullscreen-exit { background-position: -3480px 0px; }
+
+.iconic.white.eye { background-position: -3504px 0px; }
+
+.iconic.white.magnifying-glass { background-position: -3528px 0px; }
+
+.iconic.white.move-vertical { background-position: -3552px 0px; }
+
+.iconic.white.sun-alt-fill { background-position: -3576px 0px; }
+
+.iconic.white.comment-alt1-stroke { background-position: -3600px 0px; }
+
+.iconic.white.lightbulb { background-position: -3624px 0px; }
+
+.iconic.white.comment-alt2-fill { background-position: -3648px 0px; }
+
+.iconic.white.calendar { background-position: -3672px 0px; }
+
+.iconic.white.read-more { background-position: -3696px 0px; }
+
+.iconic.white.bars { background-position: -3720px 0px; }
+
+.iconic.white.chart-alt { background-position: -3744px 0px; }
+
+.iconic.white.mail-alt { background-position: -3768px 0px; }
+
+.iconic.white.arrow-right-alt1 { background-position: -3792px 0px; }
+

@@ -1,4 +1,6 @@
+local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 slot.set_layout("m5s_bs")
+
 slot.put( "<br/>")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
@@ -50,7 +52,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "sameheight well span4 offset2 text-center" },
+      attr = {class = "well span4 offset2 text-center sameheight1" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -58,20 +60,18 @@ if app.session.member_id then
           end }
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{attr = {class = "span12" },content = function()
             ui.link{
               module="index", 
               view="homepage", 
-              attr = {class = "btn btn-primary btn-large" }, 
+              attr = {class = "span12 btn btn-primary btn-large" }, 
               content= _"REGIONE LAZIO ASSEMBLY"
             }
-          end }
         end }
       end
     }
 
     ui.container{ 
-      attr = {class = "sameheight well span4 text-center" }, 
+      attr = {class = "well span4 text-center sameheight1" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -79,21 +79,20 @@ if app.session.member_id then
           end }
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{attr = {class = "span12" },content = function()
             ui.link{ 
-              attr = {class = "btn btn-primary btn-large" }, 
+              attr = {class = "span12 btn btn-primary btn-large" }, 
               module="unit", 
               view="show_ext", 
-              id=config.gui_preset.M5S.units["iscritti"].unit_id,
+              id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
               content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"
            }
-          end }
         end }
-        ui.script{static = "js/sameheight.js"}
       end
     }
 
   end }
+  ui.script{static = "js/eqHeight.js"}
+  ui.script{script =' $(document).ready(function() { $(".row-fluid").eqHeight(".sameheight1"); });'}
 
 else
 
@@ -149,7 +148,15 @@ else
           end }
   
           ui.container{ attr = { class = "row-fluid text-center" }, content = function()
-             ui.tag{ tag="button",  attr = { type="submit", class="btn btn-primary btn-large span4 offset4" }, content=_'Login' }
+             ui.tag{ 
+               tag="button", 
+               attr = { type="submit", class="btn btn-primary btn-large span4 offset4" }, 
+               content= function()
+             --    ui.tag{ tag ="i" , attr = { class = "iconic white arrow-right" }, content=""}
+             --    slot.put("&nbsp;".._'Login')
+                 slot.put(_'Login')
+               end 
+             }
           end }
         end }
       end 
