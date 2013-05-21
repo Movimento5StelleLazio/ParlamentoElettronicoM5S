@@ -1,3 +1,5 @@
+a{ text-decoration: none !important}
+
 html, body {
   height: 100%;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,4 +26,10 @@ html, body {
   height: 70px;
   width: 70px;
   max-width:  70px;
+}
+
+#parlamento_img{
+  height: 164px;
+  width: 284px;
+  max-width:  284px;
 }
