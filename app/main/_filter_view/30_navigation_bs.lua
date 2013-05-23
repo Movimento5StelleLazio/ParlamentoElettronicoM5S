@@ -22,6 +22,7 @@ slot.select('navbar', function()
             view = "menu_ext",
             content = function()
               if app.session.member_id then
+              ui.tag{ tag ="i" , attr = { class = "iconic black user" }, content=""}
               --[[
                 execute.view{
                   module = "member_image",
@@ -34,11 +35,11 @@ slot.select('navbar', function()
                   }
                 }
               --]]
-                ui.tag{ content = app.session.member.name }
+                slot.put("&nbsp;"..app.session.member.name )
               else
-                ui.tag{ content = _"Select language" }
+                --ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}
+                slot.put("&nbsp;".. _"Select language" )
               end
-              slot.put('<span class="caret"></span>')
             end
           }
           execute.view{ module = "index", view = "_menu_ext" }
