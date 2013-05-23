@@ -4,7 +4,7 @@ local member = param.get("member", "table")
 ui.container{ attr = { class = "row-fluid" }, content = function()
   
   ui.link{  
-      module = "area", view = "filters", id = area.id,
+      module = "area", view = "filters_bs", id = area.id,
       attr = { class = "btn btn-primary btn-large span2" }, content = function()
  --       ui.tag{ tag ="i" , attr = { class = "iconic white arrow-right" }, content=""}       
  --       slot.put("&nbsp;".._"AREA "..area.id)
@@ -12,7 +12,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
       end
     }
 
-  ui.container{ attr = { class = "span10 alert alert-info" }, content = function()
+  ui.container{ attr = { class = "span10 alert alert-simple" }, content = function()
     execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
     ui.tag{ content = _"Issues:" }
     slot.put(" ")

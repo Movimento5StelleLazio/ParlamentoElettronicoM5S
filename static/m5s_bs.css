@@ -1,4 +1,7 @@
-a{ text-decoration: none !important}
+a{
+ color: #000000;
+ text-decoration: none !important
+}
 
 html, body {
   height: 100%;
@@ -20,6 +23,9 @@ html, body {
   -webkit-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
      -moz-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
           box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+  -webkit-border-radius: 14px;
+     -moz-border-radius: 14px;
+          border-radius: 14px;
 }
 
 #m5s_logo{
@@ -33,3 +39,41 @@ html, body {
   width: 284px;
   max-width:  284px;
 }
+
+.well {
+  background-color: #fffbd2;
+  border: 1px solid #ffb015;
+}
+
+.alert-simple {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #7e8789;
+}
+
+.btn-primary {
+	color: #000000;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #FFB52B;
+	*background-color: #FFB52B;
+	background-image: -moz-linear-gradient(top, #FCD283, #FFB52B);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FCD283), to(#FFB52B));
+	background-image: -webkit-linear-gradient(top, #FCD283, #FFB52B);
+	background-image: -o-linear-gradient(top, #FCD283, #FFB52B);
+	background-image: linear-gradient(to bottom, #FCD283, #FFB52B);
+	background-repeat: repeat-x;
+	border-color: #FFB52B;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCD283', endColorstr='#FFB52B', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+	color: #000000;
+	background-color: #FFB52B;
+	*background-color: #003bb3;
+}
+
