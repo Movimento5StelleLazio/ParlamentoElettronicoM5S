@@ -16,7 +16,7 @@ ui.container{ attr = { class = "area_head" }, content = function()
   execute.view{ module = "delegation", view = "_info", params = { area = area, member = member } }
 
     ui.link{
-      module = "area", view = "filters", id = area.id,
+      module = "area", view = "filters_bs", id = area.id,
       attr = { class = "label label-success" }, content = area.name 
     }
   

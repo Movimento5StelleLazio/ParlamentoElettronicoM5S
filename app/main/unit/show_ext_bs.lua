@@ -49,7 +49,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
         module = "index",
         view = return_view,
         content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic white arrow-left" }, content=""}
+          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left" }, content=""}
           slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
         end
       }
