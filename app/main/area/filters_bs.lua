@@ -40,8 +40,8 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
         view = "show_ext",
         id = area.unit_id,
         content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic white arrow-left" }, content=""}
-          slot.put(_"BACK TO PREVIOUS PAGE")
+          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left" }, content=""}
+          slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
         end
       }
       if unit_name == "cittadini" or unit_name == "iscritti" then

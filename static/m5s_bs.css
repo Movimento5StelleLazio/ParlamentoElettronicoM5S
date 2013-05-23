@@ -1,11 +1,11 @@
-a{
- color: #000000;
- text-decoration: none !important
-}
-
 html, body {
   height: 100%;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a{
+ color: #000000;
+ text-decoration: none !important
 }
 
 .wrapper {
@@ -52,28 +52,46 @@ html, body {
 }
 
 .btn-primary {
-	color: #000000;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #FFB52B;
-	*background-color: #FFB52B;
-	background-image: -moz-linear-gradient(top, #FCD283, #FFB52B);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FCD283), to(#FFB52B));
-	background-image: -webkit-linear-gradient(top, #FCD283, #FFB52B);
-	background-image: -o-linear-gradient(top, #FCD283, #FFB52B);
-	background-image: linear-gradient(to bottom, #FCD283, #FFB52B);
-	background-repeat: repeat-x;
-	border-color: #FFB52B;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCD283', endColorstr='#FFB52B', GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  color: #000000;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #FFB52B;
+  *background-color: #FFB52B;
+  background-image: -moz-linear-gradient(top, #FCD283, #FFB52B);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FCD283), to(#FFB52B));
+  background-image: -webkit-linear-gradient(top, #FCD283, #FFB52B);
+  background-image: -o-linear-gradient(top, #FCD283, #FFB52B);
+  background-image: linear-gradient(to bottom, #FCD283, #FFB52B);
+  background-repeat: repeat-x;
+  border-color: #FFB52B;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCD283', endColorstr='#FFB52B', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active,
 .btn-primary.disabled,
 .btn-primary[disabled] {
-	color: #000000;
-	background-color: #FFB52B;
-	*background-color: #003bb3;
+  color: #000000;
+  background-color: #FFB52B;
+  *background-color: #003bb3;
+}
+.btn-group.open .btn-primary.dropdown-toggle {
+  background-color: #FFB52B;
 }
 
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #FFB52B \9;
+}
+
+.micro_avatar {
+    height: 24px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.highlighted {
+    background-color: #fa7;
+    color: #000;
+}
