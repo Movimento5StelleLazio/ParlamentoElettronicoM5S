@@ -1,6 +1,6 @@
 slot.select('navbar', function()
 
-    ui.tag { tag="ul", attr={class="nav span11"}, content= function()
+    ui.tag { tag="ul", attr={class="nav"}, content= function()
       ui.tag { tag="li", content=function()
         ui.link{
           content = function()
@@ -12,7 +12,7 @@ slot.select('navbar', function()
       end }
     
     end }
-    ui.tag { tag="ul", attr={class="nav span1"}, content= function()
+    ui.tag { tag="ul", attr={class="nav pull-right"}, content= function()
 
       ui.tag{ tag="li", content = function()
         ui.container{ attr={ class="btn-group" }, content = function()

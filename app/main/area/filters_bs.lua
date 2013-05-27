@@ -37,10 +37,10 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.link {
         attr = { class="btn btn-primary btn-large span3" },
         module = "unit",
-        view = "show_ext",
+        view = "show_ext_bs",
         id = area.unit_id,
         content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left" }, content=""}
+          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
           slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
         end
       }
@@ -48,27 +48,36 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large span3" },
           module = "area",
-          view = "show_ext",
+          view = "show_ext_bs",
           params = { state = "admission"},
           id = area.id,
-          content = _"INITIATIVES LOOKING FOR SUPPORTERS"
+          content = function()
+            ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+            slot.put("&nbsp;".._"INITIATIVES LOOKING FOR SUPPORTERS")
+          end 
         }
       end
       ui.link {
         attr = { class="btn btn-primary btn-large span3" },
         module = "area",
-        view = "show_ext",
+        view = "show_ext_bs",
         params = { state = "development"},
         id = area.id,
-        content = _"INITIATIVES NOW IN DISCUSSION"
+        content = function()
+          ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+          slot.put("&nbsp;".._"INITIATIVES NOW IN DISCUSSION")
+        end 
       }
       ui.link {
         attr = { class="btn btn-primary btn-large span3" },
         module = "area",
-        view = "show_ext",
+        view = "show_ext_bs",
         params = { state = "closed"},
         id = area.id,
-        content = _"COMPLETED OR RETIRED INITIATIVES"
+        content = function()
+          ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+          slot.put("&nbsp;".._"COMPLETED OR RETIRED INITIATIVES")
+        end 
       }
      end
     }

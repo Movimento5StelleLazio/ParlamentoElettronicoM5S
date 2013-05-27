@@ -1,7 +1,6 @@
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 slot.set_layout("m5s_bs")
 
-slot.put( "<br/>")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
@@ -52,7 +51,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "well span4 offset2 text-center sameheight1" },
+      attr = {class = "well span4 offset2 text-center eq1" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -63,7 +62,7 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage", 
-              attr = {class = "span12 btn btn-primary btn-large" }, 
+              attr = {class = "span12 btn btn-primary btn-large eq2 fittext" }, 
               content= _"REGIONE LAZIO ASSEMBLY"
             }
         end }
@@ -71,7 +70,7 @@ if app.session.member_id then
     }
 
     ui.container{ 
-      attr = {class = "well span4 text-center sameheight1" }, 
+      attr = {class = "well span4 text-center eq1" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -80,7 +79,7 @@ if app.session.member_id then
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
             ui.link{ 
-              attr = {class = "span12 btn btn-primary btn-large" }, 
+              attr = {class = "span12 btn btn-primary btn-large eq2 fittext" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
@@ -91,8 +90,10 @@ if app.session.member_id then
     }
 
   end }
-  ui.script{static = "js/eqHeight.js"}
-  ui.script{script =' $(document).ready(function() { $(".row-fluid").eqHeight(".sameheight1"); });'}
+  ui.script{static = "js/jquery.equalheight.js"}
+  ui.script{script = '$(document).ready(function() { equalHeight($(".eq2")); equalHeight($(".eq1")); }); ' }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext').fitText(1.4, {minFontSize: '13px'}); " }
 
 else
 
@@ -150,10 +151,8 @@ else
           ui.container{ attr = { class = "row-fluid text-center" }, content = function()
              ui.tag{ 
                tag="button", 
-               attr = { type="submit", class="btn btn-primary btn-large span4 offset4" }, 
+               attr = { type="submit", class="btn btn-primary btn-large span4 offset4 fittext" }, 
                content= function()
-             --    ui.tag{ tag ="i" , attr = { class = "iconic white arrow-right" }, content=""}
-             --    slot.put("&nbsp;".._'Login')
                  slot.put(_'Login')
                end 
              }
@@ -165,45 +164,41 @@ else
     ui.container{ attr = { id="registration-info", class = "span6 well" }, content = function ()
         ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
           ui.tag{ attr = { class="span8 text-center"}, content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:"}
-          ui.container{ attr = { class = "span4 text-center" }, content = function ()
-            ui.link{
-              module = "index",
-              view = "register",
-              attr = {class="btn btn-primary btn-large"},
-              content= _"Guida alla registrazione"
-            }
-          end }
+          ui.link{
+            attr = {class="span4 btn btn-primary btn-large fittext"},
+            module = "index",
+            view = "register",
+            text= _"Guida alla registrazione"
+          }
         end }
     end }
 
     ui.container{ attr = { id="registration", class = "span6 well" }, content = function ()
         ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
           ui.tag{ attr = { class="span8 text-center"}, content= _"Possiedi gia' un codice di invito? Clicca qui:"}
-          ui.container{ attr = { class = "span4 text-center" }, content = function ()
-            ui.link{
-              module = "index",
-              view = "register",
-              attr = {class="btn btn-primary btn-large"},
-              content= "Registrati"
-            }
-          end }
+          ui.link{
+            attr = {class="span4 btn btn-primary btn-large fittext"},
+            module = "index",
+            view = "register",
+            text= "Registrati"
+          }
         end }
     end }
 
     ui.container{ attr = { id="lost_password", class = "span6 well" }, content = function ()
         ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
           ui.tag{ attr = { class="span8 text-center"}, content= _"Hai smarrito la password? Clicca qui:"}
-          ui.container{ attr = { class = "span4 text-center" }, content = function ()
-            ui.link{
-                 attr = { class="btn btn-primary btn-large"},
-                 text   = _"Reset password",
-                 module = 'index',
-                 view   = 'reset_password'
-            }
-          end }
+          ui.link{
+            attr = { class="span4 btn btn-primary btn-large fittext"},
+            module = 'index',
+            view   = 'reset_password',
+            text   = _"Reset password"
+          }
         end }
     end }
 
   end }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext').fitText(0.6, {minFontSize: '13px'}); " }
 
 end
