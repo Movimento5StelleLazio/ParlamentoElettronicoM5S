@@ -45,11 +45,11 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span8 offset2" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.link{
-        attr = { class="span4 btn btn-primary btn-large"  },
+        attr = { class="span4 btn btn-primary btn-large fittext"  },
         module = "index",
         view = return_view,
         content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left" }, content=""}
+          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
           slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
         end
       }
@@ -67,7 +67,7 @@ end }
 
 ui.container{ attr = { class="row-fluid text-center"}, content=function()
   ui.container{ attr = { class="span4 offset4 text-center"}, content=function()
-    ui.image{ attr = { id = "parlamento_img" }, static = "parlamento_icon_small.png" }
+    ui.image{ static = "parlamento_icon_small.png" }
   end }
 end }
 
@@ -82,15 +82,14 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
       ui.link { 
-        attr = { class="span3 offset2 btn btn-primary btn-large"  }, 
+        attr = { class="span3 offset2 btn btn-primary btn-large eq1 fittext"  }, 
         module = "unit",
         view = "show_ext_bs",
         id = unit_id,
         content = _"SHOW ALL AREAS" 
       }
-      ui.container{ attr = { class ="span2" }, content = ""}
       ui.link {
-        attr = { class="span3 btn btn-primary btn-large"  },
+        attr = { class="span3 offset2 btn btn-primary btn-large eq1 fittext"  },
         module = "unit",
         view = "show_ext_bs",
         id = unit_id,
@@ -110,3 +109,9 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     end }
   end }
 end}
+
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext').fitText(1.2, {minFontSize: '13px'}); " }
+

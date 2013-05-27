@@ -4,14 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/bootstrap.css">
+<!--
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/bootstrap-responsive.css">
+-->
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/trace.css" />
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/gregor.js/gregor.css" />
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/iconic-black-16x16.css" />
     <link rel="stylesheet" type="text/css" href="__BASEURL__/static/m5s_bs.css" />
-
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title> <!-- WEBMCP SLOTNODIV html_title --></title>
     <!-- WEBMCP SLOTNODIV html_head -->
@@ -33,31 +32,28 @@
         </div>
       </div>
 
-      <div class="push"></div>
-
-      <div class="container-fluid">
-        <div class="layout_help row-fluid" id="layout_help">
-           <!-- WEBMCP SLOT help -->
-        </div>
-        <div class="layout_notice row-fluid" id="layout_notice" onclick="document.getElementById('layout_notice').style.display='none';">
-          <!-- WEBMCP SLOT notice -->
-        </div>
-        <div class="layout_warning row-fluid" id="layout_warning" onclick="document.getElementById('layout_warning').style.display='none';">
-          <!-- WEBMCP SLOT warning -->
-        </div>
-        <div class="layout_error row-fluid" id="layout_error" onclick="document.getElementById('layout_error').style.display='none';">
-          <!-- WEBMCP SLOT error -->
-        </div>
-      </div>
-
       <div class="main" id="default">
+         <div class="container-fluid">
+           <div class="layout_help row-fluid" id="layout_help">
+             <!-- WEBMCP SLOT help -->
+           </div>
+           <div class="layout_notice row-fluid" id="layout_notice" onclick="document.getElementById('layout_notice').style.display='none';">
+             <!-- WEBMCP SLOT notice -->
+           </div>
+           <div class="layout_warning row-fluid" id="layout_warning" onclick="document.getElementById('layout_warning').style.display='none';">
+             <!-- WEBMCP SLOT warning -->
+           </div>
+           <div class="layout_error row-fluid" id="layout_error" onclick="document.getElementById('layout_error').style.display='none';">
+             <!-- WEBMCP SLOT error -->
+           </div>
+         </div>
+
         <!-- WEBMCP SLOT default -->
       </div>
 
       <div class="push"></div>
    
     </div> <!-- /.wrapper -->
-
 
     <!-- WEBMCP SLOT trace_button -->
     <div id="trace_content" style="display: none;">
