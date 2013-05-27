@@ -51,7 +51,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "well span4 offset2 text-center eq1" },
+      attr = {class = "well span4 offset2 text-center" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -62,7 +62,7 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage", 
-              attr = {class = "span12 btn btn-primary btn-large eq2 fittext" }, 
+              attr = {class = "span12 btn btn-primary btn-large eq1 fittext" }, 
               content= _"REGIONE LAZIO ASSEMBLY"
             }
         end }
@@ -70,7 +70,7 @@ if app.session.member_id then
     }
 
     ui.container{ 
-      attr = {class = "well span4 text-center eq1" }, 
+      attr = {class = "well span4 text-center" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -79,7 +79,7 @@ if app.session.member_id then
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
             ui.link{ 
-              attr = {class = "span12 btn btn-primary btn-large eq2 fittext" }, 
+              attr = {class = "span12 btn btn-primary btn-large eq1 fittext" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
@@ -90,10 +90,10 @@ if app.session.member_id then
     }
 
   end }
-  ui.script{static = "js/jquery.equalheight.js"}
-  ui.script{script = '$(document).ready(function() { equalHeight($(".eq2")); equalHeight($(".eq1")); }); ' }
   ui.script{static = "js/jquery.fittext.js"}
-  ui.script{script = "jQuery('.fittext').fitText(1.4, {minFontSize: '13px'}); " }
+  ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '11px', maxFontSize: '22px'}); " }
+  ui.script{static = "js/jquery.equalheight.js"}
+  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 
 else
 
@@ -199,6 +199,6 @@ else
 
   end }
   ui.script{static = "js/jquery.fittext.js"}
-  ui.script{script = "jQuery('.fittext').fitText(0.6, {minFontSize: '13px'}); " }
+  ui.script{script = "jQuery('.fittext').fitText(0.7, {minFontSize: '10px', maxFontSize: '19px'}); " }
 
 end
