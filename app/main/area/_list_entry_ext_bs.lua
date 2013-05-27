@@ -6,9 +6,8 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.link{  
       module = "area", view = "filters_bs", id = area.id,
       attr = { class = "btn btn-primary btn-large span2" }, content = function()
- --       ui.tag{ tag ="i" , attr = { class = "iconic white arrow-right" }, content=""}       
- --       slot.put("&nbsp;".._"AREA "..area.id)
-        slot.put(_"AREA "..area.id)
+        ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}       
+        slot.put("&nbsp;".._"AREA "..area.id)
       end
     }
 
@@ -17,32 +16,32 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
     ui.tag{ content = _"Issues:" }
     slot.put(" ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "admission" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "admission" },
       text = _("#{count} new", { count = area.issues_new_count }) 
     }
     slot.put(" &middot; ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "discussion" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "discussion" },
       text = _("#{count} in discussion", { count = area.issues_discussion_count }) 
     }
     slot.put(" &middot; ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "verification" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "verification" },
       text = _("#{count} in verification", { count = area.issues_frozen_count }) 
     }
     slot.put(" &middot; ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "voting" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "voting" },
       text = _("#{count} in voting", { count = area.issues_voting_count }) 
     }
     slot.put(" &middot; ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "finished" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "finished" },
       text = _("#{count} finished", { count = area.issues_finished_count }) 
     }
     slot.put(" &middot; ")
     ui.link{ 
-      module = "area", view = "show_ext", id = area.id, params = { state = "canceled" },
+      module = "area", view = "show_ext_bs", id = area.id, params = { state = "canceled" },
       text = _("#{count} canceled", { count = area.issues_canceled_count }) 
     }
   end }

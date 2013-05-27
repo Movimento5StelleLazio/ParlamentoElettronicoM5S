@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-width: 767px;
 }
 
 a{
@@ -19,25 +20,8 @@ a{
   height: 3em;
 }
 
-.btn {
-  -webkit-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
-     -moz-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
-          box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
-  -webkit-border-radius: 14px;
-     -moz-border-radius: 14px;
-          border-radius: 14px;
-}
-
-#m5s_logo{
-  height: 70px;
-  width: 70px;
-  max-width:  70px;
-}
-
-#parlamento_img{
-  height: 164px;
-  width: 284px;
-  max-width:  284px;
+#default {
+  margin-top: 60px;
 }
 
 .well {
@@ -45,10 +29,13 @@ a{
   border: 1px solid #ffb015;
 }
 
-.alert-simple {
-  color: #000000;
-  background-color: #ffffff;
-  border-color: #7e8789;
+.btn {
+  -webkit-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+     -moz-box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+          box-shadow: inset rgba(0,0,0,0.2) 0px -4px 0px;
+  -webkit-border-radius: 14px;
+     -moz-border-radius: 14px;
+          border-radius: 14px;
 }
 
 .btn-primary {
@@ -83,6 +70,62 @@ a{
 .btn-primary:active,
 .btn-primary.active {
   background-color: #FFB52B \9;
+}
+
+/*
+  M5S specific
+*/
+
+#m5s_logo{
+  height: 70px;
+  width: 70px;
+  max-width:  70px;
+}
+
+#parlamento_img{
+/*
+  height: 164px;
+  width: 284px;
+*/
+  max-width:  284px;
+}
+
+.alert-simple {
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #7e8789;
+}
+
+/*
+  Imported from style.css (modified)
+*/
+
+.delegation_info {
+    text-decoration: none;
+    border-radius: 0px 5px 0px 5px;
+}
+
+.delegation_arrow {
+    vertical-align: middle;
+}
+
+.delegation_info .link {
+    text-decoration: underline;
+    color: #aaa;
+}
+
+a.delegation_info:hover,a.delegation_info:focus {
+    background-color: #ddd;
+}
+
+.delegation_info .micro_avatar {
+    box-shadow: 1px 1px 2px #000;
+}
+
+.delegation_info .micro_avatar.highlighted {
+    margin: 0;
+    border: 2px solid #f90;
 }
 
 .micro_avatar {

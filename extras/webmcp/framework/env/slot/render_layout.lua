@@ -28,7 +28,7 @@ function slot.render_layout()
         if #slot.get_content(slot_ident) > 0 then
           local add_class =''
           if slot_ident == 'default' then add_class = ' container-fluid' end
-          if slot_ident == 'navbar' then add_class = ' container' end
+          if slot_ident == 'navbar' then add_class = ' container-fluid' end
           if slot_ident == 'notice' then add_class = ' span12 alert alert-info' end
           if slot_ident == 'warning' then add_class = ' span12 alert alert-warning' end
           if slot_ident == 'error' then add_class = ' span12 alert alert-error' end
