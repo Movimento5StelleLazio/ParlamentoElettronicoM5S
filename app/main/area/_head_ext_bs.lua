@@ -7,9 +7,9 @@ if app.session.member_id then
   area:load_delegation_info_once_for_member_id(app.session.member_id)
 end
 
-if not param.get("hide_unit", atom.boolean) then
-  execute.view{ module = "unit", view = "_head", params = { unit = area.unit, member = member } }
-end
+--if not param.get("hide_unit", atom.boolean) then
+--  execute.view{ module = "unit", view = "_head", params = { unit = area.unit, member = member } }
+--end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12" }, content = function()

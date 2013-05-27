@@ -41,6 +41,9 @@ if unit_name == "iscritti" then
   return_view = "index"
 end
 
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{static = "js/jquery.equalheight.js"}
+
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span8 offset2" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -110,8 +113,6 @@ ui.container{ attr = { class="row-fluid"}, content=function()
   end }
 end}
 
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext').fitText(1.2, {minFontSize: '13px'}); " }
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 
