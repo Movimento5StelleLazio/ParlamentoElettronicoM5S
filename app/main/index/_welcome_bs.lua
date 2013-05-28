@@ -59,12 +59,14 @@ if app.session.member_id then
           end }
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
+          ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{
               module="index", 
               view="homepage", 
-              attr = {class = "span12 btn btn-primary btn-large eq1 fittext" }, 
+              attr = {id = "region_assembly_btn", class = "btn btn-primary btn-large eq1 fittext" }, 
               content= _"REGIONE LAZIO ASSEMBLY"
             }
+          end }
         end }
       end
     }
@@ -78,22 +80,24 @@ if app.session.member_id then
           end }
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
+          ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{ 
-              attr = {class = "span12 btn btn-primary btn-large eq1 fittext" }, 
+              attr = { id = "internal_assembly_btn", class = "btn btn-primary btn-large eq1 fittext" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
               content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"
-           }
+            }
+          end }
         end }
       end
     }
 
   end }
-  ui.script{static = "js/jquery.fittext.js"}
-  ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '11px', maxFontSize: '22px'}); " }
   ui.script{static = "js/jquery.equalheight.js"}
   ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '10px', maxFontSize: '23px'}); " }
 
 else
 

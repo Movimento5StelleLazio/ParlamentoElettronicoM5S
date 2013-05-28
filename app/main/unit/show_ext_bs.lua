@@ -84,21 +84,25 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.link { 
-        attr = { class="span3 offset2 btn btn-primary btn-large eq1 fittext"  }, 
-        module = "unit",
-        view = "show_ext_bs",
-        id = unit_id,
-        content = _"SHOW ALL AREAS" 
-      }
-      ui.link {
-        attr = { class="span3 offset2 btn btn-primary btn-large eq1 fittext"  },
-        module = "unit",
-        view = "show_ext_bs",
-        id = unit_id,
-        params = { filter = "my_areas"},
-        content =  _"SHOW ONLY PARTECIPATED AREAS" 
-      }
+      ui.tag{tag="span",attr={class="span3 offset2"},content=function()
+        ui.link { 
+          attr = { class="btn btn-primary btn-large eq1 fittext"  }, 
+          module = "unit",
+          view = "show_ext_bs",
+          id = unit_id,
+          content = _"SHOW ALL AREAS" 
+        }
+      end }
+      ui.tag{tag="span",attr={class="span3 offset2"},content=function()
+        ui.link {
+          attr = { class="btn btn-primary btn-large eq1 fittext"  },
+          module = "unit",
+            view = "show_ext_bs",
+          id = unit_id,
+          params = { filter = "my_areas"},
+          content =  _"SHOW ONLY PARTECIPATED AREAS" 
+        }
+      end }
     end }
     ui.container{ attr = { class="row-fluid"}, content=function() 
       ui.container{ attr = { class ="span2" }, content = ""}

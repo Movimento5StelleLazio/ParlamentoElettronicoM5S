@@ -30,6 +30,7 @@ a{
 }
 
 .btn {
+  display: table-cell;
   font-weight:bold;
   text-transform:uppercase;
   -webkit-box-shadow: hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.3) 0 .6em 6px;
