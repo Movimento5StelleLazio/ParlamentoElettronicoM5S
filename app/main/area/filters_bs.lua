@@ -35,51 +35,59 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset[gui_preset].units[unit_name].area_filter_title) }
     end }
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.link {
-        attr = { class="btn btn-primary btn-large span3 fittext eq1" },
-        module = "unit",
-        view = "show_ext_bs",
-        id = area.unit_id,
-        content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-          slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
-        end
-      }
-      if unit_name == "cittadini" or unit_name == "iscritti" then
+      ui.tag{tag="span",attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large span3 fittext eq1" },
+          attr = { class="btn btn-primary btn-large fittext eq1" },
+          module = "unit",
+          view = "show_ext_bs",
+          id = area.unit_id,
+          content = function()
+            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
+            slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
+          end
+        }
+      end }
+      if unit_name == "cittadini" or unit_name == "iscritti" then
+        ui.tag{tag="span",attr={class="span3"},content = function()
+          ui.link {
+            attr = { class="btn btn-primary btn-large fittext eq1" },
+            module = "area",
+            view = "show_ext_bs",
+            params = { state = "admission"},
+            id = area.id,
+            content = function()
+              ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+              slot.put("&nbsp;".._"INITIATIVES LOOKING FOR SUPPORTERS")
+            end 
+        }
+        end }
+      end
+      ui.tag{tag="span",attr={class="span3"},content = function()
+        ui.link {
+          attr = { class="btn btn-primary btn-large fittext eq1" },
           module = "area",
           view = "show_ext_bs",
-          params = { state = "admission"},
+          params = { state = "development"},
           id = area.id,
           content = function()
             ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-            slot.put("&nbsp;".._"INITIATIVES LOOKING FOR SUPPORTERS")
+            slot.put("&nbsp;".._"INITIATIVES NOW IN DISCUSSION")
           end 
         }
-      end
-      ui.link {
-        attr = { class="btn btn-primary btn-large span3 fittext eq1" },
-        module = "area",
-        view = "show_ext_bs",
-        params = { state = "development"},
-        id = area.id,
-        content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-          slot.put("&nbsp;".._"INITIATIVES NOW IN DISCUSSION")
-        end 
-      }
-      ui.link {
-        attr = { class="btn btn-primary btn-large span3 fittext eq1" },
-        module = "area",
-        view = "show_ext_bs",
-        params = { state = "closed"},
-        id = area.id,
-        content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-          slot.put("&nbsp;".._"COMPLETED OR RETIRED INITIATIVES")
-        end 
-      }
+      end }
+      ui.tag{tag="span",attr={class="span3"},content = function()
+        ui.link {
+          attr = { class="btn btn-primary btn-large fittext eq1" },
+          module = "area",
+          view = "show_ext_bs",
+          params = { state = "closed"},
+          id = area.id,
+          content = function()
+            ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+            slot.put("&nbsp;".._"COMPLETED OR RETIRED INITIATIVES")
+          end 
+        }
+      end }
      end
     }
   
