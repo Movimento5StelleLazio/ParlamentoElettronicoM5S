@@ -2,6 +2,67 @@ html, body {
   height: 100%;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-width: 767px;
+  line-height: 1.625px;
+}
+
+h1,h2,h3,h4,h5 {
+  display:inline-block;
+  text-shadow:rgba(50,50,50,.5) 1px 1px 1px;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.0em;
+}
+h3 {
+  font-size: 1.1em;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 600px) {
+  h1 { font-size: 1.2em; }
+  h2 { font-size: 0.60em; line-height: 10px; }
+  h3 { font-size: 0.65em; }
+  h4 { font-size: 0.65em; }
+  h5 { font-size: 0.50em; }
+  .info-text { font-size: 0.90em; width: 100%; }
+/*
+  .btn-large  {
+    height: 100%;
+    padding-top:5px;
+    padding-bottom:5px;
+    line-height: 15px;
+    width:14%;
+  }
+*/
+}
+
+@media ONLY screen and (min-width: 1100px) {
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.35em; }
+  h3 { font-size: 1.40em; }
+  h4 { font-size: 1.35em; }
+  h5 { font-size: 1.35em; }
+  info-text { font-size: 1.30em; width: 100%; }
+/*
+  .btn-large  {
+    height: 100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    width:20%;
+  }
+*/
 }
 
 a{
@@ -77,6 +138,8 @@ a{
   background-color: #FFB52B \9;
 }
 
+
+
 /*
   M5S specific
 */
@@ -88,10 +151,6 @@ a{
 }
 
 #parlamento_img{
-/*
-  height: 164px;
-  width: 284px;
-*/
   max-width:  284px;
 }
 
