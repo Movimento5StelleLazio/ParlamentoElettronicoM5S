@@ -15,6 +15,12 @@ return {
 ["#{interval_text} [interval]"] = "#{interval_text}";
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
+["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
+["YOUR VOTE IS"]="IL TUO VOTO E'";
+["YES"]="SI";
+["NO"]="NO";
+[" INITIATIVES TO RESOLVE THE ISSUE"]=" PROPOSTE PER RISOLVERE LA QUESTIONE";
+[" INITIATIVE TO RESOLVE THE ISSUE"]=" PROPOSTA PER RISOLVERE LA QUESTIONE";
 ["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
 ["ORDER BY DATE OF CREATION"]="ORDINA PER LA DATA DI IMMISSIONE";
 ["ORDER BY LAST EVENT DATE"]="ORDINA PER LA DATA DELL'ULTIMO EVENTO";
@@ -23,6 +29,9 @@ return {
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
 ["BACK TO PREVIOUS PAGE"]="TORNA ALLA PAGINA PRECEDENTE";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
+["INITIATIVES LOOKING FOR SUPPORTERS"] = "PROPOSTE IN CERCA DI SOSTENITORI";
+["INITIATIVES NOW IN DISCUSSION"] = "PROPOSTE ATTUALMENTE IN DISCUSSIONE";
+["COMPLETED OR RETIRED INITIATIVES"] = "PROPOSTE COMPLETATE O RITIRATE";
 ["CHOOSE THE INITIATIVE TO EXAMINE:"]="SCEGLI LA PROPOSTA DA ESAMINARE:";
 ["CHOOSE THE THEMATIC AREA"]="SCEGLI L'AREA TEMATICA";
 ["SHOW ALL AREAS"]="MOSTRA TUTTE LE AREE";
@@ -39,7 +48,7 @@ return {
 ["REMOVE FILTERS"]="ELIMINA FILTRI";
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
-["SHOW ONLY THE FOLLOWING UNITS"]="MOSTRA SOLO LE SEGUENTI UNITA':";
+["SHOW ONLY THE FOLLOWING UNITS:"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
@@ -57,14 +66,15 @@ return {
 ["#{number} Image(s) has been updated"] = "#{number} immagine(i) aggiornata(e)";
 ["#{policy_name} ##{issue_id}"] = false;
 ["#{policy} ##{id}"] = false;
-["#{realname}, your last login was on #{last_login_date} at #{last_login_time}"]="#{realname}, il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
-["WELCOME #{realname}."]="BENVENUTO #{realname}.";
+["Your last login was on #{last_login_date} at #{last_login_time}"]="Il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
+["Welcome #{realname}."]="Benvenuto #{realname}.";
+["Welcome <strong>#{realname}</strong>."]="Benvenuto <strong>#{realname}</strong>.";
 ["from "]="da ";
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
 ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
-["5 STARS MOVEMENT<br />E-PARLIAMENT<br />REGIONE LAZIO"]="PARLAMENTO ELETTRONICO<br />MOVIMENTO 5 STELLE<br />REGIONE LAZIO";
+["5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO"]="PARLAMENTO ELETTRONICO MOVIMENTO 5 STELLE REGIONE LAZIO";
 ["ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"]="SEI UN CITTADINO DEL LAZIO E VUOI ISCRIVERTI? ECCO COME FARE:";
-["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA MOVIMENTO 5 STELLE";
+["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA DEL MOVIMENTO 5 STELLE LAZIO";
 ["REGISTRATION GUIDE"]="GUIDA ALLA ISCRIZIONE";
 ["REGIONE LAZIO ASSEMBLY"]="ASSEMBLEA REGIONE LAZIO";
 ["(new window)"] = "(nuova finestra)";
@@ -157,6 +167,7 @@ return {
 ["Canceled (issue not accepted)"] = "Annullato (questione non ammessa)";
 ["Canceled (no initiative admitted)"] = "Annullato (nessuna proposta ammessa)";
 ["Canceled phase"] = "Annullato";
+["Citiziens"]="CITTADINI";
 ["Change area delegation"] = "Cambia delega dell'Area";
 ["Change email"] = "Cambia eMail";
 ["Change email address"] = "Cambia indirizzo eMail";
@@ -222,6 +233,8 @@ return {
 ["Delete"] = "Elimina";
 ["Delete filter"] = "Elimina filtro";
 ["Description"] = "Descrizione";
+["Description note"]="NOTA: In questo campo vanno riassunte in poche parole il problema (la condizione che rende necessario un intervento) e l'obiettivo da raggiungere (la condizione che si ipotizza la migliore di quella attuale ed auspicabile";
+["Description to the problem you want to solve"]="BREVE DESCRIZIONE DELLA QUESTIONE:";
 ["Details"] = "Dettagli";
 ["Developer settings"] = "Settaggi sviluppatore";
 ["Diff"] = "Differenze";
@@ -256,6 +269,9 @@ return {
 ["Download database export"] = false;
 ["Download documents"] = "Scarica documenti";
 ["Draft"] = "Bozza";
+["Draft note"]="NOTA: Nel campo è necessario inserire il testo  della proposta verra e propria. La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati sopra nel campo 'Descrizione del Risultato'.Sarà sempre possibilein seguito modificarla introducendo emendamenti. Tutte le versioni del documento saranno conservate e potranno essere consultate in qualsiasi momento in caso si volesse tornare ad una precedenteversione del testo.Altri Utenti potranno proporre loro emendamenti o sostenere emendamenti di loro pari, ma sarà sempre l'autore della proposta a decidere  se accettali o meno nel testo definitivo.Il testo definitivo se avrà superato il quorum di sostenitori sarà poi sottoposto alla votazione, in competizione con le eventuali proposte alternative degli altri utenti.";
+["Draft text"]="TESTO DELLA PROPOSTA:";
+["Draft text title"]="INSERISCI IL TESTO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Edit"] = "Modifica";
 ["Edit areas"] = "Modifica aree";
 ["Edit draft"] = "Modifica bozza";
@@ -263,6 +279,7 @@ return {
 ["Edit my page"] = "Modifica la mia pagina";
 ["Edit my profile"] = "Modifica il mio profilo";
 ["Edit profile"] = "Modifica profilo";
+["Elected M5S"]="ELETTI DEL MOVIMENTO 5 STELLE";
 ["Eligible as winner"] = "Potenziali vincitori";
 ["Eligible voters"] = "Potenziali votanti";
 ["Email address"] = "Indirizzo eMail";
@@ -294,6 +311,9 @@ return {
 ["Generate API key"] = "Genera chiave API";
 ["Global delegation"] = "Delega globale";
 ["Global search"] = "Ricerca globale";
+["Give a title to the problem you want to solve"]="INSERISCI UN TITOLO PER LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
+["Give a description to the problem you want to solve"]="DESCRIVI IN BREVE LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
+["Give a title to the issue you want to propose"]="INSERISCI IL TITOLO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Half frozen at"] = "Inizio verifica il";
 ["Hello\n\n"] = "Ciao\n\n";
 ["Hello "] = "Ciao ";
@@ -315,6 +335,7 @@ return {
 ["Homepage welcome"]="BENVENUTO";
 ["Homepage what to do?"]="COSA VUOI FARE?";
 ["Homepage write new issue"]="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE";
+["How much time does your proposal need to be examined?"]="CHE TEMPI RICHIEDE LA TUA PROPOSTA PER ESSERE ESAMINATA?";
 ["I consider suggestion as"] = "Ritengo il suggerimento";
 ["I like to receive notifications by email about events in my areas and issues:"] = "Desidero ricevere le notifiche eMail per gli eventi delle mie aree e questioni:";
 ["Id"] = false;
@@ -333,9 +354,12 @@ return {
 ["Indirect majority numerator"] = "Numeratore maggioranza indiretta";
 ["Indirect majority positive"] = "Maggioranza indiretta positiva";
 ["Information about the available policies"] = "Informazioni sulle regole disponibili";
+["Information about the available Technical Areas"]="Informazioni sulle Aree di Competenza disponibili";
+["Insert Technical Areas"]="INSERISCI DELLE AREE DI COMPETENZA TECNICA NECESSARIE PER POTER VALUTARE LA TUA PROPOSTA";
 ["Initiated"] = "Avviate";
 ["Initiative"] = "Proposta";
 ["Initiative ##{id}"] = "Proposta ##{id}";
+["Initiative description title"]="INSERISCI UNA BREVE DESCRIZIONE DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Initiative events"] = "Eventi proposta";
 ["Initiative i#{id}: #{name}"] = "Proposta p#{id}: #{name}";
 ["Initiative is revoked now"] = "Proposta attualmente revocata";
@@ -343,12 +367,16 @@ return {
 ["Initiative quorum denumerator"] = "Denominatore quorum proposta";
 ["Initiative quorum numerator"] = "Numeratore quorum proposta";
 ["Initiative revoked"] = "Proposta revocata";
+["Initiative short description"]="BREVE DESCRIZIONE DELLA PROPOSTA:";
+["Initiative short note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
 ["Initiative successfully created"] = "Proposta creata correttamente";
 ["Initiative successfully updated"] = "Proposta aggiornata correttamente";
 ["Initiative: "] = "Proposta: ";
+["Initiative Title"] = "TITOLO DELLA PROPOSTA:";
 ["Initiatives that invited you to become initiator:"] = "Proposte in cui sei invitato a partecipare come autore:";
 ["Initiator invites"] = "Inviti nuovi autori";
 ["Initiators"] = "Autori";
+["Insert question keywords"]="INSERISCI DELLE PAROLE CHIAVE CHE DESCRIVONO LA QUESTIONE";
 ["Interest not existent"] = "Interesse non presente";
 ["Interest removed"] = "Interesse rimosso";
 ["Interest updated"] = "Interesse aggiornato";
@@ -378,8 +406,11 @@ return {
 ["Issue quorum denumerator"] = "Denominatore quorum questione";
 ["Issue quorum numerator"] = "Numeratore quorum questione";
 ["Issue reached next phase"] = "La questione ha raggiunto la prossima fase";
+["Issue Title"]="TITOLO DELLA QUESTIONE:";
 ["Issues:"] = "Questioni:";
 ["JavaScript is disabled or not available."] = "JavaScript disabilitato o non disponibile.";
+["Keywords"]="PAROLE CHIAVE:";
+["Keywords note"]="NOTA: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
 ["Last activity (updated daily)"] = "Ultima attività (aggiornato giornalmente)";
 ["Last snapshot:"] = "Ultimo snapshot:";
 ["Latest draft created at #{date} #{time}"] = "Ultima revisione bozza creata il #{date} alle #{time}";
@@ -500,6 +531,7 @@ return {
 ["Options"] = "Opzioni";
 ["Organizational unit"] = "Unità organizzativa";
 ["Other failures"] = "Altri difetti";
+["Other groups"]="ALTRI GRUPPI POLITICI";
 ["Outgoing delegations"] = "Deleghe attive";
 ["Parent unit"] = "Unità superiore";
 ["Participants"] = "Partecipanti";
@@ -520,6 +552,7 @@ return {
 ["Please choose a name, i.e. your real name or your nick name. This name will be shown to others to identify you."] = "Scegliere un nome, ad esempio il tuo vero nome o il tuo nick name. Questo nome verrà mostrato agli altri per identificarti.";
 ["Please choose a password and enter it twice. The password is case sensitive."] = "Scegliere una password ed inserirla due volte. Attenzione ai caratteri maiuscoli e minuscoli.";
 ["Please choose a policy"] = "Selezionare regola di voto";
+["Please choose a tecnical area"]="Selezionare area di competenza";
 ["Please choose two different versions of the draft to compare"] = "Selezionare due differenti versioni della bozza da confrontare.";
 ["Please choose two versions of the draft to compare"] = "Scegliere due versioni della bozza da confrontare.";
 ["Please confirm your email address"] = "Per favore confermare indirizzo eMail";
@@ -543,6 +576,10 @@ return {
 ["Potentially supported"] = "Potenzialmente sostenute";
 ["Preview"] = "Anteprima";
 ["Preview voting comment"] = "Anteprima commento di voto";
+["Problem Title"]="TITOLO DELLA QUESTIONE:";
+["Problem description"]="DESCRIZIONE DEL PROBLEMA:";
+["Problem description title"]="DESCRIVI IL PROBLEMA O L'URGENZA CHE RICHIEDE L'INTERVENTO";
+["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cjui si vuole ottemperare con il documento proposto.";
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
 ["Profile"] = "Profilo";
@@ -579,6 +616,8 @@ return {
 ["Save"] = "Salva";
 ["Save areas as template"] = "Salva Aree come Template";
 ["Save current filter"] = "Salva filtro corrente";
+["Save preview"]="SALVA UNA BOZZA PRELIMINARE";
+["Save issue"]="SALVA E PUBBLICA LA TUA PROPOSTA";
 ["Save timeline filters"] = "Salva filtro cronologia";
 ["Saved as contact"] = "Salva come contatto";
 ["Saved contacts"] = "Contatti salvati";
@@ -617,6 +656,7 @@ return {
 ["Show policies in use"] = "Mostra regole in uso";
 ["Show policies not in use"] = "Mostra regole disabilitate";
 ["Show profile"] = "Visualizza profilo";
+["Show preview"]="VISUALIZZA ANTEPRIMA";
 ["So I'm"] = "Quindi sono";
 ["Software"] = "Software";
 ["Sorry, but there is not confirmed email address for your account. Please contact the administrator or support."] = "Spiacente, questo iscritto non ha un indirizzo eMail confermato. Contattare l'amministratore per il supporto.";
@@ -649,6 +689,9 @@ return {
 ["Supporters"] = "Sostenitori";
 ["Supporters (before begin of voting)"] = "Sostenitori (prima del voto)";
 ["Syntax help"] = "Guida alla formattazione";
+["Target description"]="DESCRIZIONE DELL'OBIETTIVO";
+["Target description title"]="DESCRIVI L'OBIETTIVO CHE SI RITIENE NECESSARIO RAGGIUNGERE";
+["Target note"]="NOTA: In queso campo è necessario indicare lo scenario auspicato o il risultato che la proposta si pone di ottenere (es. giustizia sociale), oppure il prodotto legislativo che si desidera (es. nuova normativa),o le specifiche ed i requisiti del documento(es. limiti di spesa).";
 ["Template Areas"]= "Aree del Template";
 ["Template Description"]= "Descrizione";
 ["Template has been added"]="Template salvato con successo";
@@ -666,6 +709,7 @@ return {
 ["This initiative has not been admitted! It failed the quorum of #{quorum}."] = "Questa proposta non è stata ammessa! Mancato raggiungimento del quorum di #{quorum}.";
 ["This initiative is already revoked"] = "Questa proposta è già stata ritirata";
 ["This initiative is revoked"] = "Iniziativa ritirata";
+["The proposals was presented by:"]="LA PROPOSTA E' STATA AVANZATA DA:";
 ["This invite key is connected with the following information:"] = "Il codice d'invito è associato alle seguenti informazioni:";
 ["This issue has been canceled. It failed the quorum of #{quorum}."] = "Questa questione non è stata ammessa! Mancato raggiungimento del quorum di #{quorum}.";
 ["This issue is already closed."] = "Questione già chiusa.";
@@ -745,6 +789,8 @@ return {
 ["Wiki engine for statement"] = "Motore Wiki per ?statement?";
 ["Withdraw"] = "Ritira";
 ["Withdraw membership"] = "Ritira partecipazione";
+["WIZARD END"]="La tua proposta è pronta. Ricontrolla accuratamente i campi del modulo sottostante prima di salvare la tua proposta e sottoporla all'attenzione dell'assembla. Se  la proposta otterrà un numero sufficiente di sostenitori , sarà messa ai voti in competizioni con le eventuali proposte alternative che gli altri utenti avanzeranno per risolvere il problema da te indicato.";
+["WIZARD HEADER END"]="CREAZIONE NUOVA PROPOSTA COMPLETATA";
 ["Yes"] = "Si";
 ["Yesterday at #{time}"] = "Ieri alle #{time}";
 ["You already voted this issue"] = "Hai già votato questa questione";
@@ -831,6 +877,7 @@ return {
 ["delete<br /><br />"] = "elimina<br /><br />";
 ["disabled"] = "disabilitato";
 ["email"] = "eMail";
+["SEE DETAILS"] = "VEDI DETTAGLI";
 ["global"] = "globale";
 ["i#{id}: #{name}"] = "i#{id}: #{name}";
 ["implemented"] = "implementato";
@@ -843,6 +890,8 @@ return {
 ["months [interval ago]"] = "mesi";
 ["months [interval time left]"] = "mesi";
 ["months [interval]"] = "mesi";
+["day [interval ago]"] = "giorno";
+["days [interval ago]"] = "giorni";
 ["more unsatisfied"] = "molto insoddisfatto";
 ["must"] = "deve";
 ["must not"] = "non deve";

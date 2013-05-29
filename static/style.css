@@ -1,3 +1,4 @@
+
 /* Style reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,a,img,form,label,legend,table,tbody,tfoot,thead,tr,th,td
     {
@@ -15,7 +16,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,a,img,form,label,leg
 body {
     line-height: 1;
     color: black;
-    background: white;
+    background: black;
 }
 
 li {
@@ -28,7 +29,7 @@ p {
 }
 
 a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 table {
@@ -154,8 +155,7 @@ h2 {
  */
 .topbar {
     background: -webkit-linear-gradient(top, #777, #000);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #777),
-        color-stop(100%, #000) );
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #777),color-stop(100%, #000) );
     background: -moz-linear-gradient(#777, #000);
     background: -ms-linear-gradient(#777, #000);
     background: -o-linear-gradient(#777, #000);
@@ -252,7 +252,7 @@ form.unit_selector {
     left: 0;
     z-index: 3;
     width: 200px;
-    border-radius: 0 0 8px 8px;
+   /* border-radius: 0 0 8px 8px; */
     background: #000;
 }
 
@@ -277,7 +277,7 @@ form.unit_selector {
 
 #member_menu li li a {
     background: #000;
-    border-radius: 5px;
+ /*   border-radius: 5px; */
     color: #fff;
 }
 
@@ -304,19 +304,19 @@ form.unit_selector {
     margin: 0px 1% 2ex 1%;
     border: 1px solid #555;
     border-top: none;
-    border-radius: 0 0 8px 8px;
+  /*  border-radius: 0 0 8px 8px; */
 }
 
 .member_thumb,.member_statement,.suggestion_content,.slot_head,.area_list,.initiative_head,.issues .issue,.ui_tabs_links a,.ui_filter a,.help,.use_terms,.motd,.vote_info .content,.box,div.notifications
     {
     background-color: #fff;
-    box-shadow: #ccc 2px 2px 4px;
-    -mox-box-shadow: #ccc 2px 2px 4px;
-    -webkit-box-shadow: #ccc 2px 2px 4px;
+    box-shadow: #ccc 3px 3px 5px;
+    -mox-box-shadow: #ccc 3px 3px 5px;
+    -webkit-box-shadow: #ccc 3px 3px 5px;
 }
 
 .slot_head>div:last-child {
-    border-radius: 0 0 8px 8px;
+ /*   border-radius: 0 0 8px 8px; */
 }
 
 .page_head .title,.issue .context,.initiative_head .title {
@@ -395,11 +395,11 @@ form.unit_selector {
 }
 
 .unit_head:last-child {
-    border-radius: 0 0 8px 8px;
+ /*   border-radius: 0 0 8px 8px; */
 }
 
 .area_head:last-child {
-    border-radius: 0 0 8px 8px;
+  /*  border-radius: 0 0 8px 8px; */
 }
 
 .unit_head .content,.unit_head a {
@@ -407,44 +407,48 @@ form.unit_selector {
 }
 
 .area_head,.area_list .area_head {
-    background: -webkit-linear-gradient(top, #cdf, #abe);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf),
-        color-stop(100%, #abe) );
-    background: -moz-linear-gradient(#cdf, #abe);
-    background: -ms-linear-gradient(#cdf, #abe);
-    background: -o-linear-gradient(#cdf, #abe);
-    background: linear-gradient(#cdf, #abe);
-    background-color: #abf;
+/*
+  background: -webkit-linear-gradient(top, #ccc, #fff);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%,#fff));
+
+  background: -moz-linear-gradient(#ccc, #fff);
+  background: -ms-linear-gradient(#ccc, #fff);
+  background: -o-linear-gradient(#ccc, #fff);
+  background: linear-gradient(#ccc, #fff);
+*/
+  background-color: #fff;
 }
 
 .area_list .area>.content,.issue {
-    background: -webkit-linear-gradient(top, #f7faff, #e0e9ff);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7faff),
-        color-stop(100%, #e0e9ff) );
-    background: -moz-linear-gradient(#f7faff, #e0e9ff);
-    background: -ms-linear-gradient(#f7faff, #e0e9ff);
-    background: -o-linear-gradient(#f7faff, #e0e9ff);
-    background: linear-gradient(#f7faff, #e0e9ff);
-    background-color: #e0e9ff;
+/*
+  background: -webkit-linear-gradient(top, #f7faff, #ffffff);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7faff), color-stop(100%,#ffffff));
+
+  background: -moz-linear-gradient(#f7faff, #ffffff);
+  background: -ms-linear-gradient(#f7faff, #ffffff);
+  background: -o-linear-gradient(#f7faff, #ffffff);
+  background: linear-gradient(#f7faff, #ffffff);
+*/
+  background-color: #ffffff;
 }
 
 .unit_link,.area_link {
     float: left;
     margin-top: 5px;
     padding: 0px 5px;
-    border-radius: 5px;
+  /*  border-radius: 5px; */
     line-height: 170%;
     margin-right: 8px;
 }
 
 .unit_link {
-    background-color: #44a;
+    background-color: #009900;
     color: #fff;
 }
 
 .area_link {
-    background-color: #abf;
-    color: #000;
+    background-color: #FF4646;
+    color: #FFFFFF;
 }
 
 .delegation_info {
@@ -495,7 +499,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 }
 
 .member_image_photo {
-    border-radius: 8px;
+  /*  border-radius: 8px; */
 }
 
 /*************************************************************************
@@ -517,8 +521,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 .ui_tabs_links a {
     padding: 7px 10px;
     background: -webkit-linear-gradient(top, #777, #000);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #777),
-        color-stop(100%, #000) );
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #777),color-stop(100%, #000) );
     background: -moz-linear-gradient(#777, #000);
     background: -ms-linear-gradient(#777, #000);
     background: -o-linear-gradient(#777, #000);
@@ -526,7 +529,7 @@ a.delegation_info:hover,a.delegation_info:focus {
     background-color: #444;
     color: #f7f7f7;
     white-space: nowrap;
-    border-radius: 8px;
+  /*  border-radius: 8px; */
     font-size: 115%;
     font-weight: bold;
     margin: 2px;
@@ -537,8 +540,8 @@ a.delegation_info:hover,a.delegation_info:focus {
     {
     margin: 0;
     margin-right: 2px;
-    border: 2px solid #f90;
-    box-shadow: 0px 0px 3px 1px #f90;
+    border: 2px solid  #CCCCCC;
+  box-shadow: 0px 0px 3px 1px  #999999 ;
 }
 
 .ui_tabs_links a.selected {
@@ -570,7 +573,7 @@ a.delegation_info:hover,a.delegation_info:focus {
     margin-right: 0;
     background-color: #fff;
     padding: 0.5ex 0.5em;
-    border-radius: 5px;
+     /*border-radius: 5px;*/
     border: 1px solid #bbb;
 }
 
@@ -623,13 +626,13 @@ a.delegation_info:hover,a.delegation_info:focus {
 
 .bargraph div {
     float: left;
-    margin-top: 0.5ex;
+ /*   margin-top: 0.5ex; */
     height: 1.3ex;
 }
 
 .bargraph .quorum {
-    margin-top: 0.2ex;
-    height: 1.9ex;
+    margin-top: -0.1ex; 
+    height: 2.0ex;
 }
 
 /*************************************************************************
@@ -671,7 +674,7 @@ div.notifications {
 .login input[type=text],.vertical input[type=text],.login input[type=password],.vertical input[type=password],.vertical textarea,#voting_form textarea,.vertical select
     {
     font-family: sans-serif;
-    font-size: 100%;
+    font-size: 130%;
     width: 68%;
     border: 1px solid #444;
     padding: 0.2ex 0.2em 0.2ex 0.2em;
@@ -690,7 +693,7 @@ div.notifications {
     {
     line-height: 180%;
     font-weight: bold;
-    color: #777;
+    color: black;
     width: 29%;
     display: block;
     float: left;
@@ -705,7 +708,7 @@ div.notifications {
 }
 
 .login input[type=text],.login input[type=password] {
-    width: 10em;
+    width: 14em;
 }
 
 .login div,.vertical div {
@@ -727,10 +730,11 @@ div.notifications {
     margin-bottom: 0;
 }
 
-#voting_form input[type=submit],.login input[type=submit],.vertical input[type=submit]
+/*#voting_form input[type=submit],.login input[type=submit],.vertical input[type=submit]*/
+#voting_form input[type=submit],.vertical input[type=submit]
     {
-    font-size: 100%;
-    margin-left: 29%;
+    font-size: 130%;
+    margin-left: 37%;
     background-color: #444444;
     color: #fff;
     border: none;
@@ -828,17 +832,19 @@ div.notifications {
  * Area list
  */
 .area_list {
-    border: 1px solid #444;
-    border-radius: 10px;
+  /*border: 1px solid #444;
+  border-radius: 10px;*/
     margin-top: 2ex;
 }
 
 .area_list .area {
-    border-top: 1px solid #777;
+/*  border-top: 1px solid #ccc; */
+  border: 1px solid black;
+  margin-bottom: 0.2em;
 }
 
 .area_list .area:first-child {
-    border-top: none;
+/*    border-top: none; */
 }
 
 .area_list .unit_head {
@@ -846,15 +852,15 @@ div.notifications {
 }
 
 .area_list .unit_head:last-child {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 .area_list .area:last-child .content:last-child {
-    border-radius: 0 0 8px 8px;
+      /*border-radius: 0 0 8px 8px;*/
 }
 
 .area_list .area:first-child .area_head {
-    border-radius: 8px 8px 0 0;
+      /*border-radius: 0 0 8px 8px;*/
 }
 
 /*************************************************************************
@@ -868,12 +874,12 @@ div.notifications {
 .issues .issue {
     overflow: hidden;
     border: 1px solid #777;
-    border-radius: 8px;
+/*    border-radius: 8px; */
     margin-bottom: 4ex;
 }
 
 .issue.interested,.issue.interest_by_delegation {
-    border: 1px solid #b2cdff;
+  border: 1px solid #b2cccf;
 }
 
 .issue .suggestion {
@@ -899,7 +905,7 @@ div.notifications {
     background-color: #444;
     color: #fff;
     font-style: italic;
-    border-radius: 8px 0 0 8px;
+/*border-radius: 8px 0 0 8px;*/
 }
 
 .event_info a {
@@ -908,7 +914,7 @@ div.notifications {
 
 .events .issue {
     min-height: 15ex;
-    border: 1px solid #777;
+  border: 2px solid #CCCCCCC;
 }
 
 .event_info .event_name,.issue_policy_info .event_name {
@@ -927,7 +933,7 @@ div.notifications {
     background: linear-gradient(#888, #222);
     background-color: #444;
     color: #fff;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     font-weight: bold;
 }
 
@@ -973,6 +979,9 @@ div.notifications {
 
 .initiative .bar {
     margin-right: 0.3em;
+    border: 1px solid #777;
+    padding: 0.1em;
+    height: 1.3ex;
 }
 
 .initiative .rank,.initiative .bar,.initiative .interest {
@@ -1033,13 +1042,13 @@ div.notifications {
 }
 
 x.initiative_link.supported {
-    background-color: #cdf;
-    border-radius: 5px;
+  background-color: #ccc;
+/*border-radius: 5px;*/
 }
 
 x.initiative_link.potentially_supported {
-    background-color: #cdf;
-    border-radius: 5px;
+  background-color: #ccc;
+/*border-radius: 5px;*/
 }
 
 .lang_chooser {
@@ -1082,7 +1091,7 @@ x.initiative_link.potentially_supported {
     background-color: #fff;
     overflow: hidden;
     position: relative;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     padding: 2px;
     border: 1px solid #aaa;
 }
@@ -1193,7 +1202,7 @@ x.initiative_link.potentially_supported {
 }
 
 .help,.use_terms {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     border: 1px solid #ffe900;
     background-color: #fffbce;
     color: #000;
@@ -1314,7 +1323,7 @@ a.not_voted {
     margin-bottom: 5ex;
     padding: 1ex;
     padding-bottom: 2ex;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 #voting .approval {
@@ -1350,7 +1359,7 @@ a.not_voted {
     border: 1px black solid;
     margin-top: 1ex;
     padding: 0.5ex;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 #voting .voting_form_active .movable {
@@ -1373,11 +1382,11 @@ a.not_voted {
 /* shadows */
 .member_statement,.suggestion_content,.initiative_head,.box,div.notifications
     {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 .member_statement,.suggestion_content,.initiative_head,.box {
-    border: 1px solid #777;
+  /*border: 1px solid #777;*/
 }
 
 .member_statement,.draft_content,.suggestion_content,.box {

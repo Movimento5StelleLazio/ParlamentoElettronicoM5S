@@ -2,8 +2,10 @@
 
 FRONTENDSRC=/opt/ParlamentoElettronicoM5S
 CORESRC=/opt/ParlamentoElettronicoM5SCore
+WEBMCPSRC=/opt/ParlamentoElettronicoM5S/extras/webmcp
 FRONTENDDST=/opt/liquid_feedback_frontend
 COREDST=/opt/liquid_feedback_core
+WEBMCPDST=/opt/webmcp
 HELPDIR=${FRONTENDDST}/locale/help/
 ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
 CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
@@ -18,13 +20,13 @@ if [ "z$(id -u)" != "z0" ];then
 fi
 
 auto=no
-copyonly=no
+fast=no
 while [ $# -gt 0 ]
 do
     case "$1" in
     (-a) auto=yes;;
-    (-c) copyonly=yes;;
-    (-h) echo "Usage: $0 [-a] [-h] [-c]"; echo "  -a    :Non interactive installation"; echo "  -h    :Print this help message"; echo "  -c    :Frontend copy only"; exit 0;;
+    (-h) echo "Usage: $0 [-a] [-h]"; echo "  -a    :Non interactive installation"; echo "  -h    :Print this help message"; exit 0;;
+    (-f) fast=yes;;
     (-*) echo "Unrecognized option $1" 1>&2; exit 1;;
     (*)  break;;
     esac
@@ -32,6 +34,12 @@ do
 done
 
 export LANG=en_US.UTF-8
+
+if [ "z${fast}" == "zyes" ]; then
+   cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,utils} ${FRONTENDDST}/
+   echo "Fast copy done"
+   exit 0
+fi
 
 if [ "z${auto}" == "zno" ];then
 	echo ""
@@ -41,8 +49,10 @@ if [ "z${auto}" == "zno" ];then
 	echo "-------------------------------------------------------------------------"
 	echo -e "Frontend source: \t${FRONTENDSRC}"
 	echo -e "Core source: \t\t${CORESRC}"
+	echo -e "WebMCP source: \t\t${WEBMCPSRC}"
 	echo -e "Frontend destination: \t${FRONTENDDST}"
 	echo -e "Core destination: \t${COREDST}"
+	echo -e "WebMCP destination: \t${WEBMCPDST}"
 	echo -e "Rocketwiki binary: \t${ROCKETWIKICMD}"
 	echo -e "Configuration file: \t${CONFIGFILE}"
 	echo -e "lf_updated script: \t${LFUPDATED}"
@@ -81,6 +91,12 @@ if ! [ -d "${CORESRC}" ]; then
         exit 1
 fi
 
+if ! [ -d "${WEBMCPSRC}" ]; then
+        echo "Missing WebMCP installation source ${WEBMCPSRC}"
+        echo "Installation failed!"
+        exit 1
+fi
+
 if ! [ -f "${CONFIGFILE}" ]; then
         echo "Missing configuration file ${CONFIGFILE}"
 	echo "Installation failed!"
@@ -93,6 +109,7 @@ if ! [ -f "${ROCKETWIKICMD}" ]; then
         exit 1
 fi
 
+rm -rf ${FRONTENDDST} 2>/dev/null
 mkdir -p ${FRONTENDDST} 
 if ! [ -d "${FRONTENDDST}" ]; then
 	echo "Unable to create directory ${COREDST}"
@@ -100,6 +117,7 @@ if ! [ -d "${FRONTENDDST}" ]; then
 	exit 1
 fi	
 
+rm -rf ${COREDST}  2>/dev/null
 mkdir -p ${COREDST} 
 if ! [ -d "${COREDST}" ]; then
 	echo "Unable to create directory ${COREDST}"
@@ -107,23 +125,36 @@ if ! [ -d "${COREDST}" ]; then
 	exit 1
 fi	
 
+rm -rf ${WEBMCPDST} 2>/dev/null
+mkdir -p ${WEBMCPDST}
+if ! [ -d "${WEBMCPDST}" ]; then
+        echo "Unable to create directory ${WEBMCPDST}"
+        echo "Installation failed!"
+        exit 1
+fi
+
 echo "Installing Frontend..."
-cp -a ${FRONTENDSRC}/* ${FRONTENDDST}
+cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+mkdir -p ${FRONTENDDST}/config/
+cp ${FRONTENDSRC}/config/init.lua ${FRONTENDDST}/config/
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp
-
-
-if [ "x${copyonly}" == "xyes" ];then
-	echo "Frontend copy done"
-	exit 0
-fi
 
 echo "Installing Core..."
 cp -a ${CORESRC}/* ${COREDST} 
 
 echo "Installing configuration file..."
 cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+
+echo "Compiling WebMCP..."
+cd ${WEBMCPSRC}
+make clean 1>/dev/null
+make 1>/dev/null
+cd -
+
+echo "Installing WebMCP..."
+cp -RL ${WEBMCPSRC}/framework/* ${WEBMCPDST}/
 
 echo "Converting help files with rocketwiki..."
 find ${FRONTENDDST}/locale/help/ -name "*.txt" | while read file; do
@@ -156,5 +187,10 @@ sleep 2
 
 ${NOTIFYD} 
 rm nohup.out 2>/dev/null
+
+echo "Cleaining..."
+cd ${WEBMCPSRC}
+make clean 1>/dev/null
+cd -
 
 echo "Installation complete..."
