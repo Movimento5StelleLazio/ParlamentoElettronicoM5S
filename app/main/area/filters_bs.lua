@@ -37,7 +37,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.tag{tag="span",attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large fittext eq1" },
+          attr = { class="btn btn-primary btn-large" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
@@ -50,7 +50,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.tag{tag="span",attr={class="span3"},content = function()
           ui.link {
-            attr = { class="btn btn-primary btn-large fittext eq1" },
+            attr = { class="btn btn-primary btn-large" },
             module = "area",
             view = "show_ext_bs",
             params = { state = "admission"},
@@ -64,7 +64,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end
       ui.tag{tag="span",attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large fittext eq1" },
+          attr = { class="btn btn-primary btn-large" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "development"},
@@ -77,7 +77,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end }
       ui.tag{tag="span",attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large fittext eq1" },
+          attr = { class="btn btn-primary btn-large" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "closed"},
