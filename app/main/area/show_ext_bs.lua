@@ -86,7 +86,7 @@ end
 
 slot.put("<br />")
 ui.container{ attr = { class  = "row-fluid" } , content = function()
-  ui.container{ attr = { class  = "well span8 offset2" }, content = function()
+  ui.container{ attr = { class  = "well span10 offset1" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.link{
         attr = { class="span4 btn btn-primary btn-large"  },

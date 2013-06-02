@@ -1,82 +1,7 @@
-html, body {
-  height: 100%;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  min-width: 767px;
-  line-height: 1.625px;
-}
-
-h1,h2,h3,h4,h5 {
-  display:inline-block;
-  text-shadow:rgba(50,50,50,.5) 1px 1px 1px;
-  -webkit-margin-before: 0.67em;
-  -webkit-margin-after: 0.67em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-}
-
-h1 {
-  font-size: 1.25em;
-}
-h2 {
-  font-size: 1.0em;
-}
-h3 {
-  font-size: 1.1em;
-}
-h4 {
-  font-size: 1.1em;
-}
-h5 {
-  font-size: 1.1em;
-}
-
-@media screen and (max-width: 600px) {
-  h1 { font-size: 1.2em; }
-  h2 { font-size: 0.60em; line-height: 10px; }
-  h3 { font-size: 0.65em; }
-  h4 { font-size: 0.65em; }
-  h5 { font-size: 0.50em; }
-  .info-text { font-size: 0.90em; width: 100%; }
-/*
-  .btn-large  {
-    height: 100%;
-    padding-top:5px;
-    padding-bottom:5px;
-    line-height: 15px;
-    width:14%;
-  }
-*/
-}
-
-@media ONLY screen and (min-width: 1100px) {
-  h1 { font-size: 1.5em; }
-  h2 { font-size: 1.35em; }
-  h3 { font-size: 1.40em; }
-  h4 { font-size: 1.35em; }
-  h5 { font-size: 1.35em; }
-  info-text { font-size: 1.30em; width: 100%; }
-/*
-  .btn-large  {
-    height: 100%;
-    padding-top:15px;
-    padding-bottom:15px;
-    width:20%;
-  }
-*/
-}
-
 a{
  color: #000000;
  text-decoration: none !important
 }
-
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -3em;
-}
-
 .footer, .push {
   height: 3em;
 }
@@ -84,61 +9,14 @@ a{
 #default {
   margin-top: 60px;
 }
-
-.well {
-  background-color: #fffbd2;
-  border: 1px solid #ffb015;
+#internal_assembly_btn  {
+    max-width:250px;
+    height: 70px;
 }
-
-.btn {
-  display: table-cell;
-  font-weight:bold;
-  text-transform:uppercase;
-  -webkit-box-shadow: hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.3) 0 .6em 6px;
-     -moz-box-shadow: hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.3) 0 .6em 6px; /* drop shadow */;
-          box-shadow: hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.3) 0 .6em 6px; /* drop shadow */;
-  -webkit-border-radius: 18px;
-     -moz-border-radius: 18px;
-          border-radius: 18px;
+#region_assembly_btn  {
+    max-width:250px;
+    height: 70px;
 }
-
-.btn-primary {
-  color: #000000;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #FFB52B;
-  *background-color: #FFB52B;
-  background-image: -moz-linear-gradient(top, #FCD283, #FFB52B);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FCD283), to(#FFB52B));
-  background-image: -webkit-linear-gradient(top, #FCD283, #FFB52B);
-  background-image: -o-linear-gradient(top, #FCD283, #FFB52B);
-  background-image: linear-gradient(to bottom, #FCD283, #FFB52B);
-  background-repeat: repeat-x;
-  border-color: #FFB52B;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCD283', endColorstr='#FFB52B', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.btn-primary.disabled,
-.btn-primary[disabled] {
-  color: #000000;
-  background-color: #FFB52B;
-  *background-color: #003bb3;
-}
-
-.btn-group.open .btn-primary.dropdown-toggle {
-  background-color: #FFB52B;
-}
-
-.btn-primary:active,
-.btn-primary.active {
-  background-color: #FFB52B \9;
-}
-
-
 
 /*
   M5S specific
@@ -201,4 +79,32 @@ a.delegation_info:hover,a.delegation_info:focus {
 .highlighted {
     background-color: #fa7;
     color: #000;
+}
+@media screen and (min-width: 480px) {
+  h1 { font-size: 1.3em; }
+  h2 { font-size: 1.2em; line-height: 10px; }
+  h3 { font-size: 1.1em; }
+  h4 { font-size: 0.7em; }
+  h5 { font-size: 0.80em; }
+}
+@media screen and (min-width: 600px) {
+  h1 { font-size: 1.3em; }
+  h2 { font-size: 1.2em; line-height: 10px; }
+  h3 { font-size: 1.1em; }
+  h4 { font-size: 1.1em; }
+  h5 { font-size: 0.80em; }
+}
+@media screen and (min-width: 768px) {
+  h1 { font-size: 1.2em; }
+  h2 { font-size: 0.60em; line-height: 10px; }
+  h3 { font-size: 0.65em; }
+  h4 { font-size: 1.40em; }
+  h5 { font-size: 0.50em; }
+}
+@media screen and (min-width: 1200px) {
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.35em; }
+  h3 { font-size: 1.40em; }
+  h4 { font-size: 1.60em; }
+  h5 { font-size: 1.35em; }
 }
