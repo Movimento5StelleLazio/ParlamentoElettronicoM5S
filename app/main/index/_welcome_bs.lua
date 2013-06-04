@@ -76,7 +76,7 @@ if app.session.member_id then
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{
               module="index", 
-              view="homepage", 
+              view="homepage_bs", 
               attr = {id = "region_assembly_btn", class = "btn btn-primary btn-large" }, 
               content=function()
                 ui.heading{level=4,content= _"REGIONE LAZIO ASSEMBLY"}
