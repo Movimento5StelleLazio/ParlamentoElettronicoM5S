@@ -17,9 +17,6 @@ end
 
 trace.debug("filter: issue_state="..issue_state)
  
-local welcomeText=_"Homepage welcome text"
-welcomeText=welcomeText.._"Homepage welcome text2"
-
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
     ui.heading{level=4, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
@@ -70,153 +67,79 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
 
+ui.container{attr={class="row-fluid"},content=function()
+  ui.container{attr={class="span12 text-center"},content=function()
+    --containerFiltri
+    execute.view{
+      module="index" ,
+      view="_filters_ext_bs" ,
+      params={
+        level=2 ,
+        module="index",
+        routing_page="homepage"
+      }
+    }
+  end }
+end }
 
---containerFiltri 
-execute.view{
-        module="index" ,
-        view="_filters_ext" , 
-        params={ 
-                level=2 ,
-                module="index", 
-                routing_page="homepage" 
-                }
-        }
- 
-
-
-
-
-       ----------spazio div         
- ui.container{
-                  attr={class="spazioIssue", style="height:100px;width:100%;"},
-                  content=function()
-                  end
-            } 
-            
-            
-            
----container leggi
-ui.container{
-
-        attr={id="parlamentoDiv", class="parlamentoDiv"},
-        
-        
-        content=function()
-
-                   
--------le tue votazioni
-        ui.container{
-            
-               attr={id="votazioniDiv", class="votazioniDiv"},
-                    
-                    
-               content=function()
-                  
---------immagine parlamento
-                 ui.image{
-                        attr = { class = "parlamentoImg" },
-                        static = "parlamento_icon_small.png"
-                      }
-                    
-      ----------spazio div         
-                  ui.container
-                  {
-                  attr={class="spazioIssue"},
-                  content=function()
-                  end
-                  } 
-                  
-------titolo "le Tue Votazioni"
-               ui.tag{
-                       tag="span",
-                       attr={class="titolo"},
-                       content= _"Your Voting"
-                       }
-             
-             
-----------spazio div         
-               ui.container
-                  {
-                  attr={class="spazioIssue"},
-                  content=function()
-                  end
-                  }
-                     
-           
-               
----------------Paginazione
-                execute.view{
-                      module = "issue",
-                      view   = "_votazioni_ext",
-                      id     = "idLista",
-                      params = {
-                                for_state = issue_state,
-                                issues_selector = issues_selector, 
-                                view="votazioni"
-                                },
-                    }
-                    end
-                }
-                    
-                  
-                   
-                     
----------Le Tue Proposte
-             ui.container{
-            
-                    attr={id="proposteDiv", class="proposteDiv"},
-                    
-                    content=function()
-                  
-             --------immagine parlamento
-                 ui.image{
-                        attr = { class = "parlamentoImg" },
-                        static = "parlamento_icon_small.png"
-                      }             
-                  
-             ----------spazio div         
-                  ui.container
-                  {
-                  attr={class="spazioIssue"},
-                  content=function()
-                  end
-                  } 
-                    
-                  ui.tag{
-                       tag="span",
-                       attr={class="titolo"},
-                       content=_"Your Proposals"
-                  }
-             
-             ----------spazio div         
-                  ui.container
-                  {
-                      attr={class="spazioIssue"},
-                      content=function()
-                      end
-                  }
-                     
-             ----issue render
-                  execute.view{
-                      module = "issue",
-                      view   = "_proposte_ext",
-                      id     = "idLista",
-                      params = {
-                                  for_state = issue_state,
-                                  issues_selector = issues_selector,
-                                  view="proposte"
-                                },
-                  }
-             
-                    
-                    
-                  end
-               }
-                    
-        slot.put("<br /><br />")
-        end
-}
-
+ui.container{attr={class="row-fluid"},content=function()
+  ui.container{attr={class="span6"},content=function()
+    ui.container{attr={class="row-fluid"},content=function()
+      ui.container{attr={class="span12 text-center"},content=function()
+        ui.image{static = "parlamento_icon_small.png"}
+      end }
+    end }
+    ui.container{attr={class="row-fluid"},content=function()
+      ui.container{attr={class="span12 well"},content=function()
+        ui.container{attr={class="row-fluid"},content=function()
+          ui.container{attr={class="span12 text-center"},content=function()
+            ui.heading{level=3,content=_"Your Voting"}
+          end }
+          ui.container{attr={class="span12 alert-simple"},content=function()
+            execute.view{
+              module = "issue",
+              view   = "_votazioni_ext",
+              id     = "idLista",
+              params = {
+                for_state = issue_state,
+                issues_selector = issues_selector,
+                view="votazioni"
+              }
+            }
+          end }
+        end }
+      end }
+    end }
+  end }
+  ui.container{attr={class="span6"},content=function()
+    ui.container{attr={class="row-fluid"},content=function()
+      ui.container{attr={class="span12 text-center"},content=function()
+        ui.image{static = "parlamento_icon_small.png"}
+      end }
+    end }
+    ui.container{attr={class="row-fluid"},content=function()
+      ui.container{attr={class="span12 well"},content=function()
+        ui.container{attr={class="row-fluid"},content=function()
+          ui.container{attr={class="span12 text-center"},content=function()
+            ui.heading{level=3,content=_"Your Proposals"}
+          end }
+          ui.container{attr={class="span12 alert-simple"},content=function()
+            execute.view{
+              module = "issue",
+              view   = "_proposte_ext",
+              id     = "idLista",
+              params = {
+                for_state = issue_state,
+                issues_selector = issues_selector,
+                view="proposte"
+              }
+            }
+          end }
+        end }
+      end }
+    end }
+  end }
+end }
 
 if filter_state then
  ui.script{
@@ -230,5 +153,3 @@ if filter_state then
  }
  
 end
-
-
