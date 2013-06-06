@@ -632,8 +632,10 @@ a:focus {
 }
 
 .container-fluid {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-width: 1200px;
+  margin:0 auto;
   *zoom: 1;
 }
 
@@ -740,7 +742,6 @@ h5,
 h6 {
   margin: 10px 0;
   font-family: inherit;
-  font-weight: bold;
   line-height: 20px;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -760,27 +761,28 @@ h6 small {
 h1,
 h2,
 h3 {
-  line-height: 40px;
+  line-height: 30px;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 0.8em;
+  line-height: 12px;
 }
 
 h4 {
-  font-size: 0.6em;
+  font-size: 1.4em;
 }
 
 h5 {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 h6 {
