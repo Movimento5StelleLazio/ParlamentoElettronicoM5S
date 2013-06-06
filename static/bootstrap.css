@@ -228,6 +228,7 @@ body {
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
+  min-width: 768px;
 }
 
 a {
