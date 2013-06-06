@@ -51,6 +51,10 @@ return {
 ["SHOW ONLY THE FOLLOWING UNITS:"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
+["You are now inside the Digital Assembly of M5S Lazio's Public Affairs."]="Ti trovi nell'assemblea elettronica dell M5S Lazio dedicata alla cosa pubblica.";
+["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la regione e i suoi cittadini.";
+["What you want to do?"]="Cosa vuoi fare?";
+["Choose by pressing one of the following buttons:"]="Scegli premendo uno di queti bottoni:";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
 ["Electeds Initiatives Completed or Retired"]="Proposte Degli Eletti Completate o Ritirate";
 ["Citizens Initiatives In Discussion"]="Proposte Dei Cittadini In Discussione";

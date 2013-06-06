@@ -84,9 +84,8 @@ else
   issues_desc = _"Unknown"
 end
 
-slot.put("<br />")
 ui.container{ attr = { class  = "row-fluid" } , content = function()
-  ui.container{ attr = { class  = "well span10 offset1" }, content = function()
+  ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.link{
         attr = { class="span4 btn btn-primary btn-large"  },
@@ -188,17 +187,18 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-ui.container{ attr = { id="area_show_bottom_box"}, content=function()
-  
-  ui.container{ attr = { class="unit_bottom_box"}, content=function()
-    ui.tag { tag = "p", attr = { class  = "welcome_text_xl"  }, content = _(issues_desc) or "Initiatives:" }
-  
-    ui.container{ attr = { class="unit_button_box"}, content=function()
-  
-      -- TODO Remove hard-coded check and test if area policy has a non null admission time instead
+ui.container{ attr = { class="row-fluid"}, content=function()
+  ui.container{ attr = { class="span12 well"}, content=function()
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span12 text-center"}, content=function()
+        ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
+      end }
+    end }
+    ui.container{ attr = { class="row-fluid"}, content=function()
+
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.link {
-          attr = { class="area_show_ext_button button orange" },
+          attr = { class="btn btn-primary btn-large" },
           module = "area",
           view = "show_ext",
           id = area.id,
@@ -208,11 +208,11 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
           end
         }
       else
-        button_margin = "left: 140px;" 
+        button_margin = "left: 140px;"
       end
-    
+
       ui.link {
-        attr = { class="area_show_ext_button button orange" },
+        attr = { class="btn btn-primary btn-large" },
         module = "area",
         view = "show_ext",
         id = area.id,
@@ -221,9 +221,9 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
           ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
         end
       }
-  
+
       ui.link {
-        attr = { class="area_show_ext_button button orange" },
+        attr = { class="btn btn-primary btn-large" },
         module = "area",
         view = "show_ext",
         id = area.id,
@@ -232,9 +232,9 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
           ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
         end
       }
-  
+
       ui.link {
-        attr = { class="area_show_ext_button button orange" },
+        attr = { class="btn btn-primary btn-large" },
         module = "area",
         view = "show_ext",
         id = area.id,
@@ -243,16 +243,16 @@ ui.container{ attr = { id="area_show_bottom_box"}, content=function()
           ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
         end
       }
-     
+
     end }
-  
-    ui.container{ attr = { class="area_issue_box"}, content=function()
-      execute.view{
-        module="issue" ,
-        view="_list_ext",
-        params={ selector=selector, member=member }
-    }
-  
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span12 alert-simple"}, content=function()
+        execute.view{
+          module="issue" ,
+          view="_list_ext",
+          params={ selector=selector, member=member }
+        }
+      end }
     end }
   end }
 end }
