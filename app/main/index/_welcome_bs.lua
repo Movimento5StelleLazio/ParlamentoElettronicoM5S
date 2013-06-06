@@ -56,7 +56,7 @@ if app.session.member_id then
           ui.tag{ tag="span", attr = { id = "location"}, content="" }
         end
       end }
-      ui.tag{ tag="h3", content= _"Scegli l'assemblea alla quale vuoi partecipare:"}
+      ui.tag{ tag="h2", content= _"Scegli l'assemblea alla quale vuoi partecipare:"}
 
     end }
   
@@ -65,7 +65,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "well span5 offset1 text-center" },
+      attr = {class = "well span12 text-center" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -77,7 +77,7 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage_bs", 
-              attr = {id = "region_assembly_btn", class = "btn btn-primary btn-large" }, 
+              attr = {id = "large_btn", class = "btn btn-primary btn-large" }, 
               content=function()
                 ui.heading{level=4,content= _"REGIONE LAZIO ASSEMBLY"}
               end
@@ -88,7 +88,7 @@ if app.session.member_id then
     }
 
     ui.container{ 
-      attr = {class = "well span5 text-center" }, 
+      attr = {class = "well span12 text-center" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -98,7 +98,7 @@ if app.session.member_id then
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{ 
-              attr = { id = "internal_assembly_btn", class = "btn btn-primary btn-large" }, 
+              attr = { id = "large_btn", class = "btn btn-primary btn-large" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
@@ -189,15 +189,15 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration-info", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span5 text-center"}, content=function()
+            ui.tag{ attr = { class="span8 text-center"}, content=function()
               ui.heading{ level=5,content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
             end }
             ui.link{
-              attr = {class="span7 btn btn-primary btn-large"},
+              attr = {class="span4 btn btn-primary btn-large"},
               module = "index",
               view = "register",
               content = function()
-                ui.heading{ level=4,content= _"Guida alla registrazione" }
+                ui.heading{ level=4,content= _"Guida" }
               end 
             }
           end }
@@ -207,11 +207,11 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span5 text-center"}, content=function()
+            ui.tag{ attr = { class="span8 text-center"}, content=function()
               ui.heading{ level=5,content= _"Possiedi gia' un codice di invito? Clicca qui:"}
             end }
             ui.link{
-              attr = {class="span7 btn btn-primary btn-large"},
+              attr = {class="span4 btn btn-primary btn-large"},
               module = "index",
               view = "register",
               content = function()
@@ -225,11 +225,11 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="lost_password", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span5 text-center"}, content=function()
+            ui.tag{ attr = { class="span8 text-center"}, content=function()
               ui.heading{ level=5,content= _"Hai smarrito la password? Clicca qui:"}
             end }
             ui.link{
-              attr = { class="span7 btn btn-primary btn-large"},
+              attr = { class="span4 btn btn-primary btn-large"},
               module = 'index',
               view   = 'reset_password',
               content = function()
