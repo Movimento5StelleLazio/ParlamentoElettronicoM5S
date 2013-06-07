@@ -92,7 +92,7 @@ local txt_map = {
 ui.container{ attr = { id = "", class = ""}, content = function()
   if not ftl_btns then
     ui.link { 
-      attr = { id = "flt_btn_apply", class = "button orange" },
+      attr = { id = "flt_btn_apply", class = "btn btn-primary" },
       module = module, view = view, id = id,
       params = { state = state or default_state, orderby = orderby, desc = desc, interest = interest or default_interest, scope = scope or default_scope, ftl_btns = true },
       content = _"APPLY FILTERS"
@@ -100,18 +100,18 @@ ui.container{ attr = { id = "", class = ""}, content = function()
   else
     ui.container{  attr = { id = "flt_box", class = "" }, content = function()
       ui.link {
-        attr = { id = "flt_btn_delete", class = "button orange"},
+        attr = { id = "flt_btn_delete", class = "btn btn-primary"},
         module = module, view = view, id = id,
         params = { state = default_state, orderby = orderby, desc = desc, interest = default_interest, scope = default_scope, ftl_btns = false },
         content = _"REMOVE FILTERS"
       }
       if btns['state'] then
-        ui.container{  attr = { class = "flt_btn_box"}, content = function()
-          ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
+        ui.container{ attr = { class = "flt_btn_box"}, content = function()
+          ui.heading{ level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
           for i=1, #btns.state do
-            if state == btns.state[i] then color = "green" else color = "orange" end
+            if state == btns.state[i] then color = "btn-secondary" else color = "btn-primary" end
             ui.link {
-              attr = { id = "flt_btn_"..btns.state[i], class = "button "..color.." flt_btn_txt"},
+              attr = { id = "flt_btn_"..btns.state[i], class = "btn "..color},
               module = module, view = view, id = id, 
               params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
               content = txt_map.state[btns.state[i]]
@@ -123,9 +123,9 @@ ui.container{ attr = { id = "", class = ""}, content = function()
         ui.container{  attr = { class = "flt_btn_box"}, content = function()
           ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"  }
           for i=1, #btns.interest do
-            if interest == btns.interest[i] then color = "green" else color = "orange" end
+            if interest == btns.interest[i] then color = "btn-secondary" else color = "btn-primary" end
             ui.link {
-              attr = { id = "flt_btn_"..btns.interest[i], class = "button "..color.." flt_btn_txt"},
+              attr = { id = "flt_btn_"..btns.interest[i], class = "btn "..color},
               module = module, view = view, id = id,
               params = { state = state, orderby = orderby, desc = desc, interest =  btns.interest[i], scope=scope, ftl_btns = true },
               content = txt_map.interest[btns.interest[i]]
@@ -137,9 +137,9 @@ ui.container{ attr = { id = "", class = ""}, content = function()
         ui.container{  attr = { class = "flt_btn_box"}, content = function()
           ui.heading{ attr = { class = "flt_btn_head_title"}, level=2, content = _"SHOW ONLY THE FOLLOWING UNITS:"  }
           for i=1, #btns.scope do
-            if interest == btns.scope[i] then color = "green" else color = "orange" end
+            if interest == btns.scope[i] then color = "btn-secondary" else color = "btn-primary" end
             ui.link {
-              attr = { id = "flt_btn_"..btns.scope[i], class = "button "..color.." flt_btn_txt"},
+              attr = { id = "flt_btn_"..btns.scope[i], class = "btn "..color},
               module = module, view = view, id = id,
               params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = btns.scope[i], ftl_btns = true },
               content = txt_map.scope[btns.scope[i]]
