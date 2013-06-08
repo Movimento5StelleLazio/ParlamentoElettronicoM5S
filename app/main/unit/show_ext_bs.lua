@@ -76,6 +76,14 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
+btn1, btn2 = "btn btn-primary btn-large","btn btn-primary btn-large"
+if filter == "my_areas" then
+  btn2="btn btn-success btn-large active"
+else
+  btn1="btn btn-success btn-large active"
+end
+  
+
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class ="span12 well" }, content = function()
     ui.container{ attr = { class ="row-fluid" }, content = function()
@@ -88,7 +96,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class ="row-fluid" }, content = function()
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link { 
-          attr = { class="btn btn-primary btn-large"  }, 
+          attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
@@ -99,7 +107,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large"  },
+          attr = { class=btn2  },
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
