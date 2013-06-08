@@ -47,15 +47,17 @@ ui.script{static = "js/jquery.equalheight.js"}
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span10 offset1" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.link{
-        attr = { class="span4 btn btn-primary btn-large"  },
-        module = "index",
-        view = return_view,
-        content = function()
-          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-          slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
-        end
-      }
+      ui.container{ attr = { class  = "span4" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large"  },
+          module = "index",
+          view = return_view,
+          content = function()
+            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
+            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
+          end
+        }
+      end }
       ui.tag { 
         tag = "h4", 
         attr = { class  = "span8 text-center"}, 
@@ -84,23 +86,27 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.tag{tag="span",attr={class="span3 offset2"},content=function()
+      ui.container{attr={class="span3 offset2"},content=function()
         ui.link { 
           attr = { class="btn btn-primary btn-large"  }, 
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
-          content = _"SHOW ALL AREAS" 
+          content = function()
+            ui.heading{level=4,content= _"SHOW ALL AREAS"}
+          end 
         }
       end }
-      ui.tag{tag="span",attr={class="span3 offset2"},content=function()
+      ui.container{attr={class="span3 offset2"},content=function()
         ui.link {
           attr = { class="btn btn-primary btn-large"  },
           module = "unit",
-            view = "show_ext_bs",
+          view = "show_ext_bs",
           id = unit_id,
           params = { filter = "my_areas"},
-          content =  _"SHOW ONLY PARTECIPATED AREAS" 
+          content = function()
+            ui.heading{level=4,content= _"SHOW ONLY PARTECIPATED AREAS"}
+          end 
         }
       end }
     end }
