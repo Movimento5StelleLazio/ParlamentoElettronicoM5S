@@ -87,17 +87,18 @@ end
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.link{
-        attr = { class="span4 btn btn-primary btn-large"  },
-        module = "area",
-        id = area.id,
-        view = "filters_bs",
-        content = function()
-          -- Test allineamento verticale icone
-          ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-          slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
-        end
-      }
+      ui.container{ attr = { class  = "span4" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large"  },
+          module = "area",
+          id = area.id,
+          view = "filters_bs",
+          content = function()
+            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
+            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
+          end
+        }
+      end }
       ui.tag {
         tag = "h4",
         attr = { class  = "span8 text-center"},
@@ -195,55 +196,56 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class="row-fluid"}, content=function()
-
       if unit_name == "cittadini" or unit_name == "iscritti" then
+        ui.container{ attr = { class="span3" }, content=function()
+          ui.link {
+            attr = { class="btn btn-primary btn-large" },
+            module = "area",
+            view = "show_ext_bs",
+            id = area.id,
+            params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+            content = function()
+              ui.heading { level=4, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+            end
+          }
+        end }
+      end
+      ui.container{ attr = { class="span3" }, content=function()
         ui.link {
           attr = { class="btn btn-primary btn-large" },
           module = "area",
-          view = "show_ext",
+          view = "show_ext_bs",
           id = area.id,
-          params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+          params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
           content = function()
-            ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+            ui.heading { level=4, content = _"ORDER BY DATE OF CREATION" }
           end
         }
-      else
-        button_margin = "left: 140px;"
-      end
-
-      ui.link {
-        attr = { class="btn btn-primary btn-large" },
-        module = "area",
-        view = "show_ext",
-        id = area.id,
-        params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
-        content = function()
-          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY DATE OF CREATION" }
-        end
-      }
-
-      ui.link {
-        attr = { class="btn btn-primary btn-large" },
-        module = "area",
-        view = "show_ext",
-        id = area.id,
-        params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
-        content = function()
-          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = _"ORDER BY LAST EVENT DATE" }
-        end
-      }
-
-      ui.link {
-        attr = { class="btn btn-primary btn-large" },
-        module = "area",
-        view = "show_ext",
-        id = area.id,
-        params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
-        content = function()
-          ui.tag {  tag = "p", attr = { class  = "button_text"  }, content = inv_txt }
-        end
-      }
-
+      end }
+      ui.container{ attr = { class="span3" }, content=function()
+        ui.link {
+          attr = { class="btn btn-primary btn-large" },
+          module = "area",
+          view = "show_ext_bs",
+          id = area.id,
+          params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
+          content = function()
+            ui.heading { level=4, content = _"ORDER BY LAST EVENT DATE"  }
+          end
+        }
+      end }
+      ui.container{ attr = { class="span3" }, content=function()
+        ui.link {
+          attr = { class="btn btn-primary btn-large" },
+          module = "area",
+          view = "show_ext_bs",
+          id = area.id,
+          params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
+          content = function()
+            ui.heading { level=4, content = inv_txt  }
+          end
+        }
+      end }
     end }
     ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{ attr = { class="span12 alert-simple"}, content=function()
