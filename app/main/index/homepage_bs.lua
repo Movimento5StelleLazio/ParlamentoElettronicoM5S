@@ -19,16 +19,16 @@ trace.debug("filter: issue_state="..issue_state)
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
-    ui.heading{level=4, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
+    ui.heading{level=3, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
     ui.heading{level=4, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
     ui.heading{level=4, content=_"Here laws and measures for Region and his citizens are being discussed."}
     ui.heading{level=3, content=_"What you want to do?"}
-    ui.heading{level=3, content=_"Choose by pressing one of the following buttons:"}
+    ui.heading{level=4, content=_"Choose by pressing one of the following buttons:"}
 
     ui.container{attr={class="row-fluid"},content=function()
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
           content=function()
@@ -37,7 +37,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module = "wizard", view = "show_ext",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
@@ -46,7 +46,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
@@ -55,7 +55,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
        
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["altri_gruppi"].unit_id,
           content=function()
