@@ -65,7 +65,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "well span12 text-center" },
+      attr = {class = "well span6 text-center" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -77,7 +77,7 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage_bs", 
-              attr = {id = "large_btn", class = "btn btn-primary btn-large" }, 
+              attr = {class = "btn btn-primary btn-large large_btn" }, 
               content=function()
                 ui.heading{level=4,content= _"REGIONE LAZIO ASSEMBLY"}
               end
@@ -88,7 +88,7 @@ if app.session.member_id then
     }
 
     ui.container{ 
-      attr = {class = "well span12 text-center" }, 
+      attr = {class = "well span6 text-center" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -98,7 +98,7 @@ if app.session.member_id then
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{ 
-              attr = { id = "large_btn", class = "btn btn-primary btn-large" }, 
+              attr = { class = "btn btn-primary btn-large large_btn" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
