@@ -87,7 +87,7 @@ end
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span4" }, content = function()
+      ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large"  },
           module = "area",

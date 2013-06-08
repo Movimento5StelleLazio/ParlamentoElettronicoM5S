@@ -35,7 +35,7 @@ if not unit_name then
   return false
 end
 
-local return_view = "homepage"
+local return_view = "homepage_bs"
 
 if unit_name == "iscritti" then
   return_view = "index"
@@ -45,9 +45,9 @@ ui.script{static = "js/jquery.fittext.js"}
 ui.script{static = "js/jquery.equalheight.js"}
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
-  ui.container{ attr = { class  = "well span10 offset1" }, content = function()
+  ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span4" }, content = function()
+      ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large"  },
           module = "index",
