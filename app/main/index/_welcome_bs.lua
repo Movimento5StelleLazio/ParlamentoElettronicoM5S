@@ -152,9 +152,7 @@ else
       content = function()
         ui.tag{ tag = "fieldset", content = function()
           ui.container{ attr = { class = "row-fluid" }, content = function()
-            ui.tag{ tag = "legend",attr = { class = "span12 text-center" }, content = function()
-              ui.heading{level=5,content= _"Insert user name and password to access:" }
-            end }
+            ui.tag{ tag = "legend",attr = { class = "span12 text-center" }, content = _"Insert user name and password to access:" }
           end }
 
           ui.container{ attr = { class = "row-fluid" }, content = function()
@@ -192,7 +190,7 @@ else
         ui.container{ attr = { id="registration-info", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.tag{ attr = { class="span7 text-center"}, content=function()
-              ui.heading{ level=5,content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
+              ui.tag{ tag="p", content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
             end }
             ui.link{
               attr = {class="span5 btn btn-primary btn-large"},
@@ -210,7 +208,7 @@ else
         ui.container{ attr = { id="registration", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.tag{ attr = { class="span7 text-center"}, content=function()
-              ui.heading{ level=5,content= _"Possiedi gia' un codice di invito? Clicca qui:"}
+              ui.tag{ tag="p",content= _"Possiedi gia' un codice di invito? Clicca qui:"}
             end }
             ui.link{
               attr = {class="span5 btn btn-primary btn-large"},
@@ -228,7 +226,7 @@ else
         ui.container{ attr = { id="lost_password", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.tag{ attr = { class="span7 text-center"}, content=function()
-              ui.heading{ level=5,content= _"Hai smarrito la password? Clicca qui:"}
+              ui.tag{ tag="p",content= _"Hai smarrito la password? Clicca qui:"}
             end }
             ui.link{
               attr = { class="span5 btn btn-primary btn-large"},
