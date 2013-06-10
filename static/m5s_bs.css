@@ -12,6 +12,11 @@ a{
 
 .large_btn  {
     max-width:230px;
+    height:115px;
+}
+.large_btn_home  {
+    max-width:250px;
+    height:90px;
 }
 .large_btn_show_ext  {
     max-width:230px;
