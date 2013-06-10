@@ -12,7 +12,10 @@ a{
 
 .large_btn  {
     max-width:230px;
-    min-height: 60px;
+}
+.large_btn_show_ext  {
+    max-width:230px;
+    height: 90px;
 }
 .medium_btn  {
     max-width:200px;
@@ -83,31 +86,35 @@ a.delegation_info:hover,a.delegation_info:focus {
     background-color: #fa7;
     color: #000;
 }
-@media screen and (min-width: 380px) {
+/*@media screen and (min-width: 380px) {
   h1 { font-size: 1.3em; }
   h2 { font-size: 1.2em; line-height: 15px; }
   h3 { font-size: 1.1em; line-height: 15px; }
   h4 { font-size: 1.0em; line-height: 15px; }
-  h5 { font-size: 0.9em; }
-}
+  h5 { font-size: 0.9em; line-height: 15px; }
+  h6 { font-size: 0.8em; line-height: 15px; }
+}*/
 @media screen and (min-width: 600px) {
   h1 { font-size: 1.4em; }
-  h2 { font-size: 1.3em; line-height: 15px; }
-  h3 { font-size: 1.2em; line-height: 20px;  }
+  h2 { font-size: 1.3em; line-height: 20px; }
+  h3 { font-size: 0.9em; line-height: 20px;  }
   h4 { font-size: 1.1em; line-height: 20px; }
-  h5 { font-size: 1.0em; }
+  h5 { font-size: 1.0em; line-height: 15px; }
+  h6 { font-size: 0.9em; line-height: 15px; }
 }
 @media screen and (min-width: 768px) {
   h1 { font-size: 1.50em; }
-  h2 { font-size: 1.40em; line-height: 15px; }
+  h2 { font-size: 1.40em; line-height: 25px; }
   h3 { font-size: 1.30em; line-height: 25px; }
   h4 { font-size: 1.20em; line-height: 25px; }
-  h5 { font-size: 1.10em; }
+  h5 { font-size: 1.10em; line-height: 15px; }
+  h6 { font-size: 1.00em; line-height: 15px; }
 }
 @media screen and (min-width: 1200px) {
   h1 { font-size: 1.70em; }
   h2 { font-size: 1.60em;  line-height: 15px; }
   h3 { font-size: 1.50em;  line-height: 25px; }
   h4 { font-size: 1.40em;  line-height: 25px; }
-  h5 { font-size: 1.30em; }
+  h5 { font-size: 1.30em; line-height: 15px; }
+  h6 { font-size: 0.90em; line-height: 15px; }
 }
