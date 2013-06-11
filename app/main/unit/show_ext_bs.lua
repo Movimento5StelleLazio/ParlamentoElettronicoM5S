@@ -45,11 +45,11 @@ ui.script{static = "js/jquery.fittext.js"}
 ui.script{static = "js/jquery.equalheight.js"}
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
-  ui.container{ attr = { class  = "well span10 offset1" }, content = function()
+  ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span4" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large"  },
+          attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
           view = return_view,
           content = function()
@@ -59,13 +59,12 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
         }
       end }
       ui.tag { 
-        tag = "h4", 
+        tag = "h1", 
         attr = { class  = "span8 text-center"}, 
         content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) 
       }
-    end }
-    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h3", attr = { class  = "span12 text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
+
+      ui.tag { tag = "h2", attr = { class  = "text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
     end }
   end }
 end }
@@ -88,24 +87,24 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class ="row-fluid" }, content = function()
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link { 
-          attr = { class="btn btn-primary btn-large"  }, 
+          attr = { class="btn btn-primary btn-large large_btn_show_ext"  }, 
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
           content = function()
-            ui.heading{level=4,content= _"SHOW ALL AREAS"}
+            ui.heading{level=3,content= _"SHOW ALL AREAS"}
           end 
         }
       end }
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large"  },
+          attr = { class="btn btn-primary btn-large large_btn_show_ext"  },
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
           params = { filter = "my_areas"},
           content = function()
-            ui.heading{level=4,content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3,content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
