@@ -110,7 +110,7 @@ if app.session.member_id then
               ui.link{ 
                 attr = { class = "btn btn-primary btn-large large_btn_home table-cell" }, 
                 module="unit", 
-                view="show_ext", 
+                view="show_ext_bs", 
                 id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
                 content=function()
                   ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
