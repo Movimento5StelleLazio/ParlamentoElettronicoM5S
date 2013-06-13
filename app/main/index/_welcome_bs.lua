@@ -65,7 +65,7 @@ if app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
 
     ui.container{ 
-      attr = {class = "well span12 text-center" },
+      attr = {class = "well span6 text-center" },
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -88,7 +88,7 @@ if app.session.member_id then
     }
 
     ui.container{ 
-      attr = {class = "well span12 text-center" }, 
+      attr = {class = "well span6 text-center" }, 
       content=function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
