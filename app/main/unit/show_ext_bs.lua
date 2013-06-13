@@ -35,7 +35,7 @@ if not unit_name then
   return false
 end
 
-local return_view = "homepage"
+local return_view = "homepage_bs"
 
 if unit_name == "iscritti" then
   return_view = "index"
@@ -47,7 +47,7 @@ ui.script{static = "js/jquery.equalheight.js"}
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span4" }, content = function()
+      ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
@@ -58,13 +58,18 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           end
         }
       end }
-      ui.tag { 
-        tag = "h1", 
-        attr = { class  = "span8 text-center"}, 
-        content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) 
-      }
-
-      ui.tag { tag = "h2", attr = { class  = "text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
+      ui.container{ attr = { class  = "span8 text-center" }, content = function()
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+            ui.heading{level=1,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+            ui.heading{level=2,content=_"CHOOSE THE THEMATIC AREA"}
+          end }
+        end }
+      end }
     end }
   end }
 end }
@@ -74,6 +79,14 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
     ui.image{ static = "parlamento_icon_small.png" }
   end }
 end }
+
+btn1, btn2 = "btn btn-primary btn-large large_btn_show_ext","btn btn-primary btn-large large_btn_show_ext"
+if filter == "my_areas" then
+  btn2="btn btn-success btn-large active large_btn_show_ext"
+else
+  btn1="btn btn-success btn-large active large_btn_show_ext"
+end
+  
 
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class ="span12 well" }, content = function()
@@ -87,7 +100,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class ="row-fluid" }, content = function()
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link { 
-          attr = { class="btn btn-primary btn-large large_btn_show_ext"  }, 
+          attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
@@ -98,7 +111,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
       ui.container{attr={class="span3 offset2"},content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn_show_ext"  },
+          attr = { class=btn2  },
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,

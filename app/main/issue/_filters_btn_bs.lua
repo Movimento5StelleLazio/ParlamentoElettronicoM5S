@@ -98,7 +98,9 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
             attr = { id = "flt_btn_apply", class = "btn btn-primary btn-large" },
             module = module, view = view, id = id,
             params = { state = state or default_state, orderby = orderby, desc = desc, interest = interest or default_interest, scope = scope or default_scope, ftl_btns = true },
-            content = _"APPLY FILTERS"
+            content = function()
+              ui.heading{ level=4, content = _"APPLY FILTERS"  }
+            end
           }
         end }
       end }
@@ -106,53 +108,73 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{ attr = { class = "span12 text-center"}, content = function()
           ui.link {
-            attr = { id = "flt_btn_delete", class = "btn btn-primary btn-large"},
+            attr = { id = "flt_btn_delete", class = "btn btn-primary active btn-large"},
             module = module, view = view, id = id,
             params = { state = default_state, orderby = orderby, desc = desc, interest = default_interest, scope = default_scope, ftl_btns = false },
-            content = _"REMOVE FILTERS"
+            content = function()
+              ui.heading{ level=4, content = _"REMOVE FILTERS"  }
+            end
           }
         end }
       end }
         if btns['state'] then
-          ui.container{ attr = { class = "flt_btn_box"}, content = function()
-            ui.heading{ level=3, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
-            for i=1, #btns.state do
-              if state == btns.state[i] then color = "btn-secondary" else color = "btn-primary" end
-              ui.link {
-                attr = { id = "flt_btn_"..btns.state[i], class = "btn btn-small "..color},
-                module = module, view = view, id = id, 
-                params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
-                content = txt_map.state[btns.state[i]]
-              }
-            end
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              ui.heading{ level=3, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"  }
+            end } 
+          end } 
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              for i=1, #btns.state do
+                if state == btns.state[i] then color = "btn-primary active" else color = "btn-primary" end
+                ui.link {
+                  attr = { id = "flt_btn_"..btns.state[i], class = "btn btn-small "..color},
+                  module = module, view = view, id = id, 
+                  params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
+                  content = txt_map.state[btns.state[i]]
+                }
+              end
+            end } 
           end } 
         end
         if btns['interest'] then
-          ui.container{  attr = { class = "flt_btn_box"}, content = function()
-            ui.heading{ level=3, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"  }
-            for i=1, #btns.interest do
-              if interest == btns.interest[i] then color = "btn-secondary" else color = "btn-primary" end
-              ui.link {
-                attr = { id = "flt_btn_"..btns.interest[i], class = "btn btn-small "..color},
-                module = module, view = view, id = id,
-                params = { state = state, orderby = orderby, desc = desc, interest =  btns.interest[i], scope=scope, ftl_btns = true },
-                content = txt_map.interest[btns.interest[i]]
-              }
-            end
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              ui.heading{ level=3, content = _"FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"  }
+            end } 
+          end } 
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              for i=1, #btns.interest do
+                if interest == btns.interest[i] then color = "btn-primary active" else color = "btn-primary" end
+                ui.link {
+                  attr = { id = "flt_btn_"..btns.interest[i], class = "btn btn-small "..color},
+                  module = module, view = view, id = id,
+                  params = { state = state, orderby = orderby, desc = desc, interest =  btns.interest[i], scope=scope, ftl_btns = true },
+                  content = txt_map.interest[btns.interest[i]]
+                }
+              end
+            end } 
           end } 
         end
         if btns['scope'] then
-          ui.container{  attr = { class = "flt_btn_box"}, content = function()
-            ui.heading{ level=3, content = _"SHOW ONLY THE FOLLOWING UNITS:"  }
-            for i=1, #btns.scope do
-              if interest == btns.scope[i] then color = "btn-secondary" else color = "btn-primary" end
-              ui.link {
-                attr = { id = "flt_btn_"..btns.scope[i], class = "btn btn-small "..color},
-                module = module, view = view, id = id,
-                params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = btns.scope[i], ftl_btns = true },
-                content = txt_map.scope[btns.scope[i]]
-              }
-            end
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              ui.heading{ level=3, content = _"SHOW ONLY THE FOLLOWING UNITS:"  }
+            end } 
+          end } 
+          ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 text-center"}, content = function()
+              for i=1, #btns.scope do
+                if interest == btns.scope[i] then color = "btn-primary active" else color = "btn-primary" end
+                ui.link {
+                  attr = { id = "flt_btn_"..btns.scope[i], class = "btn btn-small "..color},
+                  module = module, view = view, id = id,
+                  params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = btns.scope[i], ftl_btns = true },
+                  content = txt_map.scope[btns.scope[i]]
+                }
+              end
+            end }
           end }
         end
     end
