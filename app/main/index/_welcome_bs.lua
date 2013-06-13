@@ -77,9 +77,9 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage_bs", 
-              attr = {id = "large_btn", class = "btn btn-primary btn-large" }, 
+              attr = {class = "btn btn-primary btn-large large_btn" }, 
               content=function()
-                ui.heading{level=4,content= _"REGIONE LAZIO ASSEMBLY"}
+                ui.heading{level=3,content= _"REGIONE LAZIO ASSEMBLY"}
               end
             }
           end }
@@ -98,12 +98,12 @@ if app.session.member_id then
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{ 
-              attr = { id = "large_btn", class = "btn btn-primary btn-large" }, 
+              attr = { class = "btn btn-primary btn-large large_btn" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
               content=function()
-                ui.heading{level=4,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+                ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
               end
             }
           end }
@@ -152,9 +152,7 @@ else
       content = function()
         ui.tag{ tag = "fieldset", content = function()
           ui.container{ attr = { class = "row-fluid" }, content = function()
-            ui.tag{ tag = "legend",attr = { class = "span12 text-center" }, content = function()
-              ui.heading{level=5,content= _"Insert user name and password to access:" }
-            end }
+            ui.tag{ tag = "legend",attr = { class = "span12 text-center" }, content = _"Insert user name and password to access:" }
           end }
 
           ui.container{ attr = { class = "row-fluid" }, content = function()
@@ -173,13 +171,15 @@ else
           end }
   
           ui.container{ attr = { class = "row-fluid text-center" }, content = function()
-             ui.tag{ 
-               tag="button", 
-               attr = { type="submit", class="btn btn-primary btn-large span4 offset4 " }, 
-               content= function()
-                 ui.heading{ level=5,content= _"Login"}
-               end 
-             }
+            ui.container{ attr = { class = "span6 offset3" }, content = function()
+              ui.tag{ 
+                tag="button",
+                attr = { type="submit", class="btn btn-primary btn-large large_btn" }, 
+                content= function()
+                  ui.heading{ level=4,content= _"Login"}
+                end 
+              }
+            end }
           end }
         end }
       end 
@@ -189,11 +189,11 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration-info", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span8 text-center"}, content=function()
-              ui.heading{ level=5,content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
+            ui.tag{ attr = { class="span7 text-center"}, content=function()
+              ui.tag{ tag="p", content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
             end }
             ui.link{
-              attr = {class="span4 btn btn-primary btn-large"},
+              attr = {class="span5 btn btn-primary btn-large"},
               module = "index",
               view = "register",
               content = function()
@@ -207,11 +207,11 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span8 text-center"}, content=function()
-              ui.heading{ level=5,content= _"Possiedi gia' un codice di invito? Clicca qui:"}
+            ui.tag{ attr = { class="span7 text-center"}, content=function()
+              ui.tag{ tag="p",content= _"Possiedi gia' un codice di invito? Clicca qui:"}
             end }
             ui.link{
-              attr = {class="span4 btn btn-primary btn-large"},
+              attr = {class="span5 btn btn-primary btn-large"},
               module = "index",
               view = "register",
               content = function()
@@ -225,11 +225,11 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="lost_password", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span8 text-center"}, content=function()
-              ui.heading{ level=5,content= _"Hai smarrito la password? Clicca qui:"}
+            ui.tag{ attr = { class="span7 text-center"}, content=function()
+              ui.tag{ tag="p",content= _"Hai smarrito la password? Clicca qui:"}
             end }
             ui.link{
-              attr = { class="span4 btn btn-primary btn-large"},
+              attr = { class="span5 btn btn-primary btn-large"},
               module = 'index',
               view   = 'reset_password',
               content = function()

@@ -35,20 +35,20 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset[gui_preset].units[unit_name].area_filter_title) }
     end }
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.tag{tag="span",attr={class="span3"},content = function()
+      ui.container{attr={class="span3"},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            slot.put("&nbsp;".._"BACK TO PREVIOUS PAGE")
+       --     ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
+            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
           end
         }
       end }
       if unit_name == "cittadini" or unit_name == "iscritti" then
-        ui.tag{tag="span",attr={class="span3"},content = function()
+        ui.container{attr={class="span3"},content = function()
           ui.link {
             attr = { class="btn btn-primary btn-large" },
             module = "area",
@@ -56,13 +56,13 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
             params = { state = "admission"},
             id = area.id,
             content = function()
-              ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-              slot.put("&nbsp;".._"INITIATIVES LOOKING FOR SUPPORTERS")
+        --      ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+              ui.heading{level=4,content=_"INITIATIVES LOOKING FOR SUPPORTERS"}
             end 
         }
         end }
       end
-      ui.tag{tag="span",attr={class="span3"},content = function()
+      ui.container{attr={class="span3"},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large" },
           module = "area",
@@ -70,12 +70,12 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
           params = { state = "development"},
           id = area.id,
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-            slot.put("&nbsp;".._"INITIATIVES NOW IN DISCUSSION")
+         --   ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+            ui.heading{level=4,content=_"INITIATIVES NOW IN DISCUSSION"}
           end 
         }
       end }
-      ui.tag{tag="span",attr={class="span3"},content = function()
+      ui.container{attr={class="span3"},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large" },
           module = "area",
@@ -83,8 +83,8 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
           params = { state = "closed"},
           id = area.id,
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-            slot.put("&nbsp;".._"COMPLETED OR RETIRED INITIATIVES")
+          --  ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
+            ui.heading{level=4,content=_"COMPLETED OR RETIRED INITIATIVES"}
           end 
         }
       end }
