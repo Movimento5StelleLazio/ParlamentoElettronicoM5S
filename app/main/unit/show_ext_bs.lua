@@ -49,7 +49,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn"  },
+          attr = { class="btn btn-primary btn-large large_btn table-cell"  },
           module = "index",
           view = return_view,
           content = function()
@@ -80,11 +80,11 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn1, btn2 = "btn btn-primary btn-large large_btn_show_ext","btn btn-primary btn-large large_btn_show_ext"
+btn1, btn2 = "btn btn-primary btn-large large_btn_show_ext table-cell","btn btn-primary btn-large large_btn_show_ext table-cell"
 if filter == "my_areas" then
-  btn2="btn btn-success btn-large active large_btn_show_ext"
+  btn2="btn btn-success btn-large active large_btn_show_ext table-cell"
 else
-  btn1="btn btn-success btn-large active large_btn_show_ext"
+  btn1="btn btn-success btn-large active large_btn_show_ext table-cell"
 end
   
 
@@ -135,6 +135,6 @@ ui.container{ attr = { class="row-fluid"}, content=function()
   end }
 end}
 
-ui.script{script = "jQuery('.fittext').fitText(1.2, {minFontSize: '13px'}); " }
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+--ui.script{script = "jQuery('.fittext').fitText(1.2, {minFontSize: '13px'}); " }
+--ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 

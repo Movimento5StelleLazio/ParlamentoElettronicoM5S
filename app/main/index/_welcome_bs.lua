@@ -4,7 +4,7 @@ slot.set_layout("m5s_bs")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
-      attr = {class = "text-center span8 offset2 well" },
+      attr = {class = "text-center span12 well" },
       content = function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -28,38 +28,45 @@ end
 if app.session.member_id then
   util.help("index.index", _"Home")
   local member = Member:by_id(app.session.member.id)
-
-  ui.container{attr = {class = "row-fluid" },content = function()
-
-    ui.container{ attr = { class  = "well span10 offset1 text-center" }, content = function()
-   
-      -- Codifica coordinate memorizzate in member_login
-      local lastLogin = member:get_last_login_data()
-      if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
-        trace.debug('Calling codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");')
-        ui.script{ static = "js/position.js" }
-        ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
-      else
-        trace.debug('Cannot retrieve coordinates from database')
-      end
-      ui.heading{level=4,content=function()
-        slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
-        slot.put("&nbsp;")
-        if lastLogin and lastLogin.login_time then
-          ui.tag{
-            content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
-              last_login_date = format.date(lastLogin.login_time),
-              last_login_time = format.time(lastLogin.login_time)
-            })
-          }
-          slot.put("&nbsp;")
-          ui.tag{ tag="span", attr = { id = "location"}, content="" }
-        end
-      end }
-      ui.tag{ tag="h2", content= _"Scegli l'assemblea alla quale vuoi partecipare:"}
-
-    end }
   
+  ui.container{attr = {class = "row-fluid" },content = function()
+    ui.container{ attr = { class  = "well span12 text-center" }, content = function()
+
+      ui.container{attr = {class = "row-fluid" },content = function()
+        ui.container{ attr = { class  = "span12 text-center" }, content = function()
+          ui.heading{level=3,content=function()
+            slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+          end } 
+        end }
+      end }
+
+      ui.container{attr = {class = "row-fluid" },content = function()
+        ui.container{ attr = { class  = "span12 text-center" }, content = function()
+          -- Codifica coordinate memorizzate in member_login
+          local lastLogin = member:get_last_login_data()
+          if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
+            trace.debug('Calling codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");')
+            ui.script{ static = "js/position.js" }
+            ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
+          else
+            trace.debug('Cannot retrieve coordinates from database')
+          end
+          ui.heading{level=4,content=function()
+            if lastLogin and lastLogin.login_time then
+              ui.tag{
+                content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
+                  last_login_date = format.date(lastLogin.login_time),
+                  last_login_time = format.time(lastLogin.login_time)
+                })
+              }
+              slot.put("&nbsp;")
+              ui.tag{ tag="span", attr = { id = "location"}, content="" }
+            end
+          end }
+          ui.heading{level=2,content= _"Choose the assembly you want to participate:"}
+        end }
+      end }
+    end }
   end }
 
   ui.container{attr = {class = "row-fluid" },content = function()
@@ -74,14 +81,16 @@ if app.session.member_id then
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
-            ui.link{
-              module="index", 
-              view="homepage_bs", 
-              attr = {class = "btn btn-primary btn-large large_btn_home" }, 
-              content=function()
-                ui.heading{level=3,content= _"REGIONE LAZIO ASSEMBLY"}
-              end
-            }
+            ui.container{attr = {class = "inline-block" },content = function()
+              ui.link{
+                module="index", 
+                view="homepage_bs", 
+                attr = {class = "btn btn-primary btn-large large_btn_home table-cell" }, 
+                content=function()
+                  ui.heading{level=3,content= _"REGIONE LAZIO ASSEMBLY"}
+                end
+              }
+            end }
           end }
         end }
       end
@@ -97,23 +106,25 @@ if app.session.member_id then
         end }
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
-            ui.link{ 
-              attr = { class = "btn btn-primary btn-large large_btn_home" }, 
-              module="unit", 
-              view="show_ext", 
-              id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
-              content=function()
-                ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-              end
-            }
+            ui.container{attr = {class = "inline-block" },content = function()
+              ui.link{ 
+                attr = { class = "btn btn-primary btn-large large_btn_home table-cell" }, 
+                module="unit", 
+                view="show_ext", 
+                id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
+                content=function()
+                  ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+                end
+              }
+            end }
           end }
         end }
       end
     }
 
   end }
-  ui.script{static = "js/jquery.equalheight.js"}
-  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+--  ui.script{static = "js/jquery.equalheight.js"}
+--  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 --  ui.script{static = "js/jquery.fittext.js"}
 --  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '10px', maxFontSize: '23px'}); " }
 
