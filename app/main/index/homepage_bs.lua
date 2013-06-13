@@ -19,11 +19,11 @@ trace.debug("filter: issue_state="..issue_state)
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
-    ui.heading{level=3, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
-    ui.heading{level=4, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
-    ui.heading{level=4, content=_"Here laws and measures for Region and his citizens are being discussed."}
-    ui.heading{level=3, content=_"What you want to do?"}
-    ui.heading{level=4, content=_"Choose by pressing one of the following buttons:"}
+    ui.heading{level=1, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
+    ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
+    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
+    ui.heading{level=2, content=_"What you want to do?"}
+    ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
 
     ui.container{attr={class="row-fluid"},content=function()
     
@@ -32,7 +32,7 @@ ui.container{attr={class="row-fluid"},content=function()
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
           content=function()
-            ui.heading{level=4, content=_"Homepage read new issues"}
+            ui.heading{level=3, content=_"Homepage read new issues"}
           end }
       end }
     
@@ -41,7 +41,7 @@ ui.container{attr={class="row-fluid"},content=function()
           module = "wizard", view = "show_ext",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
-            ui.heading{level=4, content=_"Homepage write new issue"}
+            ui.heading{level=3, content=_"Homepage write new issue"}
           end }
       end }
     
@@ -50,7 +50,7 @@ ui.container{attr={class="row-fluid"},content=function()
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
-            ui.heading{level=4, content=_"Homepage read m5s issues"}
+            ui.heading{level=3, content=_"Homepage read m5s issues"}
           end }
       end }
        
@@ -59,7 +59,7 @@ ui.container{attr={class="row-fluid"},content=function()
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["altri_gruppi"].unit_id,
           content=function()
-            ui.heading{level=4, content=_"Homepage read other issues"}
+            ui.heading{level=3, content=_"Homepage read other issues"}
           end }
       end }
 

@@ -77,7 +77,7 @@ if app.session.member_id then
             ui.link{
               module="index", 
               view="homepage_bs", 
-              attr = {class = "btn btn-primary btn-large large_btn" }, 
+              attr = {class = "btn btn-primary btn-large large_btn_home" }, 
               content=function()
                 ui.heading{level=3,content= _"REGIONE LAZIO ASSEMBLY"}
               end
@@ -98,7 +98,7 @@ if app.session.member_id then
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.link{ 
-              attr = { class = "btn btn-primary btn-large large_btn" }, 
+              attr = { class = "btn btn-primary btn-large large_btn_home" }, 
               module="unit", 
               view="show_ext", 
               id=config.gui_preset[gui_preset].units["iscritti"].unit_id,

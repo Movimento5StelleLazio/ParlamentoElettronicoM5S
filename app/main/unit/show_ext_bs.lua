@@ -49,7 +49,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large"  },
+          attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
           view = return_view,
           content = function()
@@ -59,13 +59,12 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
         }
       end }
       ui.tag { 
-        tag = "h4", 
+        tag = "h1", 
         attr = { class  = "span8 text-center"}, 
         content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) 
       }
-    end }
-    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h3", attr = { class  = "span12 text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
+
+      ui.tag { tag = "h2", attr = { class  = "text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
     end }
   end }
 end }
@@ -76,11 +75,11 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn1, btn2 = "btn btn-primary btn-large","btn btn-primary btn-large"
+btn1, btn2 = "btn btn-primary btn-large large_btn_show_ext","btn btn-primary btn-large large_btn_show_ext"
 if filter == "my_areas" then
-  btn2="btn btn-success btn-large active"
+  btn2="btn btn-success btn-large active large_btn_show_ext"
 else
-  btn1="btn btn-success btn-large active"
+  btn1="btn btn-success btn-large active large_btn_show_ext"
 end
   
 
@@ -101,7 +100,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           view = "show_ext_bs",
           id = unit_id,
           content = function()
-            ui.heading{level=4,content= _"SHOW ALL AREAS"}
+            ui.heading{level=3,content= _"SHOW ALL AREAS"}
           end 
         }
       end }
@@ -113,7 +112,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { filter = "my_areas"},
           content = function()
-            ui.heading{level=4,content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3,content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
