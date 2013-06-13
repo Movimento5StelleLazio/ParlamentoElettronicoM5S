@@ -99,14 +99,18 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           end
         }
       end }
-      ui.tag {
-        tag = "h4",
-        attr = { class  = "span8 text-center"},
-        content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})
-      }
-    end }
-    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h3", attr = { class  = "span12 text-center"}, content = _"CHOOSE THE INITIATIVE TO EXAMINE:" }
+      ui.container{ attr = { class  = "span8" }, content = function()
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+             ui.heading{level=4,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+             ui.heading{level=4,content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+          end }
+        end }
+      end }
     end }
   end }
 end }
@@ -199,7 +203,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.container{ attr = { class="span3" }, content=function()
           ui.link {
-            attr = { class="btn btn-primary btn-large" },
+            attr = { class="btn btn-primary btn-large large_btn table-cell" },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -212,7 +216,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end
       ui.container{ attr = { class="span3" }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
@@ -224,7 +228,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class="span3" }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
@@ -236,7 +240,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class="span3" }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
@@ -248,10 +252,10 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class="row-fluid"}, content=function()
-      ui.container{ attr = { class="span12 alert-simple"}, content=function()
+      ui.container{ attr = { id="issues_box", class="span12 alert alert-simple"}, content=function()
         execute.view{
           module="issue" ,
-          view="_list_ext",
+          view="_list_ext_bs",
           params={ selector=selector, member=member }
         }
       end }
