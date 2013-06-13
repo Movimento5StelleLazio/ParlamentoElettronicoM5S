@@ -55,6 +55,7 @@ return {
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa vuoi fare?";
 ["Choose by pressing one of the following buttons:"]="Scegli premendo uno di queti bottoni:";
+["Choose the assembly you want to participate:"]="Scegli l'assemblea alla quale vuoi partecipare:";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
 ["Electeds Initiatives Completed or Retired"]="Proposte Degli Eletti Completate o Ritirate";
 ["Citizens Initiatives In Discussion"]="Proposte Dei Cittadini In Discussione";
