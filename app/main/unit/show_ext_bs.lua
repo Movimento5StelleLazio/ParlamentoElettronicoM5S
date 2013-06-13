@@ -58,13 +58,18 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           end
         }
       end }
-      ui.tag { 
-        tag = "h1", 
-        attr = { class  = "span8 text-center"}, 
-        content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) 
-      }
-
-      ui.tag { tag = "h2", attr = { class  = "text-center"}, content = _"CHOOSE THE THEMATIC AREA" }
+      ui.container{ attr = { class  = "span8 text-center" }, content = function()
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+            ui.heading{level=1,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+            ui.heading{level=2,content=_"CHOOSE THE THEMATIC AREA"}
+          end }
+        end }
+      end }
     end }
   end }
 end }
