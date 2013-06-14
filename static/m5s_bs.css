@@ -25,6 +25,15 @@ a{
   border-color: #7e8789;
 }
 
+.well-title {
+  color: #000000;
+  background-color: #ffffff;
+  border: 7px solid #67e567;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
 /*
   M5S specific
 */
