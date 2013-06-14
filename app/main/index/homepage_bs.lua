@@ -16,6 +16,8 @@ if not issue_state then
 end
 
 trace.debug("filter: issue_state="..issue_state)
+
+--local issues_selector_myinitiatives =Issue:new_selector()
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()

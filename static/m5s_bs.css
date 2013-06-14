@@ -10,6 +10,34 @@ a{
   margin-top: 60px;
 }
 
+.table-cell {
+  display: table-cell;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.alert-simple {
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #7e8789;
+}
+
+.well-title {
+  color: #000000;
+  background-color: #ffffff;
+  border: 7px solid #67e567;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+/*
+  M5S specific
+*/
+
 .large_btn  {
     max-width:230px;
     height:115px;
@@ -28,32 +56,10 @@ a{
 .small_btn  {
     max-width:180px;
 }
-/*
-  Issue box
-*/
 
 #issues_box {
   margin-top: 15px;
 }
-
-.issue_vote_box {
-    text-align: center;
-    border: 1px solid black;
-    box-shadow: 2px 2px 4px #CCCCCC;
-    display: inline-block;
-    vertical-align: middle;
-}
-.issue_vote_txt {
-    display: inline-block;
-    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 2.2em;
-    margin: 0.2em;
-    vertical-align: middle;
-}
-
-/*
-  M5S specific
-*/
 
 #m5s_logo{
   height: 70px;
@@ -65,26 +71,16 @@ a{
   max-width:  284px;
 }
 
-.alert-simple {
-  padding: 8px 8px 8px 8px;
-  color: #000000;
-  background-color: #ffffff;
-  border-color: #7e8789;
-}
-
-.table-cell {
-  display: table-cell;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
 /*
   Phase bar
 */
+.phases_box {
+    display: inline-block;
+    margin-bottom: -1.9em;
+    height: 162px;
+    width: 522px;
+}
 .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
-    clear: both;
     position: absolute;
     z-index: 11;
 }
@@ -143,7 +139,20 @@ a{
 /*
   Thumb & voting
 */
-
+.issue_vote_box {
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 2px 2px 4px #CCCCCC;
+    display: inline-block;
+    vertical-align: middle;
+}
+.issue_vote_txt {
+    display: inline-block;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-size: 2.2em;
+    margin: 0.2em;
+    vertical-align: middle;
+}
 .thumb {
     display: inline-block;
     height: 2.7em;

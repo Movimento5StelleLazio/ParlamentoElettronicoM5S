@@ -16,6 +16,7 @@ return {
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
+["Registration Guide"]="Guida alla Iscrizione";
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
@@ -78,7 +79,7 @@ return {
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
 ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
 ["5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO"]="PARLAMENTO ELETTRONICO MOVIMENTO 5 STELLE REGIONE LAZIO";
-["ARE YOU A LAZIO CITIZEN AND YOU WANT TO REGISTER? HERE'S HOW TO DO IT:"]="SEI UN CITTADINO DEL LAZIO E VUOI ISCRIVERTI? ECCO COME FARE:";
+["Are you a Lazio citizen and you want to register? Here's how to do:"]="Sei un cittadino del Lazio e vuoi iscriverti? Ecco come fare:";
 ["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"]="ASSEMBLEA INTERNA DEL MOVIMENTO 5 STELLE LAZIO";
 ["REGISTRATION GUIDE"]="GUIDA ALLA ISCRIZIONE";
 ["REGIONE LAZIO ASSEMBLY"]="ASSEMBLEA REGIONE LAZIO";
