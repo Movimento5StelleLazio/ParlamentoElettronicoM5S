@@ -71,6 +71,10 @@ a{
   max-width:  284px;
 }
 
+#register_txt_box {
+  height: 100px;
+}
+
 /*
   Phase bar
 */
