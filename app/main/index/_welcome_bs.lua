@@ -4,7 +4,7 @@ slot.set_layout("m5s_bs")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
-      attr = {class = "text-center span12 well" },
+      attr = {class = "text-center span8 offset2 well well-title" },
       content = function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -110,7 +110,7 @@ if app.session.member_id then
               ui.link{ 
                 attr = { class = "btn btn-primary btn-large large_btn_home table-cell" }, 
                 module="unit", 
-                view="show_ext", 
+                view="show_ext_bs", 
                 id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
                 content=function()
                   ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
@@ -198,24 +198,6 @@ else
     ui.container{ attr = { id="registration-info", class = "span6" }, content = function ()
 
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-        ui.container{ attr = { id="registration-info", class = "span12 well" }, content = function ()
-          ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span7 text-center"}, content=function()
-              ui.tag{ tag="p", content= "Sei un cittadino del Lazio e vuoi iscriverti? Clicca qui per le informazioni:" }
-            end }
-            ui.link{
-              attr = {class="span5 btn btn-primary btn-large"},
-              module = "index",
-              view = "register",
-              content = function()
-                ui.heading{ level=4,content= _"Guida" }
-              end 
-            }
-          end }
-        end }
-      end }
-
-      ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.tag{ attr = { class="span7 text-center"}, content=function()
@@ -253,7 +235,34 @@ else
 
     end }
 
+      ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
+        ui.container{ attr = { id="registration-info", class = "span12" }, content = function ()
+          ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
+            ui.container{ attr = { class="span2 text-center"}, content=function()
+              ui.image{static="simbolo_movimento.png" } 
+            end }
+            ui.container{ attr = { class="span8 text-center"}, content=function()
+            ui.container{ attr = { class="table-cell"}, content=function()
+              ui.heading{ level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
+            end }
+            end }
+            ui.container{ attr = { class="span2 text-center"}, content=function()
+              ui.link{
+                attr = {class="btn btn-primary btn-large medium_btn table-cell"},
+                module = "index",
+                view = "register",
+                content = function()
+                  ui.heading{ level=4,content= _"Registration Guide" }
+                end
+              }
+            end }
+          end }
+        end }
+      end }
+
   end }
+
+
 --  ui.script{static = "js/jquery.fittext.js"}
 --  ui.script{script = "jQuery('.fittext').fitText(0.7, {minFontSize: '10px', maxFontSize: '19px'}); " }
 
