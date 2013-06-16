@@ -23,12 +23,12 @@ elseif vote_comment_able then
 end  
 
 
-local class = "issue_ext2"
-if issue.is_interested then
-  class = class .. " interested"
-elseif issue.is_interested_by_delegation_to_member_id then
-  class = class .. " interested_by_delegation"
-end
+--local class = "issue_ext2"
+--if issue.is_interested then
+--  class = class .. " interested"
+--elseif issue.is_interested_by_delegation_to_member_id then
+--  class = class .. " interested_by_delegation"
+--end
 
 local arrow_offset = 31
 local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 55,58,72,64,58,64,66 
@@ -90,6 +90,7 @@ end
 
 ui.container{ attr = { class = "row-fluid"}, content = function()
   ui.container{ attr = { class = "span12"}, content = function()
+
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span3 alert alert-simple"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -139,256 +140,60 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         end}
       end }
     end }
-  end }
-end }
 
-ui.container{ attr = { class = "issue_box"}, content = function()
-
-ui.container{ attr = { class = class }, content = function()
-  execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
-
-
-  if for_listing then
-    ui.container{ attr = { class = "content" }, content = function()
-      ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
-      ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
-      ui.link{
-        module = "unit", view = "show", id = issue.area.unit_id,
-        attr = { class = "unit_link" }, text = issue.area.unit.name
-      }
-      slot.put(" ")
-      ui.link{
-        module = "area", view = "show", id = issue.area_id,
-        attr = { class = "area_link" }, text = issue.area.name
-      }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
+      end }
     end }
-  end
 
-  ui.container{ attr = { class = "title" }, content = function()
-    
-    ui.link{
-      attr = { class = "issue_id" },
-      text = _("#{policy_name} ##{issue_id}", {
-        policy_name = issue.policy.name,
-        issue_id = issue.id
-      }),
-      module = "issue",
-      view = "show",
-      id = issue.id
-    }
-  end }
-  
---[[
-  ui.tag{
-    attr = { class = "content issue_policy_info" },
-    tag = "div",
-    content = function()
-    
-      ui.tag{ attr = { class = "event_name" }, content = issue.state_name }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
+      end }
+    end }
 
-      if issue.closed then
-        slot.put(" &middot; ")
-        ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
-      elseif issue.state_time_left then
-        slot.put(" &middot; ")
-        if issue.state_time_left:sub(1,1) == "-" then
-          if issue.state == "admission" then
-            ui.tag{ content = _("Discussion starts soon") }
-          elseif issue.state == "discussion" then
-            ui.tag{ content = _("Verification starts soon") }
-          elseif issue.state == "verification" then
-            ui.tag{ content = _("Voting starts soon") }
-          elseif issue.state == "voting" then
-            ui.tag{ content = _("Counting starts soon") }
-          end
-        else
-          ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
-        end
-      end
-
-    end
-  }
---]]
-
-  local links = {}
-  
---[[
-  if vote_link_text then
-    links[#links+1] ={
-      content = vote_link_text,
-      module = "vote",
-      view = "list",
-      params = { issue_id = issue.id }
-    }
-  end
-  
-  if voteable and not direct_voter then
-    if not issue.member_info.non_voter then
-      links[#links+1] ={
-        content = _"Do not vote directly",
-        module = "vote",
-        action = "non_voter",
-        params = { issue_id = issue.id },
-        routing = {
-          default = {
-            mode = "redirect",
-            module = request.get_module(),
-            view = request.get_view(),
-            id = param.get_id_cgi(),
-            params = param.get_all_cgi()
-          }
-        }
-      }
-    else
-      links[#links+1] = { attr = { class = "action" }, content = _"Do not vote directly" }
-      links[#links+1] ={
-        in_brackets = true,
-        content = _"Cancel [nullify]",
-        module = "vote",
-        action = "non_voter",
-        params = { issue_id = issue.id, delete = true },
-        routing = {
-          default = {
-            mode = "redirect",
-            module = request.get_module(),
-            view = request.get_view(),
-            id = param.get_id_cgi(),
-            params = param.get_all_cgi()
-          }
-        }
-      }
-    end
-  end
-
-  if not for_member or for_member.id == app.session.member_id then
-    
-    if app.session.member_id then
-
-      if issue.member_info.own_participation then
-        if issue.closed then
-          links[#links+1] = { content = _"You were interested" }
-        else
-          links[#links+1] = { content = _"You are interested" }
-        end
-      end
-      
-      if not issue.closed and not issue.fully_frozen then
-        if issue.member_info.own_participation then
-          links[#links+1] = {
-            in_brackets = true,
-            text    = _"Withdraw",
-            module  = "interest",
-            action  = "update",
-            params  = { issue_id = issue.id, delete = true },
-            routing = {
-              default = {
-                mode = "redirect",
-                module = request.get_module(),
-                view = request.get_view(),
-                id = param.get_id_cgi(),
-                params = param.get_all_cgi()
-              }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
+            ui.link{
+              module = "unit", view = "show", id = issue.area.unit_id,
+              attr = { class = "unit_link" }, text = issue.area.unit.name
             }
-          }
-        elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-          links[#links+1] = {
-            text    = _"Add my interest",
-            module  = "interest",
-            action  = "update",
-            params  = { issue_id = issue.id },
-            routing = {
-              default = {
-                mode = "redirect",
-                module = request.get_module(),
-                view = request.get_view(),
-                id = param.get_id_cgi(),
-                params = param.get_all_cgi()
-              }
+            slot.put(" ")
+            ui.link{
+              module = "area", view = "show", id = issue.area_id,
+              attr = { class = "area_link" }, text = issue.area.name
             }
-          }
-        end
-      end
+      end }
+    end }
 
-      if not issue.closed and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-        if issue.member_info.own_delegation_scope ~= "issue" then
-          links[#links+1] = { text = _"Delegate issue", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
-        else
-          links[#links+1] = { text = _"Change issue delegation", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
-        end
-      end
-    end
-
-    if config.issue_discussion_url_func then
-      local url = config.issue_discussion_url_func(issue)
-      links[#links+1] = {
-        attr = { target = "_blank" },
-        external = url,
-        content = _"Discussion on issue"
-      }
-    end
-
-    if config.etherpad and app.session.member then
-      links[#links+1] = {
-        attr = { target = "_blank" },
-        external = issue.etherpad_url,
-        content = _"Issue pad"
-      }
-    end
-
-
-    if app.session.member_id and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-      if not issue.fully_frozen and not issue.closed then
-      links[#links+1] = {
-          attr   = { class = "action" },
-          text   = _"Create alternative initiative",
-          module = "initiative",
-          view   = "new",
-          params = { issue_id = issue.id }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        ui.link{
+          attr = { class = "issue_id" },
+          text = _("#{policy_name} ##{issue_id}", {
+            policy_name = issue.policy.name,
+            issue_id = issue.id
+          }),
+          module = "issue",
+          view = "show",
+          id = issue.id
         }
-      end
-    end
+      end }
+    end }
 
-  end
-    
-  ui.container{ attr = { class = "content actions" }, content = function()
-    for i, link in ipairs(links) do
-      if link.in_brackets then
-        slot.put(" (")
-      elseif i > 1 then
-        slot.put(" &middot; ")
-      end
-      if link.module or link.external then
-        ui.link(link)
-      else
-        ui.tag(link)
-      end
-      if link.in_brackets then
-        slot.put(")")
-      end
-    end
-  end }
-
-  if not for_listing then
-    if issue.state == "canceled_issue_not_accepted" then
-      local policy = issue.policy
-      ui.container{
-        attr = { class = "not_admitted_info" },
-        content = _("This issue has been canceled. It failed the quorum of #{quorum}.", { quorum = format.percentage(policy.issue_quorum_num / policy.issue_quorum_den) })
-      }
-    elseif issue.state:sub(1, #("canceled_")) == "canceled_" then
-      ui.container{
-        attr = { class = "not_admitted_info" },
-        content = _("This issue has been canceled.")
-      }
-    end
-  end
---]]
-
-  if #issue.initiatives == 1 then
-    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  }
-  else
-    ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
-  end
+    local links = {}
+  
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        if #issue.initiatives == 1 then
+          ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  }
+        else
+          ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
+        end
+      end }
+    end }
 
 
 --[[  
@@ -408,59 +213,66 @@ ui.container{ attr = { class = class }, content = function()
     end }
 --]]
 
-  ui.container{ attr = { class = "initiative_list_ext content" }, content = function()
+    ui.container{attr = {class="row-fluid"}, content =function()
+      ui.container{attr = {class="span12 alert alert-simple"}, content =function()
+        local initiatives_selector = issue:get_reference_selector("initiatives")
+        local highlight_string = param.get("highlight_string")
+        if highlight_string then
+          initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+        end
+        execute.view{
+          module = "initiative",
+          view = "_list_ext",
+          params = {
+            issue = issue,
+            initiatives_selector = initiatives_selector,
+            highlight_initiative = for_initiative,
+            highlight_string = highlight_string,
+            no_sort = true,
+            limit = (for_listing or for_initiative) and 5 or nil,
+            hide_more_initiatives=false,
+            limit=25,
+            for_member = for_member
+          }
+        }
+      end }
+    end }
 
-    local initiatives_selector = issue:get_reference_selector("initiatives")
-    local highlight_string = param.get("highlight_string")
-    if highlight_string then
-      initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-    end
-    execute.view{
-      module = "initiative",
-      view = "_list_ext",
-      params = {
-        issue = issue,
-        initiatives_selector = initiatives_selector,
-        highlight_initiative = for_initiative,
-        highlight_string = highlight_string,
-        no_sort = true,
-        limit = (for_listing or for_initiative) and 5 or nil,
-        hide_more_initiatives=false,
-        limit=25,
-        for_member = for_member
-      }
-    }
+    ui.container{attr = {class="row-fluid"}, content =function()
+      ui.container{attr = {class="span8"}, content =function()
+        if app.session.member_id and issue.closed then
+          ui.container {
+            attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
+            content = function()
+              ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
+              if direct_voter then
+                ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
+                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
+                  ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+                end}
+              else 
+                ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
+                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
+                  ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+                end}
+              end   
+            end
+          }
+        end
+      end }
+      ui.container{attr = {class="span4"}, content =function()
+        ui.link{ 
+          attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large" },
+          module = "issue",
+          view = "show_ext",
+          id = issue.id,
+          content = function()
+            ui.heading{level=4,content=_"SEE DETAILS"}
+          end
+        }
+      end }
+    end }
+
   end }
-end }
-
-if app.session.member_id and issue.closed then
-  ui.container {
-    attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
-    content = function()
-      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
-      if direct_voter then
-        ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
-          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
-          ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
-        end}
-      else 
-        ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
-          ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
-          ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
-        end}
-      end   
-    end
-  }
-end
-
-
-ui.link{ 
-  attr = { id = "issue_see_det_"..issue.id, class = "button orange issue_see_det" },
-  module = "issue",
-  view = "show_ext",
-  id = issue.id,
-  content= _"SEE DETAILS"
-}
-
 end }
 
