@@ -1,4 +1,4 @@
-local id = param.get_id()
+local id = param.get_id() or nil
 local state = param.get("state")
 local orderby = param.get("orderby")
 local desc = param.get("desc",atom.boolean)
@@ -86,7 +86,10 @@ local txt_map = {
   scope = {
     all_units = _"All units",
     my_units = _"My units",
-    my_areas = _"My areas"
+    my_areas = _"My areas",
+    citizens = _"Citizens units",
+    electeds = _"Elected units",
+    others = _"Other political groups units"
   }
 }
 ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -96,7 +99,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{ attr = { class = "span12 text-center"}, content = function()
           ui.link { 
             attr = { id = "flt_btn_apply", class = "btn btn-primary btn-large" },
-            module = module, view = view, id = id,
+            module = module, view = view, id = id or nil,
             params = { state = state or default_state, orderby = orderby, desc = desc, interest = interest or default_interest, scope = scope or default_scope, ftl_btns = true },
             content = function()
               ui.heading{ level=4, content = _"APPLY FILTERS"  }
@@ -109,7 +112,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{ attr = { class = "span12 text-center"}, content = function()
           ui.link {
             attr = { id = "flt_btn_delete", class = "btn btn-success active btn-large"},
-            module = module, view = view, id = id,
+            module = module, view = view, id = id or nil,
             params = { state = default_state, orderby = orderby, desc = desc, interest = default_interest, scope = default_scope, ftl_btns = false },
             content = function()
               ui.heading{ level=4, content = _"REMOVE FILTERS"  }
@@ -129,7 +132,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
                 if state == btns.state[i] then color = "btn-success active" else color = "btn-primary" end
                 ui.link {
                   attr = { id = "flt_btn_"..btns.state[i], class = "btn btn-small "..color},
-                  module = module, view = view, id = id, 
+                  module = module, view = view, id = id or nil, 
                   params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
                   content = txt_map.state[btns.state[i]]
                 }
@@ -166,7 +169,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span12 text-center"}, content = function()
               for i=1, #btns.scope do
-                if interest == btns.scope[i] then color = "btn-success active" else color = "btn-primary" end
+                if scope == btns.scope[i] then color = "btn-success active" else color = "btn-primary" end
                 ui.link {
                   attr = { id = "flt_btn_"..btns.scope[i], class = "btn btn-small "..color},
                   module = module, view = view, id = id,
