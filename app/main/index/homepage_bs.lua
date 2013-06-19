@@ -106,7 +106,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
 
 btns = {
-  default_state = 'open',
+  default_state = 'any',
   state = {
     "any",
     "open",
@@ -118,7 +118,7 @@ btns = {
     "closed",
     "canceled"
   },
-  default_scope = "my_units",
+  default_scope = "all_units",
   scope = {
     "all_units",
     "my_units",
