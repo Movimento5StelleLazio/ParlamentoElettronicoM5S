@@ -1,23 +1,59 @@
 slot.set_layout("m5s_bs")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
-local issues_selector =Issue:new_selector()
-  
-local issues=issues_selector
-  :add_where("issue.closed ISNULL")
-  :add_order_by("coalesce(issue.fully_frozen + issue.voting_time, issue.half_frozen + issue.verification_time, issue.accepted + issue.discussion_time, issue.created + issue.admission_time) - now()")
-  --:exec()
+local state = param.get("state") or "any"
+local scope = param.get("scope") or "all_units"
+local orderby = param.get("orderby") or "creation_date" 
+local desc = param.get("desc",atom.boolean) or false
+local interest = param.get("interest") or "any"
+local member = app.session.member
+local ftl_btns = param.get("ftl_btns",atom.boolean) or false
 
-local issue_state=param.get("issue_state")
-local filter_state=param.get("filter_state",atom.boolean)
-
-if not issue_state then
-    issue_state="open"
+-- Right selector
+local issues_selector_myinitiatives =Issue:new_selector()
+execute.chunk{
+  module    = "issue",
+  chunk     = "_filters_ext",
+  params    = {
+    state=state,
+    orderby=orderby,
+    desc=desc,
+    scope=scope,
+    interest="initiated",
+    selector=issues_selector_myinitiatives
+  }
+}
+--[[
+if selector then 
+  issues_selector_myinitiatives = selector
+  selector = nil
+else
+  slot.put_into("error", "No selector returned from filter")
 end
+--]]
 
-trace.debug("filter: issue_state="..issue_state)
-
---local issues_selector_myinitiatives =Issue:new_selector()
+-- Left selector
+local issues_selector_voted =Issue:new_selector()
+execute.chunk{
+  module    = "issue",
+  chunk     = "_filters_ext",
+  params    = {
+    state=state,
+    orderby=orderby,
+    desc=desc,
+    scope=scope,
+    interest="voted",
+    selector=issues_selector_voted
+  }
+}
+--[[
+if selector then
+  issues_selector_voted = selector
+  selector = nil
+else
+  slot.put_into("error", "No selector returned from filter")
+end
+--]]
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
@@ -69,20 +105,50 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
 
+btns = {
+  default_state = 'any',
+  state = {
+    "any",
+    "open",
+    "admission",
+    "discussion",
+    "verification",
+    "voting",
+    "committee",
+    "closed",
+    "canceled"
+  },
+  default_scope = "all_units",
+  scope = {
+    "all_units",
+    "my_units",
+    "citizens",
+    "electeds",
+    "others"
+  }
+}
+
+
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    --containerFiltri
-    execute.view{
-      module="index" ,
-      view="_filters_ext_bs" ,
-      params={
-        level=2 ,
-        module="index",
-        routing_page="homepage"
+    execute.chunk{
+      module = "issue" ,
+      chunk = "_filters_btn_bs" ,
+      params = {
+        state = state,
+        orderby = orderby,
+        desc = desc,
+        scope = scope,
+        btns = btns,
+        ftl_btns = ftl_btns
       }
     }
   end }
 end }
+
+if not issues_selector_voted or not issues_selector_myinitiatives then
+  return true
+end
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span6"},content=function()
@@ -102,12 +168,10 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 alert alert-simple"},content=function()
             execute.view{
               module = "issue",
-              view   = "_votazioni_ext",
-              id     = "idLista",
+              view   = "_list_ext2_bs",
               params = {
-                for_state = issue_state,
-                issues_selector = issues_selector,
-                view="votazioni"
+		member=member,
+                selector = issues_selector_voted
               }
             }
           end }
@@ -132,12 +196,10 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 alert alert-simple"},content=function()
             execute.view{
               module = "issue",
-              view   = "_proposte_ext",
-              id     = "idLista",
+              view   = "_list_ext2_bs",
               params = {
-                for_state = issue_state,
-                issues_selector = issues_selector,
-                view="proposte"
+                member=member,
+                selector = issues_selector_myinitiatives
               }
             }
           end }
@@ -146,16 +208,3 @@ ui.container{attr={class="row-fluid"},content=function()
     end }
   end }
 end }
-
-if filter_state then
- ui.script{
-         script="document.getElementById('pulsanteApplicaFiltri').style.display='none';"
-           .."document.getElementById('containerPulsantiFiltri').style.display='block';"
- }
-  ui.script{
-        -- script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
-        script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','filterButton button green');"
-             
- }
- 
-end

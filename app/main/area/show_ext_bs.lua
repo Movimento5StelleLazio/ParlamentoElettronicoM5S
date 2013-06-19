@@ -3,6 +3,7 @@ local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'def
 
 local area = Area:by_id(param.get_id())
 local state = param.get("state")
+local scope = param.get("scope")
 local orderby = param.get("orderby")
 local desc = param.get("desc",atom.boolean) or false
 local interest = param.get("interest")
@@ -38,7 +39,6 @@ local selector = area:get_reference_selector("issues")
 execute.chunk{
   module    = "issue",
   chunk     = "_filters_ext",
-  id = area.id,
   params    = { 
     state=state, 
     orderby=orderby, 
