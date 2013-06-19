@@ -51,7 +51,20 @@ It accepts the following parameters:
  * not_voted -- TODO working ?
  * any
 
+## scope ##
+TODO
+
 --]]
+
+trace.debug("filters: state="..state)
+trace.debug("filters: orderby="..orderby)
+if desc then
+  trace.debug("filters: desc=true")
+else
+  trace.debug("filters: desc=false")
+end
+trace.debug("filters: interest="..interest)
+trace.debug("filters: scope="..scope)
 
 local ord = ""
 if desc then ord = " DESC" end
