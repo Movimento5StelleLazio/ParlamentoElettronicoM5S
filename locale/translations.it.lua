@@ -20,6 +20,9 @@ return {
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
+["Citizens units"]="Unita' dei cittadini";
+["Elected units"]="Unita' degli eletti";
+["Other political groups units"]="Unita' degli altri gruppi politici";
 [" INITIATIVES TO RESOLVE THE ISSUE"]=" PROPOSTE PER RISOLVERE LA QUESTIONE";
 [" INITIATIVE TO RESOLVE THE ISSUE"]=" PROPOSTA PER RISOLVERE LA QUESTIONE";
 ["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
