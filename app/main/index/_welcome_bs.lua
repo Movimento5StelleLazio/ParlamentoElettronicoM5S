@@ -241,8 +241,11 @@ else
             ui.container{ attr = { class="span2 text-center"}, content=function()
               ui.image{static="simbolo_movimento.png" } 
             end }
-            ui.container{ attr = { id = "register_txt_box", class="span8 text-center"}, content=function()
-              ui.heading{ level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
+            ui.container{ attr = { class="span7 text-center"}, content=function()
+              ui.heading{ attr = {class=""}, level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
+            end }
+            ui.container{ attr = { class="span1 text-center"}, content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/rightarrow.svg"}
             end }
             ui.container{ attr = { class="span2 text-center"}, content=function()
               ui.link{

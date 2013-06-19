@@ -1,5 +1,5 @@
 local state = param.get("state")
-local orderby = param.get("orderby")
+local orderby = param.get("orderby") or ""
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
@@ -55,16 +55,6 @@ It accepts the following parameters:
 TODO
 
 --]]
-
-trace.debug("filters: state="..state)
-trace.debug("filters: orderby="..orderby)
-if desc then
-  trace.debug("filters: desc=true")
-else
-  trace.debug("filters: desc=false")
-end
-trace.debug("filters: interest="..interest)
-trace.debug("filters: scope="..scope)
 
 local ord = ""
 if desc then ord = " DESC" end

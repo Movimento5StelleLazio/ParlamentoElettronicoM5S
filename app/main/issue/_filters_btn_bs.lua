@@ -131,10 +131,12 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
               for i=1, #btns.state do
                 if state == btns.state[i] then color = "btn-success active" else color = "btn-primary" end
                 ui.link {
-                  attr = { id = "flt_btn_"..btns.state[i], class = "btn btn-small "..color},
+                  attr = { id = "flt_btn_"..btns.state[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id or nil, 
                   params = { state = btns.state[i], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
-                  content = txt_map.state[btns.state[i]]
+                  content = function()
+                    ui.heading{level=5,content= txt_map.state[btns.state[i]] }
+                  end
                 }
               end
             end } 
@@ -151,10 +153,12 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
               for i=1, #btns.interest do
                 if interest == btns.interest[i] then color = "btn-success active" else color = "btn-primary" end
                 ui.link {
-                  attr = { id = "flt_btn_"..btns.interest[i], class = "btn btn-small "..color},
+                  attr = { id = "flt_btn_"..btns.interest[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id,
                   params = { state = state, orderby = orderby, desc = desc, interest =  btns.interest[i], scope=scope, ftl_btns = true },
-                  content = txt_map.interest[btns.interest[i]]
+                  content = function()
+                    ui.heading{level=5,content= txt_map.interest[btns.interest[i]] }
+                  end
                 }
               end
             end } 
@@ -171,10 +175,12 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
               for i=1, #btns.scope do
                 if scope == btns.scope[i] then color = "btn-success active" else color = "btn-primary" end
                 ui.link {
-                  attr = { id = "flt_btn_"..btns.scope[i], class = "btn btn-small "..color},
+                  attr = { id = "flt_btn_"..btns.scope[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id,
                   params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = btns.scope[i], ftl_btns = true },
-                  content = txt_map.scope[btns.scope[i]]
+                  content = function()
+                    ui.heading{level=5,content= txt_map.scope[btns.scope[i]] }
+                  end
                 }
               end
             end }
