@@ -3199,6 +3199,7 @@ button.close {
 }
 
 .btn {
+  text-transform: uppercase;
   display: inline-block;
   *display: inline;
   padding: 4px 12px;

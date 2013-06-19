@@ -57,6 +57,10 @@ a{
     max-width:180px;
 }
 
+.filter_btn {
+  margin: 5px;
+}
+
 #issues_box {
   margin-top: 15px;
 }
