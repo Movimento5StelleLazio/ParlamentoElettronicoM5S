@@ -75,8 +75,14 @@ a{
   max-width:  284px;
 }
 
-#register_txt_box {
+#register_txt {
   height: 100px;
+  line-height: 100px;
+}
+
+.arrow_medium {
+  height: 50px;
+  width: 50px;
 }
 
 /*
