@@ -196,7 +196,7 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 alert alert-simple"},content=function()
             execute.view{
               module = "issue",
-              view   = "_list_ext2_bs",
+              view   = "_list_ext_bs",
               params = {
                 member=member,
                 selector = issues_selector_myinitiatives
