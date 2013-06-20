@@ -57,7 +57,7 @@ a{
     max-width:180px;
 }
 
-.filter_btn {
+.filter_btn, .details_btn {
   margin: 5px;
 }
 
@@ -75,33 +75,67 @@ a{
   max-width:  284px;
 }
 
-#register_txt {
-  height: 100px;
-  line-height: 100px;
-}
-
 .arrow_medium {
   height: 50px;
   width: 50px;
 }
 
 /*
+  Initiative
+*/
+
+.initiative_list_box {
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.initiative_count_txt {
+  background: none repeat scroll 0 0 #F8F9B2;
+  border: 1px solid black;
+  color: #9A1919;
+  font-size: 1.4em;
+  padding-left: 0.3em;
+}
+
+/*
   Issue
 */
 
-.issue_state_txt {
-    display: inline-block;
-    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-    font-size: 1.4em;
-    margin: 0 0.2em 0 0.4em;
+.issue_state_info_box, .issue_state_info_box2  {
+    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    border-radius: 16px 16px 0 0;
+    color: white;
+    padding: 5px;
 }
 
+.issue_state_info_box {
+  height: 74px;
+  max-height: 74px;
+}
+
+.issue_state_info_box2 {
+    height: 74px;
+    margin-top: 69px;
+    padding: 5px;
+}
+
+.issue_see_det_btn {
+  margin-top: -19px;
+}
+
+.issue_vote_box {
+  margin-top: -19px;
+}
+
+.issue_box {
+  margin-bottom: 25px;
+}
 /*
   Phase bar
 */
 .phases_box {
     display: inline-block;
-    margin-bottom: -1.9em;
+    margin-bottom: -1.4em;
     height: 162px;
     width: 522px;
 }
@@ -113,6 +147,7 @@ a{
     height: 162px;
     position: absolute;
     width: 522px;
+    min-width: 522px;
     z-index: 9;
 }
 .phase_arrow {
@@ -240,14 +275,14 @@ a.delegation_info:hover,a.delegation_info:focus {
     background-color: #fa7;
     color: #000;
 }
-/*@media screen and (min-width: 380px) {
+@media screen and (min-width: 380px) {
   h1 { font-size: 1.3em; }
   h2 { font-size: 1.2em; line-height: 15px; }
   h3 { font-size: 1.1em; line-height: 15px; }
   h4 { font-size: 1.0em; line-height: 15px; }
   h5 { font-size: 0.9em; line-height: 15px; }
   h6 { font-size: 0.8em; line-height: 15px; }
-}*/
+}
 @media screen and (min-width: 600px) {
   h1 { font-size: 1.4em; }
   h2 { font-size: 1.3em; line-height: 20px; }
@@ -266,7 +301,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 }
 @media screen and (min-width: 1200px) {
   h1 { font-size: 1.70em; }
-  h2 { font-size: 1.60em;  line-height: 15px; }
+  h2 { font-size: 1.60em;  line-height: 25px; }
   h3 { font-size: 1.50em;  line-height: 25px; }
   h4 { font-size: 1.40em;  line-height: 25px; }
   h5 { font-size: 1.30em; line-height: 15px; }
