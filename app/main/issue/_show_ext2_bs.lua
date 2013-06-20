@@ -89,10 +89,10 @@ elseif issue.closed  then
 end
 
 ui.container{ attr = { class = "row-fluid"}, content = function()
-  ui.container{ attr = { class = "span12"}, content = function()
+  ui.container{ attr = { class = "span12 issue_box"}, content = function()
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span3 alert alert-simple"}, content = function()
+      ui.container{ attr = { class = "span3 issue_state_info_box2"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span1"}, content = function()
             if event_image then
@@ -104,7 +104,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           end }
         end }
         --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
-        ui.tag{ tag = "p", attr = { class = "issue_state_time" }, content = function()
+        ui.tag{ tag = "p", content = function()
           if issue.closed then
             slot.put(" &middot; ")
             ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
@@ -141,100 +141,95 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
       end }
     end }
 
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag { tag="p", attr = { class="issue_title" }, content = "Q"..issue.id.." - "..issue.title }
-      end }
-    end }
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
-      end }
-    end }
+      ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
 
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
+            ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+          end }
+        end }
+    
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
+            execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
+          end }
+        end }
+    
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
+            ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
+          end }
+        end }
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
             ui.link{
               module = "unit", view = "show", id = issue.area.unit_id,
-              attr = { class = "unit_link" }, text = issue.area.unit.name
+              attr = { class = "label label-success" }, text = issue.area.unit.name
             }
             slot.put(" ")
             ui.link{
               module = "area", view = "show", id = issue.area_id,
-              attr = { class = "area_link" }, text = issue.area.name
+              attr = { class = "label label-important" }, text = issue.area.name
             }
-      end }
-    end }
-
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.link{
-          attr = { class = "issue_id" },
-          text = _("#{policy_name} ##{issue_id}", {
-            policy_name = issue.policy.name,
-            issue_id = issue.id
-          }),
-          module = "issue",
-          view = "show",
-          id = issue.id
-        }
-      end }
-    end }
-
-    local links = {}
-  
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        if #issue.initiatives == 1 then
-          ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  }
-        else
-          ui.tag{ tag="p", attr = {class = "initiative_count_txt"}, content = #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE"  }
-        end
-      end }
-    end }
-
-
---[[  
-  -- Quorum Bar
-    ui.container{ attr = { class = "initiative_quorum_box" }, content = function()
-      local policy = issue.policy
-      ui.tag{ 
-        tag = "p", 
-        attr = { class = "initiative_quorum_txt" }, 
-        content = _("Quorum (#{quorum})", {quorum = format.percentage(policy.issue_quorum_num / policy.issue_quorum_den) }) 
-      }
-      ui.container {
-        attr = { class = "initiative_quorum_bar" },
-        content = function()
-        end
-      }
-    end }
---]]
-
-    ui.container{attr = {class="row-fluid"}, content =function()
-      ui.container{attr = {class="span12 alert alert-simple"}, content =function()
-        local initiatives_selector = issue:get_reference_selector("initiatives")
-        local highlight_string = param.get("highlight_string")
-        if highlight_string then
-          initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-        end
-        execute.view{
-          module = "initiative",
-          view = "_list_ext",
-          params = {
-            issue = issue,
-            initiatives_selector = initiatives_selector,
-            highlight_initiative = for_initiative,
-            highlight_string = highlight_string,
-            no_sort = true,
-            limit = (for_listing or for_initiative) and 5 or nil,
-            hide_more_initiatives=false,
-            limit=25,
-            for_member = for_member
-          }
-        }
+          end }
+        end }
+    
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
+            ui.link{
+              attr = { class = "label label-info" },
+              text = _("#{policy_name} ##{issue_id}", {
+                policy_name = issue.policy.name,
+                issue_id = issue.id
+              }),
+              module = "issue",
+              view = "show",
+              id = issue.id
+            }
+          end }
+        end }
+    
+        local links = {}
+      
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12 initiative_count_txt"}, content = function()
+            local content
+            if #issue.initiatives == 1 then
+              content= #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  
+            else
+              content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
+            end
+            ui.heading{ level=6, content = content }
+          end }
+        end }
+    
+        ui.container{attr = {class="row-fluid"}, content =function()
+          ui.container{attr = {class="span12 alert alert-simple"}, content =function()
+            local initiatives_selector = issue:get_reference_selector("initiatives")
+            local highlight_string = param.get("highlight_string")
+            if highlight_string then
+              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+            end
+            execute.view{
+              module = "initiative",
+              view = "_list_ext_bs",
+              params = {
+                issue = issue,
+                initiatives_selector = initiatives_selector,
+                highlight_initiative = for_initiative,
+                highlight_string = highlight_string,
+                no_sort = true,
+                limit = (for_listing or for_initiative) and 5 or nil,
+                hide_more_initiatives=false,
+                limit=25,
+                for_member = for_member
+              }
+            }
+          end }
+        end }
+    
       end }
     end }
 
@@ -262,12 +257,12 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
       end }
       ui.container{attr = {class="span4"}, content =function()
         ui.link{ 
-          attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large" },
+          attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
           module = "issue",
           view = "show_ext",
           id = issue.id,
           content = function()
-            ui.heading{level=4,content=_"SEE DETAILS"}
+            ui.heading{level=5,content=_"SEE DETAILS"}
           end
         }
       end }
