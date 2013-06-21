@@ -50,12 +50,11 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           module = "index",
           view = return_view,
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            ui.heading{level=3,attr={class="fittext1"},content=_"BACK TO PREVIOUS PAGE"}
+            ui.heading{level=3,attr={class="fittext1"},content=_"Back to previous page"}
           end
         }
       end }
-      ui.container{ attr = { class  = "span8 text-center" }, content = function()
+      ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
             ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
@@ -138,7 +137,7 @@ ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
---ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
 ui.script{script = "jQuery('.fittext1').fitText(); " }
 
 

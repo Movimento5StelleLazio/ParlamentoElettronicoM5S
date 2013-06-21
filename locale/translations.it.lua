@@ -17,6 +17,7 @@ return {
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
 ["Registration Guide"]="Guida alla Iscrizione";
+["Details for issue Q"]="Dettagli questione Q";
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
@@ -31,7 +32,8 @@ return {
 ["INVERT ORDER FROM DESCENDING TO ASCENDING"]="INVERTI ORDINE DA DISCENDENTE AD ASCENDENTE";
 ["INVERT ORDER FROM ASCENDING TO DESCENDING"]="INVERTI ORDINE DA ASCENDENTE A DISCENDENTE";
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
-["BACK TO PREVIOUS PAGE"]="TORNA ALLA PAGINA PRECEDENTE";
+["Back to previous page"]="Torna alla pagina precedente";
+["Back to issue listing"]="Torna alla lista delle questioni";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["INITIATIVES LOOKING FOR SUPPORTERS"] = "PROPOSTE IN CERCA DI SOSTENITORI";
 ["INITIATIVES NOW IN DISCUSSION"] = "PROPOSTE ATTUALMENTE IN DISCUSSIONE";
@@ -58,7 +60,7 @@ return {
 ["You are now inside the Digital Assembly of M5S Lazio's Public Affairs."]="Ti trovi nell'assemblea elettronica dell M5S Lazio dedicata alla cosa pubblica.";
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa vuoi fare?";
-["Choose by pressing one of the following buttons:"]="Scegli premendo uno di queti bottoni:";
+["Choose by pressing one of the following buttons:"]="Scegli premendo uno di questi bottoni:";
 ["Choose the assembly you want to participate:"]="Scegli l'assemblea alla quale vuoi partecipare:";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
 ["Electeds Initiatives Completed or Retired"]="Proposte Degli Eletti Completate o Ritirate";

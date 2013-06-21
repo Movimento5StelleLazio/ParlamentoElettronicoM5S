@@ -37,54 +37,50 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
           content = function()
-       --     ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
+            ui.heading{level=3, attr={class="fittext"},content=_"Back to previous page"}
           end
         }
       end }
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.container{attr={class="span3"},content = function()
           ui.link {
-            attr = { class="btn btn-primary btn-large large_btn table-cell" },
+            attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
             module = "area",
             view = "show_ext_bs",
             params = { state = "admission"},
             id = area.id,
             content = function()
-        --      ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-              ui.heading{level=4,content=_"INITIATIVES LOOKING FOR SUPPORTERS"}
+              ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES LOOKING FOR SUPPORTERS"}
             end 
         }
         end }
       end
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "development"},
           id = area.id,
           content = function()
-         --   ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-            ui.heading{level=4,content=_"INITIATIVES NOW IN DISCUSSION"}
+            ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES NOW IN DISCUSSION"}
           end 
         }
       end }
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "closed"},
           id = area.id,
           content = function()
-          --  ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}
-            ui.heading{level=4,content=_"COMPLETED OR RETIRED INITIATIVES"}
+            ui.heading{level=3, attr={class="fittext"},content=_"COMPLETED OR RETIRED INITIATIVES"}
           end 
         }
       end }
@@ -92,7 +88,9 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     }
   
   end }
---  ui.script{script = "jQuery('.fittext').fitText(0.8, {minFontSize: '13px'}, maxFontSize: '22px'}); " }
---  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+  ui.script{script = "jQuery('.fittext').fitText(0.8, {minFontSize: '13px'}, maxFontSize: '22px'}); " }
+  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext').fitText(); " }
 
 end }

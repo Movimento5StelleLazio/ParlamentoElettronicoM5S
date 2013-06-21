@@ -111,7 +111,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{ attr = { class = "span12 text-center"}, content = function()
           ui.link {
-            attr = { id = "flt_btn_delete", class = "btn btn-success active btn-large"},
+            attr = { id = "flt_btn_delete", class = "btn btn-primary active btn-large"},
             module = module, view = view, id = id or nil,
             params = { state = default_state, orderby = orderby, desc = desc, interest = default_interest, scope = default_scope, ftl_btns = false },
             content = function()
@@ -129,7 +129,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span12 text-center"}, content = function()
               for i=1, #btns.state do
-                if state == btns.state[i] then color = "btn-success active" else color = "btn-primary" end
+                if state == btns.state[i] then color = "btn-primary active" else color = "btn-primary" end
                 ui.link {
                   attr = { id = "flt_btn_"..btns.state[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id or nil, 
@@ -151,7 +151,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span12 text-center"}, content = function()
               for i=1, #btns.interest do
-                if interest == btns.interest[i] then color = "btn-success active" else color = "btn-primary" end
+                if interest == btns.interest[i] then color = "btn-primary active" else color = "btn-primary" end
                 ui.link {
                   attr = { id = "flt_btn_"..btns.interest[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id,
@@ -173,7 +173,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span12 text-center"}, content = function()
               for i=1, #btns.scope do
-                if scope == btns.scope[i] then color = "btn-success active" else color = "btn-primary" end
+                if scope == btns.scope[i] then color = "btn-primary active" else color = "btn-primary" end
                 ui.link {
                   attr = { id = "flt_btn_"..btns.scope[i], class = "filter_btn btn "..color},
                   module = module, view = view, id = id,

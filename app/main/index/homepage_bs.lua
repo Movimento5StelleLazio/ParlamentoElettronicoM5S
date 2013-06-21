@@ -110,6 +110,7 @@ ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
 
 
+
 btns = {
   default_state = 'any',
   state = {

@@ -242,7 +242,7 @@ else
               ui.image{static="simbolo_movimento.png" } 
             end }
             ui.container{ attr = { class="span7 text-center"}, content=function()
-              ui.heading{ attr = {class=""}, level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
+              ui.heading{ attr = {class="uppercase"}, level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
             end }
             ui.container{ attr = { class="span1 text-center"}, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/rightarrow.svg"}
