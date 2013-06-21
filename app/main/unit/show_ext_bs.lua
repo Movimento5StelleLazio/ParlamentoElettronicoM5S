@@ -41,9 +41,6 @@ if unit_name == "iscritti" then
   return_view = "index"
 end
 
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{static = "js/jquery.equalheight.js"}
-
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -54,19 +51,19 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           view = return_view,
           content = function()
             ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
+            ui.heading{level=3,attr={class="fittext1"},content=_"BACK TO PREVIOUS PAGE"}
           end
         }
       end }
       ui.container{ attr = { class  = "span8 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,content=_"CHOOSE THE THEMATIC AREA"}
+            ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE THEMATIC AREA"}
           end }
         end }
       end }
@@ -80,11 +77,13 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn1, btn2 = "btn btn-primary btn-large large_btn_show_ext table-cell","btn btn-primary btn-large large_btn_show_ext table-cell"
+btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1"
+btn_class_active = "btn btn-success btn-large active large_btn_show_ext table-cell eq1"
+btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
-  btn2="btn btn-success btn-large active large_btn_show_ext table-cell"
+  btn2=btn_class_active
 else
-  btn1="btn btn-success btn-large active large_btn_show_ext table-cell"
+  btn1=btn_class_active
 end
   
 
@@ -98,18 +97,18 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.container{attr={class="span3 offset2"},content=function()
+      ui.container{attr={class="span4 offset2"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
           content = function()
-            ui.heading{level=3,content= _"SHOW ALL AREAS"}
+            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
           end 
         }
       end }
-      ui.container{attr={class="span3 offset2"},content=function()
+      ui.container{attr={class="span4 offset1"},content=function()
         ui.link {
           attr = { class=btn2  },
           module = "unit",
@@ -117,7 +116,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { filter = "my_areas"},
           content = function()
-            ui.heading{level=3,content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
@@ -135,6 +134,11 @@ ui.container{ attr = { class="row-fluid"}, content=function()
   end }
 end}
 
---ui.script{script = "jQuery('.fittext').fitText(1.2, {minFontSize: '13px'}); " }
---ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+--ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
+--ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(); " }
+
 
