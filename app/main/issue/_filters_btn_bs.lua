@@ -15,7 +15,7 @@ local color
 -- Default state and interest, used when filters are closed with REMOVE FILTERS btn
 local default_state =  btns.default_state or 'any'
 local default_interest =  btns.default_interest or 'any'
-local default_scope =  btns.default_scope or 'any'
+local default_scope =  btns.default_scope or 'all_units'
 
 -- You must pass the following table in order to enable buttons
 --[[
@@ -231,4 +231,4 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
     end
   end }
 end }
-ui.script{static="js/jquery.toggle_flt.js"}
+ui.script{static="js/toggle_flt.js"}
