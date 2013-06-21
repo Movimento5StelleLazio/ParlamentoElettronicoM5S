@@ -1,3 +1,12 @@
+body {
+  margin: 0;
+  font-family:Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*color: #000000;
+*/
+  background-color: #ffffff;
+  min-width: 768px;
+}
+
 a{
  color: #000000;
  text-decoration: none !important
@@ -39,11 +48,10 @@ a{
 */
 
 .large_btn  {
-    max-width:230px;
     height:115px;
 }
 .large_btn_home  {
-    max-width:250px;
+    max-width:292px;
     height:90px;
 }
 .large_btn_show_ext  {
@@ -275,6 +283,7 @@ a.delegation_info:hover,a.delegation_info:focus {
     background-color: #fa7;
     color: #000;
 }
+/*
 @media screen and (min-width: 380px) {
   h1 { font-size: 1.3em; }
   h2 { font-size: 1.2em; line-height: 15px; }
@@ -307,3 +316,4 @@ a.delegation_info:hover,a.delegation_info:focus {
   h5 { font-size: 1.30em; line-height: 15px; }
   h6 { font-size: 0.90em; line-height: 15px; }
 }
+*/

@@ -85,9 +85,9 @@ if app.session.member_id then
               ui.link{
                 module="index", 
                 view="homepage_bs", 
-                attr = {class = "btn btn-primary btn-large large_btn_home table-cell" }, 
+                attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1" }, 
                 content=function()
-                  ui.heading{level=3,content= _"REGIONE LAZIO ASSEMBLY"}
+                  ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
                 end
               }
             end }
@@ -108,12 +108,12 @@ if app.session.member_id then
           ui.tag{tag="span",attr={class="span12"},content=function()
             ui.container{attr = {class = "inline-block" },content = function()
               ui.link{ 
-                attr = { class = "btn btn-primary btn-large large_btn_home table-cell" }, 
+                attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1" }, 
                 module="unit", 
                 view="show_ext_bs", 
                 id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
                 content=function()
-                  ui.heading{level=3,content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+                  ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
                 end
               }
             end }
@@ -123,10 +123,10 @@ if app.session.member_id then
     }
 
   end }
---  ui.script{static = "js/jquery.equalheight.js"}
---  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
---  ui.script{static = "js/jquery.fittext.js"}
---  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '10px', maxFontSize: '23px'}); " }
+  ui.script{static = "js/jquery.equalheight.js"}
+  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '27px', maxFontSize: '28px'}); " }
 
 else
 
