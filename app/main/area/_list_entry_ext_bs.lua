@@ -1,18 +1,17 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
 
-ui.container{ attr = { class = "row-fluid" }, content = function()
+ui.container{ attr = { class = "row-fluid alert alert-simple" }, content = function()
   
   ui.container{ attr = { class = "span2"}, content = function()
     ui.link{  
       module = "area", view = "filters_bs", id = area.id,
       attr = { class = "btn btn-primary btn-large" }, content = function()
---        ui.tag{ tag ="i" , attr = { class = "iconic black magnifying-glass pull-left" }, content=""}       
-        ui.heading{level=4,content=_"AREA "..area.id}
+        ui.heading{level=5,content=_"AREA "..area.id}
       end
     }
   end }
-  ui.container{ attr = { class = "span10 alert alert-simple" }, content = function()
+  ui.container{ attr = { class = "span10" }, content = function()
     execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
     ui.tag{ content = _"Issues:" }
     slot.put(" ")

@@ -50,7 +50,10 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           module = "index",
           view = return_view,
           content = function()
-            ui.heading{level=3,attr={class="fittext1"},content=_"Back to previous page"}
+            ui.heading{level=3,attr={class="fittext1"},content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+              slot.put(_"Back to previous page")
+            end }
           end
         }
       end }
@@ -77,7 +80,7 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
 end }
 
 btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1"
-btn_class_active = "btn btn-success btn-large active large_btn_show_ext table-cell eq1"
+btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active

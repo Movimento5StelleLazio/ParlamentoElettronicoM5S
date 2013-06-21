@@ -94,7 +94,10 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext1"},content=_"Back to previous page"}
+            ui.heading{level=3,attr={class="fittext1"},content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+              slot.put(_"Back to previous page")
+            end }
           end
         }
       end }

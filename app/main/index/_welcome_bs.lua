@@ -234,18 +234,17 @@ else
       end }
 
     end }
+  end }
 
-      ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-        ui.container{ attr = { id="registration-info", class = "span12" }, content = function ()
-          ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
+      ui.container{ attr = {  class = "row-fluid text-center" }, content = function ()
             ui.container{ attr = { class="span2 text-center"}, content=function()
               ui.image{static="simbolo_movimento.png" } 
             end }
-            ui.container{ attr = { class="span7 text-center"}, content=function()
-              ui.heading{ attr = {class="uppercase"}, level=2, content= _"Are you a Lazio citizen and you want to register? Here's how to do:" }
-            end }
-            ui.container{ attr = { class="span1 text-center"}, content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/rightarrow.svg"}
+            ui.container{ attr = { class="span8 text-center"}, content=function()
+              ui.heading{ attr = {class="uppercase"}, level=2, content=function() 
+                slot.put(_"Are you a Lazio citizen and you want to register? Here's how to do:") 
+                ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
+              end }
             end }
             ui.container{ attr = { class="span2 text-center"}, content=function()
               ui.link{
@@ -257,11 +256,8 @@ else
                 end
               }
             end }
-          end }
-        end }
       end }
 
-  end }
 
 
 --  ui.script{static = "js/jquery.fittext.js"}
