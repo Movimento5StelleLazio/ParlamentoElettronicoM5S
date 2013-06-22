@@ -4,7 +4,7 @@ slot.set_layout("m5s_bs")
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
-      attr = {class = "text-center span8 offset2 well well-title" },
+      attr = {class = "text-center span8 offset2 well-title" },
       content = function()
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
@@ -16,7 +16,7 @@ if not app.session.member_id then
         ui.container{attr = {class = "row-fluid" },content = function()
           ui.container{attr = {class = "span12" },content = function()
             ui.heading{level=5,content=function()
-              ui.tag{ attr={class="pull-right"}, tag = "small", content = "Versione 0.2" }
+              ui.tag{ attr={class="pull-right"}, tag = "small", content = "Versione 0.3" }
             end }
           end }
         end }

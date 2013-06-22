@@ -42,13 +42,22 @@ a{
 }
 
 .well-title {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
   color: #000000;
   background-color: #ffffff;
   border: 14px solid #ffa500;
   -webkit-border-radius: 0px;
      -moz-border-radius: 0px;
           border-radius: 0px;
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
 }
+
+
 
 /*
   M5S specific
