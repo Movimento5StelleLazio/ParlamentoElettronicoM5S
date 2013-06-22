@@ -133,21 +133,14 @@ a{
 */
 
 .issue_state_info_box, .issue_state_info_box2  {
-    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    background: #000000;
     border-radius: 16px 16px 0 0;
-    color: white;
-    padding: 5px;
-}
-
-.issue_state_info_box {
-  height: 74px;
-  max-height: 74px;
+    color: #ffffff;
+    padding: 8px;
 }
 
 .issue_state_info_box2 {
-    height: 74px;
-    margin-top: 0px;
-    padding: 5px;
+  height: 134px;
 }
 
 .issue_see_det_btn {
@@ -166,7 +159,8 @@ a{
 */
 .phases_box {
     display: inline-block;
-    margin-bottom: -1.39em;
+    margin-bottom: -30px;
+    margin-right: -10px;
     height: 160px;
     width: 520px;
 }
