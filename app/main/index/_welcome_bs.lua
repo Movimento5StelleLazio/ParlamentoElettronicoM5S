@@ -1,5 +1,8 @@
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+
 slot.set_layout("m5s_bs")
+
+
 
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
