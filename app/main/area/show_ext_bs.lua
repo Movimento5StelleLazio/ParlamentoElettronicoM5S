@@ -94,7 +94,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext1"},content=function()
+            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
@@ -278,4 +278,6 @@ ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(win
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
 ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '12px', maxFontSize: '28px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.1, {minFontSize: '12px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
+
