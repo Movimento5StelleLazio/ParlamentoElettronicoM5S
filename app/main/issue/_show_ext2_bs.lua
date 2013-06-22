@@ -23,48 +23,27 @@ elseif vote_comment_able then
 end  
 
 
---local class = "issue_ext2"
---if issue.is_interested then
---  class = class .. " interested"
---elseif issue.is_interested_by_delegation_to_member_id then
---  class = class .. " interested_by_delegation"
---end
-
-local arrow_offset = 31
-local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset = 55,58,72,64,58,64,66 
-
 -- Uncomment the following to use svgz instead of svg
 local svgz = ""
 --local svgz = "z"
 
 if issue.state == "admission" then
   event_name = _"New issue"
-  admission_offset = 37
 elseif issue.state == "discussion" then
   event_name = _"Discussion started"
   event_image = "comments.png"
-  discussion_offset = 37
-  arrow_offset = 98
 elseif issue.state == "verification" then
   event_name = _"Verification started"
   event_image = "lock.png"
-  verification_offset = 53
-  arrow_offset = 161
 elseif issue.state == "voting" then
   event_name = _"Voting started"
   event_image = "email_open.png"
-  voting_offset = 46
-  arrow_offset = 224
 elseif issue.state == "committee" then
   event_name = _"Committee started"
   event_image = "lock.png"
-  committee_offset = 49
-  arrow_offset = 298
 elseif issue.state == "committee_voting" then
   event_name = _"Committee voting started"
   event_image = "email_open.png"
-  committee_voting_offset = 49
-  arrow_offset = 361
 elseif issue.closed  then
   event_image = "cross.png"
   if issue.state == "finished_with_winner" then 
@@ -84,8 +63,6 @@ elseif issue.closed  then
   elseif issue.state == 'canceled_no_initiative_admitted' then
     event_name = _"Canceled (no initiative admitted)"
   end
-  finished_offset = 49
-  arrow_offset = 432
 end
 
 ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -94,50 +71,48 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span3 issue_state_info_box2"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span1"}, content = function()
-            if event_image then
-              ui.image{ attr = { class = ""}, static = "icons/16/" .. event_image }
-            end
-          end }
-          ui.container{ attr = { class = "span11"}, content = function()
-            ui.heading{ level=6, content = event_name or ""}
+          ui.container{ attr = { class = "span12 text-center"}, content = function()
+            ui.heading{ level=6, content = function()
+              if event_image then
+                ui.image{ attr = { class = ""}, static = "icons/16/" .. event_image }
+              end
+              slot.put(event_name or "")
+            end }
           end }
         end }
-        --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
-        ui.tag{ tag = "p", content = function()
-          if issue.closed then
-            slot.put(" &middot; ")
-            ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
-          elseif issue.state_time_left then
-            slot.put(" &middot; ")
-            if issue.state_time_left:sub(1,1) == "-" then
-              if issue.state == "admission" then
-                ui.tag{ content = _("Discussion starts soon") }
-              elseif issue.state == "discussion" then
-                ui.tag{ content = _("Verification starts soon") }
-              elseif issue.state == "verification" then
-                ui.tag{ content = _("Voting starts soon") }
-              elseif issue.state == "voting" then
-                ui.tag{ content = _("Counting starts soon") }
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12 text-center"}, content = function()
+
+            --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
+            ui.tag{ tag = "p", content = function()
+            if issue.closed then
+              slot.put(" &middot; ")
+              ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
+            elseif issue.state_time_left then
+              slot.put(" &middot; ")
+              if issue.state_time_left:sub(1,1) == "-" then
+                if issue.state == "admission" then
+                  ui.tag{ content = _("Discussion starts soon") }
+                elseif issue.state == "discussion" then
+                  ui.tag{ content = _("Verification starts soon") }
+                elseif issue.state == "verification" then
+                  ui.tag{ content = _("Voting starts soon") }
+                elseif issue.state == "voting" then
+                  ui.tag{ content = _("Counting starts soon") }
+                end
+              else
+                ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
               end
-            else
-              ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
             end
-          end
+
+            end }
+          end }
         end }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
-        ui.container{ attr = { id = "phases_box_"..issue.id, class = "phases_box"}, content = function()
-          ui.image{  attr = { id = "phase_arrow_"..issue.id, class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
-          ui.image{  attr = { id = "phases_bar_"..issue.id, class = "phases_bar" }, static = "svg/phases_bar.svg"..svgz }
-          ui.image{  attr = { id = "admission_"..issue.id, class = "admission", style = "margin-top: "..admission_offset.."px;" }, static="svg/admission.svg"..svgz }
-          ui.image{  attr = { id = "discussion_"..issue.id, class = "discussion", style = "margin-top: "..discussion_offset.."px;" }, static="svg/discussion.svg"..svgz }
-          ui.image{  attr = { id = "verification_"..issue.id, class = "verification", style = "margin-top: "..verification_offset.."px;" }, static="svg/verification.svg"..svgz }
-          ui.image{  attr = { id = "voting_"..issue.id, class = "voting", style = "margin-top: "..voting_offset.."px;" }, static="svg/voting.svg"..svgz }
-          ui.image{  attr = { id = "committee_"..issue.id, class = "committee", style = "margin-top: "..committee_offset.."px;" }, static="svg/committee.svg"..svgz }
-          ui.image{  attr = { id = "committee_voting_"..issue.id, class = "committee_voting", style = "margin-top: "..committee_voting_offset.."px;" }, static="svg/voting.svg"..svgz }
-          ui.image{  attr = { id = "finished_"..issue.id, class = "finished", style = "margin-top: "..finished_offset.."px;" }, static="svg/finished.svg"..svgz }
-        end}
+        ui.container{ attr = { class = "pull-right"}, content = function()
+          execute.view{ module = "issue", view = "phasesbar", params = { sate=issue.state } }       
+        end }
       end }
     end }
 

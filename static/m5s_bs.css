@@ -133,21 +133,14 @@ a{
 */
 
 .issue_state_info_box, .issue_state_info_box2  {
-    background: linear-gradient(#888888, #222222) repeat scroll 0 center transparent;
+    background: #000000;
     border-radius: 16px 16px 0 0;
-    color: white;
-    padding: 5px;
-}
-
-.issue_state_info_box {
-  height: 74px;
-  max-height: 74px;
+    color: #ffffff;
+    padding: 8px;
 }
 
 .issue_state_info_box2 {
-    height: 74px;
-    margin-top: 69px;
-    padding: 5px;
+  height: 134px;
 }
 
 .issue_see_det_btn {
@@ -166,66 +159,67 @@ a{
 */
 .phases_box {
     display: inline-block;
-    margin-bottom: -1.4em;
-    height: 162px;
-    width: 522px;
+    margin-bottom: -30px;
+    margin-right: -10px;
+    height: 160px;
+    width: 520px;
 }
 .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
     position: absolute;
     z-index: 11;
 }
 .phases_bar {
-    height: 162px;
+    height: 160px;
     position: absolute;
-    width: 522px;
-    min-width: 522px;
+    width: 520px;
+    min-width: 520px;
     z-index: 9;
 }
 .phase_arrow {
     height: 70px;
-    margin-left: 31px;
-    margin-top: 29px;
+    margin-top: 18px;
     position: absolute;
     width: 70px;
     z-index: 10;
 }
 .admission {
     height: 60px;
-    margin-left: 37px;
-    margin-top: 55px;
+    margin-left: 22px;
+    margin-top: 47px;
     width: 60px;
 }
 .discussion {
     height: 65px;
-    margin-left: 102px;
-    margin-top: 58px;
+    margin-left: 87px;
+    margin-top: 48px;
     width: 65px;
 }
 .verification {
     height: 33px;
-    margin-left: 181px;
-    margin-top: 72px;
-    width: 33px;
+    margin-left: 165px;
+    margin-top: 64px;
 }
 .voting {
     height: 48px;
-    margin-left: 237px;
-    margin-top: 64px;
+    margin-left: 222px;
+    margin-top: 56px;
     width: 48px;
 }
 .committee {
     height: 48px;
-    margin-left: 309px;
-    margin-top: 64px;
+    margin-left: 293px;
+    margin-top: 53px;
     width: 48px;
 }
 .committee_voting {
-    margin-left: 380px;
-    margin-top: 64px;
+    height: 40px;
+    margin-left: 361px;
+    margin-top: 51px;
 }
 .finished {
-    margin-left: 452px;
-    margin-top: 66px;
+    height: 48px;
+    margin-left: 427px;
+    margin-top: 54px;
 }
 /*
   Thumb & voting
