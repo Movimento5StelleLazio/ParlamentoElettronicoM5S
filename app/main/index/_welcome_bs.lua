@@ -185,9 +185,9 @@ else
             ui.container{ attr = { class = "span6 offset3" }, content = function()
               ui.tag{ 
                 tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large table-cell" }, 
+                attr = { type="submit", class="btn btn-primary btn-large" }, 
                 content= function()
-                  ui.heading{ level=4,content= _"Login"}
+                  ui.heading{ level=4, attr = { class="inline-block"}, content= _"Login"}
                 end 
               }
             end }
@@ -200,17 +200,21 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="registration", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span7 text-center"}, content=function()
+            ui.tag{ attr = { class="span12 text-center"}, content=function()
               ui.tag{ tag="p",content= _"Possiedi gia' un codice di invito? Clicca qui:"}
             end }
-            ui.link{
-              attr = {class="span5 btn btn-primary btn-large"},
-              module = "index",
-              view = "register",
-              content = function()
-                ui.heading{ level=4,content= _"Registrati" }
-              end 
-            }
+          end }
+          ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
+            ui.container{ attr = { id="registration", class = "span12" }, content = function ()
+              ui.link{
+                attr = {class="btn btn-primary btn-large"},
+                module = "index",
+                view = "register",
+                content = function()
+                  ui.heading{ level=4,content= _"Registrati" }
+                end 
+              }
+            end }
           end }
         end }
       end }
@@ -218,17 +222,21 @@ else
       ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
         ui.container{ attr = { id="lost_password", class = "span12 well" }, content = function ()
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.tag{ attr = { class="span7 text-center"}, content=function()
+            ui.tag{ attr = { class="span12 text-center"}, content=function()
               ui.tag{ tag="p",content= _"Hai smarrito la password? Clicca qui:"}
             end }
-            ui.link{
-              attr = { class="span5 btn btn-primary btn-large"},
-              module = 'index',
-              view   = 'reset_password',
-              content = function()
-                ui.heading{ level=4,content= _"Reset Password"}
-              end
-            }
+          end }
+          ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
+            ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
+              ui.link{
+                attr = { class="btn btn-primary btn-large"},
+                module = 'index',
+                view   = 'reset_password',
+                content = function()
+                  ui.heading{ level=4,content= _"Reset Password"}
+                end
+              }
+            end }
           end }
         end }
       end }
