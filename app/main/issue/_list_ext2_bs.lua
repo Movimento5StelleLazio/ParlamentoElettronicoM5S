@@ -8,6 +8,15 @@ ui.paginate{
     local issues = issues_selector:exec()
     issues:load_everything_for_member_id(member and member.id or nil)
 
+    if #issues == 0 then
+      ui.container{ attr = { class = "row-fluid" }, content = function()
+        ui.container{ attr = { class = "span12 text-center" }, content = function()
+          ui.heading{level=4, content =_"There are no issue that match the selection criteria."}
+        end }
+      end }
+    end
+
+
     ui.container{ attr = { class = "issues" }, content = function()
       for i, issue in ipairs(issues) do
         execute.view{ module = "issue", view = "_show_ext2_bs", params = {

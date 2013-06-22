@@ -1,3 +1,4 @@
+local view = param.get("view") or ""
 local issues_selector = param.get("selector", "table")
 local member = param.get("for_member", "table") or app.session.member
 
@@ -7,6 +8,18 @@ ui.paginate{
   content = function()
     local issues = issues_selector:exec()
     issues:load_everything_for_member_id(member and member.id or nil)
+  
+    if #issues == 0 then
+      ui.container{ attr = { class = "row-fluid" }, content = function()
+        ui.container{ attr = { class = "span12 text-center" }, content = function()
+          if view == "voted" then      
+             ui.heading{level=4, content =_"You didn't vote any issue yet."}
+          elseif view == "created" then
+             ui.heading{level=4, content =_"You didn't create any issue yet."}
+          end
+        end }
+      end }
+    end
 
     ui.container{ attr = { class = "issues" }, content = function()
       for i, issue in ipairs(issues) do

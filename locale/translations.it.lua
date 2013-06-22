@@ -98,6 +98,10 @@ return {
 ["Report suspect data"]="Segnala dato sospetto";
 ["Welcome <strong>#{realname}</strong>."]="Benvenuto <strong>#{realname}</strong>.";
 ["from "]="da ";
+["You didn't vote any issue yet."]="Non hai ancora votato nessuna proposta.";
+["You didn't create any issue yet."]="Non hai ancora avanzato nessuna proposta.";
+["There are no enabled areas in this unit."]="Non ci sono aree abilitate in questa unita'.";
+["There are no issue that match the selection criteria."]="Nesssuna proposta corrisponde ai criteri di selezione.";
 ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
 ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"]="SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
 ["5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO"]="PARLAMENTO ELETTRONICO MOVIMENTO 5 STELLE REGIONE LAZIO";

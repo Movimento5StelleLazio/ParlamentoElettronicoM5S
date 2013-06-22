@@ -183,8 +183,9 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 alert alert-simple issue_listing_box"},content=function()
             execute.view{
               module = "issue",
-              view   = "_list_ext2_bs",
+              view   = "_list_ext_bs",
               params = {
+                view="voted",
 		member=member,
                 selector = issues_selector_voted
               }
@@ -213,6 +214,7 @@ ui.container{attr={class="row-fluid"},content=function()
               module = "issue",
               view   = "_list_ext_bs",
               params = {
+                view="created",
                 member=member,
                 selector = issues_selector_myinitiatives
               }

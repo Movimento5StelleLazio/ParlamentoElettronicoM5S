@@ -123,15 +123,14 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         }
       end }
     end }
-    ui.container{ attr = { class="row-fluid"}, content=function() 
-      ui.container{ attr = { class ="span2" }, content = ""}
-    end }
-    ui.container{ attr = { class="row-fluid"}, content=function()
-      execute.view{  
-        module = "area",
-        view = "_list_ext_bs",
-        params = { areas_selector = areas_selector, member = app.session.member }
-      }
+    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
+      ui.container{ attr = { class = "span12 spaceline" }, content = function()
+        execute.view{  
+          module = "area",
+          view = "_list_ext_bs",
+          params = { areas_selector = areas_selector, member = app.session.member }
+        }
+      end }
     end }
   end }
 end}

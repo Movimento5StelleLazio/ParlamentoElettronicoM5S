@@ -278,6 +278,6 @@ ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(win
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
 ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(1.1, {minFontSize: '12px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(0.9, {minFontSize: '12px', maxFontSize: '26px'}); " }
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
 
