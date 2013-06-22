@@ -185,7 +185,13 @@ ui.container{attr={class="row-fluid"},content=function()
               module = "issue",
               view   = "_list_ext_bs",
               params = {
-                view="voted",
+                state=state,
+                --orderby=orderby,
+                --desc=desc,
+                scope=scope,
+                --interest=interest,
+                list="voted",
+                ftl_btns=ftl_btns,
 		member=member,
                 selector = issues_selector_voted
               }
@@ -214,7 +220,13 @@ ui.container{attr={class="row-fluid"},content=function()
               module = "issue",
               view   = "_list_ext_bs",
               params = {
-                view="created",
+                state=state,
+                --orderby=orderby,
+                --desc=desc,
+                scope=scope,
+                --interest=interest,
+                list="created",
+                ftl_btns=ftl_btns,
                 member=member,
                 selector = issues_selector_myinitiatives
               }

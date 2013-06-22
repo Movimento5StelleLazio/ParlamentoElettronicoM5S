@@ -1,6 +1,12 @@
 slot.set_layout("m5s_bs")
 local issue = Issue:by_id(param.get_id())
+local state = param.get("state")
+local orderby = param.get("orderby") or ""
+local desc =  param.get("desc", atom.boolean)
+local interest = param.get("interest")
+local scope = param.get("scope")
 local view = param.get("view") 
+local ftl_btns = param.get("ftl_btns",atom.boolean)
 
 local return_view, return_module
 if view == "homepage" then
@@ -32,6 +38,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           module = return_module,
           id = issue.area.id,
           view = return_view,
+          params = param.get_all_cgi(),
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}

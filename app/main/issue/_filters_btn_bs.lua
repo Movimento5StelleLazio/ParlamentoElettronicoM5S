@@ -104,6 +104,7 @@ if ftl_btns then
 end
 
 trace.debug("id:"..(id or "none")..", state:"..(state or "none")..", interest:"..(interest or "none")..", scope:"..(scope or "none")..", orderby:"..(orderby or "none") )  
+trace.debug("default interest:"..( btns.default_interest or "none"))
 
 ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
   ui.container{ attr = { class = "span12 text-center"}, content = function()

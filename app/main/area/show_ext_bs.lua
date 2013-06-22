@@ -2,11 +2,11 @@ slot.set_layout("m5s_bs")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 local area = Area:by_id(param.get_id())
-local state = param.get("state")
-local scope = param.get("scope")
-local orderby = param.get("orderby")
+local state = param.get("state") or "any"
+local scope = param.get("scope") or "all_units"
+local orderby = param.get("orderby") or "creation_date"
 local desc = param.get("desc",atom.boolean) or false
-local interest = param.get("interest")
+local interest = param.get("interest") or "any"
 local member = app.session.member
 local ftl_btns = param.get("ftl_btns",atom.boolean) or false
 
@@ -118,24 +118,24 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
 end }
 
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
-btns = {
-  default_state = 'development',
-  state = { "discussion", "verification", "voting", "committee" },
-  default_interest = 'any',
-  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
-}
+  btns = {
+    default_state = 'development',
+    state = { "discussion", "verification", "voting", "committee" },
+    default_interest = 'any',
+    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+  }
 elseif state == "closed" or state == "canceled" or state == "finished" then
-btns = {
-  default_state = 'closed',
-  default_interest = 'any',
-  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
-}
+  btns = {
+    default_state = 'closed',
+    default_interest = 'any',
+    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+  }
 elseif state == "admission" then  
   btns = {
-  default_state = 'admission',
-  default_interest = 'any',
-  interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
-}
+    default_state = 'admission',
+    default_interest = 'any',
+    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+  }
 else
   btns = {
   default_state = 'any',
@@ -267,11 +267,14 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           module="issue" ,
           view="_list_ext2_bs",
           params={
-         --   state=state,
-         --   orderby=orderby,
-         --   desc=desc,
-         --   interest=interest,
+            state=state,
+            orderby=orderby,
+            desc=desc,
+            interest=interest,
+            scope=scope,
+            ftl_btns=ftl_btns,
             selector=selector, 
+            view="area",
             member=member 
           }
         }
