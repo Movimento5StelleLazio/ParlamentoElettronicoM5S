@@ -259,7 +259,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.link{ 
           attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
           module = "issue",
-          view = "show_ext",
+          view = "show_ext_bs",
           id = issue.id,
           content = function()
             ui.heading{level=5,content=_"SEE DETAILS"}

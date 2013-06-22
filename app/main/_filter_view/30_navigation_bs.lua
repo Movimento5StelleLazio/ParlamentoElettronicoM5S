@@ -4,7 +4,7 @@ slot.select('navbar', function()
       ui.tag { tag="li", content=function()
         ui.link{
           content = function()
-            ui.tag{ attr = { class = "logo_liquidfeedback" }, content = _"LiquidFeedback" }
+            ui.tag{ content = "PARLAMENTO ELETTRONICO" }
           end,
           module = 'index',
           view   = 'index'
@@ -17,13 +17,11 @@ slot.select('navbar', function()
       ui.tag{ tag="li", content = function()
         ui.container{ attr={ class="btn-group" }, content = function()
          ui.link{
-           attr = { datatoggle="dropdown", href="#", class="btn btn-primary dropdown-toggle"},
+           attr = { datatoggle="dropdown", href="#", class="btn btn-primary btn-mini dropdown-toggle"},
            module = "index",
             view = "menu_ext",
             content = function()
               if app.session.member_id then
-              ui.tag{ tag ="i" , attr = { class = "iconic black user" }, content=""}
-              --[[
                 execute.view{
                   module = "member_image",
                   view = "_show",
@@ -34,7 +32,6 @@ slot.select('navbar', function()
                     class = "micro_avatar",
                   }
                 }
-              --]]
                 slot.put("&nbsp;"..app.session.member.name )
               else
                 --ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}

@@ -94,20 +94,22 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            ui.heading{level=3,content=_"BACK TO PREVIOUS PAGE"}
+            ui.heading{level=3,attr={class="fittext1"},content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+              slot.put(_"Back to previous page")
+            end }
           end
         }
       end }
-      ui.container{ attr = { class  = "span8" }, content = function()
+      ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=4,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
+             ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=4,content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+             ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
           end }
         end }
       end }
@@ -187,10 +189,18 @@ execute.chunk{
 }
 
 ui.container{ attr = { class="row-fluid text-center"}, content=function()
-  ui.container{ attr = { class="span4 offset4 text-center"}, content=function()
+  ui.container{ attr = { class="span12 text-center"}, content=function()
     ui.image{ attr = { id = "parlamento_img" }, static = "parlamento_icon_small.png" }
   end }
 end }
+
+local spanstyle
+if unit_name == "cittadini" or unit_name == "iscritti" then
+  spanstyle =""
+else
+  spanstyle="margin-left: 12.5%"
+end
+
 
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class="span12 well"}, content=function()
@@ -199,54 +209,54 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid"}, content=function()
+    ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.container{ attr = { class="span3" }, content=function()
           ui.link {
-            attr = { class="btn btn-primary btn-large large_btn table-cell" },
+            attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+              ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
             end
           }
         end }
       end
-      ui.container{ attr = { class="span3" }, content=function()
+      ui.container{ attr = { class="span3", style=spanstyle }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
           params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
           content = function()
-            ui.heading { level=4, content = _"ORDER BY DATE OF CREATION" }
+            ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
           end
         }
       end }
       ui.container{ attr = { class="span3" }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
           params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
           content = function()
-            ui.heading { level=4, content = _"ORDER BY LAST EVENT DATE"  }
+            ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
           end
         }
       end }
       ui.container{ attr = { class="span3" }, content=function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
           view = "show_ext_bs",
           id = area.id,
           params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
           content = function()
-            ui.heading { level=4, content = inv_txt  }
+            ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
           end
         }
       end }
@@ -262,3 +272,10 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     end }
   end }
 end }
+
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+--ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '12px', maxFontSize: '28px'}); " }

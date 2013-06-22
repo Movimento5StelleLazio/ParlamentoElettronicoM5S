@@ -27,6 +27,10 @@ a{
   display: inline-block;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
@@ -37,7 +41,7 @@ a{
 .well-title {
   color: #000000;
   background-color: #ffffff;
-  border: 7px solid #67e567;
+  border: 14px solid #ffa500;
   -webkit-border-radius: 0px;
      -moz-border-radius: 0px;
           border-radius: 0px;
@@ -46,6 +50,10 @@ a{
 /*
   M5S specific
 */
+
+#menu_dropdown {
+  margin-left: -65px;
+}
 
 .large_btn  {
     height:115px;
@@ -83,9 +91,24 @@ a{
   max-width:  284px;
 }
 
+.btn_box_bottom{
+  margin-bottom: 20px;
+}
+
+.btn_box_top{
+  margin-top: 10px;
+}
+
 .arrow_medium {
-  height: 50px;
-  width: 50px;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.btn_margin {
+  margin-bottom: 10px;
 }
 
 /*

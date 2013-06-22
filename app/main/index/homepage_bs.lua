@@ -63,7 +63,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.heading{level=2, content=_"What you want to do?"}
     ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
 
-    ui.container{attr={class="row-fluid"},content=function()
+    ui.container{attr={class="row-fluid btn_box_top btn_box_bottom"},content=function()
     
       ui.container{attr={class="span3"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
@@ -108,6 +108,7 @@ ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
+
 
 
 btns = {
@@ -166,7 +167,7 @@ ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span12 well"},content=function()
         ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 text-center"},content=function()
-            ui.heading{level=3,content=_"Your Voting"}
+            ui.heading{level=3,attr={class="uppercase"},content=_"Your Voting"}
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
@@ -194,7 +195,7 @@ ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span12 well"},content=function()
         ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 text-center"},content=function()
-            ui.heading{level=3,content=_"Your Proposals"}
+            ui.heading{level=3,attr={class="uppercase"},content=_"Your Proposals"}
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
