@@ -6,7 +6,7 @@ ui.container{ attr = { class = "row-fluid alert alert-simple" }, content = funct
   ui.container{ attr = { class = "span2"}, content = function()
     ui.link{  
       module = "area", view = "filters_bs", id = area.id,
-      attr = { class = "btn btn-primary btn-large" }, content = function()
+      attr = { class = "btn btn-primary btn-large btn_margin" }, content = function()
         ui.heading{level=5,content=_"AREA "..area.id}
       end
     }

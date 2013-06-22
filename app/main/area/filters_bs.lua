@@ -23,8 +23,12 @@ if not config.gui_preset[gui_preset].units[unit_name] then
   return false
 end
 
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{static = "js/jquery.equalheight.js"}
+local spanstyle
+if unit_name == "cittadini" or unit_name == "iscritti" then
+  spanstyle =""
+else
+  spanstyle="margin-left: 12.5%"
+end
 
 ui.container{ attr = { class  = "row-fluid" }, content = function()
   ui.container{ attr = { class  = "span12 well" }, content = function()
@@ -34,15 +38,15 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
       ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset[gui_preset].units[unit_name].area_filter_title) }
     end }
-    ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{attr={class="span3"},content = function()
+    ui.container{ attr = { class  = "row-fluid btn_box_top  btn_box_bottom" }, content = function()
+      ui.container{attr={class="span3", style=spanstyle},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
           content = function()
-            ui.heading{level=3,attr={class="fittext1"},content=function()
+            ui.heading{level=3,attr={class="fittext"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
@@ -91,7 +95,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     }
   
   end }
-  ui.script{script = "jQuery('.fittext').fitText(0.8, {minFontSize: '13px'}, maxFontSize: '22px'}); " }
+  ui.script{static = "js/jquery.equalheight.js"}
   ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
   ui.script{static = "js/jquery.fittext.js"}
   ui.script{script = "jQuery('.fittext').fitText(); " }

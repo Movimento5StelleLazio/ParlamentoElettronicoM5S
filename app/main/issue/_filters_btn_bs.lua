@@ -92,7 +92,7 @@ local txt_map = {
     others = _"Other political groups units"
   }
 }
-ui.container{ attr = { class = "row-fluid"}, content = function()
+ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
   ui.container{ attr = { class = "span12 text-center"}, content = function()
     if not ftl_btns then
       ui.container{ attr = { class = "row-fluid"}, content = function()

@@ -63,7 +63,11 @@ if app.session.member_id then
               ui.tag{ tag="span", attr = { id = "location"}, content="" }
             end
           end }
-          ui.heading{level=2,content= _"Choose the assembly you want to participate:"}
+        end }
+        ui.container{attr = {class = "row-fluid" },content = function()
+          ui.container{ attr = { class  = "span12 text-center" }, content = function()
+            ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
+          end }
         end }
       end }
     end }
@@ -126,7 +130,7 @@ if app.session.member_id then
   ui.script{static = "js/jquery.equalheight.js"}
   ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
   ui.script{static = "js/jquery.fittext.js"}
-  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '27px', maxFontSize: '28px'}); " }
+  ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
 
 else
 
@@ -244,27 +248,27 @@ else
     end }
   end }
 
-      ui.container{ attr = {  class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { class="span2 text-center"}, content=function()
-              ui.image{static="simbolo_movimento.png" } 
-            end }
-            ui.container{ attr = { class="span8 text-center"}, content=function()
-              ui.heading{ attr = {class="uppercase"}, level=2, content=function() 
-                slot.put(_"Are you a Lazio citizen and you want to register? Here's how to do:") 
-                ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
-              end }
-            end }
-            ui.container{ attr = { class="span2 text-center"}, content=function()
-              ui.link{
-                attr = {class="btn btn-primary btn-large medium_btn table-cell"},
-                module = "index",
-                view = "register",
-                content = function()
-                  ui.heading{ level=4,content= _"Registration Guide" }
-                end
-              }
-            end }
+  ui.container{ attr = {  class = "row-fluid text-center" }, content = function ()
+    ui.container{ attr = { class="span2 text-center"}, content=function()
+      ui.image{static="simbolo_movimento.png" } 
+    end }
+    ui.container{ attr = { class="span8 text-center"}, content=function()
+      ui.heading{ attr = {class="uppercase"}, level=2, content=function() 
+        slot.put(_"Are you a Lazio citizen and you want to register? Here's how to do:") 
+        ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
       end }
+    end }
+    ui.container{ attr = { class="span2 text-center"}, content=function()
+      ui.link{
+        attr = {class="btn btn-primary btn-large medium_btn table-cell"},
+        module = "index",
+        view = "register",
+        content = function()
+          ui.heading{ level=4,content= _"Registration Guide" }
+        end
+      }
+    end }
+  end }
 
 
 

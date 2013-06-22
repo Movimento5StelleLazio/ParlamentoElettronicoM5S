@@ -91,12 +91,24 @@ a{
   max-width:  284px;
 }
 
+.btn_box_bottom{
+  margin-bottom: 20px;
+}
+
+.btn_box_top{
+  margin-top: 10px;
+}
+
 .arrow_medium {
     vertical-align: middle;
     height: 40px;
     width: 40px;
     padding-left: 8px;
     padding-right: 8px;
+}
+
+.btn_margin {
+  margin-bottom: 10px;
 }
 
 /*

@@ -189,10 +189,18 @@ execute.chunk{
 }
 
 ui.container{ attr = { class="row-fluid text-center"}, content=function()
-  ui.container{ attr = { class="span4 offset4 text-center"}, content=function()
+  ui.container{ attr = { class="span12 text-center"}, content=function()
     ui.image{ attr = { id = "parlamento_img" }, static = "parlamento_icon_small.png" }
   end }
 end }
+
+local spanstyle
+if unit_name == "cittadini" or unit_name == "iscritti" then
+  spanstyle =""
+else
+  spanstyle="margin-left: 12.5%"
+end
+
 
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class="span12 well"}, content=function()
@@ -201,7 +209,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid"}, content=function()
+    ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.container{ attr = { class="span3" }, content=function()
           ui.link {
@@ -216,7 +224,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           }
         end }
       end
-      ui.container{ attr = { class="span3" }, content=function()
+      ui.container{ attr = { class="span3", style=spanstyle }, content=function()
         ui.link {
           attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
           module = "area",
@@ -269,5 +277,5 @@ ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(); " }
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '12px', maxFontSize: '28px'}); " }

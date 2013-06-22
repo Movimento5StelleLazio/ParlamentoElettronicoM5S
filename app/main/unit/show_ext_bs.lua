@@ -139,8 +139,7 @@ end}
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(); " }
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '12px', maxFontSize: '28px'}); " }
 
 
