@@ -83,10 +83,22 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
-      ui.container{ attr = { id="social_box", class  = "span1 text-center" }, content = function()
-        slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
-        slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
-        slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
+      ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
+          end }
+        end }
       end }
     end }
   end }
