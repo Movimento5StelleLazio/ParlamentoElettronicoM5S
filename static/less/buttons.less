@@ -141,7 +141,12 @@ input[type="button"] {
   color: @black;
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-success:active,
+.btn-info:active,
+.btn-inverse:active {
   .translate(0,0.2em);
 }
 
@@ -158,7 +163,7 @@ input[type="button"] {
   border-bottom-color: darken(@btnPrimaryBackground, 10%);
 }
 .btn-primary.active, .btn-primary:active  {
-  .buttonBackground(darken(@btnPrimaryBackground,40%), lighten(@btnPrimaryBackgroundHighlight,20%));
+  .buttonBackground(darken(@btnPrimaryBackground,10%), darken(@btnPrimaryBackgroundHighlight,5%));
   border-color: transparent;
 }
 
@@ -166,9 +171,21 @@ input[type="button"] {
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
 }
+
 // Danger and error appear as red
 .btn-danger {
   .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+  .box-shadow(~"hsl(23,98%,30%) 0 .1em 3px, hsl(23,98%,30%) 0 .3em 1px, rgba(0,0,0,0.3) 0 .6em 6px");
+  border: 1px solid @btnDangerBackground;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-top-color: lighten(@btnDangerBackground, 10%);
+  border-left-color: @btnDangerBackground;
+  border-right-color: @btnDangerBackground;
+  border-bottom-color: darken(@btnDangerBackground, 10%);
+}
+.btn-danger.active, .btn-danger:active  {
+  .buttonBackground(darken(@btnDangerBackground,10%), darken(@btnDangerBackgroundHighlight,5%));
+  border-color: transparent;
 }
 // Success appears as green
 .btn-success {
@@ -177,6 +194,17 @@ input[type="button"] {
 // Info appears as a neutral blue
 .btn-info {
   .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+  .box-shadow(~"hsl(216,63%,44%) 0 .1em 3px, hsl(216,63%,44%) 0 .3em 1px, rgba(0,0,0,0.3) 0 .6em 6px");
+  border: 1px solid @btnInfoBackground;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-top-color: lighten(@btnInfoBackground, 10%);
+  border-left-color: @btnInfoBackground;
+  border-right-color: @btnInfoBackground;
+  border-bottom-color: darken(@btnInfoBackground, 10%);
+}
+.btn-info.active, .btn-info:active  {
+  .buttonBackground(darken(@btnInfoBackground,10%), darken(@btnInfoBackgroundHighlight,5%));
+  border-color: transparent;
 }
 // Inverse appears as dark gray
 .btn-inverse {
