@@ -50,12 +50,14 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           module = "index",
           view = return_view,
           content = function()
-            ui.tag{ tag ="i" , attr = { class = "iconic black arrow-left pull-left" }, content=""}
-            ui.heading{level=3,attr={class="fittext1"},content=_"BACK TO PREVIOUS PAGE"}
+            ui.heading{level=3,attr={class="fittext1"},content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+              slot.put(_"Back to previous page")
+            end }
           end
         }
       end }
-      ui.container{ attr = { class  = "span8 text-center" }, content = function()
+      ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
             ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
@@ -78,7 +80,7 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
 end }
 
 btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1"
-btn_class_active = "btn btn-success btn-large active large_btn_show_ext table-cell eq1"
+btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active
@@ -137,8 +139,7 @@ end}
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
---ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(); " }
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '12px', maxFontSize: '28px'}); " }
 
 
