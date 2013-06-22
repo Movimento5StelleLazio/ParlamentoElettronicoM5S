@@ -1,9 +1,15 @@
 local initiative = param.get("initiative", "table")
 local selected = param.get("selected", atom.boolean)
 local for_member = param.get("for_member", "table") or app.session.member
+local for_details = param.get("for_details", "boolean") or false
+
+local class =""
+if for_details then
+  class = " alert alert-simple initiative_box"
+end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.container{ attr = { class = "span12 initiative_list_box" }, content = function()
+  ui.container{ attr = { class = "span12"..class }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       --[[
       ui.container{ attr = { class = "span1" }, content = function()
@@ -16,7 +22,25 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         end
       end }
       --]]
-      ui.container{ attr = { class = "span4 spaceline" }, content = function()
+      local span=3
+      if for_details then
+        ui.container{ attr = { class = "span1" }, content = function()
+          ui.link{
+            attr = { class="btn btn-primary btn-mini spaceline"  },
+            module = "initiative",
+            id = initiative.id,
+            view = "show",
+            content = function()
+              ui.heading{level=5,attr={class=""},content=function()
+                slot.put(_"Read")
+              end }
+            end
+          }
+      end }
+      else
+        span=4
+      end
+      ui.container{ attr = { class = "span"..span.." spaceline" }, content = function()
         if initiative.issue.fully_frozen and initiative.issue.closed then
           if initiative.negative_votes and initiative.positive_votes then
             local max_value = initiative.issue.voter_count
@@ -108,7 +132,8 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         view    = "show",
         id      = initiative.id
       }
-      if request.get_view() == "show_ext_bs" then
+      --if request.get_view() == "show_ext_bs" then
+      if for_details then
         ui.tag{ tag="p", content= initiative.brief_description}
       end
       end }

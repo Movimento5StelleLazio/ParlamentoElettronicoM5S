@@ -35,6 +35,7 @@ return {
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
+["Read"]="Leggi";
 ["Citizens units"]="Unita' dei cittadini";
 ["Elected units"]="Unita' degli eletti";
 ["Other political groups units"]="Unita' degli altri gruppi politici";

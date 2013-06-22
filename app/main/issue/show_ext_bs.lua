@@ -231,7 +231,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span9"}, content = function()
             if #issue.initiatives == 1 then
@@ -258,7 +258,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{attr = {class="row-fluid"}, content =function()
-      ui.container{attr = {class="span12 alert alert-simple"}, content =function()
+      ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
         local initiatives_selector = issue:get_reference_selector("initiatives")
         local highlight_string = param.get("highlight_string")
         if highlight_string then
@@ -276,6 +276,7 @@ ui.container{attr={class="row-fluid"}, content=function()
             limit = (for_listing or for_initiative) and 5 or nil,
             hide_more_initiatives=false,
             limit=25,
+            for_details=true,
             for_member = for_member
           }
         }

@@ -1,4 +1,5 @@
 local issue = param.get("issue", "table")
+local for_details = param.get("for_details", "boolean") or false
 local initiatives_selector = param.get("initiatives_selector", "table")
 
 local initiatives
@@ -55,6 +56,7 @@ for i, initiative in ipairs(initiatives) do
     module = "initiative",
     view = "_list_element_ext2_bs",
     params = {
+      for_details=for_details,
       initiative = initiative,
       selected = highlight_initiative and highlight_initiative.id == initiative.id or nil,
       for_member = for_member

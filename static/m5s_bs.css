@@ -116,12 +116,6 @@ a{
   Initiative
 */
 
-.initiative_list_box {
-    max-height: 16em;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 
 /*
   Issue
