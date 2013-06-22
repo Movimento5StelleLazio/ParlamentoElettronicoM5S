@@ -125,6 +125,8 @@ if app.session.member_id then
         end }
       end
     }
+    ui.script{static = "js/jquery.equalheight.js"}
+    ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 
   end }
 
@@ -271,7 +273,5 @@ else
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
 ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 
 end

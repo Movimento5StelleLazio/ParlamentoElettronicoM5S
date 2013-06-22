@@ -31,36 +31,16 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
             ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
           end }
         end }
+
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            ui.link{
-              module = "unit", view = "show_ext_bs", id = issue.area.unit_id,
-              attr = { class = "label label-success" }, text = issue.area.unit.name
-            }
-            slot.put(" ")
-            ui.link{
-              module = "area", view = "show_ext_bs", id = issue.area_id,
-              attr = { class = "label label-important" }, text = issue.area.name
-            }
-          end }
-        end }
-        ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            ui.link{
-              attr = { class = "issue_id" },
-              text = _("#{policy_name} ##{issue_id}", {
-                policy_name = issue.policy.name,
-                issue_id = issue.id
-              }),
-              module = "issue",
-              view = "show_ext",
-              id = issue.id
-            }
+            execute.view{ module = "issue", view = "info_data", params={issue=issue}  }
           end }
         end }
 

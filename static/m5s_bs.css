@@ -12,10 +12,6 @@ a{
  text-decoration: none !important
 }
 
-a h1,h2,h3,h4,h5 {
-  text-shadow: rgba(50,50,50,.5) 1px 1px 1px;
-}
-
 .footer, .push {
   height: 3em;
 }
@@ -35,34 +31,6 @@ a h1,h2,h3,h4,h5 {
 .uppercase {
   text-transform: uppercase;
 }
-
-.alert-simple {
-  padding: 8px 8px 8px 8px;
-  color: #000000;
-  background-color: #ffffff;
-  border: 2px solid #7e8789;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-}
-
-.well-title {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  color: #000000;
-  background-color: #ffffff;
-  border: 14px solid #ffa500;
-  -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
-  blockquote {
-    border-color: #ddd;
-    border-color: rgba(0,0,0,.15);
-  }
-}
-
-
 
 /*
   M5S specific
@@ -147,39 +115,9 @@ a h1,h2,h3,h4,h5 {
 }
 
 
-.head-chocolate,.head-darkorange,.head-orange, .head-lightgoldenrodyellow {
-  border: 1px solid black;
-  margin: 0;
-}
-
-.head-chocolate {
-  background: #e66c19;
-}
-.head-darkorange {
-  background: #ff8a00;
-}
-.head-orange {
-  background: #ffaf00;
-}
-.head-lightgoldenrodyellow {
-  background: #fffbd5;
-}
-
 /*
   Issue
 */
-
-.issue_state_info_box, .issue_state_info_box2  {
-    background: #000000;
-    border-radius: 16px 16px 0 0;
-    color: #ffffff;
-    padding: 8px;
-    overflow: hidden;
-}
-
-.issue_state_info_box2 {
-  height: 118px;
-}
 
 .issue_see_det_btn {
   margin-top: -19px;
