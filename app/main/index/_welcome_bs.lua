@@ -4,6 +4,7 @@ slot.set_layout("m5s_bs")
 
 
 
+ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
@@ -90,9 +91,11 @@ if app.session.member_id then
                   onclick = "alert('Dato sospetto segnalato');"
                 },
                 content=function()
-                  ui.heading{level=6,attr={class=""},content= _"Report suspect data"}
+                  ui.heading{level=6,attr={class="fittext_report"},content= _"Report suspect data"}
                 end
               }
+              ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
+
             end }
           end }
 
@@ -276,8 +279,8 @@ else
 
   execute.view{module="index",view="_registration_info"}
 
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
+--ui.script{static = "js/jquery.fittext.js"}
+--ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
+--ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
 
 end
