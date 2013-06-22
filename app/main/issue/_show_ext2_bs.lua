@@ -48,7 +48,9 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+            ui.tag{tag="strong",content=function()
+              ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+            end }
           end }
         end }
 

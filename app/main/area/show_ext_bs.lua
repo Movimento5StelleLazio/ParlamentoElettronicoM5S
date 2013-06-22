@@ -266,7 +266,14 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         execute.view{
           module="issue" ,
           view="_list_ext2_bs",
-          params={ selector=selector, member=member }
+          params={
+         --   state=state,
+         --   orderby=orderby,
+         --   desc=desc,
+         --   interest=interest,
+            selector=selector, 
+            member=member 
+          }
         }
       end }
     end }
