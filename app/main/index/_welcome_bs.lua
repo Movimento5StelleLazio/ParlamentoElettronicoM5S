@@ -33,104 +33,128 @@ if app.session.member_id then
   local member = Member:by_id(app.session.member.id)
   
   ui.container{attr = {class = "row-fluid" },content = function()
-    ui.container{ attr = { class  = "well span12 text-center" }, content = function()
+    ui.container{ attr = { class  = "span12 well text-center" }, content = function()
+
+      ui.script{ static = "js/position.js" }
 
       ui.container{attr = {class = "row-fluid" },content = function()
         ui.container{ attr = { class  = "span12 text-center" }, content = function()
           ui.heading{level=3,content=function()
             slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+            --slot.put( _("You're connected from <strong>#{location}</strong>.", {}))
           end } 
         end }
       end }
 
-      ui.container{attr = {class = "row-fluid" },content = function()
-        ui.container{ attr = { class  = "span12 text-center" }, content = function()
-          -- Codifica coordinate memorizzate in member_login
-          local lastLogin = member:get_last_login_data()
-          if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
-            trace.debug('Calling codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");')
-            ui.script{ static = "js/position.js" }
-            ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
-          else
-            trace.debug('Cannot retrieve coordinates from database')
-          end
-          ui.heading{level=4,content=function()
-            if lastLogin and lastLogin.login_time then
-              ui.tag{
-                content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
-                  last_login_date = format.date(lastLogin.login_time),
-                  last_login_time = format.time(lastLogin.login_time)
-                })
+      local lastLogin = member:get_last_login_data()
+      if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
+
+      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+        ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
+          ui.container{attr = {class = "row-fluid" },content = function()
+
+            ui.container{ attr = { class  = "span10 text-center" }, content = function()
+              ui.container{attr = {class = "row-fluid" },content = function()
+                ui.container{ attr = { class  = "span12 text-center" }, content = function()
+                  ui.heading{level=4,content=function()
+                    if lastLogin and lastLogin.login_time then
+                      ui.tag{
+                        content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
+                          last_login_date = format.date(lastLogin.login_time),
+                          last_login_time = format.time(lastLogin.login_time)
+                        })
+                      }
+                      slot.put("&nbsp;")
+                      ui.tag{ tag="span", attr = { id = "location"}, content="" }
+                    end
+                  end }
+                  ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
+                end }
+              end }
+              ui.container{attr = {class = "row-fluid" },content = function()
+                ui.container{ attr = { class  = "span12 text-right" }, content = function()
+                  ui.heading{level=6,content=function()
+                    slot.put(_"You didn't logged in from this location? Report it immediatly:")
+                    ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
+                  end }
+                end }
+              end }
+
+            end }
+
+            ui.container{ attr = { class  = "span2 text-center" }, content = function()
+              ui.anchor{
+                attr = {
+                  href = "#",
+                  class = "btn btn-primary btn-mini table-cell", 
+                  onclick = "alert('Dato sospetto segnalato');"
+                },
+                content=function()
+                  ui.heading{level=6,attr={class=""},content= _"Report suspect data"}
+                end
               }
-              slot.put("&nbsp;")
-              ui.tag{ tag="span", attr = { id = "location"}, content="" }
-            end
+            end }
           end }
-        end }
-        ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
-          end }
+
         end }
       end }
+
+      end
+
+      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+        ui.container{ attr = { class  = "span12 text-center" }, content = function()
+          ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
+        end }
+      end }
+
+      ui.container{attr = {class = "row-fluid" },content = function()
+        ui.container{ attr = {class = "span6 text-center" }, content=function()
+          ui.container{attr = {class = "row-fluid" },content = function()
+            ui.container{attr = {class = "span12" },content = function()
+              ui.image{attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
+            end }
+          end }
+          ui.container{attr = {class = "row-fluid" },content = function()
+            ui.tag{tag="span",attr={class="span12"},content=function()
+              ui.container{attr = {class = "inline-block" },content = function()
+                ui.link{
+                  module="index",
+                  view="homepage_bs",
+                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1" },
+                  content=function()
+                    ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
+                  end
+                }
+              end }
+            end }
+          end }
+        end }
+        ui.container{ attr = {class = "span6 text-center" }, content=function()
+          ui.container{attr = {class = "row-fluid" },content = function()
+            ui.container{attr = {class = "span12" },content = function()
+              ui.image{ attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
+            end }
+          end }
+          ui.container{attr = {class = "row-fluid" },content = function()
+            ui.tag{tag="span",attr={class="span12"},content=function()
+              ui.container{attr = {class = "inline-block" },content = function()
+                ui.link{
+                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1" },
+                  module="unit",
+                  view="show_ext_bs",
+                  id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
+                  content=function()
+                    ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+                  end
+                }
+              end }
+            end }
+          end }
+        end }
+        ui.script{static = "js/jquery.equalheight.js"}
+        ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+      end }
     end }
-  end }
-
-  ui.container{attr = {class = "row-fluid" },content = function()
-
-    ui.container{ 
-      attr = {class = "well span6 text-center" },
-      content=function()
-        ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{attr = {class = "span12" },content = function()
-            ui.image{static="parlamento_icon_small.png" } 
-          end }
-        end }
-        ui.container{attr = {class = "row-fluid" },content = function()
-          ui.tag{tag="span",attr={class="span12"},content=function()
-            ui.container{attr = {class = "inline-block" },content = function()
-              ui.link{
-                module="index", 
-                view="homepage_bs", 
-                attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1" }, 
-                content=function()
-                  ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
-                end
-              }
-            end }
-          end }
-        end }
-      end
-    }
-
-    ui.container{ 
-      attr = {class = "well span6 text-center" }, 
-      content=function()
-        ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{attr = {class = "span12" },content = function()
-            ui.image{ static="parlamento_icon_small.png" }
-          end }
-        end }
-        ui.container{attr = {class = "row-fluid" },content = function()
-          ui.tag{tag="span",attr={class="span12"},content=function()
-            ui.container{attr = {class = "inline-block" },content = function()
-              ui.link{ 
-                attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1" }, 
-                module="unit", 
-                view="show_ext_bs", 
-                id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
-                content=function()
-                  ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-                end
-              }
-            end }
-          end }
-        end }
-      end
-    }
-    ui.script{static = "js/jquery.equalheight.js"}
-    ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-
   end }
   execute.view{module="index",view="_registration_info"}
 
