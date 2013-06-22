@@ -55,36 +55,43 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span6 issue_state_info_box"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span1"}, content = function()
-            if event_image then
-              ui.image{ attr = { class = ""}, static = "icons/16/" .. event_image }
-            end
-          end }
-          ui.container{ attr = { class = "span11"}, content = function()
-            ui.heading{ level=6, content = event_name or ""}
+          ui.container{ attr = { class = "span12 text-center"}, content = function()
+            ui.heading{ level=6, content = function()
+              if event_image then
+                ui.image{ attr = { class = ""}, static = "icons/16/" .. event_image }
+              end
+              slot.put(event_name or "")
+            end }
           end }
         end }
-        --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
-        ui.tag{ tag = "p", attr = { class = "issue_state_time" }, content = function()
-          if issue.closed then
-            slot.put(" &middot; ")
-            ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
-          elseif issue.state_time_left then
-            slot.put(" &middot; ")
-            if issue.state_time_left:sub(1,1) == "-" then
-              if issue.state == "admission" then
-                ui.tag{ content = _("Discussion starts soon") }
-              elseif issue.state == "discussion" then
-                ui.tag{ content = _("Verification starts soon") }
-              elseif issue.state == "verification" then
-                ui.tag{ content = _("Voting starts soon") }
-              elseif issue.state == "voting" then
-                ui.tag{ content = _("Counting starts soon") }
+
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12 text-center"}, content = function()
+
+            --ui.tag{ tag = "p", attr = { class = 'issue_state_txt' }, content = issue.state_name or ""}
+            ui.tag{ tag = "p", attr = { class = "issue_state_time" }, content = function()
+              if issue.closed then
+                slot.put(" &middot; ")
+                ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
+              elseif issue.state_time_left then
+                slot.put(" &middot; ")
+                if issue.state_time_left:sub(1,1) == "-" then
+                  if issue.state == "admission" then
+                    ui.tag{ content = _("Discussion starts soon") }
+                  elseif issue.state == "discussion" then
+                    ui.tag{ content = _("Verification starts soon") }
+                  elseif issue.state == "verification" then
+                    ui.tag{ content = _("Voting starts soon") }
+                  elseif issue.state == "voting" then
+                    ui.tag{ content = _("Counting starts soon") }
+                  end
+                else
+                  ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+                end
               end
-            else
-              ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
-            end
-          end
+
+            end }
+          end }
         end }
       end }
       ui.container{ attr = { class = "span6"}, content = function()
