@@ -25,7 +25,7 @@ elseif state == "committee" then
 elseif state == "committee_voting" then
   committee_voting_offset = "margin-top: 38px;"
   arrow_offset = 344
-elseif state == "closed"  then
+else 
   finished_offset = "margin-top: 38px;margin-left: 432px;height: 41px;"
   arrow_offset = 416
 end
