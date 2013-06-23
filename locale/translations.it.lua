@@ -18,6 +18,9 @@ return {
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
 ["Registration Guide"]="Guida alla Iscrizione";
 ["Details for issue Q"]="Dettagli questione Q";
+["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
+["Copy"]="Copia";
+["Select"]="Seleziona";
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
@@ -34,6 +37,7 @@ return {
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
 ["Back to previous page"]="Torna alla pagina precedente";
 ["Back to issue listing"]="Torna alla lista delle questioni";
+["Back to homepage"]="Torna alla Homepage";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["INITIATIVES LOOKING FOR SUPPORTERS"] = "PROPOSTE IN CERCA DI SOSTENITORI";
 ["INITIATIVES NOW IN DISCUSSION"] = "PROPOSTE ATTUALMENTE IN DISCUSSIONE";
