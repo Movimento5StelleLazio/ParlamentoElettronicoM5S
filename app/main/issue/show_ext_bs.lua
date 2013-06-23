@@ -56,7 +56,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               attr={
                 href="#",
                 class="btn btn-primary btn-mini inline-block",
-                onclick='document.getElementById("issue_url_box").focus();'
+                onclick='document.getElementById("issue_url_box").select();'
               },
               content=function()
                 ui.heading{level=6,content=_"Select"}
@@ -187,9 +187,6 @@ if issue.snapshot then
   slot.put("<br />")
   ui.field.timestamp{ label = _"Last snapshot:", value = issue.snapshot }
 end
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }

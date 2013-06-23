@@ -31,10 +31,10 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
   ui.container{ attr = { class = "span12 issue_box"}, content = function()
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span3 eq1"}, content = function()
+      ui.container{ attr = { class = "span3"}, content = function()
         execute.view{ module = "issue", view = "info_box", id=issue.id  }
       end }
-      ui.container{ attr = { class = "span9 eq1"}, content = function()
+      ui.container{ attr = { class = "span9"}, content = function()
         ui.container{ attr = { class = "pull-right"}, content = function()
           execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
         end }
@@ -174,6 +174,3 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
   end }
 end }
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }

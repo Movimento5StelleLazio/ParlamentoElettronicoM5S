@@ -76,8 +76,12 @@ a{
     max-width:180px;
 }
 
-.filter_btn, .details_btn {
+.filter_btn {
   margin: 5px;
+}
+
+.details_btn {
+  margin-bottom: -50%;
 }
 
 #issues_box {
@@ -143,12 +147,12 @@ a{
     background: #000000;
     border-radius: 16px 16px 0 0;
     color: #ffffff;
-    padding: 8px;
+    padding: 6px;
     overflow: hidden;
 }
 
 .issue_state_info_box2 {
-  height: 134px;
+  height: 122px;
 }
 
 .issue_see_det_btn {
