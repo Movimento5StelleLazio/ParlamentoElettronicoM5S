@@ -31,7 +31,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                       
                       local tmp
                       tmp = { 
-                                { id = 0, name = _"Please choose a tecnical area" }
+                                { id = 0, name = _"Please choose a tecnical area" },
+                                { id = 1, name = "Ingegneria Edile" },
+                                { id = 2, name = "Ingegneria Informatica" }
                             }
                       
                       local _value=""
@@ -86,6 +88,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         end
                     
                        --contenuto
+                       
+                       --1* selezione
                        ui.container
                         {
                           attr={class="formSelect"},
@@ -96,8 +100,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                      attr={style="width: 100%; text-align: center;"},
                                      content=function() 
                                        ui.field.select{
-                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width:70%;height:30px;position:relative;"},
+                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width:62%;height:38px;position:relative;"},
                                             label =  "1° AREA DI COMPETENZA TECNICA:",
+                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
                                             name = 'technical_area_1',
                                             foreign_records = tmp,
                                             foreign_id = "id",
@@ -108,16 +113,13 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                       end
                                       
                                 }
-                             
+                          
+                          --nota   
                           ui.tag{
                                 tag = "div",
-                                attr={style="position:relative;top:10px"},
+                                attr={style="position:relative;top: -0.5em;font-size:14px;margin-left: 33em;"},
                                 content = function()
-                                 ui.tag{
-                                    tag = "p",
-                                    attr = { style="float: left; position: relative; margin: 0px 126px 4em 58px; text-align: right; width: 20%; font-style: italic;" },
-                                    content=  _"Description note"
-                                  }
+                                
                                   
                                   ui.tag{
                                     content = function()
@@ -141,7 +143,199 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                          end
                          }--fine div formSelect
                      
- 
+                     
+                     
+                   --2* selezione
+                       ui.container
+                        {
+                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          content=function() 
+                          
+                           ui.container
+                                 {
+                                     attr={style="width: 100%; text-align: center;"},
+                                     content=function() 
+                                       ui.field.select{
+                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
+                                            label =  "2° AREA DI COMPETENZA (opzionale):",
+                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
+                                            name = 'technical_area_1',
+                                            foreign_records = tmp,
+                                            foreign_id = "id",
+                                            foreign_name = "name",
+                                            value =  ""
+                                          }
+                                    
+                                      end
+                                      
+                                }
+                          
+                           
+                          --nota   
+                          ui.tag{
+                                tag = "div",
+                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                content = function()
+                                
+                                  
+                                  ui.tag{
+                                    content = function()
+                                      ui.link{
+                                        text = _"Information about the available Technical Areas",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                      slot.put(" ")
+                                      ui.link{
+                                        attr = { target = "_blank" },
+                                        text = _"(new window)",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                    end
+                                  }--fine tag
+                                end
+                              } --fine tag 
+                         
+                         end
+                         }--fine div formSelect
+                     
+                   --fine 2* selezione  
+                 
+                 
+                   --3* selezione
+                       ui.container
+                        {
+                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          content=function() 
+                          
+                           ui.container
+                                 {
+                                     attr={style="width: 100%; text-align: center;"},
+                                     content=function() 
+                                       ui.field.select{
+                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
+                                            label =  "3° AREA DI COMPETENZA (opzionale):",
+                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
+                                            name = 'technical_area_1',
+                                            foreign_records = tmp,
+                                            foreign_id = "id",
+                                            foreign_name = "name",
+                                            value =  ""
+                                          }
+                                    
+                                      end
+                                      
+                                }
+                          
+                           
+                          --nota   
+                          ui.tag{
+                                tag = "div",
+                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                content = function()
+                                
+                                  
+                                  ui.tag{
+                                    content = function()
+                                      ui.link{
+                                        text = _"Information about the available Technical Areas",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                      slot.put(" ")
+                                      ui.link{
+                                        attr = { target = "_blank" },
+                                        text = _"(new window)",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                    end
+                                  }--fine tag
+                                end
+                              } --fine tag 
+                         
+                         end
+                         }--fine div formSelect
+                     
+                   --fine 3* selezione  
+                 
+                 
+                 
+                   --4* selezione
+                       ui.container
+                        {
+                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          content=function() 
+                          
+                           ui.container
+                                 {
+                                     attr={style="width: 100%; text-align: center;"},
+                                     content=function() 
+                                       ui.field.select{
+                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
+                                            label =  "4° AREA DI COMPETENZA (opzionale):",
+                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
+                                            name = 'technical_area_1',
+                                            foreign_records = tmp,
+                                            foreign_id = "id",
+                                            foreign_name = "name",
+                                            value =  ""
+                                          }
+                                    
+                                      end
+                                      
+                                }
+                          
+                           
+                          --nota   
+                          ui.tag{
+                                tag = "div",
+                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                content = function()
+                                
+                                  
+                                  ui.tag{
+                                    content = function()
+                                      ui.link{
+                                        text = _"Information about the available Technical Areas",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                      slot.put(" ")
+                                      ui.link{
+                                        attr = { target = "_blank" },
+                                        text = _"(new window)",
+                                        module = "policy",
+                                        view = "list"
+                                      }
+                                    end
+                                  }--fine tag
+                                end
+                              } --fine tag 
+                         
+                         end
+                         }--fine div formSelect
+                     
+                   --fine 4* selezione  
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                  ui.tag{
+                                    tag = "p",
+                                    attr = { style="float: left; text-align: right; width: 25%; font-style: italic;height: 200px;font-size: 12px;padding-left: 9em;" },
+                                    content=  _"Description note"
+                                  }
                         
                      end
                 }--fine form
