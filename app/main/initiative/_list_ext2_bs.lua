@@ -4,12 +4,8 @@ local initiatives_selector = param.get("initiatives_selector", "table")
 local init_ord = param.get("init_ord")
 
 local initiatives
-if issue then
-  initiatives = issue.initiatives
-else
-  initiatives = initiatives_selector:exec()
-  initiatives:load_everything_for_member_id(app.session.member_id)
-end
+initiatives = initiatives_selector:exec()
+initiatives:load_everything_for_member_id(app.session.member_id)
 
 local highlight_initiative = param.get("highlight_initiative", "table")
 

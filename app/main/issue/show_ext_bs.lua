@@ -134,7 +134,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag{tag="strong",content=function()
-          ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+          ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title or _"No title for the issue!" }
         end }
       end }
     end }
@@ -145,7 +145,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
+        ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
@@ -215,7 +215,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
-        ui.tag{content=issue.problem_description}
+        ui.tag{content=issue.problem_description  or _"No description available" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -225,7 +225,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
-        ui.tag{content=issue.aim_description}
+        ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -282,7 +282,8 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span3 offset6 text-center"}, content =function()
             ui.link{
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
+              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
+              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
@@ -294,7 +295,8 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
           ui.container{attr = {class="span3 text-center"}, content =function()
             ui.link{
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
+              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
+              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
@@ -304,7 +306,6 @@ ui.container{attr={class="row-fluid"}, content=function()
               end
             }
           end }
-          ui.script{script = "jQuery('.fittextord').fitText(0.9, {minFontSize: '11px', maxFontSize: '22px'}); " }
         end }
 
       end }
@@ -321,9 +322,17 @@ ui.container{attr={class="row-fluid"}, content=function()
             if highlight_string then
               initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
             end
+
+            if init_ord == "supporters" then
+              initiatives_selector:add_order_by("supporter_count DESC")
+            elseif init_ord == "date" then
+              initiatives_selector:add_order_by("id")
+            end
+
+
             execute.view{
               module = "initiative",
-              view = "_list_ext_bs",
+              view = "_list_ext2_bs",
               params = {
                 issue = issue,
                 initiatives_selector = initiatives_selector,
@@ -348,7 +357,7 @@ end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '13px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '11px', maxFontSize: '22px'}); " }
+ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '11px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 
