@@ -147,12 +147,12 @@ a{
     background: #000000;
     border-radius: 16px 16px 0 0;
     color: #ffffff;
-    padding: 6px;
+    padding: 8px;
     overflow: hidden;
 }
 
 .issue_state_info_box2 {
-  height: 122px;
+  height: 118px;
 }
 
 .issue_see_det_btn {
