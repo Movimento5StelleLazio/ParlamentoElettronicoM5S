@@ -22,11 +22,11 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         end
       end }
       --]]
-      local span=3
+      local span=2
       if for_details then
-        ui.container{ attr = { class = "span1" }, content = function()
+        ui.container{ attr = { class = "span2 text-center" }, content = function()
           ui.link{
-            attr = { class="btn btn-primary btn-mini spaceline"  },
+            attr = { class="btn btn-primary spaceline"  },
             module = "initiative",
             id = initiative.id,
             view = "show",

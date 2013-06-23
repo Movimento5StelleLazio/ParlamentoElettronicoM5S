@@ -7,6 +7,7 @@ local interest = param.get("interest")
 local scope = param.get("scope")
 local view = param.get("view") 
 local ftl_btns = param.get("ftl_btns",atom.boolean)
+local init_ord = param.get("init_ord") or "supporters"
 
 local return_view, return_module
 if view == "homepage" then
@@ -90,6 +91,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
+--[[
       ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
@@ -107,6 +109,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
+--]]
     end }
   end }
 end }
@@ -250,80 +253,102 @@ ui.container{attr={class="row-fluid"}, content=function()
               params = { issue_id=issue.id},
               view = "new",
               content = function()
-                ui.heading{level=6,attr={class=""},content=_"Create your own alternative initiative" }
+
+                  ui.container{ attr = { class = "row-fluid"}, content = function()
+                    ui.container{ attr = { class = "span2"}, content = function()
+                      ui.image{ attr = { class="write"}, static="svg/write.svg"}
+                    end }
+                    ui.container{ attr = { class = "span10 text-right"}, content = function()
+                      ui.heading{level=6,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                    end }
+                  end }
+
               end
             }
           end }
         end }
       end }
     end }
+
+    ui.container{attr = {class="row-fluid spaceline"}, content =function()
+      ui.container{attr = {class="span12 text-center"}, content =function()
+
+        --[[
+        local btna, btnb = "",""
+        if init_ord == "supporters" then btna = " active" end
+        if init_ord == "date" then btnb = " active" end
+        --]]
+
+        ui.container{attr = {class="row-fluid"}, content =function()
+          ui.container{attr = {class="span3 offset6 text-center"}, content =function()
+            ui.link{
+              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
+              module = request.get_module(), 
+              id = issue.id,
+              view = request.get_view(),
+              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" }, 
+              content = function()
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by supporters"}
+              end
+            }
+          end }
+          ui.container{attr = {class="span3 text-center"}, content =function()
+            ui.link{
+              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
+              module = request.get_module(), 
+              id = issue.id,
+              view = request.get_view(),
+              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="date" }, 
+              content = function()
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by date"}
+              end
+            }
+          end }
+          ui.script{script = "jQuery('.fittextord').fitText(0.9, {minFontSize: '11px', maxFontSize: '22px'}); " }
+        end }
+
+      end }
+    end }
+
     ui.container{attr = {class="row-fluid"}, content =function()
       ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
-        local initiatives_selector = issue:get_reference_selector("initiatives")
-        local highlight_string = param.get("highlight_string")
-        if highlight_string then
-          initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-        end
-        execute.view{
-          module = "initiative",
-          view = "_list_ext_bs",
-          params = {
-            issue = issue,
-            initiatives_selector = initiatives_selector,
-            highlight_initiative = for_initiative,
-            highlight_string = highlight_string,
-            no_sort = true,
-            limit = (for_listing or for_initiative) and 5 or nil,
-            hide_more_initiatives=false,
-            limit=25,
-            for_details=true,
-            for_member = for_member
-          }
-        }
+
+        ui.container{attr = {class="row-fluid"}, content =function()
+          ui.container{attr = {class="span12"}, content =function()
+
+            local initiatives_selector = issue:get_reference_selector("initiatives")
+            local highlight_string = param.get("highlight_string")
+            if highlight_string then
+              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+            end
+            execute.view{
+              module = "initiative",
+              view = "_list_ext_bs",
+              params = {
+                issue = issue,
+                initiatives_selector = initiatives_selector,
+                highlight_initiative = for_initiative,
+                highlight_string = highlight_string,
+                no_sort = true,
+                limit = (for_listing or for_initiative) and 5 or nil,
+                hide_more_initiatives=false,
+                limit=25,
+                for_details=true,
+                for_member = for_member
+              }
+            }
+
+          end }
+        end }
+
       end }
     end }
   end }
 end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '13px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '11px', maxFontSize: '22px'}); " }
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 
---[[
-
-slot.select("head", function()
-  execute.view{ module = "issue", view = "_show", params = { issue = issue } }
-end )
-
-if app.session:has_access("all_pseudonymous") then
-
-  ui.container{ attr = { class = "heading" }, content = _"Interested members" }
-  
-  local interested_members_selector = issue:get_reference_selector("interested_members_snapshot")
-    :join("issue", nil, "issue.id = direct_interest_snapshot.issue_id")
-    :add_field("direct_interest_snapshot.weight")
-    :add_where("direct_interest_snapshot.event = issue.latest_snapshot_event")
-
-  execute.view{
-    module = "member",
-    view = "_list",
-    params = {
-      issue = issue,
-      members_selector = interested_members_selector
-    }
-  }
-
-  ui.container{ attr = { class = "heading" }, content = _"Details" }
-  
-  execute.view{
-    module = "issue",
-    view = "_details",
-    params = { issue = issue }
-  }
-  
-end
-
-if issue.snapshot then
-  slot.put("<br />")
-  ui.field.timestamp{ label = _"Last snapshot:", value = issue.snapshot }
-end
-
---]]
