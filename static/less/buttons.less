@@ -45,7 +45,7 @@
   // Active state
   &.active,
   &:active {
-    background-image: none;
+//    background-image: none;
     outline: 0;
     border: 1px solid rbga(0,0,0,0.5);
     .box-shadow(~"inset 0 6px 5px rgba(0,0,0,.35)");
@@ -156,6 +156,10 @@ input[type="button"] {
   border-left-color: @btnPrimaryBackground;
   border-right-color: @btnPrimaryBackground;
   border-bottom-color: darken(@btnPrimaryBackground, 10%);
+}
+.btn-primary.active, .btn-primary:active  {
+  .buttonBackground(darken(@btnPrimaryBackground,40%), lighten(@btnPrimaryBackgroundHighlight,20%));
+  border-color: transparent;
 }
 
 // Warning appears are orange
