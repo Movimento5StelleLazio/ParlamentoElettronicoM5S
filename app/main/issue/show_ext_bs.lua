@@ -55,9 +55,8 @@ ui.container{attr={class="row-fluid"}, content=function()
               tag="a",
               attr={
                 href="#",
-                id="copy-button",
                 class="btn btn-primary btn-mini inline-block",
-                dataclipboardtext=url
+                onclick='document.getElementById("issue_url_box").focus();'
               },
               content=function()
                 ui.heading{level=6,content=_"Select"}
