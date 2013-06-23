@@ -472,6 +472,14 @@
     background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
     background-repeat: no-repeat;
   }
+  .radial_center_to_top(@innerColor: #555, @outerColor: #333) {
+    background-color: @outerColor;
+    background-image: -webkit-gradient(radial, top top, 0, center center, 460, from(@innerColor), to(@outerColor));
+    background-image: -webkit-radial-gradient(top, @innerColor, @outerColor);
+    background-image: -moz-radial-gradient(top, @innerColor, @outerColor);
+    background-image: -o-radial-gradient(top, @innerColor, @outerColor);
+    background-repeat: no-repeat;
+  }
   .striped(@color: #555, @angle: 45deg) {
     background-color: @color;
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
@@ -513,7 +521,7 @@
 .buttonBackground(@startColor, @endColor, @textColor: @black, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   //.gradientBar(@startColor, @endColor, @textColor, @textShadow);
-  #gradient > .radial(@startColor,@endColor);
+  #gradient > .radial_center_to_top(lighten(@startColor,10%),@endColor);
   *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   .reset-filter();
 

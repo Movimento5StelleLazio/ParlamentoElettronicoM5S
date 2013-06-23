@@ -35,7 +35,10 @@ a{
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border-color: #7e8789;
+  border: 2px solid #7e8789;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
 }
 
 .well-title {
@@ -73,8 +76,12 @@ a{
     max-width:180px;
 }
 
-.filter_btn, .details_btn {
+.filter_btn {
   margin: 5px;
+}
+
+.details_btn {
+  margin-bottom: -50%;
 }
 
 #issues_box {
@@ -111,6 +118,10 @@ a{
   margin-bottom: 10px;
 }
 
+#social_box {
+  margin-left: 0;
+}
+
 /*
   Initiative
 */
@@ -137,10 +148,11 @@ a{
     border-radius: 16px 16px 0 0;
     color: #ffffff;
     padding: 8px;
+    overflow: hidden;
 }
 
 .issue_state_info_box2 {
-  height: 134px;
+  height: 118px;
 }
 
 .issue_see_det_btn {
@@ -152,14 +164,21 @@ a{
 }
 
 .issue_box {
-  margin-bottom: 25px;
+  margin-bottom: 35px;
+}
+
+#issue_url_box {
+  width: 66%;
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 /*
   Phase bar
 */
 .phases_box {
-    display: inline-block;
-    margin-bottom: -30px;
+  //  display: inline-block;
+    margin-bottom: -26px;
     margin-right: -10px;
     height: 160px;
     width: 520px;
@@ -334,3 +353,4 @@ a.delegation_info:hover,a.delegation_info:focus {
   h6 { font-size: 0.90em; line-height: 15px; }
 }
 */
+
