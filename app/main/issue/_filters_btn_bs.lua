@@ -231,4 +231,4 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
     end
   end }
 end }
-ui.script{static="js/toggle_flt.js"}
+ui.script{static="js/jquery.toggle_flt.js"}
