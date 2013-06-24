@@ -183,6 +183,16 @@ a{
     height: 160px;
     width: 520px;
 }
+.phases_box_large {
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  margin-top: 29px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: -4px;
+}
 .admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
     position: absolute;
     z-index: 11;
