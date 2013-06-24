@@ -101,7 +101,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class = "span9"}, content = function()
         ui.container{attr={class="pull-right"}, content=function()
-          execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }
+          execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state,size="" } }
         end }
       end }
     end }

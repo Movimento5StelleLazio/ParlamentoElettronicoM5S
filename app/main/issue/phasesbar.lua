@@ -1,5 +1,6 @@
 slot.set_layout("m5s_bs")
 local state=param.get("state") or "closed"
+local size=param.get("size") or ""
 
 local arrow_offset = 16
 local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset 
@@ -30,7 +31,12 @@ else
   arrow_offset = 416
 end
 
-ui.container{ attr = { class = "phases_box"}, content = function()
+local class= "phases_box"
+if size == "large" then
+  class = class.." phases_box_large"
+end
+
+ui.container{ attr = { class = class}, content = function()
   ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
   ui.image{  attr = { class = "phases_bar" }, static = "svg/phases_bar_it.svg"..svgz }
 
