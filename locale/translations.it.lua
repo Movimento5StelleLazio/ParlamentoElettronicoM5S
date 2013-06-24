@@ -21,6 +21,17 @@ return {
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
 ["Select"]="Seleziona";
+["Issue created at:"]="Questione sollevata il:";
+["Time limit to reach the supporters quorum:"]="Data limite per raggiungere il quorum di sostenitori:";
+["By user:"]="Dall'utente:";
+["Keywords:"]="Parole chiave:";
+["(Press a keyword to see all issues created until today discussing that topic)"]="(Premi una parola chiave per vedere tutte le questioni sollevate fino ad oggi che trattano lo stesso argomento)";
+["Technical competence areas:"]="Aree di competenza tecnica:";
+["(Press an area of competence to see all issues created until today concerning that area)"]="(Premi su un area di competenza per vedere tutte le questioni sollevate fino ad oggi che riguardano quell'area)";
+["Problem description:"]="Descrizione del problema:";
+["Aim description:"]="Descrizione dell'obiettivo:";
+["Proposed solutions:"]="Soluzioni proposte:";
+["Create your own alternative initiative"]="Crea una tua proposta alternativa";
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
