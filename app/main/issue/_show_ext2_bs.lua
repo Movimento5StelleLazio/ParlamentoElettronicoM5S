@@ -32,7 +32,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span3"}, content = function()
-        execute.view{ module = "issue", view = "info_box", id=issue.id  }
+        execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
         ui.container{ attr = { class = "pull-right"}, content = function()
