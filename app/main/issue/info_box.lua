@@ -1,5 +1,5 @@
 slot.set_layout("m5s_bs")
-local issue = Issue:by_id(param.get_id())
+local issue = param.get("issue","table")
 
 if issue.state == "admission" then
   event_name = _"New issue"
@@ -38,8 +38,6 @@ elseif issue.closed  then
     event_name = _"Canceled (no initiative admitted)"
   end
 end
-
-
 
 ui.container{ attr = { class = "issue_state_info_box2"}, content = function()
   ui.container{ attr = { class = "row-fluid"}, content = function()

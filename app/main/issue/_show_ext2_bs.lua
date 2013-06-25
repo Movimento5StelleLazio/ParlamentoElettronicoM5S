@@ -48,6 +48,31 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
+            ui.link{
+              module = "unit", view = "show", id = issue.area.unit_id,
+              attr = { class = "label label-success" }, text = issue.area.unit.name
+            }
+            slot.put(" ")
+            ui.link{
+              module = "area", view = "show", id = issue.area_id,
+              attr = { class = "label label-important" }, text = issue.area.name
+            }
+            slot.put(" ")
+            ui.link{
+              attr = { class = "label label-info" },
+              text = _("#{policy_name} ##{issue_id}", {
+                policy_name = issue.policy.name,
+                issue_id = issue.id
+              }),
+              module = "issue",
+              view = "show",
+              id = issue.id
+            }
+          end }
+        end }
+
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
             ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
           end }
         end }
@@ -65,46 +90,18 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
           end }
         end }
-        ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            ui.link{
-              module = "unit", view = "show", id = issue.area.unit_id,
-              attr = { class = "label label-success" }, text = issue.area.unit.name
-            }
-            slot.put(" ")
-            ui.link{
-              module = "area", view = "show", id = issue.area_id,
-              attr = { class = "label label-important" }, text = issue.area.name
-            }
-          end }
-        end }
-    
-        ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            ui.link{
-              attr = { class = "label label-info" },
-              text = _("#{policy_name} ##{issue_id}", {
-                policy_name = issue.policy.name,
-                issue_id = issue.id
-              }),
-              module = "issue",
-              view = "show",
-              id = issue.id
-            }
-          end }
-        end }
-    
-        local links = {}
+
+--        local links = {}
       
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12 initiative_count_txt"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
             local content
             if #issue.initiatives == 1 then
               content= #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  
             else
               content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
             end
-            ui.heading{ level=6, content = content }
+            ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block"}, content = content }
           end }
         end }
     
