@@ -84,7 +84,7 @@ a{
   margin-bottom: -50%;
 }
 
-#issues_box {
+#issues_box,.spaceline {
   margin-top: 15px;
 }
 
@@ -131,12 +131,24 @@ a{
     overflow-x: hidden;
     overflow-y: auto;
 }
-.initiative_count_txt {
-  background: none repeat scroll 0 0 #F8F9B2;
+
+
+.head-chocolate,.head-darkorange,.head-orange, .head-lightgoldenrodyellow {
   border: 1px solid black;
-  color: #9A1919;
-  font-size: 1.4em;
-  padding-left: 0.3em;
+  margin: 0;
+}
+
+.head-chocolate {
+  background: #e66c19;
+}
+.head-darkorange {
+  background: #ff8a00;
+}
+.head-orange {
+  background: #ffaf00;
+}
+.head-lightgoldenrodyellow {
+  background: #fffbd5;
 }
 
 /*
