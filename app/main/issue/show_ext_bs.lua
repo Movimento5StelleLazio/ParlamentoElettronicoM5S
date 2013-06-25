@@ -96,7 +96,7 @@ ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12"}, content=function()
     ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span3"}, content = function()
-        execute.view{ module = "issue", view = "info_box", id=issue.id  }
+        execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
         ui.container{attr={class="pull-right"}, content=function()
@@ -109,19 +109,7 @@ end }
 
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 alert alert-simple"}, content=function()
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.link{
-          module = "unit", view = "show", id = issue.area.unit_id,
-          attr = { class = "label label-success" }, text = issue.area.unit.name
-        }
-        slot.put(" ")
-        ui.link{
-          module = "area", view = "show", id = issue.area_id,
-          attr = { class = "label label-important" }, text = issue.area.name
-        }
-      end }
-    end }
+    execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
@@ -130,20 +118,6 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
-      end }
-    end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.link{
-          attr = { class = "label label-info" },
-          text = _("#{policy_name} ##{issue_id}", {
-            policy_name = issue.policy.name,
-            issue_id = issue.id
-          }),
-          module = "issue",
-          view = "show",
-          id = issue.id
-        }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -168,9 +142,11 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag{tag="span",attr={class="btn btn-danger btn-mini"}, content="keyword"}
-        ui.tag{tag="span",attr={class="btn btn-danger btn-mini"}, content="keyword"}
-        ui.tag{tag="span",attr={class="btn btn-danger btn-mini"}, content="keyword"}
+        for i=1,5,1 do 
+          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
+            ui.heading{ level=6, attr = { class = "uppercase" },content = "keyword"}
+          end }
+        end
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -181,14 +157,16 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag{tag="span",attr={class="btn btn-info btn-mini"}, content="area"}
-        ui.tag{tag="span",attr={class="btn btn-info btn-mini"}, content="area"}
-        ui.tag{tag="span",attr={class="btn btn-info btn-mini"}, content="area"}
+        for i=1,3,1 do 
+          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
+            ui.heading{ level=6, attr = { class = "uppercase" },content = "area"}
+          end }
+        end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Problem description:" }
+        ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Problem description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -198,7 +176,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Aim description:" }
+        ui.heading{ level=5, attr = { class = "alert head-lightgoldenrodyellow uppercase inline-block" }, content = _"Aim description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -208,21 +186,28 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Proposed solutions:" }
+        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span8"}, content = function()
-            ui.tag{content="Vi sono attualmente #{initiatives} per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' questione venga ammessa alla fase successiva."}
+          ui.container{ attr = { class = "span9"}, content = function()
+            if #issue.initiatives == 1 then
+              content= _"initiative"
+            else
+              content= _"initiatives"
+            end
+
+            ui.tag{content= _("Vi sono attualmente #{count} #{initiatives} per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, initiatives=content}) }
           end }
-          ui.container{ attr = { class = "span4"}, content = function()
+
+          ui.container{ attr = { class = "span3"}, content = function()
             ui.link{
               attr = { class="btn btn-primary"  },
-              module = "",
-              id = issue.area.id,
-              view = "",
+              module = "wizard",
+              params = { issue_id=issue.id},
+              view = "new",
               content = function()
                 ui.heading{level=6,attr={class=""},content=_"Create your own alternative initiative" }
               end
@@ -231,6 +216,30 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
     end }
+        ui.container{attr = {class="row-fluid"}, content =function()
+          ui.container{attr = {class="span12 alert alert-simple"}, content =function()
+            local initiatives_selector = issue:get_reference_selector("initiatives")
+            local highlight_string = param.get("highlight_string")
+            if highlight_string then
+              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+            end
+            execute.view{
+              module = "initiative",
+              view = "_list_ext_bs",
+              params = {
+                issue = issue,
+                initiatives_selector = initiatives_selector,
+                highlight_initiative = for_initiative,
+                highlight_string = highlight_string,
+                no_sort = true,
+                limit = (for_listing or for_initiative) and 5 or nil,
+                hide_more_initiatives=false,
+                limit=25,
+                for_member = for_member
+              }
+            }
+          end }
+        end }
   end }
 end }
 
