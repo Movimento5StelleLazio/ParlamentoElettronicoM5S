@@ -1,9 +1,13 @@
 slot.set_layout("m5s_bs")
 
+local indietro = param.get("indietro",atom.boolean)
+local page_rendered
+
 function readParam(page)
  
 local objParam={}
- 
+
+
 if page==1 then
     
    
@@ -15,75 +19,115 @@ end
 
  
 
-if page==2 then
+if page==2  then
      
-     objParam[#objParam+1]= {name="policy_id",value=param.get("policyChooser")}
-     trace.debug("param="..param.get("policyChooser"))
+     if not indietro then 
+        objParam[#objParam+1]= {name="policy_id",value=param.get("policyChooser")}
+     else
+     
+    --objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+     objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+        
+     end
     
 end
 
  
 if page==3 then
   
+   if not indietro then 
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
- 
+    else
+     objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+  --  objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+    end
 
 end
 
 
 if page==4 then
 
-   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
-
-
---local question_keywords=param.get("question_keywords")
---question_keywords=question_keywords
-   
+     if not indietro then 
+       objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+       objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+       objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+     else
+       objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+       objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+       objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+       --objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+      end
+ 
 end
 
 
 if page==5 then
     
+   if not indietro then 
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
    objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
-   
-    
-   
-
+   else
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   --objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   end
+  
 
 end
 
 if page==6 then
 
-   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
-   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-
+    if not indietro then
+       objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+       objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+       objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+       objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+       objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+    else
+       objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+       objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+       objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+       objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+       objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+      -- objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+     
+    end
   
 end
 
 if page==7 then
    
+    if not indietro then
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
    objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
    objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
    objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+ else
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+  -- objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+    
+    
  
+ end
   
     
 end
 
 if page==8 then
-    
+    if not indietro then
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
@@ -92,15 +136,23 @@ if page==8 then
    objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
    objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
     
+    else
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+  -- objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
     
-    
-    --local issue_description=param.get("issue_description")
-    
-
+    end
+     
 end
 
 if page==9 then
 
+if not indietro then
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
@@ -109,7 +161,19 @@ if page==9 then
    objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
    objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
    objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+else
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   --objParam[#objParam+1]= {name="draft",value=param.get("draft")}
+ 
 
+end
 
    -- local issue_draft=param.get("issue_draft")
      
@@ -118,7 +182,7 @@ end
 if page==10 then
  
  
-
+if not indietro then
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
@@ -128,7 +192,20 @@ if page==10 then
    objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
    objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
    objParam[#objParam+1]= {name="draft",value=param.get("draft")}
+ else
  
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
+   --objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   
+ end
 
        
 end
@@ -136,7 +213,7 @@ end
 
 if page==11 then
 
-
+    if not indietro then
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
@@ -147,13 +224,26 @@ if page==11 then
    objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
    objParam[#objParam+1]= {name="draft",value=param.get("draft")}
    objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   else
    
+   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
+   objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   end 
 
 
 end
 
 if page==12 then
 
+ 
    objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
    objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
    objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
@@ -184,8 +274,9 @@ if page==12 then
     
    end
    
-   
    objParam[#objParam+1]= {name=proposer,value=value}
+ 
+  
  
 end
 
@@ -238,12 +329,18 @@ end
 
 local page=param.get("page",atom.integer)
 
-if not page  or page <= 1 then
-    page=1
+if not page  or page < 1 then
+trace.debug("page=not page!") 
+page=1
+trace.debug("page="..page) 
+
+else
+
+page=page+1
 end
- 
+trace.debug("page="..page) 
   
- if page==12 then
+if page==12 then
             trace.debug("rendering view:"..page)
           
             execute.view{ 
@@ -261,7 +358,17 @@ end
    return
                              
 end
-            
+
+if indietro then
+    trace.debug("indietro="..tostring(indietro))
+    page_rendered=page-2
+else
+    trace.debug("indietro=false")
+    indietro=false
+    page_rendered=page
+end
+
+     
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well"},content=function()
     ui.container{attr={class="row-fluid"},content=function()
@@ -276,12 +383,12 @@ ui.container{attr={class="row-fluid"},content=function()
         if page <= 12 and page >=1 then
           execute.view{
             module = "wizard",
-            view = "_page_bs"..page,
+            view = "_page_bs"..page_rendered,
             params = {
-              wizard= readParam(page),
+              wizard= readParam(page_rendered),
               area_id=area_id,
               unit_id=unit_id,
-              page=page
+              page=page_rendered
             }
           }
         end
@@ -290,273 +397,3 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
     
-
-
---[[
-ui.container
-{
-    attr={id="wizardContainer" , class="wizardContainer"},
-    content=function()
-
-        ui.container
-        {
-                attr={id="wizard_head",style="height:150px"},
-                content=function()
-                
-                
-                  ui.container
-                        {
-                                attr={id="wizardTitolo",class="titoloWizardHead"},
-                                content=function()
-                                      ui.tag{
-                                            tag="pre",
-                                            attr={class="titoloWizard" },
-                                            content= _"Create new initiative"
-                                          }
-                                          
-                                          
-                                end
-                         }
-                   
-                
-                  ui.container
-                        {
-                                attr={id="wizardTitoloUnita",class="titoloWizardHead", style="height:30px;diplay:block"},
-                                content=function()
-                                      ui.tag{
-                                            tag="p",
-                                            attr={class="wizardHeader",style="top: -2ex;"},
-                                            content= _"Unit"..":"
-                                          
-                                          }
-                                      ui.tag{
-                                            tag="p",
-                                            attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
-                                            content=unit_name
-                                           }
-                                end
-                         }
-                                
-                                  
-                  ui.container
-                        {
-                                attr={id="wizardTitoloAreaHeader",class="titoloWizardHead", style="height:30px"},
-                                content=function()
-                                      ui.tag{
-                                            tag="p",
-                                            attr={ class="wizardHeader" ,style="top: -2ex;"},
-                                            content= _"Area"..":"
-                                            
-                                          }
-                                       ui.tag{
-                                            tag="span",
-                                            attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 480px; top: 7px;"},
-                                            nultiline=false,
-                                            content=area_name
-                                           }
-                                end
-                         }                       
-                                
-                       
-                        
-                end
-        
-        }
-
-
-trace.debug("inital page="..page)
-
-ui.container
-{
-    attr={id="mainContainerWizard" , class="mainContainerWizard"},
-    content=function()
-    
-    -- page 1
-            if page==1 then
-            trace.debug("rendering view:"..page)
-           
-            execute.view{ 
-                           module = "wizard", 
-                           view = "_page1", 
-                           params = {
-                                        wizard= readParam(page),
-                                        area_id=area_id,
-                                        unit_id=unit_id,
-                                        page=page
-                                     }
-                         }
-            
-            end --fine page1
-            
-            
-            
-           
-                            
-                          
-           
-            -- page 2
-            
-            if page==2 then
-               
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page2", 
-                               params = {
-                                          wizard= readParam(page),
-                                          area_id=area_id,
-                                          unit_id=unit_id,
-                                          page=page
-                                         }
-                             }
-            
-            end
-            
-             
-            if page==3 then
-            trace.debug("rendering view:"..page)
-             execute.view{ 
-                               module = "wizard", 
-                               view = "_page3", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            
-            end
-            
-            
-            if page==4 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page4", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            
-            end
-            
-            
-            if page==5 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page5", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-           
-      
-            
-            if page==6 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page6", 
-                               params = {
-                                            wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-           
-            
-            if page==7 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page7", 
-                               params = {
-                                            wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-            
-            if page==8 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page8", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-            if page==9 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page9", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-            if page==10 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page10", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-            if page==11 then
-            trace.debug("rendering view:"..page)
-            execute.view{ 
-                               module = "wizard", 
-                               view = "_page11", 
-                               params = {
-                                           wizard= readParam(page), 
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                         }
-                             }
-            end
-            
-          
-              
-           
-         end
-         }
-end 
-}
---]]
-
-          
-

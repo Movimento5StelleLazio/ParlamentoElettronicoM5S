@@ -43,7 +43,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.heading{level=4,content= _"How much time does your proposal need to be examined?" }
   end }
 end }
-ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
 
                     ui.form
@@ -56,7 +56,7 @@ ui.container{attr={class="row-fluid"},content=function()
 
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page+1
+                                page=page
                         },
                         routing = {
                             ok = {
@@ -91,6 +91,9 @@ ui.container{attr={class="row-fluid"},content=function()
                                 foreign_name = "name",
                                 value =  ""
                               }
+                              
+                           
+                              
                            ui.tag{
                                 tag = "div",
                                 attr={style="position:relative;"},
@@ -125,8 +128,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
 
 
-local view_params={}
-view_params[#view_params+1]=  {}
+ 
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
@@ -141,138 +143,3 @@ ui.container{attr={class="row-fluid"},content=function()
     }
   end }
 end }
-
---[[
- ui.container
-            {
-                    attr={id="wizard_page_"..page, class="basicWizardPage"},
-                    content=function()
-                    ui.container
-                        {
-                                attr={id="wizardTitoloArea",class="titoloWizardHead", style="text-align: center; width: 100%;"},
-                                content=function()
-                                  ui.tag{
-                                        tag="p",
-                                        attr={},
-                                        content=  "FASE "..page
-                                      }
-                                      
-                                  ui.tag{
-                                        tag="p",
-                                        attr={style="font-size:28px;"},
-                                        content=  _"How much time does your proposal need to be examined?"
-                                      }
-                                end
-                         }
-                         
-                     
-                   
-                    ui.form
-                    {
-                        method = "post",
-                        attr={id="wizardForm"..page,style="height:80%"},
-                        module = 'wizard',
-                        view = 'wizard_new_initiative',
-                        params={
-                                
-                                area_id=area_id,
-                                unit_id=unit_id,
-                                page=page+1
-                        },
-                        routing = {
-                            ok = {
-                              mode   = 'redirect',
-                              module = 'wizard',
-                              view = 'wizard_new_initiative',
-                              params = {
-                                           
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page+1
-                                          },
-                            },
-                            error = {
-                              mode   = '',
-                              module = 'wizard',
-                              view = 'wizard_new_initiative',
-                            }
-                          }, 
-                       content=function()
-                    
-                       ui.container
-                        {
-                          attr={class="formSelect"},
-                          content=function() 
-                          
-                           ui.field.select{
-                                attr = { id = "policyChooser", style="width:70%;height:30px;left: 20ex;position:relative;"},
-                                label =  "",
-                                name = 'policyChooser',
-                                foreign_records = dataSource,
-                                foreign_id = "id",
-                                foreign_name = "name",
-                                value =  ""
-                              }
-                          
-                          
-                          
-                             
-                          ui.tag{
-                                tag = "div",
-                                attr={style="position:relative;"},
-                                content = function()
-                                  ui.tag{
-                                    tag = "label",
-                                    attr = { class = "ui_field_label",style="margin-left:28em;" },
-                                    content = function() slot.put("&nbsp;") end,
-                                  }
-                                  ui.tag{
-                                    content = function()
-                                      ui.link{
-                                        text = _"Information about the available policies",
-                                        module = "policy",
-                                        view = "list"
-                                      }
-                                      slot.put(" ")
-                                      ui.link{
-                                        attr = { target = "_blank" },
-                                        text = _"(new window)",
-                                        module = "policy",
-                                        view = "list"
-                                      }
-                                    end
-                                  }--fine tag
-                                end
-                              } --fine tag 
-                         
-                         end
-                         }--fine div formSelect
-                     
-                        
-                        
-                     end
-                     
-                     }--fine form
-                     
-             
-             local view_params={}
-             view_params[#view_params+1]=  {}
-             
-             
-             --pulsanti
-            execute.view{
-                            module="wizard",
-                            view="_pulsanti",
-                            params={
-                                    
-                                     btnBackModule = "wizard",
-                                     btnBackView = "wizard_new_initiative",
-                                     page=page
-                                    }
-                         }
-                          
-             
-         
-     end
- }
-]]--
