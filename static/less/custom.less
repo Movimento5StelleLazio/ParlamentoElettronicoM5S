@@ -1,0 +1,70 @@
+@lightgoldenrodyellow: #fffbd5;
+@orange: #ffaf00;
+@darkorange: #ff8a00;
+@chocolate: #e66c19;
+
+.alert-simple {
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #7e8789;
+  .border-radius(@radius: 3px);
+}
+
+.well-title {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 14px solid #ffa500;
+  .border-radius(@radius: 0px);
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+.head-chocolate,.head-darkorange,.head-orange {
+  text-shadow: none;
+  border: 1px solid black;
+  margin: 0;
+}
+
+.head-chocolate {
+  background: @chocolate;
+  #gradient > .vertical(@chocolate, darken(@chocolate,5%) );
+}
+.head-darkorange {
+  background: @darkorange;
+  #gradient > .vertical(@darkorange, darken(@darkorange,5%) );
+}
+.head-orange {
+  background: @orange;
+  #gradient > .vertical(@orange, darken(@orange,5%) );
+}
+
+/*
+  Issue
+*/
+
+.issue_info_data {
+  text-shadow: none;
+  border: 1px solid black;
+  .border-radius(@radius: 3px);
+  background: @lightgoldenrodyellow;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+}
+.issue_info_box, .issue_info_box2  {
+  color: @white;
+  background: @black;
+  #gradient > .vertical(lighten(@black,10%), @black );
+  border-radius: 16px 16px 0 0;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.issue_info_box2 {
+  height: 118px;
+}
+
