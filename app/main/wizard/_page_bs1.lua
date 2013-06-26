@@ -1,8 +1,7 @@
+slot.set_layout("m5s_bs")
+
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
-
-  
- 
 
 local area_policies=AllowedPolicy:get_policy_by_area_id(area_id)
 
