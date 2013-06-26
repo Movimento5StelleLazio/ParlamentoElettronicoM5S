@@ -83,7 +83,7 @@ ui.container{attr={class="row-fluid"},content=function()
                           content=function()
 
                            ui.field.select{
-                                attr = { id = "policyChooser", style="width:70%;height:30px;left: 20ex;position:relative;"},
+                                attr = { id = "policyChooser", style="width:70%;height:38px;position:relative;"},
                                 label =  "",
                                 name = 'policyChooser',
                                 foreign_records = dataSource,
@@ -95,11 +95,7 @@ ui.container{attr={class="row-fluid"},content=function()
                                 tag = "div",
                                 attr={style="position:relative;"},
                                 content = function()
-                                  ui.tag{
-                                    tag = "label",
-                                    attr = { class = "ui_field_label",style="margin-left:28em;" },
-                                    content = function() slot.put("&nbsp;") end,
-                                  }
+                                 
                                   ui.tag{
                                     content = function()
                                       ui.link{
@@ -146,7 +142,7 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
 
-
+--[[
  ui.container
             {
                     attr={id="wizard_page_"..page, class="basicWizardPage"},
@@ -279,3 +275,4 @@ end }
          
      end
  }
+]]--
