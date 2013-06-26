@@ -592,6 +592,7 @@ return {
 ["Policies"] = "Regole";
 ["Policy"] = "Regola";
 ["Policy '#{name}'"] = "Regola '#{name}'";
+["Policy: '#{name}'"] = "Regola: '#{name}'";
 ["Policy list"] = "Lista delle regole";
 ["Polling mode"] = false;
 ["Population"] = "Popolazione";

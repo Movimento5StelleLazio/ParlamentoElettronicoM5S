@@ -1,25 +1,26 @@
 local issue = param.get("issue","table")
 ui.container{ attr = { class = "row-fluid"}, content = function()
-  ui.container{ attr = { class = "span12"}, content = function()
+  ui.container{ attr = { class = "span12 alert issue_info_data"}, content = function()
     ui.link{
       module = "unit", view = "show", id = issue.area.unit_id,
-      attr = { class = "label label-success" }, text = issue.area.unit.name
+      attr = { class = "" }, content=function()
+        ui.heading{level=6,content= _("Unit: '#{name}'",{name=issue.area.unit.name})}
+      end
     }
-    slot.put(" ")
     ui.link{
       module = "area", view = "show", id = issue.area_id,
-      attr = { class = "label label-important" }, text = issue.area.name
+      attr = { class = "" }, content=function()
+        ui.heading{level=6,content= _("Area: '#{name}'",{name=issue.area.name})}
+      end
     }
-    slot.put(" ")
     ui.link{
-      attr = { class = "label label-info" },
-      text = _("#{policy_name} ##{issue_id}", {
-        policy_name = issue.policy.name,
-        issue_id = issue.id
-      }),
+      attr = { class = "" },
       module = "issue",
       view = "show",
-      id = issue.id
+      id = issue.id,
+      content=function()
+        ui.heading{level=6,content= _("Policy: '#{name}'",{name=issue.policy.name})}
+      end
     }
   end }
 end }

@@ -109,10 +109,14 @@ end }
 
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 alert alert-simple"}, content=function()
-    execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+      end }
+    end }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -166,7 +170,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Problem description:" }
+        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -176,7 +180,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-lightgoldenrodyellow uppercase inline-block" }, content = _"Aim description:" }
+        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Aim description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()

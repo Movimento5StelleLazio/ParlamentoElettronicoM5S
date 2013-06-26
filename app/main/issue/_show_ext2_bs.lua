@@ -48,32 +48,13 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            ui.link{
-              module = "unit", view = "show", id = issue.area.unit_id,
-              attr = { class = "label label-success" }, text = issue.area.unit.name
-            }
-            slot.put(" ")
-            ui.link{
-              module = "area", view = "show", id = issue.area_id,
-              attr = { class = "label label-important" }, text = issue.area.name
-            }
-            slot.put(" ")
-            ui.link{
-              attr = { class = "label label-info" },
-              text = _("#{policy_name} ##{issue_id}", {
-                policy_name = issue.policy.name,
-                issue_id = issue.id
-              }),
-              module = "issue",
-              view = "show",
-              id = issue.id
-            }
+            ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
           end }
         end }
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+            execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
           end }
         end }
     
@@ -130,44 +111,43 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           end }
         end }
     
-      end }
-    end }
-
-    ui.container{attr = {class="row-fluid"}, content =function()
-      ui.container{attr = {class="span8"}, content =function()
-        if app.session.member_id and issue.closed then
-          ui.container {
-            attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
-            content = function()
-              ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
-              if direct_voter then
-                ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
-                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
-                  ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
-                end}
-              else 
-                ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
-                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
-                  ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
-                end}
-              end   
+        ui.container{attr = {class="row-fluid"}, content =function()
+          ui.container{attr = {class="span8"}, content =function()
+            if app.session.member_id and issue.closed then
+              ui.container {
+                attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
+                content = function()
+                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
+                  if direct_voter then
+                    ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
+                      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
+                      ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+                    end}
+                  else 
+                    ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
+                      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
+                      ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+                    end}
+                  end   
+                end
+              }
             end
-          }
-        end
-      end }
-      ui.container{attr = {class="span4"}, content =function()
-        ui.link{ 
-          attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
-          module = "issue",
-          view = "show_ext_bs",
-          id = issue.id,
-          params = { view="area" },
-          content = function()
-            ui.heading{level=5,content=_"SEE DETAILS"}
-          end
-        }
+          end }
+          ui.container{attr = {class="span4"}, content =function()
+            ui.link{ 
+              attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
+              module = "issue",
+              view = "show_ext_bs",
+              id = issue.id,
+              params = { view="area" },
+              content = function()
+                ui.heading{level=5,content=_"SEE DETAILS"}
+              end
+            }
+          end }
+        end }
+
       end }
     end }
-
   end }
 end }
