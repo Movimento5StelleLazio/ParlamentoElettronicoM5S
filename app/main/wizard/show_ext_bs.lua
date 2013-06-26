@@ -19,6 +19,7 @@ else
 end
 
 if unit_id then
+  trace.debug("unit_id="..unit_id)
   areas_selector:add_where{ "area.unit_id = ?", unit_id }
 else
   slot.put_into("error", "No unit_id was provided!")
@@ -102,7 +103,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{attr={class="span4 offset2"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
-          module = "unit",
+          module = "wizard",
           view = "show_ext_bs",
           id = unit_id,
           content = function()
@@ -113,7 +114,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{attr={class="span4 offset1"},content=function()
         ui.link {
           attr = { class=btn2  },
-          module = "unit",
+          module = "wizard",
           view = "show_ext_bs",
           id = unit_id,
           params = { filter = "my_areas"},
@@ -126,9 +127,11 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class="row-fluid"}, content=function() 
       ui.container{ attr = { class ="span2" }, content = ""}
     end }
+    
+   
     ui.container{ attr = { class="row-fluid"}, content=function()
       execute.view{  
-        module = "area",
+        module = "wizard",
         view = "_list_ext_bs",
         params = { areas_selector = areas_selector, member = app.session.member }
       }
