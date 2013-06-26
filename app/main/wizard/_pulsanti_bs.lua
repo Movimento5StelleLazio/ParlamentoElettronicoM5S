@@ -12,13 +12,13 @@ local next_page=page+1
 if not page  or page <= 1 then
     page=1
     btnBackModule ="index"
-    btnBackView = "homepage"
+    btnBackView = "homepage_bs"
     btnBackParams=nil
     
     else
     btnBackParams=previus_page
     btnBackModule ="wizard"
-    btnBackView = "wizard_new_initiative"
+    btnBackView = "wizard_new_initiative_bs"
 end
 
 
