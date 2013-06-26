@@ -50,14 +50,15 @@ ui.container{attr={class="row-fluid"},content=function()
     } 
   end }
   ui.container{attr={class="span3 offset6 text-center"},content=function()
-    ui.link{
-      attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn"},
-      module = btnBackModule,
-      view = btnBackView,
+  ui.tag{
+      tag="a",
+      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+      module = "wizard",
+      view = "wizard_new_initiative_bs",
       params = {
         unit_id=app.session.member.unit_id,
         area_id=app.session.member.area_id,
-        page=page
+        page=next_page
       },
       content=function()
         ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()

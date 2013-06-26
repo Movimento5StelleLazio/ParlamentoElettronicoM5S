@@ -18,6 +18,7 @@ end
 if page==2 then
      
      objParam[#objParam+1]= {name="policy_id",value=param.get("policyChooser")}
+     trace.debug("param="..param.get("policyChooser"))
     
 end
 
