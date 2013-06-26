@@ -39,7 +39,7 @@ elseif issue.closed  then
   end
 end
 
-ui.container{ attr = { class = "issue_state_info_box2"}, content = function()
+ui.container{ attr = { class = "issue_info_box2"}, content = function()
   ui.container{ attr = { class = "row-fluid"}, content = function()
     ui.container{ attr = { class = "span12"}, content = function()
       ui.heading{ level=6, attr={class="fittext_info_box1"}, content = function()

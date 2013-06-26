@@ -90,7 +90,7 @@ end
 
 ui.container{ attr = { class = "issue_box"}, content = function()
 
-ui.container{ attr = { class = "issue_state_info_box"}, content = function()
+ui.container{ attr = { class = "issue_info_box"}, content = function()
   if event_image then
     ui.image{ attr = { class = "issue_info_img"}, static = "icons/16/" .. event_image }
   end
