@@ -25,12 +25,12 @@ local page=param.get("page",atom.integer)
 
 
 local btnBackModule = "wizard"
-local btnBackView = "wizard_new_initiative"
+local btnBackView = "wizard_new_initiative_bs"
 
 if not page  or page <= 1 then
     page=1
     btnBackModule ="wizard"
-    btnBackView = "show_ext"
+    btnBackView = "show_ext_bs"
 end
 
 local previus_page=page-1
@@ -51,7 +51,7 @@ ui.container{attr={class="row-fluid"},content=function()
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        view = 'wizard_new_initiative',
+                        view = 'wizard_new_initiative_bs',
                         params={
 
                                 area_id=area_id,
@@ -62,7 +62,7 @@ ui.container{attr={class="row-fluid"},content=function()
                             ok = {
                               mode   = 'redirect',
                               module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              view = 'wizard_new_initiative_bs',
                               params = {
 
                                            area_id=area_id,
@@ -73,7 +73,7 @@ ui.container{attr={class="row-fluid"},content=function()
                             error = {
                               mode   = '',
                               module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              view = 'wizard_new_initiative_bs',
                             }
                           },
                        content=function()
@@ -85,7 +85,7 @@ ui.container{attr={class="row-fluid"},content=function()
                            ui.field.select{
                                 attr = { id = "policyChooser", style="width:70%;height:38px;position:relative;"},
                                 label =  "",
-                                name = 'policyChooser',
+                                name = "policyChooser",
                                 foreign_records = dataSource,
                                 foreign_id = "id",
                                 foreign_name = "name",
@@ -135,7 +135,7 @@ ui.container{attr={class="row-fluid"},content=function()
       view="_pulsanti_bs",
       params={
         btnBackModule = "wizard",
-        btnBackView = "wizard_new_initiative",
+        btnBackView = "wizard_new_initiative_bs",
         page=page
       }
     }
