@@ -24,7 +24,7 @@ local btnBackView = "wizard_new_initiative_bs"
 if not page  or page <= 1 then
     page=1
     btnBackModule ="index"
-    btnBackView = "homepage_bs"
+    btnBackView = btnBackView
 end
 
 local previus_page=page-1
@@ -38,7 +38,7 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
                          
- ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
                          
             --------------------------------------------------------      
@@ -48,18 +48,18 @@ end }
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
                         module = 'wizard',
-                        view = 'wizard_new_initiative_bs',
+                        view = "wizard_new_initiative_bs",
                         params={
                                 
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page+1
+                                page=page
                         },
                         routing = {
                             ok = {
                               mode   = 'redirect',
                               module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              view = "wizard_new_initiative_bs",
                               params = {
                                            area_id=area_id,
                                            unit_id=unit_id,
@@ -69,15 +69,19 @@ end }
                             error = {
                               mode   = '',
                               module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              view =  "wizard_new_initiative_bs",
                             }
                           }, 
                        content=function()
                        
                             --parametri in uscita 
+                            ui.hidden_field{name="indietro" ,value=false}
+                    
                             for i,k in ipairs(wizard) do
                               ui.hidden_field{name=k.name ,value=k.value}
-                               trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                              if k.value then
+                              trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                              end
                             end
                             
                     
@@ -93,7 +97,7 @@ end }
                                                 label=_"Problem Title",
                                                 label_attr={style="font-size:20px"}
                                            }
-                                    end--fine contenuto
+                                end--fine contenuto
                                 }
                            end --fine content
                         
@@ -106,7 +110,7 @@ end }
 
 
  ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+ ui.container{attr={class="span12 text-center"},content=function()
            --pulsanti
             execute.view{
                             module="wizard",
@@ -114,7 +118,7 @@ end }
                             params={
                                      wizard=wizard,
                                      btnBackModule = "wizard",
-                                     btnBackView = "wizard_new_initiative_bs",
+                                     btnBackView = btnBackModule,
                                      page=page
                                     }
                          }
