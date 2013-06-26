@@ -108,7 +108,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 end }
 
 ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 alert alert-simple"}, content=function()
+  ui.container{attr={class="span12 alert alert-simple issue_box"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
@@ -174,7 +174,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
         ui.tag{content=issue.problem_description}
       end }
     end }
@@ -184,7 +184,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
         ui.tag{content=issue.aim_description}
       end }
     end }

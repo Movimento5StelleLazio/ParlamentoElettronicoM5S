@@ -171,7 +171,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="span12 alert alert-simple"},content=function()
+          ui.container{attr={class="span12 alert alert-simple issue_listing_box"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext2_bs",
@@ -199,7 +199,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="span12 alert alert-simple"},content=function()
+          ui.container{attr={class="span12 alert alert-simple issue_listing_box"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext_bs",
