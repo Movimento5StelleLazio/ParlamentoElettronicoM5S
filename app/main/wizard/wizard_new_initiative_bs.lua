@@ -345,7 +345,7 @@ if page==12 then
           
             execute.view{ 
                                module = "wizard", 
-                               view = "_page12", 
+                               view = "_page_bs12", 
                                params = {
                                            wizard= readParam(page),
                                            area_name=area_name,
