@@ -76,7 +76,7 @@ ui.container{attr={class="row-fluid"},content=function()
     
       ui.container{attr={class="span3"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
-          module = "wizard", view = "show_ext",
+          module = "wizard", view = "show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
             ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
