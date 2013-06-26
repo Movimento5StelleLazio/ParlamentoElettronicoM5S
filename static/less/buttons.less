@@ -141,7 +141,12 @@ input[type="button"] {
   color: @black;
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-success:active,
+.btn-info:active,
+.btn-inverse:active {
   .translate(0,0.2em);
 }
 
@@ -158,7 +163,7 @@ input[type="button"] {
   border-bottom-color: darken(@btnPrimaryBackground, 10%);
 }
 .btn-primary.active, .btn-primary:active  {
-  .buttonBackground(darken(@btnPrimaryBackground,20%), lighten(@btnPrimaryBackgroundHighlight,20%));
+  .buttonBackground(darken(@btnPrimaryBackground,10%), darken(@btnPrimaryBackgroundHighlight,5%));
   border-color: transparent;
 }
 
@@ -179,7 +184,7 @@ input[type="button"] {
   border-bottom-color: darken(@btnDangerBackground, 10%);
 }
 .btn-danger.active, .btn-danger:active  {
-  .buttonBackground(darken(@btnDangerBackground,20%), lighten(@btnDangerBackgroundHighlight,20%));
+  .buttonBackground(darken(@btnDangerBackground,10%), darken(@btnDangerBackgroundHighlight,5%));
   border-color: transparent;
 }
 // Success appears as green
@@ -198,7 +203,7 @@ input[type="button"] {
   border-bottom-color: darken(@btnInfoBackground, 10%);
 }
 .btn-info.active, .btn-info:active  {
-  .buttonBackground(darken(@btnInfoBackground,20%), lighten(@btnInfoBackgroundHighlight,20%));
+  .buttonBackground(darken(@btnInfoBackground,10%), darken(@btnInfoBackgroundHighlight,5%));
   border-color: transparent;
 }
 // Inverse appears as dark gray
