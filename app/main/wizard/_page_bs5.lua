@@ -28,9 +28,7 @@ end }
 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
 
-                                  
-                                       
-                   
+                     
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
@@ -42,7 +40,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         params={
                                 area_id=area_id,
                                 unit_id=unit_id,
-                                page=page+1
+                                page=page
                         },
                         routing = {
                             ok = {
@@ -52,7 +50,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                               params = {
                                            area_id=area_id,
                                            unit_id=unit_id,
-                                           page=page+1
+                                           page=page
                                           },
                             },
                             error = {
@@ -64,10 +62,11 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                        content=function()
                     
                           --parametri in uscita
-                     for i,k in ipairs(wizard) do
-                          ui.hidden_field{name=k.name ,value=k.value}
-                          trace.debug("[wizard] name="..k.name.." | value="..k.value)
-                        end
+                         ui.hidden_field{name="indietro" ,value=false}
+                         for i,k in ipairs(wizard) do
+                              ui.hidden_field{name=k.name ,value=k.value}
+                              trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                            end
                     
                        --contenuto
  
