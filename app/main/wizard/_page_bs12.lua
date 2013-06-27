@@ -69,44 +69,19 @@ ui.container{attr={class="row-fluid"},content=function()
                                       end }
                                     end }                
                       
-                                      
-                     ui.container
-                            {
-                                attr={id="wizardTitoloUnita",class="titoloWizardHead", style="height:30px;diplay:block"},
-                                content=function()
-                                      ui.tag{
-                                            tag="p",
-                                            attr={class="wizardHeader",style="top: -2ex;"},
-                                            content= _"Unit"..":"
-                                          
-                                          }
-                                      ui.tag{
-                                            tag="p",
-                                            attr={style="float: left;left: 1ex;position: relative;top: -2ex;"},
-                                            content=unit_name
-                                           }
-                                end
-                             }
-                                
-                                  
-                      ui.container
-                        {
-                                attr={id="wizardTitoloAreaHeader",class="titoloWizardHead", style="height:30px"},
-                                content=function()
-                                      ui.tag{
-                                            tag="p",
-                                            attr={ class="wizardHeader" ,style="top: -2ex;"},
-                                            content= _"Area"..":"
-                                            
-                                          }
-                                       ui.tag{
-                                            tag="span",
-                                            attr={style="font-size: 26px; left: 17px; text-overflow: ellipsis; text-align: left; height: 27px; position: relative; overflow: hidden; margin: 0px; line-height: 27px; white-space: nowrap; float: left; width: 480px; top: 7px;"},
-                                            nultiline=false,
-                                            content=area_name
-                                           }
-                                end
-                         }                       
+                  --unità ed area                    
+                      ui.container{attr={class="row-fluid"},content=function()
+                          ui.container{attr={class="span12 "},content=function()
+                            ui.container{attr={class="row-fluid"},content=function()
+                              ui.container{attr={class="span12 text-center"},content=function()
+                               
+                                ui.heading{level=4,content= _"Unit"..": "..unit_name }
+                                ui.heading{level=4,content= _"Area"..": "..area_name }
+                              end }
+                            end }
+                            
+                          end }
+                        end }                    
                                 
   end }
 end }
@@ -131,7 +106,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                             ok = {
                               mode   = 'redirect',
                               module = 'index',
-                              view = 'homepage',
+                              view = 'homepage_bs',
                               params = {
                                            area_id=area_id,
                                            unit_id=unit_id,
@@ -141,7 +116,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                             error = {
                               mode   = '',
                               module = 'wizard',
-                              view = 'wizard_new_initiative',
+                              view = 'wizard_new_initiative_bs',
                               params = {
                                            area_id=area_id,
                                            unit_id=unit_id,
@@ -230,9 +205,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         
                           ui.container
                                     {
-                                      attr={class="formSelect",style="top: 15px;height:100%;margin-bottom: 180px;"},
+                                      attr={class="formSelect",style="top: 15px;height:100%;width:100%;"},
                                       content=function() 
                                       local area_policies=AllowedPolicy:get_policy_by_area_id(area_id)
+                                      local index
                                       local dataSource
                                       dataSource = { 
                                                        { id = 0, name = _"Please choose a policy" }
@@ -240,28 +216,39 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                       if #area_policies>0 then
                                                  for i, allowed_policy in ipairs(area_policies) do
                                                     dataSource[#dataSource+1] = {id=i, name=allowed_policy.name  }
+                                                    trace.debug("allowed_policy.id="..allowed_policy.id.."| policy_id="..policy_id)
+                                                    
+                                                    if tonumber(allowed_policy.id)==tonumber(policy_id) then
+                                                      index=i
+                                                      trace.debug("index="..index)
+                                                    end
+                                                    
                                                  end   
                                          else
                                       end --fine if
-                                      ui.field.select{
-                                                attr = { id = "policyChooser", style="position: relative; left: 5ex; vertical-align: middle; text-align: left; height: 28px; width: 40%;" },
-                                                label =  "REGOLA:",
-                                                label_attr={style="float: left; font-size: 27px; position: relative; text-align: right; width: 48%; left: 3px;"},
-                                                name = 'policyChooser',
-                                                foreign_records = dataSource,
-                                                foreign_id = "id",
-                                                foreign_name = "name",
-                                                selected_record=tonumber(policy_id)
-                                              }
+                                      
+                                        ui.container
+                                            {
+                                              attr={class="formSelect",style="height:50px"},
+                                              content=function()
+                                              ui.field.select{
+                                                        attr = { id = "policyChooser", style="width: 54%;height:38px;position:relative;text-align: left;float: left;margin-left: 40px;" },
+                                                        label =  "REGOLA:",
+                                                        label_attr={style="height: 30px; position: relative; text-align: right; float: left; font-size: 25px;  width: 34%;top: 6px;"},
+                                                        name = 'policyChooser',
+                                                        foreign_records = dataSource,
+                                                        foreign_id = "id",
+                                                        foreign_name = "name",
+                                                        selected_record=tonumber(index)
+                                                      }
+                                                      
+                                               end
+                                               }       
                                         ui.tag{
                                                 tag = "div",
                                                 attr={style="position:relative;"},
                                                 content = function()
-                                                  ui.tag{
-                                                    tag = "label",
-                                                    attr = { class = "ui_field_label",style="margin-left:28em;" },
-                                                    content = function() slot.put("&nbsp;") end,
-                                                  }
+                                                  
                                                   ui.tag{
                                                     content = function()
                                                       ui.link{
@@ -280,9 +267,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                   }--fine tag
                                                 end
                                               } --fine tag 
+                                   
                                      ui.container
                                         {
-                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 100em; position: relative; float: left; width: 100%; top: 50px;"},
+                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 65em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
                                                   ui.container
@@ -297,15 +285,18 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                    }
                                                       end
                                                      } --contenuto
-                                                         
+                                                        
+                                                   ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                        ui.container{attr={class="span12 text-center"},content=function()        
+                                                                
                                                      --TITOLO
                                                       ui.tag{
                                                                tag="div",
-                                                               attr={style="text-align: center; width: 100%; float: left; position: relative; top: 50px;"},
+                                                               attr={style="font-size:20px;width: 26%;float: left;margin-left: 8em;margin-top:7px"},
                                                                content=function()     
                                                                        ui.field.text
                                                                        {
-                                                                            attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                                            attr={id="issue_title",style="font-size: 25px;height: 30px; width: 60%; margin-left: -1.5em;"},
                                                                             name="issue_title",
                                                                             label=_"Problem Title",
                                                                             label_attr={style="font-size:20px"},
@@ -350,7 +341,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                  end
                                                                  } --fine  --DESCRIZIONE QUESTIONE
                                                             
-                                                            
+                                                          end}
+                                                          end}  
                                                             
                                                             --KEYWORDS
                                                              ui.tag{
@@ -443,7 +435,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
+                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:12px"},
                                                                             content=  _"Target note"
                                                                           }   
                                                                           
