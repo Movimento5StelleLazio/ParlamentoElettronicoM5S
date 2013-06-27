@@ -2,6 +2,7 @@
 @orange: #ffaf00;
 @darkorange: #ff8a00;
 @chocolate: #e66c19;
+@darkgrey: #525252;
 
 .navbar {
   .box-shadow(0px 3px 7px grey); 
@@ -91,3 +92,25 @@
   .box-shadow(~"inset 2px 2px 7px rgba(0,0,0,.35)");
 }
 
+/*
+  Bargraph
+*/
+.progress {
+    color: #000;
+}
+
+// Blank (white)
+.progress-white .bar, .progress .bar-white {
+  #gradient > .vertical(darken(@white, 15%), @white);
+}
+.progress-white.progress-striped .bar, .progress-striped .bar-white {
+  #gradient > .striped(darken(@white, 15%));
+}
+
+// Neutral (neutral)
+.progress-neutral .bar, .progress .bar-neutral {
+  #gradient > .vertical(lighten(@darkgrey, 15%), @darkgrey);
+}
+.progress-neutral.progress-striped .bar, .progress-striped .bar-neutral {
+  #gradient > .striped(lighten(@darkgrey, 15%));
+}

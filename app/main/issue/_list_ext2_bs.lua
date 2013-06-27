@@ -20,7 +20,7 @@ ui.paginate{
     if #issues == 0 then
       ui.container{ attr = { class = "row-fluid" }, content = function()
         ui.container{ attr = { class = "span12 text-center" }, content = function()
-          ui.heading{level=4, content =_"There are no issue that match the selection criteria."}
+          ui.heading{level=4, content =_"There are no issues that match the selection criteria."}
         end }
       end }
     end
