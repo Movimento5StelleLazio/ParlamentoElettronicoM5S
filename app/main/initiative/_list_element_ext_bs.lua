@@ -20,12 +20,20 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             local max_value = initiative.issue.voter_count
     
             local a=initiative.positive_votes
-            local b=max_value - initiative.negative_votes - initiative.positive_votes
+            local b=(max_value - initiative.negative_votes - initiative.positive_votes)
             local c=initiative.negative_votes
+
+            local ap,bp,cp
+            if a>0 then ap=a * 100 / max_value else ap = 0 end
+            if b>0 then bp=b * 100 / max_value else bp = 0 end
+            if c>0 then cp=c * 100 / max_value else cp = 0 end
+
             ui.container{ attr = { class = "progress progress-striped active" }, content=function()
-              ui.container{ attr = {class = "bar bar-success", style = "width:"..a.."%"}, content=''}
-              ui.container{ attr = {class = "bar bar-warning", style = "width:"..b.."%"}, content=''}
-              ui.container{ attr = {class = "bar bar-important", style = "width:"..c.."%"}, content=''}
+              ui.container{ attr = {class = "bar bar-success text-center", style = "width:"..ap.."%"}, content=""}
+              ui.container{ attr = {class = "bar bar-neutral text-center", style = "width:"..bp.."%"}, content=""}
+              ui.container{ attr = {class = "bar bar-danger text-center", style = "width:"..cp.."%"}, content=""}
+              --ui.tag{tag="span", content=a.." ("..ap.."%) / "..b.." ("..bp.."%) / "..c.." ("..cp.."%)" }
+              --ui.tag{tag="span", content=a.." / "..b.." / "..c }
             end }
             --[[
             ui.bargraph{
@@ -51,9 +59,19 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           end
           local a=(initiative.satisfied_supporter_count or 0)
           local b=(initiative.supporter_count or 0) - (initiative.satisfied_supporter_count or 0)
+          local c= max_value - (initiative.supporter_count or 0)
+
+          local ap,bp,cp
+          if a>0 then ap=a * 100 / max_value else ap = 0 end
+          if b>0 then bp=b * 100 / max_value else bp = 0 end
+          if c>0 then cp=c * 100 / max_value else cp = 0 end
+
           ui.container{ attr = { class = "progress progress-striped active" }, content=function()
-            ui.container{ attr = {class = "bar bar-success", style = "width:"..a.."%"}, content=''}
-            ui.container{ attr = {class = "bar bar-warning", style = "width:"..b.."%"}, content=''}
+            ui.container{ attr = {class = "bar bar-success", style = "width:"..ap.."%"}, content=""}
+            ui.container{ attr = {class = "bar bar-neutral", style = "width:"..bp.."%"}, content=""}
+            ui.container{ attr = {class = "bar bar-white", style = "width:"..cp.."%"}, content=""}
+            --ui.tag{tag="span", content=a.." ("..ap.."%) / "..b.." ("..bp.."%) / "..c.." ("..cp.."%)" }
+            --ui.tag{tag="span", content=a.." / "..b.." / "..c }
           end }
 
           --[[
