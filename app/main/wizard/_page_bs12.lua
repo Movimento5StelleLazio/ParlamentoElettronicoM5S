@@ -104,25 +104,31 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         },
                         routing = {
                             ok = {
-                              mode   = 'redirect',
+                              mode   = 'forward',
                               module = 'index',
                               view = 'homepage_bs',
                               params = {
                                            area_id=area_id,
+                                           area_name=area_name,
                                            unit_id=unit_id,
-                                           page=page+1
+                                           unit_name=unit_name,
+                                           page=page
                                           },
                             },
-                            error = {
-                              mode   = '',
+                          --[[  error = {
+                              mode   = 'forward',
                               module = 'wizard',
                               view = 'wizard_new_initiative_bs',
                               params = {
                                            area_id=area_id,
+                                           area_name=area_name,
                                            unit_id=unit_id,
+                                           unit_name=unit_name,
+                                            
                                            page=12
                                           },
-                            }
+                           
+                            }]]--
                           }, 
                        content=function()
                     
@@ -144,7 +150,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                     --parametri in uscita
                          ui.hidden_field{name="indietro" ,value=false}
                          for i,k in ipairs(wizard) do
-                          ui.hidden_field{name=k.name ,value=k.value}
+                          ui.hidden_field{name=k.name.."_hidden" ,value=k.value}
                           trace.debug("[wizard] name="..k.name.." | value="..tostring(k.value))
                           
                           if k.name=="policy_id" then
@@ -217,6 +223,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                  for i, allowed_policy in ipairs(area_policies) do
                                                     dataSource[#dataSource+1] = {id=i, name=allowed_policy.name  }
                                                     trace.debug("allowed_policy.id="..allowed_policy.id.."| policy_id="..policy_id)
+                                                    --
+                                                     ui.hidden_field{name=allowed_policy.name ,value=i.."_"..allowed_policy.id}
                                                     
                                                     if tonumber(allowed_policy.id)==tonumber(policy_id) then
                                                       index=i
@@ -334,7 +342,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                    ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="question_short_description",name="question_short_description",style="resize: none; float: left; font-size: 23px; height: 228px; margin-left: 8px; width: 60%;"},
+                                                                                attr={id="issue_short_description",name="issue_short_description",style="resize: none; float: left; font-size: 23px; height: 228px; margin-left: 8px; width: 60%;"},
                                                                                 content=""..issue_brief_description
                                                                                 
                                                                            }
@@ -372,7 +380,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="question_keywords",name="question_keywords",style="resize: none; float: left; font-size: 23px; height: 228px; width: 60%; margin-left: 7px;"},
+                                                                                attr={id="issue_keywords",name="issue_keywords",style="resize: none; float: left; font-size: 23px; height: 228px; width: 60%; margin-left: 7px;"},
                                                                                 content=issue_keywords
                                                                                 
                                                                            }
@@ -488,8 +496,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                content=function()     
                                                                        ui.field.text
                                                                        {
-                                                                            attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
-                                                                            name="issue_title",
+                                                                            attr={id="initiative_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+                                                                            name="initiative_title",
                                                                             label=_"Issue Title",
                                                                             label_attr={style="font-size:20px"},
                                                                             value=initiative_title
@@ -743,7 +751,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                   end }
                                 end }
                                 
-                                 
+
+                                ui.script{static = "js/send_initiative.js"}                                
  
                                    
                                     
