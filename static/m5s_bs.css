@@ -62,10 +62,6 @@ a{
   margin: 5px;
 }
 
-.details_btn {
-  margin-bottom: -50%;
-}
-
 #issues_box,.spaceline {
   margin-top: 15px;
 }
@@ -132,7 +128,7 @@ a{
 */
 
 .issue_see_det_btn {
-  margin-top: -19px;
+  margin-bottom: 15px;
 }
 
 .issue_vote_box {

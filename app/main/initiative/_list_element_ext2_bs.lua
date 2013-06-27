@@ -5,16 +5,18 @@ local for_member = param.get("for_member", "table") or app.session.member
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 initiative_list_box" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
+      --[[
       ui.container{ attr = { class = "span1" }, content = function()
         if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then 
           ui.field.rank{ attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
         elseif not initiative.issue.closed then
-          ui.image{ static = "icons/16/script.png" }
+          ui.image{ attr = { class = "spaceline" }, static = "icons/16/script.png" }
         else
-          ui.image{ static = "icons/16/cross.png" }
+          ui.image{ attr = { class = "spaceline" }, static = "icons/16/cross.png" }
         end
       end }
-      ui.container{ attr = { class = "span11" }, content = function()
+      --]]
+      ui.container{ attr = { class = "span4 spaceline" }, content = function()
         if initiative.issue.fully_frozen and initiative.issue.closed then
           if initiative.negative_votes and initiative.positive_votes then
             local max_value = initiative.issue.voter_count
@@ -89,9 +91,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           --]]
         end
       end }
-    end }
-    ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span12" }, content = function()
+      ui.container{ attr = { class = "span8" }, content = function()
       ui.link{
         content = function()
           local name
