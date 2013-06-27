@@ -29,12 +29,21 @@
   }
 }
 
+.location_data {
+  padding: 15px;
+  .box-shadow(3px 3px 7px grey);
+  text-shadow: none;
+  border: 1px solid black;
+  .border-radius(@radius: 3px);
+  background: @lightgoldenrodyellow;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+}
+
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
   border: 1px solid black;
   margin: 0;
 }
-
 .head-chocolate {
   background: @chocolate;
   #gradient > .vertical(@chocolate, darken(@chocolate,5%) );
