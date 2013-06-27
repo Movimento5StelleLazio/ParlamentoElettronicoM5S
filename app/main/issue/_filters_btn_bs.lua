@@ -104,6 +104,7 @@ if ftl_btns then
 end
 
 trace.debug("id:"..(id or "none")..", state:"..(state or "none")..", interest:"..(interest or "none")..", scope:"..(scope or "none")..", orderby:"..(orderby or "none") )  
+trace.debug("default interest:"..( btns.default_interest or "none"))
 
 ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
   ui.container{ attr = { class = "span12 text-center"}, content = function()
@@ -116,7 +117,9 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
               id = "btn_apply", 
               href = "#",
               class = "btn btn-primary btn-large",
-              onclick="toggle_flt()"
+              onclick="toggle_flt();"
+--              datatoggle="collapse",
+--              datatarget="#state_flt #interest_flt #scope_flt"
             },
             content = function()
               ui.heading{ level=4, content = _"APPLY FILTERS"  }

@@ -19,3 +19,5 @@
       }
     end }
   end }
+  ui.script{static = "js/jquery.fittext.js"}
+  ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
