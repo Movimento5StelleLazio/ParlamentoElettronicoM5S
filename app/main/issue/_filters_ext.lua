@@ -1,3 +1,4 @@
+local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local state = param.get("state")
 local orderby = param.get("orderby") or ""
 local desc =  param.get("desc", atom.boolean)
@@ -52,7 +53,12 @@ It accepts the following parameters:
  * any
 
 ## scope ##
-TODO
+ * all_units
+ * my_units
+ * citizens
+ * electeds
+ * others
+
 
 --]]
 
@@ -188,6 +194,23 @@ if interest ~= "any" and interest ~= nil and ( interest == "not_interested" or i
  
 else
   interest = "any"
+end
+
+-- * all_units
+-- * my_units
+-- * citizens
+-- * electeds
+-- * others
+
+if scope == "my_units" then
+  selector:join("area", nil, "area.id = issue.area_id")
+  selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
+elseif scope == "electeds" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["eletti"].unit_id})
+elseif scope == "citizens" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["cittadini"].unit_id})
+elseif scope == "others" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["altri_gruppi"].unit_id})
 end
 
 -- Checking orderby
