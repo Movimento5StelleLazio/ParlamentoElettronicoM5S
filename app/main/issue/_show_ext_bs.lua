@@ -69,7 +69,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span12 text-center"}, content =function()
               ui.link{
-                attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary" },
+                attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary issue_see_det_btn" },
                 module = "issue",
                 view = "show_ext_bs",
                 id = issue.id,
