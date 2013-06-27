@@ -14,7 +14,7 @@ if not app.session.member:has_voting_right_for_unit_id(area.unit_id) then
   error("access denied")
 end
 
-local policy_id = param.get("policy_id", atom.integer)
+local policy_id = param.get("policy_id_hidden", atom.integer)
 local policy
 if policy_id then
   policy = Policy:by_id(policy_id)
@@ -88,7 +88,7 @@ if not issue then
   issue.policy_id = policy_id
   issue.title=param.get("issue_title")
   issue.brief_description=param.get("issue_brief_description")
-  issue.problem_description=param.get("issue_brief_description")
+  issue.problem_description=param.get("problem_description")
   issue.aim_description=param.get("aim_description")
   
   
@@ -198,8 +198,11 @@ end
 
 slot.put_into("notice", _"Initiative successfully created")
 
+ 
 request.redirect{
-  module = "initiative",
-  view = "show_ext",
+  module = "index",
+  view = "homepage_bs",
   id = initiative.id
 }
+ 
+
