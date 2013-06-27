@@ -53,7 +53,7 @@ end
 for i, initiative in ipairs(initiatives) do
   execute.view{
     module = "initiative",
-    view = "_list_element_ext_bs",
+    view = "_list_element_ext2_bs",
     params = {
       initiative = initiative,
       selected = highlight_initiative and highlight_initiative.id == initiative.id or nil,
