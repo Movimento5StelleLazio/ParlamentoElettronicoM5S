@@ -89,10 +89,10 @@ end
                  
                  
                  
-                   --pulsante Next
+                   --pulsante Save
                   ui.tag{
                              tag="a",
-                             attr={id="btnSaveIssue",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;cursor:pointer;",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+                             attr={id="btnSaveIssue",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;cursor:pointer;",onclick="sendInitiative("..page..");"},
                              params = { 
                                                 unit_id=app.session.member.unit_id,
                                                 area_id=app.session.member.area_id,

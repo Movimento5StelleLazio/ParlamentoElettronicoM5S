@@ -8,6 +8,11 @@ function readParam(page)
 local objParam={}
 
 
+if page==0 then
+
+
+end
+
 if page==1 then
     
    
@@ -338,6 +343,25 @@ else
 
 page=page+1
 end
+
+if indietro then
+    trace.debug("indietro="..tostring(indietro))
+    page_rendered=page-2
+    
+    if page_rendered==0 then
+     page=0
+    end
+else
+    trace.debug("indietro=false")
+    indietro=false
+   
+    if page>12 then
+    page=12
+    end
+    
+     page_rendered=page
+    
+end
 trace.debug("page="..page) 
   
 if page==12 then
@@ -359,41 +383,72 @@ if page==12 then
                              
 end
 
-if indietro then
-    trace.debug("indietro="..tostring(indietro))
-    page_rendered=page-2
-else
-    trace.debug("indietro=false")
-    indietro=false
-    page_rendered=page
-end
 
-     
-ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 well"},content=function()
-    ui.container{attr={class="row-fluid"},content=function()
-      ui.container{attr={class="span12 text-center"},content=function()
-        ui.heading{level=1,content= _"Create new initiative"}
-        ui.heading{level=2,content= _"Unit"..": "..unit_name }
-        ui.heading{level=2,content= _"Area"..": "..area_name }
-      end }
-    end }
-    ui.container{attr={class="row-fluid"},content=function()
-      ui.container{attr={class="span12 alert alert-simple"},content=function()
-        if page <= 12 and page >=1 then
-          execute.view{
-            module = "wizard",
-            view = "_page_bs"..page_rendered,
-            params = {
-              wizard= readParam(page_rendered),
-              area_id=area_id,
-              unit_id=unit_id,
-              page=page_rendered
-            }
-          }
-        end
-      end }
-    end }
-  end }
-end }
+
+if page <= 12 and page >=1 then   
+        ui.container{attr={class="row-fluid"},content=function()
+          ui.container{attr={class="span12 well"},content=function()
+            ui.container{attr={class="row-fluid"},content=function()
+              ui.container{attr={class="span12 text-center"},content=function()
+                ui.heading{level=1,content= _"Create new initiative"}
+                ui.heading{level=2,content= _"Unit"..": "..unit_name }
+                ui.heading{level=2,content= _"Area"..": "..area_name }
+              end }
+            end }
+            ui.container{attr={class="row-fluid"},content=function()
+              ui.container{attr={class="span12 alert alert-simple"},content=function()
+               
+                  execute.view{
+                    module = "wizard",
+                    view = "_page_bs"..page_rendered,
+                    params = {
+                      wizard= readParam(page_rendered),
+                      area_id=area_id,
+                      area_name=area_name,
+                      unit_id=unit_id,
+                      unit_name=unit_name,
+                     
+                      page=page_rendered
+                    }
+                  }
+                
+                
+              end }
+            end }
+          end }
+        end  }
+
+else
+
+        ui.container{attr={class="row-fluid"},content=function()
+          ui.container{attr={class="span12 well"},content=function()
+            ui.container{attr={class="row-fluid"},content=function()
+              ui.container{attr={class="span12 text-center"},content=function()
+                ui.heading{level=1,content= _"Create new initiative"}
+                ui.heading{level=2,content= _"Unit"..": "..unit_name }
+                ui.heading{level=2,content= _"Area"..": "..area_name }
+              end }
+            end }
+            ui.container{attr={class="row-fluid"},content=function()
+              ui.container{attr={class="span12 alert alert-simple"},content=function()
+                trace.debug("page="..page)
+               trace.debug("unit_id="..unit_id)
+               unit_id= atom.integer:load(unit_id)
+                  execute.view{
+                    module = "wizard",
+                    view = "show_ext_bs",
+                    id= unit_id
+                    
+                  }
+            
+            
+              end }
+            end }
+          end }
+        end  }
+
+end
     
+    
+    
+     
