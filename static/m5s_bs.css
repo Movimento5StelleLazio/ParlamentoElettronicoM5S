@@ -80,18 +80,30 @@ a{
   max-width:  284px;
 }
 
+.img_assembly_small {
+  max-width: 30%;
+}
+
 .btn_box_bottom{
   margin-bottom: 20px;
 }
 
 .btn_box_top{
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .arrow_medium {
     vertical-align: middle;
     height: 40px;
     width: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.arrow_small {
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
     padding-left: 8px;
     padding-right: 8px;
 }

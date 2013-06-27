@@ -1,6 +1,12 @@
 slot.set_layout("m5s_bs")
 local issue = Issue:by_id(param.get_id())
+local state = param.get("state")
+local orderby = param.get("orderby") or ""
+local desc =  param.get("desc", atom.boolean)
+local interest = param.get("interest")
+local scope = param.get("scope")
 local view = param.get("view") 
+local ftl_btns = param.get("ftl_btns",atom.boolean)
 
 local return_view, return_module
 if view == "homepage" then
@@ -32,6 +38,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           module = return_module,
           id = issue.area.id,
           view = return_view,
+          params = param.get_all_cgi(),
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -83,10 +90,22 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
-      ui.container{ attr = { id="social_box", class  = "span1 text-center" }, content = function()
-        slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
-        slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
-        slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
+      ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12" }, content = function()
+            slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
+          end }
+        end }
       end }
     end }
   end }
@@ -111,7 +130,9 @@ ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 alert alert-simple issue_box"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+        ui.tag{tag="strong",content=function()
+          ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+        end }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -124,23 +145,37 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Issue created at:".." "..format.timestamp(issue.created) }
-        if issue.state == "admission" then
-          ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Time limit to reach the supporters quorum:".." "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
-        end
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"By user:" }
+        ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
+          ui.tag{tag="strong",content= _"Issue created at:"}
+          ui.tag{content=" "..format.timestamp(issue.created)}
+        end }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    if issue.state == "admission" then
+      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+        ui.container{ attr = { class = "span12"}, content = function()
+            ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
+              ui.tag{tag="strong",content=_"Time limit to reach the supporters quorum:"}
+              ui.tag{content=" "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+            end }
+        end }
+      end }
+    end
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
+        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+          ui.tag{tag="strong",content= _"By user:" }
+        end }
         slot.put("user image")
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Keywords:" }
+        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+          ui.tag{tag="strong",content= _"Keywords:" }
+        end }
         ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
       end }
     end }
@@ -153,9 +188,11 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = _"Technical competence areas:" }
+        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+          ui.tag{tag="strong",content=  _"Technical competence areas:" }
+        end }
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
       end }
     end }
@@ -220,32 +257,36 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
     end }
-        ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12 alert alert-simple"}, content =function()
-            local initiatives_selector = issue:get_reference_selector("initiatives")
-            local highlight_string = param.get("highlight_string")
-            if highlight_string then
-              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-            end
-            execute.view{
-              module = "initiative",
-              view = "_list_ext_bs",
-              params = {
-                issue = issue,
-                initiatives_selector = initiatives_selector,
-                highlight_initiative = for_initiative,
-                highlight_string = highlight_string,
-                no_sort = true,
-                limit = (for_listing or for_initiative) and 5 or nil,
-                hide_more_initiatives=false,
-                limit=25,
-                for_member = for_member
-              }
-            }
-          end }
-        end }
+    ui.container{attr = {class="row-fluid"}, content =function()
+      ui.container{attr = {class="span12 alert alert-simple"}, content =function()
+        local initiatives_selector = issue:get_reference_selector("initiatives")
+        local highlight_string = param.get("highlight_string")
+        if highlight_string then
+          initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+        end
+        execute.view{
+          module = "initiative",
+          view = "_list_ext_bs",
+          params = {
+            issue = issue,
+            initiatives_selector = initiatives_selector,
+            highlight_initiative = for_initiative,
+            highlight_string = highlight_string,
+            no_sort = true,
+            limit = (for_listing or for_initiative) and 5 or nil,
+            hide_more_initiatives=false,
+            limit=25,
+            for_member = for_member
+          }
+        }
+      end }
+    end }
   end }
 end }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
+
+--[[
 
 slot.select("head", function()
   execute.view{ module = "issue", view = "_show", params = { issue = issue } }
@@ -284,10 +325,4 @@ if issue.snapshot then
   ui.field.timestamp{ label = _"Last snapshot:", value = issue.snapshot }
 end
 
-ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
---ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
---ui.script{script = "jQuery('.fittext1').fitText(1.1, {minFontSize: '12px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
-
-
+--]]

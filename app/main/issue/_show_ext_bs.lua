@@ -4,6 +4,14 @@ local for_member = param.get("for_member", "table")
 local for_listing = param.get("for_listing", atom.boolean)
 local for_initiative = param.get("for_initiative", "table")
 local for_initiative_id = for_initiative and for_initiative.id or nil
+local state = param.get("state")
+local orderby = param.get("orderby") or ""
+local desc =  param.get("desc", atom.boolean)
+local interest = param.get("interest")
+local scope = param.get("scope")
+local view = param.get("view")
+local ftl_btns = param.get("ftl_btns",atom.boolean)
+
 
 local direct_voter
 if app.session.member_id then
@@ -22,7 +30,9 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+            ui.tag{tag="strong",content=function()
+              ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title }
+            end}
           end }
         end }
 
@@ -63,7 +73,15 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
                 module = "issue",
                 view = "show_ext_bs",
                 id = issue.id,
-                params = { view="homepage" },
+                params = {
+                  state = state,
+                  orderby = orderby,
+                  desc = desc,
+                  interest = interest,
+                  scope = scope,
+                  view="homepage",
+                  ftl_btns=ftl_btns
+                },
                 content = function()
                   ui.heading{level=5,content=_"SEE DETAILS"}
                 end

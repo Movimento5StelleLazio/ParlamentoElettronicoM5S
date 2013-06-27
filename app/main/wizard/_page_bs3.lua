@@ -105,7 +105,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                                         end
                                         
                                      }   
-                                        ui.tag
+                                     ui.tag
                                            {
                                                 tag="textarea",
                                                 attr={id="issue_brief_description",name="issue_brief_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},

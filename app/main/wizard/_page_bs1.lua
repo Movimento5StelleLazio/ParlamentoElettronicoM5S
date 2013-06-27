@@ -67,7 +67,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
 
                                            area_id=area_id,
                                            unit_id=unit_id,
-                                           page=page+1
+                                           page=page
                                           },
                             },
                             error = {
@@ -92,7 +92,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                 value =  ""
                               }
                               
-                           
+                             --parametri in uscita 
+                            ui.hidden_field{name="indietro" ,value=false}
                               
                            ui.tag{
                                 tag = "div",
@@ -139,7 +140,7 @@ ui.container{attr={class="row-fluid"},content=function()
         btnBackModule = "wizard",
         btnBackView = "wizard_new_initiative_bs",
         page=page
-      }
+       }
     }
   end }
 end }

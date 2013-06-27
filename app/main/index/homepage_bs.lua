@@ -57,11 +57,20 @@ end
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
-    ui.heading{level=1, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
-    ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
-    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
-    ui.heading{level=2, content=_"What you want to do?"}
-    ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
+    ui.container{attr={class="row-fluid"},content=function()
+      ui.container{attr={class="span12"},content=function()
+        ui.heading{level=1, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
+        ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
+        ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
+      end }
+    end }
+
+    ui.container{attr={class="row-fluid spaceline"},content=function()
+      ui.container{attr={class="span12"},content=function()
+        ui.heading{level=2, content=_"What you want to do?"}
+        ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
+      end }
+    end }
 
     ui.container{attr={class="row-fluid btn_box_top btn_box_bottom"},content=function()
     
@@ -174,8 +183,15 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 alert alert-simple issue_listing_box"},content=function()
             execute.view{
               module = "issue",
-              view   = "_list_ext2_bs",
+              view   = "_list_ext_bs",
               params = {
+                state=state,
+                --orderby=orderby,
+                --desc=desc,
+                scope=scope,
+                --interest=interest,
+                list="voted",
+                ftl_btns=ftl_btns,
 		member=member,
                 selector = issues_selector_voted
               }
@@ -204,6 +220,13 @@ ui.container{attr={class="row-fluid"},content=function()
               module = "issue",
               view   = "_list_ext_bs",
               params = {
+                state=state,
+                --orderby=orderby,
+                --desc=desc,
+                scope=scope,
+                --interest=interest,
+                list="created",
+                ftl_btns=ftl_btns,
                 member=member,
                 selector = issues_selector_myinitiatives
               }
