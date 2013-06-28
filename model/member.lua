@@ -609,6 +609,16 @@ function Member.object:get_last_login_data()
   return selector:exec()
 end
 
+function Member.object:get_current_login_data()
+  local selector = MemberLogin:new_selector()
+    :add_where{ "member_id = ?", app.session.member.id }
+--    :add_where{ "login_time < ?", self.last_login }
+    :add_order_by('"login_time" DESC')
+    :limit(1)
+    :optional_object_mode()
+  return selector:exec()
+end
+
 function Member.object:get_delegatee_member(unit_id, area_id, issue_id)
   local selector = Member:new_selector()
   if unit_id then
