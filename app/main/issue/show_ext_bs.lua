@@ -63,7 +63,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               tag="a",
               attr={
                 href="#",
-                class="btn btn-primary btn-mini inline-block",
+                class="btn btn-primary inline-block",
                 onclick='document.getElementById("issue_url_box").select();'
               },
               content=function()
@@ -294,7 +294,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr = {class="span3 text-center"}, content =function()
             ui.link{
               --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
+              attr = { class="btn btn-primary btn-large btn_box_bottom table-cell eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
