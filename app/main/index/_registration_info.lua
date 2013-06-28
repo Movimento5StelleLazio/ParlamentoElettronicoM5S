@@ -8,7 +8,7 @@
         ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
       end }
     end }
-    ui.container{ attr = { class="span3 text-center"}, content=function()
+    ui.container{ attr = { class="span3 text-right"}, content=function()
       ui.link{
         attr = {class="btn btn-primary btn-large medium_btn table-cell"},
         module = "index",

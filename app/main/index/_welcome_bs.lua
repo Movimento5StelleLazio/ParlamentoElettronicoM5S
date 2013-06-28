@@ -310,7 +310,7 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="lost_password", class = "span12 text-right" }, content = function ()
+            ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
               ui.link{
                 attr = { class="btn btn-primary btn-large"},
                 module = 'index',
