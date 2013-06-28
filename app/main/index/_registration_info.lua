@@ -10,7 +10,7 @@
     end }
     ui.container{ attr = { class="span3 text-right"}, content=function()
       ui.link{
-        attr = {class="btn btn-primary btn-large medium_btn table-cell"},
+        attr = {class="btn btn-primary btn-large medium_btn"},
         module = "index",
         view = "register",
         content = function()
