@@ -108,8 +108,7 @@
   .box-shadow(0px 3px 7px grey);
   text-shadow: none;
   padding: 3px; 
-  maring-top: 40px;
-  margin-bottom: @baseLineHeight;
+  //margin-bottom: @baseLineHeight;
   //border: 3px solid @orange;
   border: 1px solid black;
   .border-radius(@radius: 3px);
@@ -167,4 +166,12 @@
 }
 .progress-neutral.progress-striped .bar, .progress-striped .bar-neutral {
   #gradient > .striped(lighten(@darkgrey, 15%));
+}
+
+/*
+  Buttons
+*/
+
+.btn-small .h6 {
+  margin: 6px;
 }
