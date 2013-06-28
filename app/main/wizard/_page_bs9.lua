@@ -82,7 +82,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                         
                                          ui.tag{
                                             tag="p",
-                                            attr={style="float: left; font-size: 12px; text-align: right; width: 249px; margin-left: -33px;font-style: italic;"},
+                                            attr={style="float: left; font-size: 12px; text-align: right;font-style: italic;"},
                                             content=  _"Draft note"
                                           }   
                                           

@@ -85,7 +85,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                         
                                          ui.tag{
                                             tag="p",
-                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;"},
+                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:12px;"},
                                             content=  _"Target note"
                                           }   
                                           
