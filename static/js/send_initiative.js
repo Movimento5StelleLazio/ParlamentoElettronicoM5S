@@ -9,8 +9,6 @@ function sendInitiative(page)
 	  var id= indice_id.substring(indice_id.indexOf("_")+1,indice_id.lenght);
 	  
 	 
-	  
-	  
 	  document.getElementsByName("policy_id_hidden")[0].value=id;
 	  document.getElementsByName("issue_title_hidden")[0].value=document.getElementById("issue_title").value;
       document.getElementsByName("issue_brief_description_hidden")[0].value=document.getElementById("issue_short_description").innerHTML;

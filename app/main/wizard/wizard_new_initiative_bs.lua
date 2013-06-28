@@ -434,14 +434,14 @@ else
                 trace.debug("page="..page)
                trace.debug("unit_id="..unit_id)
                unit_id= atom.integer:load(unit_id)
+
                   execute.view{
                     module = "wizard",
                     view = "show_ext_bs",
                     id= unit_id
                     
                   }
-            
-            
+         
               end }
             end }
           end }
