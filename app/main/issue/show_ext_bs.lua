@@ -228,7 +228,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Proposed solutions:" }
+        ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
