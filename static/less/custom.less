@@ -4,6 +4,17 @@
 @chocolate: #e66c19;
 @darkgrey: #525252;
 
+a {
+  &.label:hover,
+  &.label:focus,
+  &.badge:hover,
+  &.badge:focus {
+    color: @black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
 .navbar {
   .box-shadow(0px 3px 7px grey); 
 }
@@ -103,18 +114,19 @@
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
 }
 
-.area_label {
-  white-space: nowrap;
+.label-area {
   .box-shadow(0px 3px 7px grey);
+  color: #000000;
   text-shadow: none;
-  padding: 3px; 
-  //margin-bottom: @baseLineHeight;
-  //border: 3px solid @orange;
+  padding: 3px;
   border: 1px solid black;
   .border-radius(@radius: 3px);
   background: @lightgoldenrodyellow;
   overflow: hidden;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+}
+.a.label-area{
+  color: #000000;
 }
 
 .issue_info_box, .issue_info_box2  {

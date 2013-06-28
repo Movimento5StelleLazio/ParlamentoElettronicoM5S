@@ -18,9 +18,11 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
 --    execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
   
     ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span12 area_label" }, content = function()
+      ui.container{ attr = { class = "span11" }, content = function()
         ui.link{
-          module = "area", view = "filters_bs", id = area.id, content = area.name 
+          module = "area", view = "filters_bs", attr={class = "label label-area" }, id = area.id, content = function()
+            ui.tag{tag="strong",content=area.name}
+          end 
         }
       end }
     end }
