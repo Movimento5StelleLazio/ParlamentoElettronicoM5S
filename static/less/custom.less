@@ -8,6 +8,16 @@
   .box-shadow(0px 3px 7px grey); 
 }
 
+
+.alert,
+.alert h4 {
+  color: @black;
+}
+
+.alert {
+  text-shadow: none;
+}
+
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
@@ -20,7 +30,7 @@
   background-color: @wellBackground;
   border: 3px solid @orange;
   .border-radius(@radius: 3px);
-  .box-shadow(5px 5px 11px grey);
+  .box-shadow(0px 5px 11px grey);
   #gradient > .vertical(@wellBackground, darken(@wellBackground,5%));
 }
 
@@ -41,7 +51,7 @@
 
 .location_data {
   padding: 15px;
-  .box-shadow(3px 3px 7px grey);
+  .box-shadow(0px 3px 7px grey);
   text-shadow: none;
   border: 1px solid black;
   .border-radius(@radius: 3px);
@@ -72,13 +82,13 @@
 */
 
 .issue_box, .initiative_box, issue_info_box, .issue_info_box2{
-  .box-shadow(5px 5px 11px grey);
+  .box-shadow(0px 5px 11px grey);
 }
 
 .issue_info_data {
-  .box-shadow(3px 3px 7px grey);
+  .box-shadow(0px 3px 7px grey);
   text-shadow: none;
-  border: 1px solid black;
+  border: 3px solid @orange;
   .border-radius(@radius: 3px);
   background: @lightgoldenrodyellow;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
@@ -97,7 +107,7 @@
 }
 
 .issue_txt_box, .issue_listing_box {
-  .box-shadow(~"inset 2px 2px 7px rgba(0,0,0,.35)");
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
 }
 
 /*
