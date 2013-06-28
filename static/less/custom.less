@@ -22,7 +22,7 @@
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 3px solid @orange;
+  border: 2px solid black;
   .border-radius(@radius: 3px);
 }
 
@@ -34,6 +34,15 @@
   #gradient > .vertical(@wellBackground, darken(@wellBackground,5%));
 }
 
+.well-inside {
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 3px solid @orange;
+  .border-radius(@radius: 3px);
+  margin-bottom: 5px;
+}
 
 .well-title {
   min-height: 20px;
@@ -88,11 +97,27 @@
 .issue_info_data {
   .box-shadow(0px 3px 7px grey);
   text-shadow: none;
-  border: 3px solid @orange;
+  border: 1px solid black;
   .border-radius(@radius: 3px);
   background: @lightgoldenrodyellow;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
 }
+
+.area_label {
+  white-space: nowrap;
+  .box-shadow(0px 3px 7px grey);
+  text-shadow: none;
+  padding: 3px; 
+  maring-top: 40px;
+  margin-bottom: @baseLineHeight;
+  //border: 3px solid @orange;
+  border: 1px solid black;
+  .border-radius(@radius: 3px);
+  background: @lightgoldenrodyellow;
+  overflow: hidden;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+}
+
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;

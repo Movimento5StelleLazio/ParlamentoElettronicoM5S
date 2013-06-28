@@ -12,18 +12,18 @@ end
 --end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.container{ attr = { class = "span12" }, content = function()
+  ui.container{ attr = { class = "span12 spaceline" }, content = function()
 
-    execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
+--    execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
   
       ui.link{
         module = "area", view = "filters_bs", id = area.id,
-        attr = { class = "label label-success" }, content = area.name 
+        attr = { class = "area_label" }, content = area.name 
       }
     
     if show_content then
       
-      ui.container{ attr = { class = "content" }, content = function()
+      ui.container{ attr = { class = "spaceline" }, content = function()
   
         -- actions (members with appropriate voting right only)
         if member then
@@ -80,12 +80,14 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           if app.session.member_id == member.id and app.session.member:has_voting_right_for_unit_id(area.unit_id) then
   
             slot.put(" &middot; ")
+            --[[
             if area.delegation_info.own_delegation_scope ~= "area" then
               ui.link{ text = _"Delegate area", module = "delegation", view = "show", params = { area_id = area.id } }
             else
               ui.link{ text = _"Change area delegation", module = "delegation", view = "show", params = { area_id = area.id } }
             end
             slot.put(" &middot; ")
+            --]]
   
             ui.link{
               content = function()

@@ -12,18 +12,18 @@ end
 --end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.container{ attr = { class = "span12" }, content = function()
+  ui.container{ attr = { class = "span12 spaceline" }, content = function()
 
     execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
   
       ui.link{
         module = "area", view = "filters_bs", id = area.id,
-        attr = { class = "label label-success" }, content = area.name 
+        attr = { class = "area_label" }, content = area.name 
       }
     
     if show_content then
       
-      ui.container{ attr = { class = "content" }, content = function()
+      ui.container{ attr = { class = "spaceline" }, content = function()
   
         -- actions (members with appropriate voting right only)
         if member then

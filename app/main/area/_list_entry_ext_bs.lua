@@ -2,7 +2,7 @@ local area = param.get("area", "table")
 local member = param.get("member", "table")
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+  ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span2"}, content = function()
         ui.link{  
