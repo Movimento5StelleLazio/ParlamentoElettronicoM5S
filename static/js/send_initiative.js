@@ -19,10 +19,11 @@ function sendInitiative(page)
       document.getElementsByName("initiative_brief_description_hidden")[0].value=document.getElementById("initiative_brief_description").value;
       document.getElementsByName("draft_hidden")[0].value=document.getElementById("draft").value;
      
-      try{
-      document.getElementsByName("proposer1_hidden")[0].value=document.getElementsByName("proposer1")[0].value==1?true:false;
-      document.getElementsByName("proposer2_hidden")[0].value=document.getElementsByName("proposer2")[0].value==1?true:false;
-      document.getElementsByName("proposer3_hidden")[0].value=document.getElementsByName("proposer3")[0].value==1?true:false;
+      try
+      {
+	      document.getElementsByName("proposer1_hidden")[0].value=document.getElementsByName("proposer1")[0].value==1?true:false;
+	      document.getElementsByName("proposer2_hidden")[0].value=document.getElementsByName("proposer2")[0].value==1?true:false;
+	      document.getElementsByName("proposer3_hidden")[0].value=document.getElementsByName("proposer3")[0].value==1?true:false;
       }
       catch(e)
       {

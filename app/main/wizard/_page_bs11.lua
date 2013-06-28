@@ -60,7 +60,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                      
                           --parametri in uscita
                         ui.hidden_field{name="indietro" ,value=false}
-                     for i,k in ipairs(wizard) do
+                        ui.hidden_field{name="proposer_hidden" ,value=false}
+                        
+                        for i,k in ipairs(wizard) do
                           ui.hidden_field{name=k.name ,value=k.value}
                           if k.value then
                           trace.debug("[wizard] name="..k.name.." | value="..k.value)
@@ -69,18 +71,48 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                      
                         --contenuto
                        ui.container {
-                                   attr={style="float: left; border: 1px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
+                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
                                    content=function()
                                    ui.container
                                            {
                                           attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
                                           content=function()
-                                          ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer1", label = _"Citiziens", value = proposer1 }
-                                          ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer2", label = _"Elected M5S", value = proposer2 }
-                                          ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer3", label = _"Other groups", value = proposer3 }  
+                                            --1 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs",
+                                              params={
+                                                   id_checkbox="1",
+                                                   label=_"Citiziens"
+                                              }
+                                          }
+                                          
+                                          --2 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs",
+                                              params={
+                                                   id_checkbox="2",
+                                                   label=_"Elected M5S"
+                                              }
+                                          }
+                                          
+                                          
+                                          --3 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs",
+                                              params={
+                                                   id_checkbox="3",
+                                                   label=_"Other groups"
+                                              }
+                                          }
                                                                         
                                           end
-                                                         }
+                                          }
                                           end
                                           }
                                                              --fine div formSelect
@@ -93,6 +125,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
 end }
 
 
+ui.script{static = "js/wizard_checkbox.js"} 
  
 
 ui.container{attr={class="row-fluid"},content=function()
