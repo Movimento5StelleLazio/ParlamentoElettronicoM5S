@@ -12,9 +12,18 @@
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 3px solid #7e8789;
+  border: 3px solid @orange;
   .border-radius(@radius: 3px);
 }
+
+.well {
+  background-color: @wellBackground;
+  border: 3px solid @orange;
+  .border-radius(@radius: 3px);
+  .box-shadow(5px 5px 11px grey);
+  #gradient > .vertical(@wellBackground, darken(@wellBackground,5%));
+}
+
 
 .well-title {
   min-height: 20px;
