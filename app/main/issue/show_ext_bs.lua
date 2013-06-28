@@ -281,26 +281,26 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr = {class="span3 offset6 text-center"}, content =function()
             ui.link{
               --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
+              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
               params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" }, 
               content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by supporters"}
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
               end
             }
           end }
           ui.container{attr = {class="span3 text-center"}, content =function()
             ui.link{
               --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
-              attr = { class="btn btn-primary btn-large btn_box_bottom table-cell eq_ord"  },
+              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
               params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="date" }, 
               content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by date"}
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
               end
             }
           end }
@@ -309,7 +309,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
 
-    ui.container{attr = {class="row-fluid"}, content =function()
+    ui.container{attr = {class="row-fluid spaceline"}, content =function()
       ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
 
         ui.container{attr = {class="row-fluid"}, content =function()
@@ -355,7 +355,7 @@ end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '13px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '11px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 
