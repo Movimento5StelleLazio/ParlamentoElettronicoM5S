@@ -99,7 +99,7 @@ return {
 ["#{policy_name} ##{issue_id}"] = false;
 ["#{policy} ##{id}"] = false;
 ["Your last login was on #{last_login_date} at #{last_login_time}"]="Il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
-["Welcome #{realname}."]="Benvenuto #{realname}.";
+["Welcome <strong>#{realname}.</strong>"]="Benvenuto <strong>#{realname}.</strong>";
 ["You didn't logged in from this location? Report it immediatly:"]="Non ti sei connesso da questa posizione? Segnalacelo subito:";
 ["If it is not so, press here:"]="Se non e' cosi', premi qui:";
 ["You're connected "]="Sei connesso ";
