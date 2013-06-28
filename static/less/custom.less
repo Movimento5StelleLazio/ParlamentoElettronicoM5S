@@ -62,7 +62,7 @@
   Issue
 */
 
-.issue_box{
+.issue_box, .initiative_box, issue_info_box, .issue_info_box2{
   .box-shadow(5px 5px 11px grey);
 }
 
@@ -81,7 +81,6 @@
   border-radius: 16px 16px 0 0;
   padding: 8px;
   overflow: hidden;
-  .box-shadow(5px 5px 11px grey);
 }
 
 .issue_info_box2 {
@@ -91,6 +90,17 @@
 .issue_txt_box, .issue_listing_box {
   .box-shadow(~"inset 2px 2px 7px rgba(0,0,0,.35)");
 }
+
+/*
+  Initiative
+*/
+
+.initiative_list_box {
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 
 /*
   Bargraph

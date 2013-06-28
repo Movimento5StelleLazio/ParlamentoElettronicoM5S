@@ -35,11 +35,14 @@ return {
 ["YOUR VOTE IS"]="IL TUO VOTO E'";
 ["YES"]="SI";
 ["NO"]="NO";
+["Read"]="Leggi";
 ["Citizens units"]="Unita' dei cittadini";
 ["Elected units"]="Unita' degli eletti";
 ["Other political groups units"]="Unita' degli altri gruppi politici";
 [" INITIATIVES TO RESOLVE THE ISSUE"]=" PROPOSTE PER RISOLVERE LA QUESTIONE";
 [" INITIATIVE TO RESOLVE THE ISSUE"]=" PROPOSTA PER RISOLVERE LA QUESTIONE";
+["Order by supporters"]="Ordina per sostenitori";
+["Order by date"]="Ordina per data";
 ["ORDER BY NUMBER OF SUPPORTERS"]="ORDINA PER NUMERO DI SOSTENITORI";
 ["ORDER BY DATE OF CREATION"]="ORDINA PER LA DATA DI IMMISSIONE";
 ["ORDER BY LAST EVENT DATE"]="ORDINA PER LA DATA DELL'ULTIMO EVENTO";
@@ -95,6 +98,9 @@ return {
 ["Your last login was on #{last_login_date} at #{last_login_time}"]="Il tuo ultimo collegamento e' stato il  #{last_login_date} alle #{last_login_time}";
 ["Welcome #{realname}."]="Benvenuto #{realname}.";
 ["You didn't logged in from this location? Report it immediatly:"]="Non ti sei connesso da questa posizione? Segnalacelo subito:";
+["If it is not so, press here:"]="Se non e' cosi', premi qui:";
+["You're connected "]="Sei connesso ";
+["Correct your position"]="Correggi la tua posizione";
 ["Report suspect data"]="Segnala dato sospetto";
 ["Welcome <strong>#{realname}</strong>."]="Benvenuto <strong>#{realname}</strong>.";
 ["from "]="da ";
