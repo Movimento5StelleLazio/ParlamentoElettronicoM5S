@@ -104,6 +104,14 @@ a{
     padding-right: 8px;
 }
 
+.write {
+   vertical-align: middle;
+   height: 60px;
+   width: 60px;
+   padding-left: 8px;
+   padding-right: 8px;
+}
+
 .btn_margin {
   margin-bottom: 10px;
 }
@@ -115,12 +123,6 @@ a{
 /*
   Initiative
 */
-
-.initiative_list_box {
-    max-height: 16em;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 
 
 /*
