@@ -149,8 +149,8 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
-          ui.tag{tag="strong",content= _"Issue created at:"}
-          ui.tag{content=" "..format.timestamp(issue.created)}
+          ui.tag{content= _"Issue created at:"}
+          ui.tag{tag="strong",content="  "..format.timestamp(issue.created)}
         end }
       end }
     end }
@@ -158,8 +158,8 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
         ui.container{ attr = { class = "span12"}, content = function()
             ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
-              ui.tag{tag="strong",content=_"Time limit to reach the supporters quorum:"}
-              ui.tag{content=" "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+              ui.tag{content=_"Time limit to reach the supporters quorum:"}
+              ui.tag{tag="strong",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
             end }
         end }
       end }
@@ -167,7 +167,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content= _"By user:" }
+          ui.tag{content= _"By user:" }
         end }
         slot.put("user image")
       end }
@@ -175,7 +175,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content= _"Keywords:" }
+          ui.tag{content= _"Keywords:" }
         end }
         ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
       end }
@@ -192,7 +192,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content=  _"Technical competence areas:" }
+          ui.tag{content=  _"Technical competence areas:" }
         end }
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
       end }
