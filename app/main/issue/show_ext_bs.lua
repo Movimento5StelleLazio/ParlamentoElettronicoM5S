@@ -91,7 +91,6 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
---[[
       ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
@@ -109,7 +108,6 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
---]]
     end }
   end }
 end }
@@ -332,7 +330,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 
             execute.view{
               module = "initiative",
-              view = "_list_ext2_bs",
+              view = "_list_ext_bs",
               params = {
                 issue = issue,
                 initiatives_selector = initiatives_selector,
