@@ -34,7 +34,11 @@ end
 local class= "phases_box"
 if size == "large" then
   class = class.." phases_box_large"
+elseif size == "auto" then
+  class = class.." autoresize"
 end
+
+
 
 ui.container{ attr = { class = class}, content = function()
   ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
@@ -47,4 +51,9 @@ ui.container{ attr = { class = class}, content = function()
   ui.image{  attr = { class = "committee", style = committee_offset }, static="svg/committee.svg"..svgz }
   ui.image{  attr = { class = "committee_voting", style = committee_voting_offset }, static="svg/voting.svg"..svgz }
   ui.image{  attr = { class = "finished", style = finished_offset }, static="svg/finished.svg"..svgz }
-end}
+end }
+
+ui.script{static = "js/jquery.sizes.js"}
+ui.script{static = "js/jquery.scalebar.js"}
+ui.script{script = "jQuery('.autoresize').scalebar(); " }
+
