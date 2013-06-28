@@ -245,7 +245,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 
           ui.container{ attr = { class = "span3"}, content = function()
             ui.link{
-              attr = { class="btn btn-primary"  },
+              attr = { class="btn btn-primary spaceline btn_box_bottom"  },
               module = "wizard",
               params = { issue_id=issue.id},
               view = "new",
