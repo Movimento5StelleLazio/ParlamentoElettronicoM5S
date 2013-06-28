@@ -300,14 +300,14 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                      --TITOLO
                                                       ui.tag{
                                                                tag="div",
-                                                               attr={style="font-size:20px;width: 26%;float: left;margin-left: 8em;margin-top:7px"},
+                                                               attr={style="font-size:20px;width: 54em;float: left;margin-left: 10em;margin-top: 4em;"},
                                                                content=function()     
                                                                        ui.field.text
                                                                        {
-                                                                            attr={id="issue_title",style="font-size: 25px;height: 30px; width: 60%; margin-left: -1.5em;"},
+                                                                            attr={id="issue_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
                                                                             name="issue_title",
                                                                             label=_"Problem Title",
-                                                                            label_attr={style="font-size:20px"},
+                                                                            label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
                                                                             value=issue_title
                                                                        }
                                                                 end
@@ -677,7 +677,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                             
                                                             ui.tag{
                                                                    tag="div",
-                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative; top: 290px;"},
+                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative; top: 12em;height: 16em;"},
                                                                    content=function()  
                                                                    
                                                                     ui.container
@@ -694,20 +694,54 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                
                                                                 ui.container
                                                                     {
-                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 190px; margin-left: 0.6em; text-align: left; width: 60%;"},
+                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 19em; margin-left: 0.6em; text-align: left; width: 60%;"},
                                                                         content=function()
                                                                         
                                                                         
                                                                          ui.container
                                                                             {
-                                                                               attr={style="position: relative; height: 190px; text-align: left; line-height: 56px; margin-left: 60px;"},
+                                                                               attr={style="position: relative; text-align: left; line-height: 56px; margin-left: 60px;margin-top: 2em;"},
                                                                                content=function()
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer1", label = _"Citiziens", value = proposer1 }
-                                                                              
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer2", label = _"Elected M5S", value = proposer2 }
-                                                                              
-                                                                               ui.field.boolean{ label_attr={style="font-size:25px"},name = "proposer3", label = _"Other groups", value = proposer3 }  
-                                                                        
+                                                                               
+                                                                          --1 proposer
+                                                                          trace.debug("proposer1="..tostring(proposer1))
+                                                                          execute.view
+                                                                          {
+                                                                              module="wizard",
+                                                                              view="_checkbox_bs",
+                                                                              params={
+                                                                                   id_checkbox="1",
+                                                                                   label=_"Citiziens",
+                                                                                   selected=tostring(proposer1)
+                                                                              }
+                                                                          }
+                                                                          
+                                                                          --2 proposer
+                                                                              trace.debug("proposer2="..tostring(proposer2))
+                                                                          execute.view
+                                                                          {
+                                                                              module="wizard",
+                                                                              view="_checkbox_bs",
+                                                                              params={
+                                                                                   id_checkbox="2",
+                                                                                   label=_"Elected M5S",
+                                                                                   selected=tostring(proposer2)
+                                                                              }
+                                                                          }
+                                                                          
+                                                                          
+                                                                          --3 proposer
+                                                                              trace.debug("proposer3="..tostring(proposer3))
+                                                                          execute.view
+                                                                          {
+                                                                              module="wizard",
+                                                                              view="_checkbox_bs",
+                                                                              params={
+                                                                                   id_checkbox="3",
+                                                                                   label=_"Other groups",
+                                                                                   selected=tostring(proposer3)
+                                                                              }
+                                                                          }
                                                                                end
                                                                               }
                                                                        end
@@ -751,9 +785,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                   end }
                                 end }
                                 
-
+                                ui.script{static = "js/wizard_checkbox.js"} 
                                 ui.script{static = "js/send_initiative.js"}                                
- 
+                
                                    
                                     
                        end --fine contenuto

@@ -262,19 +262,19 @@ if page==12 then
    
    local value=""
    local proposer=""
-   if param.get("proposer1",atom.boolean) then
+   if param.get("proposer_hidden_1") then
    
-         value=param.get("proposer1",atom.boolean)
+         value=param.get("proposer_hidden_1")
          proposer="proposer1"
    end
-   if  param.get("proposer2",atom.boolean) then
+   if  param.get("proposer_hidden_2") then
    
-         value=param.get("proposer2",atom.boolean)
+         value=param.get("proposer_hidden_2")
          proposer="proposer2"
    end
-   if  param.get("proposer3",atom.boolean) then
+   if  param.get("proposer_hidden_3") then
        
-         value=param.get("proposer3",atom.boolean)
+         value=param.get("proposer_hidden_3")
          proposer="proposer3"
     
    end
