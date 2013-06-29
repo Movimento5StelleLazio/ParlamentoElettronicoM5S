@@ -27,9 +27,10 @@
 var toggle_flt = function(){
   if ($('#btn_apply_row').exist()) { document.getElementById('btn_apply_row').style.display = 'none'; }
   if ($('#btn_delete_row').exist()) { document.getElementById('btn_delete_row').style.display = 'block'; }
-  if ($('#state_flt').exist()) { document.getElementById('state_flt').style.display = 'block'; }
-  if ($('#interest_flt').exist()) { document.getElementById('interest_flt').style.display = 'block'; }
-  if ($('#scope_flt').exist()) { document.getElementById('scope_flt').style.display = 'block'; }
-  $('#btn_delete_row').goTo();
+  //if ($('#state_flt').exist()) { document.getElementById('state_flt').style.display = 'block'; }
+//  if ($('#interest_flt').exist()) { document.getElementById('interest_flt').style.display = 'block'; }
+//  if ($('#scope_flt').exist()) { document.getElementById('scope_flt').style.display = 'block'; }
+  if ($('#flt_box').exist()) { $('#flt_box').toggle('slide', {direction: 'up'}); }
+//  $('#btn_delete_row').goTo();
 };
 
