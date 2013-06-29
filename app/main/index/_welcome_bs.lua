@@ -102,6 +102,7 @@ if app.session.member_id then
                 end }
               end }
             end }
+            --[[
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
                 ui.heading{level=5,content=function()
@@ -109,6 +110,7 @@ if app.session.member_id then
                 end }
               end }
             end }
+            --]]
           end }
         end }
       end
