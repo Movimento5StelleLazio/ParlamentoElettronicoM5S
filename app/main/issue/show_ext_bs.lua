@@ -191,9 +191,10 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        for i=1,5,1 do 
+        keywords={"lavoro","scuola","educazione","finanza"}
+        for i,k in ipairs(keywords) do
           ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = "keyword"}
+            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
@@ -208,9 +209,10 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        for i=1,3,1 do 
+        areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
+        for i,k in ipairs(areas) do
           ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = "area"}
+            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
