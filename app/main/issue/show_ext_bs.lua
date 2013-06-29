@@ -339,7 +339,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 --                limit = (for_listing or for_initiative) and 5 or nil,
 --                hide_more_initiatives=false,
 --                limit=25,
---                for_details=true,
+                for_details=true,
 --                for_member = for_member,
                 init_ord=init_ord
               }
