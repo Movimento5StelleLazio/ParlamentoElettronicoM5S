@@ -172,7 +172,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span10"}, content = function()
+      ui.container{ attr = { class = "span8"}, content = function()
         if issue.member_id and issue.member_id > 0 then
           execute.view{ module="member", view="_info_data", id=issue.member_id }
         else
