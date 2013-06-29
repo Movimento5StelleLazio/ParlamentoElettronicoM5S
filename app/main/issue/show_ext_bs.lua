@@ -174,7 +174,11 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"By user:" }
         end }
-        slot.put("user image")
+      end }
+    end }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span6"}, content = function()
+        execute.view{ module="member", view="_info_data", id=issue.member_id }
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
