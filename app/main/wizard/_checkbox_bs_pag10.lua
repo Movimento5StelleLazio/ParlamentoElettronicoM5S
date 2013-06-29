@@ -19,8 +19,8 @@
      
  end
  
-ui.container{attr={class="row-fluid", style="width: 5em;height: 5em;float:left;"},content=function()
-ui.container{attr={class="span12",style=" width: 5em; "},content=function() 
+ui.container{attr={class="row-fluid", style="width: 5em;height: 5em;float:left;",onclick="doCheckPag10("..id_checkbox..")"},content=function()
+ui.container{attr={class="span12"},content=function() 
  ui.container
  {
     attr={class="span3 text-center",style=" width: 5em; "},
@@ -28,7 +28,7 @@ ui.container{attr={class="span12",style=" width: 5em; "},content=function()
     ui.tag
     {
       tag="a",
-      attr={id="check"..id_checkbox,class="btn btn-primary btn-large table-cell eq_btn" ,style="width: 2em; height: 2.5em!important;",onclick="doCheckPag10("..id_checkbox..")"},
+      attr={id="check"..id_checkbox,class="btn btn-primary btn-large table-cell eq_btn1" ,style="width: 2em;height: 62px!important;"},
       content=function()
         ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
          
