@@ -178,7 +178,11 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span6"}, content = function()
-        execute.view{ module="member", view="_info_data", id=issue.member_id }
+        if issue.member_id > 0 then
+          execute.view{ module="member", view="_info_data", id=issue.member_id }
+        else
+          ui.heading{ level=6, content = _"No author for this issue" }
+        end
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
