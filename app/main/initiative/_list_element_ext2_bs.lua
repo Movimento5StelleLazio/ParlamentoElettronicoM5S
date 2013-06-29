@@ -8,6 +8,10 @@ if for_details then
   class = " alert alert-simple initiative_box paper"
 end
 
+local function round(num, idp)
+  return tonumber(string.format("%." .. (idp or 0) .. "f", num))
+end
+
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12"..class }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
@@ -82,17 +86,27 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
                 if a>0 then ap=a * 100 / max_value else ap = 0 end
                 if b>0 then bp=b * 100 / max_value else bp = 0 end
                 if c>0 then cp=c * 100 / max_value else cp = 0 end
+                local positive_votes_percent = round( a * 100 /max_value, 2) or 0
     
-                ui.container{ attr = { class = "progress progress-striped active" }, content=function()
-                  ui.container{ attr = {class = "progress_bar_txt"}, content=function()
-                    ui.container{ attr = {class = "text-center"}, content=( (initiative.positive_votes)/max_value or "<0.1").."%" }
+                ui.container{ attr = { class = "row-fluid" }, content = function()
+                  ui.container{ attr = { class = "span12" }, content = function()
+                    ui.container{ attr = { class = "progress progress-striped active" }, content=function()
+                      ui.container{ attr = {class = "progress_bar_txt"}, content=function()
+                        ui.container{ attr = {class = "text-center"}, content=positive_votes_percent.."%" }
+                      end }
+                      ui.container{ attr = {class = "bar bar-success text-center", style = "width:"..ap.."%"}, content=""}
+                      ui.container{ attr = {class = "bar bar-neutral text-center", style = "width:"..bp.."%"}, content=""}
+                      ui.container{ attr = {class = "bar bar-danger text-center", style = "width:"..cp.."%"}, content=""}
+                    end }
                   end }
-                  ui.container{ attr = {class = "bar bar-success text-center", style = "width:"..ap.."%"}, content=""}
-                  ui.container{ attr = {class = "bar bar-neutral text-center", style = "width:"..bp.."%"}, content=""}
-                  ui.container{ attr = {class = "bar bar-danger text-center", style = "width:"..cp.."%"}, content=""}
-                  --ui.tag{tag="span", content=a.." ("..ap.."%) / "..b.." ("..bp.."%) / "..c.." ("..cp.."%)" }
-                  --ui.tag{tag="span", content=a.." / "..b.." / "..c }
                 end }
+                if for_details then
+                  ui.container{ attr = { class = "row-fluid" }, content = function()
+                    ui.container{ attr = { class = "span12 text-center" }, content = function()
+                      ui.heading{level=6, content=a.." ".._"Yes".." / "..c.." ".._"No"}
+                    end }
+                  end }
+                end
                 --[[
                 ui.bargraph{
                   max_value = max_value,
@@ -119,22 +133,35 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               local a=(initiative.satisfied_supporter_count or 0)
               local b=(initiative.supporter_count or 0) - (initiative.satisfied_supporter_count or 0)
               local c= max_value - (initiative.supporter_count or 0)
+              local supporters_percent = round( initiative.supporter_count * 100 /max_value, 2) or 0
     
               local ap,bp,cp
               if a>0 then ap=a * 100 / max_value else ap = 0 end
               if b>0 then bp=b * 100 / max_value else bp = 0 end
               if c>0 then cp=c * 100 / max_value else cp = 0 end
+              
+              ui.container{ attr = { class = "row-fluid" }, content = function()
+                ui.container{ attr = { class = "span12" }, content = function()
     
-              ui.container{ attr = { class = "progress progress-striped active" }, content=function()
-                ui.container{ attr = {class = "progress_bar_txt"}, content=function()
-                  ui.container{ attr = {class = "text-center"}, content=( (initiative.supporter_count+initiative.satisfied_supporter_count)/max_value or "<0.1").."%" }
+                  ui.container{ attr = { class = "progress progress-striped active" }, content=function()
+                    ui.container{ attr = {class = "progress_bar_txt"}, content=function()
+                      ui.container{ attr = {class = "text-center"}, content= supporters_percent .."%" }
+                    end }
+                    ui.container{ attr = {class = "bar bar-success", style = "width:"..ap.."%"}, content=""}
+                    ui.container{ attr = {class = "bar bar-neutral", style = "width:"..bp.."%"}, content=""}
+                    ui.container{ attr = {class = "bar bar-white", style = "width:"..cp.."%"}, content=""}
+                  end }
+
                 end }
-                ui.container{ attr = {class = "bar bar-success", style = "width:"..ap.."%"}, content=""}
-                ui.container{ attr = {class = "bar bar-neutral", style = "width:"..bp.."%"}, content=""}
-                ui.container{ attr = {class = "bar bar-white", style = "width:"..cp.."%"}, content=""}
-                --ui.tag{tag="span", content=a.." ("..ap.."%) / "..b.." ("..bp.."%) / "..c.." ("..cp.."%)" }
-                --ui.tag{tag="span", content=a.." / "..b.." / "..c }
               end }
+              if for_details then
+                ui.container{ attr = { class = "row-fluid" }, content = function()
+                  ui.container{ attr = { class = "span12 text-center" }, content = function()
+                    ui.heading{level=6, content=a.." ".._"Supporters".." ("..b.." ".._"Potential supporters"..")"}
+                  end }
+                end }
+              end
+
     
               --[[
               ui.bargraph{
@@ -150,11 +177,6 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               }
               --]]
             end
-          end }
-        end }
-        ui.container{ attr = { class = "row-fluid" }, content = function()
-          ui.container{ attr = { class = "span12 text-center" }, content = function()
-            ui.heading{level=6, content="("..initiative.supporter_count..")"}
           end }
         end }
       end }
