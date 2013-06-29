@@ -29,6 +29,7 @@ end }
 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
                       
+                      --valori di test
                       local tmp
                       tmp = { 
                                 { id = 0, name = _"Please choose a tecnical area" },
@@ -148,23 +149,43 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                    --2* selezione
                        ui.container
                         {
-                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
                           content=function() 
                           
                            ui.container
                                  {
                                      attr={style="width: 100%; text-align: center;"},
                                      content=function() 
+                                     
+                                       --checkbox
+                                       execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag10",
+                                              params={
+                                                   id_checkbox="2",
+                                                   label=""
+                                              }
+                                          }
+                                       
+                                        ui.tag{
+                                                  tag="div",
+                                                  attr={id="div2",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  content=function()
+                                       
+                                       --select
                                        ui.field.select{
-                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
+                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
                                             label =  "2° AREA DI COMPETENZA (opzionale):",
-                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
-                                            name = 'technical_area_1',
+                                            label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                            name = 'technical_area_2',
                                             foreign_records = tmp,
                                             foreign_id = "id",
                                             foreign_name = "name",
                                             value =  ""
                                           }
+                                          
+                                          end}
                                     
                                       end
                                       
@@ -174,11 +195,12 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           --nota   
                           ui.tag{
                                 tag = "div",
-                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                attr={id="divNota2",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
                                 content = function()
                                 
                                   
                                   ui.tag{
+                                  attr={id="nota2",style="opacity:0.5",disable="true"},
                                     content = function()
                                       ui.link{
                                         text = _"Information about the available Technical Areas",
@@ -206,23 +228,44 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                    --3* selezione
                        ui.container
                         {
-                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
                           content=function() 
                           
                            ui.container
                                  {
                                      attr={style="width: 100%; text-align: center;"},
                                      content=function() 
+                                     
+                                     
+                                       --checkbox
+                                       execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag10",
+                                              params={
+                                                   id_checkbox="3",
+                                                   label=""
+                                              }
+                                          }
+                                     
+                                     
+                                      ui.tag{
+                                                  tag="div",
+                                                  attr={id="div3",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  content=function()
+                                     
                                        ui.field.select{
-                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
+                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
                                             label =  "3° AREA DI COMPETENZA (opzionale):",
-                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
-                                            name = 'technical_area_1',
+                                            label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                            name = 'technical_area_3',
                                             foreign_records = tmp,
                                             foreign_id = "id",
                                             foreign_name = "name",
                                             value =  ""
                                           }
+                                          
+                                          end}
                                     
                                       end
                                       
@@ -232,11 +275,12 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           --nota   
                           ui.tag{
                                 tag = "div",
-                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                attr={id="divNota3",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;",disable="true"},
                                 content = function()
                                 
                                   
                                   ui.tag{
+                                  attr={id="nota3",style="opacity:0.5",disable="true"},
                                     content = function()
                                       ui.link{
                                         text = _"Information about the available Technical Areas",
@@ -265,24 +309,43 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                    --4* selezione
                        ui.container
                         {
-                          attr={class="formSelect", style="opacity:0.5", disable="true"},
+                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
                           content=function() 
                           
                            ui.container
                                  {
                                      attr={style="width: 100%; text-align: center;"},
                                      content=function() 
-                                       ui.field.select{
-                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)",disabled="true", style="width:62%;height:38px;position:relative;"},
-                                            label =  "4° AREA DI COMPETENZA (opzionale):",
-                                            label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
-                                            name = 'technical_area_1',
-                                            foreign_records = tmp,
-                                            foreign_id = "id",
-                                            foreign_name = "name",
-                                            value =  ""
+                                     
+                                     
+                                       --checkbox
+                                       execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag10",
+                                              params={
+                                                   id_checkbox="4",
+                                                   label=""
+                                              }
                                           }
-                                    
+                                     
+                                     
+                                             ui.tag{
+                                                  tag="div",
+                                                  attr={id="div4",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  content=function()
+                                                   ui.field.select{
+                                                        attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                                        label =  "4° AREA DI COMPETENZA (opzionale):",
+                                                        label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                                        name = 'technical_area_4',
+                                                        foreign_records = tmp,
+                                                        foreign_id = "id",
+                                                        foreign_name = "name",
+                                                        value =  ""
+                                                      }
+                                                  end
+                                             }   
                                       end
                                       
                                 }
@@ -291,11 +354,12 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           --nota   
                           ui.tag{
                                 tag = "div",
-                                attr={style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
+                                attr={id="divNota4",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;",disable="true"},
                                 content = function()
                                 
                                   
                                   ui.tag{
+                                  attr={id="nota4",style="opacity:0.5",disable="true"},
                                     content = function()
                                       ui.link{
                                         text = _"Information about the available Technical Areas",
@@ -323,7 +387,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                  
                  
                  
-                 
+                   ui.script{static = "js/wizard_checkbox.js"} 
                  
                  
                  
