@@ -30,7 +30,7 @@ function sendInitiative(page)
     	  //forced set
       }
       
-      document.getElementById("wizardForm"+page+"").submit();
+     // document.getElementById("wizardForm"+page+"").submit();
 	
 	
 }

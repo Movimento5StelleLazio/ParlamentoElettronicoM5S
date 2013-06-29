@@ -13,6 +13,10 @@
          else
          display="none"
      end
+     
+     else
+         display="none"
+     
  end
  
 ui.container{attr={class="row-fluid", style="width:34em;height: 5em;"},content=function()
