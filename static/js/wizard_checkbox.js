@@ -1,11 +1,8 @@
 
 var oldCheckName="proposer_hidden";
+
 function doCheck(idCheck)
 {
-	
-	
-	
-	
 	if (document.getElementById("imgCheck"+idCheck).style.display=="block")
 		{
 		 
@@ -25,8 +22,31 @@ function doCheck(idCheck)
 			oldCheckName="proposer_hidden_"+idCheck;
 		
 		}
-	 
+ 
+}
+
+
+function doCheckPag10(id)
+{
 	
-	 
+	if (document.getElementById("imgCheck"+id).style.display=="block")
+	{
+	   document.getElementById("imgCheck"+id).style.display="none";
+	   document.getElementById("technicalChooser"+id).disabled=true;
+	   document.getElementById("div"+id).style.opacity="0.5";
+	   document.getElementById("div"+id).disabled=true;
+	   document.getElementById("nota"+id).disabled=true;
+	   document.getElementById("nota"+id).style.opacity="0.5";
+	}
+	else
+	{    console.log("abilita id="+id);
+		 document.getElementById("imgCheck"+id).style.display="block";
+		 document.getElementById("technicalChooser"+id).disabled=false;
+		 document.getElementById("div"+id).style.opacity="1";
+		 document.getElementById("div"+id).disabled=false;
+		 document.getElementById("nota"+id).disabled=false;
+		 document.getElementById("nota"+id).style.opacity="1";
+		 
+	}
 
 }
