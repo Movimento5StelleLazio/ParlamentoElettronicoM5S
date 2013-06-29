@@ -256,7 +256,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               content= _"initiatives"
             end
 
-            ui.tag{content= _("Vi sono attualmente #{count} #{initiatives} per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, initiatives=content}) }
+            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=content}) }
           end }
 
           ui.container{ attr = { class = "span3"}, content = function()
