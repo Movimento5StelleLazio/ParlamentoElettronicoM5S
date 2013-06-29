@@ -193,7 +193,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         keywords={"lavoro","scuola","educazione","finanza"}
         for i,k in ipairs(keywords) do
           ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
+            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
@@ -211,7 +211,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
         for i,k in ipairs(areas) do
           ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
+            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
