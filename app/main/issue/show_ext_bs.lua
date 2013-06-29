@@ -192,7 +192,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span12"}, content = function()
         keywords={"lavoro","scuola","educazione","finanza"}
         for i,k in ipairs(keywords) do
-          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
+          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
             ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
@@ -210,7 +210,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span12"}, content = function()
         areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
         for i,k in ipairs(areas) do
-          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
+          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
             ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
@@ -288,34 +288,33 @@ ui.container{attr={class="row-fluid"}, content=function()
         --]]
 
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span3 offset6 text-center"}, content =function()
-            ui.link{
-              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
-              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
-              module = request.get_module(), 
-              id = issue.id,
-              view = request.get_view(),
-              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" }, 
-              content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
-              end
-            }
-          end }
-          ui.container{attr = {class="span3 text-center"}, content =function()
-            ui.link{
-              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
-              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
-              module = request.get_module(), 
-              id = issue.id,
-              view = request.get_view(),
-              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" }, 
-              content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
-              end
-            }
+          ui.container{attr = {class="span7 offset5 text-center"}, content =function()
+            ui.container{attr = {class="btn-group"}, content =function()
+              ui.link{
+                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" },
+                content = function()
+                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
+                end
+              }
+              ui.link{
+                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" },
+                content = function()
+                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
+                end
+              }
+            end }
           end }
         end }
 
+        
       end }
     end }
 
@@ -367,7 +366,7 @@ end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 --ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '16px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
+--ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 

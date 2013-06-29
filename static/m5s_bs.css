@@ -64,6 +64,10 @@ a{
     max-width:180px;
 }
 
+.wrap {
+    white-space: normal;
+}
+
 .filter_btn {
   margin: 5px;
 }
