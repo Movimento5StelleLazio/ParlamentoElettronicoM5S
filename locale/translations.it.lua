@@ -20,6 +20,7 @@ return {
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
 ["Registration Guide"]="Guida alla Iscrizione";
+["Report false identity"]="Segnala falsa identita'";
 ["Details for issue Q"]="Dettagli questione Q";
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";

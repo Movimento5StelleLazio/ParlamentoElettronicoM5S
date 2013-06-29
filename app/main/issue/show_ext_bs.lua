@@ -5,7 +5,7 @@ local orderby = param.get("orderby") or ""
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
-local view = param.get("view") 
+local view = param.get("view") or "homepage"
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
@@ -177,7 +177,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span6"}, content = function()
+      ui.container{ attr = { class = "span10"}, content = function()
         if issue.member_id > 0 then
           execute.view{ module="member", view="_info_data", id=issue.member_id }
         else
