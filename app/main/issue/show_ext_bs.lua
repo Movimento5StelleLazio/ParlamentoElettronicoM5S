@@ -55,7 +55,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12"}, content=function()
+          ui.container{attr={class="span12 nowrap"}, content=function()
             ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
             slot.put("<input id='issue_url_box' type='text' value="..url..">") 
 
@@ -216,7 +216,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
       end }

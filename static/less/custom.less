@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 .head-chocolate {
   color: #ffffff;
   background: @chocolate;
-  #gradient > .vertical(@chocolate, darken(@chocolate,5%) );
+  #gradient > .vertical(#F17018, #a3490e);
 }
 .head-darkorange {
   background: @darkorange;
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .head-orange {
   background: @orange;
-  #gradient > .vertical(@orange, darken(@orange,5%) );
+  #gradient > .vertical(#FAD073,#e69d00 );
 }
 
 /*
@@ -159,6 +159,8 @@ h1, h2, h3, h4, h5, h6 {
 */
 .progress {
     color: #000;
+    border: 1px solid black;
+    .border-radius(@radius: 3px);
 }
 
 // Blank (white)
@@ -209,14 +211,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .issue_thumb_cont_up {
     border: 4px solid green;
-    border-radius: 15px 15px 15px 15px;
+    .border-radius(@radius: 15px);
     display: inline-block;
     margin: 0.2em;
     vertical-align: middle;
 }
 .issue_thumb_cont_down {
     border: 4px solid red;
-    border-radius: 15px 15px 15px 15px;
+    .border-radius(@radius: 15px);
     display: inline-block;
     margin: 0.2em;
     vertical-align: middle;
