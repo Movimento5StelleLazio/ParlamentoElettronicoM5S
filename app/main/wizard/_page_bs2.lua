@@ -33,7 +33,7 @@ local next_page=page+1
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    ui.heading{level=3,content= _"FASE "..page }
+    ui.heading{level=3,content= _"FASE "..page.." di 11"}
     ui.heading{level=4, content=  _"Give a title to the problem you want to solve" }
   end }
 end }
