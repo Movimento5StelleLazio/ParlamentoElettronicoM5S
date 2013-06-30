@@ -23,7 +23,7 @@ ui.container{attr={class="row-fluid", style="width:34em;height: 5em;"},content=f
 ui.container{attr={class="span12"},content=function() 
  ui.container
  {
-    attr={class="span3 text-center"},
+    attr={class="span3 text-center;",style="width: 6em;"},
     content=function()
     ui.tag
     {

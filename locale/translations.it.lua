@@ -273,6 +273,7 @@ return {
 ["Description"] = "Descrizione";
 ["Description note"]="NOTA: In questo campo vanno riassunte in poche parole il problema (la condizione che rende necessario un intervento) e l'obiettivo da raggiungere (la condizione che si ipotizza la migliore di quella attuale ed auspicabile";
 ["Description to the problem you want to solve"]="BREVE DESCRIZIONE DELLA QUESTIONE:";
+["Description technical note"]="(Nota: le aree di competenza tecnica che selezionerete sono solo indicative. Gli iscritti potranno indicare una commisione di qualsiasi area di competenza tecnica per valutare la fattibilità e l'efficacia della proposta.)";
 ["Details"] = "Dettagli";
 ["Developer settings"] = "Settaggi sviluppatore";
 ["Diff"] = "Differenze";

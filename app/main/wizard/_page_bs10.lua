@@ -22,7 +22,7 @@ local next_page=page+1
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    ui.heading{level=3,content= _"FASE "..page }
+    ui.heading{level=3,content= _"FASE "..page.." di 11" }
     ui.heading{level=4,content=  _"Insert Technical Areas" }
   end }
 end }
@@ -382,23 +382,12 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                          }--fine div formSelect
                      
                    --fine 4* selezione  
-                 
-                 
-                 
-                 
-                 
                    ui.script{static = "js/wizard_checkbox.js"} 
                  
-                 
-                 
-                 
-                 
-                 
-                 
-                  ui.tag{
+                   ui.tag{
                                     tag = "p",
                                     attr = { style="float: left; text-align: right; width: 25%; font-style: italic;height: 200px;font-size: 12px;padding-left: 9em;" },
-                                    content=  _"Description note"
+                                    content=  _"Description technical note"
                                   }
                         
                      end
