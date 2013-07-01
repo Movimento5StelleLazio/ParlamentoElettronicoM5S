@@ -1,19 +1,34 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
+local wizard = param.get("wizard", boolean)
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.container{ attr = { class = "span12 alert alert-simple"}, content = function()
+  ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span2"}, content = function()
-        ui.link{  
-          module = "area", view = "filters_bs", id = area.id,
-          attr = { class = "btn btn-primary btn-large btn_margin" }, content = function()
-            ui.heading{level=5,content=_"AREA "..area.id}
-          end
-        }
+        if not wizard then
+          ui.link{  
+            module = "area", view = "filters_bs", id = area.id,
+            attr = { class = "btn btn-primary btn-large btn_margin" }, content = function()
+              ui.heading{level=5,content=_"AREA "..area.id}
+            end
+          }
+        else
+          ui.link{
+            module = "wizard", view = "wizard_new_initiative_bs",
+            params = {area_id = area.id, unit_id=area.unit_id},
+            attr = { class = "btn btn-primary btn-large btn_margin" }, content = function()
+              ui.heading{level=5,content=_"AREA "..area.id}
+            end
+          }
+        end
       end }
       ui.container{ attr = { class = "span10" }, content = function()
-        execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
+        ui.container{ attr = { class = "row-fluid" }, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
+            execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
+          end }
+        end }
         ui.tag{ content = _"Issues:" }
         slot.put(" ")
         ui.link{ 
