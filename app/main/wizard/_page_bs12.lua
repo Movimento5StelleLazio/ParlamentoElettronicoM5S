@@ -115,7 +115,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                            page=page
                                           },
                             },
-                          --[[  error = {
+                          error = {
                               mode   = 'forward',
                               module = 'wizard',
                               view = 'wizard_new_initiative_bs',
@@ -125,10 +125,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                            unit_id=unit_id,
                                            unit_name=unit_name,
                                             
-                                           page=12
+                                           page=page
                                           },
                            
-                            }]]--
+                            } 
                           }, 
                        content=function()
                     
@@ -154,6 +154,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                     --parametri in uscita
                          ui.hidden_field{name="indietro" ,value=false}
                          for i,k in ipairs(wizard) do
+                         
+                          
                           ui.hidden_field{name=k.name.."_hidden" ,value=k.value}
                           trace.debug("[wizard] name="..k.name.." | value="..tostring(k.value))
                           
@@ -527,7 +529,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                content=function()     
                                                                        ui.field.text
                                                                        {
-                                                                            attr={id="issue_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
+                                                                            attr={id="initiative_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
                                                                             name="initiative_title",
                                                                             label=_"Initiative Title",
                                                                             label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
@@ -987,7 +989,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                                content=function()
                                                                                
                                                                           --1 proposer
-                                                                          trace.debug("proposer1="..tostring(proposer1))
+                                                                          trace.debug("proposer_hidden_1="..tostring(proposer1))
                                                                           execute.view
                                                                           {
                                                                               module="wizard",
@@ -1000,7 +1002,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                           }
                                                                           
                                                                           --2 proposer
-                                                                              trace.debug("proposer2="..tostring(proposer2))
+                                                                              trace.debug("proposer_hidden_2="..tostring(proposer2))
                                                                           execute.view
                                                                           {
                                                                               module="wizard",
@@ -1014,7 +1016,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                           
                                                                           
                                                                           --3 proposer
-                                                                              trace.debug("proposer3="..tostring(proposer3))
+                                                                              trace.debug("proposer_hidden_3="..tostring(proposer3))
                                                                           execute.view
                                                                           {
                                                                               module="wizard",

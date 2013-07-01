@@ -130,7 +130,7 @@ if not issue then
     
   end
   
-  issue:save()
+  local issue=issue:save()
 
   if config.etherpad then
     local result = net.curl(
@@ -152,19 +152,19 @@ trace.debug("line 151")
 initiative.title=param.get("initiative_title")
 initiative.brief_description=param.get("initiative_brief_description")
 initiative.competence_fields=param.get("technical_area_1")
-initiative.author_type=""
+ 
 trace.debug("line 156")
-local proposer1=param.get("proposer1",atom.boolean)
+local proposer1=param.get("proposer_hidden_1",atom.boolean)
 if proposer1 then
 initiative.author_type="other"
 end
 
-local proposer2=param.get("proposer2",atom.boolean)
+local proposer2=param.get("proposer_hidden_2",atom.boolean)
 if proposer2 then
-initiative.author_type="other"
+initiative.author_type="elected"
 end
 
-local proposer3=param.get("proposer3",atom.boolean)
+local proposer3=param.get("proposer_hidden_3",atom.boolean)
 if proposer3 then
 initiative.author_type="other"
 end
@@ -199,10 +199,17 @@ end
 slot.put_into("notice", _"Initiative successfully created")
 
  
+--[[
 request.redirect{
   module = "index",
   view = "homepage_bs",
   id = initiative.id
 }
+]]--
  
+ request.redirect{
+  module = "issue",
+  view = "show_ext_bs",
+  id=issue.id
+}
 
