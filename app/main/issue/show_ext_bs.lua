@@ -63,7 +63,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               tag="a",
               attr={
                 href="#",
-                class="btn btn-primary btn-mini inline-block",
+                class="btn btn-primary inline-block",
                 onclick='document.getElementById("issue_url_box").select();'
               },
               content=function()
@@ -149,8 +149,8 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
-          ui.tag{tag="strong",content= _"Issue created at:"}
-          ui.tag{content=" "..format.timestamp(issue.created)}
+          ui.tag{content= _"Issue created at:"}
+          ui.tag{tag="strong",content="  "..format.timestamp(issue.created)}
         end }
       end }
     end }
@@ -158,8 +158,8 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
         ui.container{ attr = { class = "span12"}, content = function()
             ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
-              ui.tag{tag="strong",content=_"Time limit to reach the supporters quorum:"}
-              ui.tag{content=" "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+              ui.tag{content=_"Time limit to reach the supporters quorum:"}
+              ui.tag{tag="strong",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
             end }
         end }
       end }
@@ -167,7 +167,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content= _"By user:" }
+          ui.tag{content= _"By user:" }
         end }
         slot.put("user image")
       end }
@@ -175,7 +175,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content= _"Keywords:" }
+          ui.tag{content= _"Keywords:" }
         end }
         ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
       end }
@@ -192,7 +192,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{tag="strong",content=  _"Technical competence areas:" }
+          ui.tag{content=  _"Technical competence areas:" }
         end }
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
       end }
@@ -228,7 +228,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Proposed solutions:" }
+        ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -281,26 +281,26 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr = {class="span3 offset6 text-center"}, content =function()
             ui.link{
               --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
+              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
               params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" }, 
               content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by supporters"}
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
               end
             }
           end }
           ui.container{attr = {class="span3 text-center"}, content =function()
             ui.link{
               --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
-              attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"  },
+              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
               params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="date" }, 
               content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"Order by date"}
+                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
               end
             }
           end }
@@ -309,7 +309,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
 
-    ui.container{attr = {class="row-fluid"}, content =function()
+    ui.container{attr = {class="row-fluid spaceline"}, content =function()
       ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
 
         ui.container{attr = {class="row-fluid"}, content =function()
@@ -355,7 +355,7 @@ end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '13px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '11px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 

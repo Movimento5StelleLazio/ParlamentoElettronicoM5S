@@ -1,5 +1,8 @@
 #!/usr/bin/env lua
 return {
+["Unit:"]="Unita':";
+["Area:"]="Area:";
+["Policy:"]="Regola:";
 ["#{count} canceled"] = "#{count} cancellate";
 ["#{count} days ago"] = "#{count} giorni fa";
 ["#{count} finished"] = "#{count} concluse";

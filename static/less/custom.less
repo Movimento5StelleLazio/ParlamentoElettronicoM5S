@@ -1,19 +1,62 @@
 @lightgoldenrodyellow: #fffbd5;
 @orange: #ffaf00;
 @darkorange: #ff8a00;
-@chocolate: #e66c19;
+@chocolate: #ba5410;
 @darkgrey: #525252;
+
+a {
+  &.label:hover,
+  &.label:focus,
+  &.badge:hover,
+  &.badge:focus {
+    color: @black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
 
 .navbar {
   .box-shadow(0px 3px 7px grey); 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: (@baseLineHeight / 4) 0;
+}
+
+
+.alert,
+.alert h4 {
+  color: @black;
+}
+
+.alert {
+  text-shadow: none;
 }
 
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 3px solid #7e8789;
+  border: 2px solid black;
   .border-radius(@radius: 3px);
+}
+
+.well {
+  background-color: @wellBackground;
+  border: 3px solid @orange;
+  .border-radius(@radius: 3px);
+  .box-shadow(0px 5px 11px grey);
+  #gradient > .vertical(@wellBackground, darken(@wellBackground,5%));
+}
+
+.well-inside {
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 3px solid @orange;
+  .border-radius(@radius: 3px);
+  margin-bottom: 5px;
 }
 
 .well-title {
@@ -32,7 +75,7 @@
 
 .location_data {
   padding: 15px;
-  .box-shadow(3px 3px 7px grey);
+  .box-shadow(0px 3px 7px grey);
   text-shadow: none;
   border: 1px solid black;
   .border-radius(@radius: 3px);
@@ -46,6 +89,7 @@
   margin: 0;
 }
 .head-chocolate {
+  color: #ffffff;
   background: @chocolate;
   #gradient > .vertical(@chocolate, darken(@chocolate,5%) );
 }
@@ -63,17 +107,33 @@
 */
 
 .issue_box, .initiative_box, issue_info_box, .issue_info_box2{
-  .box-shadow(5px 5px 11px grey);
+  .box-shadow(0px 5px 11px grey);
 }
 
 .issue_info_data {
-  .box-shadow(3px 3px 7px grey);
+  .box-shadow(0px 3px 7px grey);
   text-shadow: none;
   border: 1px solid black;
   .border-radius(@radius: 3px);
   background: @lightgoldenrodyellow;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
 }
+
+.label-area {
+  .box-shadow(0px 3px 7px grey);
+  color: #000000;
+  text-shadow: none;
+  padding: 3px;
+  border: 1px solid black;
+  .border-radius(@radius: 3px);
+  background: @lightgoldenrodyellow;
+  overflow: hidden;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+}
+.a.label-area{
+  color: #000000;
+}
+
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;
@@ -88,7 +148,7 @@
 }
 
 .issue_txt_box, .issue_listing_box {
-  .box-shadow(~"inset 2px 2px 7px rgba(0,0,0,.35)");
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
 }
 
 /*
@@ -124,3 +184,48 @@
 .progress-neutral.progress-striped .bar, .progress-striped .bar-neutral {
   #gradient > .striped(lighten(@darkgrey, 15%));
 }
+
+/*
+  Buttons
+*/
+
+
+/*
+  Thumb & voting
+*/
+.issue_vote_box {
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    .box-shadow(0px 5px 11px grey);
+    border: 2px solid black;
+    .border-radius(@radius: 3px);
+}
+.issue_vote_txt {
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.thumb {
+    display: inline-block;
+    height: 2.7em;
+    vertical-align: middle;
+    width: 2.7em;
+}
+.issue_thumb_cont_up {
+    border: 4px solid green;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.issue_thumb_cont_down {
+    border: 4px solid red;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+
