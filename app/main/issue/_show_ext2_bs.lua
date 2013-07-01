@@ -92,7 +92,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
             else
               content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
             end
-            ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block"}, content = content }
+            ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block"}, content = content }
           end }
         end }
     

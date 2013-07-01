@@ -3,6 +3,8 @@ slot.set_layout("m5s_bs")
 local unit_id = param.get_id()
 local filter = param.get("filter")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+local wizard = param.get("wizard", boolean)
+
 
 if not app.session.member_id then
   return false
@@ -105,6 +107,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
+          params = { wizard = wizard},
           content = function()
             ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
           end 
@@ -116,7 +119,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           module = "unit",
           view = "show_ext_bs",
           id = unit_id,
-          params = { filter = "my_areas"},
+          params = { filter = "my_areas", wizard = wizard},
           content = function()
             ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
@@ -128,7 +131,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         execute.view{  
           module = "area",
           view = "_list_ext_bs",
-          params = { areas_selector = areas_selector, member = app.session.member }
+          params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
         }
       end }
     end }
