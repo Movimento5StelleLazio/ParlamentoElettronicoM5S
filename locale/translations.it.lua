@@ -619,7 +619,7 @@ return {
 ["Problem Title"]="TITOLO DELLA QUESTIONE:";
 ["Problem description"]="DESCRIZIONE DEL PROBLEMA:";
 ["Problem description title"]="DESCRIVI IL PROBLEMA O L'URGENZA CHE RICHIEDE L'INTERVENTO";
-["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cjui si vuole ottemperare con il documento proposto.";
+["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cui si vuole ottemperare con il documento proposto.";
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
 ["Profile"] = "Profilo";

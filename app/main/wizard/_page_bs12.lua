@@ -142,6 +142,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         local initiative_title
                         local initiative_brief_description
                         local draft
+                        local technical_area_1
+                        local technical_area_2
+                        local technical_area_3
+                        local technical_area_4
                         local proposer1=false
                         local proposer2=false
                         local proposer3=false
@@ -204,6 +208,29 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                              proposer3=k.value
                           end
                           
+                          if k.name=="technical_area_1" then
+                             technical_area_1=k.value
+                          end
+                        
+                        if k.name=="technical_area_2" then
+                             technical_area_2=k.value
+                             else
+                             technical_area_2=0
+                          end
+                        
+                        if k.name=="technical_area_2" then
+                             technical_area_3=k.value
+                             else
+                             technical_area_3=0
+                          end
+                        
+                        if k.name=="technical_area_2" then
+                             technical_area_4=k.value
+                             else
+                             technical_area_4=0
+                          end
+                        
+                        
                           
                         end --fine for
                      
@@ -638,7 +665,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                                                 foreign_records = tmp,
                                                                                                 foreign_id = "id",
                                                                                                 foreign_name = "name",
-                                                                                                value =  ""
+                                                                                                value =  "",
+                                                                                                selected_record=tonumber(technical_area_1)
                                                                                               }
                                                                                         
                                                                                           end
