@@ -78,7 +78,7 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary btn-mini table-cell",
+                    class = "btn btn-primary table-cell",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
@@ -137,7 +137,7 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary btn-mini table-cell", 
+                    class = "btn btn-primary table-cell", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
