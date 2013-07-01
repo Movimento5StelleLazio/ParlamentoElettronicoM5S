@@ -22,7 +22,8 @@ if not page  or page <= 1 then
 end
 
 
-
+ ui.container{attr={class="row-fluid"},content=function()
+   ui.container{attr={class="span3 text-center",style="width: 100%;"},content=function()
 
     --pulsanti
                
@@ -31,96 +32,132 @@ end
             tag="div",
                 attr={id="pulsanti" , style="position: relative;"},
                 content=function()
-                
+               
+               ui.container{attr={class="row-fluid"},content=function()
+                ui.container{attr={class="row-fluid"},content=function()
+                  
+                     ui.container{attr={class="span3 text-center",style="margin-left: 7em;" },content=function()
                --pulsante anteprima
-                     ui.link{
-                                 attr={id="btnAnteprima",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
+                     ui.tag{
+                                tag="div",
+                                 attr={id="btnAnteprima",class="btn btn-primary btn-large table-cell eq_btn",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "anteprima",
                                  params = { 
                                                 
                                            },
                                  content=function()
-                                    
-                                        ui.tag{
-                                           tag = "p",
-                                           attr={style="text-align: center; line-height: 25px; width: 150px; font-size: 22px;", readonly="true"},
-                                           content        =_"Show preview",  
-                                           multiline=true
+                                    ui.heading
+                                      { 
+                                      level=4, attr = {class = "fittext_btn_wiz" },
+                                      content=function()
+                                          ui.container
+                                          {
+                                            attr={class="row-fluid"},
+                                            content=function()
+                                                ui.container
+                                                {
+                                                attr={class="span12"},
+                                                content=function()
+                                                slot.put(_"Show preview"  )
+                                                end 
+                                                }
+                                          end 
+                                          }
                                           
-                                        }  
-                                        
+                                       end
+                                       } --fine heading
                                     end-- fine tag.content
                             } -- fine pulsante previuos
-                            
-                   ui.container{
-                                 attr={id="spazioDiv", class="spazioDiv"},
-                                 content=function()
-                                 end
-                                }        
-                 
-                 
-                 
-                      ui.link{
-                                 attr={id="btnSalvaPreview",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
+                        
+                        end}    
+                  
+                    ui.container{attr={class="span3 text-center"},content=function()
+                      ui.tag{  
+                                 tag="div",
+                                 attr={id="btnSalvaPreview",class="btn btn-primary btn-large table-cell eq_btn",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "_save_preview",
                                  params = { 
                                                 
                                            },
                                  content=function()
-                                    
-                                        ui.tag{
-                                           tag = "p",
-                                           attr={style="width: 150px; text-align: center; font-size: 22px; line-height: 20px;", readonly="true"},
-                                           content        =_"Save preview",  
-                                           multiline=true
+                                     ui.heading
+                                      { 
+                                      level=4, attr = {class = "fittext_btn_wiz" },
+                                      content=function()
+                                          ui.container
+                                          {
+                                            attr={class="row-fluid"},
+                                            content=function()
+                                                ui.container
+                                                {
+                                                attr={class="span12"},
+                                                content=function()
+                                                slot.put(_"Save preview"  )
+                                                end 
+                                                }
+                                          end 
+                                          }
                                           
-                                        }  
+                                       end
+                                       } --fine heading
+                                          
                                         
                                     end-- fine tag.content
                             } -- fine pulsante previuos
-                            
-                   ui.container{
-                                 attr={id="spazioDiv", class="spazioDiv"},
-                                 content=function()
-                                 end
-                                }        
-                 
-                 
+                        end}    
+                
                  
                    --pulsante Save
-                  ui.tag{
-                             tag="a",
-                             attr={id="btnSaveIssue",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;cursor:pointer;",onclick="sendInitiative("..page..");"},
-                             params = { 
-                                                unit_id=app.session.member.unit_id,
-                                                area_id=app.session.member.area_id,
-                                                page=page 
-                                           },
-                             content=function()
-                                
-                                    ui.tag{
-                                       tag = "p",
-                                       attr={style="text-align: center; font-size: 22px; line-height: 20px; margin-top: 11px; width: 150px;", readonly="true"},
-                                       content        =_"Save issue",  
-                                       multiline=true
-                                      
-                                    }  
-                                    
-                                end-- fine tag.content
-                        } -- fine pulsante next
-              
-
+                    ui.container{attr={class="span3 text-center"},content=function()
                         ui.tag{
-                                tag="div",
-                                attr={style="text-align: center;height:120px; width: 100%; float: left; position: relative; "},
-                                content=function()  
-                                end
-                                 }         
+                                 tag="a",
+                                 attr={id="btnSaveIssue",class="btn btn-primary btn-large table-cell eq_btn",style="float:left;cursor:pointer;height: 103px;",onclick="sendInitiative("..page..");"},
+                                 params = { 
+                                                    unit_id=app.session.member.unit_id,
+                                                    area_id=app.session.member.area_id,
+                                                    page=page 
+                                               },
+                                 content=function()
+                                    
+                                      ui.heading
+                                      { 
+                                      level=4, attr = {class = "fittext_btn_wiz" },
+                                      content=function()
+                                          ui.container
+                                          {
+                                            attr={class="row-fluid"},
+                                            content=function()
+                                                ui.container
+                                                {
+                                                attr={class="span12"},
+                                                content=function()
+                                                slot.put(_"Save issue"  )
+                                                end 
+                                                }
+                                          end 
+                                          }
+                                          
+                                       end
+                                       } --fine heading
+                                    end-- fine tag.content
+                            } -- fine pulsante next
+                  
+                        end}
                     
+                   
                 end
             
             }-- fine pulsanti container
           
-                    
+            end}
+          end}
+        
+    end}
+  end}            
+  
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq_btn")); $(window).resize(function() { equalHeight($(".eq_btn")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
