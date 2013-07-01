@@ -502,7 +502,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                        {
                                                                             attr={id="issue_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
                                                                             name="initiative_title",
-                                                                            label=_"Issue Title",
+                                                                            label=_"Initiative Title",
                                                                             label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
                                                                             value=issue_title
                                                                        }
@@ -589,17 +589,13 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                     end
                                                                 }
                                                                                            
-                                                            
-                                                           local tmp
-                                                              tmp = { 
-                                                                        { id = 0, name = "<".._"Please choose a tecnical area"..">" }
-                                                                    }
+                                                          
                                                               
                                                              
-                                       ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                                        ui.container{attr={class="span12 text-center",style="margin-top: 12em; margin-left: 1em; "},content=function()
-                                        
-                                        local area={}
+                                                       ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                        ui.container{attr={class="span12 text-center",style="margin-top: 12em; margin-left: 1em; "},content=function()
+                                                        
+                                                                          local area={}
                       
                                                                           --valori di test
                                                                           local tmp

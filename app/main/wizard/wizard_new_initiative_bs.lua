@@ -347,7 +347,7 @@ end
 if indietro then
     trace.debug("indietro="..tostring(indietro))
     page_rendered=page-2
-    
+    page=page-1
     if page_rendered==0 then
      page=0
     end
