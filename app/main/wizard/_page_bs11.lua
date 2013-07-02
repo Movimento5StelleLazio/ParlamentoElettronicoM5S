@@ -62,13 +62,32 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         ui.hidden_field{name="indietro" ,value=false}
                         ui.hidden_field{name="proposer_hidden" ,value=false}
                         
+                        
+                        local proposer1
+                        local proposer2
+                        local proposer3
                         for i,k in ipairs(wizard) do
                           ui.hidden_field{name=k.name ,value=k.value}
                           if k.value then
                           trace.debug("[wizard] name="..k.name.." | value="..k.value)
+                          
+                          if k.name =="proposer1" then
+                          proposer1="true"
+                          end
+                          
+                          if k.name =="proposer2" then
+                          proposer2="true"
+                          end
+                          
+                          if k.name =="proposer3" then
+                          proposer3="true"
+                          end
+                          
+                          
                           end
                         end
                      
+                        
                         --contenuto
                        ui.container {
                                    attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
@@ -84,7 +103,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="1",
-                                                   label=_"Citiziens"
+                                                   label=_"Citiziens",
+                                                   selected=proposer1
                                               }
                                           }
                                           
@@ -95,7 +115,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="2",
-                                                   label=_"Elected M5S"
+                                                   label=_"Elected M5S",
+                                                   selected=proposer2
                                               }
                                           }
                                           
@@ -107,7 +128,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="3",
-                                                   label=_"Other groups"
+                                                   label=_"Other groups",
+                                                   selected=proposer1
                                               }
                                           }
                                                                         
