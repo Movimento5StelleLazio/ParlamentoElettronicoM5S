@@ -1,15 +1,15 @@
 
 function sendInitiative(page)
 {
-	 document.getElementById("policyChooser").selectedIndex;
-	  
-	  var _select = document.getElementById('policyChooser');
-	  var _policy_name = _select.options[_select.selectedIndex].innerHTML;
-	  var indice_id= document.getElementsByName(_policy_name)[0].value;
-	  var id= indice_id.substring(indice_id.indexOf("_")+1,indice_id.lenght);
-	  
+//	  document.getElementById("policyChooser").selectedIndex;
+//	  
+//	  var _select = document.getElementById('policyChooser');
+//	  var _policy_name = _select.options[_select.selectedIndex].innerHTML;
+//	  var indice_id= document.getElementsByName(_policy_name)[0].value;
+//	  var id= indice_id.substring(indice_id.indexOf("_")+1,indice_id.lenght);
+//	  
 	 
-	  document.getElementsByName("policy_id_hidden")[0].value=id;
+	  //document.getElementsByName("policy_id_hidden")[0].value=document.getElementById("issue_title").value;
 	  document.getElementsByName("issue_title_hidden")[0].value=document.getElementById("issue_title").value;
       document.getElementsByName("issue_brief_description_hidden")[0].value=document.getElementById("issue_short_description").innerHTML;
       document.getElementsByName("issue_keywords_hidden")[0].value=document.getElementById("issue_keywords").value;

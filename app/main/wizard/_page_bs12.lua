@@ -253,13 +253,29 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                       if #area_policies>0 then
                                                  for i, allowed_policy in ipairs(area_policies) do
                                                     dataSource[#dataSource+1] = {id=i, name=allowed_policy.name  }
-                                                    trace.debug("allowed_policy.id="..allowed_policy.id.."| policy_id="..policy_id)
+                                                    trace.debug("allowed_policy.id="..allowed_policy.policy_id.."| policy_id="..policy_id)
                                                     --
-                                                     ui.hidden_field{name=allowed_policy.name ,value=i.."_"..allowed_policy.id}
+                                                     ui.hidden_field{name=allowed_policy.name ,value=i.."_"..allowed_policy.policy_id}
                                                     
-                                                    if tonumber(allowed_policy.id)==tonumber(policy_id) then
-                                                      index=i
-                                                      trace.debug("index="..index)
+                                                    if tonumber(allowed_policy.policy_id)==tonumber(policy_id) then
+                                                      
+                                                      if i==1 then
+                                                        selected1="true"
+                                                        trace.debug("selected1="..selected1)
+                                                   end
+                                                    if i==2 then
+                                                        selected2="true"
+                                                        trace.debug("selected2="..selected2)
+                                                   end
+                                                   if i==3  then
+                                                     selected3="true"
+                                                     trace.debug("selected3="..selected3)
+                                                   end
+                                                          
+                                                        
+                                                        
+                                                        
+                                                      
                                                     end
                                                     
                                                  end   
@@ -270,6 +286,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             {
                                               attr={class="formSelect",style="height:50px"},
                                               content=function()
+                                              --[[
                                               ui.field.select{
                                                         attr = { id = "policyChooser", style="width: 54%;height:38px;position:relative;text-align: left;float: left;margin-left: 40px;" },
                                                         label =  "REGOLA:",
@@ -280,7 +297,67 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                         foreign_name = "name",
                                                         selected_record=tonumber(index)
                                                       }
-                                                      
+                                                  ]]--
+                                                  
+                                                 --contenuto
+                       ui.container {
+                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
+                                   content=function()
+                                   ui.container
+                                           {
+                                          attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
+                                          content=function()
+                                            --1 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag1",
+                                              params={
+                                                   imgId=tostring(1),
+                                                   id_checkbox=tostring(dataSource[2].id),
+                                                   label= "URGENTE (1 Settimana)",
+                                                   selected=selected1
+                                                    
+                                              }
+                                          }
+                                          
+                                          --2 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag1",
+                                              params={
+                                                   imgId=tostring(2),
+                                                   id_checkbox=tostring(dataSource[3].id),
+                                                   label="NORMALE (1 Mese)",
+                                                   selected=selected2
+                                                   
+                                              }
+                                          }
+                                          
+                                          
+                                          --3 proposer
+                                          execute.view
+                                          {
+                                              module="wizard",
+                                              view="_checkbox_bs_pag1",
+                                              params={
+                                                   imgId=tostring(3),
+                                                   id_checkbox=tostring(dataSource[4].id),
+                                                   label="TEMPI LUNGHI (6 Mesi)",
+                                                   selected=selected3
+                                                   
+                                              }
+                                          }
+                                                                        
+                                          end
+                                          }
+                                end
+                                }  --fine div contento  
+                                                  
+                                                  
+                                                  
+                                                    
                                                end
                                                }       
                                         ui.tag{
