@@ -223,6 +223,7 @@ request.redirect{
  request.redirect{
   module = "issue",
   view = "show_ext_bs",
+  params={view="homepage"},
   id=issue.id
 }
 
