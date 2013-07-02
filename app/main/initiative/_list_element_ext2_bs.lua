@@ -32,7 +32,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             view = "show",
             content = function()
               ui.heading{level=5,attr={class=""},content=function()
-                slot.put(_"Read")
+                slot.put(_"Read".." p"..initiative.id)
               end }
             end
           }
@@ -125,7 +125,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             name = encode.html(initiative.shortened_name)
           end
           ui.heading{ level=6, content =function()
-            ui.tag{tag="strong",content= "i" .. initiative.id .. ": "..name }
+            ui.tag{tag="strong",content= "p" .. initiative.id .. ": "..name }
           end }
         end,
         module  = "initiative",
