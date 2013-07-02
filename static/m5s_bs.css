@@ -5,14 +5,13 @@ body {
 */
   background-color: #ffffff;
   min-width: 768px;
+  font-weight: normal;
 }
 
-/*
 a{
  color: #000000;
  text-decoration: none !important
 }
-*/
 
 .footer, .push {
   height: 3em;

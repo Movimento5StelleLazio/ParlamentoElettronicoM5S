@@ -59,7 +59,10 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
     ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span12"},content=function()
-        ui.heading{level=1, content=_("Welcome #{realname}.", {realname = app.session.member.realname})}
+        ui.heading{level=1, content=function()
+          slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = app.session.member.realname}))
+        end }
+
         ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
         ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
       end }

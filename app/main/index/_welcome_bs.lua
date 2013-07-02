@@ -47,7 +47,7 @@ if app.session.member_id then
           ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
   
             ui.container{attr = {class = "row-fluid" },content = function()
-              ui.container{ attr = { class  = "span10 text-center" }, content = function()
+              ui.container{ attr = { class  = "span9 text-center" }, content = function()
   
                 ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
@@ -74,11 +74,11 @@ if app.session.member_id then
   
               end }
   
-              ui.container{ attr = { class  = "span2 text-center" }, content = function()
+              ui.container{ attr = { class  = "span3 text-center" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary btn-mini table-cell",
+                    class = "btn btn-primary table-cell",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
@@ -101,7 +101,7 @@ if app.session.member_id then
           ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
             ui.container{attr = {class = "row-fluid" },content = function()
   
-              ui.container{ attr = { class  = "span10 text-center" }, content = function()
+              ui.container{ attr = { class  = "span9 text-center" }, content = function()
                 ui.container{attr = {class = "row-fluid" },content = function()
   
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
@@ -133,11 +133,11 @@ if app.session.member_id then
   
               end }
   
-              ui.container{ attr = { class  = "span2 text-center" }, content = function()
+              ui.container{ attr = { class  = "span3 text-center" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary btn-mini table-cell", 
+                    class = "btn btn-primary table-cell", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()

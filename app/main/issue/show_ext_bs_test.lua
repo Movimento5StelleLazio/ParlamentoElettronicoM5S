@@ -124,9 +124,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
-        ui.container{attr={class="pull-right"}, content=function()
-          execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state,size="" } }
-        end }
+        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state,size="auto" } }
       end }
     end }
   end }
@@ -279,7 +277,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         --[[
         local btna, btnb = "",""
         if init_ord == "supporters" then btna = " active" end
-        if init_ord == "event" then btnb = " active" end
+        if init_ord == "date" then btnb = " active" end
         --]]
 
         ui.container{attr = {class="row-fluid"}, content =function()
@@ -303,7 +301,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               module = request.get_module(), 
               id = issue.id,
               view = request.get_view(),
-              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" }, 
+              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="date" }, 
               content = function()
                 ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
               end
@@ -326,22 +324,27 @@ ui.container{attr={class="row-fluid"}, content=function()
               initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
             end
 
+            if init_ord == "supporters" then
+              initiatives_selector:add_order_by("supporter_count DESC")
+            elseif init_ord == "date" then
+              initiatives_selector:add_order_by("id")
+            end
+
+
             execute.view{
               module = "initiative",
-              view = "_list_ext2_bs",
-              id = issue.id,
+              view = "_list_ext_bs",
               params = {
---                issue = issue,
---                initiatives_selector = initiatives_selector,
---                highlight_initiative = for_initiative,
---                highlight_string = highlight_string,
---                no_sort = true,
---                limit = (for_listing or for_initiative) and 5 or nil,
---                hide_more_initiatives=false,
---                limit=25,
---                for_details=true,
---                for_member = for_member,
-                init_ord=init_ord
+                issue = issue,
+                initiatives_selector = initiatives_selector,
+                highlight_initiative = for_initiative,
+                highlight_string = highlight_string,
+                no_sort = true,
+                limit = (for_listing or for_initiative) and 5 or nil,
+                hide_more_initiatives=false,
+                limit=25,
+                for_details=true,
+                for_member = for_member
               }
             }
 
