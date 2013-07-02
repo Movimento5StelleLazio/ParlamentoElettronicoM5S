@@ -174,7 +174,15 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"By user:" }
         end }
-        slot.put("user image")
+      end }
+    end }
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span6"}, content = function()
+        if issue.member_id > 0 then
+          execute.view{ module="member", view="_info_data", id=issue.member_id }
+        else
+          ui.heading{ level=6, content = _"No author for this issue" }
+        end
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
@@ -187,9 +195,10 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        for i=1,5,1 do 
+        keywords={"lavoro","scuola","educazione","finanza"}
+        for i,k in ipairs(keywords) do
           ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = "keyword"}
+            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
@@ -204,9 +213,10 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        for i=1,3,1 do 
+        areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
+        for i,k in ipairs(areas) do
           ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
-            ui.heading{ level=6, attr = { class = "uppercase" },content = "area"}
+            ui.heading{ level=6, attr = { class = "uppercase" },content = k}
           end }
         end
       end }
@@ -246,7 +256,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               content= _"initiatives"
             end
 
-            ui.tag{content= _("Vi sono attualmente #{count} #{initiatives} per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, initiatives=content}) }
+            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=content}) }
           end }
 
           ui.container{ attr = { class = "span3"}, content = function()
@@ -339,7 +349,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 --                limit = (for_listing or for_initiative) and 5 or nil,
 --                hide_more_initiatives=false,
 --                limit=25,
---                for_details=true,
+                for_details=true,
 --                for_member = for_member,
                 init_ord=init_ord
               }
