@@ -127,23 +127,31 @@ ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFon
 btns = {
   default_state = 'any',
   state = {
-    "any",
-    "open",
-    "admission",
-    "discussion",
-    "verification",
-    "voting",
-    "committee",
-    "closed",
-    "canceled"
+    { 
+      "any",
+      "open",
+      "admission",
+      "discussion",
+      "verification"
+    },
+    {
+      "voting",
+      "committee",
+      "closed",
+      "canceled"
+    }
   },
   default_scope = "all_units",
   scope = {
-    "all_units",
-    "my_units",
-    "citizens",
-    "electeds",
-    "others"
+    {
+      "all_units",
+      "my_units",
+      "citizens"
+    },
+    {
+      "electeds",
+      "others"
+    }
   }
 }
 
@@ -152,7 +160,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.chunk{
       module = "issue" ,
-      chunk = "_filters_btn_bs" ,
+      chunk = "_filters_btn2_bs" ,
       params = {
         state = state,
         orderby = orderby,
