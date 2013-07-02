@@ -43,15 +43,17 @@ ui.container{attr={class="row-fluid"},content=function()
                                             ui.container{ attr = { class  = "row-fluid" }, content = function()
                                               ui.container{ attr = { class  = "span12 text-center"  }, content = function()
                                               
-                                                ui.link{
-                                                  attr = { class="btn btn-primary btn-large large_btn table-cell" ,style="width: 9em; float: left;"},
+                                                ui.tag{
+                                                  tag="a",
+                                                  attr = { class="btn btn-primary btn-large large_btn table-cell" ,style="width: 9em; float: left;",onclick="window.history.back()"},
                                                   module = "wizard",
                                                   view = "wizard_new_initiative_bs",
                                                   params={
                                                     area_id=area_id,
                                                     unit_id=unit_id,
-                                                    page=11
-                                                     },
+                                                    page=12,
+                                                    indietro=true
+                                                    },
                                                   content = function()
                                                     ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
                                                       ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}

@@ -1,3 +1,15 @@
+
+if param.get("indietro")=="true" then
+
+return request.redirect{
+  module = "wizard",
+  view = "show_ext_bs",
+  id=issue.id
+}
+
+
+end
+
 local issue
 local area
 
@@ -86,6 +98,7 @@ if not issue then
   issue = Issue:new()
   issue.area_id = area.id
   issue.policy_id = policy_id
+  issue.member_id=app.session.member_id
   issue.title=param.get("issue_title")
   issue.brief_description=param.get("issue_brief_description")
   issue.problem_description=param.get("problem_description")
