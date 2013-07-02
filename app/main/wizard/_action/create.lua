@@ -1,3 +1,15 @@
+
+if param.get("indietro")=="true" then
+
+return request.redirect{
+  module = "wizard",
+  view = "show_ext_bs",
+  id=issue.id
+}
+
+
+end
+
 local issue
 local area
 

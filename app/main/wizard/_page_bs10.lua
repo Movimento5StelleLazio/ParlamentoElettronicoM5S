@@ -89,7 +89,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         end
                     
                        --contenuto
-                       
+                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                     ui.container{attr={class="span12 text-center"},content=function()      
                        --1* selezione
                        ui.container
                         {
@@ -392,12 +393,18 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         
                      end
                 }--fine form
-                     
+            
+            
+            end}
+            end}         
      
   end }
 end }
 
-
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq_btn")); $(window).resize(function() { equalHeight($(".eq_btn")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
  
 
 ui.container{attr={class="row-fluid"},content=function()

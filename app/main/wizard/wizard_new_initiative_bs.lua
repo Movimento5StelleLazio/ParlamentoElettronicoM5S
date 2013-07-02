@@ -229,18 +229,45 @@ if page==11 then
    objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
    objParam[#objParam+1]= {name="draft",value=param.get("draft")}
    objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
-   else
+--   else
+--   
+--   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
+--   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+--   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
+--   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
+--   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
+--   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
+--   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
+--   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
+--   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
+--   objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
    
-   objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-   objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
-   objParam[#objParam+1]= {name="issue_brief_description",value=param.get("issue_brief_description")}
-   objParam[#objParam+1]= {name="issue_keywords",value=param.get("issue_keywords")}
-   objParam[#objParam+1]= {name="problem_description",value=param.get("problem_description")}
-   objParam[#objParam+1]= {name="aim_description",value=param.get("aim_description")}
-   objParam[#objParam+1]= {name="initiative_title",value=param.get("initiative_title")}
-   objParam[#objParam+1]= {name="initiative_brief_description",value=param.get("initiative_brief_description")}
-   objParam[#objParam+1]= {name="draft",value=param.get("draft")}
-   objParam[#objParam+1]= {name="technical_area_1",value=param.get("technical_area_1")}
+   
+   
+   
+   local value=""
+   local proposer=""
+   if param.get("proposer_hidden_1") then
+   
+         value=param.get("proposer_hidden_1")
+         proposer="proposer1"
+   end
+   if  param.get("proposer_hidden_2") then
+   
+         value=param.get("proposer_hidden_2")
+         proposer="proposer2"
+   end
+   if  param.get("proposer_hidden_3") then
+       
+         value=param.get("proposer_hidden_3")
+         proposer="proposer3"
+    
+   end
+   
+   objParam[#objParam+1]= {name=proposer,value=value}
+   
+   
+   
    end 
 
 
