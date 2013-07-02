@@ -22,16 +22,18 @@ function AllowedPolicy:get_policy_by_area_id(area_id)
     
     local _sel=AllowedPolicy:new_selector()
     :add_where{ "area_id = ?",area_id }
-    :add_where{ "default_policy=?",true}
-    :optional_object_mode()
+    --:add_where{ "default_policy=?",true}
+    
     :exec()
     trace.debug("_sel="..#_sel)
     
     
-    local _selector=Policy:new_selector()
-    :add_where{"id=?",_sel.policy_id}
-    :exec()
-     trace.debug("_selector="..#_selector)
-    return _selector
+--    local _selector=Policy:new_selector()
+--    :add_where{"id=?",_sel.policy_id}
+--    :exec()
+--     trace.debug("_selector="..#_selector)
+--    return _selector
+--    
+    return _sel
 end
  
