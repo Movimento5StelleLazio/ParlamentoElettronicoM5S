@@ -54,6 +54,7 @@ a{
 }
 .medium_btn  {
     max-width:200px;
+    min-height: 50px;
 }
 .small_btn  {
     max-width:180px;

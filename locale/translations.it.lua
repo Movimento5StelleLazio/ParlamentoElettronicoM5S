@@ -23,6 +23,7 @@ return {
 ["Details for issue Q"]="Dettagli questione Q";
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
+["No author for this issue"]="Nessun autore per questa questione";
 ["Select"]="Seleziona";
 ["Issue created at:"]="Questione sollevata il:";
 ["Time limit to reach the supporters quorum:"]="Data limite per raggiungere il quorum di sostenitori:";
