@@ -152,17 +152,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*
-  Initiative
-*/
-
-.initiative_list_box {
-    max-height: 16em;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-
-/*
   Bargraph
 */
 .progress {
@@ -232,6 +221,31 @@ h1, h2, h3, h4, h5, h6 {
 /*
   Initiative
 */
+
+
+.initiative_list_out_box {
+    position: relative;
+}
+
+.initiative_list_box {
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding-top: 80px;
+}
+
+.initiative_quorum_out_box {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+.initiative_quorum_box {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
 
 .btn_read_initiative {
   position: relative;

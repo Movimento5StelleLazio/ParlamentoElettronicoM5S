@@ -34,7 +34,7 @@ end
 --ui.container{ attr = { class = "phases_out_box"}, content = function()
 ui.container{ attr = { class = "phases_in_box"}, content = function()
 
-ui.container{ attr = { class = "phases_box autoresize"}, content = function()
+ui.container{ attr = { class = "phases_box phasesbar_autoresize"}, content = function()
   ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
   ui.image{  attr = { class = "phases_bar" }, static = "svg/phases_bar_it.svg"..svgz }
 
@@ -52,5 +52,5 @@ end }
 
 ui.script{static = "js/jquery.sizes.js"}
 ui.script{static = "js/jquery.scalebar.js"}
-ui.script{script = "jQuery('.autoresize').scalebar(); " }
+ui.script{script = "jQuery('.phasesbar_autoresize').scalebar(); " }
 

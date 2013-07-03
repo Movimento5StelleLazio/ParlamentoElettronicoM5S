@@ -251,7 +251,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               content= _"initiatives"
             end
 
-            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=content}) }
+            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days="n giorni"}) }
           end }
 
           ui.container{ attr = { class = "span4"}, content = function()
@@ -320,7 +320,22 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
 
     ui.container{attr = {class="row-fluid spaceline"}, content =function()
+
       ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
+
+--        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
+--          ui.container{attr = {class="initiative_quorum_box"}, content =function()
+--            slot.put("test")
+--          end }
+--        end }
+
+
+        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
+          ui.container{attr = {class="initiative_quorum_box"}, content =function()
+            slot.put("test")
+          end }
+        end }
+
 
         ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span12"}, content =function()
