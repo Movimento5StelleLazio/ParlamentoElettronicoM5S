@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #ffffff;
   border: 2px solid black;
   .border-radius(@radius: 3px);
+//  background-image: url(../paper_tile.png);
 }
 
 .well {
@@ -116,6 +117,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: none;
   .box-shadow(0px 3px 7px grey);
   color: #000000;
+  border: 2px solid #CACAC9;
 }
 
 .label-area {
@@ -225,5 +227,49 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     margin: 0.2em;
     vertical-align: middle;
+}
+
+/*
+  Initiative
+*/
+
+.btn_read_initiative {
+  position: relative;
+}
+
+.event_star_txt_box, .event_star, .event_star_out_box {
+  position: absolute;
+  height: 52px;
+  width: 52px;
+}
+
+.event_star_txt_box {
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+}
+
+.event_star_txt {
+  font-size: 10px;
+  line-height: 52px;
+  vertical-align: middle;
+  text-transform: none;
+}
+
+.event_star_out_box {
+  right: -22px;
+  top: -22px;
+}
+
+.event_star_in_box {
+  height: 52px;
+  width: 52px;
+}
+
+.event_star {
+  position: absolute;
+  z-index: 180;
+  top: 0;
+  left: 0;
 }
 

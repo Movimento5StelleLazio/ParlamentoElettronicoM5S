@@ -106,12 +106,11 @@ a{
     padding-right: 8px;
 }
 
-.write {
+.pen_paper {
    vertical-align: middle;
-   height: 60px;
-   width: 60px;
-   padding-left: 8px;
-   padding-right: 8px;
+   margin-top: 10px;
+   max-height: 75px;
+//   width: 68px;
 }
 
 .btn_margin {
@@ -121,10 +120,6 @@ a{
 #social_box {
   margin-left: 0;
 }
-
-/*
-  Initiative
-*/
 
 
 /*

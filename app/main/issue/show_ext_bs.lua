@@ -99,6 +99,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
+--[[
             slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
           end }
         end }
@@ -110,6 +111,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
             slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
+--]]
           end }
         end }
       end }
@@ -178,7 +180,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span10"}, content = function()
-        if issue.member_id > 0 then
+        if issue.member_id and issue.member_id > 0 then
           execute.view{ module="member", view="_info_data", id=issue.member_id }
         else
           ui.heading{ level=6, content = _"No author for this issue" }
@@ -249,7 +251,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span9"}, content = function()
+          ui.container{ attr = { class = "span8"}, content = function()
             if #issue.initiatives == 1 then
               content= _"initiative"
             else
@@ -259,7 +261,7 @@ ui.container{attr={class="row-fluid"}, content=function()
             ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=content}) }
           end }
 
-          ui.container{ attr = { class = "span3"}, content = function()
+          ui.container{ attr = { class = "span4"}, content = function()
             ui.link{
               attr = { class="btn btn-primary spaceline btn_box_bottom"  },
               module = "wizard",
@@ -268,11 +270,11 @@ ui.container{attr={class="row-fluid"}, content=function()
               content = function()
 
                   ui.container{ attr = { class = "row-fluid"}, content = function()
-                    ui.container{ attr = { class = "span2"}, content = function()
-                      ui.image{ attr = { class="write"}, static="svg/write.svg"}
+                    ui.container{ attr = { class = "span4"}, content = function()
+                      ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
                     end }
-                    ui.container{ attr = { class = "span10 text-right"}, content = function()
-                      ui.heading{level=6,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                    ui.container{ attr = { class = "span6"}, content = function()
+                      ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
                     end }
                   end }
 
@@ -364,7 +366,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '13px', maxFontSize: '32px'}); " }
+--ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '16px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
