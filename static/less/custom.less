@@ -33,13 +33,16 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: none;
 }
 
+.paper {
+  background-image: url(../paper_tile.png);
+}
+
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
   border: 2px solid black;
   .border-radius(@radius: 3px);
-//  background-image: url(../paper_tile.png);
 }
 
 .well {
@@ -76,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
-  border: 1px solid black;
+  border: 1px solid #f5c388;
   margin: 0;
 }
 .head-chocolate {
@@ -137,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;
-  #gradient > .vertical(lighten(@black,20%), @black );
+  #gradient > .vertical(lighten(@black,30%), @black );
   border-radius: 16px 16px 0 0;
   padding: 8px;
   overflow: hidden;
@@ -183,6 +186,7 @@ h1, h2, h3, h4, h5, h6 {
   Thumb & voting
 */
 .issue_vote_box {
+    background: white;
     text-align: center;
     display: inline-block;
     white-space: nowrap;

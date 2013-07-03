@@ -5,7 +5,7 @@ local for_details = param.get("for_details", "boolean") or false
 
 local class =""
 if for_details then
-  class = " alert alert-simple initiative_box"
+  class = " alert alert-simple initiative_box paper"
 end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()

@@ -128,7 +128,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 end }
 
 ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 alert alert-simple issue_box"}, content=function()
+  ui.container{attr={class="span12 alert alert-simple issue_box paper"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag{tag="strong",content=function()
@@ -328,14 +328,6 @@ ui.container{attr={class="row-fluid"}, content=function()
 --            slot.put("test")
 --          end }
 --        end }
-
-
-        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
-          ui.container{attr = {class="initiative_quorum_box"}, content =function()
-            slot.put("test")
-          end }
-        end }
-
 
         ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span12"}, content =function()
