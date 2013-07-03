@@ -143,10 +143,20 @@ a{
 /*
   Phase bar
 */
+.phases_out_box {
+}
+  
+
+.phases_in_box {
+  position: relative;
+}
+
 .phases_box {
+  position: absolute;
+  left: 0;
   //  display: inline-block;
-    margin-bottom: -26px;
-    margin-right: -10px;
+//    margin-bottom: -26px;
+//    margin-right: -10px;
     height: 160px;
     width: 520px;
 }

@@ -30,11 +30,6 @@ end
 
 local url=request.get_absolute_baseurl().."issue/show/show_ext2_bs/"..tostring(issue.id)..".html"
 
---local creator_id,min_init
---for i, initiative in ipairs(issue.initiatives) do
-  
---end
-
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -126,9 +121,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
-        ui.container{attr={class="pull-right"}, content=function()
-          execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state,size="" } }
-        end }
+        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }
       end }
     end }
   end }
