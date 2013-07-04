@@ -1,4 +1,5 @@
 slot.set_layout("m5s_bs")
+
 local issue = Issue:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby") or ""
@@ -236,52 +237,60 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+
+-- 
+
+    
+	    
+
+
+	ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+    ui.container{attr = {class="row-fluid"}, content =function()
+      ui.container{attr = {class="span12 alert alert-simple issue_txt_box"}, content =function()
+
+
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span8"}, content = function()
-            if #issue.initiatives == 1 then
-              content= _"initiative"
-            else
-              content= _"initiatives"
-            end
-
-            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days="n giorni"}) }
-          end }
-
-          ui.container{ attr = { class = "span4"}, content = function()
-            ui.link{
-              attr = { class="btn btn-primary spaceline btn_box_bottom"  },
-              module = "wizard",
-              params = { issue_id=issue.id},
-              view = "new",
-              content = function()
-
-                  ui.container{ attr = { class = "row-fluid"}, content = function()
-                    ui.container{ attr = { class = "span4"}, content = function()
-                      ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
-                    end }
-                    ui.container{ attr = { class = "span6"}, content = function()
-                      ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
-                    end }
-                  end }
-
-              end
-            }
+          ui.container{ attr = { class = "span12 alert label-area"}, content = function()
+            ui.container{ attr = { class = "row-fluid"}, content = function()
+              ui.container{ attr = { class = "span8"}, content = function()
+                if #issue.initiatives == 1 then
+                  content= _"initiative"
+                else
+                  content= _"initiatives"
+                end
+    
+                ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days="n giorni"}) }
+              end }
+    
+              ui.container{ attr = { class = "span4"}, content = function()
+                ui.link{
+                  attr = { class="btn btn-primary spaceline btn_box_bottom"  },
+                  module = "wizard",
+                  params = { issue_id=issue.id},
+                  view = "new",
+                  content = function()
+    
+                      ui.container{ attr = { class = "row-fluid"}, content = function()
+                        ui.container{ attr = { class = "span4"}, content = function()
+                          ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
+                        end }
+                        ui.container{ attr = { class = "span6"}, content = function()
+                          ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                        end }
+                      end }
+    
+                  end
+                }
+              end }
+            end }
           end }
         end }
-      end }
-    end }
-
-    ui.container{attr = {class="row-fluid spaceline"}, content =function()
-      ui.container{attr = {class="span12 text-center"}, content =function()
-
-        --[[
+		
+		--[[
         local btna, btnb = "",""
         if init_ord == "supporters" then btna = " active" end
         if init_ord == "event" then btnb = " active" end
@@ -313,23 +322,15 @@ ui.container{attr={class="row-fluid"}, content=function()
             end }
           end }
         end }
-
-        
-      end }
-    end }
-
-    ui.container{attr = {class="row-fluid spaceline"}, content =function()
-
-      ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
-
+		
 --        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
 --          ui.container{attr = {class="initiative_quorum_box"}, content =function()
 --            slot.put("test")
 --          end }
 --        end }
 
-        ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12"}, content =function()
+        ui.container{attr = {class="row-fluid spaceline2"}, content =function()
+          ui.container{attr = {class="span12 initiative_list_box"}, content =function()
 
             local initiatives_selector = issue:get_reference_selector("initiatives")
             local highlight_string = param.get("highlight_string")
