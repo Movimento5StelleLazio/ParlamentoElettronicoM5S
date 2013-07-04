@@ -83,16 +83,15 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
                 local c=initiative.negative_votes
     
                 local ap,bp,cp
-                if a>0 then ap=a * 100 / max_value else ap = 0 end
-                if b>0 then bp=b * 100 / max_value else bp = 0 end
-                if c>0 then cp=c * 100 / max_value else cp = 0 end
-                local positive_votes_percent = round( a * 100 /max_value, 2) or 0
+                if a>0 then ap=round(a * 100 / max_value, 2) else ap = 0 end
+                if b>0 then bp=round(b * 100 / max_value, 2) else bp = 0 end
+                if c>0 then cp=round(c * 100 / max_value, 2) else cp = 0 end
     
                 ui.container{ attr = { class = "row-fluid" }, content = function()
                   ui.container{ attr = { class = "span12" }, content = function()
                     ui.container{ attr = { class = "progress progress-striped active" }, content=function()
                       ui.container{ attr = {class = "progress_bar_txt"}, content=function()
-                        ui.container{ attr = {class = "text-center"}, content=positive_votes_percent.."%" }
+                        ui.container{ attr = {class = "text-center"}, content=ap.."%" }
                       end }
                       ui.container{ attr = {class = "bar bar-success text-center", style = "width:"..ap.."%"}, content=""}
                       ui.container{ attr = {class = "bar bar-neutral text-center", style = "width:"..bp.."%"}, content=""}
@@ -103,7 +102,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
                 if for_details then
                   ui.container{ attr = { class = "row-fluid" }, content = function()
                     ui.container{ attr = { class = "span12 text-center" }, content = function()
-                      ui.heading{level=6, content=a.." ".._"Yes".." / "..c.." ".._"No"}
+                      ui.heading{level=6, attr = { class = "votes_count_txt" }, content=a.." ".._"Yes".." / "..c.." ".._"No"}
                     end }
                   end }
                 end
@@ -133,19 +132,18 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               local a=(initiative.satisfied_supporter_count or 0)
               local b=(initiative.supporter_count or 0) - (initiative.satisfied_supporter_count or 0)
               local c= max_value - (initiative.supporter_count or 0)
-              local supporters_percent = round( initiative.supporter_count * 100 /max_value, 2) or 0
     
               local ap,bp,cp
-              if a>0 then ap=a * 100 / max_value else ap = 0 end
-              if b>0 then bp=b * 100 / max_value else bp = 0 end
-              if c>0 then cp=c * 100 / max_value else cp = 0 end
+              if a>0 then ap=round(a * 100 / max_value, 2) else ap = 0 end
+              if b>0 then bp=round(b * 100 / max_value, 2) else bp = 0 end
+              if c>0 then cp=round(c * 100 / max_value, 2) else cp = 0 end
               
               ui.container{ attr = { class = "row-fluid" }, content = function()
                 ui.container{ attr = { class = "span12" }, content = function()
     
                   ui.container{ attr = { class = "progress progress-striped active" }, content=function()
                     ui.container{ attr = {class = "progress_bar_txt"}, content=function()
-                      ui.container{ attr = {class = "text-center"}, content= supporters_percent .."%" }
+                      ui.container{ attr = {class = "text-center"}, content= ap .."%" }
                     end }
                     ui.container{ attr = {class = "bar bar-success", style = "width:"..ap.."%"}, content=""}
                     ui.container{ attr = {class = "bar bar-neutral", style = "width:"..bp.."%"}, content=""}
@@ -157,7 +155,23 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               if for_details then
                 ui.container{ attr = { class = "row-fluid" }, content = function()
                   ui.container{ attr = { class = "span12 text-center" }, content = function()
-                    ui.heading{level=6, content=a.." ".._"Supporters".." ("..b.." ".._"Potential supporters"..")"}
+                    local supp_txt 
+                    local pot_supp_txt
+
+                    if a == 1 then
+                      supp_txt = _"Supporter"
+                    else
+                      supp_txt = _"Supporters"
+                    end
+                    
+                    if b == 1 then
+                      pot_supp_txt = _"Potential supporter"
+                    else
+                      pot_supp_txt = _"Potential supporters"
+                    end
+
+                    ui.heading{level=6, attr = { class = "votes_count_txt" }, content=a.." "..supp_txt}
+                    ui.heading{level=6, attr = { class = "votes_count_txt" }, content="("..b.." "..pot_supp_txt..")"}
                   end }
                 end }
               end
