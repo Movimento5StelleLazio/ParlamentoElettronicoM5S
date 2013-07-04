@@ -1,5 +1,14 @@
 local member = Member:by_id(param.get_id())
 
+if not member then
+  ui.container{attr={class="row-fluid"}, content=function()
+    ui.container{attr={class="span12 alert member_data"}, content=function()
+      ui.heading{level=6,content=_"Inhexistent author"}
+    end }
+  end }
+  return true
+end
+
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 alert member_data"}, content=function()
     ui.container{attr={class="row-fluid"}, content=function()

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="52.219254"
+   height="51.981163"
+   id="svg6572"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="New document 8">
+  <defs
+     id="defs6574">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6174"
+       id="linearGradient6182"
+       x1="-29.753717"
+       y1="579.48773"
+       x2="-30.061226"
+       y2="501.85233"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient6174">
+      <stop
+         style="stop-color:#14bd14;stop-opacity:1;"
+         offset="0"
+         id="stop6176" />
+      <stop
+         style="stop-color:#14d714;stop-opacity:1;"
+         offset="1"
+         id="stop6178" />
+    </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter6534"
+       inkscape:label="Drop shadow"
+       width="1.5"
+       height="1.5"
+       x="-0.25"
+       y="-0.25">
+      <feGaussianBlur
+         id="feGaussianBlur6536"
+         in="SourceAlpha"
+         stdDeviation="1.5"
+         result="blur" />
+      <feColorMatrix
+         id="feColorMatrix6538"
+         result="bluralpha"
+         type="matrix"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.436 0 " />
+      <feOffset
+         id="feOffset6540"
+         in="bluralpha"
+         dx="4.57967e-15"
+         dy="1.8"
+         result="offsetBlur" />
+      <feMerge
+         id="feMerge6542">
+        <feMergeNode
+           id="feMergeNode6544"
+           in="offsetBlur" />
+        <feMergeNode
+           id="feMergeNode6546"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient
+       y2="501.85233"
+       x2="-30.061226"
+       y1="579.48773"
+       x1="-29.753717"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient6570"
+       xlink:href="#linearGradient6174"
+       inkscape:collect="always" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.5"
+     inkscape:cx="27.018718"
+     inkscape:cy="25.263302"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1171"
+     inkscape:window-height="686"
+     inkscape:window-x="40"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata6577">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-4.9812821,-5.282138)">
+    <path
+       transform="matrix(0.52928044,0,0,0.52928044,46.920349,-254.89335)"
+       d="m -5.2655366,562.89325 -1.3447802,9.69842 -9.6680092,-1.54833 -5.17322,8.31297 -8.202403,-5.3468 -8.107163,5.49014 -5.318527,-8.22077 -9.639303,1.71802 -1.515029,-9.67329 -9.504721,-2.35117 2.550432,-9.4532 -7.726686,-6.01383 6.174899,-7.59857 -4.612637,-8.63663 8.731671,-4.43009 -0.701021,-9.76608 9.778656,-0.49559 3.331808,-9.20689 9.134825,3.52459 6.788537,-7.05575 6.911497,6.93534 9.071467,-3.68459 3.49311,9.14691 9.7858568,0.32365 -0.5292673,9.77689 8.8081835,4.27594 -4.4601299,8.71636 6.3074954,7.48888 -7.6197957,6.14869 2.7161841,9.40692 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="0.93368951"
+       sodipodi:arg1="0.72425"
+       sodipodi:r2="39.223854"
+       sodipodi:r1="32.948036"
+       sodipodi:cy="541.06274"
+       sodipodi:cx="-29.943502"
+       sodipodi:sides="15"
+       id="path5354"
+       style="color:#000000;fill:url(#linearGradient6570);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter6534);enable-background:accumulate"
+       sodipodi:type="star"
+       inkscape:export-filename="/Users/Emanuele/Documents/Progetto Liquid Feedback GitHub Wiki/design pagina dettagli proposta2.png"
+       inkscape:export-xdpi="154.0974"
+       inkscape:export-ydpi="154.0974" />
+  </g>
+</svg>
