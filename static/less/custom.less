@@ -122,6 +122,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #000000;
 }
 
+.initiatives_for_issue_box {
+  background: @lightgoldenrodyellow;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+  text-shadow: none;
+  .box-shadow(0px 5px 7px grey);
+  color: #000000;
+}
+
 .label-area {
   padding: 3px;
   overflow: hidden;
@@ -151,6 +159,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .issue_txt_box, .issue_listing_box {
   .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
+}
+
+
+.depression_box {
+  .box-shadow(~"inset 0px 5px 7px rgba(0,0,0,.45)");
+  padding: 14px 14px 14px 14px;
+  margin-bottom: @baseLineHeight;
+  background-color: #FFFFFF;
+  .border-radius(@baseBorderRadius);
 }
 
 /*

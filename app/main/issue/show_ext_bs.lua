@@ -223,7 +223,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+      ui.container{ attr = { class = "span12 depression_box"}, content = function()
         ui.tag{content=issue.problem_description  or _"No description available" }
       end }
     end }
@@ -233,7 +233,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+      ui.container{ attr = { class = "span12 depression_box"}, content = function()
         ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
@@ -250,7 +250,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{attr = {class="row-fluid"}, content =function()
-      ui.container{attr = {class="span12 alert alert-simple issue_txt_box"}, content =function()
+      ui.container{attr = {class="span12 depression_box"}, content =function()
 
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
