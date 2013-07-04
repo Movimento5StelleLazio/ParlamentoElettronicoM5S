@@ -33,11 +33,15 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: none;
 }
 
+.paper {
+  background-image: url(../paper_tile.png);
+}
+
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 2px solid black;
+  border: 2px solid #666666;
   .border-radius(@radius: 3px);
 }
 
@@ -73,25 +77,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.location_data {
-  padding: 15px;
-  .box-shadow(0px 3px 7px grey);
-  text-shadow: none;
-  border: 1px solid black;
-  .border-radius(@radius: 3px);
-  background: @lightgoldenrodyellow;
-  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
-}
-
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
-  border: 1px solid black;
+  border: 1px solid #f5c388;
   margin: 0;
 }
 .head-chocolate {
   color: #ffffff;
   background: @chocolate;
-  #gradient > .vertical(@chocolate, darken(@chocolate,5%) );
+  #gradient > .vertical(#F17018, #a3490e);
 }
 .head-darkorange {
   background: @darkorange;
@@ -99,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .head-orange {
   background: @orange;
-  #gradient > .vertical(@orange, darken(@orange,5%) );
+  #gradient > .vertical(#FAD073,#e69d00 );
 }
 
 /*
@@ -107,41 +101,38 @@ h1, h2, h3, h4, h5, h6 {
 */
 
 .member_img_bs {
-  margin: 5px;
-  border: 1px solid @orange;
+  //border: 1px solid @orange;
+  .box-shadow(0px 3px 7px grey);
   .border-radius(@radius: 3px);
-  max-width: 100px;
-  max-height: 100px;
 }
 
 /*
   Issue
 */
 
-.issue_box, .initiative_box, issue_info_box, .issue_info_box2{
+.issue_box, .initiative_box {
   .box-shadow(0px 5px 11px grey);
 }
 
-.issue_info_data, .member_data {
-  .box-shadow(0px 3px 7px grey);
-  text-shadow: none;
-  border: 1px solid black;
-  .border-radius(@radius: 3px);
+.issue_info_data, .member_data, .label-area, .location_data {
   background: @lightgoldenrodyellow;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+  text-shadow: none;
+  .box-shadow(0px 3px 7px grey);
+  color: #000000;
+  border: 2px solid #CACAC9;
 }
 
 .label-area {
-  .box-shadow(0px 3px 7px grey);
-  color: #000000;
-  text-shadow: none;
   padding: 3px;
-  border: 1px solid black;
-  .border-radius(@radius: 3px);
-  background: @lightgoldenrodyellow;
   overflow: hidden;
-  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
 }
+
+.location_data {
+  padding: 15px;
+//  border: 1px solid black;
+}
+
 .a.label-area{
   color: #000000;
 }
@@ -149,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;
-  #gradient > .vertical(lighten(@black,20%), @black );
+  #gradient > .vertical(lighten(@black,30%), @black );
   border-radius: 16px 16px 0 0;
   padding: 8px;
   overflow: hidden;
@@ -164,21 +155,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*
-  Initiative
-*/
-
-.initiative_list_box {
-    max-height: 16em;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-
-/*
   Bargraph
 */
 .progress {
     color: #000;
+    border: 1px solid black;
+    .border-radius(@radius: 3px);
 }
 
 // Blank (white)
@@ -206,6 +188,7 @@ h1, h2, h3, h4, h5, h6 {
   Thumb & voting
 */
 .issue_vote_box {
+    background: white;
     text-align: center;
     display: inline-block;
     white-space: nowrap;
@@ -228,16 +211,85 @@ h1, h2, h3, h4, h5, h6 {
 }
 .issue_thumb_cont_up {
     border: 4px solid green;
-    border-radius: 15px 15px 15px 15px;
+    .border-radius(@radius: 15px);
     display: inline-block;
     margin: 0.2em;
     vertical-align: middle;
 }
 .issue_thumb_cont_down {
     border: 4px solid red;
-    border-radius: 15px 15px 15px 15px;
+    .border-radius(@radius: 15px);
     display: inline-block;
     margin: 0.2em;
     vertical-align: middle;
+}
+
+/*
+  Initiative
+*/
+
+
+.initiative_list_out_box {
+    position: relative;
+}
+
+.initiative_list_box {
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding-top: 80px;
+}
+
+.initiative_quorum_out_box {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+.initiative_quorum_box {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
+
+.btn_read_initiative {
+  position: relative;
+}
+
+.event_star_txt_box, .event_star, .event_star_out_box {
+  position: absolute;
+  height: 52px;
+  width: 52px;
+}
+
+.event_star_txt_box {
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+}
+
+.event_star_txt {
+  font-size: 10px;
+  line-height: 52px;
+  vertical-align: middle;
+  text-transform: none;
+}
+
+.event_star_out_box {
+  right: -22px;
+  top: -22px;
+}
+
+.event_star_in_box {
+  height: 52px;
+  width: 52px;
+}
+
+.event_star {
+  position: absolute;
+  z-index: 180;
+  top: 0;
+  left: 0;
 }
 

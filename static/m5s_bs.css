@@ -30,6 +30,10 @@ a {
 	display: inline-block;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .uppercase {
 	text-transform: uppercase;
 }
@@ -69,7 +73,15 @@ a {
 }
 
 #issues_box,.spaceline {
+<<<<<<< HEAD
 	margin-top: 15px;
+=======
+  margin-top: 15px;
+}
+
+.spaceline2 {
+  margin-top: 30px;
+>>>>>>> refs/remotes/Movimento/ParlamentoElettronicoM5S/test
 }
 
 #m5s_logo {
@@ -110,12 +122,12 @@ a {
 	padding-right: 8px;
 }
 
-.write {
-	vertical-align: middle;
-	height: 60px;
-	width: 60px;
-	padding-left: 8px;
-	padding-right: 8px;
+
+.pen_paper {
+   vertical-align: middle;
+   margin-top: 10px;
+   max-height: 75px;
+//   width: 68px;
 }
 
 .btn_margin {
@@ -125,10 +137,6 @@ a {
 #social_box {
 	margin-left: 0;
 }
-
-/*
-  Initiative
-*/
 
 /*
   Issue
@@ -150,12 +158,23 @@ a {
 /*
   Phase bar
 */
-.phases_box { //
-	display: inline-block;
-	margin-bottom: -26px;
-	margin-right: -10px;
-	height: 160px;
-	width: 520px;
+.phases_out_box {
+}
+  
+
+.phases_in_box {
+  position: relative;
+}
+
+.phases_box {
+  position: absolute;
+  left: 0;
+  //  display: inline-block;
+//    margin-bottom: -26px;
+//    margin-right: -10px;
+    height: 160px;
+    width: 520px;
+>>>>>>> refs/remotes/Movimento/ParlamentoElettronicoM5S/test
 }
 
 .phases_box_large {

@@ -223,6 +223,7 @@ slot.put_into("notice", _"Initiative successfully created")
  request.redirect{
   module = "issue",
   view = "show_ext_bs",
+  params={view="homepage"},
   id=issue.id
 }
 

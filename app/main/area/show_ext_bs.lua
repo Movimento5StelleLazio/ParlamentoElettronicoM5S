@@ -120,63 +120,27 @@ end }
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
   btns = {
     default_state = 'development',
-    state = { "discussion", "verification", "voting", "committee" },
+    state = { {"discussion", "verification", "voting", "committee"} },
     default_interest = 'any',
-    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+    interest = { {"any", "not_interested", "interested", "initiated"}, {"supported", "potentially_supported", "voted"} }
   }
 elseif state == "closed" or state == "canceled" or state == "finished" then
   btns = {
     default_state = 'closed',
     default_interest = 'any',
-    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
+    interest = { {"any", "not_interested", "interested", "initiated"}, {"supported", "potentially_supported", "voted"} }
   }
 elseif state == "admission" then  
   btns = {
     default_state = 'admission',
     default_interest = 'any',
-    interest = { "any", "not_interested", "interested", "initiated", "supported", "potentially_supported", "voted" }
-  }
-else
-  btns = {
-  default_state = 'any',
-    state = {
-      "any",
-      "open",
-      "development",
-      "admission",
-      "discussion",
-      "voting",
-      "verification",
-      "canceled",
-      "committee",
-      "finished",
-      "finished_with_winner",
-      "finished_without_winner",
-      "closed"
-    },
-    default_interest = 'any',
-    interest = {
-      "any",
-      "interested",
-      "not_interested",
-      "initiated",
-      "supported",
-      "potentially_supported",
-      "voted",
-      "not_voted"
-    },
-    default_scope = "any",
-    scope = {
-      "all_units",
-      "my_units",
-      "my_areas"
-    }
+    interest = { {"any", "not_interested", "interested", "initiated"}, {"supported", "potentially_supported", "voted"} }
   }
 end
 
 execute.chunk{
   module = "issue" ,
-  chunk = "_filters_btn_bs" ,
+  chunk = "_filters_btn2_bs" ,
   id = area.id,
   params = {
     state = state,
