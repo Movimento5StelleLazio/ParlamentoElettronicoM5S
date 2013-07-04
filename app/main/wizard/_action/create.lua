@@ -15,8 +15,8 @@ local area
 
 local issue_id = param.get("issue_id", atom.integer)
 
-  local area_id = param.get("area_id", atom.integer)
-  area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
+local area_id = param.get("area_id", atom.integer)
+area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
   if not area.active then
     slot.put_into("error", "Invalid area.")
     return false
@@ -207,18 +207,18 @@ if not is_polling then
   supporter.member_id = app.session.member.id
   supporter.draft_id = draft.id
   supporter:save()
-end
+ end
 
 slot.put_into("notice", _"Initiative successfully created")
 
  
---[[
-request.redirect{
-  module = "index",
-  view = "homepage_bs",
-  id = initiative.id
-}
-]]--
+            --[[
+            request.redirect{
+              module = "index",
+              view = "homepage_bs",
+              id = initiative.id
+            }
+            ]]--
  
  request.redirect{
   module = "issue",

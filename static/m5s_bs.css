@@ -1,268 +1,281 @@
 body {
-  margin: 0;
-  font-family:Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /*color: #000000;
+	margin: 0;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri,
+		"Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*color: #000000;
 */
-  background-color: #ffffff;
-  min-width: 768px;
-  font-weight: normal;
+	background-color: #ffffff;
+	min-width: 768px;
+	font-weight: normal;
 }
 
-a{
- color: #000000;
- text-decoration: none !important
+a {
+	color: #000000;
+	text-decoration: none !important
 }
 
-.footer, .push {
-  height: 3em;
+.footer,.push {
+	height: 3em;
 }
 
 #default {
-  margin-top: 60px;
+	margin-top: 60px;
 }
 
 .table-cell {
-  display: table-cell;
+	display: table-cell;
 }
 
 .inline-block {
-  display: inline-block;
+	display: inline-block;
 }
 
 .uppercase {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 /*
   M5S specific
 */
-
 #menu_dropdown {
-  margin-left: -65px;
+	margin-left: -65px;
 }
 
-.large_btn  {
-    height:115px;
+.large_btn {
+	height: 115px;
 }
-.large_btn_home  {
-    max-width:292px;
-    height:90px;
+
+.large_btn_home {
+	max-width: 292px;
+	height: 90px;
 }
-.large_btn_show_ext  {
-    max-width:230px;
-    height: 90px;
+
+.large_btn_show_ext {
+	max-width: 230px;
+	height: 90px;
 }
-.medium_btn  {
-    max-width:200px;
-    min-height: 50px;
+
+.medium_btn {
+	max-width: 200px;
+	min-height: 50px;
 }
-.small_btn  {
-    max-width:180px;
+
+.small_btn {
+	max-width: 180px;
 }
 
 .filter_btn {
-  margin: 5px;
+	margin: 5px;
 }
 
 #issues_box,.spaceline {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 
-#m5s_logo{
-  height: 70px;
-  width: 70px;
-  max-width:  70px;
+#m5s_logo {
+	height: 70px;
+	width: 70px;
+	max-width: 70px;
 }
 
-#parlamento_img{
-  max-width:  284px;
+#parlamento_img {
+	max-width: 284px;
 }
 
 .img_assembly_small {
-  max-width: 30%;
+	max-width: 30%;
 }
 
-.btn_box_bottom{
-  margin-bottom: 20px;
+.btn_box_bottom {
+	margin-bottom: 20px;
 }
 
-.btn_box_top{
-  margin-top: 15px;
+.btn_box_top {
+	margin-top: 15px;
 }
 
 .arrow_medium {
-    vertical-align: middle;
-    height: 40px;
-    width: 40px;
-    padding-left: 8px;
-    padding-right: 8px;
+	vertical-align: middle;
+	height: 40px;
+	width: 40px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 .arrow_small {
-    vertical-align: middle;
-    height: 25px;
-    width: 25px;
-    padding-left: 8px;
-    padding-right: 8px;
+	vertical-align: middle;
+	height: 25px;
+	width: 25px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 .write {
-   vertical-align: middle;
-   height: 60px;
-   width: 60px;
-   padding-left: 8px;
-   padding-right: 8px;
+	vertical-align: middle;
+	height: 60px;
+	width: 60px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 .btn_margin {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 #social_box {
-  margin-left: 0;
+	margin-left: 0;
 }
 
 /*
   Initiative
 */
 
-
 /*
   Issue
 */
-
 .issue_see_det_btn {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .issue_box {
-  margin-bottom: 35px;
+	margin-bottom: 35px;
 }
 
 #issue_url_box {
-  width: 66%;
-  float: left;
-  margin-right: 10px;
-  margin-top: 10px;
+	width: 66%;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
 }
 /*
   Phase bar
 */
-.phases_box {
-  //  display: inline-block;
-    margin-bottom: -26px;
-    margin-right: -10px;
-    height: 160px;
-    width: 520px;
+.phases_box { //
+	display: inline-block;
+	margin-bottom: -26px;
+	margin-right: -10px;
+	height: 160px;
+	width: 520px;
 }
+
 .phases_box_large {
-  -webkit-transform: scale(1.4);
-  -moz-transform: scale(1.4);
-  -o-transform: scale(1.4);
-  -ms-transform: scale(1.4);
-  margin-top: 29px;
-  margin-right: 0px;
-  margin-left: 0px;
-  margin-bottom: -4px;
+	-webkit-transform: scale(1.4);
+	-moz-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	margin-top: 29px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-bottom: -4px;
 }
-.admission, .discussion, .verification, .voting, .committee, .committee_voting, .finished {
-    position: absolute;
-    z-index: 11;
+
+.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished
+	{
+	position: absolute;
+	z-index: 11;
 }
+
 .phases_bar {
-    height: 160px;
-    position: absolute;
-    width: 520px;
-    min-width: 520px;
-    z-index: 9;
+	height: 160px;
+	position: absolute;
+	width: 520px;
+	min-width: 520px;
+	z-index: 9;
 }
+
 .phase_arrow {
-    height: 70px;
-    margin-top: 18px;
-    position: absolute;
-    width: 70px;
-    z-index: 10;
+	height: 70px;
+	margin-top: 18px;
+	position: absolute;
+	width: 70px;
+	z-index: 10;
 }
+
 .admission {
-    height: 60px;
-    margin-left: 22px;
-    margin-top: 47px;
-    width: 60px;
+	height: 60px;
+	margin-left: 22px;
+	margin-top: 47px;
+	width: 60px;
 }
+
 .discussion {
-    height: 65px;
-    margin-left: 87px;
-    margin-top: 48px;
-    width: 65px;
+	height: 65px;
+	margin-left: 87px;
+	margin-top: 48px;
+	width: 65px;
 }
+
 .verification {
-    height: 33px;
-    margin-left: 165px;
-    margin-top: 64px;
+	height: 33px;
+	margin-left: 165px;
+	margin-top: 64px;
 }
+
 .voting {
-    height: 48px;
-    margin-left: 222px;
-    margin-top: 56px;
-    width: 48px;
+	height: 48px;
+	margin-left: 222px;
+	margin-top: 56px;
+	width: 48px;
 }
+
 .committee {
-    height: 48px;
-    margin-left: 293px;
-    margin-top: 53px;
-    width: 48px;
+	height: 48px;
+	margin-left: 293px;
+	margin-top: 53px;
+	width: 48px;
 }
+
 .committee_voting {
-    height: 40px;
-    margin-left: 361px;
-    margin-top: 51px;
+	height: 40px;
+	margin-left: 361px;
+	margin-top: 51px;
 }
+
 .finished {
-    height: 48px;
-    margin-left: 427px;
-    margin-top: 54px;
+	height: 48px;
+	margin-left: 427px;
+	margin-top: 54px;
 }
 
 /*
   Imported from style.css (modified)
 */
-
 .delegation_info {
-    text-decoration: none;
-    border-radius: 0px 5px 0px 5px;
+	text-decoration: none;
+	border-radius: 0px 5px 0px 5px;
 }
 
 .delegation_arrow {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .delegation_info .link {
-    text-decoration: underline;
-    color: #aaa;
+	text-decoration: underline;
+	color: #aaa;
 }
 
 a.delegation_info:hover,a.delegation_info:focus {
-    background-color: #ddd;
+	background-color: #ddd;
 }
 
 .delegation_info .micro_avatar {
-    box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
 }
 
 .delegation_info .micro_avatar.highlighted {
-    margin: 0;
-    border: 2px solid #f90;
+	margin: 0;
+	border: 2px solid #f90;
 }
 
 .micro_avatar {
-    height: 24px;
-    border-radius: 4px;
-    vertical-align: middle;
+	height: 24px;
+	border-radius: 4px;
+	vertical-align: middle;
 }
 
 .highlighted {
-    background-color: #fa7;
-    color: #000;
+	background-color: #fa7;
+	color: #000;
 }
 /*
 @media screen and (min-width: 380px) {
@@ -298,4 +311,3 @@ a.delegation_info:hover,a.delegation_info:focus {
   h6 { font-size: 0.90em; line-height: 15px; }
 }
 */
-
