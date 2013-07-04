@@ -26,7 +26,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_box"}, content = function()
+      ui.container{ attr = { class = "span12 alert alert-simple issue_box paper"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()

@@ -1,6 +1,5 @@
 slot.set_layout("m5s_bs")
 local state=param.get("state") or "closed"
-local size=param.get("size") or ""
 
 local arrow_offset = 16
 local admission_offset, discussion_offset, verification_offset, voting_offset, committee_offset, committee_voting_offset, finished_offset 
@@ -31,16 +30,11 @@ else
   arrow_offset = 416
 end
 
-local class= "phases_box"
-if size == "large" then
-  class = class.." phases_box_large"
-elseif size == "auto" then
-  class = class.." autoresize"
-end
 
+--ui.container{ attr = { class = "phases_out_box"}, content = function()
+ui.container{ attr = { class = "phases_in_box"}, content = function()
 
-
-ui.container{ attr = { class = class}, content = function()
+ui.container{ attr = { class = "phases_box phasesbar_autoresize"}, content = function()
   ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;" }, static="svg/phase_arrow.svg"..svgz }
   ui.image{  attr = { class = "phases_bar" }, static = "svg/phases_bar_it.svg"..svgz }
 
@@ -53,7 +47,10 @@ ui.container{ attr = { class = class}, content = function()
   ui.image{  attr = { class = "finished", style = finished_offset }, static="svg/finished.svg"..svgz }
 end }
 
+end }
+--end }
+
 ui.script{static = "js/jquery.sizes.js"}
 ui.script{static = "js/jquery.scalebar.js"}
-ui.script{script = "jQuery('.autoresize').scalebar(); " }
+ui.script{script = "jQuery('.phasesbar_autoresize').scalebar(); " }
 

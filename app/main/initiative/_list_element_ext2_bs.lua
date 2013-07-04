@@ -5,7 +5,7 @@ local for_details = param.get("for_details", "boolean") or false
 
 local class =""
 if for_details then
-  class = " alert alert-simple initiative_box"
+  class = " alert alert-simple initiative_box paper"
 end
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
@@ -26,11 +26,37 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
       if for_details then
         ui.container{ attr = { class = "span2 text-center" }, content = function()
           ui.link{
-            attr = { class="btn btn-primary spaceline"  },
+            attr = { class="btn btn-primary btn_read_initiative spaceline"  },
             module = "initiative",
             id = initiative.id,
             view = "show",
             content = function()
+
+
+              ui.container{ attr = { class = "event_star_out_box" }, content = function()
+                ui.container{ attr = { class = "event_star_in_box" }, content = function()
+
+                  local t=math.random(4)
+                  if t == 1 then
+ 
+                  ui.container{ attr = { class = "event_star_txt_box" }, content = function()
+                    ui.tag{ tag="span", attr={class="event_star_txt"}, content="3 Eventi"}
+                  end }
+                  ui.image{ attr={class="event_star"}, static="svg/event_star_red.svg" }
+                    
+                  elseif t == 2 then
+
+                  ui.container{ attr = { class = "event_star_txt_box" }, content = function()
+                    ui.tag{ tag="span", attr={class="event_star_txt"}, content="Nuovo"}
+                  end }
+                  ui.image{ attr={class="event_star"}, static="svg/event_star_green.svg" }
+
+                  end
+                  
+                end }
+              end }
+
+
               ui.heading{level=5,attr={class=""},content=function()
                 slot.put(_"Read".." p"..initiative.id)
               end }
@@ -125,7 +151,11 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             name = encode.html(initiative.shortened_name)
           end
           ui.heading{ level=6, content =function()
-            ui.tag{tag="strong",content= "p" .. initiative.id .. ": "..name }
+            if for_details then
+              ui.tag{tag="strong",content= name }
+            else
+              ui.tag{tag="strong",content= "p" .. initiative.id .. ": "..name }
+            end
           end }
         end,
         module  = "initiative",
