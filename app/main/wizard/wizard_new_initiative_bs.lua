@@ -427,7 +427,7 @@ if page <= 12 and page >=1 then
               end }
             end }
             ui.container{attr={class="row-fluid spaceline2"},content=function()
-              ui.container{attr={class="span12 alert alert-simple"},content=function()
+              ui.container{attr={class="span12 depression_box"},content=function()
                
                   execute.view{
                     module = "wizard",
@@ -465,7 +465,7 @@ else
               end }
             end }
             ui.container{attr={class="row-fluid spaceline2"},content=function()
-              ui.container{attr={class="span12 alert alert-simple"},content=function()
+              ui.container{attr={class="span12 depression_box"},content=function()
                 trace.debug("page="..page)
                trace.debug("unit_id="..unit_id)
                unit_id= atom.integer:load(unit_id)
