@@ -10,6 +10,10 @@ local view = param.get("view") or "homepage"
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
+local function round(num, idp)
+  return tonumber(string.format("%." .. (idp or 0) .. "f", num))
+end
+
 local return_view, return_module
 if view == "homepage" then
   return_module="index"
@@ -285,27 +289,34 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
 		
-		--[[
-        local btna, btnb = "",""
-        if init_ord == "supporters" then btna = " active" end
-        if init_ord == "event" then btnb = " active" end
-        --]]
 
         ui.container{attr = {class="row-fluid"}, content =function()
-
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
+          local quorum_supporters  
+          if issue.population and issue.population > 0 then
+            quorum_supporters = math.floor(issue.population * quorum_percent / 100)
+          else
+            quorum_supporters = 0
+          end
+
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
               ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
-                slot.put("&nbsp;".."Quorum".." "..quorum_percent.."%")
+                ui.container{attr = {id="quorum_txt"}, content=function()
+                  slot.put(" ".."Quorum".." "..quorum_percent.."%".."<br>".."    ("..quorum_supporters.." ".._"supporters"..")")
+                end }
               end }
             end }
           end }
 
           ui.container{attr = {class="span7 offset1 text-center"}, content =function()
             ui.container{attr = {class="btn-group"}, content =function()
+              local btna, btnb = "",""
+              if init_ord == "supporters" then btna = " active" end
+              if init_ord == "event" then btnb = " active" end
+
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btna  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -315,7 +326,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
