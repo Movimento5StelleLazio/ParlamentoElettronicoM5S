@@ -79,21 +79,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
-  border: 1px solid #f5c388;
+//  border: 1px solid #f5c388;
   margin: 0;
 }
 .head-chocolate {
   color: #ffffff;
   background: @chocolate;
-  #gradient > .vertical(#F17018, #a3490e);
+  #gradient > .vertical(lighten(@chocolate,5%), @chocolate);
 }
 .head-darkorange {
   background: @darkorange;
-  #gradient > .vertical(@darkorange, darken(@darkorange,5%) );
+  #gradient > .vertical(lighten(@darkorange,5%), @darkorange );
 }
 .head-orange {
   background: @orange;
-  #gradient > .vertical(#FAD073,#e69d00 );
+  #gradient > .vertical(lighten(@orange,5%), @orange );
 }
 
 /*
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .issue_info_data, .member_data, .label-area, .location_data {
   background: @lightgoldenrodyellow;
-  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+  #gradient > .vertical(darken(@lightgoldenrodyellow,5%), darken(@lightgoldenrodyellow,15%) );
   text-shadow: none;
   .box-shadow(0px 5px 7px grey);
   color: #000000;
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .initiatives_for_issue_box {
   background: @lightgoldenrodyellow;
-  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+  #gradient > .vertical(darken(@lightgoldenrodyellow,5%), darken(@lightgoldenrodyellow,15%) );
   text-shadow: none;
   .box-shadow(0px 5px 7px grey);
   color: #000000;
@@ -147,8 +147,8 @@ h1, h2, h3, h4, h5, h6 {
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;
-  #gradient > .vertical(lighten(@black,30%), @black );
-  border-radius: 16px 16px 0 0;
+  #gradient > .vertical(lighten(@black,10%), @black );
+  border-radius: 4px 4px 0 0;
   padding: 8px;
   overflow: hidden;
 }
@@ -283,6 +283,11 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
+#quorum_txt {
+   margin-top: -30px;
+   margin-left: -40px;
+}
+
 .btn_read_initiative {
   position: relative;
 }
@@ -323,3 +328,17 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
 }
 
+/*
+  Wizard
+*/
+
+.policy_chooser_box {
+  margin-left: 25%;
+  margin: 0  0 20px 25%;
+}
+
+.policy_chooser_txt {
+  line-height: 62px;
+  vertical-align: middle;
+  margin-left: 1em;
+}

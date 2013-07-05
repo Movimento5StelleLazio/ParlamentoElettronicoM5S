@@ -109,7 +109,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
 
 
 
- ui.container{attr={class="row-fluid"},content=function()
+ ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
  ui.container{attr={class="span12 text-center"},content=function()
            --pulsanti
             execute.view{

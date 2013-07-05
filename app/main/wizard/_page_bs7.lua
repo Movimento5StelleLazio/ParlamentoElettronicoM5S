@@ -93,7 +93,7 @@ end }
 
  
 
-ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",

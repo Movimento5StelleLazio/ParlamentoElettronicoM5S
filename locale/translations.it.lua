@@ -620,6 +620,7 @@ return {
 ["Potential supporter"] = "Potenziale sostenitore";
 ["Potential supporters (before begin of voting)"] = "Potenziali sostenitori (prima del voto)";
 ["Potentially supported"] = "Potenzialmente sostenute";
+["supporters"]="sostenitori";
 ["Preview"] = "Anteprima";
 ["Preview voting comment"] = "Anteprima commento di voto";
 ["Problem Title"]="TITOLO DELLA QUESTIONE:";
