@@ -368,5 +368,6 @@ ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px
 --ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
-ui.script{script="$('#quorum_box').height($('.initiative_list_box').height() + 77 )"}
+ui.script{static = "js/jquery.quorum_bar.js"}
+ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 
