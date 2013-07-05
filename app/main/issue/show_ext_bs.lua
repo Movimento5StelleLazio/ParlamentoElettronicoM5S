@@ -239,20 +239,13 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
 
--- 
-
-    
-	    
-
-
-	ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
     ui.container{attr = {class="row-fluid"}, content =function()
       ui.container{attr = {class="span12 depression_box"}, content =function()
-
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12 alert label-area"}, content = function()
@@ -274,16 +267,14 @@ ui.container{attr={class="row-fluid"}, content=function()
                   params = { issue_id=issue.id},
                   view = "new",
                   content = function()
-    
-                      ui.container{ attr = { class = "row-fluid"}, content = function()
-                        ui.container{ attr = { class = "span4"}, content = function()
-                          ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
-                        end }
-                        ui.container{ attr = { class = "span6"}, content = function()
-                          ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
-                        end }
+                    ui.container{ attr = { class = "row-fluid"}, content = function()
+                      ui.container{ attr = { class = "span4"}, content = function()
+                        ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
                       end }
-    
+                      ui.container{ attr = { class = "span6"}, content = function()
+                        ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                      end }
+                    end }
                   end
                 }
               end }
@@ -298,7 +289,17 @@ ui.container{attr={class="row-fluid"}, content=function()
         --]]
 
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span7 offset5 text-center"}, content =function()
+
+          local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
+          ui.container{attr = {class="span2 offset2"}, content =function()
+            ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
+              ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
+                slot.put("&nbsp;".."Quorum".." "..quorum_percent.."%")
+              end }
+            end }
+          end }
+
+          ui.container{attr = {class="span7 offset1 text-center"}, content =function()
             ui.container{attr = {class="btn-group"}, content =function()
               ui.link{
                 attr = { class="btn btn-primary btn-large table-cell wrap"  },
@@ -321,14 +322,10 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
             end }
+
           end }
         end }
 		
---        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
---          ui.container{attr = {class="initiative_quorum_box"}, content =function()
---            slot.put("test")
---          end }
---        end }
 
         ui.container{attr = {class="row-fluid spaceline2"}, content =function()
           ui.container{attr = {class="span12 initiative_list_box"}, content =function()
@@ -371,4 +368,5 @@ ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px
 --ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
+ui.script{script="$('#quorum_box').height($('.initiative_list_box').height() + 77 )"}
 
