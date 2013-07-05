@@ -10,6 +10,10 @@ local view = param.get("view") or "homepage"
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
+local function round(num, idp)
+  return tonumber(string.format("%." .. (idp or 0) .. "f", num))
+end
+
 local return_view, return_module
 if view == "homepage" then
   return_module="index"
@@ -297,7 +301,9 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
               ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
-                slot.put("&nbsp;".."Quorum".." "..quorum_percent.."%")
+                ui.container{attr = {id="quorum_txt"}, content=function()
+                  slot.put(" ".."Quorum".." "..quorum_percent.."%".."<br>".."    ("..round(issue.population * quorum_percent / 100,0).." ".._"supporters"..")")
+                end }
               end }
             end }
           end }
