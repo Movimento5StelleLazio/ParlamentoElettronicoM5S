@@ -257,7 +257,10 @@ ui.container{attr={class="row-fluid"}, content=function()
                   content= _"initiatives"
                 end
     
-                ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days="n giorni"}) }
+                ui.tag{content=function()
+                  
+                  slot.put( _("Vi sono attualmente <strong>#{count}</strong> proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro <strong>#{days}</strong> affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                end }
               end }
     
               ui.container{ attr = { class = "span4"}, content = function()
