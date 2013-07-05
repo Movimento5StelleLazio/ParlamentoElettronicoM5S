@@ -1,4 +1,5 @@
-@lightgoldenrodyellow: #fffbd5;
+@lightgoldenrodyellow: #ffedaf;
+@mocassin: #fffdb0;
 @orange: #ffaf00;
 @darkorange: #ff8a00;
 @chocolate: #ba5410;
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 3px solid @orange;
   .border-radius(@radius: 3px);
   .box-shadow(0px 5px 11px grey);
-  #gradient > .vertical(@wellBackground, darken(@wellBackground,5%));
+  #gradient > .vertical(lighten(@wellBackground,5%), @wellBackground);
 }
 
 .well-inside {
@@ -114,21 +115,21 @@ h1, h2, h3, h4, h5, h6 {
   .box-shadow(0px 5px 11px grey);
 }
 
-.issue_info_data, .member_data, .label-area, .location_data {
+.issue_info_data, .member_data, .label-area, .location_data2, .initiatives_for_issue_box {
   background: @lightgoldenrodyellow;
-  #gradient > .vertical(darken(@lightgoldenrodyellow,5%), darken(@lightgoldenrodyellow,15%) );
+}
+
+.location_data{
+  background: @mocassin;
+}
+
+
+.issue_info_data, .member_data, .label-area, .location_data, .location_data2, .initiatives_for_issue_box {
   text-shadow: none;
   .box-shadow(0px 5px 7px grey);
   color: #000000;
 }
 
-.initiatives_for_issue_box {
-  background: @lightgoldenrodyellow;
-  #gradient > .vertical(darken(@lightgoldenrodyellow,5%), darken(@lightgoldenrodyellow,15%) );
-  text-shadow: none;
-  .box-shadow(0px 5px 7px grey);
-  color: #000000;
-}
 
 .label-area {
   padding: 3px;
