@@ -289,14 +289,8 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
 		
-		--[[
-        local btna, btnb = "",""
-        if init_ord == "supporters" then btna = " active" end
-        if init_ord == "event" then btnb = " active" end
-        --]]
 
         ui.container{attr = {class="row-fluid"}, content =function()
-
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
@@ -310,8 +304,12 @@ ui.container{attr={class="row-fluid"}, content=function()
 
           ui.container{attr = {class="span7 offset1 text-center"}, content =function()
             ui.container{attr = {class="btn-group"}, content =function()
+              local btna, btnb = "",""
+              if init_ord == "supporters" then btna = " active" end
+              if init_ord == "event" then btnb = " active" end
+
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btna  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -321,7 +319,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
