@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .paper {
-  background-image: url(../paper_tile.png);
+  background-image: url(../svg/paper_tile.svg);
 }
 
 .alert-simple {
@@ -118,9 +118,16 @@ h1, h2, h3, h4, h5, h6 {
   background: @lightgoldenrodyellow;
   #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
   text-shadow: none;
-  .box-shadow(0px 3px 7px grey);
+  .box-shadow(0px 5px 7px grey);
   color: #000000;
-  border: 2px solid #CACAC9;
+}
+
+.initiatives_for_issue_box {
+  background: @lightgoldenrodyellow;
+  #gradient > .vertical(@lightgoldenrodyellow, darken(@lightgoldenrodyellow,5%) );
+  text-shadow: none;
+  .box-shadow(0px 5px 7px grey);
+  color: #000000;
 }
 
 .label-area {
@@ -154,6 +161,15 @@ h1, h2, h3, h4, h5, h6 {
   .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
 }
 
+
+.depression_box {
+  .box-shadow(~"inset 0px 5px 7px rgba(0,0,0,.45)");
+  padding: 10px 10px 10px 10px;
+  margin-bottom: @baseLineHeight;
+  background-color: #FFFFFF;
+  .border-radius(@baseBorderRadius);
+}
+
 /*
   Bargraph
 */
@@ -161,6 +177,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #000;
     border: 1px solid black;
     .border-radius(@radius: 3px);
+    position: relative;
 }
 
 // Blank (white)
@@ -228,29 +245,42 @@ h1, h2, h3, h4, h5, h6 {
   Initiative
 */
 
+.progress_bar_txt {
+  position: absolute;
+  width: 100%;
+}
+
+.votes_count_txt {
+  font-size: 14px;
+  line-height: 14px;
+}
 
 .initiative_list_out_box {
     position: relative;
 }
 
 .initiative_list_box {
-    max-height: 16em;
+    max-height: 20em;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-    padding-top: 80px;
 }
 
 .initiative_quorum_out_box {
-  position: absolute;
-  top: 100px;
-  left: 100px;
+  position: relative;
 }
 
 .initiative_quorum_box {
-  border: 1px solid black;
+  position: absolute;
+  background-color: blue;
   height: 100px;
-  width: 100px;
+  width: 2px;
+  z-index: 2;
+  top: 50px;
+  font-size: 14px;
+  line-height: 14px;
+  color: blue;
+  white-space: nowrap;
 }
 
 .btn_read_initiative {
