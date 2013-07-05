@@ -417,12 +417,16 @@ if page <= 12 and page >=1 then
           ui.container{attr={class="span12 well"},content=function()
             ui.container{attr={class="row-fluid"},content=function()
               ui.container{attr={class="span12 text-center"},content=function()
-                ui.heading{level=1,content= _"Create new initiative"}
-                ui.heading{level=2,content= _"Unit"..": "..unit_name }
-                ui.heading{level=2,content= _"Area"..": "..area_name }
+                ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
+                ui.heading{level=2,attr={class="spaceline"}, content= function()
+                  slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
+                end }
+                ui.heading{level=2,content= function()
+                  slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
+                end }
               end }
             end }
-            ui.container{attr={class="row-fluid"},content=function()
+            ui.container{attr={class="row-fluid spaceline2"},content=function()
               ui.container{attr={class="span12 alert alert-simple"},content=function()
                
                   execute.view{
@@ -451,12 +455,16 @@ else
           ui.container{attr={class="span12 well"},content=function()
             ui.container{attr={class="row-fluid"},content=function()
               ui.container{attr={class="span12 text-center"},content=function()
-                ui.heading{level=1,content= _"Create new initiative"}
-                ui.heading{level=2,content= _"Unit"..": "..unit_name }
-                ui.heading{level=2,content= _"Area"..": "..area_name }
+                ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
+                ui.heading{level=2,attr={class="spaceline"}, content= function()
+                  slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
+                end }
+                ui.heading{level=2,content= function()
+                  slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
+                end }
               end }
             end }
-            ui.container{attr={class="row-fluid"},content=function()
+            ui.container{attr={class="row-fluid spaceline2"},content=function()
               ui.container{attr={class="span12 alert alert-simple"},content=function()
                 trace.debug("page="..page)
                trace.debug("unit_id="..unit_id)
