@@ -74,11 +74,11 @@ if app.session.member_id then
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-center" }, content = function()
+              ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary table-cell medium_btn",
+                    class = "btn btn-primary medium_btn",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
@@ -154,11 +154,11 @@ if app.session.member_id then
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-center" }, content = function()
+              ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary table-cell medium_btn", 
+                    class = "btn btn-primary medium_btn", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
