@@ -292,11 +292,18 @@ ui.container{attr={class="row-fluid"}, content=function()
 
         ui.container{attr = {class="row-fluid"}, content =function()
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
+          local quorum_supporters  
+          if issue.population and issue.population > 0 then
+            quorum_supporters = math.floor(issue.population * quorum_percent / 100)
+          else
+            quorum_supporters = 0
+          end
+
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
               ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
                 ui.container{attr = {id="quorum_txt"}, content=function()
-                  slot.put(" ".."Quorum".." "..quorum_percent.."%".."<br>".."    ("..round(issue.population * quorum_percent / 100,0).." ".._"supporters"..")")
+                  slot.put(" ".."Quorum".." "..quorum_percent.."%".."<br>".."    ("..quorum_supporters.." ".._"supporters"..")")
                 end }
               end }
             end }
