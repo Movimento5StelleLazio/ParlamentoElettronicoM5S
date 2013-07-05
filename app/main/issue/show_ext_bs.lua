@@ -63,9 +63,10 @@ ui.container{attr={class="row-fluid"}, content=function()
             ui.tag{
               tag="a",
               attr={
+                id="select_btn",
                 href="#",
                 class="btn btn-primary inline-block",
-                onclick='document.getElementById("issue_url_box").select();'
+                onclick='$("#issue_url_box").select(); $("#select_btn").popover({"trigger":"manual", "animation":"true", "placement":"top", "html":"true", "content":"Premi CTRL + C per copiare il testo selezionato"});$("#issue_url_box").bind("copy", function() {$("#select_btn").popover("hide"); }); $("#select_btn").popover("show");'
               },
               content=function()
                 ui.heading{level=6,content=_"Select"}
