@@ -1,5 +1,5 @@
 @lightgoldenrodyellow: #ffedaf;
-@mocassin: #fffdb0;
+@mocassin: lighten(#fffdb0,5%);
 @orange: #ffaf00;
 @darkorange: #ff8a00;
 @chocolate: #ba5410;
@@ -86,15 +86,15 @@ h1, h2, h3, h4, h5, h6 {
 .head-chocolate {
   color: #ffffff;
   background: @chocolate;
-  #gradient > .vertical(lighten(@chocolate,5%), @chocolate);
+  #gradient > .vertical(lighten(@chocolate,8%), @chocolate);
 }
 .head-darkorange {
   background: @darkorange;
-  #gradient > .vertical(lighten(@darkorange,5%), @darkorange );
+  #gradient > .vertical(lighten(@darkorange,8%), @darkorange );
 }
 .head-orange {
   background: @orange;
-  #gradient > .vertical(lighten(@orange,5%), @orange );
+  #gradient > .vertical(lighten(@orange,8%), @orange );
 }
 
 /*
@@ -136,8 +136,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.location_data {
-  padding: 15px;
+.location_data, .location_data2 {
+  padding: 15px 10px 20px 10px;
 //  border: 1px solid black;
 }
 
@@ -148,8 +148,8 @@ h1, h2, h3, h4, h5, h6 {
 .issue_info_box, .issue_info_box2  {
   color: @white;
   background: @black;
-  #gradient > .vertical(lighten(@black,10%), @black );
-  border-radius: 4px 4px 0 0;
+  #gradient > .vertical(lighten(@black,14%), @black );
+  border-radius: 6px 6px 0 0;
   padding: 8px;
   overflow: hidden;
 }
