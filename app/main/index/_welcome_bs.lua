@@ -78,7 +78,7 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn",
+                    class = "btn btn-primary medium_btn fixclick",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
@@ -158,7 +158,7 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn", 
+                    class = "btn btn-primary medium_btn fixclick", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
@@ -194,7 +194,7 @@ if app.session.member_id then
                 ui.link{
                   module="index",
                   view="homepage_bs",
-                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1" },
+                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
                   content=function()
                     ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
                   end
@@ -213,7 +213,7 @@ if app.session.member_id then
             ui.tag{tag="span",attr={class="span12"},content=function()
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
-                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1" },
+                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
                   module="unit",
                   view="show_ext_bs",
                   id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
@@ -289,7 +289,7 @@ else
             ui.container{ attr = { class = "span6 offset3" }, content = function()
               ui.tag{ 
                 tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large" }, 
+                attr = { type="submit", class="btn btn-primary btn-large fixclick" }, 
                 content= function()
                   ui.heading{ level=4, attr = { class="inline-block"}, content= _"Login"}
                 end 
@@ -311,7 +311,7 @@ else
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.container{ attr = { id="registration", class = "span12" }, content = function ()
               ui.link{
-                attr = {class="btn btn-primary btn-large"},
+                attr = {class="btn btn-primary btn-large fixclick"},
                 module = "index",
                 view = "register",
                 content = function()
@@ -333,7 +333,7 @@ else
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
             ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
               ui.link{
-                attr = { class="btn btn-primary btn-large"},
+                attr = { class="btn btn-primary btn-large fixclick"},
                 module = 'index',
                 view   = 'reset_password',
                 content = function()
