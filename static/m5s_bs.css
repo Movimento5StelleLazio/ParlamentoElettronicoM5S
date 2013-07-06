@@ -22,8 +22,14 @@ a {
 	margin-top: 60px;
 }
 
+.vtable {
+        display: table;
+        height: 100%;
+}
+
 .table-cell {
 	display: table-cell;
+        vertical-align: middle;
 }
 
 .inline-block {
@@ -77,21 +83,16 @@ a {
 }
 
 #issues_box,.spaceline {
-<<<<<<< HEAD
 	margin-top: 15px;
-=======
-  margin-top: 15px;
 }
 
 .spaceline2 {
   margin-top: 30px;
->>>>>>> refs/remotes/Movimento/ParlamentoElettronicoM5S/test
 }
 
 #m5s_logo {
-	height: 70px;
-	width: 70px;
-	max-width: 70px;
+	max-width: 150px;
+        width: 100%;
 }
 
 #parlamento_img {

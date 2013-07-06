@@ -42,13 +42,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 2px solid #666666;
+//  border: 2px solid #666666;
   .border-radius(@radius: 3px);
 }
 
 .well {
   background-color: @wellBackground;
-  border: 3px solid @orange;
+//  border: 3px solid @orange;
   .border-radius(@radius: 3px);
   .box-shadow(0px 5px 11px grey);
   #gradient > .vertical(lighten(@wellBackground,5%), @wellBackground);
@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-  border: 3px solid @orange;
+//  border: 3px solid @orange;
   .border-radius(@radius: 3px);
   margin-bottom: 5px;
 }
@@ -115,12 +115,14 @@ h1, h2, h3, h4, h5, h6 {
   .box-shadow(0px 5px 11px grey);
 }
 
-.issue_info_data, .member_data, .label-area, .location_data2, .initiatives_for_issue_box {
+.issue_info_data, .member_data, .label-area, .location_data, .initiatives_for_issue_box {
   background: @lightgoldenrodyellow;
+  #gradient > .vertical(#FFFECA,#EDECC7);
 }
 
-.location_data{
+.location_data2{
   background: @mocassin;
+  #gradient > .vertical(#FFEDAF,#E6D79F);
 }
 
 
@@ -146,9 +148,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .issue_info_box, .issue_info_box2  {
+  .box-shadow(0px 5px 7px grey);
   color: @white;
   background: @black;
-  #gradient > .vertical(lighten(@black,14%), @black );
+  #gradient > .vertical(#6C5B37, #4D412A);
   border-radius: 6px 6px 0 0;
   padding: 8px;
   overflow: hidden;
