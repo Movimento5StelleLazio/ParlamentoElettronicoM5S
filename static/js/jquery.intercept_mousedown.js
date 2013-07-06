@@ -1,4 +1,5 @@
-$('.btn').mousedown( function(e){
-   e.preventDefault();
+$('.fixclick').mousedown( function(e){
+   if ( event.which != 1 ) { return; }
+//   e.preventDefault();
    window.location.href = $(this).attr('href');
 });
