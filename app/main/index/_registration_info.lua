@@ -1,6 +1,6 @@
   ui.container{ attr = {  class = "row-fluid" }, content = function ()
     ui.container{ attr = { class="span2"}, content=function()
-      ui.image{static="simbolo_movimento.png" }
+      ui.image{attr = { id="m5s_logo"}, static="svg/logo_movimento5stelle.svg" }
     end }
     ui.container{ attr = { class="span7 text-right"}, content=function()
       ui.heading{ attr = {class="uppercase"}, level=2, content=function()
