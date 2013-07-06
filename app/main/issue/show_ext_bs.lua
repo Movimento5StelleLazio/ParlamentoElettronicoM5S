@@ -1,4 +1,5 @@
 slot.set_layout("m5s_bs")
+
 local issue = Issue:by_id(param.get_id())
 local state = param.get("state")
 local orderby = param.get("orderby") or ""
@@ -8,6 +9,10 @@ local scope = param.get("scope")
 local view = param.get("view") or "homepage"
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
+
+local function round(num, idp)
+  return tonumber(string.format("%." .. (idp or 0) .. "f", num))
+end
 
 local return_view, return_module
 if view == "homepage" then
@@ -62,9 +67,10 @@ ui.container{attr={class="row-fluid"}, content=function()
             ui.tag{
               tag="a",
               attr={
+                id="select_btn",
                 href="#",
                 class="btn btn-primary inline-block",
-                onclick='document.getElementById("issue_url_box").select();'
+                onclick='$("#issue_url_box").select(); $("#select_btn").popover({"trigger":"manual", "animation":"true", "placement":"top", "html":"true", "content":"Premi CTRL + C per copiare il testo selezionato"});$("#issue_url_box").bind("copy", function() {$("#select_btn").popover("hide"); }); $("#select_btn").popover("show");'
               },
               content=function()
                 ui.heading{level=6,content=_"Select"}
@@ -172,7 +178,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span10"}, content = function()
+      ui.container{ attr = { class = "span8"}, content = function()
         if issue.member_id and issue.member_id > 0 then
           execute.view{ module="member", view="_info_data", id=issue.member_id }
         else
@@ -192,7 +198,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span12"}, content = function()
         keywords={"lavoro","scuola","educazione","finanza"}
         for i,k in ipairs(keywords) do
-          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn"}, content=function()
+          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
             ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
@@ -210,7 +216,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span12"}, content = function()
         areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
         for i,k in ipairs(areas) do
-          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn"}, content=function()
+          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
             ui.heading{ level=5, attr = { class = "uppercase" },content = k}
           end }
         end
@@ -222,7 +228,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+      ui.container{ attr = { class = "span12 depression_box"}, content = function()
         ui.tag{content=issue.problem_description  or _"No description available" }
       end }
     end }
@@ -232,105 +238,111 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+      ui.container{ attr = { class = "span12 depression_box"}, content = function()
         ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
+
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_txt_box"}, content = function()
+    ui.container{attr = {class="row-fluid"}, content =function()
+      ui.container{attr = {class="span12 depression_box"}, content =function()
+
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span8"}, content = function()
-            if #issue.initiatives == 1 then
-              content= _"initiative"
-            else
-              content= _"initiatives"
-            end
-
-            ui.tag{content= _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days="n giorni"}) }
-          end }
-
-          ui.container{ attr = { class = "span4"}, content = function()
-            ui.link{
-              attr = { class="btn btn-primary spaceline btn_box_bottom"  },
-              module = "wizard",
-              params = { issue_id=issue.id},
-              view = "new",
-              content = function()
-
-                  ui.container{ attr = { class = "row-fluid"}, content = function()
-                    ui.container{ attr = { class = "span4"}, content = function()
-                      ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
+          ui.container{ attr = { class = "span12 alert label-area"}, content = function()
+            ui.container{ attr = { class = "row-fluid"}, content = function()
+              ui.container{ attr = { class = "span8"}, content = function()
+                if #issue.initiatives == 1 then
+                  content= _"initiative"
+                else
+                  content= _"initiatives"
+                end
+    
+                ui.tag{content=function()
+                  
+                  slot.put( _("Vi sono attualmente <strong>#{count}</strong> proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro <strong>#{days}</strong> affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                end }
+              end }
+    
+              ui.container{ attr = { class = "span4"}, content = function()
+                ui.link{
+                  attr = { class="btn btn-primary spaceline btn_box_bottom"  },
+                  module = "wizard",
+                  params = { issue_id=issue.id},
+                  view = "new",
+                  content = function()
+                    ui.container{ attr = { class = "row-fluid"}, content = function()
+                      ui.container{ attr = { class = "span4"}, content = function()
+                        ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
+                      end }
+                      ui.container{ attr = { class = "span6"}, content = function()
+                        ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                      end }
                     end }
-                    ui.container{ attr = { class = "span6"}, content = function()
-                      ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
-                    end }
-                  end }
-
-              end
-            }
+                  end
+                }
+              end }
+            end }
           end }
         end }
-      end }
-    end }
-
-    ui.container{attr = {class="row-fluid spaceline"}, content =function()
-      ui.container{attr = {class="span12 text-center"}, content =function()
-
-        --[[
-        local btna, btnb = "",""
-        if init_ord == "supporters" then btna = " active" end
-        if init_ord == "event" then btnb = " active" end
-        --]]
+		
 
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span3 offset6 text-center"}, content =function()
-            ui.link{
-              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btna  },
-              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
-              module = request.get_module(), 
-              id = issue.id,
-              view = request.get_view(),
-              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" }, 
-              content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
-              end
-            }
+          local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
+          local quorum_supporters  
+          if issue.population and issue.population > 0 then
+            quorum_supporters = math.floor(issue.population * quorum_percent / 100)
+          else
+            quorum_supporters = 0
+          end
+
+          ui.container{attr = {class="span2 offset2"}, content =function()
+            ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
+              ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
+                ui.container{attr = {id="quorum_txt"}, content=function()
+                  slot.put(" ".."Quorum".." "..quorum_percent.."%".."<br>".."    ("..quorum_supporters.." ".._"supporters"..")")
+                end }
+              end }
+            end }
           end }
-          ui.container{attr = {class="span3 text-center"}, content =function()
-            ui.link{
-              --attr = { class="btn btn-primary btn-large btn_box_bottom eq_ord"..btnb  },
-              attr = { class="btn btn-primary btn-large table-cell eq_ord"  },
-              module = request.get_module(), 
-              id = issue.id,
-              view = request.get_view(),
-              params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" }, 
-              content = function()
-                ui.heading{level=4,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
-              end
-            }
+
+          ui.container{attr = {class="span7 offset1 text-center"}, content =function()
+            ui.container{attr = {class="btn-group"}, content =function()
+              local btna, btnb = "",""
+              if init_ord == "supporters" then btna = " active" end
+              if init_ord == "event" then btnb = " active" end
+
+              ui.link{
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btna  },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" },
+                content = function()
+                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
+                end
+              }
+              ui.link{
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb  },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" },
+                content = function()
+                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
+                end
+              }
+            end }
+
           end }
         end }
+		
 
-      end }
-    end }
-
-    ui.container{attr = {class="row-fluid spaceline"}, content =function()
-
-      ui.container{attr = {class="span12 alert alert-simple issue_txt_box initiative_list_box"}, content =function()
-
---        ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
---          ui.container{attr = {class="initiative_quorum_box"}, content =function()
---            slot.put("test")
---          end }
---        end }
-
-        ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12"}, content =function()
+        ui.container{attr = {class="row-fluid spaceline2"}, content =function()
+          ui.container{attr = {class="span12 initiative_list_box"}, content =function()
 
             local initiatives_selector = issue:get_reference_selector("initiatives")
             local highlight_string = param.get("highlight_string")
@@ -366,8 +378,10 @@ ui.container{attr={class="row-fluid"}, content=function()
 end }
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
---ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '16px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '19px', maxFontSize: '32px'}); " }
+--ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
 ui.script{static = "js/jquery.equalheight.js"}
 ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
+ui.script{static = "js/jquery.quorum_bar.js"}
+ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 

@@ -617,8 +617,10 @@ return {
 ["Posts"] = "Messaggi";
 ["Potential supported"] = "Potenziale supporto";
 ["Potential supporters"] = "Potenziali sostenitori";
+["Potential supporter"] = "Potenziale sostenitore";
 ["Potential supporters (before begin of voting)"] = "Potenziali sostenitori (prima del voto)";
 ["Potentially supported"] = "Potenzialmente sostenute";
+["supporters"]="sostenitori";
 ["Preview"] = "Anteprima";
 ["Preview voting comment"] = "Anteprima commento di voto";
 ["Problem Title"]="TITOLO DELLA QUESTIONE:";
@@ -731,6 +733,7 @@ return {
 ["Sunday"] = "Domenica";
 ["Support this initiative"] = "Sostieni questa proposta";
 ["Supported"] = "Sostenute";
+["Supporter"] = "Sostenitore";
 ["Supporters"] = "Sostenitori";
 ["Supporters (before begin of voting)"] = "Sostenitori (prima del voto)";
 ["Syntax help"] = "Guida alla formattazione";

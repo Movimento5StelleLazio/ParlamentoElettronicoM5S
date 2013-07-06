@@ -169,8 +169,8 @@ local previus_page=page-1
 local next_page=page+1
 
  
-ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+ui.container{attr={class="row-fluid spaceline2"},content=function()
+  ui.container{attr={class="span12"},content=function()
           --------------------------------------------------------      
              
                      ui.form
@@ -235,15 +235,17 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           end
                         end
                      
-                        
+                       ui.container{attr={class="row-fluid spaceline2"},content=function()
+                         ui.container{attr={class="span12"},content=function()
+
                         --contenuto
-                       ui.container {
-                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
-                                   content=function()
-                                   ui.container
-                                           {
-                                          attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
-                                          content=function()
+--                       ui.container {
+--                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
+                   --                content=function()
+                  --                 ui.container
+                  --                         {
+                  --                        attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
+                  --                        content=function()
                                             --1 proposer
                                           execute.view
                                           {
@@ -285,10 +287,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                               }
                                           }
                                                                         
-                                          end
-                                          }
-                                end
-                                }  --fine div contento
+                   --                       end
+                    --                      }
+                                end }  --fine div contento
+                              end }  --fine div contento
             
                     end            
                }--fine form
@@ -301,7 +303,7 @@ end }
 ui.script{static = "js/wizard_checkbox.js"} 
  
 
-ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",

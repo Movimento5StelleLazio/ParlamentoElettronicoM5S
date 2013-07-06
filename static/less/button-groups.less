@@ -59,25 +59,25 @@
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
-  .border-top-left-radius(18px);
-  .border-bottom-left-radius(18px);
+  .border-top-left-radius(40px);
+  .border-bottom-left-radius(40px);
 }
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
 .btn-group > .btn:last-child,
 .btn-group > .dropdown-toggle {
-  .border-top-right-radius(18px);
-  .border-bottom-right-radius(18px);
+  .border-top-right-radius(40px);
+  .border-bottom-right-radius(40px);
 }
 // Reset corners for large buttons
 .btn-group > .btn.large:first-child {
   margin-left: 0;
-  .border-top-left-radius(18px);
-  .border-bottom-left-radius(18px);
+  .border-top-left-radius(40px);
+  .border-bottom-left-radius(40px);
 }
 .btn-group > .btn.large:last-child,
 .btn-group > .large.dropdown-toggle {
-  .border-top-right-radius(18px);
-  .border-bottom-right-radius(18px);
+  .border-top-right-radius(40px);
+  .border-bottom-right-radius(40px);
 }
 
 // On hover/focus/active, bring the proper btn to front
@@ -86,6 +86,10 @@
 .btn-group > .btn:active,
 .btn-group > .btn.active {
   z-index: 2;
+}
+.btn-group > .btn:active,
+.btn-group > .btn.active {
+  .translate(0,0.2em);
 }
 
 // On active and open, don't show outline
