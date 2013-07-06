@@ -92,7 +92,12 @@ ui.container{attr={class="row-fluid"},content=function()
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           params={wizard=true},
           content=function()
-            ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
+             ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
+--           ui.tag
+--           {
+--            tag="span",
+--            attr={class="fittext"}, content=_"Homepage write new issue"
+--           }
           end }
       end }
     
