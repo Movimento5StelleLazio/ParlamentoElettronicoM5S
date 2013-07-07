@@ -27,7 +27,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span3 text-center"},content=function()
     trace.debug("renmdering button <<")
   ui.link{
-          attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn"},
+          attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn fixclick"},
           module = "wizard",
           view = "show_ext_bs",
           id=app.session.member.unit_id,
@@ -63,7 +63,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span3 offset6 text-center"},content=function()
   ui.tag{
       tag="a",
-      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn fixclick",onclick="document.getElementById('wizardForm"..page.."').submit();"},
       module = "wizard",
       view = "wizard_new_initiative_bs",
       params = {

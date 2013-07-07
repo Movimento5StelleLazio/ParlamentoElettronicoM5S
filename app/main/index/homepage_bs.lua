@@ -78,7 +78,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.container{attr={class="row-fluid btn_box_top btn_box_bottom"},content=function()
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
           content=function()
@@ -87,7 +87,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
           module = "unit", view = "show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           params={wizard=true},
@@ -97,7 +97,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
@@ -106,7 +106,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
        
       ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1"},
+        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["altri_gruppi"].unit_id,
           content=function()

@@ -22,8 +22,14 @@ a {
 	margin-top: 60px;
 }
 
+.vtable {
+        display: table;
+        height: 100%;
+}
+
 .table-cell {
 	display: table-cell;
+        vertical-align: middle;
 }
 
 .inline-block {
@@ -77,21 +83,16 @@ a {
 }
 
 #issues_box,.spaceline {
-<<<<<<< HEAD
 	margin-top: 15px;
-=======
-  margin-top: 15px;
 }
 
 .spaceline2 {
   margin-top: 30px;
->>>>>>> refs/remotes/Movimento/ParlamentoElettronicoM5S/test
 }
 
 #m5s_logo {
-	height: 70px;
-	width: 70px;
-	max-width: 70px;
+	max-width: 150px;
+        width: 100%;
 }
 
 #parlamento_img {
@@ -165,6 +166,11 @@ a {
 .phases_out_box {
 }
   
+.phases_box, .phases_bar, .phase_arrow, .admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
 
 .phases_in_box {
   position: relative;
@@ -173,23 +179,8 @@ a {
 .phases_box {
   position: absolute;
   left: 0;
-  //  display: inline-block;
-//    margin-bottom: -26px;
-//    margin-right: -10px;
-    height: 160px;
-    width: 520px;
->>>>>>> refs/remotes/Movimento/ParlamentoElettronicoM5S/test
-}
-
-.phases_box_large {
-	-webkit-transform: scale(1.4);
-	-moz-transform: scale(1.4);
-	-o-transform: scale(1.4);
-	-ms-transform: scale(1.4);
-	margin-top: 29px;
-	margin-right: 0px;
-	margin-left: 0px;
-	margin-bottom: -4px;
+  height: 160px;
+  width: 520px;
 }
 
 .admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished
@@ -202,13 +193,11 @@ a {
 	height: 160px;
 	position: absolute;
 	width: 520px;
-	min-width: 520px;
 	z-index: 9;
 }
 
 .phase_arrow {
-	height: 70px;
-	margin-top: 18px;
+	margin-top: -2px;
 	position: absolute;
 	width: 70px;
 	z-index: 10;
