@@ -56,7 +56,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       if unit_name == "cittadini" or unit_name == "iscritti" then
         ui.container{attr={class="span3"},content = function()
           ui.link {
-            attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
+            attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
             module = "area",
             view = "show_ext_bs",
             params = { state = "admission"},
@@ -69,7 +69,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "development"},

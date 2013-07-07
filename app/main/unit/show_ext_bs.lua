@@ -48,7 +48,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn table-cell"  },
+          attr = { class="btn btn-primary btn-large large_btn table-cell fixclick"  },
           module = "index",
           view = return_view,
           content = function()
@@ -81,8 +81,8 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1"
-btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1"
+btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1 fixclick"
+btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1 fixclick"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active

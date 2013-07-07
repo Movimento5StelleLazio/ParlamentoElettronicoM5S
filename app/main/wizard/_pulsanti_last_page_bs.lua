@@ -40,7 +40,7 @@ end
                --pulsante anteprima
                      ui.tag{
                                 tag="div",
-                                 attr={id="btnAnteprima",class="btn btn-primary btn-large table-cell eq_btn",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
+                                 attr={id="btnAnteprima",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "anteprima",
                                  params = { 
@@ -75,7 +75,7 @@ end
                     ui.container{attr={class="span3 text-center"},content=function()
                       ui.tag{  
                                  tag="div",
-                                 attr={id="btnSalvaPreview",class="btn btn-primary btn-large table-cell eq_btn",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
+                                 attr={id="btnSalvaPreview",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "_save_preview",
                                  params = { 
@@ -113,7 +113,7 @@ end
                     ui.container{attr={class="span3 text-center"},content=function()
                         ui.tag{
                                  tag="a",
-                                 attr={id="btnSaveIssue",class="btn btn-primary btn-large table-cell eq_btn",style="float:left;cursor:pointer;height: 103px;",onclick="sendInitiative("..page..");"},
+                                 attr={id="btnSaveIssue",class="btn btn-primary btn-large table-cell eq_btn fixclick",style="float:left;cursor:pointer;height: 103px;",onclick="sendInitiative("..page..");"},
                                  params = { 
                                                     unit_id=app.session.member.unit_id,
                                                     area_id=app.session.member.area_id,
