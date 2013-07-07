@@ -100,7 +100,7 @@ if not issue then
   issue.policy_id = policy_id
   issue.member_id=app.session.member_id
   issue.title=param.get("issue_title")
-  issue.brief_description=param.get("issue_brief_description")
+  issue.brief_description=param.get("initiative_brief_description")
   issue.problem_description=param.get("problem_description")
   issue.aim_description=param.get("aim_description")
   

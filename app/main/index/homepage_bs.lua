@@ -93,11 +93,6 @@ ui.container{attr={class="row-fluid"},content=function()
           params={wizard=true},
           content=function()
              ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
---           ui.tag
---           {
---            tag="span",
---            attr={class="fittext"}, content=_"Homepage write new issue"
---           }
           end }
       end }
     
