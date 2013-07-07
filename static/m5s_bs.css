@@ -208,8 +208,7 @@ a {
 }
 
 .phase_arrow {
-	height: 70px;
-	margin-top: 18px;
+	margin-top: -2px;
 	position: absolute;
 	width: 70px;
 	z-index: 10;
