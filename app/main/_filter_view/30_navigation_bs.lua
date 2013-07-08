@@ -17,7 +17,7 @@ slot.select('navbar', function()
       ui.tag{ tag="li", content = function()
         ui.container{ attr={ class="btn-group" }, content = function()
          ui.link{
-           attr = { datatoggle="dropdown", href="#", class="btn btn-primary btn-mini dropdown-toggle"},
+           attr = { datatoggle="dropdown", href="#", class="btn btn-primary btn-mini dropdown-toggle fixclick"},
            module = "index",
             view = "menu_ext",
             content = function()

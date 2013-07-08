@@ -19,7 +19,7 @@
      
  end
  
-ui.container{attr={class="row-fluid", style="width: 5em;height: 5em;float:left;",onclick="doCheckPag10("..id_checkbox..")"},content=function()
+ui.container{attr={class="row-fluid", style="width: 5em;height: 5em;float:left;",onmousedown="doCheckPag10("..id_checkbox..")"},content=function()
 ui.container{attr={class="span12"},content=function() 
  ui.container
  {
