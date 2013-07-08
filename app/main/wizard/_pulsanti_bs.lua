@@ -63,7 +63,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span3 offset6 text-center"},content=function()
   ui.tag{
       tag="a",
-      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn fixclick",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn ",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
       module = "wizard",
       view = "wizard_new_initiative_bs",
       params = {
@@ -96,7 +96,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span3 text-center"},content=function()
     ui.tag{
       tag="a",
-      attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn",onclick="document.getElementsByName('indietro')[0].value=true;document.getElementById('wizardForm"..page.."').submit();"},
+      attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementsByName('indietro')[0].value=true;document.getElementById('wizardForm"..page.."').submit();"},
       module = btnBackModule,
       view = btnBackView,
       params = {
@@ -124,7 +124,7 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span3 offset6 text-center"},content=function()
   ui.tag{
       tag="a",
-      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onclick="document.getElementById('wizardForm"..page.."').submit();"},
+      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
       module = "wizard",
       view = "wizard_new_initiative_bs",
       params = {

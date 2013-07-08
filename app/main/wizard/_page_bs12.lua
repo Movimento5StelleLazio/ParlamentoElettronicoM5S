@@ -612,7 +612,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                             name="initiative_title",
                                                                             label=_"Initiative Title",
                                                                             label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
-                                                                            value=issue_title
+                                                                            value=initiative_title
                                                                        }
                                                                 end
                                                             }
