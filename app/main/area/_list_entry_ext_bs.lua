@@ -5,7 +5,7 @@ local wizard = param.get("wizard", boolean)
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span2"}, content = function()
+      ui.container{ attr = { class = "span2 text-center"}, content = function()
         if not wizard then
           ui.link{  
             module = "area", view = "filters_bs", id = area.id,

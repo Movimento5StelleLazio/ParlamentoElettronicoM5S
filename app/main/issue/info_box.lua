@@ -3,6 +3,7 @@ local issue = param.get("issue","table")
 
 if issue.state == "admission" then
   event_name = _"New issue"
+  event_image = nil
 elseif issue.state == "discussion" then
   event_name = _"Discussion started"
   event_image = "comments.png"
