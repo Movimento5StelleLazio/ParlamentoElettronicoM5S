@@ -174,55 +174,65 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
-      if unit_name == "cittadini" or unit_name == "iscritti" then
-        ui.container{ attr = { class="span3" }, content=function()
+      ui.container{ attr = { class="span12 text-center"}, content=function()
+        ui.container{ attr = { class="btn-group"}, content=function()
+          local btna,btnb,btnc,btnd = "", "", "", ""
+          if orderby == "supporters" then
+            btna = " active"
+          elseif orderby == "creation_date" then
+            btnb = " active"
+          elseif orderby == "event" then
+            btnc = " active"
+          end
+          if desc then
+            btnd = " active"
+          end
+           
+          local btn_style = "width:33%;"
+          if unit_name == "cittadini" or unit_name == "iscritti" then
+            btn_style = "width:25%;"
+            ui.link {
+              attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
+              module = "area",
+              view = "show_ext_bs",
+              id = area.id,
+              params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+              content = function()
+                ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+              end
+            }
+          end
           ui.link {
-            attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
-            params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
+            params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
             content = function()
-              ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
+            end
+          }
+          ui.link {
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
+            module = "area",
+            view = "show_ext_bs",
+            id = area.id,
+            params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
+            content = function()
+              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
+            end
+          }
+          ui.link {
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
+            module = "area",
+            view = "show_ext_bs",
+            id = area.id,
+            params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
+            content = function()
+              ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
             end
           }
         end }
-      end
-      ui.container{ attr = { class="span3", style=spanstyle }, content=function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
-          view = "show_ext_bs",
-          id = area.id,
-          params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
-          content = function()
-            ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
-          end
-        }
-      end }
-      ui.container{ attr = { class="span3" }, content=function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
-          view = "show_ext_bs",
-          id = area.id,
-          params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
-          content = function()
-            ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
-          end
-        }
-      end }
-      ui.container{ attr = { class="span3" }, content=function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
-          view = "show_ext_bs",
-          id = area.id,
-          params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
-          content = function()
-            ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
-          end
-        }
       end }
     end }
     ui.container{ attr = { class="row-fluid"}, content=function()
@@ -248,10 +258,10 @@ ui.container{ attr = { class="row-fluid"}, content=function()
 end }
 
 ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+--ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
 ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(0.9, {minFontSize: '12px', maxFontSize: '26px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.0, {minFontSize: '12px', maxFontSize: '26px'}); " }
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
 
