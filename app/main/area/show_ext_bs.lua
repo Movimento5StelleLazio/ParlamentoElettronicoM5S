@@ -176,11 +176,23 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
       ui.container{ attr = { class="span12 text-center"}, content=function()
         ui.container{ attr = { class="btn-group"}, content=function()
+          local btna,btnb,btnc,btnd = "", "", "", ""
+          if orderby == "supporters" then
+            btna = " active"
+          elseif orderby == "creation_date" then
+            btnb = " active"
+          elseif orderby == "event" then
+            btnc = " active"
+          end
+          if desc then
+            btnd = " active"
+          end
+           
           local btn_style = "width:33%;"
           if unit_name == "cittadini" or unit_name == "iscritti" then
             btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary btn-large table-cell wrap fixclick", style=btn_style },
+              attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
               module = "area",
               view = "show_ext_bs",
               id = area.id,
@@ -191,7 +203,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             }
           end
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick", style=btn_style },
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -201,7 +213,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick", style=btn_style },
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -211,7 +223,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick", style=btn_style },
+            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
