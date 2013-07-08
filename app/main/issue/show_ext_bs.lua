@@ -40,7 +40,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick"  },
+          attr = { class="btn btn-primary btn-large"  },
           module = return_module,
           id = issue.area.id,
           view = return_view,
@@ -152,7 +152,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
           ui.tag{content= _"Issue created at:"}
@@ -161,7 +161,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     if issue.state == "admission" then
-      ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
         ui.container{ attr = { class = "span12"}, content = function()
             ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
               ui.tag{content=_"Time limit to reach the supporters quorum:"}
@@ -170,7 +170,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
     end
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"By user:" }
@@ -186,7 +186,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"Keywords:" }
@@ -204,7 +204,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content=  _"Technical competence areas:" }
@@ -232,7 +232,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag{content=issue.problem_description  or _"No description available" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Aim description:" }
       end }
@@ -243,7 +243,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
 
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
@@ -269,7 +269,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     
               ui.container{ attr = { class = "span4"}, content = function()
                 ui.link{
-                  attr = { class="btn btn-primary spaceline btn_box_bottom fixclick"  },
+                  attr = { class="btn btn-primary spaceline btn_box_bottom"  },
                   module = "wizard",
                   params = { issue_id=issue.id},
                   view = "new",
@@ -316,7 +316,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btna,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btna  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -326,7 +326,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btnb,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -380,8 +380,8 @@ ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '19px', maxFontSize: '32px'}); " }
 --ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
---ui.script{static = "js/jquery.equalheight.js"}
---ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 
