@@ -40,7 +40,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large"  },
+          attr = { class="btn btn-primary btn-large fixclick"  },
           module = return_module,
           id = issue.area.id,
           view = return_view,
@@ -152,7 +152,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
           ui.tag{content= _"Issue created at:"}
@@ -161,7 +161,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     if issue.state == "admission" then
-      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+      ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
         ui.container{ attr = { class = "span12"}, content = function()
             ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
               ui.tag{content=_"Time limit to reach the supporters quorum:"}
@@ -170,7 +170,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
     end
-    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"By user:" }
@@ -186,7 +186,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content= _"Keywords:" }
@@ -204,7 +204,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
           ui.tag{content=  _"Technical competence areas:" }
@@ -232,7 +232,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag{content=issue.problem_description  or _"No description available" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Aim description:" }
       end }
@@ -243,7 +243,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
 
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
       end }
