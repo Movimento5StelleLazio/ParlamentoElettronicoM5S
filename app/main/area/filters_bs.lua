@@ -41,7 +41,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     ui.container{ attr = { class  = "row-fluid btn_box_top  btn_box_bottom" }, content = function()
       ui.container{attr={class="span3", style=spanstyle},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1" },
+          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
