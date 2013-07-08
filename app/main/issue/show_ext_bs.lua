@@ -269,7 +269,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     
               ui.container{ attr = { class = "span4"}, content = function()
                 ui.link{
-                  attr = { class="btn btn-primary spaceline btn_box_bottom"  },
+                  attr = { class="btn btn-primary spaceline btn_box_bottom fixclick"  },
                   module = "wizard",
                   params = { issue_id=issue.id},
                   view = "new",
@@ -316,7 +316,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"..btna,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btna,style="width:50%;"  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -326,7 +326,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btnb,style="width:50%;"  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
