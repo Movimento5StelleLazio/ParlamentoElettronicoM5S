@@ -316,7 +316,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"..btna  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btna,style="width:50%;"  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -326,7 +326,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb  },
+                attr = { class="btn btn-primary btn-large table-cell wrap"..btnb,style="width:50%;"  },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -380,8 +380,8 @@ ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
 ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '19px', maxFontSize: '32px'}); " }
 --ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
+--ui.script{static = "js/jquery.equalheight.js"}
+--ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 
