@@ -1,5 +1,6 @@
 local for_details = param.get("for_details", "boolean") or false
-local init_ord = param.get("init_ord")
+local init_ord = param.get("init_ord") or "event"
+local list = param.get("list")
 
 local initiatives=Initiative:new_selector()
 
@@ -79,6 +80,14 @@ if init_ord == "supporters" then
   initiatives:add_order_by("supporter_count DESC")
 elseif init_ord == "event" then
   initiatives:add_order_by("last_event_id DESC")
+end
+
+if list == "proposals" then
+  initiatives:join("current_draft", nil, {"current_draft.initiative_id = initiative.id AND current_draft.author_id = ?",app.session.member_id })
+end
+
+if list == "voted" then
+  initiatives:join("vote", nil, {"vote.initiative_id = initiative.id AND vote.issue_id = ?", tonumber(param.get_id()) })
 end
 
 for i, initiative in ipairs(initiatives:exec()) do
