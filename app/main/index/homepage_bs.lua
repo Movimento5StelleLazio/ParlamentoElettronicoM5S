@@ -19,7 +19,7 @@ execute.chunk{
     orderby=orderby,
     desc=desc,
     scope=scope,
-    interest="initiated",
+    interest=interest,
     selector=issues_selector_myinitiatives
   }
 }
@@ -195,7 +195,7 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
               module = "issue",
-              view   = "_list_ext_bs",
+              view   = "_list_ext2_bs",
               params = {
                 state=state,
                 --orderby=orderby,
@@ -204,7 +204,8 @@ ui.container{attr={class="row-fluid"},content=function()
                 --interest=interest,
                 list="voted",
                 ftl_btns=ftl_btns,
-		member=member,
+		for_member=member,
+                for_details = false,
                 selector = issues_selector_voted
               }
             }
@@ -230,16 +231,17 @@ ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
               module = "issue",
-              view   = "_list_ext_bs",
+              view   = "_list_ext2_bs",
               params = {
                 state=state,
                 --orderby=orderby,
                 --desc=desc,
                 scope=scope,
                 --interest=interest,
-                list="created",
+                list="proposals",
                 ftl_btns=ftl_btns,
-                member=member,
+                for_member=member,
+                for_details = false,
                 selector = issues_selector_myinitiatives
               }
             }
