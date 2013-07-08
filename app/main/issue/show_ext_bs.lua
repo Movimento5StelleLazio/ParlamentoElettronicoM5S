@@ -147,7 +147,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
@@ -194,7 +194,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         keywords={"lavoro","scuola","educazione","finanza"}
         for i,k in ipairs(keywords) do
@@ -212,7 +212,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
         for i,k in ipairs(areas) do
@@ -222,7 +222,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid spaceline3"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
       end }

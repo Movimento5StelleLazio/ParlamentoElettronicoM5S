@@ -192,7 +192,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           if unit_name == "cittadini" or unit_name == "iscritti" then
             btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
+              attr = { class="filter_btn btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
               module = "area",
               view = "show_ext_bs",
               id = area.id,
@@ -203,7 +203,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             }
           end
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
+            attr = { class="filter_btn btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -213,7 +213,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
+            attr = { class="filter_btn btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -223,7 +223,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
+            attr = { class="filter_btn btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
