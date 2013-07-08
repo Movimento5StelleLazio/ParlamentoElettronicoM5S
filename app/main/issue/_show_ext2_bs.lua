@@ -82,7 +82,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
 --        local links = {}
       
-        ui.container{ attr = { class = "row-fluid"}, content = function()
+        ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
             local content
             if #issue.initiatives == 1 then
