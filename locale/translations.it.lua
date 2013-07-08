@@ -104,7 +104,7 @@ return {
 ["Welcome <strong>#{realname}.</strong>"]="Benvenuto <strong>#{realname}.</strong>";
 ["You didn't logged in from this location? Report it immediatly:"]="Non ti sei connesso da questa posizione? Segnalacelo subito:";
 ["If it is not so, press here:"]="Se non e' cosi', premi qui:";
-["You're connected "]="Sei connesso ";
+["You're connected from"]="Sei connesso da";
 ["Correct your position"]="Correggi la tua posizione";
 ["Report suspect data"]="Segnala dato sospetto";
 ["Welcome <strong>#{realname}</strong>."]="Benvenuto <strong>#{realname}</strong>.";

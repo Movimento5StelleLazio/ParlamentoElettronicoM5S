@@ -37,9 +37,17 @@ if app.session.member_id then
     ui.container{ attr = { class  = "span12 well text-center" }, content = function()
 
       ui.script{ static = "js/position.js" }
+      
+      local curLogin = member:get_login_data('last')
 
-      --local curLogin = member:get_current_login_data()
-      local curLogin = member:get_last_login_data()
+      -- Demo data start
+      --------------------------------------------------------------------------
+      if not curLogin or not curLogin.geolat or not curLogin.geolng or not curLogin.login_time  then
+        curLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
+      end
+      --------------------------------------------------------------------------
+      -- Stop demo data
+
       if curLogin and curLogin.geolat and curLogin.geolng and curLogin.login_time then
 
         trace.debug("curLogin.geolat:"..curLogin.geolat.." curLogin.geolng:"..curLogin.geolng)
@@ -53,11 +61,8 @@ if app.session.member_id then
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
                       slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
-                      slot.put(" ")
-                      slot.put( _("You're connected "))
-                      slot.put(" ")
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
-                      ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.._"from "..'");'}
+                      ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
                     end }
                   end }
                 end }
@@ -113,9 +118,17 @@ if app.session.member_id then
             --]]
           end }
         end }
-      end
+     end 
 
-      local lastLogin = member:get_last_login_data()
+      local lastLogin = member:get_login_data()
+      -- Demo data start
+      --------------------------------------------------------------------------
+      if not lastLogin or not lastLogin.geolat or not lastLogin.geolng or not lastLogin.login_time  then
+        lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
+        --lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = "2013-07-08 20:06:55.072482+02" }
+      end
+      --------------------------------------------------------------------------
+      -- Stop demo data
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
 
         ui.container{attr = {class = "row-fluid spaceline" },content = function()
