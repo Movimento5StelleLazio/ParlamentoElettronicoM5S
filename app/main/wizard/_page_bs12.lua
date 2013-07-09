@@ -452,10 +452,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                          ui.tag
                                                                {
                                                                     tag="textarea",
-                                                                     attr={id="issue_short_description",name="issue_short_description",style="resize: none;float: left; font-size: 23px; height: 22em; margin-left: 15px; width: 70%;"},
+                                                                     attr={id="issue_brief_description",name="issue_brief_description",style="resize: none;float: left; font-size: 23px; height: 22em; margin-left: 15px; width: 70%;"},
                                                                    
-                                                                    content=function()
-                                                                    end
+                                                                    content= issue_brief_description
                                                                     
                                                                }
                                                                

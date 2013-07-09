@@ -11,7 +11,7 @@ function sendInitiative(page)
 	 
 	  //document.getElementsByName("policy_id_hidden")[0].value=document.getElementById("issue_title").value;
 	  document.getElementsByName("issue_title_hidden")[0].value=document.getElementById("issue_title").value;
-      document.getElementsByName("issue_brief_description_hidden")[0].value=document.getElementById("issue_short_description").innerHTML;
+      document.getElementsByName("issue_brief_description_hidden")[0].value=document.getElementById("issue_brief_description").innerHTML;
       document.getElementsByName("issue_keywords_hidden")[0].value=document.getElementById("issue_keywords").value;
       document.getElementsByName("problem_description_hidden")[0].value=document.getElementById("problem_description").value;
       document.getElementsByName("aim_description_hidden")[0].value=document.getElementById("aim_description").value;
