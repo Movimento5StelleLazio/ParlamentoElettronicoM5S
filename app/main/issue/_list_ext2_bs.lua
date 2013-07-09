@@ -1,7 +1,7 @@
 local issues_selector = param.get("selector", "table")
 local member = param.get("for_member", "table") or app.session.member
 local state = param.get("state")
-local orderby = param.get("orderby") or ""
+local orderby = param.get("orderby") 
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
