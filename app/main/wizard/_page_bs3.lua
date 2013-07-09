@@ -38,14 +38,14 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
                                        
-ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+ui.container{attr={class="row-fluid spaceline3"},content=function()
 ui.container{attr={class="span12 text-center"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page,style="height:100%"},
+                        attr={id="wizardForm"..page, class="inline-block"},
                         module = 'wizard',
                         view = btnBackView,
                         params={
@@ -82,9 +82,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
                       
-                        ui.container{attr={class="span2 text-center"},content=function()
-                        end}
-                        ui.container{attr={class="span8 text-center"},content=function()
+                        ui.container{attr={class="span8 offset2 text-center"},content=function()
                         
                           ui.container{attr={class="row-fluid"},content=function()
                               
@@ -92,7 +90,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                              
                                  ui.container{attr={class="row-fluid"},content=function()
                                  
-                                      ui.container{attr={class="span12 "},content=function()
+                                      ui.container{attr={class="span12"},content=function()
                                           
                                            --contenuto
                                            ui.tag{
