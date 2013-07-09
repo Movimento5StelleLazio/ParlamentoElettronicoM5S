@@ -411,7 +411,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                     ui.tag{
                       tag="textarea",
                       attr={id="initiative_brief_description",name="initiative_brief_description",style="height:100%;width:100%;resize:none;"},
-                      content=""
+                      content=initiative_brief_description
                     }
                   end }
 				end }
@@ -426,7 +426,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                     ui.tag{
                       tag="textarea",
                       attr={id="draft",name="draft",style="height:100%;width:100%;resize:none;"},
-                      content=""
+                      content=draft
                     }
                   end }
                 end }
@@ -871,5 +871,11 @@ end }
 
 ui.script{static = "js/jquery.fittext.js"}
 ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }                  
- 
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".issue_brief_span")); $(window).resize(function() { equalHeight($(".issue_brief_span")); }); }); ' }
 
+ui.script{script = '$(document).ready(function() { equalHeight($(".issue_keywords")); $(window).resize(function() { equalHeight($(".issue_keywords")); }); }); ' }
+ui.script{script = '$(document).ready(function() { equalHeight($(".issue_desc")); $(window).resize(function() { equalHeight($(".issue_desc")); }); }); ' }
+ui.script{script = '$(document).ready(function() { equalHeight($(".aim_desc")); $(window).resize(function() { equalHeight($(".aim_desc")); }); }); ' }
+ui.script{script = '$(document).ready(function() { equalHeight($(".init_brief")); $(window).resize(function() { equalHeight($(".init_brief")); }); }); ' }
+ui.script{script = '$(document).ready(function() { equalHeight($(".draft")); $(window).resize(function() { equalHeight($(".draft")); }); }); ' }
