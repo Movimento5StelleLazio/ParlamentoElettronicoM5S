@@ -79,7 +79,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
                       
-                      ui.container{attr={class="span12 text-center"},content=function()
+                      ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()            
                           ui.container{attr={class="row-fluid"},content=function()
                             ui.container{attr={class="span6 text-right issue_brief_span"},content=function()
