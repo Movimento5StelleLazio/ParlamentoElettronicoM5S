@@ -83,7 +83,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
                             ui.container{attr={class="span6 text-right issue_brief_span"},content=function()
                               ui.tag{tag="p",content=  _"Description to the problem you want to solve"}                    
-                              ui.tag{tag="p",content=  _"Description note"}
+                              ui.tag{tag="em",content=  _"Description note"}
                             end }
                             ui.container{attr={class="span6 issue_brief_span"},content=function()
                               ui.tag{
