@@ -370,7 +370,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                    
                                      ui.container
                                         {
-                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 93em; position: relative; float: left; width: 100%; top: 50px;"},
+                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 96em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
                                                    ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
@@ -646,20 +646,25 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                     attr={id="wizard_part_2", style="background-color: lavender; height: 137em; position: relative; float: left; width: 100%; top: 150px;"},
                                                     content=function()  
                                                     
-                                                          ui.container
-                                                            {
-                                                                    attr={id="wizard_page_"..page, style="background-color: lightblue; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
-                                                                    content=function()  
-                                                             ui.tag{
-                                                                    tag="span",
-                                                                   attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
-                                                                    nultiline=false,
-                                                                    content="PROPOSTA"
-                                                                   }
-                                                                   
-                                                                   end
-                                                            }
+                                                         ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                          ui.container{attr={class="span12 text-center"},content=function()      
+                                                        ui.container
+                                                        {
+                                                                attr={id="wizard_page_"..page, style="background-color: lightblue; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
+                                                                content=function()  
+                                                                 ui.tag{
+                                                                        tag="span",
+                                                                        attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
+                                                                        nultiline=false,
+                                                                        content="PROPOSTA"
+                                                                       }
+                                                          end } --contenuto
+                                                      end}
+                                                  end}
                                         
+                                        
+                                        
+                                                        --background-color: lightblue; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;
                                                       --fine contenuto
                                         
                                                       --TITOLO ISSUE
