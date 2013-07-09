@@ -90,7 +90,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                            --contenuto
                                ui.tag{
                                    tag="div",
-                                   attr={style="width:100%;text-align: center;margin: 2em;"},
+                                   attr={style="width:100%;text-align: center;margin-top: 2em;margin-botton: 2em;"},
                                    content=function()     
                                            ui.field.text
                                            {

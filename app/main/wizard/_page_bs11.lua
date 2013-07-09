@@ -93,7 +93,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           ui.container{attr={class="row-fluid spaceline2"},content=function()
                              ui.container{attr={class="span4"},content=function()
                              end}
-                          ui.container{attr={class="span4"},content=function()
+                          ui.container{attr={class="span8"},content=function()
                         --contenuto
                      
                                             --1 proposer
@@ -134,8 +134,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                           }
                                                                         
                                           end  }
-                              ui.container{attr={class="span4"},content=function()
-                              end}
+                              
                            end  }
                                                              --fine div formSelect
             
