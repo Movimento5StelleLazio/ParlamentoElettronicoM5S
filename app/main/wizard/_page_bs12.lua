@@ -219,19 +219,19 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                              technical_area_1=k.value
                           end
                         
-                        if k.name=="technical_area_2" then
+                          if k.name=="technical_area_2" then
                              technical_area_2=k.value
                              else
                              technical_area_2=0
                           end
                         
-                        if k.name=="technical_area_3" then
+                          if k.name=="technical_area_3" then
                              technical_area_3=k.value
                              else
                              technical_area_3=0
                           end
                         
-                        if k.name=="technical_area_4" then
+                          if k.name=="technical_area_4" then
                              technical_area_4=k.value
                              else
                              technical_area_4=0
@@ -274,43 +274,23 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                      selected3="true"
                                                      trace.debug("selected3="..selected3)
                                                    end
-                                                          
-                                                        
-                                                        
-                                                        
-                                                      
+                                                       
                                                     end
                                                     
                                                  end   
                                          else
                                       end --fine if
                                       
-                                        ui.container
-                                            {
-                                              attr={class="formSelect",style="height:50px"},
-                                              content=function()
-                                              --[[
-                                              ui.field.select{
-                                                        attr = { id = "policyChooser", style="width: 54%;height:38px;position:relative;text-align: left;float: left;margin-left: 40px;" },
-                                                        label =  "REGOLA:",
-                                                        label_attr={style="height: 30px; position: relative; text-align: right; float: left; font-size: 25px;  width: 34%;top: 6px;"},
-                                                        name = 'policyChooser',
-                                                        foreign_records = dataSource,
-                                                        foreign_id = "id",
-                                                        foreign_name = "name",
-                                                        selected_record=tonumber(index)
-                                                      }
-                                                  ]]--
-                                                  
-                                                 --contenuto
-                          ui.tag{
-                                      tag="div",
-                                      attr={style="text-align: center; width: 100%; float: left; top: 30px; position: relative;"},
-                                      content=function()  
-                                       ui.container
-                                       {
-                                          attr={style="width: 20%; float: left; position: relative; margin-left: 9.6em;"},
-                                          content=function()
+                       ui.container
+                              {
+                              attr={class="formSelect",style="height:50px"},
+                              content=function()
+                                            
+                             --contenuto
+                              ui.container{attr={class="row-fluid spaceline2"},content=function()
+                                 ui.container{attr={class="span4"},content=function()
+                                  end}
+                                 ui.container{attr={class="span4 text-left"},content=function()
                                             --1 proposer
                                           execute.view
                                           {
@@ -390,93 +370,128 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                    
                                      ui.container
                                         {
-                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 78em; position: relative; float: left; width: 100%; top: 50px;"},
+                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 93em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
-                                                  ui.container
-                                                    {
-                                                            attr={id="wizard_page_"..page, style="background-color: yellow; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
-                                                            content=function()  
-                                                             ui.tag{
-                                                                    tag="span",
-                                                                    attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
-                                                                    nultiline=false,
-                                                                    content="QUESTIONE"
-                                                                   }
-                                                      end
-                                                     } --contenuto
-                                                        
+                                                   ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                     ui.container{attr={class="span12 text-center"},content=function()      
+                                                        ui.container
+                                                        {
+                                                                attr={id="wizard_page_"..page, style="background-color: yellow; text-align: center; vertical-align: middle; height: 60px; position: relative; left: 5.6em; float: left; width: 25%; top: 15px;"},
+                                                                content=function()  
+                                                                 ui.tag{
+                                                                        tag="span",
+                                                                        attr={style="font-size: 26px; text-overflow: ellipsis; position: relative; overflow: hidden; margin: 0px; white-space: nowrap; float: left; width: 100%; top: 16px;"},
+                                                                        nultiline=false,
+                                                                        content="QUESTIONE"
+                                                                       }
+                                                          end } --contenuto
+                                                      end}
+                                                  end}
+                                                  ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                     ui.container{attr={class="span12 text-center"},content=function()      
                                                                 
                                                      --TITOLO
-                                                       ui.tag{
-                                                               tag="div",
-                                                              attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;margin-bottom: 3em;"},
-                                                                content=function()    
-                                                               
-                                                                ui.container
-                                                                    {
-                                                                       attr={style="width: 85.7%; float: left; position: relative; margin-left: 9.1em;"},
-                                                                       content=function()     
+                                                       ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                        
+                                                          ui.container{attr={class="span1 text-center"},content=function()   
+                                                          end}   
+                                                          ui.container{attr={class="span10 text-center"},content=function()       
                                                                        ui.field.text
                                                                        {
                                                                             attr={id="issue_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
                                                                             name="issue_title",
                                                                             label=_"Problem Title",
-                                                                            label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
+                                                                            label_attr={style="font-size:20px;float: left;margin-top: 0.3em;margin-left: 0.5%;"},
                                                                             value=issue_title
                                                                        }
                                                                        end}
-                                                                end
-                                                            }
+                                                                       
+                                                          ui.container{attr={class="span1text-center"},content=function()   
+                                                          end}
+                                                        end}
                                                             
-                                                            
-                                                          --DESCRIZIONE QUESTIONE
-                                                          ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; width: 100%; float: left; top: 80px; position: relative;"},
-                                                                   content=function()  
-                                                                   
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; float: left; position: relative; margin-left: 9.6em;"},
-                                                                        content=function()
-                                                                         ui.tag{
-                                                                            tag="p",
-                                                                            attr={style="text-align: right; float: right; font-size: 20px;"},
-                                                                            content=  _"Description to the problem you want to solve"
-                                                                          }   
-                                                                        
-                                                                         ui.tag{
-                                                                            tag="p",
-                                                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:15px;"},
-                                                                            content=  _"Description note"
-                                                                          }   
-                                                                          
-                                                                        end
-                                                                        
-                                                                     }   
-                                                                   ui.tag
-                                                                           {
-                                                                                tag="textarea",
-                                                                                attr={id="issue_short_description",name="issue_short_description",style="resize: none; float: left; font-size: 23px; height: 14em; margin-left: 8px; width: 60%;"},
-                                                                                content=""..issue_brief_description
-                                                                                
-                                                                           }
-                                                                 end
-                                                                 } --fine  --DESCRIZIONE QUESTIONE
-                                                            
-                                                         
-                                                            
-                                                            --KEYWORDS
+                                                   end}
+                                                   end}
+                                                  
+                        --DESCRIZIONE QUESTIONE
+                        ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                   
+                                                   ui.container{attr={class="span12 text-center"},content=function()
+                                                        ui.container
+                                                        {
+                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                            content=function()
                                                              ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; position: relative; float: left; width: 100%; top: 110px;"},
-                                                                   content=function()  
+                                                                tag="p",
+                                                                attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                content=  _"Description to the problem you want to solve"
+                                                              }   
+                                                            
+                                                             ui.tag{
+                                                                tag="p",
+                                                                attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:15px;"},
+                                                                content=  _"Description note"
+                                                              }   
+                                                              
+                                                            end
+                                                            
+                                                         } 
+                                               
+                                                         ui.tag
+                                                               {
+                                                                    tag="textarea",
+                                                                     attr={id="issue_short_description",name="issue_short_description",style="resize: none;float: left; font-size: 23px; height: 22em; margin-left: 15px; width: 70%;"},
                                                                    
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                        content=function()
+                                                                    content=function()
+                                                                    end
+                                                                    
+                                                               }
+                                                               
+                                                    end}
+                                                end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}                   
+                         
+                         
+                                                                             
+                           --KEYWORDS
+                            ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                   
+                                                   ui.container{attr={class="span12 text-center"},content=function()
+                                                        ui.container
+                                                        {
+                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                            content=function()
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: right; font-size: 20px;"},
@@ -495,25 +510,43 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="issue_keywords",name="issue_keywords",style="resize: none; float: left; font-size: 23px; height: 228px; width: 60%; margin-left: 7px;"},
+                                                                                attr={id="issue_keywords",name="issue_keywords",style="resize: none; float: left; font-size: 23px; height: 228px; width: 70%; margin-left: 15px;"},
                                                                                 content=issue_keywords
                                                                                 
                                                                            }
-                                                                    end
-                                                                }--fine keywords
+                                                                                                  end}
+                                                end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}         --fine keywords
                                                                                             
                                                             
-                                                            --DESCRIZIONE PROBLEMA
+                          --DESCRIZIONE PROBLEMA
                                                             
-                                                             ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; position: relative; float: left; width: 100%; top: 140px;"},
-                                                                   content=function()  
-                                                                   
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                        content=function()
+                           ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                   
+                                                   ui.container{attr={class="span12 text-center"},content=function()
+                                                        ui.container
+                                                        {
+                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                            content=function()
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: right; font-size: 20px;"},
@@ -532,24 +565,41 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="problem_description", name="problem_description",style="resize: none;float: left; font-size: 23px; height: 16em; margin-left: 7px; width: 60%;"},
+                                                                                attr={id="problem_description", name="problem_description",style="resize: none;float: left; font-size: 23px; height: 16em; margin-left: 15px; width: 70%;"},
                                                                                 content=problem_description
                                                                                 
                                                                            }
-                                                                    end
-                                                                }  -- fine DESCRIZIONE PROBLEMA
+                                                                end}
+                                                end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}  -- fine DESCRIZIONE PROBLEMA
                                                             
-                                                           --DESCRIZIONE OBIETTIVO
-                                                           --contenuto
-                                                               ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; position: relative; float: left; width: 100%; top: 180px;"},
-                                                                   content=function()  
-                                                                   
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                        content=function()
+                       --DESCRIZIONE OBIETTIVO
+                           ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                   
+                                                   ui.container{attr={class="span12 text-center"},content=function()
+                                                        ui.container
+                                                        {
+                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                            content=function()
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: right; font-size: 20px;"},
@@ -568,16 +618,24 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="aim_description",name="aim_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 7px; width: 60%;"},
+                                                                                attr={id="aim_description",name="aim_description",style="resize: none;float: left; font-size: 23px; height: 17em; margin-left: 15px; width: 70%;"},
                                                                                 content=aim_description
                                                                                 
                                                                            }
-                                                                    end
-                                                                }
-                                                           
+                                                                    end }
+                                                      end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}         
                                                 
-                                                end --fine wizard_page
-                                        }
+                           end} --fine wizard_page
+                                        
                                                        
                                         
                                         
@@ -585,7 +643,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                         
                                            ui.container
                                             {
-                                                    attr={id="wizard_part_2", style="background-color: lavender; height: 130em; position: relative; float: left; width: 100%; top: 150px;"},
+                                                    attr={id="wizard_part_2", style="background-color: lavender; height: 137em; position: relative; float: left; width: 100%; top: 150px;"},
                                                     content=function()  
                                                     
                                                           ui.container
@@ -606,81 +664,113 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                         
                                                       --TITOLO ISSUE
                                                       
-                                                       
-                                                       --TITOLO
-                                                      ui.tag{
-                                                               tag="div",
-                                                              attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;margin-bottom: 3em;"},
-                                                                content=function()    
-                                                               
-                                                                ui.container
-                                                                    {
-                                                                       attr={style="width: 85.7%; float: left; position: relative; margin-left: 9.3em;"},
-                                                                       content=function()     
-                                                                       ui.field.text
-                                                                       {
-                                                                            attr={id="initiative_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
-                                                                            name="initiative_title",
-                                                                            label=_"Initiative Title",
-                                                                            label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
-                                                                            value=issue_title
-                                                                       }
-                                                                end
-                                                            }
-                                                           end}
-                                                      
-                                                      
+                                                      ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                       ui.container{attr={class="span12 text-center"},content=function()      
+                                                                
+                                                             --TITOLO
+                                                               ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                                                
+                                                                  ui.container{attr={class="span1 text-center"},content=function()   
+                                                                  end}   
+                                                                  ui.container{attr={class="span10 text-center"},content=function()       
+                                                                               ui.field.text
+                                                                               {
+                                                                                    attr={id="initiative_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
+                                                                                   name="initiative_title",
+                                                                                    label=_"Initiative Title",
+                                                                                    label_attr={style="font-size:20px;float: left;margin-top: 0.3em;margin-left: 1.2%;"},
+                                                                                    value=issue_title
+                                                                               }
+                                                                               end}
+                                                                               
+                                                                  ui.container{attr={class="span1 text-center"},content=function()   
+                                                                  end}
+                                                                end}
+                                                            
+                                                       end}
+                                                       end}         
+                                                     
                                                             
                                                             
-                                                            --DESCRIZIONE ISSUE
-                                                            ui.tag{
-                                                               tag="div",
-                                                               attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;"},
-                                                               content=function()  
-                                                               
-                                                                ui.container
-                                                                {
-                                                                    attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                    content=function()
-                                                                     ui.tag{
-                                                                        tag="p",
-                                                                        attr={style="text-align: right; float: right; font-size: 20px;"},
-                                                                        content=  _"Initiative short description"
-                                                                      }   
-                                                                    
-                                                                     ui.tag{
-                                                                        tag="p",
-                                                                        attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:15px"},
-                                                                        content=  _"Initiative short note"
-                                                                      }   
-                                                                      
-                                                                    end
-                                                                    
-                                                                 } 
-                                                                   
-                                                                 ui.tag
-                                                                       {
-                                                                            tag="textarea",
-                                                                            attr={id="initiative_brief_description", name="initiative_brief_description",style="resize: none; float: left; font-size: 23px; margin-left: 7px; width: 60%; height: 12em;"},
-                                                                            content=initiative_brief_description
-                                                                            
-                                                                       }
+                           --DESCRIZIONE ISSUE
+                            ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                           
+                                                           ui.container{attr={class="span12 text-center"},content=function()
+                                                                        ui.container
+                                                                        {
+                                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                                            content=function()
+                                                                             ui.tag{
+                                                                                        tag="p",
+                                                                                        attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                                        content=  _"Initiative short description"
+                                                                                      }   
+                                                                                    
+                                                                                     ui.tag{
+                                                                                        tag="p",
+                                                                                        attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:15px"},
+                                                                                        content=  _"Initiative short note"
+                                                                                      }   
+                                                                                      
+                                                                                    end
+                                                                                    
+                                                                        } 
+                                                                           
+                                                                         ui.tag
+                                                                               {
+                                                                                    tag="textarea",
+                                                                                    attr={id="initiative_brief_description", name="initiative_brief_description",style="resize: none; float: left; font-size: 23px; margin-left: 15px; width: 70%; height: 12em;"},
+                                                                                    content=initiative_brief_description
+                                                                                    
+                                                                               }
+                                                                               
+                                                                               
                                                                        
+                                                                          end
+                                                                          } --fine tag div
                                                                        
-                                                                end
-                                                            }
-                                                                                        
+                                                end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end} 
+                                                                
                                                             
-                                                           --TESTO PROPOSTA
-                                                             ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative; top: 150px;"},
-                                                                   content=function()  
-                                                                   
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                        content=function()
+                         --TESTO PROPOSTA
+                           ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                            ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                           
+                                                           ui.container{attr={class="span12 text-center"},content=function()
+                                                                        ui.container
+                                                                        {
+                                                                            attr={style="width: 10em; position: relative; float: left;margin-left:2em"},
+                                                                            content=function()
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: right; font-size: 20px;"},
@@ -699,18 +789,27 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 33em; margin-left: 7px; width: 60%;"},
+                                                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 36em; margin-left: 15px; width: 70%;"},
                                                                                 content=draft
                                                                                 
                                                                            }
                                                                     end
                                                                 }
-                                                                                           
+                                                           end} --fine tag div
+                                              end}  
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}                                                   
                                                           
                                                               
                                                              
                                                        ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                                                        ui.container{attr={class="span12 text-center",style="margin-top: 12em; margin-left: 1em; "},content=function()
+                                                        ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
                                                         
                                                                           local area={}
                       
@@ -1045,21 +1144,25 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                     end }       --fine selezione aree tecniche    
                                                        
                                                        
-                                                        --PROPOSER    
+                               --PROPOSER    
                                                             
-                                                            
-                                                            ui.tag{
-                                                                   tag="div",
-                                                                   attr={style="text-align: center; width: 100%; float: left; position: relative;height: 16em;"},
-                                                                   content=function()  
-                                                                   
-                                                                    ui.container
-                                                                    {
-                                                                        attr={style="width: 20%; position: relative; float: left; margin-left: 9.6em;"},
-                                                                        content=function()
+                                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                                  ui.container{attr={class="span12 text-center"},content=function()                          
+                                ui.container{attr={class="span1 text-center"},content=function()end}
+                                ui.container{attr={class="span10 text-center"},content=function()
+                                   ui.container{attr={class="row-fluid"},content=function()
+                                     ui.container{attr={class="span12 "},content=function()
+                                       ui.container{attr={class="row-fluid"},content=function()
+                                         ui.container{attr={class="span12 "},content=function()
+                                                  
+                                           --contenuto
+                                           ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                                               
+                                                           
+                                                           ui.container{attr={class="span2 text-center"},content=function()
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="text-align: right; float: right; font-size: 20px;"},
+                                                                            attr={style="text-align: right; float: left; font-size: 20px;"},
                                                                             content=   _"The proposals was presented by:"
                                                                           }   
                                                                         end
@@ -1067,13 +1170,13 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                
                                                                 ui.container
                                                                     {
-                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 19em; margin-left: 0.6em; text-align: left; width: 60%;"},
+                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 19em; margin-left: 0.6em; text-align: left; width: 80%;"},
                                                                         content=function()
                                                                         
                                                                         
                                                                          ui.container
                                                                             {
-                                                                               attr={style="position: relative; text-align: left; line-height: 56px; margin-left: 60px;margin-top: 2em;"},
+                                                                               attr={style="position: relative; text-align: left; line-height: 56px; margin-top: 1em;margin-left: 1em;"},
                                                                                content=function()
                                                                                
                                                                           --1 proposer
@@ -1120,7 +1223,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                        end
                                                                     }
                                                                     
-                                                                    
+                                                                 ui.container{attr={class="span3 text-center"},content=function()
+                                                                 end}     
                                                                ui.field.hidden{
                                                                                name="formatting_engine",
                                                                                value="rocketwiki"
@@ -1129,7 +1233,16 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                              
                                                              end
                                                              }--fine div formSelect
-                                                      
+                                                                            end} --fine tag div
+                                             
+                                           end}
+                                         end}
+                                       end}
+                                     end}   
+                             ui.container{attr={class="span1 text-center"},content=function()end}  
+                           
+                           end}
+                         end}                 
                                                              
                                                             
                                              
@@ -1143,7 +1256,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                      }--fine div formSelect
                                  
                                    
-                             --pulsanti
+                          --pulsanti
                                 ui.container{attr={class="row-fluid"},content=function()
                                   ui.container{attr={class="span12 text-center"},content=function()
                                     execute.view{

@@ -19,21 +19,16 @@
      
  end
  
-ui.container{attr={class="row-fluid", style="width:34em;height: 5em;",onmousedown="doCheck("..id_checkbox..")"},content=function()
-ui.container{attr={class="span12"},content=function() 
- ui.container
- {
-    attr={class="span3 text-center;",style="width: 6em;"},
-    content=function()
-    ui.tag
-    {
-      tag="a",
-      attr={id="proposer"..id_checkbox,class="btn btn-primary btn-large table-cell eq_btn1" ,style="height: 62px!important;width: 2em;"},
-      content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-         
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12" },content=function()
+ui.container{attr={class="row-fluid", onmousedown="doCheck("..id_checkbox..")"},content=function()
+  ui.container{attr={class="span12"},content=function() 
+    ui.container{attr={class="nowrap", style="margin: 1em;"},content=function() 
+      ui.tag {
+        tag="a",
+        attr={id="policyChooser"..id_checkbox,class="btn btn-primary btn-large inline-block eq_btn1" ,style="height: 62px!important;width: 2em;float:left"},
+        content=function()
+         ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
+            ui.container{attr={class="row-fluid"},content=function()
+              ui.container{attr={class="span12" },content=function()
               ui.image{ attr = {id="imgCheck"..id_checkbox, class="arrow_medium" ,style="display:"..display..";",onclick="doCheck("..id_checkbox..")"}, static="svg/V_checked.svg"}
             end }
           end }
@@ -41,20 +36,22 @@ ui.container{attr={class="span12"},content=function()
       end --fine content
     } --fine tagA
     
+   
+    --label
+    ui.container
+    {
+     attr={style="margin-top: 1em; float: left; margin-left:2em"},
+     content=function()
+     ui.heading{level=3,content= label}
+     end
+    } 
+    
    end --fine container
  }
  
  
-  --label
-    ui.container
-    {
-     attr={style="margin-top: 1em; float: left; "},
-     content=function()
-     ui.heading{level=3,content= label}
-     end
-    }
- end
- }
+ 
+ end}
  end}
  
   
