@@ -33,7 +33,9 @@ local next_page=page+1
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    ui.heading{level=3,content= _"FASE "..page.." di 11"}
+   ui.heading{level=3,content=function() 
+      slot.put(_"FASE <strong>"..page.."</strong> di 11") 
+    end}
     ui.heading{level=4, content=  _"Give a title to the problem you want to solve" }
   end }
 end }
@@ -88,7 +90,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                            --contenuto
                                ui.tag{
                                    tag="div",
-                                   attr={style="width:100%;text-align: center;"},
+                                   attr={style="width:100%;text-align: center;margin: 2em;"},
                                    content=function()     
                                            ui.field.text
                                            {

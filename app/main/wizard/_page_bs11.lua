@@ -20,14 +20,17 @@ local next_page=page+1
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    ui.heading{level=3,content= _"FASE "..page.." di 11" }
+   ui.heading{level=3,content=function() 
+      slot.put(_"FASE <strong>"..page.."</strong> di 11") 
+    end}
     ui.heading{level=4,content=  _"The proposals was presented by:"}
   end }
 end }
 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
           --------------------------------------------------------      
-             
+        ui.container{attr={class="row-fluid"},content=function()      
+           ui.container{attr={class="span12"},content=function()       
                      ui.form
                     {
                         method = "post",
@@ -87,15 +90,12 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           end
                         end
                      
-                        
+                          ui.container{attr={class="row-fluid spaceline2"},content=function()
+                             ui.container{attr={class="span4"},content=function()
+                             end}
+                          ui.container{attr={class="span4"},content=function()
                         --contenuto
-                       ui.container {
-                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
-                                   content=function()
-                                   ui.container
-                                           {
-                                          attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
-                                          content=function()
+                     
                                             --1 proposer
                                           execute.view
                                           {
@@ -133,16 +133,17 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                               }
                                           }
                                                                         
-                                          end
-                                          }
-                                          end
-                                          }
+                                          end  }
+                              ui.container{attr={class="span4"},content=function()
+                              end}
+                           end  }
                                                              --fine div formSelect
             
                     end            
                }--fine form
             --------------------------------------------------------
-   
+             end}
+            end}
   end }
 end }
 
