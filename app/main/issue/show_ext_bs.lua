@@ -63,37 +63,19 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr={class="span12 nowrap"}, content=function()
             ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
             slot.put("<input id='issue_url_box' type='text' value="..url..">") 
+            ui.script{static="js/jquery.select_popover.js"}
 
             ui.tag{
               tag="a",
               attr={
                 id="select_btn",
                 href="#",
-                class="btn btn-primary inline-block",
-                onclick='$("#issue_url_box").select(); $("#select_btn").popover({"trigger":"manual", "animation":"true", "placement":"top", "html":"true", "content":"Premi CTRL + C per copiare il testo selezionato"});$("#issue_url_box").bind("copy", function() {$("#select_btn").popover("hide"); }); $("#select_btn").popover("show");'
+                class="btn btn-primary inline-block"
               },
               content=function()
                 ui.heading{level=6,content=_"Select"}
               end
             }
-            -- Copy button
-            --[[
-            ui.tag{ 
-              tag="a", 
-              attr={ 
-                href="#", 
-                id="copy-button", 
-                class="btn btn-primary btn-mini inline-block", 
-                dataclipboardtext=url
-              },
-              content=function()
-                ui.heading{level=6,content=_"Copy"}
-              end 
-            }
-            ui.script{static = "js/ZeroClipboard.js"}
-            ui.script{static = "js/copytoclipboard.js"}
-            --]]
-
           end }
         end }
       end }

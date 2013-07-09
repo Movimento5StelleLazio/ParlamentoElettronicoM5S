@@ -3,7 +3,7 @@ local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'def
 
 local state = param.get("state") or "any"
 local scope = param.get("scope") or "all_units"
-local orderby = param.get("orderby") or "creation_date" 
+local orderby = param.get("orderby") or "event" 
 local desc = param.get("desc",atom.boolean) or false
 local interest = param.get("interest") or "any"
 local member = app.session.member
@@ -198,10 +198,10 @@ ui.container{attr={class="row-fluid"},content=function()
               view   = "_list_ext2_bs",
               params = {
                 state=state,
-                --orderby=orderby,
-                --desc=desc,
+                orderby=orderby,
+                desc=desc,
                 scope=scope,
-                --interest=interest,
+                interest=interest,
                 list="voted",
                 ftl_btns=ftl_btns,
 		for_member=member,
@@ -234,10 +234,10 @@ ui.container{attr={class="row-fluid"},content=function()
               view   = "_list_ext2_bs",
               params = {
                 state=state,
-                --orderby=orderby,
-                --desc=desc,
+                orderby=orderby,
+                desc=desc,
                 scope=scope,
-                --interest=interest,
+                interest=interest,
                 list="proposals",
                 ftl_btns=ftl_btns,
                 for_member=member,
