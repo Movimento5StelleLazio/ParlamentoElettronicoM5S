@@ -40,115 +40,14 @@ local next_page=page+1
 
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
-    ui.heading{level=3,content= _"FASE "..page.." di 11" }
+    ui.heading{level=3,content=function() 
+      slot.put(_"FASE <strong>"..page.."</strong> di 11") 
+    end}
     ui.heading{level=4,content= _"How much time does your proposal need to be examined?" }
   end }
 end }
 
---[[
-ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
-
-                    ui.form
-                    {
-                        method = "post",
-                        attr={id="wizardForm"..page,style="height:80%"},
-                        module = 'wizard',
-                        view = 'wizard_new_initiative_bs',
-                        params={
-
-                                area_id=area_id,
-                                unit_id=unit_id,
-                                page=page
-                        },
-                        routing = {
-                            ok = {
-                              mode   = 'redirect',
-                              module = 'wizard',
-                              view = 'wizard_new_initiative_bs',
-                              params = {
-
-                                           area_id=area_id,
-                                           unit_id=unit_id,
-                                           page=page
-                                          },
-                            },
-                            error = {
-                              mode   = '',
-                              module = 'wizard',
-                              view = 'wizard_new_initiative_bs',
-                            }
-                          },
-                       content=function()
-                         ui.container
-                        {
-                          attr={class="formSelect"},
-                          content=function()
-
-                           ui.field.select{
-                                attr = { id = "policyChooser", style="width:70%;height:38px;position:relative;"},
-                                label =  "",
-                                name = "policyChooser",
-                                foreign_records = dataSource,
-                                foreign_id = "id",
-                                foreign_name = "name",
-                                value =  ""
-                              }
-                              
-                             --parametri in uscita 
-                            ui.hidden_field{name="indietro" ,value=false}
-                              
-                           ui.tag{
-                                tag = "div",
-                                attr={style="position:relative;"},
-                                content = function()
-                                 
-                                  ui.tag{
-                                    content = function()
-                                      ui.link{
-                                        text = _"Information about the available policies",
-                                        module = "policy",
-                                        view = "list"
-                                      }
-                                      slot.put(" ")
-                                      ui.link{
-                                        attr = { target = "_blank" },
-                                        text = _"(new window)",
-                                        module = "policy",
-                                        view = "list"
-                                      }
-                                    end
-                                  }--fine tag
-                                end
-                              } --fine tag
-
-                         end }
-                         end }
-
-
-
-
-  end }
-end }
-
-
  
-
-ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
-    execute.view{
-      module="wizard",
-      view="_pulsanti_bs",
-      params={
-        btnBackModule = "wizard",
-        btnBackView = "wizard_new_initiative_bs",
-        page=page
-       }
-    }
-  end }
-end }
-]]--
-
 
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
@@ -170,9 +69,11 @@ local next_page=page+1
 
  
 ui.container{attr={class="row-fluid spaceline2"},content=function()
-  ui.container{attr={class="span12"},content=function()
+  ui.container{attr={class="span12 text-left"},content=function()
           --------------------------------------------------------      
-             
+         ui.container{attr={class="row-fluid"},content=function()      
+           ui.container{attr={class="span12"},content=function()
+                    
                      ui.form
                     {
                         method = "post",
@@ -236,16 +137,12 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                         end
                      
                        ui.container{attr={class="row-fluid spaceline2"},content=function()
-                         ui.container{attr={class="span12"},content=function()
+                         ui.container{attr={class="span4"},content=function()
+                          end}
+                          ui.container{attr={class="span4"},content=function()
 
                         --contenuto
---                       ui.container {
---                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
-                   --                content=function()
-                  --                 ui.container
-                  --                         {
-                  --                        attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
-                  --                        content=function()
+ 
                                             --1 proposer
                                           execute.view
                                           {
@@ -290,12 +187,15 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                    --                       end
                     --                      }
                                 end }  --fine div contento
+                                 ui.container{attr={class="span4"},content=function()
+                              end}
                               end }  --fine div contento
-            
+                             
                     end            
                }--fine form
             --------------------------------------------------------
-   
+             end}
+           end} --fine row-fluid
   end }
 end }
 

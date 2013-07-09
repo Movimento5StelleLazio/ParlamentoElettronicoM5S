@@ -76,12 +76,9 @@ ui.container{attr={class="row-fluid"},content=function()
                           ui.container{attr={class="span12 "},content=function()
                             ui.container{attr={class="row-fluid"},content=function()
                               ui.container{attr={class="span12 text-center"},content=function()
-                                ui.heading{level=2,attr={class="spaceline"}, content= function()
-                                  slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
-                                end }
-                                ui.heading{level=2,content= function()
-                                  slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
-                                end }
+                               
+                                ui.heading{level=4,content= _"Unit"..": "..unit_name }
+                                ui.heading{level=4,content= _"Area"..": "..area_name }
                               end }
                             end }
                             
