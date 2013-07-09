@@ -76,9 +76,12 @@ ui.container{attr={class="row-fluid"},content=function()
                           ui.container{attr={class="span12 "},content=function()
                             ui.container{attr={class="row-fluid"},content=function()
                               ui.container{attr={class="span12 text-center"},content=function()
-                               
-                                ui.heading{level=4,content= _"Unit"..": "..unit_name }
-                                ui.heading{level=4,content= _"Area"..": "..area_name }
+                                ui.heading{level=2,attr={class="spaceline"}, content= function()
+                                  slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
+                                end }
+                                ui.heading{level=2,content= function()
+                                  slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
+                                end }
                               end }
                             end }
                             
@@ -222,13 +225,13 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                              technical_area_2=0
                           end
                         
-                        if k.name=="technical_area_2" then
+                        if k.name=="technical_area_3" then
                              technical_area_3=k.value
                              else
                              technical_area_3=0
                           end
                         
-                        if k.name=="technical_area_2" then
+                        if k.name=="technical_area_4" then
                              technical_area_4=k.value
                              else
                              technical_area_4=0
@@ -300,12 +303,13 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                   ]]--
                                                   
                                                  --contenuto
-                       ui.container {
-                                   attr={style="float: left; border: 0px solid black; position: relative; vertical-align: middle; width: 96%; margin-bottom: 8em; margin-top: 4em; text-align: left; margin-left: 1.6em;"},
-                                   content=function()
-                                   ui.container
-                                           {
-                                          attr={style="line-height: 56px; position: relative; text-align: left; margin-left: 325px; float: left;"},
+                          ui.tag{
+                                      tag="div",
+                                      attr={style="text-align: center; width: 100%; float: left; top: 30px; position: relative;"},
+                                      content=function()  
+                                       ui.container
+                                       {
+                                          attr={style="width: 20%; float: left; position: relative; margin-left: 9.6em;"},
                                           content=function()
                                             --1 proposer
                                           execute.view
@@ -365,28 +369,28 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                 attr={style="font-size: 15px;float: right;margin-right: 21em;"},
                                                 content = function()
                                                   
-                                                  ui.tag{
-                                                    content = function()
-                                                      ui.link{
-                                                        text = _"Information about the available policies",
-                                                        module = "policy",
-                                                        view = "list"
-                                                      }
-                                                      slot.put(" ")
-                                                      ui.link{
-                                                        attr = { target = "_blank" },
-                                                        text = _"(new window)",
-                                                        module = "policy",
-                                                        view = "list"
-                                                      }
-                                                    end
-                                                  }--fine tag
+--                                                  ui.tag{
+--                                                    content = function()
+--                                                      ui.link{
+--                                                        text = _"Information about the available policies",
+--                                                        module = "policy",
+--                                                        view = "list"
+--                                                      }
+--                                                      slot.put(" ")
+--                                                      ui.link{
+--                                                        attr = { target = "_blank" },
+--                                                        text = _"(new window)",
+--                                                        module = "policy",
+--                                                        view = "list"
+--                                                      }
+--                                                    end
+--                                                  }--fine tag
                                                 end
                                               } --fine tag 
                                    
                                      ui.container
                                         {
-                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 65em; position: relative; float: left; width: 100%; top: 50px;"},
+                                                attr={id="wizard_page_"..page, style="background-color: lavender; height: 78em; position: relative; float: left; width: 100%; top: 50px;"},
                                                 content=function()  
                                                 
                                                   ui.container
@@ -402,14 +406,17 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                       end
                                                      } --contenuto
                                                         
-                                                   ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                                                        ui.container{attr={class="span12 text-center"},content=function()        
                                                                 
                                                      --TITOLO
-                                                      ui.tag{
+                                                       ui.tag{
                                                                tag="div",
-                                                               attr={style="font-size:20px;width: 54em;float: left;margin-left: 10em;margin-top: 4em;"},
-                                                               content=function()     
+                                                              attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;margin-bottom: 3em;"},
+                                                                content=function()    
+                                                               
+                                                                ui.container
+                                                                    {
+                                                                       attr={style="width: 85.7%; float: left; position: relative; margin-left: 9.1em;"},
+                                                                       content=function()     
                                                                        ui.field.text
                                                                        {
                                                                             attr={id="issue_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
@@ -418,6 +425,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                             label_attr={style="font-size:20px;float: left;margin-top: 0.3em;"},
                                                                             value=issue_title
                                                                        }
+                                                                       end}
                                                                 end
                                                             }
                                                             
@@ -440,7 +448,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:12px;"},
+                                                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:15px;"},
                                                                             content=  _"Description note"
                                                                           }   
                                                                           
@@ -450,15 +458,14 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                    ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="issue_short_description",name="issue_short_description",style="resize: none; float: left; font-size: 23px; height: 228px; margin-left: 8px; width: 60%;"},
+                                                                                attr={id="issue_short_description",name="issue_short_description",style="resize: none; float: left; font-size: 23px; height: 14em; margin-left: 8px; width: 60%;"},
                                                                                 content=""..issue_brief_description
                                                                                 
                                                                            }
                                                                  end
                                                                  } --fine  --DESCRIZIONE QUESTIONE
                                                             
-                                                          end}
-                                                          end}  
+                                                         
                                                             
                                                             --KEYWORDS
                                                              ui.tag{
@@ -478,7 +485,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:12px;"},
+                                                                            attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:15px;"},
                                                                             content=  _"Keywords note"
                                                                           }   
                                                                           
@@ -515,7 +522,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size: 12px;width:300px"},
+                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size: 15px;width:300px"},
                                                                             content=  _"Problem note"
                                                                           }   
                                                                           
@@ -525,7 +532,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="problem_description", name="problem_description",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 7px; width: 60%;"},
+                                                                                attr={id="problem_description", name="problem_description",style="resize: none;float: left; font-size: 23px; height: 16em; margin-left: 7px; width: 60%;"},
                                                                                 content=problem_description
                                                                                 
                                                                            }
@@ -551,7 +558,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:12px"},
+                                                                            attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:15px"},
                                                                             content=  _"Target note"
                                                                           }   
                                                                           
@@ -599,13 +606,17 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                         
                                                       --TITOLO ISSUE
                                                       
-                                                       ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                                                        ui.container{attr={class="span12 text-center"},content=function()          
                                                        
+                                                       --TITOLO
                                                       ui.tag{
                                                                tag="div",
-                                                               attr={style="font-size:20px;width: 54em;float: left;margin-left: 10em;margin-top: 4em;"},
-                                                               content=function()     
+                                                              attr={style="text-align: center; width: 100%; float: left; position: relative; top: 100px;margin-bottom: 3em;"},
+                                                                content=function()    
+                                                               
+                                                                ui.container
+                                                                    {
+                                                                       attr={style="width: 85.7%; float: left; position: relative; margin-left: 9.3em;"},
+                                                                       content=function()     
                                                                        ui.field.text
                                                                        {
                                                                             attr={id="initiative_title",style="font-size: 25px;height: 30px; width: 70%; margin-left: .1em;float: left;"},
@@ -616,11 +627,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                        }
                                                                 end
                                                             }
-                                                       
+                                                           end}
                                                       
-                                                      end}
-                                                      end}
-                                                       
+                                                      
                                                             
                                                             
                                                             --DESCRIZIONE ISSUE
@@ -641,7 +650,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                     
                                                                      ui.tag{
                                                                         tag="p",
-                                                                        attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:12px"},
+                                                                        attr={style="float: right; position: relative; text-align: right;  font-style: italic;font-size:15px"},
                                                                         content=  _"Initiative short note"
                                                                       }   
                                                                       
@@ -680,7 +689,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="float: left; font-size: 12px; text-align: right; width: 249px;font-style: italic;"},
+                                                                            attr={style="float: left; font-size: 15px; text-align: right;font-style: italic;"},
                                                                             content=  _"Draft note"
                                                                           }   
                                                                           
@@ -690,7 +699,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                                         ui.tag
                                                                            {
                                                                                 tag="textarea",
-                                                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 28em; margin-left: 7px; width: 60%;"},
+                                                                                attr={id="draft",name="draft",style="resize: none;float: left; font-size: 23px;height: 33em; margin-left: 7px; width: 60%;"},
                                                                                 content=draft
                                                                                 
                                                                            }
