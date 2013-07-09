@@ -40,7 +40,7 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
                          
-ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+ui.container{attr={class="row-fluid spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
                          
             --------------------------------------------------------      
