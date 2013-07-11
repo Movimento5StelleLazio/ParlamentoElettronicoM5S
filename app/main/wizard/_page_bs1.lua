@@ -43,7 +43,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
-    ui.heading{level=4,content= _"How much time does your proposal need to be examined?" }
+    ui.heading{level=4,attr={class="uppercase"},content= _"How much time does your proposal need to be examined?" }
   end }
 end }
 
@@ -69,7 +69,7 @@ local next_page=page+1
 
  
 ui.container{attr={class="row-fluid spaceline2"},content=function()
-  ui.container{attr={class="span12 text-left"},content=function()
+  ui.container{attr={class="span12 text-center"},content=function()
           --------------------------------------------------------      
          ui.container{attr={class="row-fluid"},content=function()      
            ui.container{attr={class="span12"},content=function()
@@ -77,7 +77,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                      ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page,style="height:80%"},
+                        attr={id="wizardForm"..page, class="inline-block"},
                         module = 'wizard',
                         view = 'wizard_new_initiative_bs',
                         params={
@@ -137,9 +137,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                         end
                      
                        ui.container{attr={class="row-fluid spaceline2"},content=function()
-                         ui.container{attr={class="span4"},content=function()
-                          end}
-                          ui.container{attr={class="span4"},content=function()
+                         ui.container{attr={class="span12 text-left"},content=function()
 
                         --contenuto
  
@@ -187,8 +185,6 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                    --                       end
                     --                      }
                                 end }  --fine div contento
-                                 ui.container{attr={class="span4"},content=function()
-                              end}
                               end }  --fine div contento
                              
                     end            
@@ -203,7 +199,7 @@ end }
 ui.script{static = "js/wizard_checkbox.js"} 
  
 
-ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
+ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",

@@ -34,18 +34,18 @@ ui.container{attr={class="row-fluid"},content=function()
    ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
-    ui.heading{level=4,content=  _"Give a description to the problem you want to solve"}
+    ui.heading{level=4,attr={class="uppercase"},content=  _"Give a description to the problem you want to solve"}
   end }
 end }
                                        
-ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+ui.container{attr={class="row-fluid spaceline3"},content=function()
 ui.container{attr={class="span12 text-center"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page,style="height:100%"},
+                        attr={id="wizardForm"..page, class="inline-block"},
                         module = 'wizard',
                         view = btnBackView,
                         params={
@@ -81,71 +81,24 @@ ui.container{attr={class="span12 text-center"},content=function()
                               trace.debug("[wizard] name="..k.name.." | value="..k.value)
                               end
                             end
-                      
-                        ui.container{attr={class="span2 text-center"},content=function()
-                        end}
-                        ui.container{attr={class="span8 text-center"},content=function()
-                        
+
+                      ui.container{attr={class="row-fluid"},content=function()
+                        ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                              
-                             ui.container{attr={class="span12 "},content=function()
-                             
-                                 ui.container{attr={class="row-fluid"},content=function()
-                                 
-                                      ui.container{attr={class="span12 "},content=function()
-                                          
-                                         
-                             --contenuto
-                                         ui.tag{
-                                               tag="div",
-                                               attr={style="row-fluid"},
-                                               content=function()  
-                                               
-                                                   
-                                                 ui.container{attr={class="span12 text-center"},content=function()
-                                   
-                                                        ui.container
-                                                        {
-                                                            attr={style="width: 10em; position: relative; float: left;"},
-                                                            content=function()
-                                                             ui.tag{
-                                                                tag="p",
-                                                                attr={style="text-align: right; float: right; font-size: 20px;"},
-                                                                content=  _"Problem description"
-                                                              }   
-                                                            
-                                                             ui.tag{
-                                                                tag="p",
-                                                               attr={style="float: left; position: relative; text-align: right;  font-style: italic;font-size:15px;"},
-                                                               content=  _"Problem note"
-                                                              }   
-                                                              
-                                                            end
-                                                            
-                                                         }   
-                                                        ui.tag
-                                                           {
-                                                                tag="textarea",
-                                                                attr={id="problem_description", name="problem_description",style="resize: none;float: left; font-size: 23px; height: 22em; margin-left: 15px; width: 59%;"},
-                                                                content=function()
-                                                                end
-                                                                
-                                                           }
-                                                end }--fine content
-                                    
-                                               end}--fine div
-                      
-                                              end}  
-                                       end}
-                                
-                                 end}
-                                end}
-                                
-                              
-                            
-                             end}   
-                             ui.container{attr={class="span2 text-center"},content=function()
-                             end}  
+                            ui.container{attr={class="span6 text-right issue_desc"},content=function()
+                              ui.tag{tag="p",content=  _"Problem description"}
+                              ui.tag{tag="em",content=  _"Problem note"}
+                            end }
+                            ui.container{attr={class="span6 issue_desc"},content=function()
+                              ui.tag{
+                                tag="textarea",
+                                attr={id="problem_description",name="problem_description",style="height:100%;width:100%;resize:none;"},
+                                content=""
+                              }
+                            end }
+                          end }
+                        end }
+                      end }
                            
                            end --fine contenuto
                    }--fine form
@@ -155,7 +108,7 @@ end }
 
  
 
-ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
+ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",
@@ -168,6 +121,8 @@ ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
     }
   end }
 end }
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".issue_desc")); $(window).resize(function() { equalHeight($(".issue_desc")); }); }); ' }
 
 
 
