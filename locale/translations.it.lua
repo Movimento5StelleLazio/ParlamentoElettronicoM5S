@@ -355,9 +355,14 @@ return {
 ["Generate API key"] = "Genera chiave API";
 ["Global delegation"] = "Delega globale";
 ["Global search"] = "Ricerca globale";
-["Give a title to the problem you want to solve"]="INSERISCI UN TITOLO PER LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
-["Give a description to the problem you want to solve"]="DESCRIVI IN BREVE LA QUESTIONE A CUI VUOI DARE SOLUZIONE";
-["Give a title to the issue you want to propose"]="INSERISCI IL TITOLO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
+["Give a title to the problem you want to solve"]="Inserisci un titolo per la questione a cui vuoi dare soluzione";
+["Give a short description to the problem you want to solve"]="Descrivi in breve la questione a cui vuoi dare soluzione";
+["Give a description to the problem you want to solve"]="Descrivi il problema o l'urgenza che richiede l'intervento";
+["Give a description to the aim you want to achieve"]="Descrivi l'obiettivo che si ritiene necessario raggiungere";
+["Give a title for your initiative to solve the problem"]="Inserisci il titolo della tua proposta per risolvere o lenire il problema";
+["Give a brief description for your initiative to solve the problem"]="Inserisci una breve descrizione della tua proposta per risolvere o lenire il problema";
+["Insert the text for your initiative to solve the problem"]="Inserisci il testo della tua proposta per risolvere o lenire il problema";
+["Maxiumum number of characters is 140 (#{chars} left)"]="Limite massimo 140 caratteri (te ne restano #{chars})";
 ["Half frozen at"] = "Inizio verifica il";
 ["Hello\n\n"] = "Ciao\n\n";
 ["Hello "] = "Ciao ";
@@ -379,7 +384,7 @@ return {
 ["Homepage welcome"]="BENVENUTO";
 ["Homepage what to do?"]="COSA VUOI FARE?";
 ["Homepage write new issue"]="SCRIVI UNA TUA\nPROPOSTA DI\nLEGGE";
-["How much time does your proposal need to be examined?"]="CHE TEMPI RICHIEDE LA TUA PROPOSTA PER ESSERE ESAMINATA?";
+["How much time does your proposal need to be examined?"]="Che tempi richiede la tua proposta per essere esamaminata?";
 ["I consider suggestion as"] = "Ritengo il suggerimento";
 ["I like to receive notifications by email about events in my areas and issues:"] = "Desidero ricevere le notifiche eMail per gli eventi delle mie aree e questioni:";
 ["Id"] = false;
@@ -420,7 +425,6 @@ return {
 ["Initiatives that invited you to become initiator:"] = "Proposte in cui sei invitato a partecipare come autore:";
 ["Initiator invites"] = "Inviti nuovi autori";
 ["Initiators"] = "Autori";
-["Insert question keywords"]="INSERISCI DELLE PAROLE CHIAVE CHE DESCRIVONO LA QUESTIONE";
 ["Interest not existent"] = "Interesse non presente";
 ["Interest removed"] = "Interesse rimosso";
 ["Interest updated"] = "Interesse aggiornato";
@@ -455,6 +459,7 @@ return {
 ["JavaScript is disabled or not available."] = "JavaScript disabilitato o non disponibile.";
 ["Keywords"]="PAROLE CHIAVE:";
 ["Keywords note"]="NOTA: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
+["Insert the keywords for the issue"]="Inserisci le parole chiave per la questione";
 ["Last activity (updated daily)"] = "Ultima attività (aggiornato giornalmente)";
 ["Last snapshot:"] = "Ultimo snapshot:";
 ["Latest draft created at #{date} #{time}"] = "Ultima revisione bozza creata il #{date} alle #{time}";
@@ -625,7 +630,6 @@ return {
 ["Preview voting comment"] = "Anteprima commento di voto";
 ["Problem Title"]="TITOLO DELLA QUESTIONE:";
 ["Problem description"]="DESCRIZIONE DEL PROBLEMA:";
-["Problem description title"]="DESCRIVI IL PROBLEMA O L'URGENZA CHE RICHIEDE L'INTERVENTO";
 ["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cui si vuole ottemperare con il documento proposto.";
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
