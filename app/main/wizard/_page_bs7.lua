@@ -1,4 +1,3 @@
-slot.set_layout("m5s_bs")
 local area_id=param.get("area_id" )
 local unit_id=param.get("unit_id" )
 local page=param.get("page",atom.integer)

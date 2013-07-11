@@ -1,4 +1,4 @@
-slot.set_layout("m5s_bs")
+slot.set_layout("custom")
 local issue = param.get("issue","table")
 
 if issue.state == "admission" then

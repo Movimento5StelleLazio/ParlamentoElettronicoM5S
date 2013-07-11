@@ -1,4 +1,4 @@
-slot.set_layout("m5s_bs")
+slot.set_layout("custom")
 local state=param.get("state") or "closed"
 
 local arrow_offset = 16

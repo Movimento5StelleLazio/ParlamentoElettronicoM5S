@@ -1,4 +1,4 @@
-slot.set_layout("m5s_bs")
+slot.set_layout("custom")
 
 local indietro = param.get("indietro",atom.boolean)
 local page_rendered
