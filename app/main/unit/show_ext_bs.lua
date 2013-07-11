@@ -1,4 +1,4 @@
-slot.set_layout("m5s_bs")
+slot.set_layout("custom")
 
 local unit_id = param.get_id()
 local filter = param.get("filter")

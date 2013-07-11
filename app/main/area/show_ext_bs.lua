@@ -1,4 +1,4 @@
-slot.set_layout("m5s_bs")
+slot.set_layout("custom")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 local area = Area:by_id(param.get_id())
