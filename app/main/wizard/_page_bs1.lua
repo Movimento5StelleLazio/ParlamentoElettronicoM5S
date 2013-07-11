@@ -43,7 +43,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
-    ui.heading{level=4,content= _"How much time does your proposal need to be examined?" }
+    ui.heading{level=4,attr={class="uppercase"},content= _"How much time does your proposal need to be examined?" }
   end }
 end }
 
@@ -199,7 +199,7 @@ end }
 ui.script{static = "js/wizard_checkbox.js"} 
  
 
-ui.container{attr={class="row-fluid btn_box_bottom"},content=function()
+ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",
