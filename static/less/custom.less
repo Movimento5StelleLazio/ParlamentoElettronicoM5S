@@ -4,8 +4,26 @@
 @darkorange: #ff8a00;
 @chocolate: #ba5410;
 @darkgrey: #525252;
+body {
+	margin: 0;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri,
+		"Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*color: #000000;
+*/
+	background-color: #ffffff;
+	min-width: 768px;
+	font-weight: normal;
+}
 
 a {
+	color: #000000;
+	text-decoration: none !important
+}
+
+a {
+  color: #000000;
+  text-decoration: none !important;
+
   &.label:hover,
   &.label:focus,
   &.badge:hover,
@@ -16,14 +34,55 @@ a {
   }
 }
 
+.footer,.push {
+	height: 3em;
+}
+
+#default {
+	margin-top: 60px;
+}
+
+.vtable {
+        display: table;
+        height: 100%;
+}
+
+.table-cell {
+	display: table-cell;
+        vertical-align: middle;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/*
+  Navbar
+*/
+
 .navbar {
   .box-shadow(0px 3px 7px grey); 
 }
 
+#menu_dropdown {
+	margin-left: -65px;
+}
+
+/*
+  Typo, boxes and labels
+*/
+
 h1, h2, h3, h4, h5, h6 {
   margin: (@baseLineHeight / 4) 0;
 }
-
 
 .alert,
 .alert h4 {
@@ -32,10 +91,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .alert {
   text-shadow: none;
-}
-
-.paper {
-  background-image: url(../svg/paper_tile.svg);
 }
 
 .alert-simple {
@@ -78,20 +133,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.paper {
+  background-image: url(../svg/paper_tile.svg);
+}
+
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
 //  border: 1px solid #f5c388;
   margin: 0;
 }
+
 .head-chocolate {
   color: #ffffff;
   background: @chocolate;
   #gradient > .vertical(lighten(@chocolate,8%), @chocolate);
 }
+
 .head-darkorange {
   background: @darkorange;
   #gradient > .vertical(lighten(@darkorange,8%), @darkorange );
 }
+
 .head-orange {
   background: @orange;
   #gradient > .vertical(lighten(@orange,8%), @orange );
@@ -132,7 +194,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #000000;
 }
 
-
 .label-area {
   padding: 3px;
   overflow: hidden;
@@ -166,7 +227,6 @@ h1, h2, h3, h4, h5, h6 {
   .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
 }
 
-
 .depression_box {
   .box-shadow(~"inset 0px 5px 7px rgba(0,0,0,.45)");
   padding: 10px 10px 10px 10px;
@@ -178,6 +238,7 @@ h1, h2, h3, h4, h5, h6 {
 /*
   Bargraph
 */
+
 .progress {
     color: #000;
     border: 1px solid black;
@@ -197,6 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 .progress-neutral .bar, .progress .bar-neutral {
   #gradient > .vertical(lighten(@darkgrey, 15%), @darkgrey);
 }
+
 .progress-neutral.progress-striped .bar, .progress-striped .bar-neutral {
   #gradient > .striped(lighten(@darkgrey, 15%));
 }
@@ -205,6 +267,44 @@ h1, h2, h3, h4, h5, h6 {
   Buttons
 */
 
+.large_btn {
+	height: 115px;
+}
+
+.large_btn_home {
+	max-width: 292px;
+	height: 90px;
+}
+
+.large_btn_show_ext {
+	max-width: 230px;
+	height: 90px;
+}
+
+.medium_btn {
+	max-width: 200px;
+	min-height: 50px;
+}
+
+.small_btn {
+	max-width: 180px;
+}
+
+.filter_btn {
+	margin: 5px;
+}
+
+.btn_box_bottom {
+	margin-bottom: 20px;
+}
+
+.btn_box_top {
+	margin-top: 15px;
+}
+
+.btn_margin {
+	margin-bottom: 10px;
+}
 
 /*
   Thumb & voting
@@ -347,3 +447,246 @@ h1, h2, h3, h4, h5, h6 {
   vertical-align: middle;
   margin-left: 1em;
 }
+
+.wrap {
+    white-space: normal;
+}
+
+#issues_box,.spaceline {
+	margin-top: 15px;
+}
+
+.spaceline2 {
+  margin-top: 30px;
+}
+
+.spaceline3 {
+  margin-top: 45px;
+}
+
+.spaceline4 {
+  margin-top: 60px;
+}
+
+#m5s_logo {
+	max-width: 150px;
+        width: 100%;
+}
+
+#parlamento_img {
+	max-width: 284px;
+}
+
+.img_assembly_small {
+	max-width: 30%;
+}
+
+.arrow_medium {
+	vertical-align: middle;
+	height: 40px;
+	width: 40px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.arrow_small {
+	vertical-align: middle;
+	height: 25px;
+	width: 25px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.pen_paper {
+   vertical-align: middle;
+   margin-top: 10px;
+   max-height: 75px;
+}
+
+
+/*
+  Issue
+*/
+.issue_see_det_btn {
+	margin-bottom: 15px;
+}
+
+.issue_box {
+	margin-bottom: 35px;
+}
+
+#issue_url_box {
+	width: 66%;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#social_box {
+	margin-left: 0;
+}
+
+/*
+  Phase bar
+*/
+.phases_out_box {
+}
+  
+.phases_box, .phases_bar, .phase_arrow, .admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+
+.phases_in_box {
+  position: relative;
+}
+
+.phases_box {
+  position: absolute;
+  left: 0;
+  height: 160px;
+  width: 520px;
+}
+
+.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished
+	{
+	position: absolute;
+	z-index: 11;
+}
+
+.phases_bar {
+	height: 160px;
+	position: absolute;
+	width: 520px;
+	z-index: 9;
+}
+
+.phase_arrow {
+	margin-top: -2px;
+	position: absolute;
+	width: 70px;
+	z-index: 10;
+}
+
+.admission {
+	height: 60px;
+	margin-left: 22px;
+	margin-top: 47px;
+	width: 60px;
+}
+
+.discussion {
+	height: 65px;
+	margin-left: 87px;
+	margin-top: 48px;
+	width: 65px;
+}
+
+.verification {
+	height: 33px;
+	margin-left: 165px;
+	margin-top: 64px;
+}
+
+.voting {
+	height: 48px;
+	margin-left: 222px;
+	margin-top: 56px;
+	width: 48px;
+}
+
+.committee {
+	height: 48px;
+	margin-left: 293px;
+	margin-top: 53px;
+	width: 48px;
+}
+
+.committee_voting {
+	height: 40px;
+	margin-left: 361px;
+	margin-top: 51px;
+}
+
+.finished {
+	height: 48px;
+	margin-left: 427px;
+	margin-top: 54px;
+}
+
+/*
+  Imported from style.css (modified)
+*/
+.delegation_info {
+	text-decoration: none;
+	border-radius: 0px 5px 0px 5px;
+}
+
+.delegation_arrow {
+	vertical-align: middle;
+}
+
+.delegation_info .link {
+	text-decoration: underline;
+	color: #aaa;
+}
+
+a.delegation_info:hover,a.delegation_info:focus {
+	background-color: #ddd;
+}
+
+.delegation_info .micro_avatar {
+	box-shadow: 1px 1px 2px #000;
+}
+
+.delegation_info .micro_avatar.highlighted {
+	margin: 0;
+	border: 2px solid #f90;
+}
+
+.micro_avatar {
+	height: 24px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.highlighted {
+	background-color: #fa7;
+	color: #000;
+}
+
+/*
+@media screen and (min-width: 380px) {
+  h1 { font-size: 1.3em; }
+  h2 { font-size: 1.2em; line-height: 15px; }
+  h3 { font-size: 1.1em; line-height: 15px; }
+  h4 { font-size: 1.0em; line-height: 15px; }
+  h5 { font-size: 0.9em; line-height: 15px; }
+  h6 { font-size: 0.8em; line-height: 15px; }
+}
+@media screen and (min-width: 600px) {
+  h1 { font-size: 1.4em; }
+  h2 { font-size: 1.3em; line-height: 20px; }
+  h3 { font-size: 0.9em; line-height: 20px;  }
+  h4 { font-size: 1.1em; line-height: 20px; }
+  h5 { font-size: 1.0em; line-height: 15px; }
+  h6 { font-size: 0.9em; line-height: 15px; }
+}
+@media screen and (min-width: 768px) {
+  h1 { font-size: 1.50em; }
+  h2 { font-size: 1.40em; line-height: 25px; }
+  h3 { font-size: 1.30em; line-height: 25px; }
+  h4 { font-size: 1.20em; line-height: 25px; }
+  h5 { font-size: 1.10em; line-height: 15px; }
+  h6 { font-size: 1.00em; line-height: 15px; }
+}
+@media screen and (min-width: 1200px) {
+  h1 { font-size: 1.70em; }
+  h2 { font-size: 1.60em;  line-height: 25px; }
+  h3 { font-size: 1.50em;  line-height: 25px; }
+  h4 { font-size: 1.40em;  line-height: 25px; }
+  h5 { font-size: 1.30em; line-height: 15px; }
+  h6 { font-size: 0.90em; line-height: 15px; }
+}
+*/

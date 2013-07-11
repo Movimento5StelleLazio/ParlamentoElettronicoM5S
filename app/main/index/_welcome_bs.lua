@@ -1,8 +1,5 @@
+slot.set_layout("custom")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
-
-slot.set_layout("m5s_bs")
-
-
 
 ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
