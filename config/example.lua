@@ -75,8 +75,9 @@ config.use_terms_checkboxes = {
 
   
 -- Absolute base url of application
+-- IMPORTANT: the path must not terminate with '/' char
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "http://example.com/"
+config.absolute_base_url = "http://example.com"
 
 
 -- Connection information for the LiquidFeedback database
