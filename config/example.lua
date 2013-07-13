@@ -19,8 +19,8 @@ config.app_service_provider = "Snake Oil<br/>10000 Berlin<br/>Germany"
 --    name = "default",
 --    start_page = "_index_default"
 --  }, 
---  M5S = {
---    name = "M5S",
+--  M5S_bs = {
+--    name = "M5S_bs",
 --    start_page = "_welcome_bs",
 --    units = {
 --     eletti = {
