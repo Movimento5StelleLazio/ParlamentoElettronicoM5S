@@ -29,31 +29,32 @@
 @pink:                  #c3325f;
 @purple:                #7a43b6;
 
+
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @black;
+@textColor:             @grayDark;
 
 
 // Links
 // -------------------------
-@linkColor:             @black;
+@linkColor:             #08c;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        Optima, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          22px;
+@baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        25px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    inherit;    // instead of browser default, bold
+@headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 
@@ -69,9 +70,9 @@
 @paddingSmall:          2px 10px;  // 26px
 @paddingMini:           0 6px;   // 22px
 
-@baseBorderRadius:      0px;
-@borderRadiusLarge:     0px;
-@borderRadiusSmall:     0px;
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
 
 
 // Tables
@@ -87,28 +88,23 @@
 @btnBackgroundHighlight:            darken(@white, 10%);
 @btnBorder:                         #ccc;
 
-@btnPrimaryBackground:              #F6F5BA;
-@btnPrimaryBackgroundHighlight:     #FFCA65;
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
-@btnInfoBackground:                 lighten(#4348e8,10%);
-@btnInfoBackgroundHighlight:        #4348e8;
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
 
-@btnSuccessBackground:              #6ea56b;
-@btnSuccessBackgroundHighlight:     darken(#6ea56b,10%);
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
 
 @btnWarningBackground:              lighten(@orange, 15%);
 @btnWarningBackgroundHighlight:     @orange;
 
-@btnDangerBackground:               lighten(#ff2a14,10%);
-@btnDangerBackgroundHighlight:      #ff2a14;
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
 
 @btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     @grayDarker;
-
-//Custom color
-@orangered:             #ff6501;
-@graygreen:             #6ea56b;
-@cornflowerblue:        #5598ff;
 
 
 // Forms
@@ -176,7 +172,7 @@
 
 // Wells
 // -------------------------
-@wellBackground:                  #fffcd3;
+@wellBackground:                  #f5f5f5;
 
 
 // Navbar
@@ -203,8 +199,8 @@
 @navbarInverseBackgroundHighlight:       #222222;
 @navbarInverseBorder:                    #252525;
 
-@navbarInverseText:                      @white;
-@navbarInverseLinkColor:                 @white;
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
 @navbarInverseLinkColorHover:            @white;
 @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
 @navbarInverseLinkBackgroundHover:       transparent;
