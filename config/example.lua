@@ -19,9 +19,9 @@ config.app_service_provider = "Snake Oil<br/>10000 Berlin<br/>Germany"
 --    name = "default",
 --    start_page = "_index_default"
 --  }, 
---  M5S = {
---    name = "M5S",
---    start_page = "_welcome",
+--  M5S_bs = {
+--    name = "M5S_bs",
+--    start_page = "_welcome_bs",
 --    units = {
 --     eletti = {
 --        unit_id = 1,
@@ -75,8 +75,9 @@ config.use_terms_checkboxes = {
 
   
 -- Absolute base url of application
+-- IMPORTANT: the path must not terminate with '/' char
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "http://example.com/"
+config.absolute_base_url = "http://example.com"
 
 
 -- Connection information for the LiquidFeedback database

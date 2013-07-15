@@ -1,0 +1,715 @@
+@navbarInverseText:                 @white;
+@navbarInverseLinkColor:            @white;
+@textColor:                         @black;
+@linkColor:                         @black;
+@wellBackground:                    #fffcd3;
+@sansFontFamily:                    Optima, Segoe, "Segoe UI", Candara, Calibri, 
+     "Helvetica Neue", Helvetica, Arial, sans-serif;
+@baseFontSize:                      22px;
+@baseLineHeight:                    25px;
+@headingsFontWeight:                inherit;
+@baseBorderRadius:                  0px;
+@borderRadiusLarge:                 0px;
+@borderRadiusSmall:                 0px;
+@btnPrimaryBackground:              #F6F5BA;
+@btnPrimaryBackgroundHighlight:     #FFCA65;
+@btnInfoBackground:                 lighten(#4348e8,10%);
+@btnInfoBackgroundHighlight:        #4348e8;
+@btnSuccessBackground:              #6ea56b;
+@btnSuccessBackgroundHighlight:     darken(#6ea56b,10%);
+@btnDangerBackground:               lighten(#ff2a14,10%);
+@btnDangerBackgroundHighlight:      #ff2a14;
+
+//Colours
+@orangered:                         #ff6501;
+@graygreen:                         #6ea56b;
+@cornflowerblue:                    #5598ff;
+@lightgoldenrodyellow:              #ffedaf;
+@mocassin:                          lighten(#fffdb0,5%);
+@orange:                            #ffaf00;
+@darkorange:                        #ff8a00;
+@chocolate:                         #ba5410;
+@darkgrey:                          #525252;
+
+/*
+  Mixin
+*/
+
+#gradient {
+.radial_center_to_top(@innerColor: #555, @outerColor: #333) {
+    background-color: @outerColor;
+    background-image: -webkit-gradient(radial, center -30px, 0, center center, 460, from(@innerColor), to(@outerColor));
+    background-image: -webkit-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-image: -moz-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-image: -o-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-repeat: no-repeat;
+  }
+}
+
+.buttonBackground(@startColor, @endColor, @textColor: @black, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  #gradient > .radial_center_to_top(@startColor,@endColor);
+}
+
+/* 
+  Base
+*/
+
+body {
+	margin: 0;
+	font-family: @sansFontFamily;
+	background-color: #ffffff;
+	min-width: 768px;
+	font-weight: normal;
+}
+
+a {
+  color: @black;
+  text-decoration: none !important;
+
+  &.label:hover,
+  &.label:focus,
+  &.badge:hover,
+  &.badge:focus {
+    color: @black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+h1 { line-height: @baseLineHeight * 1.75; }
+h2 { line-height: @baseLineHeight * 1.50; }
+h3 { line-height: @baseLineHeight * 1.25; }
+
+h1 { font-size: @baseFontSize * 2.00; }
+h2 { font-size: @baseFontSize * 1.75; }
+h3 { font-size: @baseFontSize * 1.40; }
+h4 { font-size: @baseFontSize * 1.20; }
+h5 { font-size: @baseFontSize; }
+h6 { font-size: @baseFontSize * 0.85; }
+
+h1 small { font-size: @baseFontSize * 1.30; }
+h2 small { font-size: @baseFontSize * 1.10; }
+h3 small { font-size: @baseFontSize; }
+h4 small { font-size: @baseFontSize; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: (@baseLineHeight / 4) 0;
+}
+
+.label,
+.badge {
+  margin: 2px;
+  padding: 4px 6px;
+  line-height: 20px;
+  white-space: normal;
+}
+
+.footer,.push {
+	height: 3em;
+}
+
+#default {
+	margin-top: 60px;
+}
+
+.vtable {
+        display: table;
+        height: 100%;
+}
+
+.table-cell {
+	display: table-cell;
+        vertical-align: middle;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/*
+  Navbar
+*/
+
+.navbar {
+  .box-shadow(0px 3px 7px grey); 
+}
+
+#menu_dropdown {
+	margin-left: -65px;
+}
+
+.alert,
+.alert h4 {
+  color: @black;
+}
+
+.alert {
+  text-shadow: none;
+  border: 0;
+}
+
+.alert-simple {
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  .border-radius(@radius: 3px);
+}
+
+.well {
+  background-color: @wellBackground;
+  border: 0;
+  .border-radius(@radius: 3px);
+  .box-shadow(0px 5px 11px grey);
+  #gradient > .vertical(lighten(@wellBackground,5%), @wellBackground);
+}
+
+.well-inside {
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
+  padding: 8px 8px 8px 8px;
+  color: #000000;
+  background-color: #ffffff;
+  .border-radius(@radius: 3px);
+  margin-bottom: 5px;
+}
+
+.well-title {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 14px solid #ffa500;
+  .border-radius(@radius: 0px);
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+.paper {
+  background-image: url(../svg/paper_tile.svg);
+}
+
+.head-chocolate,.head-darkorange,.head-orange {
+  text-shadow: none;
+  margin: 0;
+}
+
+.head-chocolate {
+  color: #ffffff;
+  background: @chocolate;
+  #gradient > .vertical(lighten(@chocolate,8%), @chocolate);
+}
+
+.head-darkorange {
+  background: @darkorange;
+  #gradient > .vertical(lighten(@darkorange,8%), @darkorange );
+}
+
+.head-orange {
+  background: @orange;
+  #gradient > .vertical(lighten(@orange,8%), @orange );
+}
+
+/*
+  Member
+*/
+
+.member_img_bs {
+  .box-shadow(0px 3px 7px grey);
+  .border-radius(@radius: 3px);
+}
+
+/*
+  Issue
+*/
+
+.issue_box, .initiative_box {
+  .box-shadow(0px 5px 11px grey);
+}
+
+.issue_info_data, .member_data, .label-area, .location_data, .initiatives_for_issue_box {
+  background: @lightgoldenrodyellow;
+  #gradient > .vertical(#FFFECA,#EDECC7);
+}
+
+.location_data2{
+  background: @mocassin;
+  #gradient > .vertical(#FFEDAF,#E6D79F);
+}
+
+.issue_info_data, .member_data, .label-area, .location_data, .location_data2, .initiatives_for_issue_box {
+  text-shadow: none;
+  .box-shadow(0px 5px 7px grey);
+  color: #000000;
+}
+
+.label-area {
+  padding: 3px;
+  overflow: hidden;
+}
+
+.location_data, .location_data2 {
+  padding: 15px 10px 20px 10px;
+//  border: 1px solid black;
+}
+
+.a.label-area{
+  color: #000000;
+}
+
+.issue_info_box, .issue_info_box2  {
+  .box-shadow(0px 5px 7px grey);
+  color: @white;
+  background: @black;
+  //#gradient > .vertical(#6C5B37, #4D412A);
+  background-image: url(../svg/wood_tile.svg);
+  border-radius: 6px 6px 0 0;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.issue_info_box2 {
+  height: 118px;
+}
+
+.issue_txt_box, .issue_listing_box {
+  .box-shadow(~"inset 0px 2px 7px rgba(0,0,0,.35)");
+}
+
+.depression_box {
+  .box-shadow(~"inset 0px 5px 7px rgba(0,0,0,.45)");
+  padding: 10px 10px 10px 10px;
+  margin-bottom: @baseLineHeight;
+  background-color: #FFFFFF;
+  .border-radius(@baseBorderRadius);
+}
+
+/*
+  Bargraph
+*/
+
+.progress {
+    color: #000;
+    border: 1px solid black;
+    .border-radius(@radius: 3px);
+    position: relative;
+}
+
+// Blank (white)
+.progress-white .bar, .progress .bar-white {
+  #gradient > .vertical(darken(@white, 15%), @white);
+}
+.progress-white.progress-striped .bar, .progress-striped .bar-white {
+  #gradient > .striped(darken(@white, 15%));
+}
+
+// Neutral (neutral)
+.progress-neutral .bar, .progress .bar-neutral {
+  #gradient > .vertical(lighten(@darkgrey, 15%), @darkgrey);
+}
+
+.progress-neutral.progress-striped .bar, .progress-striped .bar-neutral {
+  #gradient > .striped(lighten(@darkgrey, 15%));
+}
+
+/*
+  Buttons
+*/
+
+.large_btn {
+	height: 115px;
+}
+
+.large_btn_home {
+	max-width: 292px;
+	height: 90px;
+}
+
+.large_btn_show_ext {
+	max-width: 230px;
+	height: 90px;
+}
+
+.medium_btn {
+	max-width: 200px;
+	min-height: 50px;
+}
+
+.small_btn {
+	max-width: 180px;
+}
+
+.filter_btn {
+	margin: 5px;
+}
+
+.btn_box_bottom {
+	margin-bottom: 20px;
+}
+
+.btn_box_top {
+	margin-top: 15px;
+}
+
+.btn_margin {
+	margin-bottom: 10px;
+}
+
+/*
+  Thumb & voting
+*/
+.issue_vote_box {
+    background: white;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    .box-shadow(0px 5px 11px grey);
+    border: 2px solid black;
+    .border-radius(@radius: 3px);
+}
+.issue_vote_txt {
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.thumb {
+    display: inline-block;
+    height: 2.7em;
+    vertical-align: middle;
+    width: 2.7em;
+}
+.issue_thumb_cont_up {
+    border: 4px solid green;
+    .border-radius(@radius: 15px);
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+.issue_thumb_cont_down {
+    border: 4px solid red;
+    .border-radius(@radius: 15px);
+    display: inline-block;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+
+/*
+  Initiative
+*/
+
+.progress_bar_txt {
+  position: absolute;
+  width: 100%;
+}
+
+.votes_count_txt {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.initiative_list_out_box {
+    position: relative;
+}
+
+.initiative_list_box {
+    max-height: 20em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.initiative_quorum_out_box {
+  position: relative;
+}
+
+.initiative_quorum_box {
+  position: absolute;
+  background-color: blue;
+  height: 100px;
+  width: 2px;
+  z-index: 2;
+  top: 50px;
+  font-size: 14px;
+  line-height: 14px;
+  color: blue;
+  white-space: nowrap;
+}
+
+#quorum_txt {
+   margin-top: -30px;
+   margin-left: -40px;
+}
+
+.btn_read_initiative {
+  position: relative;
+}
+
+.event_star_txt_box, .event_star, .event_star_out_box {
+  position: absolute;
+  height: 52px;
+  width: 52px;
+}
+
+.event_star_txt_box {
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+}
+
+.event_star_txt {
+  font-size: 10px;
+  line-height: 52px;
+  vertical-align: middle;
+  text-transform: none;
+}
+
+.event_star_out_box {
+  right: -22px;
+  top: -22px;
+}
+
+.event_star_in_box {
+  height: 52px;
+  width: 52px;
+}
+
+.event_star {
+  position: absolute;
+  z-index: 180;
+  top: 0;
+  left: 0;
+}
+
+/*
+  Wizard
+*/
+
+.policy_chooser_box {
+  margin-left: 25%;
+  margin: 0  0 20px 25%;
+}
+
+.policy_chooser_txt {
+  line-height: 62px;
+  vertical-align: middle;
+  margin-left: 1em;
+}
+
+.wrap {
+    white-space: normal;
+}
+
+#issues_box,.spaceline {
+	margin-top: 15px;
+}
+
+.spaceline2 {
+  margin-top: 30px;
+}
+
+.spaceline3 {
+  margin-top: 45px;
+}
+
+.spaceline4 {
+  margin-top: 60px;
+}
+
+#m5s_logo {
+	max-width: 150px;
+        width: 100%;
+}
+
+#parlamento_img {
+	max-width: 284px;
+}
+
+.img_assembly_small {
+	max-width: 30%;
+}
+
+.arrow_medium {
+	vertical-align: middle;
+	height: 40px;
+	width: 40px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.arrow_small {
+	vertical-align: middle;
+	height: 25px;
+	width: 25px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.pen_paper {
+   vertical-align: middle;
+   margin-top: 10px;
+   max-height: 75px;
+}
+
+
+/*
+  Issue
+*/
+.issue_see_det_btn {
+	margin-bottom: 15px;
+}
+
+.issue_box {
+	margin-bottom: 35px;
+}
+
+#issue_url_box {
+	width: 66%;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#social_box {
+	margin-left: 0;
+}
+
+/*
+  Phase bar
+*/
+.phases_out_box {
+}
+  
+.phases_box, .phases_bar, .phase_arrow, .admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+
+.phases_in_box {
+  position: relative;
+}
+
+.phases_box {
+  position: absolute;
+  left: 0;
+  height: 160px;
+  width: 520px;
+}
+
+.admission,.discussion,.verification,.voting,.committee,.committee_voting,.finished
+	{
+	position: absolute;
+	z-index: 11;
+}
+
+.phases_bar {
+	height: 160px;
+	position: absolute;
+	width: 520px;
+	z-index: 9;
+}
+
+.phase_arrow {
+	margin-top: -2px;
+	position: absolute;
+	width: 70px;
+	z-index: 10;
+}
+
+.admission {
+	height: 60px;
+	margin-left: 22px;
+	margin-top: 47px;
+	width: 60px;
+}
+
+.discussion {
+	height: 65px;
+	margin-left: 87px;
+	margin-top: 48px;
+	width: 65px;
+}
+
+.verification {
+	height: 33px;
+	margin-left: 165px;
+	margin-top: 64px;
+}
+
+.voting {
+	height: 48px;
+	margin-left: 222px;
+	margin-top: 56px;
+	width: 48px;
+}
+
+.committee {
+	height: 48px;
+	margin-left: 293px;
+	margin-top: 53px;
+	width: 48px;
+}
+
+.committee_voting {
+	height: 40px;
+	margin-left: 361px;
+	margin-top: 51px;
+}
+
+.finished {
+	height: 48px;
+	margin-left: 427px;
+	margin-top: 54px;
+}
+
+/*
+  Imported from style.css (modified)
+*/
+.delegation_info {
+	text-decoration: none;
+	border-radius: 0px 5px 0px 5px;
+}
+
+.delegation_arrow {
+	vertical-align: middle;
+}
+
+.delegation_info .link {
+	text-decoration: underline;
+	color: #aaa;
+}
+
+a.delegation_info:hover,a.delegation_info:focus {
+	background-color: #ddd;
+}
+
+.delegation_info .micro_avatar {
+	box-shadow: 1px 1px 2px #000;
+}
+
+.delegation_info .micro_avatar.highlighted {
+	margin: 0;
+	border: 2px solid #f90;
+}
+
+.micro_avatar {
+	height: 24px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.highlighted {
+	background-color: #fa7;
+	color: #000;
+}

@@ -1,4 +1,5 @@
 local issues_selector =Issue:new_selector()
+
  
   
 local issues=issues_selector
@@ -42,7 +43,7 @@ execute.view{
 
        ----------spazio div         
  ui.container{
-                  attr={class="spazioIssue", style="height:170px;width:100%;"},
+                  attr={class="spazioIssue", style="height:100px;width:100%;"},
                   content=function()
                   end
             } 
@@ -113,17 +114,7 @@ ui.container{
                 }
                     
                   
-----------spazio tra i div Votazioni e Proposte
-                ui.container{
-            
-                     attr={id="spazioDiv", class="spazioDiv"},
-                     
-                     content=function()
-                     
-                    end
-                    }
-                     
-                     
+                   
                      
 ---------Le Tue Proposte
              ui.container{
@@ -188,8 +179,9 @@ if filter_state then
            .."document.getElementById('containerPulsantiFiltri').style.display='block';"
  }
   ui.script{
-         script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
-            
+        -- script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','btn"..issue_state.."Phase button green');"
+        script="document.getElementById('btn"..issue_state.."Phase').setAttribute('class','filterButton button green');"
+             
  }
  
 end

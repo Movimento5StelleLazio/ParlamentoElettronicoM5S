@@ -1,0 +1,10 @@
+#!/bin/sh
+export WEBMCP_APP_BASEPATH="`pwd`"
+export WEBMCP_CONFIG_NAME="$1"
+export WEBMCP_INTERACTIVE="yes"
+if [ "$WEBMCP_CONFIG_NAME" = "" ]; then
+  echo "Error: No config name given." > /dev/stderr
+  exit 1
+fi
+cd "`dirname "$0"`/../cgi-bin"
+exec lua -i webmcp.lua

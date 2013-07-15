@@ -1,8 +1,9 @@
-local area_id =  param.get_id()
+local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local state = param.get("state")
-local orderby = param.get("orderby")
+local orderby = param.get("orderby") or ""
 local desc =  param.get("desc", atom.boolean)
 local interest = param.get("interest")
+local scope = param.get("scope")
 local selector = param.get("selector", "table")
 local member = app.session.member
 
@@ -48,17 +49,58 @@ It accepts the following parameters:
  * supported
  * potentially_supported
  * voted
- * not_voted
+ * not_voted -- TODO working ?
  * any
+
+## scope ##
+ * all_units
+ * my_units
+ * citizens
+ * electeds
+ * others
+
 
 --]]
 
 local ord = ""
 if desc then ord = " DESC" end
 
--- Join with event table, the most recent event data is taken
+-- Join with event table, the most recent event data is taken and aggregated into the issue record
+
+--Working on 9.1
+--selector:add_field("min(now() - event.occurrence)", "time_ago")
 selector:add_field("min(now()::date - event.occurrence::date)", "time_ago")
 selector:left_join("event", nil, "issue.id = event.issue_id")
+selector:add_group_by("issue.id")
+selector:add_group_by("issue.area_id")
+selector:add_group_by("issue.policy_id")
+selector:add_group_by("issue.state")
+selector:add_group_by("issue.created")
+selector:add_group_by("issue.accepted")
+selector:add_group_by("issue.half_frozen")
+selector:add_group_by("issue.fully_frozen")
+selector:add_group_by("issue.closed")
+selector:add_group_by("issue.cleaned")
+selector:add_group_by("issue.admission_time")
+selector:add_group_by("issue.discussion_time")
+selector:add_group_by("issue.verification_time")
+selector:add_group_by("issue.voting_time")
+selector:add_group_by("issue.snapshot")
+selector:add_group_by("issue.latest_snapshot_event")
+selector:add_group_by("issue.population")
+selector:add_group_by("issue.voter_count")
+selector:add_group_by("issue.status_quo_schulze_rank")
+selector:add_group_by("issue.phase_finished")
+selector:add_group_by("issue.title")
+selector:add_group_by("issue.brief_description")
+selector:add_group_by("issue.keywords")
+selector:add_group_by("issue.problem_description")
+selector:add_group_by("issue.aim_description")
+------------------------------------------------------------------
+
+-- Scope checking
+
+-- State checking
 
 if state == "admission" then
 --  selector:add_where("issue.state = 'admission'")
@@ -154,6 +196,23 @@ else
   interest = "any"
 end
 
+-- * all_units
+-- * my_units
+-- * citizens
+-- * electeds
+-- * others
+
+if scope == "my_units" then
+  selector:join("area", nil, "area.id = issue.area_id")
+  selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
+elseif scope == "electeds" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["eletti"].unit_id})
+elseif scope == "citizens" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["cittadini"].unit_id})
+elseif scope == "others" then
+  selector:join("area", nil, {"area.id = issue.area_id AND area.unit_id = ?",config.gui_preset[gui_preset].units["altri_gruppi"].unit_id})
+end
+
 -- Checking orderby
 if orderby == "supporters" then
   selector:add_field("COUNT (*)","supporters")
@@ -166,5 +225,5 @@ else
   orderby = "creation_date"
   selector:add_order_by("issue.id"..ord)
 end
-selector:add_group_by("issue.id")
+
 selector:limit(25)
