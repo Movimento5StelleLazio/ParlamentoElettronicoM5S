@@ -1,23 +1,66 @@
-@lightgoldenrodyellow: #ffedaf;
-@mocassin: lighten(#fffdb0,5%);
-@orange: #ffaf00;
-@darkorange: #ff8a00;
-@chocolate: #ba5410;
-@darkgrey: #525252;
+@navbarInverseText:                 @white;
+@navbarInverseLinkColor:            @white;
+@textColor:                         @black;
+@linkColor:                         @black;
+@wellBackground:                    #fffcd3;
+@sansFontFamily:                    Optima, Segoe, "Segoe UI", Candara, Calibri, 
+     "Helvetica Neue", Helvetica, Arial, sans-serif;
+@baseFontSize:                      22px;
+@baseLineHeight:                    25px;
+@headingsFontWeight:                inherit;
+@baseBorderRadius:                  0px;
+@borderRadiusLarge:                 0px;
+@borderRadiusSmall:                 0px;
+@btnPrimaryBackground:              #F6F5BA;
+@btnPrimaryBackgroundHighlight:     #FFCA65;
+@btnInfoBackground:                 lighten(#4348e8,10%);
+@btnInfoBackgroundHighlight:        #4348e8;
+@btnSuccessBackground:              #6ea56b;
+@btnSuccessBackgroundHighlight:     darken(#6ea56b,10%);
+@btnDangerBackground:               lighten(#ff2a14,10%);
+@btnDangerBackgroundHighlight:      #ff2a14;
+
+//Colours
+@orangered:                         #ff6501;
+@graygreen:                         #6ea56b;
+@cornflowerblue:                    #5598ff;
+@lightgoldenrodyellow:              #ffedaf;
+@mocassin:                          lighten(#fffdb0,5%);
+@orange:                            #ffaf00;
+@darkorange:                        #ff8a00;
+@chocolate:                         #ba5410;
+@darkgrey:                          #525252;
+
+/*
+  Mixin
+*/
+
+#gradient {
+.radial_center_to_top(@innerColor: #555, @outerColor: #333) {
+    background-color: @outerColor;
+    background-image: -webkit-gradient(radial, center -30px, 0, center center, 460, from(@innerColor), to(@outerColor));
+    background-image: -webkit-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-image: -moz-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-image: -o-radial-gradient(center -30px,ellipse, @innerColor, @outerColor);
+    background-repeat: no-repeat;
+  }
+}
+
+.buttonBackground(@startColor, @endColor, @textColor: @black, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  #gradient > .radial_center_to_top(@startColor,@endColor);
+}
+
+/* 
+  Base
+*/
+
 body {
 	margin: 0;
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri,
 		"Helvetica Neue", Helvetica, Arial, sans-serif;
-	/*color: #000000;
-*/
 	background-color: #ffffff;
 	min-width: 768px;
 	font-weight: normal;
-}
-
-a {
-	color: #000000;
-	text-decoration: none !important
 }
 
 a {
@@ -32,6 +75,34 @@ a {
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+h1 { line-height: @baseLineHeight * 1.75; }
+h2 { line-height: @baseLineHeight * 1.50; }
+h3 { line-height: @baseLineHeight * 1.25; }
+
+h1 { font-size: @baseFontSize * 2.00; }
+h2 { font-size: @baseFontSize * 1.75; }
+h3 { font-size: @baseFontSize * 1.40; }
+h4 { font-size: @baseFontSize * 1.20; }
+h5 { font-size: @baseFontSize; }
+h6 { font-size: @baseFontSize * 0.85; }
+
+h1 small { font-size: @baseFontSize * 1.30; }
+h2 small { font-size: @baseFontSize * 1.10; }
+h3 small { font-size: @baseFontSize; }
+h4 small { font-size: @baseFontSize; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: (@baseLineHeight / 4) 0;
+}
+
+.label,
+.badge {
+  margin: 2px;
+  padding: 4px 6px;
+  line-height: 20px;
+  white-space: normal;
 }
 
 .footer,.push {
@@ -76,14 +147,6 @@ a {
 	margin-left: -65px;
 }
 
-/*
-  Typo, boxes and labels
-*/
-
-h1, h2, h3, h4, h5, h6 {
-  margin: (@baseLineHeight / 4) 0;
-}
-
 .alert,
 .alert h4 {
   color: @black;
@@ -91,19 +154,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .alert {
   text-shadow: none;
+  border: 0;
 }
 
 .alert-simple {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-//  border: 2px solid #666666;
   .border-radius(@radius: 3px);
 }
 
 .well {
   background-color: @wellBackground;
-//  border: 3px solid @orange;
+  border: 0;
   .border-radius(@radius: 3px);
   .box-shadow(0px 5px 11px grey);
   #gradient > .vertical(lighten(@wellBackground,5%), @wellBackground);
@@ -114,7 +177,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 8px 8px 8px;
   color: #000000;
   background-color: #ffffff;
-//  border: 3px solid @orange;
   .border-radius(@radius: 3px);
   margin-bottom: 5px;
 }
@@ -139,7 +201,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .head-chocolate,.head-darkorange,.head-orange {
   text-shadow: none;
-//  border: 1px solid #f5c388;
   margin: 0;
 }
 
@@ -164,7 +225,6 @@ h1, h2, h3, h4, h5, h6 {
 */
 
 .member_img_bs {
-  //border: 1px solid @orange;
   .box-shadow(0px 3px 7px grey);
   .border-radius(@radius: 3px);
 }
@@ -186,7 +246,6 @@ h1, h2, h3, h4, h5, h6 {
   background: @mocassin;
   #gradient > .vertical(#FFEDAF,#E6D79F);
 }
-
 
 .issue_info_data, .member_data, .label-area, .location_data, .location_data2, .initiatives_for_issue_box {
   text-shadow: none;
@@ -655,38 +714,3 @@ a.delegation_info:hover,a.delegation_info:focus {
 	background-color: #fa7;
 	color: #000;
 }
-
-/*
-@media screen and (min-width: 380px) {
-  h1 { font-size: 1.3em; }
-  h2 { font-size: 1.2em; line-height: 15px; }
-  h3 { font-size: 1.1em; line-height: 15px; }
-  h4 { font-size: 1.0em; line-height: 15px; }
-  h5 { font-size: 0.9em; line-height: 15px; }
-  h6 { font-size: 0.8em; line-height: 15px; }
-}
-@media screen and (min-width: 600px) {
-  h1 { font-size: 1.4em; }
-  h2 { font-size: 1.3em; line-height: 20px; }
-  h3 { font-size: 0.9em; line-height: 20px;  }
-  h4 { font-size: 1.1em; line-height: 20px; }
-  h5 { font-size: 1.0em; line-height: 15px; }
-  h6 { font-size: 0.9em; line-height: 15px; }
-}
-@media screen and (min-width: 768px) {
-  h1 { font-size: 1.50em; }
-  h2 { font-size: 1.40em; line-height: 25px; }
-  h3 { font-size: 1.30em; line-height: 25px; }
-  h4 { font-size: 1.20em; line-height: 25px; }
-  h5 { font-size: 1.10em; line-height: 15px; }
-  h6 { font-size: 1.00em; line-height: 15px; }
-}
-@media screen and (min-width: 1200px) {
-  h1 { font-size: 1.70em; }
-  h2 { font-size: 1.60em;  line-height: 25px; }
-  h3 { font-size: 1.50em;  line-height: 25px; }
-  h4 { font-size: 1.40em;  line-height: 25px; }
-  h5 { font-size: 1.30em; line-height: 15px; }
-  h6 { font-size: 0.90em; line-height: 15px; }
-}
-*/

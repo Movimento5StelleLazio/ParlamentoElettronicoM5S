@@ -158,7 +158,7 @@ cp -RL ${WEBMCPSRC}/framework/* ${WEBMCPDST}/
 
 echo "Converting help files with rocketwiki..."
 find ${FRONTENDDST}/locale/help/ -name "*.txt" | while read file; do
-        cat ${file} | ${ROCKETWIKICMD} >  ${file}.html
+        cat ${file} |iconv -f utf-8| ${ROCKETWIKICMD} >  ${file}.html
 done
 
 echo "Compiling lf_update and lf_update_suggestion_order..."
