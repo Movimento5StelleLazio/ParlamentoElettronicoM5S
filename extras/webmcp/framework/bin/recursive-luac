@@ -1,0 +1,14 @@
+#!/bin/sh
+src=$1
+dst=$2
+if [ "$src" = "" -o "$dst" = "" ]
+then
+  echo "Usage:  recursive-luac <source-dir> <destination-dir>"
+  exit 1
+fi
+cp -RL "$src" "$dst"
+# TODO: handle whitespace in directory or file names correctly
+for file in `find "$dst" -name '*.lua'`
+do
+  luac -s -o "$file" "$file"
+done

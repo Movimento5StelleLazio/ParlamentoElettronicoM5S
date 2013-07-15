@@ -1,0 +1,306 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Liberation Sans", sans-serif;
+        font-size: 11pt;
+        padding-bottom: 5ex;
+      }
+      .warning {
+        color: #ff0000;
+      }
+      h1, h2 {
+        font-family: "Liberation Serif", Georgia, serif;
+      }
+      h2 {
+        margin-bottom: 0.3ex;
+      }
+      p {
+        margin: 0px;
+        line-height: 130%;
+      }
+      tt, pre {
+        font-size: 10pt;
+      }
+      tt {
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .autodoc_entry {
+        margin-top: 1ex;
+        margin-bottom: 1ex;
+       }
+      .autodoc_comment_tail {
+        font-style: italic;
+      }
+      .autodoc_entry .short_synopsis {
+        cursor: pointer;
+      }
+      .autodoc_details {
+        padding-left: 1em;
+        padding-right: 1em;
+        border: 1px solid #777;
+      }
+      .autodoc_synopsis {
+        font-weight: bold;
+      }
+      .autodoc_synopsis .autodoc_comment_tail {
+        font-weight: normal;
+        color: #008000;
+      }
+      .autodoc_entry .autodoc_comment {
+        color: #400080;
+      }
+      .autodoc_source {
+        color: #505050;
+      }
+    </style>
+    <title>WebMCP 1.2.5 Documentation</title>
+  </head>
+  <body>
+    <h1>WebMCP 1.2.5 Documentation</h1>
+    <p>
+      WebMCP is a completely new web development framework, and has not been extensively tested yet. The API might change at any time, but in future releases there will be a list of all changes, which break downward compatibility.
+    </p>
+    <h2>Requirements</h2>
+    <p>
+      WebMCP has been developed on Linux and FreeBSD. Using it with Mac&nbsp;OS&nbsp;X is completely untested; Microsoft Windows is not supported. Beside the operating system, the only mandatory dependencies for WebMCP are the programming language <a href="http://www.lua.org/">Lua</a> version 5.1, <a href="http://www.postgresql.org/">PostgreSQL</a> version 8.2 or higher, a C compiler, and a Webserver like Lighttpd or Apache.
+    </p>
+    <h2>Installation</h2>
+    <p>
+      After downloading the tar.gz package, unpack it, enter the unpacked directory and type <tt>make</tt>. If you use Mac OS X or if you experience problems during compilation, you need to edit the <tt>Makefile.options</tt> file prior to compilation. The framework itself will be available in the <tt>framework/</tt> directory, while a demo application is available in the <tt>demo-app/</tt> directory. The <tt>framework.precompiled/</tt> and <tt>demo-app.precompiled/</tt> directories will contain a version with all Lua files being byte-code pre-compiled, which can be used instead. You may copy these directories (with <tt>cp -L</tt> to follow links) to any other place you like. Use the files <tt>doc/lighttpd.sample.conf</tt> or <tt>doc/apache.sample.conf</tt> to setup your webserver appropriatly. Don't forget to setup a database, and make the <tt>tmp/</tt> directory of the application writable for the web server process. Good luck and have fun!
+    </p>
+    <h2>Using the atom library</h2>
+    <p>
+      Lua itself has only very few built-in data types. The atom library gives support for extra data types. Currently the following extra data types are provided:
+    </p>
+    <ul>
+      <li>atom.fraction</li>
+      <li>atom.date</li>
+      <li>atom.time</li>
+      <li>atom.timestamp (date and time combined in one data type)</li>
+    </ul>
+    <p>
+      In addition the following pseudo-types are existent, corresponding to Lua's base types:
+    </p>
+    <ul>
+      <li>atom.boolean</li>
+      <li>atom.string</li>
+      <li>atom.integer</li>
+      <li>atom.number</li>
+    </ul>
+    <p>
+      Both atom.integer and atom.number refer to Lua's base type &ldquo;number&rdquo;.
+    </p>
+    <p>
+      New values of atom data types are created by either calling <tt>atom.<i>type</i>:load(string_representation)</tt> or by calling <tt>atom.<i>type</i>{...}</tt>, e.g. <tt>atom.date{year=1970, month=1, day=1}</tt>. You can dump any atom value as a string by calling <tt>atom.dump(value)</tt> and later reload it with <tt>atom.<i>type</i>:load(string)</tt>.
+    </p>
+    <h2>Using the Object-Relational Mapper &ldquo;mondelefant&rdquo;</h2>
+    <p>
+      The library &ldquo;mondelefant&rdquo; shipping with WebMCP can be used to access PostgreSQL databases. It also serves as an Object-Relational Mapper (ORM). Opening a connection to a database is usually done in a config file in the following way:
+    </p>
+    <pre>
+db = assert( mondelefant.connect{ engine='postgresql', dbname='webmcp_demo' } )
+at_exit(function() 
+  db:close()
+end)
+function mondelefant.class_prototype:get_db_conn() return db end
+
+function db:sql_tracer(command)
+  return function(error_info)
+    local error_info = error_info or {}
+    trace.sql{ command = command, error_position = error_info.position }
+  end
+end</pre>
+    <p>
+      Overwriting the <tt>sql_tracer</tt> method of the database handle is optional, but helpful for debugging. The parameters for <tt>mondelefant.connect</tt> are directly passed to PostgreSQL's client library libpq. See <a href="http://www.postgresql.org/docs/8.4/interactive/libpq-connect.html">PostgreSQL's documentation on PQconnect</a> for information about supported parameters.
+    </p>
+    <p>
+      To define a model to be used within a WebMCP application, create a file named with the name of the model and <tt>.lua</tt> as extension in the <tt>model/</tt> directory of your application. The most basic definition of a model (named &ldquo;movie&rdquo; in this example) is:
+    </p>
+    <pre>
+Movie = mondelefant.new_class()
+Movie.table = 'movie'</pre>
+    <p>
+      Note: Model classes are always written CamelCase, while the name of the file in <tt>model/</tt> is written lower_case.
+    </p>
+    <p>
+      To select objects from the database, the mondelefant library provides a selector framework:
+    </p>
+    <pre>
+local s = Movie:new_selector()
+s:add_where{ 'id = ?', param.get_id() }
+s:single_object_mode()  -- return single object instead of list
+local movie = s:exec()</pre>
+    <p>
+      A short form of the above query would be:
+    </p>
+    <pre>
+local movie = Movie:new_selector():add_where{ 'id = ?', param.get_id() }:single_object_mode():exec()</pre>
+    <p>
+      For more examples about how to use the model system, please take a look at the demo application.
+    </p>
+    <h2>The Model-View-Action (MVA) concept</h2>
+    <p>
+      As opposed to other web application frameworks, WebMCP does not use a Model-View-Controller (MVC) concept, but a Model-View-Action (MVA) concept.
+    </p>
+    <h3>Models</h3>
+    <p>
+      The models in MVA are like the models in MVC; they are used to access data stored in a relational database (PostgreSQL) in an object oriented way. They can also be used to provide methods for working with objects representing the database entries.
+    </p>
+    <h3>Views</h3>
+    <p>
+      The views in the MVA concept are different from the views in the MVC concept. As WebMCP has no controllers, the views are responsible for processing the GET/POST parameters from the webbrowser, fetching the data to be displayed, and creating the output by directly writing HTML to slots in a layout or by calling helper functions for the user interface.
+    </p>
+    <h3>Actions</h3>
+    <p>
+      Actions are similar to views, but supposed to change data in the database, hence only callable by HTTP POST requests. They are also responsible for processing the POST parameters from the webbrowser. They can modify the database, but instead of rendering a page to be displayed, they just return a status code. Depending on the status code there will be an internal forward or an HTTP 303 redirect to a view. When calling an action via a POST request, additional POST parameters, which are usually added by hidden form fields, determine the view to be displayed for each status code returned by the action.
+    </p>
+    <h2>Directory structure of a WebMCP application</h2>
+    <ul>
+      <li>
+        Base Directory
+        <ul>
+          <li>
+            <tt>app/</tt>
+            <ul>
+              <li>
+                <tt>main/</tt>
+                <ul>
+                  <li>
+                    <tt>_filter/</tt>
+                    <ul>
+                      <li>
+                        <tt>10_first_filter.lua</tt>
+                      <li>
+                      </li>
+                        <tt>30_third_filter.lua</tt>
+                      </li>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <tt>_filter_action/</tt>
+                    <ul>
+                      <li>
+                        <tt>20_second_filter.lua</tt>
+                      </li>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <tt>_filter_view/</tt>
+                    <ul>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <tt>_layout/</tt>
+                    <ul>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <tt>index/</tt>
+                    <ul>
+                      <li>
+                        <tt>_action/</tt>
+                        <ul>
+                          <li>
+                            <i>action_name</i><tt>.lua</tt>
+                          </li>
+                          <li>
+                            <i>another_action_name</i><tt>.lua</tt>
+                          </li>
+                          <li>&hellip;</li>
+                        </ul>
+                      </li>
+                      <li>
+                        <tt>index.lua</tt>
+                      </li>
+                      <li>
+                        <i>other_view_name</i><tt>.lua</tt>
+                      </li>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <i>other_module_name</i><tt>/</tt>
+                    <ul>
+                      <li>&hellip;</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <i>other_application_name</i><tt>/</tt>
+                <ul>
+                  <li>&hellip;</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <tt>config/</tt>
+            <ul>
+              <li>
+                <tt>development.lua</tt>
+              </li>
+              <li>
+                <tt>production.lua</tt>
+              <li>
+              <li>
+                <i>other_config_name</i><tt>.lua</tt>
+              </li>
+              <li>&hellip;</li>
+            </ul>
+          </li>
+          <li>
+            <tt>db/</tt>
+            <ul>
+              <li>
+                <tt>schema.sql</tt>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <tt>locale/</tt>
+            <ul>
+              <li>
+                <tt>translations.de.lua</tt>
+              </li>
+              <li>
+                <tt>translations.en.lua</tt>
+              </li>
+              <li>
+                <tt>translations.</tt><i>languagecode</i><tt>.lua</tt>
+              </li>
+              <li>&hellip;</li>
+            </ul>
+          </li>
+          <li>
+            <tt>model/</tt>
+            <ul>
+              <li>
+                <i>model_name</i><tt>.lua</tt>
+              </li>
+              <li>
+                <i>another_model_name</i><tt>.lua</tt>
+              </li>
+              <li>&hellip;</li>
+            </ul>
+          </li>
+          <li>
+            <tt>static/</tt>
+            <ul>
+              <li>&hellip; (images, javascript, ...)</li>
+            </ul>
+          </li>
+          <li>
+            <tt>tmp/</tt> (writable by the web process)
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Automatically generated reference for the WebMCP environment</h2>
+    <ul>

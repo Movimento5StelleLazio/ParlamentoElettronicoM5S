@@ -16,12 +16,12 @@ config.gui_preset = {
     name = "default",
     start_page = "_index_default"
   }, 
-  M5S = {
-    name = "M5S",
-    start_page = "_welcome",
+  M5S_bs = {
+    name = "M5S_bs",
+    start_page = "_welcome_bs",
     units = {
       eletti = {
-        unit_id = 1,
+        unit_id = 44,
         unit_title = _"ELECTEDS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -29,7 +29,7 @@ config.gui_preset = {
         issues_desc_closed = _"Electeds Initiatives Completed or Retired"
       },
       cittadini = {
-        unit_id = 2,
+        unit_id = 1,
         unit_title = _"CITIZENS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -55,10 +55,6 @@ config.gui_preset = {
         issues_desc_closed = _"Other Groups Initiatives Completed or Retired"
       }
     }
-  },
-  test = {
-    name = "test",
-    start_page = "_welcome"
   }
 }
 
@@ -146,7 +142,7 @@ config.mail_subject_prefix = "Parlamento Elettronico M5S "
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
 -- config.mail_envelope_from = "liquidfeedback@example.com"
--- config.mail_from = { name = "LiquidFeedback", address = "liquidfeedback@example.com" }
+config.mail_from = { name = "Parlamento Elettronico M5S", address = "liquidfeedback@example.com" }
 -- config.mail_reply_to = { name = "Support", address = "support@example.com" }
 
 -- Configuration of password hashing algorithm (defaults to "crypt_sha512")

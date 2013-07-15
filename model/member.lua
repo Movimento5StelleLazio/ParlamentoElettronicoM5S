@@ -598,14 +598,13 @@ function Member.object:has_polling_right_for_unit_id(unit_id)
   return self.__units_with_polling_right_hash[unit_id] and true or false
 end
 
-function Member.object:get_last_login_data()
+function Member.object:get_login_data(mode)
   local selector = MemberLogin:new_selector()
-    :add_where{ "member_id = ?", app.session.member.id }
+    selector:add_where{ "member_id = ? AND geolat IS NOT NULL AND geolng IS NOT NULL", app.session.member.id }
 --    :add_where{ "login_time < ?", self.last_login }
-    :add_order_by('"login_time" DESC')
-    :limit(1)
-    :offset(1)
-    :optional_object_mode()
+    selector:add_order_by('"login_time" DESC')
+    selector:limit(1)
+    selector:optional_object_mode()
   return selector:exec()
 end
 

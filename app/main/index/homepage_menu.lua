@@ -2,110 +2,111 @@ local welcomeText=_"Homepage welcome text"
 welcomeText=welcomeText.._"Homepage welcome text2"
 
 
-
 ui.container{
 
         attr={id="menuDiv", class="menuDiv"},
         content=function()
         
                ui.tag{
-                   tag = "pre",
+                   tag = "p",
                    attr={class="welcomeText", readonly="true"},
-                   content        = _"Homepage welcome".." "..app.session.member.name..",\n"..welcomeText,  
-                   multiline=true
+                   content        = _"Homepage welcome".." "..app.session.member.name..","  
+                   }
+               
+               ui.tag{
+                   tag = "p",
+                   attr={class="welcomeText", readonly="true"},
+                   content        = welcomeText  
                    }
                    
                    
                slot.put("<br />")   
                  
                ui.tag{
-                   tag = "pre",
+                   tag = "p",
                    attr={class="sceltaText", readonly="true"},
-                   content        = _"Homepage what to do?".."\n".._"Homepage Choose action:",  
-                   multiline=true
-                   }  
+                   content        = _"Homepage what to do?"  
+                  }  
+               ui.tag{
+                   tag = "p",
+                   attr={class="sceltaText", readonly="true"},
+                   content        =_"Homepage Choose action:"  
+                  }  
                 
                  
             ui.container
             {  
-                attr={id="pulsantiMenuHomepageDiv", class="pulsantiMenuHomepageDiv"},
-               content=function()   
-               
-               --pulsante 1
-               ui.link{
-                    attr={class="button orange menuButton"},
-                    module="unit",
-                    view="show_ext",
-                    id=config.gui_preset.M5S.units["cittadini"].unit_id,
-                    content=function()
-                    
-                        ui.tag{
-                           tag = "span",
-                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
-                           content        =_"Homepage read new issues",  
-                           multiline=true
-                        }  
-                    end-- fine tag.content
-                } 
                 
-               --pulsante 2
-               ui.link{
-                    
-                    attr={class="button orange menuButton"},
-                    module = "initiative",
-                    view = "wizard_new",
-                    params = { 
-                                      unit={name="LazionM5S"},
-                                      area = {name="testAreaName"} 
-                                    },
-                    content=function()
-                    
-                        ui.tag{
-                           tag = "span",
-                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
-                           content        =_"Homepage write new issue",  
-                           multiline=true,
-                          
+                attr = {id = "btnMenuDiv"}, 
+                content=function()
+                      
+                      
+                       ui.container
+                       { 
+                                attr = {id = "btnReadInitiative" ,class="menuButton"}, 
+                                content=function() 
+                               --pulsante 1
+                               ui.link{
+                                    attr={class="button orange" },
+                                    module="unit",
+                                    view="show_ext",
+                                    id=config.gui_preset.M5S.units["cittadini"].unit_id,
+                                    content=_"Homepage read new issues"  
+                                    } 
+                        end
+                        }
+                
+                
+                     ui.container
+                     { 
+                        attr = {id = "btnWriteInitiative",class="menuButton" }, 
+                        content=function()
+                       --pulsante 2
+                       ui.link{
+                            
+                            attr={class="button orange "},
+                            module = "wizard",
+                            view = "show_ext",
+                            id=config.gui_preset.M5S.units["eletti"].unit_id,
+                            content=_"Homepage write new issue" 
+                        } 
+                     end
+                     }   
+                      
+                       ui.container
+                       { 
+                        attr = {id = "btnReadNewM5Sinitiative",class="menuButton" }, 
+                        content=function()
+                        --pulsante 3
+                           ui.link{
+                                attr={class="button orange "},
+                                module="unit",
+                                view="show_ext",
+                                id=config.gui_preset.M5S.units["eletti"].unit_id,
+                                content=_"Homepage read m5s issues" 
+                            } 
+                        end
+                        }        
+                
+                     ui.container
+                     { 
+                        attr = {id = "btnReadNewOtherInitiative",class="menuButton" }, 
+                        content=function()
+                       --pulsante 4
+                       ui.link{
+                            attr={class="button orange"},
+                            module="unit",
+                            view="show_ext",
+                            id=config.gui_preset.M5S.units["altri_gruppi"].unit_id,
+                            content=_"Homepage read other issues",  
+                                   
                         }  
                         
-                    end-- fine tag.content
-                } 
-                
-               --pulsante 3
-               ui.link{
-                    attr={class="button orange menuButton"},
-                    module="unit",
-                    view="show_ext",
-                    id=config.gui_preset.M5S.units["eletti"].unit_id,
-                    content=function()
-                    
-                        ui.tag{
-                           tag = "span",
-                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
-                           content        =_"Homepage read m5s issues",  
-                           multiline=true
-                        }  
-                    end-- fine tag.content
-                } 
-                
-                
-               --pulsante 4
-               ui.link{
-                    attr={class="button orange menuButton"},
-                    module="unit",
-                    view="show_ext",
-                    id=config.gui_preset.M5S.units["altri_gruppi"].unit_id,
-                    content=function()
-                    
-                        ui.tag{
-                           tag = "span",
-                            attr={style="text-align: center;position: relative;top: 30px;", readonly="true"},
-                           content        =_"Homepage read other issues",  
-                           multiline=true
-                        }  
-                    end-- fine tag.content
-                }  
-                
+                        end
+                        
+                     }
+                        
+                        
               end -- fine container.content
             }
             
