@@ -8,36 +8,37 @@
 
 // Core
 .btn {
+  text-transform:uppercase;
+//  text-shadow: rgba(50,50,50,.5) 1px 1px 1px;
+//  text-shadow: -1px -1px 0px rgba(0,0,0,0.3);
   display: inline-block;
   .ie7-inline-block();
-  padding: 4px 12px;
-  margin-bottom: 0; // For input.btn
+  padding: 6px 20px;
+  margin-bottom: 0;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
-  border: 1px solid @btnBorder;
+  border: 0;
   *border: 0; // Remove the border to prevent IE7's black border on input:focus
-  border-bottom-color: darken(@btnBorder, 10%);
-  .border-radius(@baseBorderRadius);
+
+  .border-radius(@radius: 40px);
   .ie7-restore-left-whitespace(); // Give IE7 some love
-  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
 
   // Hover/focus state
   &:hover,
   &:focus {
-    color: @grayDark;
     text-decoration: none;
-    background-position: 0 -15px;
+    //background-position: 0 -15px;
 
     // transition is only when going to hover/focus, otherwise the background
     // behind the gradient (there for IE<=9 fallback) gets mismatched
     .transition(background-position .1s linear);
   }
 
-  // Focus state for keyboard and accessibility
+      // Focus state for keyboard and accessibility
   &:focus {
     .tab-focus();
   }
@@ -45,9 +46,10 @@
   // Active state
   &.active,
   &:active {
-    background-image: none;
+//    background-image: none;
     outline: 0;
-    .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+    border: 1px solid rbga(0,0,0,0.5);
+    .box-shadow(~"inset 0 6px 5px rgba(0,0,0,.35)");
   }
 
   // Disabled state
@@ -68,9 +70,9 @@
 
 // Large
 .btn-large {
-  padding: @paddingLarge;
+  padding: 11px 25px;
   font-size: @fontSizeLarge;
-  .border-radius(@borderRadiusLarge);
+  .border-radius(@radius: 40px);
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -81,7 +83,7 @@
 .btn-small {
   padding: @paddingSmall;
   font-size: @fontSizeSmall;
-  .border-radius(@borderRadiusSmall);
+  .border-radius(@radius: 25px);
 }
 .btn-small [class^="icon-"],
 .btn-small [class*=" icon-"] {
@@ -96,7 +98,7 @@
 .btn-mini {
   padding: @paddingMini;
   font-size: @fontSizeMini;
-  .border-radius(@borderRadiusSmall);
+  .border-radius(@radius: 18px);
 }
 
 
@@ -131,27 +133,65 @@ input[type="button"] {
 // --------------------------------------------------
 
 // Provide *some* extra contrast for those who can get it
-.btn-primary.active,
-.btn-warning.active,
-.btn-danger.active,
-.btn-success.active,
-.btn-info.active,
-.btn-inverse.active {
-  color: rgba(255,255,255,.75);
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-success:active,
+.btn-info:active,
+.btn-inverse:active {
+  .translate(0,0.2em);
+}
+
+.btn-warning:hover,
+.btn-danger:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn-inverse:hover {
+  color: @white;
 }
 
 // Set the backgrounds
 // -------------------------
 .btn-primary {
-  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+  .buttonBackground( @btnPrimaryBackground, @btnPrimaryBackgroundHighlight, @black);
+//  #gradient > .radial_center_to_top(#F0FBA1,@btnPrimaryBackgroundHighlight);
+  .box-shadow(~"hsl(44, 100%, 47%) 0 .1em 3px, hsl(48, 100%, 32%) 0 .3em 1px, rgba(0,0,0,0.3) 0 .6em 6px");
+  border: 1px solid @btnPrimaryBackground;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-top-color: lighten(@btnPrimaryBackgroundHighlight, 20%);
+  border-left-color: @btnPrimaryBackgroundHighlight;
+  border-right-color: @btnPrimaryBackgroundHighlight;
+  border-bottom-color: lighten(hsl(44, 100%, 50%), 5%);
 }
+.btn-primary.active, .btn-primary:active  {
+  color: @black;
+  .buttonBackground(darken(@btnPrimaryBackground,10%), darken(@btnPrimaryBackgroundHighlight,5%),@black);
+  border-color: transparent;
+}
+
 // Warning appears are orange
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
 }
+
 // Danger and error appear as red
 .btn-danger {
-  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+  color: @white;
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight, @white);
+//  #gradient > .radial_center_to_top(@btnDangerBackground,@btnDangerBackgroundHighlight);
+  .box-shadow(~"hsl(0,100%,42%) 0 .1em 3px, hsl(0,100%,42%) 0 .3em 1px, rgba(0,0,0,0.3) 0 .6em 6px");
+  border: 1px solid @btnDangerBackground;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-top-color: lighten(@btnDangerBackground, 10%);
+  border-left-color: darken(@btnDangerBackground, 30%);
+  border-right-color: darken(@btnDangerBackground, 30%);
+  border-bottom-color: darken(@btnDangerBackground, 40%);
+}
+.btn-danger.active, .btn-danger:active  {
+  color: @white;
+  .buttonBackground(darken(@btnDangerBackground,10%), darken(@btnDangerBackgroundHighlight,5%),@white);
+  border-color: transparent;
 }
 // Success appears as green
 .btn-success {
@@ -159,7 +199,20 @@ input[type="button"] {
 }
 // Info appears as a neutral blue
 .btn-info {
-  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+  color: @white;
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight, @white);
+  .box-shadow(~"hsl(216,63%,44%) 0 .1em 3px, hsl(216,63%,44%) 0 .3em 1px, rgba(0,0,0,0.3) 0 .6em 6px");
+  border: 1px solid @btnInfoBackground;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-top-color: lighten(@btnInfoBackground, 10%);
+  border-left-color: darken(@btnInfoBackground, 30%);
+  border-right-color: darken(@btnInfoBackground, 30%);
+  border-bottom-color: darken(@btnInfoBackground, 40%);
+}
+.btn-info.active, .btn-info:active  {
+  color: @white;
+  .buttonBackground(darken(@btnInfoBackground,10%), darken(@btnInfoBackgroundHighlight,5%),@white);
+  border-color: transparent;
 }
 // Inverse appears as dark gray
 .btn-inverse {
