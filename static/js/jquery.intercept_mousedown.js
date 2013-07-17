@@ -8,6 +8,11 @@
 $('.fixclick').mousedown( function(event)
 {
    if ( event.which != 1 ) { return; }
+
+   if ( $(this).closest('form') ) { 
+           $(this).closest('form').submit();
+           return;
+   }
    
    if ( $(this).attr( 'datatoggle') && $(this).attr( 'datatoggle')=="dropdown" )
    {
