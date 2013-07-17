@@ -118,9 +118,9 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
 ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+ui.script{script = '$(window).load(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
 ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
+ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'});" }
 
 
 
