@@ -713,3 +713,18 @@ a.delegation_info:hover,a.delegation_info:focus {
 	background-color: #fa7;
 	color: #000;
 }
+
+/* 
+  Media query
+*/
+
+@media (max-width: 979px) {
+  [class*="collapse"],
+  .uneditable-input[class*="collapse"], // Makes uneditable inputs full-width when using grid sizing
+  .row-fluid [class*="collapse"] {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+}
