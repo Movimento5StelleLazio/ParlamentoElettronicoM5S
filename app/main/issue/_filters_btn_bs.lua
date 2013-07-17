@@ -117,7 +117,7 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
               id = "btn_apply", 
               href = "#",
               class = "btn btn-primary btn-large",
-              onclick="toggle_flt();"
+              onmousedown="toggle_flt();"
 --              datatoggle="collapse",
 --              datatarget="#state_flt #interest_flt #scope_flt"
             },
