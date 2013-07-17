@@ -23,7 +23,7 @@ end
 
 if page==1 then
 
-ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid span10 offset1"},content=function()
   ui.container{attr={class="span3 text-center"},content=function()
     trace.debug("renmdering button <<")
   ui.link{
@@ -92,7 +92,7 @@ end }
 
 else
 
-ui.container{attr={class="row-fluid"},content=function()
+ui.container{attr={class="row-fluid span10 offset1"},content=function()
   ui.container{attr={class="span3 text-center"},content=function()
     ui.tag{
       tag="a",

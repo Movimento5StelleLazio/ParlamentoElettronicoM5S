@@ -86,7 +86,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right draft"},content=function()
+                            ui.container{attr={class="span6 text-justify draft"},content=function()
                               ui.tag{tag="p",content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
