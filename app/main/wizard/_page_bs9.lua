@@ -86,17 +86,15 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right draft"},content=function()
+                            ui.container{attr={class="span6 text-right collapse", style="height:100%"},content=function()
                               ui.tag{tag="p",content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
-                            ui.container{attr={class="span6 draft"},content=function()
-                              ui.tag{
-                                tag="textarea",
-                                attr={id="draft",name="draft",style="height:100%;width:100%;resize:none;"},
-                                content=""
-                              }
-                            end }
+                            ui.tag{
+                              tag="textarea",
+                              attr={id="draft",name="draft",class="span6 collapse", style="height:32em; resize:none;"},
+                              content=""
+                            }
                           end }
                         end }
                       end }
@@ -122,7 +120,3 @@ ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function
     }
   end }
 end }
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".draft")); $(window).resize(function() { equalHeight($(".draft")); }); }); ' }
-
