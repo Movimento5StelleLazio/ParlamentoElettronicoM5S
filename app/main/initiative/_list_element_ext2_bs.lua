@@ -12,7 +12,7 @@ local function round(num, idp)
   return tonumber(string.format("%." .. (idp or 0) .. "f", num))
 end
 
-ui.container{ attr = { class = "row-fluid" }, content = function()
+ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
   ui.container{ attr = { class = "span12"..class }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       --[[
@@ -26,8 +26,36 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         end
       end }
       --]]
+
       local span=2
+
+
       if for_details then
+         -- Get member checked events for initiative
+        local checked_events = Event:new_selector()
+          :join("checked_event", nil, "checked_event.event_id = event.id")
+          :add_where{ "checked_event.member_id = ?", for_member.id }
+          :exec()
+
+        local checked_events_ids = {}
+        for i, checked_event in ipairs(checked_events) do
+          checked_events_ids[#checked_events_ids+1] = checked_event.id
+        end
+
+        local chkids
+        if #checked_events_ids == 0 then
+          chkids = 0
+        else
+          chkids = table.concat(checked_events_ids,", ")
+        end
+
+        trace.debug("checked_events_ids = "..chkids)
+
+        -- Get member unchecked events for initiative
+        local unchecked_events =  Event:new_selector()
+          :add_where{ "event.initiative_id = ? AND event.occurrence > ? AND event.id NOT IN ("..chkids..")", initiative.id, app.session.member.activated }
+          :exec()
+
         ui.container{ attr = { class = "span2 text-center" }, content = function()
           ui.link{
             attr = { class="btn btn-primary btn_read_initiative"  },
@@ -36,29 +64,24 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             view = "show",
             content = function()
 
-
-              ui.container{ attr = { class = "event_star_out_box" }, content = function()
-                ui.container{ attr = { class = "event_star_in_box" }, content = function()
-
-                  local t=math.random(4)
-                  if t == 1 then
- 
-                  ui.container{ attr = { class = "event_star_txt_box" }, content = function()
-                    ui.tag{ tag="span", attr={class="event_star_txt"}, content="3 Eventi"}
+             
+              if #unchecked_events > 0 then
+                ui.container{ attr = { class = "event_star_out_box" }, content = function()
+                  ui.container{ attr = { class = "event_star_in_box" }, content = function()
+                    if #unchecked_events == 1 and unchecked_events[1].event == "initiative_created_in_new_issue" then
+                      ui.container{ attr = { class = "event_star_txt_box" }, content = function()
+                        ui.tag{ tag="span", attr={class="event_star_txt"}, content="Nuovo"}
+                      end }
+                      ui.image{ attr={class="event_star"}, static="svg/event_star_green.svg" }
+                    else 
+                      ui.container{ attr = { class = "event_star_txt_box" }, content = function()
+                        ui.tag{ tag="span", attr={class="event_star_txt"}, content=#unchecked_events.." Eventi"}
+                      end }
+                      ui.image{ attr={class="event_star"}, static="svg/event_star_red.svg" }
+                    end
                   end }
-                  ui.image{ attr={class="event_star"}, static="svg/event_star_red.svg" }
-                    
-                  elseif t == 2 then
-
-                  ui.container{ attr = { class = "event_star_txt_box" }, content = function()
-                    ui.tag{ tag="span", attr={class="event_star_txt"}, content="Nuovo"}
-                  end }
-                  ui.image{ attr={class="event_star"}, static="svg/event_star_green.svg" }
-
-                  end
-                  
                 end }
-              end }
+              end
 
 
               ui.heading{level=5,attr={class=""},content=function()
@@ -67,6 +90,9 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             end
           }
       end }
+
+        -- Check events
+        execute.action{ module="event", action="check", params={unchecked_events=unchecked_events, member_id=for_member.id}}
       else
         span=4
       end

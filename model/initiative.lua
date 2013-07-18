@@ -253,4 +253,3 @@ function Initiative.object_get:initiator_names()
   end
   return member_names
 end
-
