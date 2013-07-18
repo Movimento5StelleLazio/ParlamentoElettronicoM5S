@@ -26,7 +26,46 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         end
       end }
       --]]
+
       local span=2
+
+      -- Get member checked events for initiative
+      local checked_events = Event:new_selector()
+        :join("checked_event", nil, "checked_event.event_id = event.id")
+        :add_where{ "checked_event.member_id = ?", for_member.id }
+        :exec()
+
+      local checked_events_ids = {}
+      for i, checked_event in ipairs(checked_events) do
+        checked_events_ids[#checked_events_ids+1] = checked_event.id 
+      end
+       
+      trace.debug("checked_events_ids = "..table.concat(checked_events_ids,", "))
+
+      -- Get member unchecked events for initiative
+      local unchecked_events =  Event:new_selector()
+        :add_where{ "event.initiative_id = ? AND event.id NOT IN ("..table.concat(checked_events_ids,", ")..")", initiative.id }
+        :exec()
+
+      if #unchecked_events == 0 then
+        trace.debug("No new events")
+        -- No new events
+      elseif #unchecked_events == 1 and unchecked_events[1].event_type == "initiative_created_in_new_issue" then
+        trace.debug("New initiative")
+        -- New initiative
+      else
+        trace.debug("New events = "..#unchecked_events)
+        -- Print number of events: #new_events
+      end
+
+      -- Check events
+      for i, event in ipairs(unchecked_events) do
+        local checked_event = CheckedEvent:new()
+        checked_event.member_id = for_member.id
+        checked_event.event_id = event.id
+        checked_event:save()
+      end
+
       if for_details then
         ui.container{ attr = { class = "span2 text-center" }, content = function()
           ui.link{
