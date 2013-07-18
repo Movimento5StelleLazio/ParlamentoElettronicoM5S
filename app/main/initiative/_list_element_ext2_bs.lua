@@ -29,46 +29,33 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
 
       local span=2
 
-      -- Get member checked events for initiative
-      local checked_events = Event:new_selector()
-        :join("checked_event", nil, "checked_event.event_id = event.id")
-        :add_where{ "checked_event.member_id = ?", for_member.id }
-        :exec()
-
-      local checked_events_ids = {}
-      for i, checked_event in ipairs(checked_events) do
-        checked_events_ids[#checked_events_ids+1] = checked_event.id 
-      end
-      
-      local chkids
-      if #checked_events_ids == 0 then
-        chkids = 0
-      else
-        chkids = table.concat(checked_events_ids,", ")
-      end
-       
-      trace.debug("checked_events_ids = "..chkids)
-
-      -- Get member unchecked events for initiative
-      local unchecked_events =  Event:new_selector()
-        :add_where{ "event.initiative_id = ? AND event.id NOT IN ("..chkids..")", initiative.id }
-        :exec()
-
-      if #unchecked_events == 0 then
-        trace.debug("No new events")
-        -- No new events
-      elseif #unchecked_events == 1 and unchecked_events[1].event_type == "initiative_created_in_new_issue" then
-        trace.debug("New initiative")
-        -- New initiative
-      else
-        trace.debug("New events = "..#unchecked_events)
-        -- Print number of events: #new_events
-      end
-
-      -- Check events
-      execute.action{ module="event", action="check", params={unchecked_events=unchecked_events, member_id=for_member.id}}
 
       if for_details then
+         -- Get member checked events for initiative
+        local checked_events = Event:new_selector()
+          :join("checked_event", nil, "checked_event.event_id = event.id")
+          :add_where{ "checked_event.member_id = ?", for_member.id }
+          :exec()
+
+        local checked_events_ids = {}
+        for i, checked_event in ipairs(checked_events) do
+          checked_events_ids[#checked_events_ids+1] = checked_event.id
+        end
+
+        local chkids
+        if #checked_events_ids == 0 then
+          chkids = 0
+        else
+          chkids = table.concat(checked_events_ids,", ")
+        end
+
+        trace.debug("checked_events_ids = "..chkids)
+
+        -- Get member unchecked events for initiative
+        local unchecked_events =  Event:new_selector()
+          :add_where{ "event.initiative_id = ? AND event.occurrence > ? AND event.id NOT IN ("..chkids..")", initiative.id, app.session.member.activated }
+          :exec()
+
         ui.container{ attr = { class = "span2 text-center" }, content = function()
           ui.link{
             attr = { class="btn btn-primary btn_read_initiative"  },
@@ -77,10 +64,11 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
             view = "show",
             content = function()
 
+             
               if #unchecked_events > 0 then
                 ui.container{ attr = { class = "event_star_out_box" }, content = function()
                   ui.container{ attr = { class = "event_star_in_box" }, content = function()
-                    if #unchecked_events == 1 and unchecked_events[1].event_type == "initiative_created_in_new_issue" then
+                    if #unchecked_events == 1 and unchecked_events[1].event == "initiative_created_in_new_issue" then
                       ui.container{ attr = { class = "event_star_txt_box" }, content = function()
                         ui.tag{ tag="span", attr={class="event_star_txt"}, content="Nuovo"}
                       end }
@@ -102,6 +90,9 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
             end
           }
       end }
+
+        -- Check events
+        execute.action{ module="event", action="check", params={unchecked_events=unchecked_events, member_id=for_member.id}}
       else
         span=4
       end
