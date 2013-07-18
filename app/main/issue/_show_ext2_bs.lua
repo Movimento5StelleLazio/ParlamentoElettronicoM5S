@@ -121,7 +121,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
     
         ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span8"}, content =function()
-            if app.session.member_id and issue.closed then
+            if app.session.member_id and direct_voter then
               ui.container {
                 attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
                 content = function()
