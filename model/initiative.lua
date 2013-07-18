@@ -254,3 +254,25 @@ function Initiative.object_get:initiator_names()
   return member_names
 end
 
+function Initiative::get_unchecked_events_for_member_id(member_id)
+  --[[
+  Return all events member has not yet checked
+  SQL:
+    SELECT * FROM event WHERE event.initiative_id = <self.id> AND 
+	  event.id NOT IN 
+	  ( SELECT * FROM event 
+	    INNER JOIN checked_event 
+		WHERE checked_event.member_id = <member_id> 
+	  )
+  --]]
+  
+  -- Inner query selector
+  local sub_selector = Event:new_selector()
+    :join("event", nil, {"checked_event.member_id = ?", member_id })
+  -- Outer query selector
+  return Event:new_selector()	
+	:add_where{ "event.initiative_id = ?", self.id }
+	:add_where{ "event.id NOT IN", sub_selector }
+	:exec()
+end
+
