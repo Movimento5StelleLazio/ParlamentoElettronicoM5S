@@ -9,8 +9,11 @@ $('.fixclick').mousedown( function(event)
 {
    if ( event.which != 1 ) { return; }
 
-   if ( $(this).closest('form') ) { 
-           $(this).closest('form').submit();
+   var self = $(this);
+   var form = self.closest('form')[0];
+   if ( form ) 
+   { 
+           $(form).submit();
            return;
    }
    
@@ -19,6 +22,5 @@ $('.fixclick').mousedown( function(event)
 	   //console.log("menu dropdown clicked");
 	   return;
    }
-   
    window.location.href = $(this).attr('href');
 });
