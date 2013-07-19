@@ -16,3 +16,11 @@ function Keyword:by_name(name)
     :optional_object_mode()
     :exec()
 end
+
+function Keyword:by_issue_id(issue_id)
+  return self:new_selector()
+    :join("issue_keyword",nil,{"keyword.id = issue_keyword.keyword_id AND issue_keyword.issue_id = ?", issue_id})
+    :add_group_by("keyword.id")
+    :add_order_by("keyword.id")
+    :exec()
+end
