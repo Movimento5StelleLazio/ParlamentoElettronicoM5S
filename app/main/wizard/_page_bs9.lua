@@ -86,11 +86,11 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-justify draft"},content=function()
+                            ui.container{attr={class="span6 text-justify draft collapse"},content=function()
                               ui.tag{tag="p",content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
-                            ui.container{attr={class="span6 draft"},content=function()
+                            ui.container{attr={class="span6 draft spaceline2"},content=function()
                               ui.tag{
                                 tag="textarea",
                                 attr={id="draft",name="draft",style="height:100%;width:100%;resize:none;"},

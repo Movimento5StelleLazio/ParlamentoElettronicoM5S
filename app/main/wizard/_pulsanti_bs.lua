@@ -60,7 +60,7 @@ ui.container{attr={class="row-fluid span10 offset1"},content=function()
             } -- fine link
 
   end }
-  ui.container{attr={class="span3 offset6 text-center"},content=function()
+  ui.container{attr={class="span4 offset4 text-center"},content=function()
   ui.tag{
       tag="a",
       attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
@@ -92,8 +92,8 @@ end }
 
 else
 
-ui.container{attr={class="row-fluid span10 offset1"},content=function()
-  ui.container{attr={class="span3 text-center"},content=function()
+ui.container{attr={class="row-fluid"},content=function()
+  ui.container{attr={class="span3 offset1 text-center"},content=function()
     ui.tag{
       tag="a",
       attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementsByName('indietro')[0].value=true;document.getElementById('wizardForm"..page.."').submit();"},
@@ -106,22 +106,15 @@ ui.container{attr={class="row-fluid span10 offset1"},content=function()
         indietro=true
       },
       content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
+         ui.heading{ level=4, attr = {class = "text-center" }, content=function()
+          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back Phase")
-            end }
-          end }
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-            end }
-          end }
+
         end }
       end
     } 
   end }
-  ui.container{attr={class="span3 offset6 text-center"},content=function()
+  ui.container{attr={class="span3 offset4 text-center"},content=function()
   ui.tag{
       tag="a",
       attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
@@ -132,18 +125,12 @@ ui.container{attr={class="row-fluid span10 offset1"},content=function()
         area_id=app.session.member.area_id,
         page=next_page
       },
-      content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
+      content=function() 
+     
+        ui.heading{ level=4, attr = {class = "text-left" }, content=function()
+          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
               slot.put(_"Next Phase")
-            end }
-          end }
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
-            end }
-          end }
+
         end }
       end
     }
