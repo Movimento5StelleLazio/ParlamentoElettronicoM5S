@@ -105,7 +105,7 @@ if not issue then
   issue.aim_description=param.get("aim_description")
   
   
-  issue.keywords=param.get("issue_keywords")
+--  issue.keywords=param.get("issue_keywords")
   
   if policy.polling then
     issue.accepted = 'now'
@@ -208,6 +208,36 @@ if not is_polling then
   supporter.draft_id = draft.id
   supporter:save()
  end
+
+
+-- Keyword registration
+function string:split(sep)
+  local sep, fields = sep or ":", {}
+  local pattern = string.format("([^%s]+)", sep)
+  self:gsub(pattern, function(c) fields[#fields+1] = c end)
+  return fields
+end
+
+for i,k in ipairs(param.get("issue_keywords"):split(",")) do
+   local keyword
+   keyword = Keyword:by_name(k)
+   if not keyword then
+     keyword = Keyword:new()
+     keyword.name = k
+     keyword:save()
+     keyword = Keyword:by_name(k)
+   end
+   if keyword then
+     local issue_keyword = IssueKeyword:new()
+     issue_keyword.issue_id = issue.id
+     issue_keyword.keyword_id = keyword.id
+     issue_keyword:save()
+   else
+     slot.put_into("error",_"Failed to save keywords for issue")
+   end
+end
+-- end of keywords
+
 
 slot.put_into("notice", _"Initiative successfully created")
 
