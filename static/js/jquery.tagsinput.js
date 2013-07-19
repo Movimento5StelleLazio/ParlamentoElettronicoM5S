@@ -96,10 +96,11 @@
 				}
 				
 				if (value !='' && skipTag != true) { 
-                    $('<span>').addClass('tag').append(
-                        $('<span>').text(value).append('&nbsp;&nbsp;'),
+                    $('<span>').addClass('tag btn btn-danger btn-small nowrap').append(
+                        $('<h5>').text(value).addClass('inline-block').append('&nbsp;'),
                         $('<a>', {
                             href  : '#',
+                            class : 'inline-block',
                             title : 'Removing tag',
                             text  : 'x'
                         }).click(function () {
@@ -230,7 +231,7 @@
 
 			$(data.holder).css('width',settings.width);
 			$(data.holder).css('min-height',settings.height);
-			$(data.holder).css('height','100%');
+			//$(data.holder).css('height','100%');
 	
 			if ($(data.real_input).val()!='') { 
 				$.fn.tagsInput.importTags($(data.real_input),$(data.real_input).val());
