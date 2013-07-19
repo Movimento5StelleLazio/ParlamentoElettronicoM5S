@@ -109,8 +109,7 @@ ui.container
                                            {
                                                 tag="textarea",
                                                 attr={id="issue_keywords",name="issue_keywords",style="resize: none;float: left; font-size: 23px; height: 228px; margin-left: 15px; width: 598px;"},
-                                                content=function()
-                                                end
+                                                content=""
                                                 
                                            }
                                     end

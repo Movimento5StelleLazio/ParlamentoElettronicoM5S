@@ -460,6 +460,7 @@ return {
 ["Keywords"]="PAROLE CHIAVE:";
 ["Keywords note"]="NOTA: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
 ["Insert the keywords for the issue"]="Inserisci le parole chiave per la questione";
+["Add a keyword"]="Aggiungi una parola chiave";
 ["Last activity (updated daily)"] = "Ultima attività (aggiornato giornalmente)";
 ["Last snapshot:"] = "Ultimo snapshot:";
 ["Latest draft created at #{date} #{time}"] = "Ultima revisione bozza creata il #{date} alle #{time}";
