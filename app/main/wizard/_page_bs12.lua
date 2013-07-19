@@ -334,14 +334,14 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 
 				-- Keywords
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right issue_keywords"},content=function()
+                  ui.container{attr={class="span4 offset1 text-right"},content=function()
                     ui.tag{tag="p",content=  _"Keywords"}
                     ui.tag{tag="em",content=  _"Keywords note"}
                   end }
-                  ui.container{attr={class="span6 issue_keywords"},content=function()
+                  ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="issue_keywords",name="issue_keywords",style="height:100%;width:100%;resize:none;"},
+                      attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"},
                       content=issue_keywords
                     }
                   end }
@@ -879,3 +879,8 @@ ui.script{script = '$(document).ready(function() { equalHeight($(".issue_desc"))
 ui.script{script = '$(document).ready(function() { equalHeight($(".aim_desc")); $(window).resize(function() { equalHeight($(".aim_desc")); }); }); ' }
 ui.script{script = '$(document).ready(function() { equalHeight($(".init_brief")); $(window).resize(function() { equalHeight($(".init_brief")); }); }); ' }
 ui.script{script = '$(document).ready(function() { equalHeight($(".draft")); $(window).resize(function() { equalHeight($(".draft")); }); }); ' }
+
+
+ui.script{static="js/jquery.tagsinput.js"}
+ui.script{script="$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
+
