@@ -85,7 +85,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right issue_desc"},content=function()
+                            ui.container{attr={class="span6 text-justify issue_desc"},content=function()
                               ui.tag{tag="p",content=  _"Problem description"}
                               ui.tag{tag="em",content=  _"Problem note"}
                             end }

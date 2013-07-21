@@ -82,6 +82,8 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
                       
+                      ui.container{attr={class="row-fluid"},content=function()
+                        ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
                             ui.container{attr={class="span6 text-right collapse",style="height:100%;"},content=function()
                               ui.tag{tag="p",content=  _"Keywords"}
@@ -95,6 +97,8 @@ ui.container{attr={class="span12 text-center"},content=function()
                               }
                             end }
                           end }
+                        end }
+                      end }
                               
                       end --fine contenuto
                    }--fine form
