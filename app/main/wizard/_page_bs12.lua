@@ -309,7 +309,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				
 				--Titolo questione
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right"},content=function() 
+                  ui.container{attr={class="span4 offset1 text-justify"},content=function() 
 					ui.tag{tag="label", content=_"Problem Title"}
 				  end }
 				  ui.container{attr={class="span6"},content=function() 
@@ -319,7 +319,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 
 				-- Descrizione breve questione
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right issue_brief_span"},content=function()
+                  ui.container{attr={class="span4 offset1 text-justify issue_brief_span"},content=function()
                     ui.tag{tag="p",content=  _"Description to the problem you want to solve"}
                     ui.tag{tag="em",content=  _"Description note"}
                   end }
@@ -334,14 +334,14 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 
 				-- Keywords
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right"},content=function()
+                  ui.container{attr={class="span4 offset1 text-justify issue_keywords"},content=function()
                     ui.tag{tag="p",content=  _"Keywords"}
                     ui.tag{tag="em",content=  _"Keywords note"}
                   end }
-                  ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
+                  ui.container{attr={class="span6 issue_keywords"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"},
+                      attr={id="issue_keywords",name="issue_keywords",style="height:100%;width:100%;resize:none;"},
                       content=issue_keywords
                     }
                   end }
@@ -349,7 +349,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				
 				-- Descrizione del problema
 				ui.container{attr={class="row-fluid spaceline4"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right issue_desc"},content=function()
+                  ui.container{attr={class="span4 offset1 text-justify issue_desc"},content=function()
                     ui.tag{tag="p",content=  _"Problem description"}
                     ui.tag{tag="em",content=  _"Problem note"}
                   end }
@@ -364,7 +364,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				
 				-- Descrizione dell'obiettivo
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
+                  ui.container{attr={class="span4 offset1 text-justify aim_desc"},content=function()
                     ui.tag{tag="p",content=  _"Target description"}
                     ui.tag{tag="em",content=  _"Target note"}
                   end }
@@ -393,7 +393,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				
 				-- Titolo proposta
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right"},content=function() 
+                  ui.container{attr={class="span4 offset1 text-justify"},content=function() 
 					ui.tag{tag="label", content=_"Initiative Title"}
 				  end }
 				  ui.container{attr={class="span6"},content=function() 
@@ -403,7 +403,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				
 				-- Descrizione breve proposta
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
-				  ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
+				  ui.container{attr={class="span4 offset1 text-justify init_brief"},content=function()
                     ui.tag{tag="p",content=  _"Initiative short description"}
                     ui.tag{tag="em",content=  _"Initiative short note"}
                   end }
@@ -418,7 +418,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 								
 				-- Testo della proposta
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
-                  ui.container{attr={class="span4 offset1 text-right draft"},content=function()
+                  ui.container{attr={class="span4 offset1 text-justify draft"},content=function()
                     ui.tag{tag="p",content=  _"Draft text"}
                     ui.tag{tag="em",content=  _"Draft note"}
                   end }
@@ -879,8 +879,3 @@ ui.script{script = '$(document).ready(function() { equalHeight($(".issue_desc"))
 ui.script{script = '$(document).ready(function() { equalHeight($(".aim_desc")); $(window).resize(function() { equalHeight($(".aim_desc")); }); }); ' }
 ui.script{script = '$(document).ready(function() { equalHeight($(".init_brief")); $(window).resize(function() { equalHeight($(".init_brief")); }); }); ' }
 ui.script{script = '$(document).ready(function() { equalHeight($(".draft")); $(window).resize(function() { equalHeight($(".draft")); }); }); ' }
-
-
-ui.script{static="js/jquery.tagsinput.js"}
-ui.script{script="$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
-

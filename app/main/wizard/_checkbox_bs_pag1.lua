@@ -23,7 +23,7 @@
  
 ui.container{attr={class="row-fluid", onmousedown="doCheckPag1("..id_checkbox..","..imgId..")"},content=function()
   ui.container{attr={class="span12"},content=function() 
-    ui.container{attr={class="nowrap", style="margin: 1em;"},content=function() 
+    ui.container{attr={class="nowrap spaceline3"},content=function() 
       ui.tag {
         tag="a",
         attr={id="policyChooser"..id_checkbox,class="btn btn-primary btn-large inline-block eq_btn1" ,style="height: 62px!important;width: 2em;"},
