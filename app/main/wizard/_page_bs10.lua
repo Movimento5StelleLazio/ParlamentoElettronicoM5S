@@ -91,23 +91,22 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         end
                     
                        --contenuto
-                 ui.container{attr={class="row-fluid span10 offset1"},content=function()
+                 ui.container{attr={class="row-fluid"},content=function()
+                    ui.container
+                      {
+                        attr={class="span10 offset1"},
+                        content=function() 
     
                        --1* selezione
 
-                    ui.container
-                      {
-                        attr={class="row-fluid"},
-                        content=function() 
-
                        ui.container
                         {
-                          attr={class="formSelect"},
+                          attr={class="formSelect spaceline3"},
                           content=function() 
                           
                            ui.container
                                  {
-                                     attr={class="text-center"},
+                                     attr={class="row-fluid text-center"},
                                      content=function() 
                                        --checkbox
                                        execute.view
@@ -122,17 +121,17 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                        
                                         ui.tag{
                                                   tag="div",
-                                                  attr={id="div1",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  attr={id="div1",disabled="false"},
                                                   content=function()
                                        
                                        --select
                     ui.container
                       {
-                        attr={class="row-fluid span10 offset1"},
+                        attr={class="span10 spaceline3"},
                         content=function() 
 
                                        ui.field.select{
-                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width: 25.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                            attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width: 25.4em;height:38px;"},
                                             label =  "1° AREA DI COMPETENZA TECNICA:",
                                             label_attr={class="spaceline"},
                                             name = 'technical_area_1',
@@ -141,8 +140,6 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             foreign_name = "name",
                                             value =  ""
                                           }
-                                    
-                                          end}
 
                                       end
                                       
@@ -160,20 +157,15 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                      
                    --2* selezione
 
-                    ui.container
-                      {
-                        attr={class="row-fluid"},
-                        content=function() 
-
                       
                        ui.container
                         {
-                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                          attr={class="formSelect spaceline3"},
                           content=function() 
                           
                            ui.container
                                  {
-                                     attr={class="text-center"},
+                                     attr={class="row-fluid text-center"},
                                      content=function() 
                                      
                                        --checkbox
@@ -189,16 +181,16 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                        
                                         ui.tag{
                                                   tag="div",
-                                                  attr={id="div2",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  attr={id="div2",style="opacity:0.5;",disabled="true"},
                                                   content=function()
                                        
                                        --select
                     ui.container
                       {
-                        attr={class="row-fluid span10 offset1"},
+                        attr={class="span10 spaceline3"},
                         content=function() 
                                        ui.field.select{
-                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                            attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                             label =  "2° AREA DI COMPETENZA (opzionale):",
                                             label_attr={class="spaceline"},
                                             name = 'technical_area_2',
@@ -208,7 +200,6 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             value =  ""
                                           }
                                           
-                                                                                   						end}
 
                                       end
                                       
@@ -226,20 +217,16 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                  
                    --3* selezione
 
-                    ui.container
-                      {
-                        attr={class="row-fluid"},
-                        content=function() 
 
                       
                        ui.container
                         {
-                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                          attr={class="formSelect spaceline3"},
                           content=function() 
                           
                            ui.container
                                  {
-                                     attr={class="text-center"},
+                                     attr={class="row-fluid text-center"},
                                      content=function() 
                                      
                                      
@@ -257,16 +244,16 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                      
                                       ui.tag{
                                                   tag="div",
-                                                  attr={id="div3",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  attr={id="div3",style="opacity:0.5;",disabled="true"},
                                                   content=function()
                                        --select
                     ui.container
                       {
-                        attr={class="row-fluid span10 offset1"},
+                        attr={class="span10 spaceline3"},
                         content=function() 
                                      
                                        ui.field.select{
-                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                            attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                             label =  "3° AREA DI COMPETENZA (opzionale):",
                                             label_attr={class="spaceline"},
                                             name = 'technical_area_3',
@@ -276,7 +263,6 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             value =  ""
                                           }
                                           
-						end}
 
                                       end
                                       
@@ -295,20 +281,15 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                  
                    --4* selezione
 
-                    ui.container
-                      {
-                        attr={class="row-fluid"},
-                        content=function() 
-
                       
                        ui.container
                         {
-                          attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                          attr={class="formSelect spaceline3"},
                           content=function() 
                           
                            ui.container
                                  {
-                                     attr={class="text-center"},
+                                     attr={class="row-fluid text-center"},
                                      content=function() 
                                      
                                      
@@ -326,15 +307,15 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                      
                                              ui.tag{
                                                   tag="div",
-                                                  attr={id="div4",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                  attr={id="div4",style="opacity:0.5;",disabled="true"},
                                                   content=function()
                                        --select
                     ui.container
                       {
-                        attr={class="row-fluid span10 offset1"},
+                        attr={class="span10 spaceline3"},
                         content=function() 
                                                    ui.field.select{
-                                                        attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                                        attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                                         label =  "4° AREA DI COMPETENZA (opzionale):",
                                                         label_attr={class="spaceline"},
                                                         name = 'technical_area_4',
@@ -343,7 +324,6 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                                         foreign_name = "name",
                                                         value =  ""
                                                       }
-						end}
 
                                       end
                                       
@@ -353,12 +333,24 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                              }
                          end
                          }
+                         end
+                         }
                          
                          end
                          }--fine div formSelect
                      
-                   --fine 4* selezione  
+                   --fine 4* selezione 
+ 
                    ui.script{static = "js/wizard_checkbox.js"} 
+ 
+ ui.container
+                      {
+                        attr={class="row-fluid"},
+                        content=function() 
+ ui.container
+                      {
+                        attr={class="span10 offset1"},
+                        content=function() 
                  
                    ui.tag{
                                     tag = "p",
@@ -368,7 +360,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         
                      end
                 }--fine form
-            
+                      end}
+            end}  
             
             end}
             end}         

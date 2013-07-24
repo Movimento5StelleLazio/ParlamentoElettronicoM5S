@@ -27,7 +27,7 @@ ui.container{attr={class="row-fluid"},content=function()
   end }
 end }
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+  ui.container{attr={class="span10 offset1 text-center"},content=function()
           --------------------------------------------------------      
         ui.container{attr={class="row-fluid"},content=function()      
            ui.container{attr={class="span12"},content=function()       
@@ -91,7 +91,6 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                         end
                      
                         ui.container{attr={class="row-fluid spaceline2"},content=function()
-                          ui.container{attr={class="span12 text-left"},content=function()
 
 
                      
@@ -132,8 +131,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                               }
                                           }
                                                                         
-                                          end  }
-                              
+
                            end  }
                                                              --fine div formSelect
             

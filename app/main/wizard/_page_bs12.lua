@@ -433,8 +433,8 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 			    
                  -- Selezione areee tecniche
 				 
-                ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                  ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
+                ui.container{attr={class="row-fluid spaceline3"},content=function()
+                  ui.container{attr={class="span12 text-center spaceline3"},content=function()
                     local area={}
                     --valori di test
                     local tmp
@@ -453,15 +453,46 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                       --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
                      end
                      --contenuto
+                 ui.container{attr={class="row-fluid"},content=function()
+                    ui.container
+                      {
+                        attr={class="span10 offset1"},
+                        content=function()
+
                      --1* selezione
-                      ui.container{attr={class="formSelect"},content=function() 
-                        ui.container{
-                          attr={style="width: 100%; text-align: center;"},
-                          content=function() 
+                      ui.container
+			{
+				attr={class="formSelect spaceline3"},content=function() 
+                           ui.container
+                                 {
+                                     attr={class="row-fluid text-center"},
+                                     content=function() 
+                                             --checkbox
+                                             execute.view
+                                                {
+                                                    module="wizard",
+                                                    view="_checkbox_bs_pag10",
+                                                    params={
+                                                         id_checkbox="1",
+                                                         label=""
+                                                    }
+                                                }
+                                             
+                                              ui.tag{
+                                                        tag="div",
+                                                        attr={id="div1",disabled="true"},
+                                                        content=function()
+
+
+                                              --select
+                    ui.container
+                      {
+                        attr={class="span10 spaceline3"},
+                        content=function() 
                             ui.field.select{
-                              attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width:62%;height:38px;position:relative;"},
+                              attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width: 25.4em;height:38px;"},
                               label =  "1° AREA DI COMPETENZA TECNICA:",
-                              label_attr={style="float:left;margin-left:1em;margin-top:0.2em"},
+                              label_attr={class="spaceline"},
                               name = 'technical_area_1',
                               foreign_records = tmp,
                               foreign_id = "id",
@@ -469,31 +500,16 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                               value =  "",
                               selected_record=tonumber(technical_area_1)
                             }
-                          end 
-						}
-						--nota   
-                        ui.tag{
-                          tag = "div",
-                          attr={style="position:relative;top: -0.5em;font-size:14px;margin-left: 33em;"},
-                          content = function()
-                            ui.tag{
-                                  content = function()
-                                    ui.link{
-                                      text = _"Information about the available Technical Areas",
-                                      module = "policy",
-                                      view = "list"
-                                    }
-                                    slot.put(" ")
-                                    ui.link{
-                                      attr = { target = "_blank" },
-                                      text = _"(new window)",
-                                      module = "policy",
-                                      view = "list"
-                                    }
-                                  end
-                                }--fine tag
-                              end
-                            } --fine tag 
+       
+                                                end}
+                                                end}
+                                          
+                                            end
+                                            
+                                      }
+                                
+                                 
+                          
                                
                                end
                                }--fine div formSelect
@@ -503,12 +519,12 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                          --2* selezione
                              ui.container
                               {
-                                attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                                attr={class="formSelect spaceline3"},
                                 content=function() 
                                 
                                  ui.container
                                        {
-                                           attr={style="width: 100%; text-align: center;"},
+                                           attr={class="row-fluid text-center"},
                                            content=function() 
                                            
                                              --checkbox
@@ -524,14 +540,18 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                              
                                               ui.tag{
                                                         tag="div",
-                                                        attr={id="div2",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                        attr={id="div2",style="opacity:0.5;",disabled="true"},
                                                         content=function()
                                              
                                              --select
+                    ui.container
+                      {
+                        attr={class="span10 spaceline3"},
+                        content=function() 
                                              ui.field.select{
-                                                  attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                                  attr = { id = "technicalChooser2", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                                   label =  "2° AREA DI COMPETENZA (opzionale):",
-                                                  label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                                  label_attr={class="spaceline"},
                                                   name = 'technical_area_2',
                                                   foreign_records = tmp,
                                                   foreign_id = "id",
@@ -540,38 +560,13 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                 }
                                                 
                                                 end}
-                                          
+                                                                                          end}
                                             end
                                             
                                       }
                                 
                                  
-                                --nota   
-                                ui.tag{
-                                      tag = "div",
-                                      attr={id="divNota2",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;"},
-                                      content = function()
-                                      
-                                        
-                                        ui.tag{
-                                        attr={id="nota2",style="opacity:0.5",disable="true"},
-                                          content = function()
-                                            ui.link{
-                                              text = _"Information about the available Technical Areas",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                            slot.put(" ")
-                                            ui.link{
-                                              attr = { target = "_blank" },
-                                              text = _"(new window)",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                          end
-                                        }--fine tag
-                                      end
-                                    } --fine tag 
+                          
                                
                                end
                                }--fine div formSelect
@@ -582,12 +577,12 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                          --3* selezione
                              ui.container
                               {
-                                attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                                attr={class="formSelect spaceline3"},
                                 content=function() 
                                 
                                  ui.container
                                        {
-                                           attr={style="width: 100%; text-align: center;"},
+                                           attr={class="row-fluid text-center"},
                                            content=function() 
                                            
                                            
@@ -605,13 +600,19 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                            
                                             ui.tag{
                                                         tag="div",
-                                                        attr={id="div3",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                        attr={id="div3",style="opacity:0.5;",disabled="true"},
                                                         content=function()
+
+ --select
+                    ui.container
+                      {
+                        attr={class="span10 spaceline3"},
+                        content=function() 
                                            
                                              ui.field.select{
-                                                  attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                                  attr = { id = "technicalChooser3", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                                   label =  "3° AREA DI COMPETENZA (opzionale):",
-                                                  label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                                  label_attr={class="spaceline"},
                                                   name = 'technical_area_3',
                                                   foreign_records = tmp,
                                                   foreign_id = "id",
@@ -619,42 +620,16 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                   value =  ""
                                                 }
                                                 
-                                                end}
-                                          
-                                            end
-                                            
-                                      }
-                                
-                                 
-                                --nota   
-                                ui.tag{
-                                      tag = "div",
-                                      attr={id="divNota3",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;",disable="true"},
-                                      content = function()
-                                      
-                                        
-                                        ui.tag{
-                                        attr={id="nota3",style="opacity:0.5",disable="true"},
-                                          content = function()
-                                            ui.link{
-                                              text = _"Information about the available Technical Areas",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                            slot.put(" ")
-                                            ui.link{
-                                              attr = { target = "_blank" },
-                                              text = _"(new window)",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                          end
-                                        }--fine tag
                                       end
-                                    } --fine tag 
-                               
-                               end
-                               }--fine div formSelect
+                                      
+                                }
+                                 end
+                                      
+                             }
+                                                  end
+                         }
+                         end
+                         }--fine div formSelect
                            
                          --fine 3* selezione  
                        
@@ -663,12 +638,12 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                          --4* selezione
                              ui.container
                               {
-                                attr={class="formSelect", style="height: 5em;margin-top: 2em;"},
+                                attr={class="formSelect spaceline3"},
                                 content=function() 
                                 
                                  ui.container
                                        {
-                                           attr={style="width: 100%; text-align: center;"},
+                                           attr={class="row-fluid text-center"},
                                            content=function() 
                                            
                                            
@@ -686,66 +661,61 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                            
                                                    ui.tag{
                                                         tag="div",
-                                                        attr={id="div4",style="opacity:0.5;margin-left: 5em;",disabled="true"},
+                                                        attr={id="div4",style="opacity:0.5;",disabled="true"},
                                                         content=function()
+                                       --select
+                    ui.container
+                      {
+                        attr={class="span10 spaceline3"},
+                        content=function() 
+
                                                          ui.field.select{
-                                                              attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 33.4em;height:38px;position:relative;margin-top: 1.2em;"},
+                                                              attr = { id = "technicalChooser4", onchange="namePasteTemplateChange(event)",disabled="true", style="width: 25.4em;height:38px;"},
                                                               label =  "4° AREA DI COMPETENZA (opzionale):",
-                                                              label_attr={style="float:left;margin-left:1em;margin-top:2.2em;font-size: 16px;"},
+                                                              label_attr={class="spaceline"},
                                                               name = 'technical_area_4',
                                                               foreign_records = tmp,
                                                               foreign_id = "id",
                                                               foreign_name = "name",
                                                               value =  ""
                                                             }
-                                                        end
-                                                   }   
-                                            end
-                                            
-                                      }
-                                
-                                 
-                                --nota   
-                                ui.tag{
-                                      tag = "div",
-                                      attr={id="divNota4",style="position:relative;top:-0.5em;font-size:14px;margin-left: 33em;",disable="true"},
-                                      content = function()
-                                      
-                                        
-                                        ui.tag{
-                                        attr={id="nota4",style="opacity:0.5",disable="true"},
-                                          content = function()
-                                            ui.link{
-                                              text = _"Information about the available Technical Areas",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                            slot.put(" ")
-                                            ui.link{
-                                              attr = { target = "_blank" },
-                                              text = _"(new window)",
-                                              module = "policy",
-                                              view = "list"
-                                            }
-                                          end
-                                        }--fine tag
                                       end
-                                    } --fine tag 
-                               
-                               end
-                               }--fine div formSelect
+                                      
+                                }
+                                 end
+                                      
+                             }
+                         end
+                         }
+                         end
+                         }
+                         end
+                         }
+                         
+                         end
+                         }--fine div formSelect
                            
                          --fine 4* selezione  
                          ui.script{static = "js/wizard_checkbox.js"} 
                        
-                         ui.tag{
-                           tag = "p",
-                           attr = { style="float: left; text-align: right; width: 25%; font-style: italic;height: 200px;font-size: 12px;padding-left: 9em;" },
-                           content=  _"Description technical note"
-                         }
+                       ui.container
+                      {
+                        attr={class="row-fluid"},
+                        content=function() 
+ ui.container
+                      {
+                        attr={class="span10 offset1"},
+                        content=function() 
+                 
+                   ui.tag{
+                                    tag = "p",
+                                    attr = { class="text-justify spaceline3" },
+                                    content=  _"Description technical note"
+                                  }
                               
                       
-                           
+                                            end }
+                  end }     
            
                      end }
                   end }       
@@ -757,10 +727,10 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.tag{tag="div",attr={style="row-fluid"},content=function()  
                                                
                                                            
-                                                           ui.container{attr={class="span2 text-center"},content=function()
+                                                           ui.container{attr={class="span3 text-center spaceline3"},content=function()
                                                                          ui.tag{
                                                                             tag="p",
-                                                                            attr={style="text-align: right; float: left; font-size: 20px;"},
+                                                                            attr={class="spaceline3 text-right"},
                                                                             content=   _"The proposals was presented by:"
                                                                           }   
                                                                         end
@@ -768,13 +738,13 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                                
                                                                 ui.container
                                                                     {
-                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 19em; margin-left: 0.6em; text-align: left; width: 80%;"},
+                                                                        attr={class="span7 offset1"},
                                                                         content=function()
                                                                         
                                                                         
                                                                          ui.container
                                                                             {
-                                                                               attr={style="position: relative; text-align: left; line-height: 56px; margin-top: 1em;margin-left: 1em;"},
+                                                                               attr={class="spaceline3"},
                                                                                content=function()
                                                                                
                                                                           --1 proposer
@@ -821,7 +791,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                                        end
                                                                     }
                                                                     
-                                                                 ui.container{attr={class="span3 text-center"},content=function()
+                                                                 
                                                                  end}     
                                                                ui.field.hidden{
                                                                                name="formatting_engine",
@@ -831,7 +801,6 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                              
                       end
                            }--fine div formSelect
-                   end} 
 				   
 				--fine Prpoposta avanzata da
 		
