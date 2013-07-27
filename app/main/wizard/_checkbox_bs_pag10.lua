@@ -19,11 +19,10 @@
      
  end
  
-ui.container{attr={class="row-fluid", style="width: 5em;height: 5em;float:left;",onmousedown="doCheckPag10("..id_checkbox..")"},content=function()
-ui.container{attr={class="span12"},content=function() 
+ui.container{attr={class="span2 spaceline3",onmousedown="doCheckPag10("..id_checkbox..")"},content=function()
  ui.container
  {
-    attr={class="span3 text-center",style=" width: 5em; "},
+    attr={style=" width: 5em; "},
     content=function()
     ui.tag
     {
@@ -35,7 +34,6 @@ ui.container{attr={class="span12"},content=function()
           ui.container{attr={class="row-fluid"},content=function()
             ui.container{attr={class="span12" },content=function()
               ui.image{ attr = {id="imgCheck"..id_checkbox, class="arrow_medium" ,style="display:"..display..";"}, static="svg/V_checked.svg"}
-            end }
           end }
         end }
       end --fine content
