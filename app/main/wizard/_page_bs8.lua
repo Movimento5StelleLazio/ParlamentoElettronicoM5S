@@ -31,7 +31,7 @@ end
  
 
 ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+  ui.container{attr={class="span12 text-center spaceline2"},content=function()
    ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
@@ -86,7 +86,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="span12 text-center"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right init_brief"},content=function()
+                            ui.container{attr={class="span6 text-left collapse init_brief"},content=function()
                               ui.tag{tag="p",content=  _"Initiative short description"}
                               ui.tag{tag="em",content=  _"Initiative short note"}
                             end }

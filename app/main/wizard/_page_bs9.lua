@@ -31,7 +31,7 @@ end
  
 
 ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+  ui.container{attr={class="span12 text-center spaceline2"},content=function()
    ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
@@ -86,13 +86,13 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right collapse", style="height:100%"},content=function()
+                            ui.container{attr={class="span6 text-left collapse", style="height:100%"},content=function()
                               ui.tag{tag="p",content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
                             ui.tag{
                               tag="textarea",
-                              attr={id="draft",name="draft",class="span6 collapse", style="height:32em; resize:none;"},
+                              attr={id="draft",name="draft",class="span6 collapse", style="height:23em; resize:none;"},
                               content=""
                             }
                           end }

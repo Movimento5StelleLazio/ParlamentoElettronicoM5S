@@ -1,0 +1,1829 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="1500"
+   height="300"
+   id="svg11484">
+  <defs
+     id="defs11486">
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604" />
+      <feMerge
+         id="feMerge6606">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11281">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11283" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11285" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11287" />
+      <feMerge
+         id="feMerge11289">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11291" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11293" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11295">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11297" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11299" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11301" />
+      <feMerge
+         id="feMerge11303">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11305" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11307" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11309">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11311" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11313" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11315" />
+      <feMerge
+         id="feMerge11317">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11319" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11321" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11323">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11325" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11327" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11329" />
+      <feMerge
+         id="feMerge11331">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11333" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11335" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11337">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11339" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11341" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11343" />
+      <feMerge
+         id="feMerge11345">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11347" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11349" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11351">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11353" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11355" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11357" />
+      <feMerge
+         id="feMerge11359">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11361" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11363" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11365">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11367" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11369" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11371" />
+      <feMerge
+         id="feMerge11373">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11375" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11377" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11379">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11381" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11383" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11385" />
+      <feMerge
+         id="feMerge11387">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11389" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11391" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11393">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11395" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11397" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11399" />
+      <feMerge
+         id="feMerge11401">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11403" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11405" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11407">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11409" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11411" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11413" />
+      <feMerge
+         id="feMerge11415">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11417" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11419" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11421">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11423" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11425" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11427" />
+      <feMerge
+         id="feMerge11429">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11431" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11433" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-0">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-2" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-3" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-3" />
+      <feMerge
+         id="feMerge6606-5">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-1" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11849">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11851" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11853" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11855" />
+      <feMerge
+         id="feMerge11857">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11859" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11861" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11863">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11865" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11867" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11869" />
+      <feMerge
+         id="feMerge11871">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11873" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11875" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11877">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11879" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11881" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11883" />
+      <feMerge
+         id="feMerge11885">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11887" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11889" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11891">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11893" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11895" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11897" />
+      <feMerge
+         id="feMerge11899">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11901" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11903" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11905">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11907" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11909" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11911" />
+      <feMerge
+         id="feMerge11913">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11915" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11917" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11919">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11921" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11923" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11925" />
+      <feMerge
+         id="feMerge11927">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11929" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11931" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11933">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11935" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11937" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11939" />
+      <feMerge
+         id="feMerge11941">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11943" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11945" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11947">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11949" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11951" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11953" />
+      <feMerge
+         id="feMerge11955">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11957" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11959" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11961">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11963" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11965" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11967" />
+      <feMerge
+         id="feMerge11969">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11971" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11973" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11975">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11977" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11979" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11981" />
+      <feMerge
+         id="feMerge11983">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11985" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11987" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter11989">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur11991" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix11993" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset11995" />
+      <feMerge
+         id="feMerge11997">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode11999" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12001" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-09">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-27" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-2" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-2" />
+      <feMerge
+         id="feMerge6606-7">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-9" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-3" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12597">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12599" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12601" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12603" />
+      <feMerge
+         id="feMerge12605">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12607" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12609" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12611">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12613" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12615" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12617" />
+      <feMerge
+         id="feMerge12619">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12621" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12623" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12625">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12627" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12629" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12631" />
+      <feMerge
+         id="feMerge12633">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12635" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12637" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12639">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12641" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12643" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12645" />
+      <feMerge
+         id="feMerge12647">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12649" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12651" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12653">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12655" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12657" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12659" />
+      <feMerge
+         id="feMerge12661">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12663" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12665" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12667">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12669" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12671" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12673" />
+      <feMerge
+         id="feMerge12675">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12677" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12679" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12681">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12683" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12685" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12687" />
+      <feMerge
+         id="feMerge12689">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12691" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12693" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12695">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12697" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12699" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12701" />
+      <feMerge
+         id="feMerge12703">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12705" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12707" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12709">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12711" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12713" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12715" />
+      <feMerge
+         id="feMerge12717">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12719" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12721" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12723">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12725" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12727" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12729" />
+      <feMerge
+         id="feMerge12731">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12733" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12735" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter12737">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur12739" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix12741" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset12743" />
+      <feMerge
+         id="feMerge12745">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode12747" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12749" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-07">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-7" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-1" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-22" />
+      <feMerge
+         id="feMerge6606-74">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-7" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-5" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13107">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13109" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13111" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13113" />
+      <feMerge
+         id="feMerge13115">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13117" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13119" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13121">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13123" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13125" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13127" />
+      <feMerge
+         id="feMerge13129">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13131" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13133" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13135">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13137" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13139" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13141" />
+      <feMerge
+         id="feMerge13143">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13145" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13147" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13149">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13151" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13153" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13155" />
+      <feMerge
+         id="feMerge13157">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13159" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13161" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13163">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13165" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13167" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13169" />
+      <feMerge
+         id="feMerge13171">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13173" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13175" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13177">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13179" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13181" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13183" />
+      <feMerge
+         id="feMerge13185">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13187" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13189" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13191">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13193" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13195" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13197" />
+      <feMerge
+         id="feMerge13199">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13201" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13203" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13205">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13207" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13209" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13211" />
+      <feMerge
+         id="feMerge13213">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13215" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13217" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13219">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13221" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13223" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13225" />
+      <feMerge
+         id="feMerge13227">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13229" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13231" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13233">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13235" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13237" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13239" />
+      <feMerge
+         id="feMerge13241">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13243" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13245" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter13247">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur13249" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix13251" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset13253" />
+      <feMerge
+         id="feMerge13255">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode13257" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode13259" />
+      </feMerge>
+    </filter>
+  </defs>
+  <metadata
+     id="metadata11489">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(3.5107785,-252.97712)"
+     id="layer1">
+    <g
+       transform="matrix(1.932834,0,0,1.932834,-103.64758,-2167.4521)"
+       id="g12530">
+      <path
+         d="m 82.03479,1270.5974 -0.40161,59.4377 102.81124,0 12.4498,-29.3172 -12.91026,-30.1499 z"
+         id="path10002"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 183.74681,1270.6562 12.24618,30.4436 -12.64779,28.9941 119.47791,0 12.4498,-29.3172 -11.83267,-29.9344 z"
+         id="path10004"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 303.43071,1270.6562 12.24618,30.4436 -12.64779,28.9941 112.99643,0 12.4498,-29.3172 -12.26371,-30.1499 z"
+         id="path10006"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 539.21269,1270.6562 12.24618,30.4436 -12.64779,28.9941 122.25568,0 12.4498,-29.3172 -12.47922,-29.9344 z"
+         id="path10008"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 416.20211,1270.6562 12.24618,30.4436 -12.64779,28.9941 122.25568,0 12.4498,-29.3172 -12.47922,-29.9344 z"
+         id="path10010"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 81.71998,1270.5974 -0.40161,59.4377 102.81126,0 12.4498,-29.3172 -12.9103,-30.1499 z"
+         id="path10012"
+         style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 183.74683,1270.6562 12.2462,30.4436 -12.6478,28.9941 119.4779,0 12.4498,-29.3172 -11.8327,-29.9344 z"
+         id="path10014"
+         style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="203.94046"
+         y="1306.0835"
+         id="text10016"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima"><tspan
+           x="203.94046"
+           y="1306.0835"
+           id="tspan10018"
+           style="font-weight:bold;fill:#000000;fill-opacity:1;-inkscape-font-specification:Optima Bold">Passo 2</tspan></text>
+      <text
+         x="90.678032"
+         y="1306.0835"
+         id="text10020"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="90.678032"
+           y="1306.0835"
+           id="tspan10022">Passo 1</tspan></text>
+      <path
+         d="m 303.43073,1270.6562 12.2462,30.4436 -12.6478,28.9941 112.9964,0 12.4498,-29.3172 -12.2637,-30.1499 z"
+         id="path10024"
+         style="fill:#87521a;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="322.88211"
+         y="1306.0835"
+         id="text10026"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fef5e6;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="322.88211"
+           y="1306.0835"
+           id="tspan10028">Passo 3</tspan></text>
+      <path
+         d="m 416.31833,1270.7862 12.2462,30.4435 -12.6478,28.9942 122.2557,0 12.4498,-29.3172 -12.4792,-29.9344 z"
+         id="path10030"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="432.74512"
+         y="1306.0835"
+         id="text10032"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="432.74512"
+           y="1306.0835"
+           id="tspan10034">Passo 4</tspan></text>
+      <path
+         d="m 782.97158,799.12517 12.24618,30.44355 -12.64779,28.9942 134.69813,0 c 0.13399,-19.7521 -0.10137,-39.50128 -0.3122,-59.25166 z"
+         transform="matrix(0.9758411,0,0,1,-103.09397,471.53103)"
+         id="path10036"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 659.9157,1270.6243 12.2462,30.4435 -12.6478,28.9942 132.1694,0 c 0.1725,-19.8939 0.1726,-39.7882 0.1862,-59.6827 z"
+         id="path10038"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 538.42543,1270.6243 12.2462,30.4435 -12.6478,28.9942 122.2557,0 12.4498,-29.3172 -12.4792,-29.9344 z"
+         id="path10040"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="556.85675"
+         y="1306.0835"
+         id="text10042"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="556.85675"
+           y="1306.0835"
+           id="tspan10044">Passo 5</tspan></text>
+      <text
+         x="677.73706"
+         y="1306.0835"
+         id="text10046"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="677.73706"
+           y="1306.0835"
+           id="tspan10048">Passo 6</tspan></text>
+      <path
+         d="m 82.03479,1330.2542 -0.40161,59.4378 102.81124,0 12.4498,-29.3173 -12.91026,-30.1499 z"
+         id="path10050"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 183.74681,1330.313 12.24618,30.4436 -12.64779,28.9942 119.47791,0 12.4498,-29.3173 -11.83267,-29.9344 z"
+         id="path10052"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 303.43071,1330.313 12.24618,30.4436 -12.64779,28.9942 112.99643,0 12.4498,-29.3173 -12.26371,-30.1499 z"
+         id="path10054"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 539.21269,1330.313 12.24618,30.4436 -12.64779,28.9942 122.25568,0 12.4498,-29.3173 -12.47922,-29.9344 z"
+         id="path10056"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 416.20211,1330.313 12.24618,30.4436 -12.64779,28.9942 122.25568,0 12.4498,-29.3173 -12.47922,-29.9344 z"
+         id="path10058"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 81.71998,1330.2542 -0.40161,59.4378 102.81126,0 12.4498,-29.3173 -12.9103,-30.1499 z"
+         id="path10060"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 183.74683,1330.313 12.2462,30.4436 -12.6478,28.9942 119.4779,0 12.4498,-29.3173 -11.8327,-29.9344 z"
+         id="path10062"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="207.04469"
+         y="1365.7404"
+         id="text10064"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima"><tspan
+           x="207.04469"
+           y="1365.7404"
+           id="tspan10066"
+           style="font-weight:bold;fill:#9a9996;fill-opacity:1;-inkscape-font-specification:Optima Bold">Passo 8</tspan></text>
+      <text
+         x="92.747536"
+         y="1365.7404"
+         id="text10068"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="92.747536"
+           y="1365.7404"
+           id="tspan10070">Passo 7</tspan></text>
+      <path
+         d="m 303.43073,1330.313 12.2462,30.4436 -12.6478,28.9942 112.9964,0 12.4498,-29.3173 -12.2637,-30.1499 z"
+         id="path10072"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="324.95163"
+         y="1365.7404"
+         id="text10074"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="324.95163"
+           y="1365.7404"
+           id="tspan10076">Passo 9</tspan></text>
+      <path
+         d="m 416.31833,1330.443 12.2462,30.4436 -12.6478,28.9942 122.2557,0 12.4498,-29.3173 -12.4792,-29.9344 z"
+         id="path10078"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="434.81464"
+         y="1365.7404"
+         id="text10080"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="434.81464"
+           y="1365.7404"
+           id="tspan10082">Passo 10</tspan></text>
+      <path
+         d="m 782.97158,799.12517 12.24618,30.44355 -12.64779,28.9942 134.69813,0 c 0.13399,-19.7521 -0.10137,-39.50128 -0.3122,-59.25166 z"
+         transform="matrix(0.9758411,0,0,1,-103.09397,531.18788)"
+         id="path10084"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter6598-07)" />
+      <path
+         d="m 659.9157,1330.2811 12.2462,30.4436 -12.6478,28.9942 132.1694,0 c 0.1725,-19.894 0.1726,-39.7883 0.1862,-59.6827 z"
+         id="path10086"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 538.42543,1330.2811 12.2462,30.4436 -12.6478,28.9942 122.2557,0 12.4498,-29.3173 -12.4792,-29.9344 z"
+         id="path10088"
+         style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         x="553.75256"
+         y="1365.7404"
+         id="text10090"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="553.75256"
+           y="1365.7404"
+           id="tspan10092">Passo 11</tspan></text>
+      <text
+         x="676.70233"
+         y="1365.7404"
+         id="text10094"
+         xml:space="preserve"
+         style="font-size:22.0693779px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#9a9996;fill-opacity:1;stroke:none;font-family:Optima;-inkscape-font-specification:Optima Bold"><tspan
+           x="676.70233"
+           y="1365.7404"
+           id="tspan10096">Passo 12</tspan></text>
+    </g>
+  </g>
+</svg>

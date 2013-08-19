@@ -27,7 +27,7 @@ end
  
 
 ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+  ui.container{attr={class="span12 text-center spaceline3"},content=function()
    ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
@@ -80,9 +80,9 @@ ui.container{attr={class="span12 text-center"},content=function()
                             end
                       
                       ui.container{attr={class="row-fluid"},content=function()
-                        ui.container{attr={class="span10 offset1 text-center"},content=function()            
+                        ui.container{attr={class="span10 offset1"},content=function()            
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right issue_brief_span"},content=function()
+                            ui.container{attr={class="span6 text-left issue_brief_span"},content=function()
                               ui.tag{tag="p",content=  _"Description to the problem you want to solve"}                    
                               ui.tag{tag="em",content=  _"Description note"}
                             end }

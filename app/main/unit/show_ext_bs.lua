@@ -46,20 +46,22 @@ end
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span3" }, content = function()
+      ui.container{ attr = { class  = "span3 offset1" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn table-cell fixclick"  },
+          attr = { class="btn btn-primary fixclick"  },
           module = "index",
           view = return_view,
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(_"Back to previous page")
+              ui.image{ attr = { class="text-center"}, static="svg/back_page.svg"}
+             -- slot.put(_"Back to previous page")
             end }
           end
         }
+      ui.container{ attr = { class  = "row-fluid text-center spaceline3" }, content = function()
       end }
-      ui.container{ attr = { class  = "span9 text-center" }, content = function()
+      end }
+      ui.container{ attr = { class  = "span8 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
             ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
@@ -81,8 +83,8 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1 fixclick"
-btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1 fixclick"
+btn_class = "btn btn-primary fixclick"
+btn_class_active = "btn btn-primary active fixclick"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active
@@ -101,7 +103,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.container{attr={class="span4 offset2"},content=function()
+      ui.container{attr={class="span3 offset2"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
           module = "unit",
@@ -109,11 +111,12 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { wizard = wizard},
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
-          end 
-        }
-      end }
-      ui.container{attr={class="span4 offset1"},content=function()
+ui.image{ attr = { class="text-center"}, static="svg/button_wizard_1.svg"}
+           -- ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
+          end }
+        end }
+
+      ui.container{attr={class="span3 offset2"},content=function()
         ui.link {
           attr = { class=btn2  },
           module = "unit",
@@ -121,7 +124,8 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { filter = "my_areas", wizard = wizard},
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
+ ui.image{ attr = { class="text-center"}, static="svg/button_wizard_2.svg"}           
+       -- ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }

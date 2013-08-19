@@ -49,14 +49,12 @@ if app.session.member_id then
 
         trace.debug("curLogin.geolat:"..curLogin.geolat.." curLogin.geolng:"..curLogin.geolng)
         ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
+          ui.container{ attr = { class  = "span10 offset1 alert location_data text-center" }, content = function()
   
-            ui.container{attr = {class = "row-fluid" },content = function()
-              ui.container{ attr = { class  = "span9 text-center" }, content = function()
-  
+
                 ui.container{attr = {class = "row-fluid" },content = function()
-                  ui.container{ attr = { class  = "span12 text-left" }, content = function()
-                    ui.heading{level=4,content=function()
+                  ui.container{ attr = { class  = "span12 text-center" }, content = function()
+                    ui.heading{level=2,content=function()
                       slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
                       ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
@@ -65,26 +63,28 @@ if app.session.member_id then
                 end }
   
                 
-                ui.container{attr = {class = "row-fluid" },content = function()
-                  ui.container{ attr = { class  = "span12 text-right" }, content = function()
-                    ui.heading{level=6,content=function()
+                ui.container{attr = {class = "row-fluid spaceline3" },content = function()
+                  ui.container{ attr = { class  = "span5 offset1 text-right" }, content = function()
+                    ui.heading{level=3,content=function()
                       slot.put(_"If it is not so, press here:")
-                      ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
-                    end }
-                  end }
+                      
+
                 end }
   
               end }
-  
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+             ui.container{ attr = { class  = "span1" }, content = function()
+               ui.image{ attr = { class="text.center"}, static="svg/arrow-right.svg"}
+              end }
+              ui.container{ attr = { class  = "span3" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick",
+                    class = "btn btn-primary fixclick",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Correct your position"}
+                    -- ui.heading{level=6,attr={class="fittext_report"},content= _"Correct your position"}
+                    ui.image{ attr = { class="text-center"}, static="svg/button_start_page1.svg"}
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
@@ -129,14 +129,12 @@ if app.session.member_id then
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
 
         ui.container{attr = {class = "row-fluid spaceline" },content = function()
-          ui.container{ attr = { class  = "span12 alert location_data2 text-center" }, content = function()
+          ui.container{ attr = { class  = "span10 offset1 alert location_data2 text-center" }, content = function()
             ui.container{attr = {class = "row-fluid" },content = function()
   
-              ui.container{ attr = { class  = "span9 text-center" }, content = function()
-                ui.container{attr = {class = "row-fluid" },content = function()
   
-                  ui.container{ attr = { class  = "span12 text-left" }, content = function()
-                    ui.heading{level=4,content=function()
+                  ui.container{ attr = { class  = "span12 text-center" }, content = function()
+                    ui.heading{level=2,content=function()
                       if lastLogin and lastLogin.login_time then
                         ui.tag{
                           content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
@@ -153,32 +151,34 @@ if app.session.member_id then
   
                 end }
   
-                ui.container{attr = {class = "row-fluid" },content = function()
-                  ui.container{ attr = { class  = "span12 text-right" }, content = function()
-                    ui.heading{level=6,content=function()
+                ui.container{attr = {class = "row-fluid spaceline2" },content = function()
+                  ui.container{ attr = { class  = "span5 offset1 text-right" }, content = function()
+                    ui.heading{level=3,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
-                      ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
-  
+
+               ui.container{ attr = { class  = "span1" }, content = function()
+               ui.image{ attr = { class="text.center"}, static="svg/arrow-right.svg"}
               end }
+
   
               ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick", 
+                    class = "btn btn-primary fixclick", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Report suspect data"}
+                    -- ui.heading{level=6,attr={class="fittext_report"},content= _"Report suspect data"}
+                    ui.image{ attr = { class="text-center"}, static="svg/button_start_page2.svg"}
                   end
-                }
+                }                
+end }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
               end }
-            end }
   
           end }
         end }
@@ -191,47 +191,42 @@ if app.session.member_id then
         end }
       end }
 
-      ui.container{attr = {class = "row-fluid" },content = function()
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
+      ui.container{attr = {class = "row-fluid spaceline2" },content = function()
+        ui.container{ attr = {class = "span4 offset1 text-center" }, content=function()
+
+              ui.image{attr = {class = "img_assembly_medium" }, static="parlamento_icon_small.png" }
+                  end}
+          
+        ui.container{ attr = {class = "span4 offset2 text-center" }, content=function()
+
+              ui.image{attr = {class = "img_assembly_medium" }, static="parlamento_icon_small.png" }
+                  end}
+        end }
+ui.container{attr = {class = "row-fluid" },content = function()
+            ui.tag{tag="span",attr={class="span4 offset1"},content=function()
                 ui.link{
                   module="index",
                   view="homepage_bs",
-                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
+                  attr = {class = "btn btn-primary fixclick" },
                   content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
-                  end
-                }
-              end }
+                    ui.image{ attr = { class="text-center"}, static="svg/button_start_page_chose2.svg"}
+                    -- ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
+
             end }
           end }
-        end }
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{ attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
+
+
+
+            ui.tag{tag="span",attr={class="span4 offset2"},content=function()
                 ui.link{
-                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
+                  attr = { class = "btn btn-primary fixclick" },
                   module="unit",
                   view="show_ext_bs",
                   id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
                   content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-                  end
-                }
-              end }
+                    ui.image{ attr = { class="text-center"}, static="svg/button_start_page_chose1.svg"}
+                    -- ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+
             end }
           end }
         end }
@@ -239,7 +234,7 @@ if app.session.member_id then
         ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
       end }
     end }
-  end }
+
   execute.view{module="index",view="_registration_info"}
 
 else
