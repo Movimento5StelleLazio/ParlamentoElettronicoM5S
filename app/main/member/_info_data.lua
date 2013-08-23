@@ -21,8 +21,8 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.tag{tag="strong",content=member.realname}
         end }
         ui.heading{level=6,content=function()
-          ui.tag{content=_"Codice Fiscale"..": "}
-          ui.tag{tag="strong",content=member.codice_fiscale}
+          ui.tag{content=_"NIN"..": "}
+          ui.tag{tag="strong",content=member.nin}
         end }
         ui.heading{level=6,content=function()
           ui.tag{content=_"Comune"..": "}

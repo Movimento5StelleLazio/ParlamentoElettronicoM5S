@@ -969,9 +969,9 @@ return {
 ["Development"] = "Svolgimento";
 ["Any category"]="Qualsiasi categoria";
 ["Not interested"] = "Non interessato";
-["This tax identification number (Codice Fiscale) is invalid!"] = "Codice Fiscale non valido";
-["This Codice Fiscale is already used by someone else! Please contact the system administrator."] = "Questo Codice Fiscale e' gia' utilizzato!";
-["Codice Fiscale"] = "Codice Fiscale";
+["This National Insurance Number is invalid!"] = "Codice Fiscale non valido";
+["This National Insurance Number is already used by someone else! Please contact the system administrator."] = "Questo Codice Fiscale e' gia' utilizzato!";
+["NIN"] = "Codice Fiscale";
 ["xmpp"] = "XMPP(Jabber)";
 ["year [interval ago]"] = "anno";
 ["year [interval time left]"] = "anno";
