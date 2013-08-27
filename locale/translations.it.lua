@@ -25,6 +25,7 @@ return {
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
 ["Auditor login"]="Login certificatore";
+["Auditor?"]="Certificatore?";
 ["No author for this issue"]="Nessun autore per questa questione";
 ["Select"]="Seleziona";
 ["Issue created at:"]="Questione sollevata il:";

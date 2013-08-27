@@ -46,6 +46,12 @@ if elected ~= nil then
   member.elected = elected
 end
 
+local auditor = param.get("auditor", atom.boolean)
+if auditor ~= nil then
+  member.auditor = auditor
+end
+
+
 local err = member:try_save()
 
 if err then
