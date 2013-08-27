@@ -39,7 +39,7 @@ function Session.object:has_access(level)
     else
       return false
     end
-  
+
   elseif level == "everything" then
     if self:has_access("member") or config.public_access == "everything" then
       return true

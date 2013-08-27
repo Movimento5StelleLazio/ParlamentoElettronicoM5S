@@ -3,7 +3,7 @@ local view   = request.get_view()
 local action = request.get_action()
 
 local auth_needed = not (
-  module == 'index'
+  (module == 'index'
   and (
        view   == "index"
     or view   == "login"
@@ -18,7 +18,12 @@ local auth_needed = not (
     or view   == "menu"
     or action == "set_lang"
     or view   == "404"
-  )
+   ))
+  or  (module == 'auditor'
+  and (
+       view   == "login"
+    or action == "login"
+  ))
 )
 
 if app.session:has_access("anonymous") then
