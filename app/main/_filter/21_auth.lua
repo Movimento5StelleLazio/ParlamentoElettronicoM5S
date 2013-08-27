@@ -79,7 +79,7 @@ end
 if auth_needed and app.session.member == nil then
   trace.debug("Not authenticated yet.")
   request.redirect{
-    module = 'index', view = 'login', params = {
+    module = 'index', view = 'index', params = {
       redirect_module = module,
       redirect_view = view,
       redirect_id = param.get_id()
