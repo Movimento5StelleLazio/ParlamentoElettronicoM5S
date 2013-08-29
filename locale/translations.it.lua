@@ -503,6 +503,7 @@ return {
 ["Member successfully registered"] = "Utente registrato correttamente";
 ["Member successfully updated"] = "Utente aggiornato correttamente";
 ["Member: '#{identification}' (#{name})"] = "Utente: '#{identification}' (#{name})";
+["Member: #{name} #{surname}"] = "Utente: #{name} #{surname}";
 ["Members"] = "Utenti";
 ["Membership not existent"] = "Partecipazione inesistente";
 ["Membership removed"] = "Partecipazione rimossa";

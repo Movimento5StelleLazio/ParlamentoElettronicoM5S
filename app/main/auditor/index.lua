@@ -23,7 +23,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large table-cell fixclick"  },
           module = "auditor",
-          view = "",
+          view = "member_edit",
           content = function()
             ui.heading{level=5,attr={class=""},content=_"Nuovo utente"}
           end
@@ -68,13 +68,13 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
             },
             {
               field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-              label = _"NIN",
-              name = "nin"
+              label = _"Surname",
+              name = "surname"
             },
             {
               field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-              label = _"Surname",
-              name = "surname"
+              label = _"NIN",
+              name = "nin"
             },
             {
               field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
@@ -105,7 +105,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
                 ui.link{
                   attr = { class = "action admin_only" },
                   text = _"Edit",
-                  module = "admin",
+                  module = "auditor",
                   view = "member_edit",
                   id = record.id
                 }
