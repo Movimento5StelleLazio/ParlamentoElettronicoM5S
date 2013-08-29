@@ -29,6 +29,8 @@ return {
 ["Auditor login"]="Login certificatore";
 ["Certified users"]="Utenti certificati";
 ["Auditor?"]="Certificatore?";
+["Birthplace"]="Luogo di nascita";
+["Birthdate"]="Data di nascita";
 ["No author for this issue"]="Nessun autore per questa questione";
 ["Select"]="Seleziona";
 ["Issue created at:"]="Questione sollevata il:";
