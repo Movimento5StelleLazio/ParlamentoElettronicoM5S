@@ -1,6 +1,47 @@
 slot.set_layout("custom")
+ui.title(_"Auditor menu")
 ui.container{ attr = { class = "row-fluid" }, content = function()
-  ui.heading{ level = 1, attr = { class = "span12 text-center" }, content = _"Certified users" }
+  ui.container{ attr = { class = "span12 well" }, content = function()
+    ui.container{ attr = { class = "row-fluid" }, content = function()
+      ui.container{ attr = { class = "span12 text-center" }, content = function()
+        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Certified users" }
+      end }
+    end }
+    ui.container{ attr = { class = "row-fluid text-center" }, content = function()
+
+      ui.container{ attr = { class  = "inline-block", style = "margin: 5px;" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large table-cell fixclick"  },
+          module = "auditor",
+          view = "",
+          content = function()
+            ui.heading{level=5,attr={class=""},content="Download Data"}
+          end
+        }
+      end }
+      ui.container{ attr = { class  = "inline-block" , style = "margin: 5px;" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large table-cell fixclick"  },
+          module = "auditor",
+          view = "",
+          content = function()
+            ui.heading{level=5,attr={class=""},content=_"Nuovo utente"}
+          end
+        }
+      end }
+      ui.container{ attr = { class  = "inline-block" , style = "margin: 5px;" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large table-cell fixclick"  },
+          module = "index",
+          action = "logout",
+          content = function()
+            ui.heading{level=5,attr={class=""},content=_"Logout"}
+          end
+        }
+      end }
+
+    end }
+  end }
 end }
 
 ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
