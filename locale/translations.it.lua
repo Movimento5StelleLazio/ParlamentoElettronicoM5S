@@ -24,7 +24,10 @@ return {
 ["Details for issue Q"]="Dettagli questione Q";
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
+["Actions"]="Azioni";
+["State"]="Stato";
 ["Auditor login"]="Login certificatore";
+["Certified users"]="Utenti certificati";
 ["Auditor?"]="Certificatore?";
 ["No author for this issue"]="Nessun autore per questa questione";
 ["Select"]="Seleziona";
@@ -515,6 +518,7 @@ return {
 ["My opinion"] = "Mia opinione";
 ["My units"] = "Mie unità organizzative";
 ["Name"] = "Nome";
+["Surname"] = "Cognome";
 ["New"] = "Nuovo";
 ["New address"] = "Nuovo indirizzo";
 ["New draft"] = "Nuova bozza";
