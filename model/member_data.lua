@@ -8,3 +8,12 @@ function MemberData:by_id(id)
   return selector:exec()
 end
 
+function MemberData:get_db_conn()
+  db = assert( mondelefant.connect(config.secure_database) )
+  at_exit(
+    function() 
+      db:close() 
+    end
+  )
+  return db
+end

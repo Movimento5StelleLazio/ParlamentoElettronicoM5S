@@ -87,6 +87,19 @@ config.absolute_base_url = "/lf"
 -- Connection information for the LiquidFeedback database
 -- ------------------------------------------------------------------------
 config.database = { engine='postgresql', dbname='liquid_feedback' }
+config.secure_database = { engine='postgresql', dbname='liquid_feedback' }
+--[[
+config.secure_database = { 
+  engine='postgresql', 
+  dbname='liquid_feedback', 
+  conninfo='',
+  host='',
+  hostaddr='',
+  port='',
+  user='',
+  password=''
+}
+--]]
 
 
 -- Location of the rocketwiki binaries
