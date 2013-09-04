@@ -25,6 +25,9 @@ return {
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
 ["City"]="Citta'";
+["Residence"]="Residenza";
+["Domicile"]="Domicilio";
+["Personal data"]="Dati personali";
 ["Token serial"]="Seriale del token";
 ["Residence address"]="Indirizzo di residenza";
 ["Residence city"]="Citta' di residenza";
@@ -352,6 +355,7 @@ return {
 ["Empty help text: #{id}.#{lang}.txt"] = false;
 ["Error while converting image. Please note, that only JPG files are supported!"] = "Errore nella conversione immagine. Solo il formato JPG è supportato!";
 ["Error while updating member, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento utente, messaggio databaser:<br /><br /> (#{errormessage})";
+["Error while updating member sensitive data, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento dati sensibili utente, messaggio databaser:<br /><br /> (#{errormessage})";
 ["Etherpad authentication failed"] = false;
 ["Event #{id} -> #{num} members"] = false;
 ["Everything"] = "Tutto";

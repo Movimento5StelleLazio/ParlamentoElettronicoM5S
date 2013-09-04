@@ -35,19 +35,20 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           modules = "auditor",
           view = "index"
         },
-        ok = {
+        error = {
           mode = "redirect",
           modules = "auditor",
           view = "member_edit",
           id = member.id
         },
-        error = {
+        ok = {
           mode = "redirect",
           modules = "auditor",
           view = "index"
         }
       },
       content = function()
+        ui.heading{ level = 2, attr = { class = "text-center"  }, content = _"Personal data" }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Name"},
@@ -73,24 +74,28 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           name = "notify_email" 
         }
         ui.field.text{ 
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"City"}, 
           label = _"Birthplace", 
           name = "birthplace" 
         }
         ui.field.text{ 
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"dd/mm/yyyy", maxlength="10"}, 
           label = _"Birthdate", 
           name = "birthdate" 
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"ID card number"},
           label = _"ID card number",
           name = "idcard"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Token Serial"},
           label = _"Token serial",
@@ -100,25 +105,30 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         --[[ 
           Residence
         --]]
+        ui.heading{ level = 2, attr = { class = "text-center"  }, content = _"Residence" }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence address"},
           label = _"Residence address",
           name = "residence_address"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence city"},
           label = _"Residence city",
           name = "residence_city"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence province"},
           label = _"Residence province",
           name = "residence_province"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence postcode"},
           label = _"Residence postcode",
@@ -128,47 +138,43 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         --[[ 
           Domicile
         --]]
+        ui.heading{ level = 2, attr = { class = "text-center"  }, content = _"Domicile" }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile address"},
           label = _"Domicile address",
           name = "domicile_address"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile city"},
           label = _"Domicile city",
           name = "domicile_city"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile province"},
           label = _"Domicile province",
           name = "domicile_province"
         }
         ui.field.text{
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile postcode"},
           label = _"Domicile postcode",
           name = "domicile_postcode"
         }
---[[
 
- "idcard"                TEXT            NOT NULL UNIQUE,
-        "email"                 TEXT,
-        "residence_address"     TEXT            NOT NULL,
-        "residence_city"        TEXT            NOT NULL,
-        "residence_province"    TEXT            NOT NULL,
-        "residence_postcode"    TEXT            NOT NULL,
-        "domicile_address"      TEXT            NOT NULL,
-        "domicile_city"         TEXT            NOT NULL,
-        "domicile_province"     TEXT            NOT NULL,
-        "domicile_postcode"     TEXT            NOT NULL,
-        "token_serial"          TEXT );
-
-
---]]
-
+        ui.field.text{
+          record = member_data,
+          label_attr={class="auditor_input_label"},
+          attr={class="auditor_input",placeholder=_"Municipality ID"},
+          label = _"Municipality ID",
+          name = "municipality_id"
+        }
 
         --[[
         ui.container{content=function()
