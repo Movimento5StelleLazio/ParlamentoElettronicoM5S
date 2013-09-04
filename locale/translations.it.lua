@@ -214,6 +214,9 @@ return {
 ["Ballot of '#{member_name}' for issue ##{issue_id}"] = "Scrutinio di '#{member_name}' per la questione ##{issue_id}";
 ["Become a member"] = "Partecipa";
 ["Birthday"] = "Data di nascita";
+["Year of birth"] = "Anno di nascita";
+["Month of birth"] = "Mese di nascita";
+["Day of birth"] = "Giorno di nascita";
 ["Broken delegations"] = "Deleghe interrotte";
 ["By delegation"] = "Tramite delega";
 ["Calculation"] = "Conteggio";
@@ -354,8 +357,8 @@ return {
 ["Email confirmation request"] = "Richiesta di conferma eMail";
 ["Empty help text: #{id}.#{lang}.txt"] = false;
 ["Error while converting image. Please note, that only JPG files are supported!"] = "Errore nella conversione immagine. Solo il formato JPG è supportato!";
-["Error while updating member, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento utente, messaggio databaser:<br /><br /> (#{errormessage})";
-["Error while updating member sensitive data, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento dati sensibili utente, messaggio databaser:<br /><br /> (#{errormessage})";
+["Error while updating member, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento utente, messaggio database:<br /><br /> #{errormessage}";
+["Error while updating member sensitive data, database reported:<br /><br /> (#{errormessage})"] = "Errore aggiornamento dati sensibili utente, messaggio database:<br /><br /> #{errormessage}";
 ["Etherpad authentication failed"] = false;
 ["Event #{id} -> #{num} members"] = false;
 ["Everything"] = "Tutto";

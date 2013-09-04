@@ -68,10 +68,11 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           name = "nin" 
         }
         ui.field.text{ 
+          record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder="email@example.org"}, 
           label = _"Email", 
-          name = "notify_email" 
+          name = "email" 
         }
         ui.field.text{ 
           record = member_data,
@@ -80,6 +81,28 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           label = _"Birthplace", 
           name = "birthplace" 
         }
+        ui.field.text{
+          label_attr={class="auditor_input_label"},
+          attr={class="auditor_input", maxlength="4", placeholder=_"yyyy"},
+          value = member_data.birthdate.year,
+          label = _"Year of birth",
+          name = "birthyear"
+        }
+        ui.field.text{
+          label_attr={class="auditor_input_label"},
+          attr={class="auditor_input", maxlength="2", placeholder=_"mm"},
+          value = member_data.birthdate.month,
+          label = _"Month of birth",
+          name = "birthmonth"
+        }
+        ui.field.text{
+          label_attr={class="auditor_input_label"},
+          attr={class="auditor_input", maxlength="2", placeholder=_"dd"},
+          value = member_data.birthdate.day,
+          label = _"Day of birth",
+          name = "birthday"
+        }
+        --[[
         ui.field.text{ 
           record = member_data,
           label_attr={class="auditor_input_label"},
@@ -87,6 +110,8 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           label = _"Birthdate", 
           name = "birthdate" 
         }
+        --]]
+    
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
@@ -176,15 +201,6 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           name = "municipality_id"
         }
 
-        --[[
-        ui.container{content=function()
-          ui.tag{ attr={ class="auditor_input_label"}, tag = "label", content =_"Birthdate"}
-          ui.tag{tag = "input", attr={style="width:40px;", type ="text", maxlength="2", placeholder=_"dd", name="day"},content =""}
-          ui.tag{tag = "input", attr={style="width:40px;", type ="text", maxlength="2", placeholder=_"mm", name="month"},content =""}
-          ui.tag{tag = "input", attr={style="width:40px;", type ="text", maxlength="4", placeholder=_"yyyy", name="year"},content =""}
-        end }
-        --]]
-    
         if not member or not member.activated then
           ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Send invite?",       name = "invite_member" }
         end

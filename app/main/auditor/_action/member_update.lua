@@ -56,7 +56,7 @@ if birthplace then
   member_data.birthplace = birthplace
 end
 
-local birthdate = atom.date:load(param.get("birthdate"))
+local birthdate = atom.date:new{year=param.get("birthyear",atom.integer), month=param.get("birthmonth",atom.integer), day=param.get("birthday",atom.integer)}
 if birthdate then
   member_data.birthdate = birthdate
 end
