@@ -52,7 +52,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           mode = "redirect",
           modules = "auditor",
           view = "member_edit",
-          id = member.id
+          id = member and member.id
         },
         ok = {
           mode = "redirect",
@@ -97,21 +97,21 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="4", placeholder=_"yyyy"},
-          value = member_data.birthdate.year,
+          value = member_data and member_data.birthdate.year or nil,
           label = _"Year of birth",
           name = "birthyear"
         }
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="2", placeholder=_"mm"},
-          value = member_data.birthdate.month,
+          value = member_data and  member_data.birthdate.month or nil,
           label = _"Month of birth",
           name = "birthmonth"
         }
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="2", placeholder=_"dd"},
-          value = member_data.birthdate.day,
+          value =  member_data and member_data.birthdate.day or nil,
           label = _"Day of birth",
           name = "birthday"
         }

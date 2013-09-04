@@ -34,6 +34,9 @@ if nin then
   member.nin = string.upper(nin)
 end
 
+member.certifier_id = app.session.member_id
+member.certified = atom.timestamp:get_current()
+
 local merr = member:try_save()
 
 if merr then
@@ -45,7 +48,7 @@ end
   Sensitive data 
 --]]
 
-member_data.id = id
+member_data.id = member.id
 local token_serial = param.get("token_serial")
 if token_serial then
   member_data.token_serial = token_serial
