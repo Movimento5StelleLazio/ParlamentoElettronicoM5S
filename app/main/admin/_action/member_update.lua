@@ -51,6 +51,10 @@ if auditor ~= nil then
   member.auditor = auditor
 end
 
+local lqfb_access = param.get("lqfb_access", atom.boolean)
+if lqfb_access ~= nil then
+  member.lqfb_access = lqfb_access
+end
 
 local err = member:try_save()
 

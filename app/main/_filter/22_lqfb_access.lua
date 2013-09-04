@@ -23,7 +23,7 @@ local restricted = not (
   or  module == 'auditor'
 )
 
-if restricted and app.session.member.lqfb_access ~= true then
+if restricted and app.session.member.lqfb_access ~= true and app.session.member.admin ~= true then
   trace.debug("lqfb access: Member has been disabled")
   error('The administrator has disabled the access to this module')
 end

@@ -1,7 +1,17 @@
 local id = param.get_id()
 
-local member = Member:by_id(id) or Member:new()
-local member_data = MemberData:by_id(id) or MemberData:new()
+local member = Member:by_id(id)
+if not member then
+  member = Member:new()
+  member.creator_id = app.session.member_id
+end
+local member_data = MemberData:by_id(id) 
+if not member_data then
+  member_data = MemberData:new()
+  member.certifier_id = app.session.member_id
+  member.certified = atom.timestamp:get_current()
+end
+
 
 local locked = param.get("locked", atom.boolean)
 if locked ~= nil then
@@ -34,8 +44,11 @@ if nin then
   member.nin = string.upper(nin)
 end
 
-member.certifier_id = app.session.member_id
-member.certified = atom.timestamp:get_current()
+local municipality_id = atom.integer:load(param.get("municipality_id"))
+if municipality_id then
+  member.municipality_id = municipality_id
+end
+
 
 local merr = member:try_save()
 
@@ -62,11 +75,6 @@ end
 local birthdate = atom.date:new{year=param.get("birthyear",atom.integer), month=param.get("birthmonth",atom.integer), day=param.get("birthday",atom.integer)}
 if birthdate then
   member_data.birthdate = birthdate
-end
-
-local municipality_id = atom.integer:load(param.get("municipality_id"))
-if municipality_id then
-  member_data.municipality_id = municipality_id
 end
 
 local idcard = param.get("idcard")

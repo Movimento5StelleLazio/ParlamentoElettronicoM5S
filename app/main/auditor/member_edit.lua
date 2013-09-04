@@ -207,7 +207,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         }
 
         ui.field.text{
-          record = member_data,
+          record = member,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Municipality ID"},
           label = _"Municipality ID",

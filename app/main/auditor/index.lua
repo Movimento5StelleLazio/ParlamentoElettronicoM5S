@@ -48,6 +48,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
   ui.container{ attr = { class = "span12 alert alert-simple issue_box paper text-center"}, content = function()
     local members_selector = Member:new_selector()
     members_selector:add_where{ "certifier_id = ?", app.session.member_id }
+    members_selector:add_order_by{ "id" }
     
     ui.container{ attr = { class = "inline-block"}, content = function()
 

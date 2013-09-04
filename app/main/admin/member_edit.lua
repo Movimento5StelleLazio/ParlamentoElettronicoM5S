@@ -41,6 +41,7 @@ ui.form{
       ui.field.text{     label = _"Login name",        name = "login" }
     end
     ui.field.boolean{  label = _"Admin?",       name = "admin" }
+    ui.field.boolean{  label = _"LQFB Access?",   name = "lqfb_access" }
     ui.field.boolean{  label = _"Auditor?",       name = "auditor" }
     ui.field.boolean{  label = _"Elected?",       name = "elected" }
 
