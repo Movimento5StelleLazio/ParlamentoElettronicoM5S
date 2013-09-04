@@ -1,8 +1,7 @@
 local id = param.get_id()
 
 local member = Member:by_id(id) or Member:new()
-
-param.update(member, "notify_email")
+local member_data = MemberData:by_id(id) or MemberData:new()
 
 local locked = param.get("locked", atom.boolean)
 if locked ~= nil then
@@ -12,13 +11,13 @@ local deactivate = param.get("deactivate", atom.boolean)
 if deactivate then
   member.active = false
 end
-local name = param.get("name")
-if name then
-  member.name = name
+local firstname = param.get("firstname")
+if firstname then
+  member.firstname = firstname
 end
-local surname = param.get("surname")
-if surname then
-  member.surname = surname
+local lastname = param.get("lastname")
+if lastname then
+  member.lastname = lastname
 end
 local nin = param.get("nin")
 if nin then

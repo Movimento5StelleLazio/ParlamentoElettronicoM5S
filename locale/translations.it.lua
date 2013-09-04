@@ -24,6 +24,17 @@ return {
 ["Details for issue Q"]="Dettagli questione Q";
 ["Issue link (copy the link and share to the web):"]="Link alla questione (copia il link e condividilo sul web):";
 ["Copy"]="Copia";
+["City"]="Citta'";
+["Token serial"]="Seriale del token";
+["Residence address"]="Indirizzo di residenza";
+["Residence city"]="Citta' di residenza";
+["Residence province"]="Provincia di residenza";
+["Residence postcode"]="CAP di residenza";
+["Domicile address"]="Indirizzo di domicilio";
+["Domicile city"]="Citta' di domicilio";
+["Domicile province"]="Provincia di domicilio";
+["Domicile postcode"]="CAP di domicilio";
+["ID card number"]="Numero documento";
 ["Actions"]="Azioni";
 ["State"]="Stato";
 ["Auditor login"]="Login certificatore";
@@ -505,7 +516,7 @@ return {
 ["Member successfully registered"] = "Utente registrato correttamente";
 ["Member successfully updated"] = "Utente aggiornato correttamente";
 ["Member: '#{identification}' (#{name})"] = "Utente: '#{identification}' (#{name})";
-["Member: #{name} #{surname}"] = "Utente: #{name} #{surname}";
+["Member: #{firstname} #{lastname}"] = "Utente: #{firstname} #{lastname}";
 ["Members"] = "Utenti";
 ["Membership not existent"] = "Partecipazione inesistente";
 ["Membership removed"] = "Partecipazione rimossa";
