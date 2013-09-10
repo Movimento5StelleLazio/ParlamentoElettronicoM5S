@@ -1,8 +1,113 @@
 slot.set_layout("custom")
 local id = param.get_id()
-
 local member = Member:by_id(id)
 local member_data = MemberData:by_id(id)
+
+local confirm_box1 = param.get("confirm_box1",atom.boolean)
+local confirm_box2 = param.get("confirm_box2",atom.boolean)
+local confirm_box3 = param.get("confirm_box3",atom.boolean)
+local confirm_box4 = param.get("confirm_box4",atom.boolean)
+local confirm_box5 = param.get("confirm_box5",atom.boolean)
+local confirm_box6 = param.get("confirm_box6",atom.boolean)
+local confirm_box7 = param.get("confirm_box7",atom.boolean)
+
+if ( not member or not member_data ) and 
+  (confirm_box1 ~= true or 
+   confirm_box2 ~= true or 
+   confirm_box3 ~= true or 
+   confirm_box4 ~= true or 
+   confirm_box5 ~= true or 
+   confirm_box6 ~= true or
+   confirm_box7 ~= true ) then
+
+
+  if confirm_box1 == true or
+     confirm_box2 == true or
+     confirm_box3 == true or
+     confirm_box4 == true or
+     confirm_box5 == true or
+     confirm_box6 == true or
+     confirm_box7 == true then
+    slot.put_into("error", _"Devi confermare tutte le clausole per continuare")
+  end
+
+  ui.container{ attr = { class = "row-fluid" }, content = function()
+    ui.container{ attr = { class = "span12 well" }, content = function()
+      ui.container{ attr = { class = "row-fluid" }, content = function()
+        ui.container{ attr = { class = "span3 text-center" }, content = function()
+          ui.link{
+            attr = { class="btn btn-primary btn-large fixclick"  },
+            module = "auditor",
+            view = "index",
+            content = function()
+              ui.heading{level=5,attr={class=""},content=function()
+                ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+                slot.put(_"Back")
+              end }
+            end
+          }
+        end }
+        ui.container{ attr = { class = "span6 text-center" }, content = function()
+          ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Dichiarazioni obbligatorie" }
+        end }
+      end }
+    end }
+  end }
+  
+  
+  ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
+    ui.container{ attr = { class = "span12 alert alert-simple issue_box paper"}, content = function()
+      ui.form{
+        attr = { class = "", role="form" },
+        module = "auditor",
+        view = "member_edit",
+        id = member and member.id,
+        record = member,
+        readonly = not app.session.member.auditor,
+        routing = {
+          default = {
+            mode = "redirect",
+            modules = "auditor",
+            view = "member_edit"
+          },
+          error = {
+            mode = "redirect",
+            modules = "auditor",
+            view = "member_edit",
+            id = member and member.id
+          },
+          ok = {
+            mode = "redirect",
+            modules = "auditor",
+            view = "index"
+          }
+        },
+        content = function()
+          ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
+            ui.container{ attr = { class = "span12" }, content = function()
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"E' (o era) presente fisicamente insieme a te al momento della registrazione e il suo aspetto fisico corrisponde alla Foto e alla Descrizione del Documento di Identita' presentato", name = "confirm_box1" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di essere cittadino Italiano maggiorenne", name = "confirm_box2" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di essere cittadino con la residenza (indicata dal documento di identita') nella stessa regione/comune/municipio dove e'  attivo il Parlamento Elettronico Online", name = "confirm_box3" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di essere utente registrato e certificato sul sito http://www.beppegrillo.it/movimento/", name = "confirm_box4" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di possedere l'indirizzo email che fornira' al sistema", name = "confirm_box5" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara avere un Documento di Identita' valido", name = "confirm_box6" }
+              ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di avere con se la Tessera del Codice Fiscale o la Tessera Sanitaria con indicato il CF", name = "confirm_box7" }
+              ui.tag{
+                tag="button",
+                attr = { type="submit", class="btn btn-primary btn-large fixclick spaceline3" },
+                content= function()
+                  ui.heading{ level=4, attr = { class="inline-block"}, content= _"Confirm"}
+                end
+              }
+            end }
+          end }
+        end
+      }
+    end }
+  end }
+  return 
+end
+
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
@@ -230,16 +335,16 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         --]]
         
         ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
-            ui.container{ attr = { class = "span6 offset3" }, content = function()
-              ui.tag{
-                tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large fixclick" },
-                content= function()
-                  ui.heading{ level=4, attr = { class="inline-block"}, content= _"Save"}
-                end
-              }
-            end }
+          ui.container{ attr = { class = "span6 offset3" }, content = function()
+            ui.tag{
+              tag="button",
+              attr = { type="submit", class="btn btn-primary btn-large fixclick" },
+              content= function()
+                ui.heading{ level=4, attr = { class="inline-block"}, content= _"Save"}
+              end
+            }
           end }
+        end }
       end
     }
   end }
