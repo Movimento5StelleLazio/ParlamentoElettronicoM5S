@@ -2,9 +2,14 @@ local id = param.get_id()
 
 local member = Member:by_id(id)
 if not member then
+  -- Check for dups
+ -- members_selector = Member:build_selector{}
+  
+
   member = Member:new()
   member.creator_id = app.session.member_id
 end
+
 local member_data = MemberData:by_id(id) 
 if not member_data then
   member_data = MemberData:new()
@@ -26,13 +31,18 @@ if firstname then
   if #firstname >=2 then
     member.firstname = firstname
   else
-    slot.put_into("error", _"Firstname is too short!")
+    slot.put_into("error", _"User first name is too short!")
     return false
   end
 end
 local lastname = param.get("lastname")
 if lastname then
-  member.lastname = lastname
+  if #lastname >=2 then
+    member.lastname = lastname
+  else
+    slot.put_into("error", _"User last name is too short!")
+    return false
+  end
 end
 if firstname and lastname then
   member.realname = firstname.." "..lastname
@@ -54,7 +64,6 @@ if municipality_id then
 end
 
 local merr = member:try_save()
-
 if merr then
   slot.put_into("error", (_("Error while updating member, database reported:<br /><br /> (#{errormessage})"):gsub("#{errormessage}", tostring(merr.message))))
   return false

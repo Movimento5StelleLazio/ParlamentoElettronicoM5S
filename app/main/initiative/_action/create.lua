@@ -28,7 +28,7 @@ if not app.session.member:has_voting_right_for_unit_id(area.unit_id) then
   error("access denied")
 end
 
-local policy_id = param.get("policy_id_hidden", atom.integer)
+local policy_id = param.get("policy_id", atom.integer)
 local policy
 if policy_id then
   policy = Policy:by_id(policy_id)

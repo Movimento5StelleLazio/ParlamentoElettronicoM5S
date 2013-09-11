@@ -64,6 +64,7 @@ if ( not member or not member_data ) and
         id = member and member.id,
         record = member,
         readonly = not app.session.member.auditor,
+        --[[
         routing = {
           default = {
             mode = "redirect",
@@ -84,6 +85,7 @@ if ( not member or not member_data ) and
             id = member and member.id
           }
         },
+        --]]
         content = function()
           ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
             ui.container{ attr = { class = "span12" }, content = function()
@@ -150,6 +152,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
       id = member and member.id,
       record = member,
       readonly = not app.session.member.auditor,
+      --[[
       routing = {
         default = {
           mode = "redirect",
@@ -169,6 +172,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           view = "index"
         }
       },
+      --]]
       content = function()
         ui.field.hidden{name="confirm_box1", value=confirm_box1 or false}
         ui.field.hidden{name="confirm_box2", value=confirm_box2 or false}
@@ -184,14 +188,14 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           attr={class="auditor_input",placeholder=_"Name"},
           label=_"Name", 
           name = "firstname",
-          content = param.get("firstname") or nil 
+          value = param.get("firstname") or nil 
         }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Surname"}, 
           label = _"Surname", 
           name = "lastname",
-          content = param.get("lastname") or nil 
+          value = param.get("lastname") or nil 
         }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
