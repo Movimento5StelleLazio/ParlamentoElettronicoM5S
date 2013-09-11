@@ -20,6 +20,7 @@ return {
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
 ["Idcard scan upload"]="Upload scansione documento d'identita'";
+["Idcard scans"]="Scan documenti";
 ["Registration Guide"]="Guida alla Iscrizione";
 ["Report false identity"]="Segnala falsa identita'";
 ["Details for issue Q"]="Dettagli questione Q";
@@ -42,6 +43,7 @@ return {
 ["Actions"]="Azioni";
 ["State"]="Stato";
 ["Auditor login"]="Login certificatore";
+["There are no users certified by you"]="Non si sono utenti certificati da te";
 ["Certified users"]="Utenti certificati";
 ["Auditor?"]="Certificatore?";
 ["Birthplace"]="Luogo di nascita";

@@ -4,7 +4,20 @@ local member_id = param.get_id()
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span12 text-center" }, content = function()
+      ui.container{ attr = { class = "span3 text-center" }, content = function()
+        ui.link{
+          attr = { class="btn btn-primary btn-large fixclick"  },
+          module = "auditor",
+          view = "index",
+          content = function()
+            ui.heading{level=5,attr={class=""},content=function()
+              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+              slot.put(_"Back")
+            end }
+          end
+        }
+      end }
+      ui.container{ attr = { class = "span9 text-center" }, content = function()
         ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Idcard scan upload" }
       end }
     end }

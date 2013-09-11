@@ -68,7 +68,8 @@ if ( not member or not member_data ) and
           default = {
             mode = "redirect",
             modules = "auditor",
-            view = "member_edit"
+            view = "member_edit",
+            id = member and member.id
           },
           error = {
             mode = "redirect",
@@ -79,12 +80,14 @@ if ( not member or not member_data ) and
           ok = {
             mode = "redirect",
             modules = "auditor",
-            view = "index"
+            view = "index",
+            id = member and member.id
           }
         },
         content = function()
           ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
             ui.container{ attr = { class = "span12" }, content = function()
+              ui.heading{ level=1, content=_("Tu #{realname}, in qualita' di certificatore per il P.E.O. attesti che il cittadino che si vuole registrare:", {realname =app.session.member.realname} )}
               ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"E' (o era) presente fisicamente insieme a te al momento della registrazione e il suo aspetto fisico corrisponde alla Foto e alla Descrizione del Documento di Identita' presentato", name = "confirm_box1" }
               ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di essere cittadino Italiano maggiorenne", name = "confirm_box2" }
               ui.field.boolean{ style="radio", label_attr={class="auditor_confirm_label spaceline2"},  label = _"Dichiara di essere cittadino con la residenza (indicata dal documento di identita') nella stessa regione/comune/municipio dove e'  attivo il Parlamento Elettronico Online", name = "confirm_box3" }
@@ -157,7 +160,8 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           mode = "redirect",
           modules = "auditor",
           view = "member_edit",
-          id = member and member.id
+          id = member and member.id,
+          params=request.get_param_strings()
         },
         ok = {
           mode = "redirect",
@@ -166,18 +170,28 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         }
       },
       content = function()
+        ui.field.hidden{name="confirm_box1", value=confirm_box1 or false}
+        ui.field.hidden{name="confirm_box2", value=confirm_box2 or false}
+        ui.field.hidden{name="confirm_box3", value=confirm_box3 or false}
+        ui.field.hidden{name="confirm_box4", value=confirm_box4 or false}
+        ui.field.hidden{name="confirm_box5", value=confirm_box5 or false}
+        ui.field.hidden{name="confirm_box6", value=confirm_box6 or false}
+        ui.field.hidden{name="confirm_box7", value=confirm_box7 or false}
+
         ui.heading{ level = 2, attr = { class = "text-center"  }, content = _"Personal data" }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Name"},
           label=_"Name", 
-          name = "firstname" 
+          name = "firstname",
+          content = param.get("firstname") or nil 
         }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Surname"}, 
           label = _"Surname", 
-          name = "lastname" 
+          name = "lastname",
+          content = param.get("lastname") or nil 
         }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},

@@ -48,84 +48,89 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
     local members_selector = Member:new_selector()
     members_selector:add_where{ "certifier_id = ?", app.session.member_id }
     members_selector:add_order_by{ "id" }
+    members = members_selector:exec()
     
-    ui.container{ attr = { class = "inline-block"}, content = function()
-
-      ui.paginate{
-        selector = members_selector,
-        per_page = 30,
-        content = function()
-          ui.list{
-            records = members_selector:exec(),
-            columns = {
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;text-align: right;border: 1px solid black;" },
-                label = _"Id",
-                name = "id"
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"Name",
-                name = "firstname"
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"Surname",
-                name = "lastname"
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"NIN",
-                name = "nin"
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"State",
-                content = function(record)
-                  if not record.activated then
-                    ui.field.text{ value = "not activated" }
-                  elseif not record.active then
-                    ui.field.text{ value = "inactive" }
-                  else
-                    ui.field.text{ value = "active" }
+    if #members==0 then
+      ui.heading{level=5, content=_"There are no users certified by you"}
+    else
+      ui.container{ attr = { class = "inline-block"}, content = function()
+  
+        ui.paginate{
+          selector = members_selector,
+          per_page = 30,
+          content = function()
+            ui.list{
+              records = members,
+              columns = {
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;text-align: right;border: 1px solid black;" },
+                  label = _"Id",
+                  name = "id"
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"Name",
+                  name = "firstname"
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"Surname",
+                  name = "lastname"
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"NIN",
+                  name = "nin"
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"State",
+                  content = function(record)
+                    if not record.activated then
+                      ui.field.text{ value = "not activated" }
+                    elseif not record.active then
+                      ui.field.text{ value = "inactive" }
+                    else
+                      ui.field.text{ value = "active" }
+                    end
                   end
-                end
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"Locked?",
-                content = function(record)
-                  if record.locked then
-                    ui.field.text{ value = "locked" }
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"Locked?",
+                  content = function(record)
+                    if record.locked then
+                      ui.field.text{ value = "locked" }
+                    end
                   end
-                end
-              },
-              {
-                field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
-                label = _"Actions",
-                content = function(record)
-                  ui.link{
-                    attr = { class = "action admin_only" },
-                    text = _"Edit",
-                    module = "auditor",
-                    view = "member_edit",
-                    id = record.id
-                  }
-                  slot.put(" &middot; ")
-                  ui.link{
-                    attr = { class = "action admin_only" },
-                    text = _"Idcard scans",
-                    module = "auditor",
-                    view = "idcard_scans",
-                    id = record.id
-                  }
-                end
+                },
+                {
+                  field_attr = { style = "padding-left: 5px;padding-right: 5px;border: 1px solid black;" },
+                  label = _"Actions",
+                  content = function(record)
+                    ui.link{
+                      attr = { class = "action admin_only" },
+                      text = _"Edit",
+                      module = "auditor",
+                      view = "member_edit",
+                      id = record.id
+                    }
+                    slot.put(" &middot; ")
+                    ui.link{
+                      attr = { class = "action admin_only" },
+                      text = _"Idcard scans",
+                      module = "auditor",
+                      view = "idcard_scans",
+                      id = record.id
+                    }
+                  end
+                }
               }
             }
-          }
-        end 
-      }
-    end }
+          end 
+        }
+      end }
+    end
   end }
 end }
 

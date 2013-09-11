@@ -23,22 +23,26 @@ if deactivate then
 end
 local firstname = param.get("firstname")
 if firstname then
-  member.firstname = firstname
+  if #firstname >=2 then
+    member.firstname = firstname
+  else
+    slot.put_into("error", _"Firstname is too short!")
+    return false
+  end
 end
 local lastname = param.get("lastname")
 if lastname then
   member.lastname = lastname
 end
+if firstname and lastname then
+  member.realname = firstname.." "..lastname
+  member.name = firstname
+end
+
 local nin = param.get("nin")
 if nin then
   if #nin  ~= 16 then
     slot.put_into("error", _"This National Insurance Number is invalid!")
-     request.redirect{
-      mode   = "redirect",
-      module = "auditor",
-      view   = "member_edit",
-      id = member.id
-     }
     return false
   end
   member.nin = string.upper(nin)
@@ -48,7 +52,6 @@ local municipality_id = atom.integer:load(param.get("municipality_id"))
 if municipality_id then
   member.municipality_id = municipality_id
 end
-
 
 local merr = member:try_save()
 

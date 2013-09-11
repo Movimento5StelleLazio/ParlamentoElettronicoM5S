@@ -9,6 +9,7 @@ WEBMCPDST=/opt/webmcp
 HELPDIR=${FRONTENDDST}/locale/help/
 ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
 CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
+INITFILE=/opt/ParlamentoElettronicoM5S/extras/init.lua
 LFUPDATED=/opt/ParlamentoElettronicoM5S/extras/lf_updated
 INITSCRIPT=/opt/ParlamentoElettronicoM5S/extras/lf_updated.initrd
 NOTIFYD=/opt/ParlamentoElettronicoM5S/extras/start_notify.sh
@@ -55,6 +56,7 @@ if [ "z${auto}" == "zno" ];then
 	echo -e "WebMCP destination: \t${WEBMCPDST}"
 	echo -e "Rocketwiki binary: \t${ROCKETWIKICMD}"
 	echo -e "Configuration file: \t${CONFIGFILE}"
+	echo -e "Init file: \t${INITFILE}"
 	echo -e "lf_updated script: \t${LFUPDATED}"
 	echo -e "notifyd script: \t${NOTIFYD}"
 	echo -e "Web server user: \t${HTTPDUSER}"
@@ -103,6 +105,12 @@ if ! [ -f "${CONFIGFILE}" ]; then
         exit 1
 fi
 
+if ! [ -f "${INITFILE}" ]; then
+        echo "Missing init file ${INITFILE}"
+        echo "Installation failed!"
+        exit 1
+fi
+
 if ! [ -f "${ROCKETWIKICMD}" ]; then
         echo "Cannot find rocketwiki ${ROCKETWIKICMD}"
 	echo "Installation failed!"
@@ -146,6 +154,9 @@ cp -a ${CORESRC}/* ${COREDST}
 
 echo "Installing configuration file..."
 cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+
+echo "Installing init file..."
+cp ${INITFILE} ${FRONTENDDST}/config/
 
 echo "Compiling WebMCP..."
 cd ${WEBMCPSRC}

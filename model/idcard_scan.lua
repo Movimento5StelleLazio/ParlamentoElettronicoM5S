@@ -9,3 +9,8 @@ function IdcardScan:by_pk(member_id, scan_type)
     :optional_object_mode()
     :exec()
 end
+
+function IdcardScan:get_db_conn()
+  return secure_db
+end
+
