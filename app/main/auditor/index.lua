@@ -12,7 +12,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large table-cell fixclick"  },
           module = "auditor",
-          view = "",
+          view = "download",
           content = function()
             ui.heading{level=5,attr={class=""},content="Download Data"}
           end
