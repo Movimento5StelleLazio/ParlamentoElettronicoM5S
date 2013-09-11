@@ -111,6 +111,14 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
                     view = "member_edit",
                     id = record.id
                   }
+                  slot.put(" &middot; ")
+                  ui.link{
+                    attr = { class = "action admin_only" },
+                    text = _"Idcard scans",
+                    module = "auditor",
+                    view = "idcard_scans",
+                    id = record.id
+                  }
                 end
               }
             }

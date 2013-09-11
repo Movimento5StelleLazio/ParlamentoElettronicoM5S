@@ -1,4 +1,6 @@
 slot.set_layout("custom")
+local member_id = param.get_id()
+
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
@@ -39,10 +41,16 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         }
         --]]
         -- 'id_front','id_rear','id_picture','nin','health_insurance'
+        ui.field.hidden{ name = "member_id", value = member_id }
+        ui.image{ attr={class="idcard_scan"}, module = "idcard_scan", view = "show", id = member_id, params = { scan_type = "id_front" } }
         ui.field.image{ field_name = "id_front", label = _"Idcard scan (front)" }
+        ui.image{ attr={class="idcard_scan spaceline3"}, module = "idcard_scan", view = "show", id = member_id, params = { scan_type = "id_rear" } }
         ui.field.image{ field_name = "id_rear", label = _"Idcard scan (rear)" }
+        ui.image{ attr={class="idcard_scan spaceline3"}, module = "idcard_scan", view = "show", id = member_id, params = { scan_type = "id_picture" } }
         ui.field.image{ field_name = "id_picture", label = _"Idcard picture scan" }
+        ui.image{ attr={class="idcard_scan spaceline3"}, module = "idcard_scan", view = "show", id = member_id, params = { scan_type = "nin" } }
         ui.field.image{ field_name = "nin", label = _"NIN card scan" }
+        ui.image{ attr={class="idcard_scan spaceline3"}, module = "idcard_scan", view = "show", id = member_id, params = { scan_type = "health_insurance" } }
         ui.field.image{ field_name = "health_insurance", label = _"Health Insurance card scan" }
 
         ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()

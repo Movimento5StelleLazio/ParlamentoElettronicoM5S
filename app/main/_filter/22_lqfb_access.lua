@@ -21,6 +21,7 @@ local restricted = not (
     or view   == "404"
    ))
   or  module == 'auditor'
+  or  module == 'idcard_scan'
 )
 
 if restricted and app.session.member.lqfb_access ~= true and app.session.member.admin ~= true then
