@@ -16,6 +16,6 @@ end;
 $$ language plpgsql;
 
 
-UPDATE member SET nin = random_string(16);
+UPDATE member SET codice_fiscale = random_string(16);
 
 drop function random_string(length integer);
