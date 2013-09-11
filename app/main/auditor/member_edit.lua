@@ -333,7 +333,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           readonly = member and member.active, value = member and member.active == false
         }
         --]]
-        
+
         ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
           ui.container{ attr = { class = "span6 offset3" }, content = function()
             ui.tag{

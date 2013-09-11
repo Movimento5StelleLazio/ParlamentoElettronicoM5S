@@ -19,6 +19,7 @@ return {
 ["#{interval_text} ago"] = "#{interval_text} fa";
 ["#{interval_text} left"] = "#{interval_text} rimanenti";
 ["Insert user name and password to access:"]="Inserisci il nome utente e la password per accedere:";
+["Idcard scan upload"]="Upload scansione documento d'identita'";
 ["Registration Guide"]="Guida alla Iscrizione";
 ["Report false identity"]="Segnala falsa identita'";
 ["Details for issue Q"]="Dettagli questione Q";
@@ -45,6 +46,11 @@ return {
 ["Auditor?"]="Certificatore?";
 ["Birthplace"]="Luogo di nascita";
 ["Birthdate"]="Data di nascita";
+["Idcard scan (front)"]="Scansione documento di identita' (fronte)";
+["Idcard scan (rear)"]="Scansione documento di identita' (retro)";
+["Idcard picture scan"]="Scansione della foto del documento di identita'";
+["NIN card scan"]="Scansione del codice fiscale";
+["Health Insurance card scan"]="Scansione della tessera sanitaria";
 ["No author for this issue"]="Nessun autore per questa questione";
 ["Select"]="Seleziona";
 ["Issue created at:"]="Questione sollevata il:";

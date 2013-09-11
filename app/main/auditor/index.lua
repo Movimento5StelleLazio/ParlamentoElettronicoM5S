@@ -1,5 +1,4 @@
 slot.set_layout("custom")
-ui.title(_"Auditor menu")
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
