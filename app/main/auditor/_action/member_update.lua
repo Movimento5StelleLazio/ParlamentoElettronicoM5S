@@ -4,8 +4,7 @@ local member = Member:by_id(id)
 if not member then
   -- Check for dups
  -- members_selector = Member:build_selector{}
-  
-
+  db:query("SELECT * from member WHERE nin = ? OR ")
   member = Member:new()
   member.creator_id = app.session.member_id
 end

@@ -54,7 +54,6 @@ if ( not member or not member_data ) and
     end }
   end }
   
-  
   ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
     ui.container{ attr = { class = "span12 alert alert-simple issue_box paper"}, content = function()
       ui.form{
@@ -62,30 +61,7 @@ if ( not member or not member_data ) and
         module = "auditor",
         view = "member_edit",
         id = member and member.id,
-        record = member,
         readonly = not app.session.member.auditor,
-        --[[
-        routing = {
-          default = {
-            mode = "redirect",
-            modules = "auditor",
-            view = "member_edit",
-            id = member and member.id
-          },
-          error = {
-            mode = "redirect",
-            modules = "auditor",
-            view = "member_edit",
-            id = member and member.id
-          },
-          ok = {
-            mode = "redirect",
-            modules = "auditor",
-            view = "index",
-            id = member and member.id
-          }
-        },
-        --]]
         content = function()
           ui.container{ attr = { class = "row-fluid text-center spaceline2" }, content = function()
             ui.container{ attr = { class = "span12" }, content = function()
@@ -110,7 +86,7 @@ if ( not member or not member_data ) and
       }
     end }
   end }
-  return 
+  return false
 end
 
 
@@ -146,14 +122,14 @@ end }
 ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
   ui.container{ attr = { class = "span12 alert alert-simple issue_box paper"}, content = function()
     ui.form{
-      attr = { class = "", role="form" },
+--      attr = { class = "", role="form" },
       module = "auditor",
       action = "member_update",
       id = member and member.id,
-      record = member,
-      readonly = not app.session.member.auditor,
-      --[[
+--      record = member,
+--     readonly = not app.session.member.auditor,
       routing = {
+      --[[
         default = {
           mode = "redirect",
           modules = "auditor",
@@ -166,13 +142,13 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           id = member and member.id,
           params=request.get_param_strings()
         },
+      --]]
         ok = {
           mode = "redirect",
           modules = "auditor",
           view = "index"
         }
       },
-      --]]
       content = function()
         ui.field.hidden{name="confirm_box1", value=confirm_box1 or false}
         ui.field.hidden{name="confirm_box2", value=confirm_box2 or false}
@@ -199,68 +175,66 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
         }
         ui.field.text{ 
           label_attr={class="auditor_input_label"},
-          attr={class="auditor_input",placeholder=_"NIN"}, 
+          attr={class="auditor_input",maxlength="16",placeholder=_"NIN"}, 
           label = _"NIN", 
-          name = "nin" 
+          name = "nin", 
+          value = param.get("nin") or nil 
         }
         ui.field.text{ 
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder="email@example.org"}, 
           label = _"Email", 
-          name = "email" 
+          name = "email", 
+          value = param.get("email") or nil 
         }
         ui.field.text{ 
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"City"}, 
           label = _"Birthplace", 
-          name = "birthplace" 
+          name = "birthplace", 
+          value = param.get("birthplace") or nil 
         }
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="4", placeholder=_"yyyy"},
           value = member_data and member_data.birthdate.year or nil,
           label = _"Year of birth",
-          name = "birthyear"
+          name = "birthyear",
+          value = param.get("birthyear",atom.integer) or nil 
         }
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="2", placeholder=_"mm"},
           value = member_data and  member_data.birthdate.month or nil,
           label = _"Month of birth",
-          name = "birthmonth"
+          name = "birthmonth",
+          value = param.get("birthmonth",atom.integer) or nil 
         }
         ui.field.text{
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input", maxlength="2", placeholder=_"dd"},
           value =  member_data and member_data.birthdate.day or nil,
           label = _"Day of birth",
-          name = "birthday"
+          name = "birthday",
+          value = param.get("birthday",atom.integer) or nil 
         }
-        --[[
-        ui.field.text{ 
-          record = member_data,
-          label_attr={class="auditor_input_label"},
-          attr={class="auditor_input",placeholder=_"dd/mm/yyyy", maxlength="10"}, 
-          label = _"Birthdate", 
-          name = "birthdate" 
-        }
-        --]]
-    
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"ID card number"},
           label = _"ID card number",
-          name = "idcard"
+          name = "idcard",
+          value = param.get("idcard") or nil 
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Token Serial"},
           label = _"Token serial",
-          name = "token_serial"
+          name = "token_serial",
+          value = param.get("token_serial") or nil
         }
 
         --[[ 
@@ -272,28 +246,32 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence address"},
           label = _"Residence address",
-          name = "residence_address"
+          name = "residence_address",
+          value = param.get("residence_address") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence city"},
           label = _"Residence city",
-          name = "residence_city"
+          name = "residence_city",
+          value = param.get("residence_city") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence province"},
           label = _"Residence province",
-          name = "residence_province"
+          name = "residence_province",
+          value = param.get("residence_province") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Residence postcode"},
           label = _"Residence postcode",
-          name = "residence_postcode"
+          name = "residence_postcode",
+          value = param.get("residence_postcode") or nil
         }
 
         --[[ 
@@ -305,28 +283,32 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile address"},
           label = _"Domicile address",
-          name = "domicile_address"
+          name = "domicile_address",
+          value = param.get("domicile_address") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile city"},
           label = _"Domicile city",
-          name = "domicile_city"
+          name = "domicile_city",
+          value = param.get("domicile_city") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile province"},
           label = _"Domicile province",
-          name = "domicile_province"
+          name = "domicile_province",
+          value = param.get("domicile_province") or nil
         }
         ui.field.text{
           record = member_data,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Domicile postcode"},
           label = _"Domicile postcode",
-          name = "domicile_postcode"
+          name = "domicile_postcode",
+          value = param.get("domicile_postcode") or nil
         }
 
         ui.field.text{
@@ -334,15 +316,16 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Municipality ID"},
           label = _"Municipality ID",
-          name = "municipality_id"
+          name = "municipality_id",
+          value = param.get("municipality_id",atom.integer) or nil
         }
 
         if not member or not member.activated then
-          ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Send invite?",       name = "invite_member" }
+          ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Send invite?", name = "invite_member" }
         end
         
         if member and member.activated then
-          ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Lock member?",       name = "locked" }
+          ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Lock member?", name = "locked" }
         end
         --[[
         ui.field.boolean{ 
@@ -356,7 +339,7 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           ui.container{ attr = { class = "span6 offset3" }, content = function()
             ui.tag{
               tag="button",
-              attr = { type="submit", class="btn btn-primary btn-large fixclick" },
+              attr = { type="submit", class="btn btn-primary btn-large" },
               content= function()
                 ui.heading{ level=4, attr = { class="inline-block"}, content= _"Save"}
               end
