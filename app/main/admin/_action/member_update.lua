@@ -20,10 +20,10 @@ local name = param.get("name")
 if name then
   member.name = name
 end
-local codice_fiscale = param.get("codice_fiscale")
-if codice_fiscale then
-  if #codice_fiscale  ~= 16 then
-    slot.put_into("error", _"This tax identification number (Codice Fiscale) is invalid!")
+local nin = param.get("nin")
+if nin then
+  if #nin  ~= 16 then
+    slot.put_into("error", _"This National Insurance Number is invalid!")
      request.redirect{
       mode   = "redirect",
       module = "admin",
@@ -31,7 +31,7 @@ if codice_fiscale then
      }
     return false
   end
-  member.codice_fiscale = string.upper(codice_fiscale)
+  member.nin = string.upper(nin)
 end
 local identification = param.get("identification")
 if identification then
@@ -44,6 +44,16 @@ member.identification = identification
 local elected = param.get("elected", atom.boolean)
 if elected ~= nil then
   member.elected = elected
+end
+
+local auditor = param.get("auditor", atom.boolean)
+if auditor ~= nil then
+  member.auditor = auditor
+end
+
+local lqfb_access = param.get("lqfb_access", atom.boolean)
+if lqfb_access ~= nil then
+  member.lqfb_access = lqfb_access
 end
 
 local err = member:try_save()

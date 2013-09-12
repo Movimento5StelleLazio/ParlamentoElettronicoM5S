@@ -35,12 +35,14 @@ ui.form{
   content = function()
     ui.field.text{     label = _"Identification", name = "identification" }
     ui.field.text{     label = _"Notification email", name = "notify_email" }
-    ui.field.text{     label = _"Codice Fiscale",        name = "codice_fiscale" }
+    ui.field.text{     label = _"NIN",        name = "nin" }
     if member and member.activated then
       ui.field.text{     label = _"Screen name",        name = "name" }
       ui.field.text{     label = _"Login name",        name = "login" }
     end
     ui.field.boolean{  label = _"Admin?",       name = "admin" }
+    ui.field.boolean{  label = _"LQFB Access?",   name = "lqfb_access" }
+    ui.field.boolean{  label = _"Auditor?",       name = "auditor" }
     ui.field.boolean{  label = _"Elected?",       name = "elected" }
 
     slot.put("<br />")
