@@ -3,7 +3,7 @@ local id = param.get_id()
 local member = Member:by_id(id)
 if not member then
   -- Check for dups
-  local result = db:query("SELECT COUNT(*) from member WHERE nin = '"..(string.upper(param.get("nin")) or "").."'")[1][1]
+  local result = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."'")[1][1]
   if result > 0 then
     slot.put_into("error", _"Duplicate NIN value found. User already exists in the database")
     return false
@@ -15,7 +15,7 @@ end
 local member_data = MemberData:by_id(id) 
 if not member_data then
   -- Check for dups
-  local result = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..(param.get("idcard") or "").."' OR token_serial ='"..(param.get("token_serial") or "").."'")[1][1]
+  local result = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."'")[1][1]
   if result > 0 then
     slot.put_into("error", _"Duplicate secure data value found. User already exists in the database")
     return false
