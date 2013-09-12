@@ -43,6 +43,7 @@ return {
 ["Actions"]="Azioni";
 ["State"]="Stato";
 ["Auditor login"]="Login certificatore";
+["Duplicate NIN value found. User already exists in the database"]="Trovato valore duplicato per il Codice Fiscale. L'utente esiste gia' nel database";
 ["There are no users certified by you"]="Non si sono utenti certificati da te";
 ["Certified users"]="Utenti certificati";
 ["Auditor?"]="Certificatore?";

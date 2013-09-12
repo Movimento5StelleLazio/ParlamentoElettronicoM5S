@@ -3,14 +3,23 @@ local id = param.get_id()
 local member = Member:by_id(id)
 if not member then
   -- Check for dups
- -- members_selector = Member:build_selector{}
-  db:query("SELECT * from member WHERE nin = ? OR ")
+  local result = db:query("SELECT COUNT(*) from member WHERE nin = '"..(string.upper(param.get("nin")) or "").."'")[1][1]
+  if result > 0 then
+    slot.put_into("error", _"Duplicate NIN value found. User already exists in the database")
+    return false
+  end
   member = Member:new()
   member.creator_id = app.session.member_id
 end
 
 local member_data = MemberData:by_id(id) 
 if not member_data then
+  -- Check for dups
+  local result = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..(param.get("idcard") or "").."' OR token_serial ='"..(param.get("token_serial") or "").."'")[1][1]
+  if result > 0 then
+    slot.put_into("error", _"Duplicate secure data value found. User already exists in the database")
+    return false
+  end
   member_data = MemberData:new()
   member.certifier_id = app.session.member_id
   member.certified = atom.timestamp:get_current()
