@@ -16,20 +16,26 @@ if #members >=1 then
       ids=ids..", "
     end
     ids=ids..member.id
-    data=data..member.id..","..(member.firstname or "")..","..(member.lastname or "")..","
   end
   members_data_selector = MemberData:new_selector()
-  members_data_selector:add_where{ "id IN (?)",ids } 
+  members_data_selector:add_where{ "id IN ("..ids..")" } 
   members_data_selector:add_order_by{ "id" }
   members_data = members_data_selector:exec()
+  for i,member in ipairs(members) do
+    local sensitive_data = ""
+    for i,member_data in ipairs(members_data) do
+      if member_data.id == member.id then
+        sensitive_data = ","..(member_data.birthplace or "")..","..(format.date(member_data.birthdate) or "")..","..(member_data.idcard or "")
+      end
+    end
+    data=data..member.id..","..(member.firstname or "")..","..(member.lastname or "")..","..(member.nin or "")..sensitive_data..'\n'
+  end
 end
+
+local date = atom.date:get_current()
 
 print('Cache-Control: no-cache');
-print('Content-disposition: attachment; filename=test.csv');
-
+print('Content-disposition: attachment; filename=users_'..date.year..date.month..date.day..'.csv');
 slot.set_layout(nil, "text/plain; charset=UTF-8")
-
-if record then
-  slot.put_into("data", "ciao")
-end
-print('test');
+slot.put_into("data","ID,Nome,Cognome,CF,Luogo di nascita,Data di nascita,Numero documento"..'\n')
+slot.put_into("data", data)
