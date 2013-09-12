@@ -1,30 +1,29 @@
 local id = param.get_id()
-
 local member = Member:by_id(id)
+local res1,res2
+
 if not member then
-  -- Check for dups
-  local result = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."'")[1][1]
-  if result > 0 then
-    slot.put_into("error", _"Duplicate NIN value found. User already exists in the database")
-    return false
-  end
   member = Member:new()
   member.creator_id = app.session.member_id
+  res1 = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."'")[1][1]
+else
+  res1 = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."' AND id !="..member.id)[1][1]
 end
 
 local member_data = MemberData:by_id(id) 
 if not member_data then
-  -- Check for dups
-  local result = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."'")[1][1]
-  if result > 0 then
-    slot.put_into("error", _"Duplicate secure data value found. User already exists in the database")
-    return false
-  end
   member_data = MemberData:new()
   member.certifier_id = app.session.member_id
   member.certified = atom.timestamp:get_current()
+  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."'")[1][1]
+else
+  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE (idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."') AND id !="..member_data.id )[1][1]
 end
 
+if res1 > 0 or res2 > 0 then
+  slot.put_into("error", _"Duplicate data value found in the database! User might already be in the database.")
+  return false
+end
 
 local locked = param.get("locked", atom.boolean)
 if locked ~= nil then
@@ -34,6 +33,8 @@ local deactivate = param.get("deactivate", atom.boolean)
 if deactivate then
   member.active = false
 end
+
+-- Check user first name
 local firstname = param.get("firstname")
 if firstname then
   if #firstname >=2 then
@@ -42,7 +43,14 @@ if firstname then
     slot.put_into("error", _"User first name is too short!")
     return false
   end
+else
+  if not member.firstname then
+    slot.put_into("error", _"User first name cannot be empty!")
+    return false
+  end
 end
+
+-- Check user first name
 local lastname = param.get("lastname")
 if lastname then
   if #lastname >=2 then
@@ -51,12 +59,20 @@ if lastname then
     slot.put_into("error", _"User last name is too short!")
     return false
   end
+else
+  if not member.lastname then
+    slot.put_into("error", _"User last name cannot be empty!")
+    return false
+  end
 end
+
+-- Building name and realname field
 if firstname and lastname then
   member.realname = firstname.." "..lastname
   member.name = firstname
 end
 
+-- Check user nin
 local nin = param.get("nin")
 if nin then
   if #nin  ~= 16 then
@@ -64,32 +80,58 @@ if nin then
     return false
   end
   member.nin = string.upper(nin)
+else
+  if not member.nin then
+    slot.put_into("error", _"User NIN cannot be empty!")
+    return false
+  end
 end
 
-local municipality_id = atom.integer:load(param.get("municipality_id"))
+-- Check user municipality_id
+local municipality_id = param.get("municipality_id",atom.integer)
 if municipality_id then
   member.municipality_id = municipality_id
-end
-
-local merr = member:try_save()
-if merr then
-  slot.put_into("error", (_("Error while updating member, database reported:<br /><br /> (#{errormessage})"):gsub("#{errormessage}", tostring(merr.message))))
-  return false
+else
+  if not member.municipality_id then
+    slot.put_into("error", _"User municpality'id cannot be empty!")
+    return false
+  end
 end
 
 --[[
   Sensitive data 
 --]]
 
-member_data.id = member.id
+-- Check user token serial number
 local token_serial = param.get("token_serial")
 if token_serial then
-  member_data.token_serial = token_serial
+  if #token_serial >=8 then
+    member_data.token_serial = token_serial
+  else
+    slot.put_into("error", _"User token serial number is too short!")
+    return false
+  end
+else
+  if not member_data.token_serial then
+    slot.put_into("error", _"User token serial number cannot be empty!")
+    return false
+  end
 end
 
+-- Check user birthplace
 local birthplace = param.get("birthplace")
 if birthplace then
-  member_data.birthplace = birthplace
+  if #birthplace >=2 then
+    member_data.birthplace = birthplace
+  else
+    slot.put_into("error", _"User birthplace is too short!")
+    return false
+  end
+else
+  if not member_data.birthplace then
+    slot.put_into("error", _"User birthplace cannot be empty!")
+    return false
+  end
 end
 
 local birthdate = atom.date:new{year=param.get("birthyear",atom.integer), month=param.get("birthmonth",atom.integer), day=param.get("birthday",atom.integer)}
@@ -97,16 +139,39 @@ if birthdate then
   member_data.birthdate = birthdate
 end
 
+-- Check user id card number
 local idcard = param.get("idcard")
 if idcard then
-  member_data.idcard = idcard
+  if #idcard >=4 then
+    member_data.idcard = idcard
+  else
+    slot.put_into("error", _"User id card number is too short!")
+    return false
+  end
+else
+  if not member_data.idcard then
+    slot.put_into("error", _"User id card number cannot be empty!")
+    return false
+  end
 end
 
+-- Check user e-mail address
 local email = param.get("email")
 if email then
-  member_data.email = email
+  if #email >=6 then
+    member_data.email = email
+  else
+    slot.put_into("error", _"User e-mail address is too short!")
+    return false
+  end
+else
+  if not member_data.email then
+    slot.put_into("error", _"User e-mail address cannot be empty!")
+    return false
+  end
 end
 
+-- Inserting user residence data
 local residence_address = param.get("residence_address")
 if residence_address then
   member_data.residence_address = residence_address
@@ -124,6 +189,7 @@ if residence_postcode then
   member_data.residence_postcode = residence_postcode
 end
 
+-- Inserting user domicile data
 local domicile_address = param.get("domicile_address")
 if domicile_address then
   member_data.domicile_address = domicile_address
@@ -140,6 +206,16 @@ local domicile_postcode = param.get("domicile_postcode")
 if domicile_postcode then
   member_data.domicile_postcode = domicile_postcode
 end
+
+-- Saving
+
+local merr = member:try_save()
+if merr then
+  slot.put_into("error", (_("Error while updating member, database reported:<br /><br /> (#{errormessage})"):gsub("#{errormessage}", tostring(merr.message))))
+  return false
+end
+
+member_data.id = member.id
 
 local mderr = member_data:try_save()
 if mderr then
