@@ -24,7 +24,7 @@ end
 if locale.get("lang") == "it" then
   locale.set{
     date_format = 'DD/MM/YYYY',
-    time_format = 'HH:MM{:SS}',
+    time_format = 'HH:MM{:SS} ore',
     decimal_point = ','
   }
 end
