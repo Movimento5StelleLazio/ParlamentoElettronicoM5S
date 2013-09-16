@@ -3,7 +3,8 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span12 text-center" }, content = function()
-        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Certified users" }
+        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Auditor Panel".." ID:"..app.session.member_id }
+        ui.heading{ level = 3, attr = { class = ""  }, content = _"Your certified users" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid text-center" }, content = function()
@@ -109,15 +110,14 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
                   label = _"Actions",
                   content = function(record)
                     ui.link{
-                      attr = { class = "action admin_only" },
+                      attr = { class = "btn btn-primary btn-mini btn_mini_margin action admin_only" },
                       text = _"Edit",
                       module = "auditor",
                       view = "member_edit",
                       id = record.id
                     }
-                    slot.put(" &middot; ")
                     ui.link{
-                      attr = { class = "action admin_only" },
+                      attr = { class = "btn btn-primary btn-mini btn_mini_margin  action admin_only" },
                       text = _"Idcard scans",
                       module = "auditor",
                       view = "idcard_scans",
