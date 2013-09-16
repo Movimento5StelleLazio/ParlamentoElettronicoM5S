@@ -47,8 +47,9 @@ if ( not member or not member_data ) and
             end
           }
         end }
-        ui.container{ attr = { class = "span6 text-center" }, content = function()
-          ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Dichiarazioni obbligatorie" }
+        ui.container{ attr = { class = "span9 text-center" }, content = function()
+          ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Auditor Panel".." ID:"..app.session.member_id }
+          ui.heading{ level = 3, attr = { class = "uppercase"  }, content = _"Dichiarazioni obbligatorie" }
         end }
       end }
     end }
@@ -106,10 +107,12 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           end
         }       
       end }
-      ui.container{ attr = { class = "span6 text-center" }, content = function()
-        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = function()
+      ui.container{ attr = { class = "span9 text-center" }, content = function()
+        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Auditor Panel".." ID:"..app.session.member_id }
+        ui.heading{ level = 3, attr = { class = ""  }, content = function()
           if member then
-            slot.put(_("Member: #{firstname} #{lastname}", { firstname = member.firstname, lastname = member.lastname }))
+            slot.put(_("Edit member: #{firstname} #{lastname}", { firstname = member.firstname, lastname = member.lastname }))
+            slot.put(" (Id:"..member.id..")") 
           else
             slot.put(_"Register new member")
           end

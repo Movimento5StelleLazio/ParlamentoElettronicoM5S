@@ -1,7 +1,11 @@
 slot.set_layout("custom")
   ui.container{ attr = { class = "row-fluid" }, content = function()
     ui.heading{ level = 1, attr = { class = "span12 text-center" }, content = _"Auditor login" }
+--    ui.container{ attr = { class = "span12" }, content = function()
+--      ui.svgtxt{ svg_attr={style="height: 100px"}, attr={style="font-size: 55px"},content = _"Auditor login" }
+--    end }
   end }
+  
 
   ui.container{ attr = { class = "row-fluid spaceline3" }, content = function ()
     ui.form{
