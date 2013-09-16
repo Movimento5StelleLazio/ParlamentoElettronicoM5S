@@ -33,6 +33,9 @@ return {
 ["Duplicate NIN value found in the database. User already registered."]="Codice Fiscale duplicato trovato nel database. L'utente &egrave gi&agrave registrato!";
 ["Duplicate Id Card Number value found in the database. User already registered."]="Numero del Documento duplicato trovato nel database. L'utente &egrave gi&agrave registrato!";
 ["Duplicate Token Serial value found in the database. User already registered."]="Seriale del Token duplicato trovato nel database. L'utente &egrave gi&agrave registrato!";
+["This user was not certified by you!"]="Questo utente non &egrave stato certificato da te!";
+["You cannot modify an user not created by you!"]="Non puoi modificare un'utente non creato da te!";
+["User does not exists"]="Utente inesistente";
 ["Residence address"]="Indirizzo di residenza";
 ["Residence city"]="Citta' di residenza";
 ["Residence province"]="Provincia di residenza";

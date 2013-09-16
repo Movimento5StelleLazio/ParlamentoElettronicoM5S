@@ -3,6 +3,11 @@ local id = param.get_id()
 local member = Member:by_id(id)
 local member_data = MemberData:by_id(id)
 
+if member and member.certifier_id ~= app.session.member_id then
+  slot.put_into("error", _"This user was not certified by you!")
+  return false
+end
+
 local confirm_box1 = param.get("confirm_box1",atom.boolean)
 local confirm_box2 = param.get("confirm_box2",atom.boolean)
 local confirm_box3 = param.get("confirm_box3",atom.boolean)

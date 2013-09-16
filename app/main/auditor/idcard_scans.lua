@@ -2,6 +2,16 @@ slot.set_layout("custom")
 local member_id = param.get_id()
 local member = Member:by_id(member_id)
 
+if not member then
+  slot.put_into("error", _"User does not exists")
+  return false
+end
+
+if member and member.certifier_id ~= app.session.member_id then 
+  slot.put_into("error", _"This user was not certified by you!")
+  return false
+end
+
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
