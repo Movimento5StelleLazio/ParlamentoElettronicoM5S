@@ -1,5 +1,17 @@
 local member_id = param.get("member_id",atom.integer)
 
+local member = Member:by_id(member_id)
+
+if not member then
+  slot.put_into("error", _"User does not exists")
+  return false
+end
+
+if member and  member.certifier_id ~= app.session.member_id then
+  slot.put_into("error", _"You cannot modify an user not created by you!")
+  return false
+end
+
 local deleted = 0
 local updated = 0
 
