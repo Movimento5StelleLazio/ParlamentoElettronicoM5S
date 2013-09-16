@@ -1,8 +1,3 @@
-if not app.session.member_id then
-  slot.put_into("error",_"Unauthorized")
-  return false
-end
-
 -- Generating CSV data
 local members_selector = Member:new_selector()
 members_selector:add_where{ "certifier_id = ?", app.session.member_id }

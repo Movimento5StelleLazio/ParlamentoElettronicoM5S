@@ -6,6 +6,9 @@ if not member then
   member = Member:new()
   member.creator_id = app.session.member_id
   res1 = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."'")[1][1]
+elseif member.certifier_id ~= app.session.member_id then
+  slot.put_into("error", _"You cannot modify an user not created by you!")
+  return false
 else
   res1 = db:query("SELECT COUNT(*) from member WHERE nin = '"..string.upper(param.get("nin")).."' AND id !="..member.id)[1][1]
 end
