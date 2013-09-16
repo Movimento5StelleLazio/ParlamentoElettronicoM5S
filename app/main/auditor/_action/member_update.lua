@@ -15,13 +15,25 @@ if not member_data then
   member_data = MemberData:new()
   member.certifier_id = app.session.member_id
   member.certified = atom.timestamp:get_current()
-  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."'")[1][1]
+  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."'")[1][1]
+  res3 = secure_db:query("SELECT COUNT(*) from member_data WHERE token_serial ='"..param.get("token_serial").."'")[1][1]
 else
-  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE (idcard = '"..param.get("idcard").."' OR token_serial ='"..param.get("token_serial").."') AND id !="..member_data.id )[1][1]
+  res2 = secure_db:query("SELECT COUNT(*) from member_data WHERE idcard = '"..param.get("idcard").."' AND id !="..member_data.id )[1][1]
+  res3 = secure_db:query("SELECT COUNT(*) from member_data WHERE token_serial ='"..param.get("token_serial").."' AND id !="..member_data.id )[1][1]
 end
 
-if res1 > 0 or res2 > 0 then
-  slot.put_into("error", _"Duplicate data value found in the database! User might already be in the database.")
+if res1 > 0 then
+  slot.put_into("error", _"Duplicate NIN value found in the database. User already registered.")
+  return false
+end
+
+if res2 > 0 then
+  slot.put_into("error", _"Duplicate Id Card Number value found in the database. User already registered.")
+  return false
+end
+
+if res3 > 0 then
+  slot.put_into("error", _"Duplicate Token Serial value found in the database. User already registered.")
   return false
 end
 
@@ -93,7 +105,7 @@ if municipality_id then
   member.municipality_id = municipality_id
 else
   if not member.municipality_id then
-    slot.put_into("error", _"User municpality'id cannot be empty!")
+    slot.put_into("error", _"User municpality id cannot be empty!")
     return false
   end
 end
@@ -171,7 +183,7 @@ else
   end
 end
 
--- Inserting user residence data
+-- Check user residence data
 local residence_address = param.get("residence_address")
 if residence_address then
   member_data.residence_address = residence_address
@@ -189,7 +201,12 @@ if residence_postcode then
   member_data.residence_postcode = residence_postcode
 end
 
--- Inserting user domicile data
+if #residence_address < 6 or #residence_city < 2 or #residence_province == 0 or #residence_postcode < 4 then
+    slot.put_into("error", _"User residence data missing or incomplete!")
+    return false
+end
+
+-- Check user domicile data
 local domicile_address = param.get("domicile_address")
 if domicile_address then
   member_data.domicile_address = domicile_address
@@ -205,6 +222,11 @@ end
 local domicile_postcode = param.get("domicile_postcode")
 if domicile_postcode then
   member_data.domicile_postcode = domicile_postcode
+end
+
+if #domicile_address < 6 or #domicile_city < 2 or #domicile_province ==0 or #domicile_postcode < 4 then
+    slot.put_into("error", _"User domicile data missing or incomplete!")
+    return false
 end
 
 -- Saving

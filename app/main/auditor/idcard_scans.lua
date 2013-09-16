@@ -1,5 +1,6 @@
 slot.set_layout("custom")
 local member_id = param.get_id()
+local member = Member:by_id(member_id)
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well" }, content = function()
@@ -18,18 +19,34 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         }
       end }
       ui.container{ attr = { class = "span9 text-center" }, content = function()
-        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Idcard scan upload" }
+        ui.heading{ level = 1, attr = { class = "uppercase"  }, content = _"Auditor Panel".." ID:"..app.session.member_id }
+        ui.heading{ level = 3, attr = { class = ""  }, content = function()
+            slot.put(_("Upload scans for member: #{firstname} #{lastname}", { firstname = member.firstname, lastname = member.lastname }))
+            slot.put(" (Id:"..member_id..")")
+        end }
       end }
     end }
   end }
 end }
 ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
   ui.container{ attr = { class = "span12 alert alert-simple issue_box paper text-center"}, content = function()
-
+    ui.container{ attr = { class = "row-fluid text-center"}, content = function()
+      ui.container{ attr = { class = "inline-block text-left"}, content = function()
+        ui.heading{level=5,content= function()
+          slot.put("Scansioni obbligatorie da caricare:",
+            "<ul>",
+            "<li>Documento d'identit&agrave (fronte)</li>",
+            "<li>Documento d'identit&agrave (retro)</li>",
+            "<li>Foto del documento d'identit&agrave</li>",
+            "<li>Codice Fiscale e/o Tessera Sanitaria</li>",
+            "</ul>")
+        end }
+      end }
+    end }
     ui.form{
       record = app.session.member,
       attr = { 
-        class = "vertical",
+        class = "vertical spaceline2",
         enctype = 'multipart/form-data'
       },
       module = "auditor",
