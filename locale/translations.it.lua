@@ -1022,7 +1022,7 @@ return {
 ["User birthplace cannot be empty!"]="Il Luogo di Nascita dell'utente non pu&ograve essere vuoto!";
 ["User token serial number is too short!"]="Il Seriale del Token dell'utente &egrave troppo corto!";
 ["User token serial number cannot be empty!"]="Il Seriale del Token dell'utente non pu&ograve essere vuoto!";
-["User municpality id cannot be empty!"]="L'ID di residenza dell'utente non pu&ograve essere vuoto!";
+["User unit cannot be empty!"]="L'unit&agrave di residenza dell'utente non pu&ograve essere vuota!";
 ["User NIN cannot be empty!"]="Il Codice Fiscale dell'utente non pu&ograve essere vuoto!";
 ["User last name is too short!"]="Il Nome dell'utente &egrave troppo corto!";
 ["User last name cannot be empty!"]="Il Nome dell'utente non pu&ograve essere vuoto!";
