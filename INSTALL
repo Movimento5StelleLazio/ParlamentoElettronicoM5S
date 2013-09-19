@@ -1,0 +1,60 @@
+Requisites:
+
+* Postgres 9.1
+* Lighttpd
+* Lua 5.1
+
+Follow the debian packages installation instruction found @ http://dev.liquidfeedback.org/trac/lf/wiki/installation
+
+Create a postgres user "www-data":
+
+# su - postgres
+# createuser
+
+>Enter name of role to add: www-data
+>Shall the new role be a superuser? (y/n) n
+>Shall the new role be allowed to create databases? (y/n) y
+>Shall the new role be allowed to create more new roles? (y/n) n
+>exit
+
+Clone the "Core" repository:
+
+# cd /opt
+# git clone https://github.com/Movimento5StelleLazio/ParlamentoElettronicoM5SCore 
+
+Clone the "Frontend" repository:
+
+# cd /opt
+# git clone https://github.com/Movimento5StelleLazio/ParlamentoElettronicoM5S
+
+Create the database:
+
+# su - www-data
+# cd /opt/ParlamentoElettronicoM5SCore
+# createdb liquid_feedback
+# psql -f core.sql liquid_feedback
+
+Create the secure database (TBD):
+
+# su - www-data
+# cd /opt/ParlamentoElettronicoM5SCore
+# psql -f sensitive_data.sql liquid_feedback
+
+Install the frontend (as root):
+# cd /opt/ParlamentoElettronicoM5S
+# extras/install.sh -a
+
+Install initial data (as www-data):
+# su - www-data
+# cd /opt/ParlamentoElettronicoM5S/extras/init/
+# ./00_initial.sh liquid_feedback
+# ./01_units.sh liquid_feedback
+# ./02_unit_groups.sh liquid_feedback
+
+Activate the admin account:
+
+>Go to the URL of your server: /lf/index/register.html
+>Insert the registration code ("admin")
+>Complete the registration form
+
+Login to /lf/auditor/login.html and create new users

@@ -102,13 +102,13 @@ else
   end
 end
 
--- Check user municipality_id
-local municipality_id = param.get("municipality_id",atom.integer)
-if municipality_id then
-  member.municipality_id = municipality_id
+-- Check user unit_group_id
+local unit_group_id = param.get("unit_group_id",atom.integer)
+if unit_group_id then
+  member.unit_group_id = unit_group_id
 else
-  if not member.municipality_id then
-    slot.put_into("error", _"User municpality id cannot be empty!")
+  if not member.unit_group_id then
+    slot.put_into("error", _"User unit cannot be empty!")
     return false
   end
 end
