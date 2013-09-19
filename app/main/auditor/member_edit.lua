@@ -302,15 +302,32 @@ ui.container{ attr = { class = "row-fluid spaceline2" }, content = function()
           name = "domicile_postcode",
           value = param.get("domicile_postcode")
         }
-
+        local unit_group_selector = UnitGroup:new_selector()
+        unit_group_selector:add_where("name LIKE 'Comune di %'")
+        unit_group_selector:add_order_by('name')
+        unit_groups=unit_group_selector:exec()
+        
+        ui.field.select{
+          label = _"Unit",
+          name = "unit_group_id",
+          foreign_records = unit_groups,
+          foreign_id = 'id',
+          foreign_name = 'name',
+          attr={class="auditor_input"},
+          selected_record = param.get("unit_group_id",atom.integer),
+          label_attr={class="auditor_input_label"}
+        }
+        --[[
         ui.field.text{
           record = member,
           label_attr={class="auditor_input_label"},
           attr={class="auditor_input",placeholder=_"Municipality ID"},
-          label = _"Municipality ID",
-          name = "municipality_id",
-          value = param.get("municipality_id",atom.integer)
+          label = _"Unit",
+          name = "unit_group_id",
+          value = param.get("unit_group_id",atom.integer)
         }
+        --]]
+        
 
         if not member or not member.activated then
           ui.field.boolean{label_attr={class="auditor_input_label"},  label = _"Send invite?", name = "invite_member" }
