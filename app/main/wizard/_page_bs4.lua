@@ -82,23 +82,19 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
                       
-                      ui.container{attr={class="span12 text-center"},content=function()
-                        ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right issue_keywords"},content=function()
+                            ui.container{attr={class="span6 text-right collapse",style="height:100%;"},content=function()
                               ui.tag{tag="p",content=  _"Keywords"}
                               ui.tag{tag="em",content=  _"Keywords note"}
                             end }
-                            ui.container{attr={class="span6 issue_keywords"},content=function()
+                            ui.container{attr={class="span6 collapse",style="height:20em;"},content=function()
                               ui.tag{
-                                tag="textarea", 
-                                attr={id="issue_keywords",name="issue_keywords",style="height:100%;width:100%;resize:none;"}, 
+                                tag="input", 
+                                attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"}, 
                                 content=""
                               }
                             end }
                           end }
-                        end }
-                      end }
                               
                       end --fine contenuto
                    }--fine form
@@ -122,6 +118,5 @@ ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function
   end }
 end }
 
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".issue_keywords")); $(window).resize(function() { equalHeight($(".issue_keywords")); }); }); ' }
-
+ui.script{static="js/jquery.tagsinput.js"}
+ui.script{script="$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}

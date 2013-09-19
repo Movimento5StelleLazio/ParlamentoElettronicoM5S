@@ -8,12 +8,19 @@
 $('.fixclick').mousedown( function(event)
 {
    if ( event.which != 1 ) { return; }
+
+   var self = $(this);
+   var form = self.closest('form')[0];
+   if ( form ) 
+   { 
+           $(form).submit();
+           return;
+   }
    
    if ( $(this).attr( 'datatoggle') && $(this).attr( 'datatoggle')=="dropdown" )
    {
 	   //console.log("menu dropdown clicked");
 	   return;
    }
-   
    window.location.href = $(this).attr('href');
 });

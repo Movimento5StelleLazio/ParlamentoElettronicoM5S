@@ -243,6 +243,17 @@ Member:add_reference{
   ref                   = 'supported_initiatives'
 }
 
+Member:add_reference{
+  mode                  = 'mm',
+  to                    = "Event",
+  this_key              = 'id',
+  that_key              = 'id',
+  connected_by_table    = 'checked_event',
+  connected_by_this_key = 'member_id',
+  connected_by_that_key = 'event_id',
+  ref                   = 'events'
+}
+
 model.has_rendered_content(Member, RenderedMemberStatement, "statement")
 
 function Member:build_selector(args)

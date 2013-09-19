@@ -34,6 +34,18 @@ Event:add_reference{
   ref           = 'member',
 }
 
+Event:add_reference{
+  mode                  = 'mm',
+  to                    = "Member",
+  this_key              = 'id',
+  that_key              = 'id',
+  connected_by_table    = 'checked_event',
+  connected_by_this_key = 'event_id',
+  connected_by_that_key = 'member_id',
+  ref                   = 'members'
+}
+
+
 function Event.object_get:event_name()
   return ({
     issue_state_changed = _"Issue reached next phase",
