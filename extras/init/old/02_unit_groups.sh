@@ -17,7 +17,7 @@ if [ ! -f ${subunits} ];then
 fi
 
 cat ${subunits} | while read unit; do
-  echo "SELECT id,name FROM unit;" | ${psql_cmd} ${db_name}
+  echo "SELECT id,name FROM unit WHERE name ;" | psql -At -F, ${db_name}
 #  root_unit_id=`echo "SELECT id FROM unit WHERE name = '${root_unit_name}';" | psql -At ${db_name}`
 done
 

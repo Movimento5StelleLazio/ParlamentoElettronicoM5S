@@ -5,22 +5,21 @@ if [ $# -lt 1 ];then
 fi
 
 db_name=$1
-psql_cmd="/usr/bin/psql -e"
+psql_cmd="/usr/bin/psql"
+assemblies="assemblies.list"
 
-rootunit='Regione Lazio'
-inputfile='lazio.csv'
-subunits="subunits.list"
-subquery="(SELECT id FROM unit WHERE name = '${rootunit}')"
 
-if [ ! -f ${subunits} ];then
-  echo "Cannot find list of subunits to create: ${subunits}"
-  exit 1
-fi
+subquery_province="(SELECT b.nome_regione AS regione, a.nome_provincia AS provincia FROM istat_province AS a JOIN istat_regioni AS b ON a.codice_regione = b.codice_regione)"
+subquery_comuni="(SELECT b.nome_provincia AS provincia, a.nome_comune AS comune FROM istat_comuni AS a JOIN istat_province AS b ON a.codice_provincia = b.codice_provincia)"
 
-echo "INSERT INTO unit (name,parent_id,description) VALUES ('${rootunit}',NULL,'');" | ${psql_cmd} ${db_name}
-
-cat ${subunits} | while read unit; do
-  echo "INSERT INTO unit (name,parent_id,description) VALUES ('${unit}',${subquery},'');" | ${psql_cmd} ${db_name}
-  ./_insert_units.sh ${inputfile} "${unit}" ${db_name}
+cat ${assemblies} | while read assembly; do
+  # Country units
+  echo "INSERT INTO unit (name,description) VALUES ('Italia','${assembly}');" | ${psql_cmd} -e ${db_name}
+  # Regional units
+  echo "INSERT INTO unit (name,parent_id,description) SELECT nome_regione,(SELECT id FROM unit WHERE name = 'Italia' AND description = '${assembly}'),'${assembly}' FROM istat_regioni;" | ${psql_cmd} -e ${db_name}
+  # Province units
+  echo "INSERT INTO unit (name,parent_id,description) SELECT c.provincia, (SELECT id FROM unit WHERE name = c.regione AND description = '${assembly}'),'${assembly}' FROM ${subquery_province} AS c;"| ${psql_cmd} -e ${db_name}
+  # City units
+  echo "INSERT INTO unit (name,parent_id,description) SELECT c.comune, (SELECT min(id) FROM unit WHERE name = c.provincia AND description = '${assembly}' ),'${assembly}' FROM ${subquery_comuni} AS c;"| ${psql_cmd} -e ${db_name}
 done
 
