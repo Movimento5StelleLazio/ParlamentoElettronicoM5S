@@ -114,11 +114,8 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
           tag = "a",
           attr = { 
             id = "btn_apply", 
-            --href = "#btn_delete",
             class = "btn btn-primary btn-large",
-            onclick="toggle_flt();"
---              datatoggle="collapse",
---              datatarget="#state_flt #interest_flt #scope_flt"
+            onmousedown="toggle_flt();"
           },
           content = function()
             ui.heading{ level=4, content = _"APPLY FILTERS"  }
@@ -130,7 +127,7 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
     ui.container{ attr = { id = "btn_delete_row", class = "row-fluid", style="display:"..display_flt}, content = function()
       ui.container{ attr = { class = "span12 text-center"}, content = function()
         ui.link {
-          attr = { id = "btn_delete", name="btn_delete", class = "btn btn-primary active btn-large"},
+          attr = { id = "btn_delete", name="btn_delete", class = "btn btn-primary active btn-large fixclick"},
           module = module, view = view, id = id or nil,
           params = { 
             state = default_state, 
@@ -168,7 +165,7 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
                           for j=1, #btns.state[i] do
                             if state == btns.state[i][j] then color = " active" else color = "" end
                             ui.link {
-                              attr = { id = "flt_btn_"..btns.state[i][j], class = "filter_btn btn btn-primary btn-small"..color},
+                              attr = { id = "flt_btn_"..btns.state[i][j], class = "filter_btn btn btn-primary btn-small fixclick"..color},
                               module = module, view = view, id = id or nil, 
                               params = { state = btns.state[i][j], orderby = orderby, desc = desc, interest = interest, scope=scope, ftl_btns = true },
                               content = function()
@@ -203,7 +200,7 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
                           for j=1, #btns.interest[i] do
                             if interest == btns.interest[i][j] then color = " active" else color = "" end
                             ui.link {
-                              attr = { id = "flt_btn_"..btns.interest[i][j], class = "filter_btn btn btn-primary btn-small"..color},
+                              attr = { id = "flt_btn_"..btns.interest[i][j], class = "filter_btn btn btn-primary btn-small fixclick"..color},
                               module = module, view = view, id = id or nil,
                               params = { state = state, orderby = orderby, desc = desc, interest = btns.interest[i][j], scope=scope, ftl_btns = true },
                               content = function()
@@ -238,7 +235,7 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
                           for j=1, #btns.scope[i] do
                             if scope == btns.scope[i][j] then color = " active" else color = "" end
                             ui.link {
-                              attr = { id = "flt_btn_"..btns.scope[i][j], class = "filter_btn btn btn-primary btn-small"..color},
+                              attr = { id = "flt_btn_"..btns.scope[i][j], class = "filter_btn btn btn-primary btn-small fixclick"..color},
                               module = module, view = view, id = id or nil,
                               params = { state = state, orderby = orderby, desc = desc, interest = interest, scope= btns.scope[i][j], ftl_btns = true },
                               content = function()

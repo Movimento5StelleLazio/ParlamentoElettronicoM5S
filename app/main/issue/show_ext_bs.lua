@@ -40,7 +40,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick"  },
+          attr = { class="btn btn-primary btn-large fixclick" },
           module = return_module,
           id = issue.area.id,
           view = return_view,
@@ -178,11 +178,13 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        keywords={"lavoro","scuola","educazione","finanza"}
-        for i,k in ipairs(keywords) do
-          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
-            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
-          end }
+        local keywords=Keyword:by_issue_id(issue.id)
+        if keywords and #keywords > 0 then
+          for k = 1, #keywords do
+            ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
+              ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+            end }
+          end
         end
       end }
     end }
