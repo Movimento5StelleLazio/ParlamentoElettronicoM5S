@@ -27,7 +27,7 @@ if not app.session.member_id then
 end
 
 if app.session.member_id then
-  util.help("index.index", _"Home")
+  --util.help("index.index", _"Home")
   local member = Member:by_id(app.session.member.id)
   
   ui.container{attr = {class = "row-fluid" },content = function()
