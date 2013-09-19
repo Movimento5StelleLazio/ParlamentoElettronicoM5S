@@ -16,8 +16,8 @@ config.gui_preset = {
     name = "default",
     start_page = "_index_default"
   }, 
-  M5S_bs = {
-    name = "M5S_bs",
+  custom = {
+    name = "custom",
     start_page = "_welcome_bs",
     units = {
       eletti = {
