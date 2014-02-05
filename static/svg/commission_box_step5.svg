@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="1600"
+   height="200"
+   id="svg4807"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="COMMISSION BOX STEP 5.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1918"
+     inkscape:window-height="995"
+     id="namedview9901"
+     showgrid="false"
+     inkscape:zoom="0.80285156"
+     inkscape:cx="800"
+     inkscape:cy="100"
+     inkscape:window-x="0"
+     inkscape:window-y="55"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4807" />
+  <defs
+     id="defs4809">
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604" />
+      <feMerge
+         id="feMerge6606">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-9">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-8" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-3" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-7" />
+      <feMerge
+         id="feMerge6606-1">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-2" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-6" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-7">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-0" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-7" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-6" />
+      <feMerge
+         id="feMerge6606-8">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-23" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-9" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-4">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-9" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-5" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-9" />
+      <feMerge
+         id="feMerge6606-0">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-235" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-90" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-79">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-6" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-6" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-64" />
+      <feMerge
+         id="feMerge6606-4">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-4" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-5" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25"
+       y="-0.25"
+       width="1.5"
+       height="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter6598-5">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-95" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-77" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-3" />
+      <feMerge
+         id="feMerge6606-7">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-6" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-4" />
+      </feMerge>
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4812">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(431.01976,-282.36555)"
+     id="layer1">
+    <g
+       transform="matrix(2.665554,0,0,2.665554,-791.23229,-586.56328)"
+       id="g14962"
+       style="filter:url(#filter6598-5)">
+      <path
+         d="m 140.905,334.38602 -0.40161,59.43775 102.81124,0 12.4498,-29.31727 -12.91026,-30.1499 z"
+         id="path14964"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 242.61702,334.44486 12.24618,30.44355 -12.64779,28.9942 119.47791,0 12.4498,-29.31727 -11.83267,-29.93439 z"
+         id="path14966"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 362.30092,334.44486 12.24618,30.44355 -12.64779,28.9942 112.99643,0 12.4498,-29.31727 -12.26371,-30.1499 z"
+         id="path14968"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 475.07232,334.44486 12.24618,30.44355 -12.64779,28.9942 122.25568,0 12.4498,-29.31727 -12.47922,-29.93439 z"
+         id="path14970"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 595.28305,334.44486 12.24618,30.44355 -12.64779,28.9942 132.16947,0 c 0.17241,-19.89394 0.17259,-39.78823 0.18612,-59.68269 z"
+         id="path14972"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <path
+       d="m -416.48154,304.76075 -1.07052,158.43453 274.04897,0 33.18562,-78.14676 -34.4131,-80.36619 z"
+       id="path14974"
+       style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:8.52977276;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m -144.52346,304.91757 32.6429,81.14892 -33.71339,77.28561 318.4748,0 33.18561,-78.14677 -31.5407,-79.79173 z"
+       id="path14976"
+       style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:8.52977276;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="-93.009773"
+       y="361.78094"
+       id="text14978"
+       xml:space="preserve"
+       style="font-size:40.85216141px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="-93.009773"
+         y="361.78094"
+         id="tspan14980"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium">Passo 2</tspan></text>
+    <text
+       x="-91.66478"
+       y="402.34604"
+       id="text14982"
+       xml:space="preserve"
+       style="font-size:21.81348419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="-91.66478"
+         y="402.34604"
+         id="tspan14984">Attesa del Raggiungimento</tspan><tspan
+         x="-91.66478"
+         y="429.61288"
+         id="tspan14986">del Quorum di Richieste</tspan></text>
+    <text
+       x="-390.41589"
+       y="361.78094"
+       id="text14988"
+       xml:space="preserve"
+       style="font-size:40.85216141px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="-390.41589"
+         y="361.78094"
+         id="tspan14990">Passo 1</tspan></text>
+    <text
+       x="-389.07108"
+       y="402.34604"
+       id="text14992"
+       xml:space="preserve"
+       style="font-size:21.81348419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="-389.07108"
+         y="402.34604"
+         id="tspan14994">Scelta delle Aree di</tspan><tspan
+         x="-389.07108"
+         y="429.61288"
+         id="tspan14996">Competenza</tspan></text>
+    <path
+       d="m 174.50044,304.91757 32.64291,81.14892 -33.7134,77.28561 301.19801,0 33.18561,-78.14677 -32.68955,-80.36619 z"
+       id="path14998"
+       style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:8.52977276;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="226.85701"
+       y="361.78094"
+       id="text15000"
+       xml:space="preserve"
+       style="font-size:40.85216141px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0f0c08;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="226.85701"
+         y="361.78094"
+         id="tspan15002">Passo 3</tspan></text>
+    <text
+       x="228.20183"
+       y="402.34604"
+       id="text15004"
+       xml:space="preserve"
+       style="font-size:21.81348419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="228.20183"
+         y="402.34604"
+         id="tspan15006">Convocazione dei membri</tspan><tspan
+         x="228.20183"
+         y="429.61288"
+         id="tspan15008">della commissione</tspan></text>
+    <path
+       d="m 475.40843,304.83246 32.64291,81.14892 -33.7134,77.28561 325.87918,0 33.1856,-78.14677 -33.26397,-79.79173 z"
+       id="path15010"
+       style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:8.52977276;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="525.39905"
+       y="361.78094"
+       id="text15012"
+       xml:space="preserve"
+       style="font-size:40.85216141px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="525.39905"
+         y="361.78094"
+         id="tspan15014">Passo 4</tspan></text>
+    <text
+       x="526.7439"
+       y="402.34604"
+       id="text15016"
+       xml:space="preserve"
+       style="font-size:21.81348419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="526.7439"
+         y="402.34604"
+         id="tspan15018">Esame della Proposta</tspan><tspan
+         x="526.7439"
+         y="429.61288"
+         id="tspan15020">da parte della Commissione</tspan></text>
+    <path
+       d="m 798.9619,304.83246 32.64295,81.14892 -33.71343,77.28561 352.30468,0 c 0.4598,-53.02838 0.46,-106.05768 0.4963,-159.08743 z"
+       id="path15022"
+       style="fill:#87521a;fill-opacity:1;stroke:#ffffff;stroke-width:8.52977276;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="855.9278"
+       y="361.78094"
+       id="text15024"
+       xml:space="preserve"
+       style="font-size:40.85216141px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="855.9278"
+         y="361.78094"
+         id="tspan15026">Passo 5</tspan></text>
+    <text
+       x="857.27264"
+       y="402.34604"
+       id="text15028"
+       xml:space="preserve"
+       style="font-size:21.81348419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"><tspan
+         x="857.27264"
+         y="402.34604"
+         id="tspan15030">Pubblicazione del Rapporto</tspan><tspan
+         x="857.27264"
+         y="429.61288"
+         id="tspan15032">della Commissiome</tspan></text>
+  </g>
+</svg>

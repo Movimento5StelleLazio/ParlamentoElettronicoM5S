@@ -1,0 +1,2141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1600"
+   height="200"
+   id="svg4807"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="commission_box_step2.svg">
+  <script
+     xlink:href=""
+     id="script9230" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.6952518"
+     inkscape:cx="1477.3087"
+     inkscape:cy="437.69141"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1918"
+     inkscape:window-height="995"
+     inkscape:window-x="0"
+     inkscape:window-y="55"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs4809">
+    <filter
+       color-interpolation-filters="sRGB"
+       y="-0.25"
+       x="-0.25"
+       height="1.5"
+       width="1.5"
+       inkscape:label="Drop shadow"
+       id="filter6598">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604" />
+      <feMerge
+         id="feMerge6606">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610" />
+      </feMerge>
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       y="-0.25"
+       x="-0.25"
+       height="1.5"
+       width="1.5"
+       inkscape:label="Drop shadow"
+       id="filter6598-9">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-8" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-3" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-7" />
+      <feMerge
+         id="feMerge6606-1">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-2" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-6" />
+      </feMerge>
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       y="-0.25"
+       x="-0.25"
+       height="1.5"
+       width="1.5"
+       inkscape:label="Drop shadow"
+       id="filter6598-7">
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="SourceAlpha"
+         id="feGaussianBlur6600-0" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix6602-7" />
+      <feOffset
+         result="offsetBlur"
+         dy="1.8"
+         dx="4.57967e-15"
+         in="bluralpha"
+         id="feOffset6604-6" />
+      <feMerge
+         id="feMerge6606-8">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode6608-23" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode6610-9" />
+      </feMerge>
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4812">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(431.01976,-282.36555)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       id="g14658"
+       style="filter:url(#filter6598-7)"
+       transform="matrix(2.6745029,0,0,2.6745029,-791.78849,-594.30479)">
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path14660"
+         d="m 140.905,334.38602 -0.40161,59.43775 102.81124,0 12.4498,-29.31727 -12.91026,-30.1499 z"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 242.61702,334.44486 12.24618,30.44355 -12.64779,28.9942 119.47791,0 12.4498,-29.31727 -11.83267,-29.93439 z"
+         id="path14662"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path14664"
+         d="m 362.30092,334.44486 12.24618,30.44355 -12.64779,28.9942 112.99643,0 12.4498,-29.31727 -12.26371,-30.1499 z"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 475.07232,334.44486 12.24618,30.44355 -12.64779,28.9942 122.25568,0 12.4498,-29.31727 -12.47922,-29.93439 z"
+         id="path14666"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path14668"
+         d="m 595.28305,334.44486 12.24618,30.44355 -12.64779,28.9942 132.16947,0 c 0.17241,-19.89394 0.17259,-39.78823 0.18612,-59.68269 z"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="cccccc" />
+    </g>
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path14670"
+       d="m -415.77961,300.01163 -1.07411,158.96644 274.96901,0 33.29703,-78.40912 -34.52863,-80.636 z"
+       style="fill:#e5b079;fill-opacity:1;stroke:#ffffff;stroke-width:8.55840969;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path14672"
+       d="m -142.90851,300.16898 32.75251,81.42136 -33.82659,77.54507 319.544,0 33.29703,-78.40912 -31.64659,-80.05962 z"
+       style="fill:#87521a;fill-opacity:1;stroke:#ffffff;stroke-width:8.55840969;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="ccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40.98931503px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="-91.221855"
+       y="357.22327"
+       id="text14674"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan14676"
+         x="-91.221855"
+         y="357.22327"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium">Passo 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.88671684px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="-89.8722"
+       y="397.92447"
+       id="text14678"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan14736"
+         sodipodi:role="line"
+         x="-89.8722"
+         y="397.92447">Attesa del Raggiungimento</tspan><tspan
+         id="tspan14744"
+         sodipodi:role="line"
+         x="-89.8722"
+         y="425.28287">del Quorum di Richieste</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text14684"
+       y="357.22327"
+       x="-389.62662"
+       style="font-size:40.98931503px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         y="357.22327"
+         x="-389.62662"
+         id="tspan14686"
+         sodipodi:role="line">Passo 1</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text14688"
+       y="397.92447"
+       x="-388.27728"
+       style="font-size:21.88671684px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         id="tspan14692"
+         y="397.92447"
+         x="-388.27728"
+         sodipodi:role="line">Scelta delle Aree di</tspan><tspan
+         id="tspan14740"
+         y="425.28287"
+         x="-388.27728"
+         sodipodi:role="line">Competenza</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.55840969;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 177.18644,300.16898 32.7525,81.42136 -33.82658,77.54507 302.20921,0 33.29702,-78.40912 -32.7993,-80.636 z"
+       id="path14694"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text14696"
+       y="357.22327"
+       x="229.71878"
+       style="font-size:40.98931503px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         y="357.22327"
+         x="229.71878"
+         id="tspan14698"
+         sodipodi:role="line">Passo 3</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text14700"
+       y="397.92447"
+       x="231.06812"
+       style="font-size:21.88671684px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         id="tspan14702"
+         y="397.92447"
+         x="231.06812"
+         sodipodi:role="line">Convocazione dei membri</tspan><tspan
+         id="tspan14704"
+         y="425.28287"
+         x="231.06812"
+         sodipodi:role="line">della commissione</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path14706"
+       d="m 479.10466,300.08358 32.7525,81.42136 -33.82658,77.54508 326.9732,0 33.2971,-78.40913 -33.3757,-80.05961 z"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.55840969;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="ccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40.98931503px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="529.26312"
+       y="357.22327"
+       id="text14708"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan14710"
+         x="529.26312"
+         y="357.22327">Passo 4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.88671684px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="530.61243"
+       y="397.92447"
+       id="text14712"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="530.61243"
+         y="397.92447"
+         id="tspan14716">Esame della Proposta</tspan><tspan
+         id="tspan14748"
+         sodipodi:role="line"
+         x="530.61243"
+         y="425.28287">da parte della Commissione</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccc"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.55840969;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 803.74438,300.08358 32.7525,81.42136 -33.8266,77.54508 353.48752,0 c 0.4613,-53.20641 0.4616,-106.41374 0.498,-159.62153 z"
+       id="path14718"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text14720"
+       y="357.22327"
+       x="860.90149"
+       style="font-size:40.98931503px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         y="357.22327"
+         x="860.90149"
+         id="tspan14722"
+         sodipodi:role="line">Passo 5</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text14724"
+       y="397.92447"
+       x="862.25085"
+       style="font-size:21.88671684px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         id="tspan14752"
+         y="397.92447"
+         x="862.25085"
+         sodipodi:role="line">Pubblicazione del Rapporto</tspan><tspan
+         id="tspan14756"
+         y="425.28287"
+         x="862.25085"
+         sodipodi:role="line">della Commissiome</tspan></text>
+    <g
+       id="g5225"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Labels">
+      <text
+         id="text5227"
+         y="0.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">0mV</text>
+      <text
+         id="text5229"
+         y="10.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">10mV</text>
+      <text
+         id="text5231"
+         y="20.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">20mV</text>
+      <text
+         id="text5233"
+         y="30.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">30mV</text>
+      <text
+         id="text5235"
+         y="40.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">40mV</text>
+    </g>
+    <g
+       id="g5237"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark labeled">
+      <path
+         id="path5239"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5241"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5243"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5245"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5247"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g5249"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark medium">
+      <path
+         id="path5251"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5253"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5255"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5257"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g5259"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark default">
+      <path
+         id="path5261"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5263"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5265"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5267"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5269"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5271"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5273"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5275"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5277"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5279"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5281"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5283"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5285"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5287"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5289"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5291"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5293"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5295"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5297"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5299"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5301"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5303"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5305"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5307"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5309"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5311"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5313"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5315"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5317"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5319"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5321"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path5323"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g5325"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Radial center" />
+    <g
+       inkscape:label="Scale Labels"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g5551">
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="0.0"
+         id="text5553">0mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="10.0"
+         id="text5555">10mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="20.0"
+         id="text5557">20mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="30.0"
+         id="text5559">30mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="40.0"
+         id="text5561">40mV</text>
+    </g>
+    <g
+       inkscape:label="Scale Mark labeled"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g5563">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         id="path5565" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         id="path5567" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         id="path5569" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         id="path5571" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         id="path5573" />
+    </g>
+    <g
+       inkscape:label="Scale Mark medium"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g5575">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         id="path5577" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         id="path5579" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         id="path5581" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         id="path5583" />
+    </g>
+    <g
+       inkscape:label="Scale Mark default"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g5585">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         id="path5587" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         id="path5589" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         id="path5591" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         id="path5593" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         id="path5595" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         id="path5597" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         id="path5599" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         id="path5601" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         id="path5603" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         id="path5605" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         id="path5607" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         id="path5609" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         id="path5611" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         id="path5613" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         id="path5615" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         id="path5617" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         id="path5619" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         id="path5621" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         id="path5623" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         id="path5625" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         id="path5627" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         id="path5629" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         id="path5631" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         id="path5633" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         id="path5635" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         id="path5637" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         id="path5639" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         id="path5641" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         id="path5643" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         id="path5645" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         id="path5647" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         id="path5649" />
+    </g>
+    <g
+       inkscape:label="Radial center"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g5651" />
+    <g
+       id="g5979"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Labels">
+      <text
+         id="text5981"
+         y="0.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">0mV</text>
+      <text
+         id="text5983"
+         y="10.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">10mV</text>
+      <text
+         id="text5985"
+         y="20.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">20mV</text>
+      <text
+         id="text5987"
+         y="30.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">30mV</text>
+      <text
+         id="text5989"
+         y="40.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">40mV</text>
+    </g>
+    <g
+       id="g5991"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark labeled">
+      <path
+         id="path5993"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5995"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5997"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path5999"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path6001"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g6003"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark medium">
+      <path
+         id="path6005"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6007"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6009"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6011"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g6013"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark default">
+      <path
+         id="path6015"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6017"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6019"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6021"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6023"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6025"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6027"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6029"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6031"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6033"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6035"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6037"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6039"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6041"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6043"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6045"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6047"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6049"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6051"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6053"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6055"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6057"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6059"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6061"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6063"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6065"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6067"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6069"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6071"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6073"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6075"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path6077"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g6079"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Radial center" />
+    <g
+       inkscape:label="Scale Labels"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g6509">
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="0.0"
+         id="text6511">0mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="10.0"
+         id="text6513">10mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="20.0"
+         id="text6515">20mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="30.0"
+         id="text6517">30mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="40.0"
+         id="text6519">40mV</text>
+    </g>
+    <g
+       inkscape:label="Scale Mark labeled"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g6521">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         id="path6523" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         id="path6525" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         id="path6527" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         id="path6529" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         id="path6531" />
+    </g>
+    <g
+       inkscape:label="Scale Mark medium"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g6533">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         id="path6535" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         id="path6537" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         id="path6539" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         id="path6541" />
+    </g>
+    <g
+       inkscape:label="Scale Mark default"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g6543">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         id="path6545" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         id="path6547" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         id="path6549" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         id="path6551" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         id="path6553" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         id="path6555" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         id="path6557" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         id="path6559" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         id="path6561" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         id="path6563" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         id="path6565" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         id="path6567" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         id="path6569" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         id="path6571" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         id="path6573" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         id="path6575" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         id="path6577" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         id="path6579" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         id="path6581" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         id="path6583" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         id="path6585" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         id="path6587" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         id="path6589" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         id="path6591" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         id="path6593" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         id="path6595" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         id="path6597" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         id="path6599" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         id="path6601" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         id="path6603" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         id="path6605" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         id="path6607" />
+    </g>
+    <g
+       inkscape:label="Radial center"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g6609" />
+    <g
+       id="g7141"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Labels">
+      <text
+         id="text7143"
+         y="0.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">0mV</text>
+      <text
+         id="text7145"
+         y="10.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">10mV</text>
+      <text
+         id="text7147"
+         y="20.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">20mV</text>
+      <text
+         id="text7149"
+         y="30.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">30mV</text>
+      <text
+         id="text7151"
+         y="40.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">40mV</text>
+    </g>
+    <g
+       id="g7153"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark labeled">
+      <path
+         id="path7155"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path7157"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path7159"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path7161"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path7163"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g7165"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark medium">
+      <path
+         id="path7167"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7169"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7171"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7173"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g7175"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark default">
+      <path
+         id="path7177"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7179"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7181"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7183"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7185"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7187"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7189"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7191"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7193"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7195"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7197"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7199"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7201"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7203"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7205"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7207"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7209"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7211"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7213"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7215"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7217"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7219"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7221"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7223"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7225"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7227"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7229"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7231"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7233"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7235"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7237"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path7239"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g7241"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Radial center" />
+    <g
+       inkscape:label="Scale Labels"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g7875">
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="0.0"
+         id="text7877">0mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="10.0"
+         id="text7879">10mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="20.0"
+         id="text7881">20mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="30.0"
+         id="text7883">30mV</text>
+      <text
+         style="font-size:10;text-anchor:middle;text-align:center"
+         x="5.80000019073"
+         y="40.0"
+         id="text7885">40mV</text>
+    </g>
+    <g
+       inkscape:label="Scale Mark labeled"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g7887">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         id="path7889" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         id="path7891" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         id="path7893" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         id="path7895" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:2"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         id="path7897" />
+    </g>
+    <g
+       inkscape:label="Scale Mark medium"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g7899">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         id="path7901" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         id="path7903" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         id="path7905" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         id="path7907" />
+    </g>
+    <g
+       inkscape:label="Scale Mark default"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g7909">
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         id="path7911" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         id="path7913" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         id="path7915" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         id="path7917" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         id="path7919" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         id="path7921" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         id="path7923" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         id="path7925" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         id="path7927" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         id="path7929" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         id="path7931" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         id="path7933" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         id="path7935" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         id="path7937" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         id="path7939" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         id="path7941" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         id="path7943" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         id="path7945" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         id="path7947" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         id="path7949" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         id="path7951" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         id="path7953" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         id="path7955" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         id="path7957" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         id="path7959" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         id="path7961" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         id="path7963" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         id="path7965" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         id="path7967" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         id="path7969" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         id="path7971" />
+      <path
+         inkscape:label="name"
+         style="stroke:black;stroke-width:1"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         id="path7973" />
+    </g>
+    <g
+       inkscape:label="Radial center"
+       transform="translate(1033.0585, -38.13829000000001)"
+       id="g7975" />
+    <g
+       id="g8711"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Labels">
+      <text
+         id="text8713"
+         y="0.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">0mV</text>
+      <text
+         id="text8715"
+         y="10.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">10mV</text>
+      <text
+         id="text8717"
+         y="20.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">20mV</text>
+      <text
+         id="text8719"
+         y="30.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">30mV</text>
+      <text
+         id="text8721"
+         y="40.0"
+         x="5.80000019073"
+         style="font-size:10;text-anchor:middle;text-align:center">40mV</text>
+    </g>
+    <g
+       id="g8723"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark labeled">
+      <path
+         id="path8725"
+         d="M 0.0,0.0 L 5.80000019073,0.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path8727"
+         d="M 0.0,10.0 L 5.80000019073,10.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path8729"
+         d="M 0.0,20.0 L 5.80000019073,20.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path8731"
+         d="M 0.0,30.0 L 5.80000019073,30.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+      <path
+         id="path8733"
+         d="M 0.0,40.0 L 5.80000019073,40.0"
+         style="stroke:black;stroke-width:2"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g8735"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark medium">
+      <path
+         id="path8737"
+         d="M 0.0,5.0 L 4.93000016212,5.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8739"
+         d="M 0.0,15.0 L 4.93000016212,15.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8741"
+         d="M 0.0,25.0 L 4.93000016212,25.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8743"
+         d="M 0.0,35.0 L 4.93000016212,35.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g8745"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Scale Mark default">
+      <path
+         id="path8747"
+         d="M 0.0,1.0 L 3.48000011444,1.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8749"
+         d="M 0.0,2.0 L 3.48000011444,2.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8751"
+         d="M 0.0,3.0 L 3.48000011444,3.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8753"
+         d="M 0.0,4.0 L 3.48000011444,4.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8755"
+         d="M 0.0,6.0 L 3.48000011444,6.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8757"
+         d="M 0.0,7.0 L 3.48000011444,7.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8759"
+         d="M 0.0,8.0 L 3.48000011444,8.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8761"
+         d="M 0.0,9.0 L 3.48000011444,9.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8763"
+         d="M 0.0,11.0 L 3.48000011444,11.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8765"
+         d="M 0.0,12.0 L 3.48000011444,12.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8767"
+         d="M 0.0,13.0 L 3.48000011444,13.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8769"
+         d="M 0.0,14.0 L 3.48000011444,14.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8771"
+         d="M 0.0,16.0 L 3.48000011444,16.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8773"
+         d="M 0.0,17.0 L 3.48000011444,17.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8775"
+         d="M 0.0,18.0 L 3.48000011444,18.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8777"
+         d="M 0.0,19.0 L 3.48000011444,19.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8779"
+         d="M 0.0,21.0 L 3.48000011444,21.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8781"
+         d="M 0.0,22.0 L 3.48000011444,22.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8783"
+         d="M 0.0,23.0 L 3.48000011444,23.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8785"
+         d="M 0.0,24.0 L 3.48000011444,24.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8787"
+         d="M 0.0,26.0 L 3.48000011444,26.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8789"
+         d="M 0.0,27.0 L 3.48000011444,27.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8791"
+         d="M 0.0,28.0 L 3.48000011444,28.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8793"
+         d="M 0.0,29.0 L 3.48000011444,29.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8795"
+         d="M 0.0,31.0 L 3.48000011444,31.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8797"
+         d="M 0.0,32.0 L 3.48000011444,32.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8799"
+         d="M 0.0,33.0 L 3.48000011444,33.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8801"
+         d="M 0.0,34.0 L 3.48000011444,34.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8803"
+         d="M 0.0,36.0 L 3.48000011444,36.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8805"
+         d="M 0.0,37.0 L 3.48000011444,37.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8807"
+         d="M 0.0,38.0 L 3.48000011444,38.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+      <path
+         id="path8809"
+         d="M 0.0,39.0 L 3.48000011444,39.0"
+         style="stroke:black;stroke-width:1"
+         inkscape:label="name" />
+    </g>
+    <g
+       id="g8811"
+       transform="translate(1033.0585, -38.13829000000001)"
+       inkscape:label="Radial center" />
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink" width="249.33296" height="249.33296">
+  <defs>
+    <linearGradient id="linearGradient8409">
+      <stop id="stop8411" style="stop-color:#ffffff;stop-opacity:0.65934098" offset="0" />
+      <stop id="stop8413" style="stop-color:#ffffff;stop-opacity:0" offset="1" />
+    </linearGradient>
+    <linearGradient x1="200.5" y1="437.36218" x2="346.5" y2="583.36218" id="linearGradient11193" xlink:href="#linearGradient8409" gradientUnits="userSpaceOnUse" />
+    <linearGradient x1="200.5" y1="437.36218" x2="346.5" y2="583.36218" id="linearGradient20" xlink:href="#linearGradient8409" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.70776,0,0,1.70776,-342.181,-746.515)" />
+  </defs>
+  <path d="M 237.36756,125.1274 A 112.23832,112.2384 0 0 1 12.89092,125.1274 112.23832,112.2384 0 1 1 237.36756,125.1274 z" style="fill:#d3d7cf;fill-opacity:1;fill-rule:evenodd;stroke:#4e9a06;stroke-width:24.17507362;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+  <path d="M 249.55784,125.06112 A 124.66648,124.66648 0 0 1 0.22488,125.06112 124.66648,124.66648 0 1 1 249.55784,125.06112 z" style="fill:url(#linearGradient20);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+  <path d="M 111.31057,202.02168 111.31057,137.66784 47.436983,137.66784 47.436983,110.7737 111.31057,110.7737 111.31057,46.900111 138.52488,46.900111 138.52488,110.7737 202.39846,110.7737 202.39846,137.66784 138.52488,137.66784 138.52488,202.02168 111.31057,202.02168" style="fill:#4e9a06" />
+ </svg>

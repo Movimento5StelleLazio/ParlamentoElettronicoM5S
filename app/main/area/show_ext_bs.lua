@@ -87,21 +87,20 @@ end
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span3" }, content = function()
+      ui.container{ attr = { class  = "span3 offset1" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick"  },
+          attr = { class="btn btn-primary fixclick"  },
           module = "area",
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(_"Back to previous page")
-            end }
+            -- ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+              ui.image{ attr = { class="text-center"}, static="svg/back_page.svg"}
+              -- slot.put(_"Back to previous page")
           end
         }
       end }
-      ui.container{ attr = { class  = "span9" }, content = function()
+      ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
              ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname}) }
@@ -111,8 +110,13 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
              ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
           end }
+         
         end }
+
+        end }
+
       end }
+ui.container{ attr = { class  = "row-fluid spaceline2" }, content = function()
     end }
   end }
 end }
@@ -173,9 +177,8 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
-      ui.container{ attr = { class="span12 text-center"}, content=function()
-        ui.container{ attr = { class="btn-group"}, content=function()
+    ui.container{ attr = { class="row-fluid spaceline3"}, content=function()
+      ui.container{ attr = { class="span12 text-center btn-group"}, content=function()
           local btna,btnb,btnc,btnd = "", "", "", ""
           if orderby == "supporters" then
             btna = " active"
@@ -188,53 +191,58 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             btnd = " active"
           end
            
-          local btn_style = "width:33%;"
+          local btn_style = ""
           if unit_name == "cittadini" or unit_name == "iscritti" then
-            btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
+              attr = { class="span3 btn btn-primary fixclick"..btna},
               module = "area",
               view = "show_ext_bs",
               id = area.id,
               params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
               content = function()
-                ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+              ui.image{ attr = { class="text-center"}, static="svg/button_order1.svg"}
+                --ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
               end
             }
           end
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
+            attr = { class="span3 btn btn-primary fixclick"..btnb},
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
+              ui.image{ attr = { class="text-center"}, static="svg/button_order2.svg"}
+              -- ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
+            attr = { class="span3 btn btn-primary fixclick"..btnc },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
+              ui.image{ attr = { class="text-center"}, static="svg/button_order3.svg"}
+             -- ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
+            attr = { class="span3 btn btn-primary fixclick"..btnd},
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
+              ui.image{ attr = { class="text-center"}, static="svg/button_order4.svg"}
+              -- ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
             end
           }
         end }
       end }
-    end }
+    end }      
+end }
+
     ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{ attr = { id="issues_box", class="span12 well-inside"}, content=function()
         execute.view{
@@ -252,10 +260,9 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             member=member 
           }
         }
-      end }
-    end }
+
   end }
-end }
+  end }
 
 ui.script{static = "js/jquery.equalheight.js"}
 --ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }

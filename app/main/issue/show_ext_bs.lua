@@ -40,15 +40,15 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick" },
+          attr = { class="btn btn-primary fixclick" },
           module = return_module,
           id = issue.area.id,
           view = return_view,
           params = param.get_all_cgi(),
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(return_btn_txt)
+              ui.image{ attr = { class="text-center"}, static="svg/button_question_back.svg"}
+              -- slot.put(return_btn_txt)
             end }
           end
         }
@@ -260,10 +260,10 @@ ui.container{attr={class="row-fluid"}, content=function()
                   content = function()
                     ui.container{ attr = { class = "row-fluid"}, content = function()
                       ui.container{ attr = { class = "span4"}, content = function()
-                        ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
-                      end }
-                      ui.container{ attr = { class = "span6"}, content = function()
-                        ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                        ui.image{ attr = { class="text-center"}, static="button_alternative_question.svg"}
+                      --end }
+                      --ui.container{ attr = { class = "span6"}, content = function()
+                        --ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
                       end }
                     end }
                   end

@@ -42,11 +42,12 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.anchor{
           attr = {
             href = "#",
-            class = "btn btn-primary table-cell medium_btn spaceline",
+            class = "btn btn-primary spaceline",
             onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
           },
           content=function()
-            ui.heading{level=6,attr={class=""},content= _"Report false identity"}
+              ui.image{ attr = { class="text-center"}, static="svg/button_fake.svg"}
+            -- ui.heading{level=6,attr={class=""},content= _"Report false identity"}
           end
         }
       end }

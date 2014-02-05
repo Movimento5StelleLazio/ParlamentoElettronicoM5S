@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1600"
+   height="200"
+   id="svg4807"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="COMMISSION BOX STEP 0.svg">
+  <defs
+     id="defs4809">
+    <filter
+       id="filter6598"
+       inkscape:label="Drop shadow"
+       width="1.5"
+       height="1.5"
+       x="-0.25"
+       y="-0.25"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur6600"
+         in="SourceAlpha"
+         stdDeviation="1"
+         result="blur" />
+      <feColorMatrix
+         id="feColorMatrix6602"
+         result="bluralpha"
+         type="matrix"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.424 0 " />
+      <feOffset
+         id="feOffset6604"
+         in="bluralpha"
+         dx="4.57967e-15"
+         dy="1.8"
+         result="offsetBlur" />
+      <feMerge
+         id="feMerge6606">
+        <feMergeNode
+           id="feMergeNode6608"
+           in="offsetBlur" />
+        <feMergeNode
+           id="feMergeNode6610"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0866797"
+     inkscape:cx="515.43636"
+     inkscape:cy="-18.116399"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1918"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata4812">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(431.01976,-282.36555)">
+    <g
+       transform="matrix(2.6540475,0,0,2.6540475,-780.03494,-583.65366)"
+       style="filter:url(#filter6598)"
+       id="g3764">
+      <path
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 140.905,334.38602 -0.40161,59.43775 102.81124,0 12.4498,-29.31727 -12.91026,-30.1499 z"
+         id="path3766"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3768"
+         d="m 242.61702,334.44486 12.24618,30.44355 -12.64779,28.9942 119.47791,0 12.4498,-29.31727 -11.83267,-29.93439 z"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 362.30092,334.44486 12.24618,30.44355 -12.64779,28.9942 112.99643,0 12.4498,-29.31727 -12.26371,-30.1499 z"
+         id="path3770"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3772"
+         d="m 475.07232,334.44486 12.24618,30.44355 -12.64779,28.9942 122.25568,0 12.4498,-29.31727 -12.47922,-29.93439 z"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:#f0ffcd;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 595.28305,334.44486 12.24618,30.44355 -12.64779,28.9942 132.16947,0 c 0.17241,-19.89394 0.17259,-39.78823 0.18612,-59.68269 z"
+         id="path3774"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m -406.90189,303.82276 -1.0659,157.75062 272.86597,0 33.04237,-77.80942 -34.26455,-80.01928 z"
+       id="path3776"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m -136.11778,303.97891 32.502,80.79862 -33.56787,76.95199 317.10003,0 33.04237,-77.80942 -31.40456,-79.44731 z"
+       id="path3778"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3780"
+       y="360.59683"
+       x="-84.826309"
+       style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;fill:#888888;fill-opacity:1;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+         y="360.59683"
+         x="-84.826309"
+         id="tspan3782"
+         sodipodi:role="line">Passo 2</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3784"
+       y="400.98676"
+       x="-83.486977"
+       style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         y="400.98676"
+         x="-83.486977"
+         sodipodi:role="line"
+         id="tspan3786">Attesa del Raggiungimento</tspan><tspan
+         y="428.13586"
+         x="-83.486977"
+         sodipodi:role="line"
+         id="tspan3788">del Quorum di Richieste</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="-380.94897"
+       y="360.59683"
+       id="text3790"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3792"
+         x="-380.94897"
+         y="360.59683">Passo 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="-379.60995"
+       y="400.98676"
+       id="text3794"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-379.60995"
+         y="400.98676"
+         id="tspan3796">Scelta delle Aree di</tspan><tspan
+         sodipodi:role="line"
+         x="-379.60995"
+         y="428.13586"
+         id="tspan3798">Competenza</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3800"
+       d="m 181.52898,303.97891 32.50199,80.79862 -33.56786,76.95199 299.89782,0 33.04236,-77.80942 -32.54844,-80.01928 z"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="ccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="233.65968"
+       y="360.59683"
+       id="text3802"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3804"
+         x="233.65968"
+         y="360.59683">Passo 3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="234.9987"
+       y="400.98676"
+       id="text3806"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="234.9987"
+         y="400.98676"
+         id="tspan3808">Convocazione dei membri</tspan><tspan
+         sodipodi:role="line"
+         x="234.9987"
+         y="428.13586"
+         id="tspan3810">della commissione</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 481.13803,303.89416 32.50199,80.79864 -33.56784,76.95197 324.47243,0 33.04237,-77.80943 -33.1204,-79.4473 z"
+       id="path3812"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3814"
+       y="360.59683"
+       x="530.91302"
+       style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         y="360.59683"
+         x="530.91302"
+         id="tspan3816"
+         sodipodi:role="line">Passo 4</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3818"
+       y="400.98676"
+       x="532.25195"
+       style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       xml:space="preserve"><tspan
+         id="tspan3820"
+         y="400.98676"
+         x="532.25195"
+         sodipodi:role="line">Esame della Proposta</tspan><tspan
+         y="428.13586"
+         x="532.25195"
+         sodipodi:role="line"
+         id="tspan3822">da parte della Commissione</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3824"
+       d="m 803.29482,303.89416 32.50199,80.79864 -33.56786,76.95197 350.78385,0 c 0.4578,-52.79945 0.4581,-105.59985 0.4942,-158.40069 z"
+       style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="cccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="860.01489"
+       y="360.59683"
+       id="text3826"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3828"
+         x="860.01489"
+         y="360.59683">Passo 5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
+       x="861.35388"
+       y="400.98676"
+       id="text3830"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="861.35388"
+         y="400.98676"
+         id="tspan3832">Pubblicazione del Rapporto</tspan><tspan
+         sodipodi:role="line"
+         x="861.35388"
+         y="428.13586"
+         id="tspan3834">della Commissiome</tspan></text>
+  </g>
+</svg>
