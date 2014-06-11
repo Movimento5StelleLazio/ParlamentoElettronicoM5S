@@ -11,7 +11,7 @@ trace.debug("saving  templateType:"..templateType)
 trace.debug("saving  templateName:"..templateName)
 trace.debug("saving  templateDescription:"..templateDescription)
 trace.debug("saving  unit_id:"..unit_id)
-trace.debug("saving  areas:".._areas)
+--trace.debug("saving  areas:".._areas)
 
 local index=Template:get_all_templates()
 local templateNameDuplicate=Template:get_templates_by_name(templateName)

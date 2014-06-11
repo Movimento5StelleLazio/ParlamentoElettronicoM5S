@@ -14,31 +14,14 @@ local member = app.session.member
 areas_selector = Area:build_selector{ active = true }
 areas_selector:add_order_by("member_weight DESC")
 
-if filter == "my_areas" then   
-  areas_selector:join("membership", nil, { "membership.area_id = area.unit_id AND membership.member_id = ?", member.id })
+if filter == "my_areas" then
+  areas_selector:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", member.id })
 else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
---[[
-	Vincenzo Abate
-	09/06/2014
-	CAREFUL THOUGH: unit_id=3 means: INTERNAL ASSEMBLY
-     			unit_id=1,4,44 means: PUBLIC ASSEMBLY
-	here unit_id appears not to be related to unit.id
-]]
-
---[[if unit_id then 
+if unit_id then
   areas_selector:add_where{ "area.unit_id = ?", unit_id }
-else
-  slot.put_into("error", "No unit_id was provided!")
-  return false
-end]]
-
-if unit_id == 3 then
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA' ")
-elseif unit_id == 1 or unit_id == 4 or unit_id == 44 then
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA' ")
 else
   slot.put_into("error", "No unit_id was provided!")
   return false

@@ -88,7 +88,7 @@ local function traverse(path)
       if string.find(filename, "%.lua$") then
         for line in io.lines(path .. "/" .. filename) do
           -- TODO: exact parsing of comments and escape characters
-          for key in string.gmatch(line, "_%(?'([^'\\]+)'") do
+          for key in string.gmatch(line, "_%(?'([^'\]+)'") do
             if
               key ~= "([^" and
               (not string.find(key, "^%s*%.%.[^%.]")) and
@@ -98,7 +98,7 @@ local function traverse(path)
               translations[key] = false
             end
           end
-          for key in string.gmatch(line, '_%(?"([^"\\]+)"') do
+          for key in string.gmatch(line, '_%(?"([^"\]+)"') do
             if
               key ~= "([^" and
               (not string.find(key, "^%s*%.%.[^%.]")) and

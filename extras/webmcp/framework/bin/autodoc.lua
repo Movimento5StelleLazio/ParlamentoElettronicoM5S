@@ -92,7 +92,7 @@ for idx, srcdir in ipairs(args) do
       end
       reset()
     end
-    for line in io.lines(filename) do
+    for line in io.lines(filename, "r") do
       local function add_to(tbl)
         if #tbl > 0 or not string.match(line, "^%s*$") then
           tbl[#tbl+1] = line

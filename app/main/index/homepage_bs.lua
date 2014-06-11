@@ -1,7 +1,3 @@
---[[
-	this page referes to the public assembly
-]]
-
 slot.set_layout("custom")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
@@ -64,7 +60,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span12"},content=function()
         ui.heading{level=1, content=function()
-          slot.put(_("Welcome <strong> #{realname}</strong>.", {realname = app.session.member.realname}))
+          slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = app.session.member.realname}))
         end }
 
         ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
