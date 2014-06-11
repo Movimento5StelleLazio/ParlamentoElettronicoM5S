@@ -71,10 +71,6 @@ if not id and config.single_unit_id then
   privilege:save()
 end
 
---[[
-	Vincenzo Abate
-	11/06/2014
-]]
 if not id and config.single_unit_id then
   trace.debug('provo a creare nuova membership')
   local membership = Membership:new()
@@ -82,9 +78,6 @@ if not id and config.single_unit_id then
   membership.area_id = config.single_unit_id
   membership:save()
 end
---[[
-	end mod
-]]
 
 local units = Unit:new_selector()
   :add_field("privilege.member_id NOTNULL", "privilege_exists")
@@ -106,10 +99,6 @@ for i, unit in ipairs(units) do
   end
 end
 
---[[
-	Vincenzo Abate
-	11/06/2014
-]]
 for i, unit in ipairs(units) do
   local value = param.get("unit_" .. unit.id, atom.boolean)
   if value and not unit.privilege_exists then
@@ -125,9 +114,6 @@ for i, unit in ipairs(units) do
     membership:destroy()
   end
 end
---[[
-	end mod
-]]
 
 if not member.activated and param.get("invite_member", atom.boolean) then
   member:send_invitation()
