@@ -71,16 +71,25 @@ if not id and config.single_unit_id then
   privilege:save()
 end
 
+if not id and config.single_unit_id then
+  trace.debug('provo a creare nuova membership')
+  local membership = Membership:new()
+  membership.member_id = member.id
+  membership.area_id = config.single_unit_id
+  membership:save()
+end
+
 local units = Unit:new_selector()
   :add_field("privilege.member_id NOTNULL", "privilege_exists")
   :add_field("privilege.voting_right", "voting_right")
   :left_join("privilege", nil, { "privilege.member_id = ? AND privilege.unit_id = unit.id", member.id })
   :exec()
 
+
 for i, unit in ipairs(units) do
   local value = param.get("unit_" .. unit.id, atom.boolean)
   if value and not unit.privilege_exists then
-    privilege = Privilege:new()
+    local privilege = Privilege:new()
     privilege.unit_id = unit.id
     privilege.member_id = member.id
     privilege.voting_right = true
@@ -88,6 +97,22 @@ for i, unit in ipairs(units) do
   elseif not value and unit.privilege_exists then
     local privilege = Privilege:by_pk(unit.id, member.id)
     privilege:destroy()
+  end
+end
+
+for i, unit in ipairs(units) do
+  local value = param.get("unit_" .. unit.id, atom.boolean)
+  if value and not unit.privilege_exists then
+    trace.debug('provo a modificare membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:new()
+    membership.area_id = unit.id
+    membership.member_id = member.id
+    membership:save()
+  elseif not value and unit.privilege_exists then
+    trace.debug('provo a distruggere membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:by_pk(unit.id, member.id) 
+    trace.debug(membership.member_id)
+    membership:destroy()
   end
 end
 
