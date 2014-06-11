@@ -71,6 +71,21 @@ if not id and config.single_unit_id then
   privilege:save()
 end
 
+--[[
+	Vincenzo Abate
+	11/06/2014
+]]
+if not id and config.single_unit_id then
+  trace.debug('provo a creare nuova membership')
+  local membership = Membership:new()
+  membership.member_id = member.id
+  membership.area_id = config.single_unit_id
+  membership:save()
+end
+--[[
+	end mod
+]]
+
 local units = Unit:new_selector()
   :add_field("privilege.member_id NOTNULL", "privilege_exists")
   :add_field("privilege.voting_right", "voting_right")
@@ -90,6 +105,29 @@ for i, unit in ipairs(units) do
     privilege:destroy()
   end
 end
+
+--[[
+	Vincenzo Abate
+	11/06/2014
+]]
+for i, unit in ipairs(units) do
+  local value = param.get("unit_" .. unit.id, atom.boolean)
+  if value and not unit.privilege_exists then
+    trace.debug('provo a modificare membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:new()
+    membership.area_id = unit.id
+    membership.member_id = member.id
+    membership:save()
+  elseif not value and unit.privilege_exists then
+    trace.debug('provo a distruggere membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:by_pk(unit.id, member.id) 
+    trace.debug(membership.member_id)
+    membership:destroy()
+  end
+end
+--[[
+	end mod
+]]
 
 if not member.activated and param.get("invite_member", atom.boolean) then
   member:send_invitation()
