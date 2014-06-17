@@ -3,7 +3,7 @@
 @textColor:                         @black;
 @linkColor:                         @black;
 @wellBackground:                    #fffcd3;
-@sansFontFamily:                    Optima, Segoe, "Segoe UI", Candara, Calibri, 
+@sansFontFamily:                    OPT, Segoe, "Segoe UI", Candara, Calibri, 
      "Helvetica Neue", Helvetica, Arial, sans-serif;
 @baseFontSize:                      22px;
 @baseLineHeight:                    25px;
@@ -46,7 +46,7 @@
   }
 }
 
-.buttonBackground(@startColor, @endColor, @textColor: @black, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+.buttonBackground(@startColor, @endColor, @textColor: @black, @textShadow:none) {
   #gradient > .radial_center_to_top(@startColor,@endColor);
 }
 
@@ -364,6 +364,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 10px;
 }
 
+.btn_mini_margin {
+        margin: 5px 0 10px 5px;
+}
+
 /*
   Thumb & voting
 */
@@ -672,6 +676,38 @@ h1, h2, h3, h4, h5, h6 {
 	margin-left: 427px;
 	margin-top: 54px;
 }
+/*
+  Auditor
+*/
+
+.auditor_input_label{
+  width: 40%;
+  display: inline-block;
+  text-align: right;
+}
+
+.auditor_confirm_label{
+  width: 40%;
+  display: inline-block;
+  text-align: right;
+}
+
+.auditor_input{
+  width: 35%;
+  display: inline-block;
+  text-align: left;
+}
+
+.ui_radio_div{
+  display: inline-block;
+  padding: 20px;
+}
+
+.idcard_scan {
+  max-width: 50%;
+  border: 3px solid green;
+}
+
 
 /*
   Imported from style.css (modified)

@@ -16,8 +16,8 @@ config.gui_preset = {
     name = "default",
     start_page = "_index_default"
   }, 
-  M5S_bs = {
-    name = "M5S_bs",
+  custom = {
+    name = "custom",
     start_page = "_welcome_bs",
     units = {
       eletti = {
@@ -87,6 +87,19 @@ config.absolute_base_url = "/lf"
 -- Connection information for the LiquidFeedback database
 -- ------------------------------------------------------------------------
 config.database = { engine='postgresql', dbname='liquid_feedback' }
+config.secure_database = { engine='postgresql', dbname='liquid_feedback' }
+--[[
+config.secure_database = { 
+  engine='postgresql', 
+  dbname='liquid_feedback', 
+  conninfo='',
+  host='',
+  hostaddr='',
+  port='',
+  user='',
+  password=''
+}
+--]]
 
 
 -- Location of the rocketwiki binaries

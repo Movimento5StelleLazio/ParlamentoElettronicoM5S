@@ -20,10 +20,10 @@ local name = param.get("name")
 if name then
   member.name = name
 end
-local codice_fiscale = param.get("codice_fiscale")
-if codice_fiscale then
-  if #codice_fiscale  ~= 16 then
-    slot.put_into("error", _"This tax identification number (Codice Fiscale) is invalid!")
+local nin = param.get("nin")
+if nin then
+  if #nin  ~= 16 then
+    slot.put_into("error", _"This National Insurance Number is invalid!")
      request.redirect{
       mode   = "redirect",
       module = "admin",
@@ -31,7 +31,7 @@ if codice_fiscale then
      }
     return false
   end
-  member.codice_fiscale = string.upper(codice_fiscale)
+  member.nin = string.upper(nin)
 end
 local identification = param.get("identification")
 if identification then
@@ -44,6 +44,16 @@ member.identification = identification
 local elected = param.get("elected", atom.boolean)
 if elected ~= nil then
   member.elected = elected
+end
+
+local auditor = param.get("auditor", atom.boolean)
+if auditor ~= nil then
+  member.auditor = auditor
+end
+
+local lqfb_access = param.get("lqfb_access", atom.boolean)
+if lqfb_access ~= nil then
+  member.lqfb_access = lqfb_access
 end
 
 local err = member:try_save()
@@ -59,6 +69,14 @@ if not id and config.single_unit_id then
   privilege.unit_id = config.single_unit_id
   privilege.voting_right = true
   privilege:save()
+end
+
+if not id and config.single_unit_id then
+  trace.debug('provo a creare nuova membership')
+  local membership = Membership:new()
+  membership.member_id = member.id
+  membership.area_id = config.single_unit_id
+  membership:save()
 end
 
 local units = Unit:new_selector()
@@ -78,6 +96,22 @@ for i, unit in ipairs(units) do
   elseif not value and unit.privilege_exists then
     local privilege = Privilege:by_pk(unit.id, member.id)
     privilege:destroy()
+  end
+end
+
+for i, unit in ipairs(units) do
+  local value = param.get("unit_" .. unit.id, atom.boolean)
+  if value and not unit.privilege_exists then
+    trace.debug('provo a modificare membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:new()
+    membership.area_id = unit.id
+    membership.member_id = member.id
+    membership:save()
+  elseif not value and unit.privilege_exists then
+    trace.debug('provo a distruggere membership area ' .. unit.id .. ' utente ' .. member.id)
+    local membership = Membership:by_pk(unit.id, member.id) 
+    trace.debug(membership.member_id)
+    membership:destroy()
   end
 end
 
