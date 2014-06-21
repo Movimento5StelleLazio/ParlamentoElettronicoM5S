@@ -75,52 +75,51 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     end }
 
-    ui.container{attr={class="row-fluid btn_box_top btn_box_bottom"},content=function()
+    ui.container{attr={class="row-fluid text-center"},content=function()
     
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
+      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
           content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read new issues"}
+            ui.heading{level=3, content=_"Homepage read new issues"}
           end }
       end }
     
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
+      ui.container{attr={class="span4 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module = "unit", view = "show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
           params={wizard=true},
           content=function()
-             ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
+             ui.heading{level=3, content=_"Homepage write new issue"}
           end }
       end }
+      end }
+
+   ui.container{attr={class="row-fluid text-center"},content=function()
     
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
+      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].unit_id,
           content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read m5s issues"}
+            ui.heading{level=3, content=_"Homepage read m5s issues"}
           end }
       end }
        
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
+      ui.container{attr={class="span4 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["altri_gruppi"].unit_id,
           content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read other issues"}
+            ui.heading{level=3, content=_"Homepage read other issues"}
           end }
       end }
-
+      end }
     end }
   end }
-end }
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(window).load(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'});" }
+
 
 
 

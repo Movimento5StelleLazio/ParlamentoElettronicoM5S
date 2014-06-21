@@ -4,7 +4,7 @@ slot.select('navbar', function()
       ui.tag { tag="li", content=function()
         ui.link{
           content = function()
-            ui.tag{ content = "PARLAMENTO ELETTRONICO" }
+            ui.image{static = "logo_withe.png"}
           end,
           module = 'index',
           view   = 'index'
