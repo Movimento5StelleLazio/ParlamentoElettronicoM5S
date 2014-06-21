@@ -92,7 +92,7 @@ return {
 ["Back to previous page"]="Torna alla pagina precedente";
 ["Back to issue listing"]="Torna alla lista delle questioni";
 ["Back to homepage"]="Torna alla Homepage";
-["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
+["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, ti trovi nell'assemblea della Regione Lazio";
 ["INITIATIVES LOOKING FOR SUPPORTERS"] = "PROPOSTE IN CERCA DI SOSTENITORI";
 ["INITIATIVES NOW IN DISCUSSION"] = "PROPOSTE ATTUALMENTE IN DISCUSSIONE";
 ["COMPLETED OR RETIRED INITIATIVES"] = "PROPOSTE COMPLETATE O RITIRATE";
@@ -113,8 +113,8 @@ return {
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
 ["SHOW ONLY THE FOLLOWING UNITS:"]="MOSTRA SOLO LE SEGUENTI UNITA':";
-["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
-["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
+["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, ti trovi nell'assemblea della Regione Lazio";
+["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, ti trovi nell'assemblea interna della Regione Lazio";
 ["You are now inside the Digital Assembly of M5S Lazio's Public Affairs."]="Ti trovi nell'assemblea elettronica dell M5S Lazio dedicata alla cosa pubblica.";
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa vuoi fare?";
