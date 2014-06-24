@@ -86,12 +86,12 @@ config.absolute_base_url = "/lf"
 
 -- Connection information for the LiquidFeedback database
 -- ------------------------------------------------------------------------
-config.database = { engine='postgresql', dbname='liquid_feedback' }
-config.secure_database = { engine='postgresql', dbname='liquid_feedback' }
+--config.database = { engine='postgresql', dbname='parelon_cert' }
+--config.secure_database = { engine='postgresql', dbname='parelon_cert' }
 --[[
 config.secure_database = { 
-  engine='postgresql', 
-  dbname='liquid_feedback', 
+  engine='', 
+  dbname='', 
   conninfo='',
   host='',
   hostaddr='',
@@ -100,6 +100,16 @@ config.secure_database = {
   password=''
 }
 --]]
+config.secure_database = { 
+  engine='postgresql', 
+  dbname='parelon_cert', 
+  conninfo='',
+  host='ParelonDB',
+  hostaddr='85.25.149.145',
+  port='5432',
+  user='ssh-tunnel-postgre',
+  password='Pr0g3tt0P_@r3loN'
+}
 
 
 -- Location of the rocketwiki binaries
