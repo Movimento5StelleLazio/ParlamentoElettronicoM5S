@@ -11,7 +11,7 @@ fi
 echo "${PID}" > "${PIDFILE}"
 
 while true; do
-  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update dbname=liquid_feedback 2>&1 | logger -t "lf_updated"'
-  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update_suggestion_order dbname=liquid_feedback 2>&1 | logger -t "lf_updated"'
+  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update dbname=parelon_cert 2>&1 | logger -t "lf_updated"'
+  su - www-data -c 'nice /opt/liquid_feedback_core/lf_update_suggestion_order dbname=parelon_cert 2>&1 | logger -t "lf_updated"'
   sleep 5
 done
