@@ -45,7 +45,9 @@ if config.locked_profile_fields == nil then
 end
 
 if not config.database then
+-- if not config.secure_database then
   config.database = { engine='postgresql', dbname='liquid_feedback' }
+  -- config.secure_database = { engine='postgresql', dbname='liquid_feedback', conninfo='', host='ParelonDB', hostaddr='85.25.149.???', port='5432', user='www-data', password='boh' }
 end
 
 if not config.enable_debug_trace then
@@ -59,6 +61,7 @@ request.set_404_route{ module = 'index', view = '404' }
 
 -- open and set default database handle
 db = assert(mondelefant.connect(config.database))
+-- db = assert( modelefant.connect(config.secure_database) ) -- this has to be default
 secure_db = assert( mondelefant.connect(config.secure_database) )
 at_exit(function() 
   secure_db:close()

@@ -9,4 +9,4 @@ if [ $# -lt 2 ];then
   echo "  The script must be run as your httpd server user (i.e. www-data)"
   exit 1
 fi
-echo "UPDATE system_setting SET gui_preset = '$(echo $2|sed "s/'/\&apos;/g")' "|psql -qe -d $1 -U www-data
+echo "UPDATE system_setting SET gui_preset = '$(echo $2|sed "s/'/\&apos;/g")' "|psql -qe -d $1 -U www-data -W
