@@ -86,15 +86,15 @@ end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
-    ui.container{ attr = { class  = "row-fluid" }, content = function()
+    ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick"  },
+          attr = { class="btn btn-primary btn-large large_btn fixclick"  },
           module = "area",
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
