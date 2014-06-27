@@ -20,8 +20,24 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
+--[[
+	Vincenzo Abate
+	09/06/2014
+	CAREFUL THOUGH: unit_id=3 means: INTERNAL ASSEMBLY
+     			unit_id=1,4,44 means: PUBLIC ASSEMBLY
+	here unit_id appears not to be related to unit.id
+
 if unit_id then
   areas_selector:add_where{ "area.unit_id = ?", unit_id }
+else
+  slot.put_into("error", "No unit_id was provided!")
+  return false
+end
+]]
+if unit_id == 3 then
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA' ")
+elseif unit_id == 1 or unit_id == 4 or unit_id == 44 then
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA' ")
 else
   slot.put_into("error", "No unit_id was provided!")
   return false
@@ -43,16 +59,16 @@ if unit_name == "iscritti" then
   return_view = "index"
 end
 
-ui.container{ attr = { class  = "row-fluid" } , content = function()
+ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn table-cell fixclick"  },
+          attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
           view = return_view,
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
@@ -62,12 +78,12 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE THEMATIC AREA"}
+            ui.heading{level=2, content=_"CHOOSE THE THEMATIC AREA"}
           end }
         end }
       end }
@@ -81,8 +97,8 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1 fixclick"
-btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1 fixclick"
+btn_class = "btn btn-primary btn-large large_btn"
+btn_class_active = "btn btn-primary btn-large active large_btn"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active
@@ -100,8 +116,8 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
       }
     end }
-    ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.container{attr={class="span4 offset2"},content=function()
+    ui.container{ attr = { class ="row-fluid text-center" }, content = function()
+      ui.container{attr={class="span6"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
           module = "unit",
@@ -109,11 +125,11 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { wizard = wizard},
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
+            ui.heading{level=3, content= _"SHOW ALL AREAS"}
           end 
         }
       end }
-      ui.container{attr={class="span4 offset1"},content=function()
+      ui.container{attr={class="span6"},content=function()
         ui.link {
           attr = { class=btn2  },
           module = "unit",
@@ -121,7 +137,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           id = unit_id,
           params = { filter = "my_areas", wizard = wizard},
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
