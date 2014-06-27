@@ -9,7 +9,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         if not wizard then
           ui.link{  
             module = "area", view = "filters_bs", id = area.id,
-            attr = { class = "btn btn-primary btn-large btn_margin btn_box_top fixclick" }, content = function()
+            attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
               ui.heading{level=5,content=_"AREA "..area.id}
             end
           }
@@ -17,7 +17,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           ui.link{
             module = "wizard", view = "wizard_new_initiative_bs",
             params = {area_id = area.id, unit_id=area.unit_id},
-            attr = { class = "btn btn-primary btn-large btn_margin btn_box_top fixclick" }, content = function()
+            attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
               ui.heading{level=5,content=_"AREA "..area.id}
             end
           }

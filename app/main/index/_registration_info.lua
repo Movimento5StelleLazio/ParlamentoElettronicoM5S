@@ -1,8 +1,5 @@
   ui.container{ attr = {  class = "row-fluid" }, content = function ()
-    ui.container{ attr = { class="span2 reg_txt"}, content=function()
-      ui.image{attr = { id="m5s_logo", class="inline-block"}, static="svg/logo_movimento5stelle.svg" }
-    end }
-    ui.container{ attr = { class="span7 text-right reg_txt"}, content=function()
+    ui.container{ attr = { class="span7 offset1 text-right reg_txt"}, content=function()
       ui.container{ attr = { class="vtable"}, content=function()
         ui.heading{ attr = {class="uppercase table-cell"}, level=2, content=function()
           slot.put(_"Are you a Lazio citizen and you want to register? Here's how to do:")

@@ -299,7 +299,7 @@ else
             ui.container{ attr = { class = "span6 offset3" }, content = function()
               ui.tag{ 
                 tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large fixclick" }, 
+                attr = { type="submit", class="btn btn-primary btn-large large_btn spaceline fixclick" }, 
                 content= function()
                   ui.heading{ level=4, attr = { class="inline-block"}, content= _"Login"}
                 end 
@@ -319,9 +319,9 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="registration", class = "span12" }, content = function ()
+            ui.container{ attr = { id="registration", class = "span12 spaceline" }, content = function ()
               ui.link{
-                attr = {class="btn btn-primary btn-large fixclick"},
+                attr = {class="btn btn-primary btn-large large_btn fixclick"},
                 module = "index",
                 view = "register",
                 content = function()
@@ -341,7 +341,7 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
+            ui.container{ attr = { id="lost_password", class = "span12 spaceline" }, content = function ()
               ui.link{
                 attr = { class="btn btn-primary btn-large fixclick"},
                 module = 'index',
@@ -358,7 +358,7 @@ else
     end }
   end }
 
-  execute.view{module="index",view="_registration_info"}
+--  execute.view{module="index",view="_registration_info"}
 
 --ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
