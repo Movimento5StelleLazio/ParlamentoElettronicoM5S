@@ -31,7 +31,7 @@ ui.container{attr={class="row-fluid"},content=function()
         ui.container{ attr = { class  = "row-fluid spaceline3" } , content = function()
           ui.container{ attr = { class  = "span3" }, content = function()
 	        ui.link{
-              attr = { class="btn btn-primary btn-large table-cell fixclick" ,onclick="window.history.back()"},
+              attr = { class="btn btn-primary btn-large large_btn fixclick" ,onclick="window.history.back()"},
               module = "wizard",
               view = "wizard_new_initiative_bs",
               params={
@@ -41,15 +41,16 @@ ui.container{attr={class="row-fluid"},content=function()
                 indietro=true
               },
               content = function()
-                ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+                ui.heading{level=3, content=function()
                   ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
                   slot.put(_"Back to previous page")
                 end }
               end
-            }				
-	      end }
+            }        
+ end }				
           ui.container{ attr = { class  = "span9" }, content = function()
-	        ui.heading{level=3, content = _"WIZARD END"}
+            ui.tag{ tag="p", content= _"WIZARD END" }  
+ 
           end }
         end }
       end }
@@ -225,7 +226,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
               content=function()
                 --contenuto
                 ui.container{attr={class="row-fluid spaceline3"},content=function()
-                  ui.container{attr={class="span12 text-center"},content=function()
+                  ui.container{attr={class="span6 offset3 text-center"},content=function()
 				    ui.container{attr={class="inline-block"},content=function()
                       ui.container{attr={class="text-left"},content=function()
                         --1 proposer
@@ -313,7 +314,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 					ui.tag{tag="label", content=_"Problem Title"}
 				  end }
 				  ui.container{attr={class="span6"},content=function() 
-					ui.tag{tag="input",attr={id="issue_title", name="issue_title", value=issue_title, style="width:100%;"}, content=""}
+					ui.tag{tag="input",attr={id="issue_title", name="issue_title", value=issue_title}, content=""}
                   end }
                 end }
                 
@@ -321,12 +322,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_brief_span"},content=function()
                     ui.tag{tag="p",content=  _"Description to the problem you want to solve"}
-                    ui.tag{tag="em",content=  _"Description note"}
                   end }
                   ui.container{attr={class="span6 issue_brief_span"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;resize:none;"},
+                      attr={id="issue_brief_description",name="issue_brief_description" },
                       content=issue_brief_description
                     }
                   end }
@@ -336,12 +336,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right"},content=function()
                     ui.tag{tag="p",content=  _"Keywords"}
-                    ui.tag{tag="em",content=  _"Keywords note"}
                   end }
                   ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"},
+                      attr={id="issue_keywords",name="issue_keywords",class="tagsinput"},
                       content=issue_keywords
                     }
                   end }
@@ -351,12 +350,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_desc"},content=function()
                     ui.tag{tag="p",content=  _"Problem description"}
-                    ui.tag{tag="em",content=  _"Problem note"}
                   end }
                   ui.container{attr={class="span6 issue_desc"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="problem_description",name="problem_description",style="height:100%;width:100%;resize:none;"},
+                      attr={id="problem_description",name="problem_description"},
                       content=problem_description
                     }
                   end }
@@ -366,12 +364,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
                     ui.tag{tag="p",content=  _"Target description"}
-                    ui.tag{tag="em",content=  _"Target note"}
                   end }
                   ui.container{attr={class="span6 aim_desc"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="aim_description",name="aim_description",style="height:100%;width:100%;resize:none;"},
+                      attr={id="aim_description",name="aim_description"},
                       content=aim_description
                     }
                   end }
@@ -397,7 +394,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 					ui.tag{tag="label", content=_"Initiative Title"}
 				  end }
 				  ui.container{attr={class="span6"},content=function() 
-					ui.tag{tag="input",attr={id="initiative_title", name="initiative_title", value=initiative_title, style="width:100%;"}, content=""}
+					ui.tag{tag="input",attr={id="initiative_title", name="initiative_title", value=initiative_title, }, content=""}
                   end }
                 end }
 				
@@ -405,12 +402,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
 				  ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
                     ui.tag{tag="p",content=  _"Initiative short description"}
-                    ui.tag{tag="em",content=  _"Initiative short note"}
                   end }
                   ui.container{attr={class="span6 init_brief"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="initiative_brief_description",name="initiative_brief_description",style="height:100%;width:100%;resize:none;"},
+                      attr={id="initiative_brief_description",name="initiative_brief_description"},
                       content=initiative_brief_description
                     }
                   end }
@@ -420,12 +416,11 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right draft"},content=function()
                     ui.tag{tag="p",content=  _"Draft text"}
-                    ui.tag{tag="em",content=  _"Draft note"}
                   end }
                   ui.container{attr={class="span6 draft"},content=function()
                     ui.tag{
                       tag="textarea",
-                      attr={id="draft",name="draft",style="height:100%;width:100%;resize:none;"},
+                      attr={id="draft",name="draft"},
                       content=draft
                     }
                   end }
@@ -433,8 +428,8 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 			    
                  -- Selezione areee tecniche
 				 
-                ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
-                  ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
+                ui.container{attr={class="row-fluid spaceline4"},content=function()
+                  ui.container{attr={class="span10 offset1 text-center"},content=function()
                     local area={}
                     --valori di test
                     local tmp
@@ -456,7 +451,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                      --1* selezione
                       ui.container{attr={class="formSelect"},content=function() 
                         ui.container{
-                          attr={style="width: 100%; text-align: center;"},
+                          attr={style="width: 80%; text-align: center;"},
                           content=function() 
                             ui.field.select{
                               attr = { id = "technicalChooser", onchange="namePasteTemplateChange(event)", style="width:62%;height:38px;position:relative;"},
@@ -472,28 +467,28 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                           end 
 						}
 						--nota   
-                        ui.tag{
-                          tag = "div",
-                          attr={style="position:relative;top: -0.5em;font-size:14px;margin-left: 33em;"},
-                          content = function()
-                            ui.tag{
-                                  content = function()
-                                    ui.link{
-                                      text = _"Information about the available Technical Areas",
-                                      module = "policy",
-                                      view = "list"
-                                    }
-                                    slot.put(" ")
-                                    ui.link{
-                                      attr = { target = "_blank" },
-                                      text = _"(new window)",
-                                      module = "policy",
-                                      view = "list"
-                                    }
-                                  end
-                                }--fine tag
-                              end
-                            } --fine tag 
+--                        ui.tag{
+--                        tag = "div",
+--                      attr={style="position:relative;top: -0.5em;font-size:14px;margin-left: 33em;"},
+--                          content = function()
+--                            ui.tag{
+--                                  content = function()
+--                                    ui.link{
+--                                      text = _"Information about the available Technical Areas",
+--                                      module = "policy",
+--                                      view = "list"
+--                                    }
+--                                    slot.put(" ")
+--                                    ui.link{
+--                                      attr = { target = "_blank" },
+--                                      text = _"(new window)",
+--                                      module = "policy",
+--                                      view = "list"
+--                                    }
+--                                  end
+--                                }--fine tag
+--                              end
+--                            } --fine tag 
                                
                                end
                                }--fine div formSelect
@@ -738,13 +733,8 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                          --fine 4* selezione  
                          ui.script{static = "js/wizard_checkbox.js"} 
                        
-                         ui.tag{
-                           tag = "p",
-                           attr = { style="float: left; text-align: right; width: 25%; font-style: italic;height: 200px;font-size: 12px;padding-left: 9em;" },
-                           content=  _"Description technical note"
-                         }
                               
-                      
+
                            
            
                      end }
@@ -754,10 +744,10 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 
 				 
 				-- Proposta avanzata da
-                  ui.tag{tag="div",attr={style="row-fluid"},content=function()  
+                  ui.tag{tag="div",attr={style="row-fluid spaceline4"},content=function()  
                                                
                                                            
-                                                           ui.container{attr={class="span2 text-center"},content=function()
+                                                           ui.container{attr={class="span2 spaceline4 offset1 text-center"},content=function()
                                                                          ui.tag{
                                                                             tag="p",
                                                                             attr={style="text-align: right; float: left; font-size: 20px;"},
@@ -768,7 +758,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                                                
                                                                 ui.container
                                                                     {
-                                                                        attr={style="float: left; position: relative; border: 1px solid black; height: 19em; margin-left: 0.6em; text-align: left; width: 80%;"},
+                                                                        attr={class="span8 spaceline4"},
                                                                         content=function()
                                                                         
                                                                         

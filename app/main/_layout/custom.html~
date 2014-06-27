@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="__BASEURL__/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__BASEURL__/static/css/bootstrap-responsive.css">
+    <!-- 
+    <script type="text/javascript" >less = { env: "production" };</script> 
+    -->
+    <script  type="text/javascript" src="__BASEURL__/static/js/less-1.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__BASEURL__/static/trace.css" />
+    <link rel="stylesheet" type="text/css" href="__BASEURL__/static/gregor.js/gregor.css" />
+
+    <title> <!-- WEBMCP SLOTNODIV html_title --></title>
+    <!-- WEBMCP SLOTNODIV html_head -->
+    <script type="text/javascript">jsFail = true;</script>
+    <![if !IE]>
+      <script type="text/javascript">jsFail = false;</script>
+    <![endif]>
+
+    <script type="text/javascript" src="__BASEURL__/static/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="__BASEURL__/static/js/jquery-ui.js"></script>
+    <script type="text/javascript">var ui_tabs_active = {};</script>
+  </head>
+  <body>
+
+<!--
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+-->
+
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner" id="navbar">
+          <!-- WEBMCP SLOT navbar -->
+        </div>
+      </div>
+
+      <div class="main" id="default">
+         <div class="container-fluid">
+           <div class="layout_help row-fluid" id="layout_help">
+             <!-- WEBMCP SLOT help -->
+           </div>
+           <div class="layout_notice row-fluid" id="layout_notice" onclick="document.getElementById('layout_notice').style.display='none';">
+             <!-- WEBMCP SLOT notice -->
+           </div>
+           <div class="layout_warning row-fluid" id="layout_warning" onclick="document.getElementById('layout_warning').style.display='none';">
+             <!-- WEBMCP SLOT warning -->
+           </div>
+           <div class="layout_error row-fluid" id="layout_error" onclick="document.getElementById('layout_error').style.display='none';">
+             <!-- WEBMCP SLOT error -->
+           </div>
+         </div>
+
+        <!-- WEBMCP SLOT default -->
+      </div>
+
+      <div class="push"></div>
+   
+<!-- /.wrapper -->
+
+    <!-- WEBMCP SLOT trace_button -->
+    <div id="trace_content" style="display: none;">
+      <tt id="system_error"><!-- WEBMCP SLOT system_error --></tt>
+      <div id="trace">&nbsp;</div><hr />
+      <!-- WEBMCP SLOT trace -->
+      <div class="trace_close" onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">
+        close
+      </div>
+    </div>
+
+    <div class="footer text-center" id="footer_bs">
+      <!-- WEBMCP SLOT footer_bs -->
+    </div>
+
+
+    <!-- javascript -->
+    <script type="text/javascript" src="__BASEURL__/static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="__BASEURL__/static/js/jsprotect.js"></script>
+    <script type="text/javascript" src="__BASEURL__/static/js/partialload.js"></script>
+    <script type="text/javascript" src="__BASEURL__/static/js/jquery.intercept_mousedown.js"></script>
+
+    <script type="text/javascript">
+      <!-- WEBMCP SLOTNODIV custom_script -->
+    </script>
+  </body>
+</html>
