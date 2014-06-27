@@ -300,7 +300,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="btn btn-primary btn-large fixclick wrap"..btna,  },
+                attr = { class="btn btn-primary btn-large fixclick wrap"..btna },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -310,7 +310,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large fixclick wrap"..btnb,  },
+                attr = { class="btn btn-primary btn-large fixclick wrap"..btnb },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
