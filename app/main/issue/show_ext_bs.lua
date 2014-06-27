@@ -46,7 +46,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           view = return_view,
           params = param.get_all_cgi(),
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3 ,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(return_btn_txt)
             end }
@@ -300,7 +300,7 @@ ui.container{attr={class="row-fluid"}, content=function()
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btna,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large fixclick wrap"..btna },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
@@ -310,7 +310,7 @@ ui.container{attr={class="row-fluid"}, content=function()
                 end
               }
               ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btnb,style="width:50%;"  },
+                attr = { class="btn btn-primary btn-large fixclick wrap"..btnb },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),

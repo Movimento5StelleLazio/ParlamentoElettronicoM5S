@@ -83,21 +83,18 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
 
-                      ui.container{attr={class="span12 text-center"},content=function()
-                        ui.container{attr={class="span10 offset1 text-center"},content=function()
+
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right init_brief"},content=function()
+                            ui.container{attr={class="span5 offset1 pagination-justify alert alert-info init_brief"},content=function()
                               ui.tag{tag="p",content=  _"Initiative short description"}
                               ui.tag{tag="em",content=  _"Initiative short note"}
                             end }
-                            ui.container{attr={class="span6 init_brief"},content=function()
+                            ui.container{attr={class="span5 init_brief"},content=function()
                               ui.tag{
                                 tag="textarea",
                                 attr={id="initiative_brief_description",name="initiative_brief_description",style="height:100%;width:100%;resize:none;"},
                                 content=""
                               }
-                            end }
-                          end }
                         end }
                       end }
 
