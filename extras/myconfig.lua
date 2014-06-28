@@ -4,7 +4,7 @@
 
 -- Name of this instance, defaults to name of config file
 -- ------------------------------------------------------------------------
-config.instance_name = "Parlamento Elettronico Movimento Cinque Stelle"
+config.instance_name = "Parlamento Elettronico Online"
 
 
 -- Information about service provider (HTML)
@@ -86,29 +86,12 @@ config.absolute_base_url = "/lf"
 
 -- Connection information for the LiquidFeedback database
 -- ------------------------------------------------------------------------
---config.database = { engine='postgresql', dbname='parelon_cert' }
---config.secure_database = { engine='postgresql', dbname='parelon_cert' }
---[[
-config.secure_database = { 
-  engine='', 
-  dbname='', 
-  conninfo='',
-  host='',
-  hostaddr='',
-  port='',
-  user='',
-  password=''
-}
---]]
 config.secure_database = { 
   engine='postgresql', 
   dbname='parelon_cert', 
-  conninfo='',
-  host='ParelonDB',
-  hostaddr='85.25.149.145',
+  host='localhost',
   port='5432',
-  user='ssh-tunnel-postgre',
-  password='Pr0g3tt0P_@r3loN'
+  user='www-data'
 }
 
 
@@ -160,12 +143,12 @@ config.default_lang = "it"
 
 -- Prefix of all automatic mails, defaults to "[Liquid Feedback] "
 -- ------------------------------------------------------------------------
-config.mail_subject_prefix = "Parlamento Elettronico M5S "
+config.mail_subject_prefix = "Parlamento Elettronico Online "
 
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
 -- config.mail_envelope_from = "liquidfeedback@example.com"
-config.mail_from = { name = "Parlamento Elettronico M5S", address = "liquidfeedback@example.com" }
+config.mail_from = { name = "Parlamento Elettronico Online", address = "info@parelon.com" }
 -- config.mail_reply_to = { name = "Support", address = "support@example.com" }
 
 -- Configuration of password hashing algorithm (defaults to "crypt_sha512")
