@@ -25,10 +25,17 @@ local restricted = not (
 )
 
 if restricted and app.session.member.lqfb_access ~= true and app.session.member.admin ~= true then
-  trace.debug("lqfb access: Member has been disabled")
   --error('The administrator has disabled the access to this module')
-  slot.put_into("error", "Lqfb access not enabled yet!")
-  execute.view{ module = "index", view = "index" }
+	slot.put("error", "You're account is not active yet: wait for/require your confirmation email or contact your auditor.")
+	trace.debug("lqfb access refused")
+	request.redirect{
+    module = 'index', view = 'index', params = {
+      redirect_module = module,
+      redirect_view = view,
+      redirect_id = param.get_id()
+    }
+  }  
+else
+	trace.debug("lqfb access: Member has access")
+	execute.inner()
 end
-trace.debug("lqfb access: Member has access")
-execute.inner()
