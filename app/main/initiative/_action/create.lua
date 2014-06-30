@@ -59,11 +59,11 @@ end
 local is_polling = (issue and param.get("polling", atom.boolean)) or (policy and policy.polling) or false
 
 local tmp = db:query({ "SELECT text_entries_left, initiatives_left FROM member_contingent_left WHERE member_id = ? AND polling = ?", app.session.member.id, is_polling }, "opt_object")
-if not tmp or tmp.initiatives_left < 1 then
+if (not tmp or tmp.initiatives_left < 1) and not (app.session.member.elected or app.session.member.admin) then
   slot.put_into("error", _"Sorry, your contingent for creating initiatives has been used up. Please try again later.")
   return false
 end
-if tmp and tmp.text_entries_left < 1 then
+if (tmp and tmp.text_entries_left < 1) and not (app.session.member.elected or app.session.member.admin) then
   slot.put_into("error", _"Sorry, you have reached your personal flood limit. Please be slower...")
   return false
 end
