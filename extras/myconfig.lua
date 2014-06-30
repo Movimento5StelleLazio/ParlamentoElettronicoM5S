@@ -48,7 +48,7 @@ config.gui_preset = {
         issues_desc_admission =  _"M5S Members Initiatives Looking For Supporters"
       },
       altri_gruppi = {
-        type_id = 1,
+        type_id = 2,
         unit_title = _"OTHER POLITICAL GROUPS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
