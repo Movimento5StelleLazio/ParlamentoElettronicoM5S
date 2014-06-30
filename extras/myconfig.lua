@@ -17,11 +17,12 @@ config.gui_preset = {
     start_page = "_index_default"
   }, 
   custom = {
+  	public = true,
     name = "custom",
     start_page = "_welcome_bs",
     units = {
       eletti = {
-        unit_id = nil,
+        type_id = 1,
         unit_title = _"ELECTEDS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -29,7 +30,7 @@ config.gui_preset = {
         issues_desc_closed = _"Electeds Initiatives Completed or Retired"
       },
       cittadini = {
-        unit_id = nil,
+        type_id = 0,
         unit_title = _"CITIZENS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -38,7 +39,7 @@ config.gui_preset = {
         issues_desc_admission =  _"Citizens Initiatives Looking For Supporters"
       },
       iscritti = {
-        unit_id = nil,
+        type_id = 0,
         unit_title = _"M5S MEMBERS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Internal Assembly",
@@ -47,7 +48,7 @@ config.gui_preset = {
         issues_desc_admission =  _"M5S Members Initiatives Looking For Supporters"
       },
       altri_gruppi = {
-        unit_id = nil,
+        type_id = 1,
         unit_title = _"OTHER POLITICAL GROUPS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
