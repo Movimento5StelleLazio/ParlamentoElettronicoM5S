@@ -202,8 +202,15 @@ if app.session.member_id then
             ui.tag{tag="span",attr={class="span12"},content=function()
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
-                  module="index",
+                  --[[module="index",
                   view="homepage_bs",
+                  action="_set_public",
+									id=config.gui_preset[gui_preset].units["iscritti"].type_id,
+									params = { public = true },]]
+									module="index",
+									view="set_app_variable_before_redirect",									
+                  id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+									params = { module = "index", view = "homepage_bs", public = true },
                   attr = {class = "btn btn-primary btn-large large_btn fixclick" },
                   content=function()
                     ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
@@ -224,9 +231,15 @@ if app.session.member_id then
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
                   attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  module="unit",
-                  view="show_ext_bs",
-                  id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
+                  --[[module="unit",
+                  view="show_ext_bs",                  
+                  action="_set_public",
+									params = { public = false },
+                  id=config.gui_preset[gui_preset].units["iscritti"].type_id,]]
+                  module="index",
+                  view="set_app_variable_before_redirect",
+                  id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+									params = { module = "unit", view = "show_ext_bs", public = false },
                   content=function()
                     ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
                   end
