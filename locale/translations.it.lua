@@ -415,14 +415,14 @@ return {
 ["History"] = "Cronologia";
 ["Home"] = "Homepage";
 ["Homepage Choose action:"]="Puoi leggere, valutare ed integrare le proposte di legge presentate dai cittadini, presentare una tua proposta, votare quelle attualmente in discussione::";
-["Homepage read new issues"]="PROPOSTE";
-["Homepage read m5s issues"]="TUO GRUPPO";
+["Homepage read new issues"]="CITTADINI";
+["Homepage read m5s issues"]="ELETTI";
 ["Homepage read other issues"]="ALTRI GRUPPI";
 ["Homepage welcome text"]="TI TROVI NELL'ASSEMBLEA DEDICATA ALLA COSA PUBBLICA.\n";
 ["Homepage welcome text2"]="QUI SI DISCUTONO LEGGI E PROVVEDIMENTI CHE RIGUARDANO LA TUA REGIONE E I SUOI CITTADINI.";
 ["Homepage welcome"]="BENVENUTO";
 ["Homepage what to do?"]="COSA PUOI FARE:";
-["Homepage write new issue"]="PROPONI";
+["Homepage write new issue"]="SCRIVI";
 ["How much time does your proposal need to be examined?"]="Che tempi richiede la tua proposta per essere esamaminata?";
 ["I consider suggestion as"] = "Ritengo il suggerimento";
 ["I like to receive notifications by email about events in my areas and issues:"] = "Desidero ricevere le notifiche eMail per gli eventi delle mie aree e questioni:";

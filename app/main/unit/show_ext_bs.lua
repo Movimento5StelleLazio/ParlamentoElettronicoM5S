@@ -1,10 +1,9 @@
 slot.set_layout("custom")
 
-local unit_id = param.get_id()
+local type_id = param.get_id()
 local filter = param.get("filter")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local wizard = param.get("wizard", boolean)
-
 
 if not app.session.member_id then
   return false
@@ -20,36 +19,21 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
---[[
-	Vincenzo Abate
-	09/06/2014
-	CAREFUL THOUGH: unit_id=3 means: INTERNAL ASSEMBLY
-     			unit_id=1,4,44 means: PUBLIC ASSEMBLY
-	here unit_id appears not to be related to unit.id
-
-if unit_id then
-  areas_selector:add_where{ "area.unit_id = ?", unit_id }
+trace.debug(config.gui_preset[gui_preset].public)
+if config.gui_preset["custom"].public then
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA%' ")
 else
-  slot.put_into("error", "No unit_id was provided!")
-  return false
-end
-]]
-if unit_id == 3 then
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA' ")
-elseif unit_id == 1 or unit_id == 4 or unit_id == 44 then
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA' ")
-else
-  slot.put_into("error", "No unit_id was provided!")
-  return false
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA%' ")
 end
 
 local unit_name
 for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == unit_id then unit_name = i end
+  trace.debug('unit_id '..type_id..' type_id '..config.gui_preset[gui_preset].units[i].type_id)
+  if config.gui_preset[gui_preset].units[i].type_id == type_id then unit_name = i end
 end
 
 if not unit_name then
-  slot.put_into("error", "Cannot find unit_id in configuration!")
+  slot.put_into("error", "Cannot find type_id in configuration!")
   return false
 end
 
@@ -122,8 +106,8 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { wizard = wizard},
+          id = type_id,					
+          params = { wizard = wizard },
           content = function()
             ui.heading{level=3, content= _"SHOW ALL AREAS"}
           end 
@@ -134,8 +118,8 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           attr = { class=btn2  },
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { filter = "my_areas", wizard = wizard},
+          id = type_id,		
+          params = { filter = "my_areas", wizard = wizard },
           content = function()
             ui.heading{level=3, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
