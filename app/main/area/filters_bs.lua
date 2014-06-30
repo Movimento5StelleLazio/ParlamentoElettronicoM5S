@@ -14,14 +14,21 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 local unit_name
-for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == area.unit_id then unit_name = i end
+if config.gui_preset[gui_preset].units.type_id == 1 then
+	unit_name = "eletti"
+else
+	unit_name = "cittadini"
+end
+	
+--[[for i,v in pairs(config.gui_preset[gui_preset].units) do
+  if config.gui_preset[gui_preset].units[i].type_id == area.unit_id then unit_name = i end
 end
  
 if not config.gui_preset[gui_preset].units[unit_name] then
-  slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
-  return false
-end
+  --slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
+  --return false
+  unit_name = "cittadini"
+end]]
 
 local spanstyle
 if unit_name == "cittadini" or unit_name == "iscritti" then
