@@ -91,8 +91,8 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         end
                     
                        --contenuto
-                 ui.container{attr={class="row-fluid spaceline2"},content=function()
-                     ui.container{attr={class="span10 offset1 text-center"},content=function()      
+                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
+                     ui.container{attr={class="span12 text-center"},content=function()      
                        --1* selezione
                        ui.container
                         {
@@ -386,20 +386,16 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                      
                    --fine 4* selezione  
                    ui.script{static = "js/wizard_checkbox.js"} 
-                 ui.container
-                                 {
-                                     attr={class="row-fluid alert alert-info spaceline3"},
-                                     content=function() 
+                 
                    ui.tag{
                                     tag = "p",
-                                    attr = { class="pagination-justify" },
+                                    attr = { style="float: left; text-align: right; width: 25%; font-style: italic;height: 200px;font-size: 15px;padding-left: 1em;padding-top: 4em;" },
                                     content=  _"Description technical note"
                                   }
                         
                      end
                 }--fine form
-                      end
-                }           
+            
             
             end}
             end}         

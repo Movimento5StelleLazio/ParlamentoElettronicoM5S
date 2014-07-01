@@ -16,7 +16,7 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 -- Get the unit name from the configuration file
-local unit_name
+--[[local unit_name
 for i,v in pairs(config.gui_preset[gui_preset].units) do
   if config.gui_preset[gui_preset].units[i].unit_id == area.unit_id then unit_name = i end
 end
@@ -24,7 +24,8 @@ end
 if not config.gui_preset[gui_preset].units[unit_name] then
   slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
   return false
-end
+end]]
+local unit_name = "cittadini"
 
 -- Determines the desc order button text
 local inv_txt
