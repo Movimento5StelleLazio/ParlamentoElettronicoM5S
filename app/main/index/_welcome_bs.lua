@@ -1,5 +1,5 @@
 slot.set_layout("custom")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+--local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
@@ -57,7 +57,8 @@ if app.session.member_id then
                 ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
-                      slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                    	trace.debug(member.realname .. " " .. member.login)
+                      slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname ~= "" and member.realname or member.login}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
                       ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
                     end }
@@ -209,7 +210,8 @@ if app.session.member_id then
 									params = { public = true },]]
 									module="index",
 									view="set_app_variable_before_redirect",									
-                  id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  id = config.gui_preset["custom"].units["iscritti"].type_id,
 									params = { module = "index", view = "homepage_bs", public = true },
                   attr = {class = "btn btn-primary btn-large large_btn fixclick" },
                   content=function()
@@ -238,7 +240,8 @@ if app.session.member_id then
                   id=config.gui_preset[gui_preset].units["iscritti"].type_id,]]
                   module="index",
                   view="set_app_variable_before_redirect",
-                  id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  id = config.gui_preset["custom"].units["iscritti"].type_id,
 									params = { module = "unit", view = "show_ext_bs", public = false },
                   content=function()
                     ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
