@@ -120,7 +120,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag{tag="strong",content=function()
-          ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title or _"No title for the issue!" }
+          ui.heading { level=5, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
         end }
       end }
     end }
