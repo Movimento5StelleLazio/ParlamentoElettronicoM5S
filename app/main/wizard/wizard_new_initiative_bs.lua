@@ -31,7 +31,8 @@ if page==2  then
      else
      
     --objParam[#objParam+1]= {name="issue_title",value=param.get("issue_title")}
-     objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+     --objParam[#objParam+1]= {name="policy_id",value=param.get("policy_id")}
+     objParam[#objParam+1]= {name="policy_id",value=param.get("policyChooser")}
         
      end
     
@@ -413,6 +414,10 @@ end
 
 
 if page <= 12 and page >=1 then   
+
+				for i,k in pairs(readParam(page_rendered)) do
+					trace.debug("[wizard] name="..k.name.." | value="..tostring(k.value))
+				end
         ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 well"},content=function()
             ui.container{attr={class="row-fluid"},content=function()

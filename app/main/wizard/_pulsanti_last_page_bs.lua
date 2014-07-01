@@ -30,16 +30,17 @@ end
             ui.tag
             {
             tag="div",
-                attr={id="pulsanti" },
+                attr={id="pulsanti" , style="position: relative;"},
                 content=function()
                
                ui.container{attr={class="row-fluid"},content=function()
+                ui.container{attr={class="row-fluid"},content=function()
                   
-                     ui.container{attr={class="span3 offset1 text-center"},content=function()
+                     ui.container{attr={class="span3 text-center",style="margin-left: 7em;" },content=function()
                --pulsante anteprima
                      ui.tag{
                                 tag="div",
-                                 attr={id="btnAnteprima",class="btn btn-primary btn-large large_btn",disabled="true"},
+                                 attr={id="btnAnteprima",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "anteprima",
                                  params = { 
@@ -48,7 +49,7 @@ end
                                  content=function()
                                     ui.heading
                                       { 
-                                      level=4, 
+                                      level=4, attr = {class = "fittext_btn_wiz" },
                                       content=function()
                                           ui.container
                                           {
@@ -74,7 +75,7 @@ end
                     ui.container{attr={class="span3 text-center"},content=function()
                       ui.tag{  
                                  tag="div",
-                                 attr={id="btnSalvaPreview",class="btn btn-primary btn-large large_btn fixclick",disabled="true" },
+                                 attr={id="btnSalvaPreview",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
                                  module = "wizard",
                                  view = "_save_preview",
                                  params = { 
@@ -83,7 +84,7 @@ end
                                  content=function()
                                      ui.heading
                                       { 
-                                      level=4,
+                                      level=4, attr = {class = "fittext_btn_wiz" },
                                       content=function()
                                           ui.container
                                           {
@@ -112,7 +113,7 @@ end
                     ui.container{attr={class="span3 text-center"},content=function()
                         ui.tag{
                                  tag="a",
-                                 attr={id="btnSaveIssue",class="btn btn-primary btn-large large_btn fixclick" ,onclick="sendInitiative("..page..");"},
+                                 attr={id="btnSaveIssue",class="btn btn-primary btn-large table-cell eq_btn fixclick",style="float:left;cursor:pointer;height: 103px;",onclick="sendInitiative("..page..");"},
                                  params = { 
                                                     unit_id=app.session.member.unit_id,
                                                     area_id=app.session.member.area_id,
@@ -122,7 +123,7 @@ end
                                     
                                       ui.heading
                                       { 
-                                      level=4,
+                                      level=4, attr = {class = "fittext_btn_wiz" },
                                       content=function()
                                           ui.container
                                           {
@@ -154,4 +155,9 @@ end
           end}
         
     end}
-           
+  end}            
+  
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq_btn")); $(window).resize(function() { equalHeight($(".eq_btn")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'}); " }
