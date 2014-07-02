@@ -58,7 +58,7 @@ if app.session.member_id then
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
                     	trace.debug(member.realname .. " " .. member.login)
-                      slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname ~= "" and member.realname or member.login}) )
+                      slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
                       ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
                     end }
@@ -101,7 +101,7 @@ if app.session.member_id then
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
                 ui.heading{level=4,content=function()
-                  slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                  slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
                 end }
               end }
             end }
