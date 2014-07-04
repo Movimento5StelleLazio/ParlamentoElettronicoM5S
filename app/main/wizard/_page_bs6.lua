@@ -83,18 +83,21 @@ ui.container{attr={class="span12 text-center"},content=function()
                               end
                             end
                       
-
+                      ui.container{attr={class="row-fluid"},content=function()
+                        ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span5 offset1 pagination-justify alert alert-info aim_desc"},content=function()
+                            ui.container{attr={class="span6 text-right aim_desc"},content=function()
                               ui.tag{tag="p",content=  _"Target description"}
                               ui.tag{tag="em",content=  _"Target note"}
                             end }
-                            ui.container{attr={class="span5 aim_desc"},content=function()
+                            ui.container{attr={class="span6 aim_desc"},content=function()
                               ui.tag{
                                 tag="textarea",
                                 attr={id="aim_description",name="aim_description",style="height:100%;width:100%;resize:none;"},
                                 content=""
                               }
+                            end }
+                          end }
                         end }
                       end }
                            

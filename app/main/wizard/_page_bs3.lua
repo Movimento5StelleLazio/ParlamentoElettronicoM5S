@@ -36,7 +36,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
                                        
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-ui.container{attr={class="span12"},content=function()
+ui.container{attr={class="span12 text-center"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
@@ -80,21 +80,23 @@ ui.container{attr={class="span12"},content=function()
                             end
                       
                       ui.container{attr={class="row-fluid"},content=function()
-
-                            ui.container{attr={class="span5 offset1 issue_brief_span pagination-justify alert alert-info"},content=function()
+                        ui.container{attr={class="span10 offset1 text-center"},content=function()            
+                          ui.container{attr={class="row-fluid"},content=function()
+                            ui.container{attr={class="span6 text-right issue_brief_span"},content=function()
                               ui.tag{tag="p",content=  _"Description to the problem you want to solve"}                    
                               ui.tag{tag="em",content=  _"Description note"}
                             end }
-                            ui.container{attr={class="span5 issue_brief_span"},content=function()
+                            ui.container{attr={class="span6 issue_brief_span"},content=function()
                               ui.tag{
                                 tag="textarea",
-                                attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;"},
+                                attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;resize:none;"},
                                 content=""
                               }
                               ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
                             end }
                           end }
-
+                        end }
+                      end }
 
                       end
 

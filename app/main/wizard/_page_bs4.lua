@@ -83,14 +83,14 @@ ui.container{attr={class="span12 text-center"},content=function()
                             end
                       
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span5 offset1 pagination-justify alert alert-info"},content=function()
+                            ui.container{attr={class="span6 text-right collapse",style="height:100%;"},content=function()
                               ui.tag{tag="p",content=  _"Keywords"}
                               ui.tag{tag="em",content=  _"Keywords note"}
                             end }
-                            ui.container{attr={class="span5"},content=function()
+                            ui.container{attr={class="span6 collapse",style="height:20em;"},content=function()
                               ui.tag{
                                 tag="input", 
-                                attr={id="issue_keywords",name="issue_keywords",class="tagsinput" }, 
+                                attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"}, 
                                 content=""
                               }
                             end }
