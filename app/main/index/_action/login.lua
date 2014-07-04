@@ -37,9 +37,9 @@ function do_etherpad_auth(member)
     return false
   end
   
-  local etherpad_sesion_id = string.match(result, '"sessionID"%s*:%s*"([^"]+)"')
+  local etherpad_session_id = string.match(result, '"sessionID"%s*:%s*"([^"]+)"')
 
-  if not etherpad_sesion_id then
+  if not etherpad_session_id then
     slot.put_into("error", _"Etherpad authentication failed" .. " 4")
     return false
   end
@@ -47,7 +47,7 @@ function do_etherpad_auth(member)
   request.set_cookie{
     path = config.etherpad.cookie_path,
     name = "sessionID",
-    value = etherpad_sesion_id
+    value = etherpad_session_id
   }
 
 end

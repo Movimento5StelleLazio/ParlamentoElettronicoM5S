@@ -5,22 +5,14 @@ local issue_id = param.get("issue_id", atom.integer)
 if issue_id then
   issue = Issue:new_selector():add_where{"id=?",issue_id}:single_object_mode():exec()
   area = issue.area
+
 else
   local area_id = param.get("area_id", atom.integer)
   area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
 end
 
-trace.debug("is elected? " .. tostring(app.session.member.elected))
-trace.debug("area_id: " .. tostring(area.id))
-trace.debug("unit_id: " .. tostring(area.unit_id))
-local unit = Unit:new_selector():add_where{"id=?",area.unit_id}:single_object_mode():exec()
-if string.match(unit.name, ".ASSEMBLEA INTERNA.") then
-	execute.view { module = "wizard_private", view = "new", params = { area_id = area.id } }
-	return
-end
-
 if not app.session.member.elected then
-	execute.view { module = "wizard", view = "wizard_new_initiative_bs", params = { area_id = area.id } }
+	execute.view { module = "wizard_private", view = "wizard_new_initiative_bs", params = { area_id = area.id } }
 end
 
 local polling = param.get("polling", atom.boolean)

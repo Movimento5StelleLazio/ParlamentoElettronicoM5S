@@ -435,7 +435,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				 
                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
                   ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
-                    local areas=Area:new_selector()
+                    ocal areas=Area:new_selector()
 											:join("unit", nil, "area.unit_id = unit.id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
 											:add_order_by("id ASC")
 											:exec()
@@ -449,7 +449,6 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                       tmp[#tmp+1] = {id = names.id, name = string.sub(names.name, 1, 50).."..." }
                     end 
                     local _value=""
-                  
                      --contenuto
                      --1* selezione
                       ui.container{attr={class="formSelect"},content=function() 

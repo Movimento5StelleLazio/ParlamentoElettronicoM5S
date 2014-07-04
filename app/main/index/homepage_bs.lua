@@ -1,5 +1,5 @@
 slot.set_layout("custom")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+--local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 local type_id = param.get_id()
 local state = param.get("state") or "any"
@@ -9,8 +9,6 @@ local desc = param.get("desc",atom.boolean) or false
 local interest = param.get("interest") or "any"
 local member = app.session.member
 local ftl_btns = param.get("ftl_btns",atom.boolean) or false
-
-trace.debug(config.gui_preset["custom"].public)
 
 -- Right selector
 local issues_selector_myinitiatives =Issue:new_selector()
@@ -63,7 +61,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span12"},content=function()
         ui.heading{level=1, content=function()
-          slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = app.session.member.realname}))
+          slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login)}))
         end }
 
         ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
@@ -83,7 +81,7 @@ ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span4 offset2 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
-          id=config.gui_preset[gui_preset].units["cittadini"].type_id,
+          id=config.gui_preset["custom"].units["cittadini"].type_id,
           content=function()
             ui.heading{level=3, content=_"Homepage read new issues"}
           end }
@@ -92,7 +90,7 @@ ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span4 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module = "unit", view = "show_ext_bs",
-          id=config.gui_preset[gui_preset].units["cittadini"].type_id,
+          id=config.gui_preset["custom"].units["cittadini"].type_id,
           params={wizard=true},
           content=function()
              ui.heading{level=3, content=_"Homepage write new issue"}
@@ -105,7 +103,7 @@ ui.container{attr={class="row-fluid"},content=function()
       ui.container{attr={class="span4 offset2 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
-          id=config.gui_preset[gui_preset].units["eletti"].type_id,
+          id=config.gui_preset["custom"].units["eletti"].type_id,
           content=function()
             ui.heading{level=3, content=_"Homepage read m5s issues"}
           end }

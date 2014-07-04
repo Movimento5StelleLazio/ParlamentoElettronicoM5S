@@ -19,7 +19,7 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA%' ")
+areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA%' ")
 
 local unit_name = "iscritti"
 --[[for i,v in pairs(config.gui_preset[gui_preset].units) do
@@ -39,7 +39,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
-          view = "homepage_bs",
+          view = "index",
           content = function()
             ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -51,7 +51,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,content=_(config.gui_preset["custom"].units["cittadini"].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -73,6 +73,7 @@ end }
 btn_class = "btn btn-primary btn-large large_btn"
 btn_class_active = "btn btn-primary btn-large active large_btn"
 btn1, btn2 = btn_class,btn_class
+
 if filter == "my_areas" then
   btn2=btn_class_active
 else
@@ -86,14 +87,14 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset["custom"].units["cittadini"].unit_title) or _"THEMATIC AREAS" 
+        content = _(config.gui_preset["custom"].units["iscritti"].unit_title) or _"THEMATIC AREAS" 
       }
     end }
     ui.container{ attr = { class ="row-fluid text-center" }, content = function()
       ui.container{attr={class="span6"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
-          module = "unit",
+          module = "unit_private",
           view = "show_ext_bs",
           id = type_id,					
           params = { wizard = wizard },
@@ -105,7 +106,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{attr={class="span6"},content=function()
         ui.link {
           attr = { class=btn2  },
-          module = "unit",
+          module = "unit_private",
           view = "show_ext_bs",
           id = type_id,		
           params = { filter = "my_areas", wizard = wizard },
