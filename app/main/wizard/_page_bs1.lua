@@ -1,5 +1,5 @@
-local area_id=param.get("area_id" )
-local unit_id=param.get("unit_id" )
+local area_id=param.get("area_id", atom.integer )
+local unit_id=param.get("unit_id", atom.integer )
 
 local area_policies=AllowedPolicy:get_policy_by_area_id(area_id)
 
@@ -47,8 +47,8 @@ end }
 
  
 
-local area_id=param.get("area_id" )
-local unit_id=param.get("unit_id" )
+local area_id=param.get("area_id", atom.integer)
+local unit_id=param.get("unit_id", atom.integer)
 
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")

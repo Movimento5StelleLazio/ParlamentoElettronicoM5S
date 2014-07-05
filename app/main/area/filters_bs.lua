@@ -1,7 +1,7 @@
 slot.set_layout("custom")
 
 local area = Area:by_id(param.get_id())
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+--local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 if not area then
   slot.put_into("error", "Please provide a valid area id")
@@ -14,7 +14,7 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 local unit_name
-if config.gui_preset[gui_preset].units.type_id == 1 then
+if config.gui_preset["custom"].units.type_id == 1 then
 	unit_name = "eletti"
 else
 	unit_name = "cittadini"
@@ -40,10 +40,10 @@ end
 ui.container{ attr = { class  = "row-fluid" }, content = function()
   ui.container{ attr = { class  = "span12 well" }, content = function()
     ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h4", attr = {class = "span12"},  content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = app.session.member.realname}) }
+      ui.tag { tag = "h4", attr = {class = "span12"},  content = _(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login)}) }
     end }
     ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset[gui_preset].units[unit_name].area_filter_title) }
+      ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset["custom"].units[unit_name].area_filter_title) }
     end }
     ui.container{ attr = { class  = "row-fluid btn_box_top  btn_box_bottom" }, content = function()
       ui.container{attr={class="span3", style=spanstyle},content = function()

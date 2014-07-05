@@ -2,7 +2,7 @@ slot.set_layout("custom")
 
 local type_id = param.get_id()
 local filter = param.get("filter")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+--local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local wizard = param.get("wizard", boolean)
 
 if not app.session.member_id then
@@ -19,28 +19,17 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-trace.debug(config.gui_preset[gui_preset].public)
-if config.gui_preset["custom"].public then
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA%' ")
-else
-  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA%' ")
-end
+areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA%' ")
 
-local unit_name
-for i,v in pairs(config.gui_preset[gui_preset].units) do
+local unit_name = "iscritti"
+--[[for i,v in pairs(config.gui_preset[gui_preset].units) do
   trace.debug('unit_id '..type_id..' type_id '..config.gui_preset[gui_preset].units[i].type_id)
   if config.gui_preset[gui_preset].units[i].type_id == type_id then unit_name = i end
-end
+end]]
 
 if not unit_name then
   slot.put_into("error", "Cannot find type_id in configuration!")
   return false
-end
-
-local return_view = "homepage_bs"
-
-if unit_name == "iscritti" then
-  return_view = "index"
 end
 
 ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
@@ -50,7 +39,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
-          view = return_view,
+          view = "homepage_bs",
           content = function()
             ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -62,7 +51,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_(config.gui_preset["custom"].units["cittadini"].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -97,7 +86,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
+        content = _(config.gui_preset["custom"].units["cittadini"].unit_title) or _"THEMATIC AREAS" 
       }
     end }
     ui.container{ attr = { class ="row-fluid text-center" }, content = function()

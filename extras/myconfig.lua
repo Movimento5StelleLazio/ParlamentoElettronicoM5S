@@ -17,7 +17,6 @@ config.gui_preset = {
     start_page = "_index_default"
   }, 
   custom = {
-  	public = true,
     name = "custom",
     start_page = "_welcome_bs",
     units = {

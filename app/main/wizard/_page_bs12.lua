@@ -1,5 +1,5 @@
-local area_id=param.get("area_id" )
-local unit_id=param.get("unit_id" )
+local area_id=param.get("area_id", atom.integer)
+local unit_id=param.get("unit_id", atom.integer)
 local area_name=param.get("area_name")
 local unit_name=param.get("unit_name")
 
@@ -435,23 +435,21 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				 
                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
                   ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
-                    local area={}
+                    local areas=Area:new_selector()
+											:join("unit", nil, "area.unit_id = unit.id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
+											:add_order_by("id ASC")
+											:exec()
                     --valori di test
                     local tmp
                     tmp = { 
-                      { id = 0, name = _"Please choose a tecnical area" },
-                      { id = 1, name = "Ingegneria Edile" },
-                      { id = 2, name = "Ingegneria Informatica" }
+                      { id = 0, name = _"Please choose a tecnical area" }
                     }
+                    for i, names in ipairs(areas) do
+                    	trace.debug(names.id .. " " .. names.name .. " " .. names.description)
+                      tmp[#tmp+1] = {id = names.id, name = string.sub(names.name, 1, 50).."..." }
+                    end 
                     local _value=""
-                    if #area>0 then
-                      for i, allowed_policy in ipairs(area.allowed_policies) do
-                        if not allowed_policy.polling then
-                          tmp[#tmp+1] = allowed_policy
-                        end
-                      end   
-                      --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
-                     end
+                  
                      --contenuto
                      --1* selezione
                       ui.container{attr={class="formSelect"},content=function() 

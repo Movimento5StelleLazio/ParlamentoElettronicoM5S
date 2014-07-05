@@ -1,5 +1,5 @@
-local area_id=param.get("area_id" )
-local unit_id=param.get("unit_id" )
+local area_id=param.get("area_id", atom.integer)
+local unit_id=param.get("unit_id", atom.integer)
  
 
 local page=param.get("page",atom.integer)

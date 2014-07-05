@@ -39,9 +39,9 @@ if app.session.member_id then
 
       -- Demo data start
       --------------------------------------------------------------------------
-      if not curLogin or not curLogin.geolat or not curLogin.geolng or not curLogin.login_time  then
+      --[[if not curLogin or not curLogin.geolat or not curLogin.geolng or not curLogin.login_time  then
         curLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
-      end
+      end]]
       --------------------------------------------------------------------------
       -- Stop demo data
 
@@ -58,7 +58,7 @@ if app.session.member_id then
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
                     	trace.debug(member.realname .. " " .. member.login)
-                      slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
+                      slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
                       ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
                     end }
@@ -101,7 +101,7 @@ if app.session.member_id then
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
                 ui.heading{level=4,content=function()
-                  slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
+                  slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                 end }
               end }
             end }
@@ -121,10 +121,10 @@ if app.session.member_id then
       local lastLogin = member:get_login_data()
       -- Demo data start
       --------------------------------------------------------------------------
-      if not lastLogin or not lastLogin.geolat or not lastLogin.geolng or not lastLogin.login_time  then
+      --[[if not lastLogin or not lastLogin.geolat or not lastLogin.geolng or not lastLogin.login_time  then
         lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
         --lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = "2013-07-08 20:06:55.072482+02" }
-      end
+      end]]
       --------------------------------------------------------------------------
       -- Stop demo data
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
@@ -138,7 +138,6 @@ if app.session.member_id then
   
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
-                      if lastLogin and lastLogin.login_time then
                         ui.tag{
                           content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
                             last_login_date = format.date(lastLogin.login_time),
@@ -148,7 +147,6 @@ if app.session.member_id then
                         slot.put("&nbsp;")
                         ui.tag{ tag="span", attr = { id = "location"}, content="" }
                         ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
-                      end
                     end }
                   end }
   
@@ -184,6 +182,55 @@ if app.session.member_id then
           end }
         end }
 
+			else
+			
+			ui.container{attr = {class = "row-fluid spaceline" },content = function()
+          ui.container{ attr = { class  = "span12 alert location_data2 text-center" }, content = function()
+            ui.container{attr = {class = "row-fluid" },content = function()
+  
+              ui.container{ attr = { class  = "span9 text-center" }, content = function()
+                ui.container{attr = {class = "row-fluid" },content = function()
+  
+                  ui.container{ attr = { class  = "span12 text-left" }, content = function()
+                    ui.heading{level=4,content=function()
+                      if lastLogin and lastLogin.login_time then
+                        ui.tag{ content= _("This is your first connection") }
+                      end
+                    end }
+                  end }
+  
+                end }
+  
+                ui.container{attr = {class = "row-fluid" },content = function()
+                  ui.container{ attr = { class  = "span12 text-right" }, content = function()
+                    ui.heading{level=6,content=function()
+                      slot.put(_"You didn't logged in from this location? Report it immediatly:")
+                      ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
+                    end }
+                  end }
+                end }
+  
+              end }
+  
+              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+                ui.anchor{
+                  attr = {
+                    href = "#",
+                    class = "btn btn-primary fixclick", 
+                    onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
+                  },
+                  content=function()
+                    ui.heading{level=3, content= _"Report suspect data"}
+                  end
+                }
+                ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
+  
+              end }
+            end }
+  
+          end }
+        end }
+			
       end
 
       ui.container{attr = {class = "row-fluid spaceline" },content = function()
@@ -203,16 +250,8 @@ if app.session.member_id then
             ui.tag{tag="span",attr={class="span12"},content=function()
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
-                  --[[module="index",
+                  module="index",
                   view="homepage_bs",
-                  action="_set_public",
-									id=config.gui_preset[gui_preset].units["iscritti"].type_id,
-									params = { public = true },]]
-									module="index",
-									view="set_app_variable_before_redirect",									
-                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
-                  id = config.gui_preset["custom"].units["iscritti"].type_id,
-									params = { module = "index", view = "homepage_bs", public = true },
                   attr = {class = "btn btn-primary btn-large large_btn fixclick" },
                   content=function()
                     ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
@@ -233,16 +272,8 @@ if app.session.member_id then
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
                   attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  --[[module="unit",
-                  view="show_ext_bs",                  
-                  action="_set_public",
-									params = { public = false },
-                  id=config.gui_preset[gui_preset].units["iscritti"].type_id,]]
-                  module="index",
-                  view="set_app_variable_before_redirect",
-                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
-                  id = config.gui_preset["custom"].units["iscritti"].type_id,
-									params = { module = "unit", view = "show_ext_bs", public = false },
+                  module="unit_private",
+                  view="show_ext_bs",							
                   content=function()
                     ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
                   end
