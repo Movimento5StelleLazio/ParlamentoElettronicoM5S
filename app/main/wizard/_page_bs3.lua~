@@ -1,5 +1,5 @@
-local area_id=param.get("area_id", atom.integer)
-local unit_id=param.get("unit_id", atom.integer)
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
 local btnBackModule = "wizard"
@@ -83,8 +83,8 @@ ui.container{attr={class="span12"},content=function()
                         ui.container{attr={class="span10 offset1"},content=function()            
                           ui.container{attr={class="row-fluid"},content=function()
                             ui.container{attr={class="span6 pagination-justify issue_brief_span alert alert-info"},content=function()
-                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}                    
-                              ui.tag{tag="em",content=  _"Description note"}
+                              ui.tag{tag="p",content=  _"Description to the problem you want to solve"}                    
+                              ui.tag{tag="em", attr={class=""}, content=  _"Description note"}
                             end }
                             ui.container{attr={class="span6 issue_brief_span"},content=function()
                               ui.tag{

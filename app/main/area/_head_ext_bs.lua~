@@ -96,7 +96,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               slot.put(" &middot; ")
               --]]
     
-              ui.link{attr = {class = "label label-warning" },
+              ui.link{
                 content = function()
                   slot.put(_"Create new issue")
                 end,
