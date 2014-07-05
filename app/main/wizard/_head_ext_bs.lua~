@@ -34,7 +34,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           if membership then
             
             if app.session.member_id == member.id then
-              ui.tag{ content = "You are participating in this area" }
+              ui.tag{ content = _"You are participating in this area" }
               slot.put(" ")
               ui.tag{ content = function()
                 slot.put("(")

@@ -1,7 +1,11 @@
-local area_id=param.get("area_id", atom.integer)
-local unit_id=param.get("unit_id", atom.integer)
+
+local area_id=param.get("area_id" )
+local unit_id=param.get("unit_id" )
+ 
+
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
+
 local btnBackModule = "wizard"
 local btnBackView = "wizard_new_initiative_bs"
 
@@ -31,7 +35,7 @@ ui.container{attr={class="row-fluid"},content=function()
    ui.heading{level=3,content=function() 
       slot.put(_"FASE <strong>"..page.."</strong> di 11") 
     end}
-    ui.heading{level=4,attr={class="uppercase"},content=  _"Give a short description to the problem you want to solve"}
+    ui.heading{level=4,attr={class="uppercase"},content=  _"Insert the text for your initiative to solve the problem"}
   end }
 end }
                                        
@@ -42,7 +46,7 @@ ui.container{attr={class="span12"},content=function()
              ui.form
                     {
                         method = "post",
-                        attr={id="wizardForm"..page, class="inline-block"},
+                        attr={id="wizardForm"..page,class="inline-block"},
                         module = 'wizard',
                         view = btnBackView,
                         params={
@@ -78,28 +82,24 @@ ui.container{attr={class="span12"},content=function()
                               trace.debug("[wizard] name="..k.name.." | value="..k.value)
                               end
                             end
-                      
+
                       ui.container{attr={class="row-fluid"},content=function()
-                        ui.container{attr={class="span10 offset1"},content=function()            
+                        ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 pagination-justify issue_brief_span alert alert-info"},content=function()
-                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}                    
-                              ui.tag{tag="em",content=  _"Description note"}
+                            ui.container{attr={class="span6 pagination-justify alert alert-infocollapse", style="height:100%"},content=function()
+                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
+                              ui.tag{tag="em",content=  _"Draft note"}
                             end }
-                            ui.container{attr={class="span6 issue_brief_span"},content=function()
-                              ui.tag{
-                                tag="textarea",
-                                attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;resize:none;"},
-                                content=""
-                              }
-                              ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
-                            end }
+                            ui.tag{
+                              tag="textarea",
+                              attr={id="draft",name="draft",class="span6 collapse", style="height:32em; resize:none;"},
+                              content=""
+                            }
                           end }
                         end }
                       end }
 
-                      end
-
+                           end --fine contenuto
                    }--fine form
             --------------------------------------------------------
    end }
@@ -108,7 +108,7 @@ end }
  
 
 ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
-  ui.container{attr={class="span12 text-center spaceline3"},content=function()
+  ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
       module="wizard",
       view="_pulsanti_bs",
@@ -120,7 +120,3 @@ ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function
     }
   end }
 end }
-
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".issue_brief_span")); $(window).resize(function() { equalHeight($(".issue_brief_span")); }); }); ' }
