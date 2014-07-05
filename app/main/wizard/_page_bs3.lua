@@ -36,7 +36,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
                                        
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-ui.container{attr={class="span12 text-center"},content=function()
+ui.container{attr={class="span12"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
@@ -80,10 +80,10 @@ ui.container{attr={class="span12 text-center"},content=function()
                             end
                       
                       ui.container{attr={class="row-fluid"},content=function()
-                        ui.container{attr={class="span10 offset1 text-center"},content=function()            
+                        ui.container{attr={class="span10 offset1"},content=function()            
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right issue_brief_span"},content=function()
-                              ui.tag{tag="p",content=  _"Description to the problem you want to solve"}                    
+                            ui.container{attr={class="span6 pagination-justify issue_brief_span alert alert-info"},content=function()
+                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}                    
                               ui.tag{tag="em",content=  _"Description note"}
                             end }
                             ui.container{attr={class="span6 issue_brief_span"},content=function()

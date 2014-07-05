@@ -80,7 +80,7 @@ ui.container{attr={class="row-fluid"},content=function()
 
     ui.container{attr={class="row-fluid text-center"},content=function()
     
-      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+      ui.container{attr={class="span4 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["cittadini"].type_id,
@@ -98,11 +98,10 @@ ui.container{attr={class="row-fluid"},content=function()
              ui.heading{level=3, content=_"Homepage write new issue"}
           end }
       end }
-      end }
 
-   ui.container{attr={class="row-fluid text-center"},content=function()
+
     
-      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+      ui.container{attr={class="span4 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset[gui_preset].units["eletti"].type_id,
@@ -119,10 +118,9 @@ ui.container{attr={class="row-fluid"},content=function()
             ui.heading{level=3, content=_"Homepage read other issues"}
           end }
       end }]]
-      end }
     end }
   end }
-
+      end }
 
 
 
