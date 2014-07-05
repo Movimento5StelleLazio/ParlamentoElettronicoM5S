@@ -110,9 +110,9 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
 
 
 
- ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
- ui.container{attr={class="span12 text-center"},content=function()
+
            --pulsanti
+
             execute.view{
                             module="wizard",
                             view="_pulsanti_bs",
@@ -125,7 +125,5 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                          }
                           
            
-      
-   end }
-end }    
+  
      

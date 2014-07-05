@@ -16,7 +16,7 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 -- Get the unit name from the configuration file
-local unit_name
+--[[local unit_name
 for i,v in pairs(config.gui_preset[gui_preset].units) do
   if config.gui_preset[gui_preset].units[i].unit_id == area.unit_id then unit_name = i end
 end
@@ -24,7 +24,8 @@ end
 if not config.gui_preset[gui_preset].units[unit_name] then
   slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
   return false
-end
+end]]
+local unit_name = "cittadini"
 
 -- Determines the desc order button text
 local inv_txt
@@ -86,15 +87,15 @@ end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
-    ui.container{ attr = { class  = "row-fluid" }, content = function()
+    ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large fixclick"  },
+          attr = { class="btn btn-primary btn-large large_btn fixclick"  },
           module = "area",
           id = area.id,
           view = "filters_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }

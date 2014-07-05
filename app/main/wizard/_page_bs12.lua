@@ -201,7 +201,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
             if #area_policies>0 then
               for i, allowed_policy in ipairs(area_policies) do
                 dataSource[#dataSource+1] = {id=i, name=allowed_policy.name  }
-                trace.debug("allowed_policy.id="..allowed_policy.policy_id.."| policy_id="..policy_id)
+                trace.debug("allowed_policy.id="..allowed_policy.policy_id.."| policy_id="..allowed_policy.policy_id)
                 ui.hidden_field{name=allowed_policy.name ,value=i.."_"..allowed_policy.policy_id}
                 if tonumber(allowed_policy.policy_id)==tonumber(policy_id) then
                   if i==1 then
@@ -321,7 +321,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_brief_span"},content=function()
                     ui.tag{tag="p",content=  _"Description to the problem you want to solve"}
-                    ui.tag{tag="em",content=  _"Description note"}
+--                      ui.tag{tag="em",content=  _"Description note"}
                   end }
                   ui.container{attr={class="span6 issue_brief_span"},content=function()
                     ui.tag{
@@ -336,7 +336,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right"},content=function()
                     ui.tag{tag="p",content=  _"Keywords"}
-                    ui.tag{tag="em",content=  _"Keywords note"}
+ --                     ui.tag{tag="em",content=  _"Keywords note"}
                   end }
                   ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
                     ui.tag{
@@ -351,7 +351,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_desc"},content=function()
                     ui.tag{tag="p",content=  _"Problem description"}
-                    ui.tag{tag="em",content=  _"Problem note"}
+--                      ui.tag{tag="em",content=  _"Problem note"}
                   end }
                   ui.container{attr={class="span6 issue_desc"},content=function()
                     ui.tag{
@@ -366,7 +366,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
                     ui.tag{tag="p",content=  _"Target description"}
-                    ui.tag{tag="em",content=  _"Target note"}
+--                      ui.tag{tag="em",content=  _"Target note"}
                   end }
                   ui.container{attr={class="span6 aim_desc"},content=function()
                     ui.tag{
@@ -405,7 +405,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
 				  ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
                     ui.tag{tag="p",content=  _"Initiative short description"}
-                    ui.tag{tag="em",content=  _"Initiative short note"}
+--                      ui.tag{tag="em",content=  _"Initiative short note"}
                   end }
                   ui.container{attr={class="span6 init_brief"},content=function()
                     ui.tag{
@@ -420,7 +420,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right draft"},content=function()
                     ui.tag{tag="p",content=  _"Draft text"}
-                    ui.tag{tag="em",content=  _"Draft note"}
+--                      ui.tag{tag="em",content=  _"Draft note"}
                   end }
                   ui.container{attr={class="span6 draft"},content=function()
                     ui.tag{

@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 
 FRONTENDSRC=/opt/ParlamentoElettronicoM5S
 CORESRC=/opt/ParlamentoElettronicoM5SCore
@@ -36,13 +36,15 @@ done
 
 export LANG=en_US.UTF-8
 
-if [ "z${fast}" == "zyes" ]; then
-   cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,utils} ${FRONTENDDST}/
+if [ "z${fast}" == "yes" ]; then
+   echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
+   cp -a $FRONTENDSRC/{app, db, env, fastpath, locale, model, static, utils} ${FRONTENDDST}/
+   echo $?
    echo "Fast copy done"
    exit 0
 fi
 
-if [ "z${auto}" == "zno" ];then
+if [ "z${auto}" == "no" ];then
 	echo ""
 	echo "Ready to install ParlamentoElettronicoM5S"
 	echo "Please confirm installation parameters"
@@ -142,7 +144,9 @@ if ! [ -d "${WEBMCPDST}" ]; then
 fi
 
 echo "Installing Frontend..."
-cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
+cp -a $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+echo $?
 mkdir -p ${FRONTENDDST}/config/
 cp ${FRONTENDSRC}/config/init.lua ${FRONTENDDST}/config/
 

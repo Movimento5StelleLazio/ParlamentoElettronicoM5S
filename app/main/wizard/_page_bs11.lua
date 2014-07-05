@@ -121,16 +121,16 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                           
                                           
                                           --3 proposer
-                                          execute.view
-                                          {
-                                              module="wizard",
-                                              view="_checkbox_bs",
-                                              params={
-                                                   id_checkbox="3",
-                                                   label=_"Other groups",
-                                                   selected=proposer1
-                                              }
-                                          }
+--                                          execute.view
+--                                           {
+--                                               module="wizard",
+--                                               view="_checkbox_bs",
+--                                               params={
+ --                                                   id_checkbox="3",
+--                                                    label=_"Other groups",
+--                                                    selected=proposer1
+--                                               }
+--                                          }
                                                                         
                                           end  }
                               

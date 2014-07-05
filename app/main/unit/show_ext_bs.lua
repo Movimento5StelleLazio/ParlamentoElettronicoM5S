@@ -1,10 +1,9 @@
 slot.set_layout("custom")
 
-local unit_id = param.get_id()
+local type_id = param.get_id()
 local filter = param.get("filter")
 local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local wizard = param.get("wizard", boolean)
-
 
 if not app.session.member_id then
   return false
@@ -20,20 +19,21 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-if unit_id then
-  areas_selector:add_where{ "area.unit_id = ?", unit_id }
+trace.debug(config.gui_preset[gui_preset].public)
+if config.gui_preset["custom"].public then
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE '%ASSEMBLEA INTERNA%' ")
 else
-  slot.put_into("error", "No unit_id was provided!")
-  return false
+  areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA%' ")
 end
 
 local unit_name
 for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == unit_id then unit_name = i end
+  trace.debug('unit_id '..type_id..' type_id '..config.gui_preset[gui_preset].units[i].type_id)
+  if config.gui_preset[gui_preset].units[i].type_id == type_id then unit_name = i end
 end
 
 if not unit_name then
-  slot.put_into("error", "Cannot find unit_id in configuration!")
+  slot.put_into("error", "Cannot find type_id in configuration!")
   return false
 end
 
@@ -43,16 +43,16 @@ if unit_name == "iscritti" then
   return_view = "index"
 end
 
-ui.container{ attr = { class  = "row-fluid" } , content = function()
+ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn table-cell fixclick"  },
+          attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
           view = return_view,
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
@@ -62,12 +62,12 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=2,content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE THEMATIC AREA"}
+            ui.heading{level=2, content=_"CHOOSE THE THEMATIC AREA"}
           end }
         end }
       end }
@@ -81,8 +81,8 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1 fixclick"
-btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1 fixclick"
+btn_class = "btn btn-primary btn-large large_btn"
+btn_class_active = "btn btn-primary btn-large active large_btn"
 btn1, btn2 = btn_class,btn_class
 if filter == "my_areas" then
   btn2=btn_class_active
@@ -100,28 +100,28 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
       }
     end }
-    ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.container{attr={class="span4 offset2"},content=function()
+    ui.container{ attr = { class ="row-fluid text-center" }, content = function()
+      ui.container{attr={class="span6"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { wizard = wizard},
+          id = type_id,					
+          params = { wizard = wizard },
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
+            ui.heading{level=3, content= _"SHOW ALL AREAS"}
           end 
         }
       end }
-      ui.container{attr={class="span4 offset1"},content=function()
+      ui.container{attr={class="span6"},content=function()
         ui.link {
           attr = { class=btn2  },
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { filter = "my_areas", wizard = wizard},
+          id = type_id,		
+          params = { filter = "my_areas", wizard = wizard },
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }

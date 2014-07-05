@@ -22,7 +22,7 @@ end
 ui.container{ attr = { class = "row-fluid"}, content = function()
   ui.container{ attr = { class = "span12"}, content = function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span6 eq1"}, content = function()
+      ui.container{ attr = { class = "span6"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
       end }
     end }
@@ -32,7 +32,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
             ui.tag{tag="strong",content=function()
-              ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title or _"No title for this issue!" }
+              ui.heading { level=5, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue!") }
             end}
           end }
         end }

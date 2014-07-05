@@ -1,5 +1,5 @@
 slot.set_layout("custom")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
+--local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
@@ -57,7 +57,8 @@ if app.session.member_id then
                 ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
-                      slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                    	trace.debug(member.realname .. " " .. member.login)
+                      slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
                       ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
                     end }
@@ -80,11 +81,11 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick",
+                    class = "btn btn-primary fixclick",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Correct your position"}
+                    ui.heading{level=3 ,content= _"Correct your position"}
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
@@ -100,7 +101,7 @@ if app.session.member_id then
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
                 ui.heading{level=4,content=function()
-                  slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                  slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (#member.realname > 0 and member.realname or member.login)}) )
                 end }
               end }
             end }
@@ -168,11 +169,11 @@ if app.session.member_id then
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick", 
+                    class = "btn btn-primary fixclick", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Report suspect data"}
+                    ui.heading{level=3, content= _"Report suspect data"}
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
@@ -202,11 +203,19 @@ if app.session.member_id then
             ui.tag{tag="span",attr={class="span12"},content=function()
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
-                  module="index",
+                  --[[module="index",
                   view="homepage_bs",
-                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
+                  action="_set_public",
+									id=config.gui_preset[gui_preset].units["iscritti"].type_id,
+									params = { public = true },]]
+									module="index",
+									view="set_app_variable_before_redirect",									
+                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  id = config.gui_preset["custom"].units["iscritti"].type_id,
+									params = { module = "index", view = "homepage_bs", public = true },
+                  attr = {class = "btn btn-primary btn-large large_btn fixclick" },
                   content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
+                    ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
                   end
                 }
               end }
@@ -223,12 +232,19 @@ if app.session.member_id then
             ui.tag{tag="span",attr={class="span12"},content=function()
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
-                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
-                  module="unit",
-                  view="show_ext_bs",
-                  id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
+                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+                  --[[module="unit",
+                  view="show_ext_bs",                  
+                  action="_set_public",
+									params = { public = false },
+                  id=config.gui_preset[gui_preset].units["iscritti"].type_id,]]
+                  module="index",
+                  view="set_app_variable_before_redirect",
+                  --id = config.gui_preset[gui_preset].units["iscritti"].type_id,
+                  id = config.gui_preset["custom"].units["iscritti"].type_id,
+									params = { module = "unit", view = "show_ext_bs", public = false },
                   content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+                    ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
                   end
                 }
               end }
@@ -240,7 +256,7 @@ if app.session.member_id then
       end }
     end }
   end }
-  execute.view{module="index",view="_registration_info"}
+             --[[ execute.view{module="index",view="_registration_info"} ]]--
 
 else
 
@@ -299,7 +315,7 @@ else
             ui.container{ attr = { class = "span6 offset3" }, content = function()
               ui.tag{ 
                 tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large fixclick" }, 
+                attr = { type="submit", class="btn btn-primary btn-large large_btn spaceline fixclick" }, 
                 content= function()
                   ui.heading{ level=4, attr = { class="inline-block"}, content= _"Login"}
                 end 
@@ -319,9 +335,9 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="registration", class = "span12" }, content = function ()
+            ui.container{ attr = { id="registration", class = "span12 spaceline" }, content = function ()
               ui.link{
-                attr = {class="btn btn-primary btn-large fixclick"},
+                attr = {class="btn btn-primary btn-large large_btn fixclick"},
                 module = "index",
                 view = "register",
                 content = function()
@@ -341,7 +357,7 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
+            ui.container{ attr = { id="lost_password", class = "span12 spaceline" }, content = function ()
               ui.link{
                 attr = { class="btn btn-primary btn-large fixclick"},
                 module = 'index',
@@ -358,7 +374,7 @@ else
     end }
   end }
 
-  execute.view{module="index",view="_registration_info"}
+--  execute.view{module="index",view="_registration_info"}
 
 --ui.script{static = "js/jquery.fittext.js"}
 --ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
