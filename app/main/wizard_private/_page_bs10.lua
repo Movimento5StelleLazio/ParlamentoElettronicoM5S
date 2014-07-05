@@ -1,9 +1,10 @@
 local area_id=param.get("area_id", atom.integer)
 local unit_id=param.get("unit_id", atom.integer)
 
+
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
-    
+
 local areas=Area:new_selector()
 	:join("unit", nil, "area.unit_id = unit.id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
 	:add_order_by("id ASC")
@@ -43,10 +44,10 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                           for i, names in ipairs(areas) do
                           	trace.debug(names.id .. " " .. names.name .. " " .. names.description)
                             tmp[#tmp+1] = {id = names.id, name = string.sub(names.name, 1, 50).."..." }
-                          end   
+                          end      
                           
                         --  _value=param.get("policy_id", atom.integer) or area.default_policy and area.default_policy.id
-                       -- else
+                        --else
                          
                       end
                   --contenuto specifico della pagina wizard    
@@ -108,7 +109,6 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             foreign_records = tmp,
                                             foreign_id = "id",
                                             foreign_name = "name",
-                                            selected_record = area_id,
                                             value =  ""
                                           }
                                     
