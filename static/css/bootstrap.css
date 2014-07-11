@@ -4725,7 +4725,7 @@ h6 {
   height: 3em;
 }
 #default {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 .vtable {
   display: table;
@@ -5210,15 +5210,15 @@ h6 {
 }
 .arrow_medium {
   vertical-align: middle;
-  height: 40px;
-  width: 40px;
+  height: 70px;
+  width: 70px;
   padding-left: 8px;
   padding-right: 8px;
 }
 .arrow_small {
   vertical-align: middle;
-  height: 25px;
-  width: 25px;
+  height: 50px;
+  width: 50px;
   padding-left: 8px;
   padding-right: 8px;
 }
