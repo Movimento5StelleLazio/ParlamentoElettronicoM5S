@@ -39,7 +39,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
                                        
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-ui.container{attr={class="span12"},content=function()
+ui.container{attr={class="span12 text-center"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
@@ -85,8 +85,8 @@ ui.container{attr={class="span12"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 pagination-justify alert alert-info issue_desc"},content=function()
-                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Problem description"}
+                            ui.container{attr={class="span6 text-right issue_desc"},content=function()
+                              ui.tag{tag="p",content=  _"Problem description"}
                               ui.tag{tag="em",content=  _"Problem note"}
                             end }
                             ui.container{attr={class="span6 issue_desc"},content=function()

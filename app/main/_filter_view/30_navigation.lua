@@ -1,22 +1,23 @@
 slot.select('navigation', function()
 
   ui.link{
-    content = function()
-      ui.tag{ attr = { class = "logo_liquidfeedback" }, content = _"LiquidFeedback" }
+    content = function()    
+      ui.image{static = "logo_withe.png"}
       slot.put(" &middot; ")
       ui.tag{ content = config.instance_name }
+
     end,
     module = 'index',
     view   = 'index'
   }
   
-  if app.session:has_access("anonymous") then
+ if app.session:has_access("anonymous") then
 
-    ui.link{
-      content = _"Search",
-      module = 'index',
-      view   = 'search'
-    }
+--    ui.link{
+--      content = _"Search",
+ --     module = 'index',
+--      view   = 'search'
+ --   }
   
     if app.session.member == nil then
       ui.link{

@@ -78,7 +78,7 @@ ui.container{attr={class="row-fluid"},content=function()
 
     ui.container{attr={class="row-fluid text-center"},content=function()
     
-      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+      ui.container{attr={class="span4 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset["custom"].units["cittadini"].type_id,
@@ -98,9 +98,9 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
       end }
 
-   ui.container{attr={class="row-fluid text-center"},content=function()
+
     
-      ui.container{attr={class="span4 offset2 spaceline"},content=function()
+      ui.container{attr={class="span4 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module="unit", view="show_ext_bs",
           id=config.gui_preset["custom"].units["eletti"].type_id,
