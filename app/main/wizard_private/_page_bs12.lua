@@ -321,7 +321,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_brief_span"},content=function()
                     ui.tag{tag="p",content=  _"Description to the problem you want to solve"}
-                    ui.tag{tag="em",content=  _"Description note"}
+--                      ui.tag{tag="em",content=  _"Description note"}
                   end }
                   ui.container{attr={class="span6 issue_brief_span"},content=function()
                     ui.tag{
@@ -336,7 +336,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                 ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right"},content=function()
                     ui.tag{tag="p",content=  _"Keywords"}
-                    ui.tag{tag="em",content=  _"Keywords note"}
+ --                     ui.tag{tag="em",content=  _"Keywords note"}
                   end }
                   ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
                     ui.tag{
@@ -351,7 +351,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline4"},content=function()
                   ui.container{attr={class="span4 offset1 text-right issue_desc"},content=function()
                     ui.tag{tag="p",content=  _"Problem description"}
-                    ui.tag{tag="em",content=  _"Problem note"}
+--                      ui.tag{tag="em",content=  _"Problem note"}
                   end }
                   ui.container{attr={class="span6 issue_desc"},content=function()
                     ui.tag{
@@ -366,7 +366,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
                     ui.tag{tag="p",content=  _"Target description"}
-                    ui.tag{tag="em",content=  _"Target note"}
+--                      ui.tag{tag="em",content=  _"Target note"}
                   end }
                   ui.container{attr={class="span6 aim_desc"},content=function()
                     ui.tag{
@@ -405,7 +405,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
 				  ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
                     ui.tag{tag="p",content=  _"Initiative short description"}
-                    ui.tag{tag="em",content=  _"Initiative short note"}
+--                      ui.tag{tag="em",content=  _"Initiative short note"}
                   end }
                   ui.container{attr={class="span6 init_brief"},content=function()
                     ui.tag{
@@ -420,7 +420,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
                   ui.container{attr={class="span4 offset1 text-right draft"},content=function()
                     ui.tag{tag="p",content=  _"Draft text"}
-                    ui.tag{tag="em",content=  _"Draft note"}
+--                      ui.tag{tag="em",content=  _"Draft note"}
                   end }
                   ui.container{attr={class="span6 draft"},content=function()
                     ui.tag{
@@ -435,7 +435,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
 				 
                 ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function()
                   ui.container{attr={class="span12 text-center",style="margin-top: 5em; margin-left: 1em; "},content=function()
-                    ocal areas=Area:new_selector()
+                    local areas=Area:new_selector()
 											:join("unit", nil, "area.unit_id = unit.id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
 											:add_order_by("id ASC")
 											:exec()
@@ -449,6 +449,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                       tmp[#tmp+1] = {id = names.id, name = string.sub(names.name, 1, 50).."..." }
                     end 
                     local _value=""
+                  
                      --contenuto
                      --1* selezione
                       ui.container{attr={class="formSelect"},content=function() 

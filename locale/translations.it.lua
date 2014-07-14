@@ -118,7 +118,7 @@ return {
 ["You are now inside the Digital Assembly of M5S Lazio's Public Affairs."]="Ti trovi nell'assemblea dedicata alla cosa pubblica.";
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la tua regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa puoi fare:";
-["Choose by pressing one of the following buttons:"]="Puoi leggere, valutare ed integrare le proposte di legge presentate dai cittadini, presentare una tua proposta, votare quelle attualmente in discussione:";
+["Choose by pressing one of the following buttons:"]="Puoi leggere, valutare ed integrare le proposte di legge presentate dai cittadini o dagli eletti, presentare una tua proposta, votare quelle attualmente in discussione:";
 ["Choose the assembly you want to participate:"]="Scegli l'assemblea alla quale vuoi partecipare:";
 ["Electeds Initiatives In Discussion"]="Proposte Degli Eletti In Discussione";
 ["Electeds Initiatives Completed or Retired"]="Proposte Degli Eletti Completate o Ritirate";
@@ -361,7 +361,7 @@ return {
 ["Edit my page"] = "Modifica la mia pagina";
 ["Edit my profile"] = "Modifica il mio profilo";
 ["Edit profile"] = "Modifica profilo";
-["Elected M5S"]="ELETTI DEL MOVIMENTO 5 STELLE";
+["Elected M5S"]="ELETTI";
 ["Eligible as winner"] = "Potenziali vincitori";
 ["Eligible voters"] = "Potenziali votanti";
 ["Email address"] = "Indirizzo eMail";
