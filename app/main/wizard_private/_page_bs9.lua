@@ -40,7 +40,7 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
                                        
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-ui.container{attr={class="span12"},content=function()
+ui.container{attr={class="span12 text-center"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
@@ -86,8 +86,8 @@ ui.container{attr={class="span12"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
-                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
+                            ui.container{attr={class="span6 text-right collapse", style="height:100%"},content=function()
+                              ui.tag{tag="p",content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
                             ui.tag{
