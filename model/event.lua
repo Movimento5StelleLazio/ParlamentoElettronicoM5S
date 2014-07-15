@@ -189,3 +189,10 @@ function Event:send_notifications_loop()
   end
   
 end
+
+function Event:send_notifications_once()
+  local did_work
+  repeat
+    did_work = Event:send_next_notification()
+  until not did_work
+end

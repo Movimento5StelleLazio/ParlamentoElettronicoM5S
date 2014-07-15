@@ -1,7 +1,7 @@
 local initiative = param.get("initiative", "table") or Initiative:by_id(param.get_id())
 
 
-local initiative = param.get("initiative", "table")
+--local initiative = param.get("initiative", "table")
 local supporter = Supporter:by_pk(initiative.id, app.session.member.id)
 
 local partial = {
