@@ -17,7 +17,7 @@ if not page  or page <= 1 then
     
     else
     btnBackParams=previus_page
-    btnBackModule ="wizard"
+    btnBackModule ="wizard_private"
     btnBackView = "wizard_new_initiative"
 end
 
@@ -35,7 +35,7 @@ end
                --pulsante anteprima
                      ui.link{
                                  attr={id="btnAnteprima",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
-                                 module = "wizard",
+                                 module = "wizard_private",
                                  view = "anteprima",
                                  params = { 
                                                 
@@ -63,7 +63,7 @@ end
                  
                       ui.link{
                                  attr={id="btnSalvaPreview",class="button orange menuButton pulsantiWizard",style="float:left;margin-right: 35px;"},
-                                 module = "wizard",
+                                 module = "wizard_private",
                                  view = "_save_preview",
                                  params = { 
                                                 

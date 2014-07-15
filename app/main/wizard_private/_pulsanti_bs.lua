@@ -17,54 +17,36 @@ if not page  or page <= 1 then
     
     else
     btnBackParams=previus_page
-    btnBackModule ="wizard"
+    btnBackModule ="wizard_private"
     btnBackView = "wizard_new_initiative_bs"
 end
 
 if page==1 then
 
 ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span3 text-center"},content=function()
+  ui.container{attr={class="span3 offset2 text-center"},content=function()
     trace.debug("renmdering button <<")
-  ui.link{
-          attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn fixclick"},
-          module = "wizard",
+  ui.link{ attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick"},
+          module = "wizard_private",
           view = "show_ext_bs",
           id=app.session.member.unit_id,
-          content=function()
-              ui.heading
-              { 
-              level=4, attr = {class = "fittext_btn_wiz" },
-              content=function()
-                  ui.container
-                  {
-                    attr={class="row-fluid"},
-                    content=function()
-                        ui.container
-                        {
-                        attr={class="span12"},
-                        content=function()
+          content=function()              
+          ui.heading {  level=3,  content=function()                     
+          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+
                         slot.put(_"Back Phase")
-                        end 
-                        }
-                  end 
-                  }
-                  ui.container{attr={class="row-fluid"},content=function()
-                    ui.container{attr={class="span12"},content=function()
-                      ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-                    end }
-                  end }
+
                end
                } --fine heading
             end
             } -- fine link
 
   end }
-  ui.container{attr={class="span3 offset6 text-center"},content=function()
+  ui.container{attr={class="span3 offset2 text-center"},content=function()
   ui.tag{
       tag="a",
-      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
-      module = "wizard",
+      attr={id="btnNext",class="btn btn-primary large_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
+      module = "wizard_private",
       view = "wizard_new_initiative_bs",
       params = {
         unit_id=app.session.member.unit_id,
@@ -72,17 +54,10 @@ ui.container{attr={class="row-fluid"},content=function()
         page=next_page
       },
       content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
+        ui.heading{ level=3, content=function()
+
               slot.put(_"Next Phase")
-            end }
-          end }
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
-            end }
-          end }
         end }
       end
     }
@@ -93,10 +68,10 @@ end }
 else
 
 ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span3 text-center"},content=function()
+  ui.container{attr={class="span3 offset2 text-center"},content=function()
     ui.tag{
       tag="a",
-      attr={id="btnPreviuos",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementsByName('indietro')[0].value=true;document.getElementById('wizardForm"..page.."').submit();"},
+      attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick",onmousedown="if ( event.which != 1 ) { return; };document.getElementsByName('indietro')[0].value=true;document.getElementById('wizardForm"..page.."').submit();"},
       module = btnBackModule,
       view = btnBackView,
       params = {
@@ -105,27 +80,20 @@ ui.container{attr={class="row-fluid"},content=function()
         page=previus_page,
         indietro=true
       },
-      content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
+      content=function()        
+      ui.heading{ level=3, content=function()              
+      ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+
               slot.put(_"Back Phase")
-            end }
-          end }
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-            end }
-          end }
         end }
       end
     } 
   end }
-  ui.container{attr={class="span3 offset6 text-center"},content=function()
+  ui.container{attr={class="span3 offset2 text-center"},content=function()
   ui.tag{
       tag="a",
-      attr={id="btnNext",class="btn btn-primary btn-large table-cell eq_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
-      module = "wizard",
+      attr={id="btnNext",class="btn btn-primary large_btn",onmousedown="if ( event.which != 1 ) { return; };document.getElementById('wizardForm"..page.."').submit();"},
+      module = "wizard_private",
       view = "wizard_new_initiative_bs",
       params = {
         unit_id=app.session.member.unit_id,
@@ -133,17 +101,9 @@ ui.container{attr={class="row-fluid"},content=function()
         page=next_page
       },
       content=function()
-        ui.heading{ level=4, attr = {class = "fittext_btn_wiz" }, content=function()
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
-              slot.put(_"Next Phase")
-            end }
-          end }
-          ui.container{attr={class="row-fluid"},content=function()
-            ui.container{attr={class="span12"},content=function()
+        ui.heading{ level=3, content=function()
+              slot.put(_"Next Phase")              
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
-            end }
-          end }
         end }
       end
     }

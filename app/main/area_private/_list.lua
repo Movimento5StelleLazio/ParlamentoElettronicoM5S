@@ -1,8 +1,7 @@
 local areas_selector = param.get("areas_selector", "table")
 local hide_membership = param.get("hide_membership", atom.boolean)
 local member = param.get("member", "table")
-trace.debug("executing view: _list_ext_bs...")
- 
+
 areas_selector
   :reset_fields()
   :add_field("area.id", nil, { "grouped" })
@@ -32,13 +31,9 @@ else
   areas_selector:add_field("0", "issues_to_vote_count")
 end
 
-ui.container{ attr = { class = "span12" }, content = function()
-local i=0
-local areas=areas_selector:exec()
-trace.debug("areas.length="..#areas)
-  for i, area in ipairs(areas) do
-    execute.view { module = "wizard_private", view = "_list_entry_ext_bs", params = { area = area, member = member } }
+ui.container{ attr = { class = "area_list" }, content = function()
+  for i, area in ipairs(areas_selector:exec()) do
+    execute.view { module = "area", view = "_list_entry", params = { area = area, member = member } }
   end 
-  trace.debug("i="..i)
 end }
 

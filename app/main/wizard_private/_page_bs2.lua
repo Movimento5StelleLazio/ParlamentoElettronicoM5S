@@ -17,7 +17,7 @@ end
 
 
 
-local btnBackModule = "wizard"
+local btnBackModule = "wizard_private"
 local btnBackView = "wizard_new_initiative_bs"
 
 if not page  or page <= 1 then
@@ -48,7 +48,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                     {
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
-                        module = 'wizard',
+                        module = 'wizard_private',
                         view = "wizard_new_initiative_bs",
                         params={
                                 
@@ -59,7 +59,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = "wizard_new_initiative_bs",
                               params = {
                                            area_id=area_id,
@@ -69,7 +69,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                             },
                             error = {
                               mode   = '',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view =  "wizard_new_initiative_bs",
                             }
                           }, 
@@ -114,11 +114,11 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
  ui.container{attr={class="span12 text-center"},content=function()
            --pulsanti
             execute.view{
-                            module="wizard",
+                            module="wizard_private",
                             view="_pulsanti_bs",
                             params={
                                      wizard=wizard,
-                                     btnBackModule = "wizard",
+                                     btnBackModule = "wizard_private",
                                      btnBackView = btnBackModule,
                                      page=page
                                     }

@@ -35,7 +35,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                     {
                         method = "post",
                         attr={id="wizardForm"..page,class="inline-block"},
-                        module = 'wizard',
+                        module = 'wizard_private',
                         view = 'wizard_new_initiative_bs',
                         params={
                                 area_id=area_id,
@@ -45,7 +45,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                               params = {
                                            area_id=area_id,
@@ -55,7 +55,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                             },
                             error = {
                               mode   = '',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                             }
                           }, 
@@ -98,7 +98,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                             --1 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="1",
@@ -110,7 +110,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                           --2 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="2",
@@ -123,7 +123,7 @@ ui.container{attr={class="row-fluid spaceline3"},content=function()
                                           --3 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs",
                                               params={
                                                    id_checkbox="3",
@@ -152,7 +152,7 @@ ui.script{static = "js/wizard_checkbox.js"}
 ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
-      module="wizard",
+      module="wizard_private",
       view="_pulsanti_bs",
       params={
         btnBackModule = "wizard",

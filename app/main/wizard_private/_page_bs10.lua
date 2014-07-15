@@ -6,11 +6,11 @@ local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
 
 local areas=Area:new_selector()
-	:join("unit", nil, "area.unit_id = unit.id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
+	:join("unit", nil, "area.unit_id = unit.id AND unit.name LIKE \'\%ASSEMBLEA INTERNA\%\'")
 	:add_order_by("id ASC")
 	:exec()
 
-local btnBackModule = "wizard"
+local btnBackModule = "wizard_private"
 local btnBackView = "wizard_new_initiative"
 
 if not page  or page <= 1 then
@@ -55,7 +55,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                     {
                         method = "post",
                         attr={id="wizardForm"..page,style="height:80%"},
-                        module = 'wizard',
+                        module = 'wizard_private',
                         view = 'wizard_new_initiative_bs',
                         params={
                                 area_id=area_id,
@@ -65,7 +65,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                               params = {
                                            area_id=area_id,
@@ -75,7 +75,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                             },
                             error = {
                               mode   = '',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                             }
                           }, 
@@ -161,7 +161,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                        --checkbox
                                        execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag10",
                                               params={
                                                    id_checkbox="2",
@@ -241,7 +241,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                        --checkbox
                                        execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag10",
                                               params={
                                                    id_checkbox="3",
@@ -322,7 +322,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                        --checkbox
                                        execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag10",
                                               params={
                                                    id_checkbox="4",
@@ -410,10 +410,10 @@ ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFon
 ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
-      module="wizard",
+      module="wizard_private",
       view="_pulsanti_bs",
       params={
-        btnBackModule = "wizard",
+        btnBackModule = "wizard_private",
         btnBackView = "wizard_new_initiative_bs",
         page=page
       }

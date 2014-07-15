@@ -296,7 +296,7 @@ if page==12 then
             trace.debug("rendering view:"..page)
           
             execute.view{ 
-                               module = "wizard", 
+                               module = "wizard_private", 
                                view = "_page_bs12", 
                                params = {
                                            wizard= readParam(page),
@@ -335,7 +335,7 @@ if page <= 12 and page >=1 then
               ui.container{attr={class="span12 depression_box"},content=function()
                
                   execute.view{
-                    module = "wizard",
+                    module = "wizard_private",
                     view = "_page_bs"..page_rendered,
                     params = {
                       wizard= readParam(page_rendered),
@@ -376,7 +376,7 @@ else
                unit_id= atom.integer:load(unit_id)
 
                   execute.view{
-                    module = "wizard",
+                    module = "wizard_private",
                     view = "show_ext_bs",
                     id= unit_id
                     
