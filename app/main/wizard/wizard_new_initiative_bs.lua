@@ -313,7 +313,7 @@ end
 
 
 
-if page <= 12 and page >=1 then   
+if page < 12 and page >=1 then   
 
 				for i,k in pairs(readParam(page_rendered)) do
 					trace.debug("[wizard] name="..k.name.." | value="..tostring(k.value))
