@@ -17,7 +17,7 @@ if not page  or page <= 1 then
     
     else
     btnBackParams=previus_page
-    btnBackModule ="wizard"
+    btnBackModule ="wizard_private"
     btnBackView = "wizard_new_initiative"
 end
 
@@ -41,7 +41,7 @@ end
                      ui.tag{
                                 tag="div",
                                  attr={id="btnAnteprima",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
-                                 module = "wizard",
+                                 module = "wizard_private",
                                  view = "anteprima",
                                  params = { 
                                                 
@@ -76,7 +76,7 @@ end
                       ui.tag{  
                                  tag="div",
                                  attr={id="btnSalvaPreview",class="btn btn-primary btn-large table-cell eq_btn fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
-                                 module = "wizard",
+                                 module = "wizard_private",
                                  view = "_save_preview",
                                  params = { 
                                                 

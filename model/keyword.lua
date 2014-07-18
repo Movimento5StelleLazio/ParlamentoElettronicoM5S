@@ -12,7 +12,7 @@ end
 
 function Keyword:by_name(name)
   return self:new_selector()
-    :add_where{ "name = ?", name }
+    :add_where{ "name LIKE ?", name }
     :optional_object_mode()
     :exec()
 end

@@ -23,12 +23,12 @@ end
 local page=param.get("page",atom.integer)
 
 
-local btnBackModule = "wizard"
+local btnBackModule = "wizard_private"
 local btnBackView = "wizard_new_initiative_bs"
 
 if not page  or page <= 1 then
     page=1
-    btnBackModule ="wizard"
+    btnBackModule ="wizard_private"
     btnBackView = "show_ext_bs"
 end
 
@@ -53,7 +53,7 @@ local unit_id=param.get("unit_id", atom.integer)
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
 
-local btnBackModule = "wizard"
+local btnBackModule = "wizard_private"
 local btnBackView = "wizard_new_initiative"
 
 if not page  or page <= 1 then
@@ -76,7 +76,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                     {
                         method = "post",
                         attr={id="wizardForm"..page, class="inline-block"},
-                        module = 'wizard',
+                        module = 'wizard_private',
                         view = 'wizard_new_initiative_bs',
                         params={
                                 area_id=area_id,
@@ -86,7 +86,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                               params = {
                                            area_id=area_id,
@@ -96,7 +96,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                             },
                             error = {
                               mode   = '',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = 'wizard_new_initiative_bs',
                             }
                           }, 
@@ -142,7 +142,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                             --1 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(1),
@@ -155,7 +155,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                           --2 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(2),
@@ -169,7 +169,7 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                           --3 proposer
                                           execute.view
                                           {
-                                              module="wizard",
+                                              module="wizard_private",
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(3),
@@ -200,10 +200,10 @@ ui.script{static = "js/wizard_checkbox.js"}
 ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
-      module="wizard",
+      module="wizard_private",
       view="_pulsanti_bs",
       params={
-        btnBackModule = "wizard",
+        btnBackModule = "wizard_private",
         btnBackView = "wizard_new_initiative_bs",
         page=page
       }

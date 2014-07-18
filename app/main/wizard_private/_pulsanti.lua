@@ -17,7 +17,7 @@ if not page  or page <= 1 then
     
     else
     btnBackParams=previus_page
-    btnBackModule ="wizard"
+    btnBackModule ="wizard_private"
     btnBackView = "wizard_new_initiative"
 end
 
@@ -64,7 +64,7 @@ end
                   ui.tag{
                              tag="a",
                              attr={id="btnNext",class="button orange menuButton pulsantiWizard",style="float:right",onclick="document.getElementById('wizardForm"..page.."').submit();"},
-                             module = "wizard",
+                             module = "wizard_private",
                              view = "wizard_new_initiative",
                              params = { 
                                                 unit_id=app.session.member.unit_id,

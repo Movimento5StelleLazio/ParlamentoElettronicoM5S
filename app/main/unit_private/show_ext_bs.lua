@@ -119,7 +119,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class="row-fluid spaceline"}, content=function()
       ui.container{ attr = { class = "span12 spaceline" }, content = function()
         execute.view{  
-          module = "area",
+          module = "area_private",
           view = "_list_ext_bs",
           params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
         }

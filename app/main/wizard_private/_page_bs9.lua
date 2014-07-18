@@ -6,7 +6,7 @@ local unit_id=param.get("unit_id", atom.integer)
 local page=param.get("page",atom.integer)
 local wizard=param.get("wizard","table")
 
-local btnBackModule = "wizard"
+local btnBackModule = "wizard_private"
 local btnBackView = "wizard_new_initiative_bs"
 
 if not page  or page <= 1 then
@@ -40,14 +40,14 @@ ui.container{attr={class="row-fluid"},content=function()
 end }
                                        
 ui.container{attr={class="row-fluid spaceline3"},content=function()
-ui.container{attr={class="span12 text-center"},content=function()
+ui.container{attr={class="span12"},content=function()
             --------------------------------------------------------      
             --contenuto specifico della pagina wizard    
              ui.form
                     {
                         method = "post",
                         attr={id="wizardForm"..page,class="inline-block"},
-                        module = 'wizard',
+                        module = 'wizard_private',
                         view = btnBackView,
                         params={
                                 area_id=area_id,
@@ -57,7 +57,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                         routing = {
                             ok = {
                               mode   = 'redirect',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = btnBackView,
                               params = {
                                            area_id=area_id,
@@ -67,7 +67,7 @@ ui.container{attr={class="span12 text-center"},content=function()
                             },
                             error = {
                               mode   = '',
-                              module = 'wizard',
+                              module = 'wizard_private',
                               view = btnBackView,
                             }
                           }, 
@@ -86,8 +86,8 @@ ui.container{attr={class="span12 text-center"},content=function()
                       ui.container{attr={class="row-fluid"},content=function()
                         ui.container{attr={class="span10 offset1 text-center"},content=function()
                           ui.container{attr={class="row-fluid"},content=function()
-                            ui.container{attr={class="span6 text-right collapse", style="height:100%"},content=function()
-                              ui.tag{tag="p",content=  _"Draft text"}
+                            ui.container{attr={class="span6 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
+                              ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
                               ui.tag{tag="em",content=  _"Draft note"}
                             end }
                             ui.tag{
@@ -110,10 +110,10 @@ end }
 ui.container{attr={class="row-fluid btn_box_bottom spaceline3"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.view{
-      module="wizard",
+      module="wizard_private",
       view="_pulsanti_bs",
       params={
-        btnBackModule = "wizard",
+        btnBackModule = "wizard_private",
         btnBackView = btnBackView,
         page=page
       }

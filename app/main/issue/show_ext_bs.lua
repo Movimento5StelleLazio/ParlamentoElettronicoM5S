@@ -23,6 +23,10 @@ elseif view == "area" then
   return_module="area"
   return_view="show_ext_bs"
   return_btn_txt=_"Back to issue listing"
+elseif view == "area_private" then
+	return_module = "area_private"
+	return_view = "show_ext_bs"
+	return_btn_txt = _"Back to issue listing"
 end
 
 if app.session.member_id then
