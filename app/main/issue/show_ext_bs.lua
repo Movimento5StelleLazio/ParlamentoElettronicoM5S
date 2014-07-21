@@ -281,8 +281,8 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.container{attr = {class="row-fluid"}, content =function()
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
           local quorum_supporters  
-          if issue.population and issue.population > 0 then
-            quorum_supporters = math.floor(issue.population * quorum_percent / 100)
+          if issue.population > 0 then
+            quorum_supporters = math.ceil(issue.population * quorum_percent / 100)
           else
             quorum_supporters = 0
           end
