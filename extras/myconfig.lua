@@ -81,7 +81,7 @@ config.use_terms_checkboxes = {
   
 -- Absolute base url of application
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "https://test.parelon.com/lf"
+config.absolute_base_url = "/lf"
 
 
 -- Connection information for the LiquidFeedback database
@@ -147,9 +147,9 @@ config.mail_subject_prefix = "Parlamento Elettronico Online "
 
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
--- config.mail_envelope_from = "liquidfeedback@example.com"
+config.mail_envelope_from = "info@parelon.com"
 config.mail_from = { name = "Parlamento Elettronico Online", address = "info@parelon.com" }
--- config.mail_reply_to = { name = "Support", address = "support@example.com" }
+config.mail_reply_to = { name = "Support", address = "support@parelon.com" }
 
 -- Configuration of password hashing algorithm (defaults to "crypt_sha512")
 -- ------------------------------------------------------------------------
