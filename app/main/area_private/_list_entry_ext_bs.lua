@@ -1,6 +1,6 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean) or false
+local wizard = param.get("wizard", atom.boolean) or false
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well-inside"}, content = function()
