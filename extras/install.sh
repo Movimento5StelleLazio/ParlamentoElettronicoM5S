@@ -209,7 +209,8 @@ make clean 1>/dev/null
 cd -
 
 chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $FRONTENDDST
-chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $FRONTENDDST
+chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $COREDST
 chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $WEBMCPDST
+chown -R www-data $FRONTENDDST/tmp
 
 echo "Installation complete..."

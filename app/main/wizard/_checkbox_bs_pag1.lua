@@ -1,24 +1,13 @@
- local id_checkbox=param.get("id_checkbox")
- local label=param.get("label")
- local selected=param.get("selected")
+ local id_checkbox=param.get("id_checkbox", atom.string)
+ local label=param.get("label", atom.string)
+ local selected=param.get("selected", atom.boolean)
+ local imgId=param.get("imgId", atom.string)
+
  
- 
- local imgId=param.get("imgId")
- 
- local display
- 
+ local display = "none"
  
  if selected then
-     
-     if selected=="true" then
-         display="block"
-         else
-         display="none"
-     end
-     
-     else
-         display="none"
-     
+ 	display="block"
  end
  
 ui.container{attr={class="row-fluid", onmousedown="doCheckPag1("..id_checkbox..","..imgId..")"},content=function()
@@ -41,7 +30,7 @@ ui.container{attr={class="row-fluid", onmousedown="doCheckPag1("..id_checkbox.."
       
     end }
   end }
-end}
+end }
  
   
  

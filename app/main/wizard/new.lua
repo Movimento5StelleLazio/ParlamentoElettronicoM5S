@@ -3,12 +3,11 @@ local area
 
 local issue_id = param.get("issue_id", atom.integer)
 if issue_id then
-  issue = Issue:new_selector():add_where{"id=?",issue_id}:single_object_mode():exec()
+  issue = Issue:by_id(issue_id)
   area = issue.area
-
 else
   local area_id = param.get("area_id", atom.integer)
-  area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
+  area = Area:by_id(area_id)
 end
 
 local polling = param.get("polling", atom.boolean)

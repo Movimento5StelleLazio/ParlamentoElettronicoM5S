@@ -1,7 +1,7 @@
 local areas_selector = param.get("areas_selector", "table")
 local hide_membership = param.get("hide_membership", atom.boolean)
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local wizard = param.get("wizard", boolean) or false
 
 areas_selector
   :reset_fields()

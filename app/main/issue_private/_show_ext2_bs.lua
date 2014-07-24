@@ -40,10 +40,10 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span3"}, content = function()
-        execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
+        execute.view{ module = "issue_private", view = "info_box", params={issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
-        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
+        execute.view{ module = "issue_private", view = "phasesbar", params = { state=issue.state } }       
       end }
 
     end }
@@ -62,7 +62,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
-            execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
+            execute.view{ module = "issue_private", view = "info_data", params = { issue = issue } }
           end }
         end }
     
@@ -148,7 +148,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{attr = {class="span4"}, content =function()
             ui.link{ 
               attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
-              module = "issue",
+              module = "issue_private",
               view = "show_ext_bs",
               id = issue.id,
               params = { 

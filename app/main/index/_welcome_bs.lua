@@ -66,18 +66,18 @@ if app.session.member_id then
                 end }
   
                 
-                ui.container{attr = {class = "row-fluid" },content = function()
+                --[[ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"If it is not so, press here:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
+                end }]]
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
@@ -89,7 +89,7 @@ if app.session.member_id then
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
-              end }
+              end }]]
             end }
   
   
@@ -152,18 +152,18 @@ if app.session.member_id then
   
                 end }
   
-                ui.container{attr = {class = "row-fluid" },content = function()
+                --[[ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
+                end }]]
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
@@ -176,7 +176,7 @@ if app.session.member_id then
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
-              end }
+              end }]]
             end }
   
           end }
@@ -201,18 +201,18 @@ if app.session.member_id then
   
                 end }
   
-                ui.container{attr = {class = "row-fluid" },content = function()
+                --[[ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
+                end }]]
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
@@ -225,7 +225,7 @@ if app.session.member_id then
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
-              end }
+              end }]]
             end }
   
           end }
@@ -272,8 +272,8 @@ if app.session.member_id then
               ui.container{attr = {class = "inline-block" },content = function()
                 ui.link{
                   attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  module="unit_private",
-                  view="show_ext_bs",							
+                  module="index",
+                  view="homepage_private_bs",					
                   content=function()
                     ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
                   end
