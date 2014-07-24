@@ -222,11 +222,22 @@ local area_name="..."
 --local unit_id=param.get("unit_id" ) 
 --local unit_name="..."
  
-local area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
+local area = Area::by_id(area_id)
 local area_name = area.name
 local unit_id = area.unit_id
-local unit_name = Unit:new_selector():add_where{"id=?",unit_id}:single_object_mode():exec()
- 
+local unit_name = Unit:by_id(unit_id)
+
+if app.session.member.elected then
+	execute.view {
+		module = "wizard",
+		view = "wizard_shortcut",
+		params = {
+			unit_id = unit_id,
+			area_id = area_id
+		}
+	}
+	return
+end 
 
 if not area_id  then
     area_id=app.session.member.area_id

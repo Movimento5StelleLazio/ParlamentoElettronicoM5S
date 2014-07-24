@@ -1,7 +1,7 @@
 slot.set_layout("custom")
 
 local type_id = param.get_id()
-local filter = param.get("filter")
+local filter = param.get("filter") or "my_areas"
 --local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 local wizard = param.get("wizard", boolean)
 
@@ -39,7 +39,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn"  },
           module = "index",
-          view = "index",
+          view = "homepage_private_bs",
           content = function()
             ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -51,7 +51,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,content=_(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_(config.gui_preset["custom"].units["iscritti"].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -116,15 +116,27 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         }
       end }
     end }
-    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
-      ui.container{ attr = { class = "span12 spaceline" }, content = function()
-        execute.view{  
-          module = "area_private",
-          view = "_list_ext_bs",
-          params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
-        }
-      end }
-    end }
+    if wizard then
+		  ui.container{ attr = { class="row-fluid spaceline"}, content=function()
+		    ui.container{ attr = { class = "span12 spaceline" }, content = function()
+		      execute.view{  
+		        module = "area_private",
+		        view = "_list_ext_bs",
+		        params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
+		      }
+		    end }
+		  end }
+		else
+			ui.container{ attr = { class="row-fluid spaceline"}, content=function()
+		    ui.container{ attr = { class = "span12 spaceline" }, content = function()
+		      execute.view{  
+		        module = "area_private",
+		        view = "_list_ext_bs",
+		        params = { areas_selector = areas_selector, member = app.session.member }
+		      }
+		    end }
+		  end }
+		end
   end }
 end}
 

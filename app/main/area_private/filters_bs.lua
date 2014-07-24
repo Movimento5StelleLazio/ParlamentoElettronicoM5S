@@ -49,7 +49,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{attr={class="span3", style=spanstyle},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "unit",
+          module = "unit_private",
           view = "show_ext_bs",
           id = area.unit_id,
           content = function()
@@ -64,7 +64,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
         ui.container{attr={class="span3"},content = function()
           ui.link {
             attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-            module = "area",
+            module = "area_private",
             view = "show_ext_bs",
             params = { state = "admission"},
             id = area.id,
@@ -77,7 +77,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{attr={class="span3"},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
+          module = "area_private",
           view = "show_ext_bs",
           params = { state = "development"},
           id = area.id,
@@ -89,7 +89,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{attr={class="span3"},content = function()
         ui.link {
           attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
+          module = "area_private",
           view = "show_ext_bs",
           params = { state = "closed"},
           id = area.id,

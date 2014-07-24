@@ -109,6 +109,7 @@ ui.container{attr={class="row-fluid",style="padding-top: 2em;"},content=function
                                             foreign_records = tmp,
                                             foreign_id = "id",
                                             foreign_name = "name",
+                                            selected_record = area_id,
                                             value =  ""
                                           }
                                     

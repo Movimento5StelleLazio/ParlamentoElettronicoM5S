@@ -17,7 +17,7 @@ if list == "proposals" then
 end
 
 issues_selector:join("area", nil, "area.id = issue.area_id")
-issues_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
+issues_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE \'\%ASSEMBLEA INTERNA\%\'")
 
 ui.paginate{
   per_page = tonumber(param.get("per_page") or 25),

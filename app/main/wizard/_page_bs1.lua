@@ -5,13 +5,13 @@ local area_policies=AllowedPolicy:get_policy_by_area_id(area_id)
 
 local dataSource
 dataSource = { 
-               { id = 0, name = _"Please choose a policy" }
+               --{ id = 0, name = _"Please choose a policy" }
         }
 
 if #area_policies>0 then
                        
          for i, allowed_policy in ipairs(area_policies) do
-            dataSource[#dataSource+1] = {id=allowed_policy.policy_id }
+            dataSource[#dataSource+1] = {id=allowed_policy.policy_id}
          end   
  
  trace.debug("dataSource lenght="..#dataSource)                         
@@ -146,8 +146,8 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(1),
-                                                   id_checkbox=tostring(dataSource[2].id),
-                                                   label= "URGENTE (1 Settimana)"
+                                                   id_checkbox=tostring(dataSource[1].id),
+                                                   label= Policy:by_id(dataSource[1].id).name
                                                     
                                               }
                                           }
@@ -159,8 +159,8 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(2),
-                                                   id_checkbox=tostring(dataSource[3].id),
-                                                   label="NORMALE (1 Mese)"
+                                                   id_checkbox=tostring(dataSource[2].id),
+                                                   label=Policy:by_id(dataSource[2].id).name
                                                    
                                               }
                                           }
@@ -173,8 +173,8 @@ ui.container{attr={class="row-fluid spaceline2"},content=function()
                                               view="_checkbox_bs_pag1",
                                               params={
                                                    imgId=tostring(3),
-                                                   id_checkbox=tostring(dataSource[4].id),
-                                                   label="TEMPI LUNGHI (6 Mesi)"
+                                                   id_checkbox=tostring(dataSource[3].id),
+                                                   label=Policy:by_id(dataSource[3].id).name
                                                    
                                                    
                                               }

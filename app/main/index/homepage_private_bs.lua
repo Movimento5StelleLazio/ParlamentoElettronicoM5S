@@ -11,9 +11,9 @@ local member = app.session.member
 local ftl_btns = param.get("ftl_btns",atom.boolean) or false
 
 -- Right selector
-local issues_selector_myinitiatives =Issue:new_selector()
+local issues_selector_myinitiatives = Issue:new_selector()
 execute.chunk{
-  module    = "issue",
+  module    = "issue_private",
   chunk     = "_filters_ext",
   params    = {
     state=state,
@@ -36,7 +36,7 @@ end
 -- Left selector
 local issues_selector_voted =Issue:new_selector()
 execute.chunk{
-  module    = "issue",
+  module    = "issue_private",
   chunk     = "_filters_ext",
   params    = {
     state=state,
@@ -60,27 +60,25 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
     ui.container{attr={class="row-fluid"},content=function()    
 		  ui.container{attr={class="span12"},content=function()
-		  --Back button
-		    	ui.container{ attr = { class  = "span1" }, content = function()
-				    ui.link{
-				      attr = { class="btn btn-primary btn-large large_btn"  },
-				      module = "index",
-				      view = "index",
-				      content = function()
-				        ui.heading{level=3, content=function()
-				          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-				          slot.put(_"Back to previous page")
-				        end }
-				      end }
-				  	end }
-		    ui.heading{level=1, content=function()
-		    	
-				  	
-		      slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}))
+		  	--Back button
+	    	ui.container{ attr = { class  = "span1" }, content = function()
+			    ui.link{
+			      attr = { class="btn btn-primary btn-large large_btn"  },
+			      module = "index",
+			      view = "index",
+			      content = function()
+			        ui.heading{level=3, content=function()
+			          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+			          slot.put(_"Back to previous page")
+			      end }
+			    end }
+				end }
+		    ui.heading{level=1, content = function()
+		    	slot.put(_("Welcome <strong>#{realname}</strong>.", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}))
 		    end }
 
-		    ui.heading{level=6, content=_"You are now inside the Digital Assembly for Public Affairs."}
-		    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
+		    ui.heading{level=6, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}) }
+		    ui.heading{level=6, content=_"Here internal questions are being discussed."}
 		  end }
 		end }
 
@@ -95,7 +93,7 @@ ui.container{attr={class="row-fluid"},content=function()
     
       ui.container{attr={class="span6 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
-          module="unit",
+          module="unit_private",
           view="show_ext_bs",
           params = { filter = "my_areas" },
           id=config.gui_preset["custom"].units["cittadini"].type_id,
@@ -106,7 +104,7 @@ ui.container{attr={class="row-fluid"},content=function()
     
       ui.container{attr={class="span6 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
-          module = "unit", view = "show_ext_bs",
+          module = "unit_private", view = "show_ext_bs",
           id=config.gui_preset["custom"].units["cittadini"].type_id,
           params={wizard=true},
           content=function()
@@ -134,8 +132,8 @@ ui.container{attr={class="row-fluid"},content=function()
             ui.heading{level=3, content=_"Homepage read other issues"}
           end }
       end }]]
-      end }
-    end }
+  end }
+end }
     
 btns = {
   default_state = 'any',
@@ -172,7 +170,7 @@ btns = {
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.chunk{
-      module = "issue" ,
+      module = "issue_private" ,
       chunk = "_filters_btn2_bs" ,
       params = {
         state = state,
@@ -207,7 +205,7 @@ ui.container{attr={class="row-fluid"},content=function()
         ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
-              module = "issue",
+              module = "issue_private",
               view   = "_list_ext2_bs",
               params = {
                 state=state,
@@ -243,7 +241,7 @@ ui.container{attr={class="row-fluid"},content=function()
         ui.container{attr={class="row-fluid"},content=function()
           ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
-              module = "issue",
+              module = "issue_private",
               view   = "_list_ext2_bs",
               params = {
                 state=state,

@@ -38,7 +38,7 @@ end
 local selector = area:get_reference_selector("issues")
   
 execute.chunk{
-  module    = "issue",
+  module    = "issue_private",
   chunk     = "_filters_ext",
   params    = { 
     state=state, 
@@ -91,7 +91,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn fixclick"  },
-          module = "area",
+          module = "area_private",
           id = area.id,
           view = "filters_bs",
           content = function()
@@ -140,7 +140,7 @@ elseif state == "admission" then
 end
 
 execute.chunk{
-  module = "issue" ,
+  module = "issue_private" ,
   chunk = "_filters_btn2_bs" ,
   id = area.id,
   params = {
@@ -194,7 +194,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             btn_style = "width:25%;"
             ui.link {
               attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
-              module = "area",
+              module = "area_private",
               view = "show_ext_bs",
               id = area.id,
               params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
@@ -205,7 +205,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           end
           ui.link {
             attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
-            module = "area",
+            module = "area_private",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
@@ -215,7 +215,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           }
           ui.link {
             attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
-            module = "area",
+            module = "area_private",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
@@ -225,7 +225,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           }
           ui.link {
             attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
-            module = "area",
+            module = "area_private",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
@@ -239,7 +239,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{ attr = { id="issues_box", class="span12 well-inside"}, content=function()
         execute.view{
-          module="issue" ,
+          module="issue_private" ,
           view="_list_ext2_bs",
           params={
             state=state,

@@ -1,7 +1,6 @@
- local id_checkbox=param.get("id_checkbox")
- local label=param.get("label")
- local selected=param.get("selected")
- 
+ local id_checkbox=param.get("id_checkbox", atom.string)
+ local label=param.get("label", atom.string)
+ local selected=param.get("selected", atom.boolean) 
  
  local display
  

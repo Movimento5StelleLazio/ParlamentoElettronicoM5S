@@ -3,8 +3,7 @@ if param.get("indietro")=="true" then
 
 return request.redirect{
   module = "wizard",
-  view = "show_ext_bs",
-  id=issue.id
+  view = "show_ext_bs"
 }
 
 
@@ -16,11 +15,17 @@ local area
 local issue_id = param.get("issue_id", atom.integer)
 
 local area_id = param.get("area_id", atom.integer)
-area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
-  if not area.active then
-    slot.put_into("error", "Invalid area.")
-    return false
-  end
+if area_id then
+	area = Area:by_id(area_id)
+		if not area.active then
+		  slot.put_into("error", "Invalid area.")
+		  return false
+		end
+end
+
+if issue_id then
+	issue = Issue:by_id(issue_id)
+end
 
 if not app.session.member:has_voting_right_for_unit_id(area.unit_id) then
   error("access denied")
