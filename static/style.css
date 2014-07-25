@@ -7,7 +7,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,a,img,form,label,leg
 	outline: 0;
 	font-weight: inherit;
 	font-style: inherit;
-	font-size: 105%;
+	font-size: 102%;
 	font-family: inherit;
 	vertical-align: baseline;
 }
@@ -430,7 +430,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeca', en
 .page_head .title,.issue .title,.initiative_head .title,.area_list .unit_head .unit_name,.area_list .area_name
 	{
 	/*font-weight: bold;*/
-	font-size: 200%;
+	font-size: 150%;
         text-align:center;
 }
 
@@ -565,6 +565,7 @@ a.delegation_info:hover,a.delegation_info:focus {
         text-align:center;
 	margin-top: 25px;
 	margin-bottom: 25px;
+  font-size:200%;
 
 }
 
@@ -603,7 +604,7 @@ a.delegation_info:hover,a.delegation_info:focus {
   border-radius: 15px;
   padding: 15px;        
   margin-right: 15px;
-  font-size:120%;
+  font-size:100%;
 }
 
 .ui_tabs_links a:hover,.ui_tabs_links a:focus,.ui_tabs_links a.selected
@@ -612,6 +613,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 	margin-right: 15px;
 	border: 2px solid #f6f5ba;
 	box-shadow: 0px 0px 3px 1px #999999;  
+  font-size:100%;
 
 }
 
@@ -653,7 +655,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 
 .ui_filter_head {
 	color: #777;
-	line-height: 200%;
+	line-height: 300%;
 	padding-bottom: 8px;
 	margin-bottom: 6px;
 	border-bottom: 1px solid #888;
@@ -670,6 +672,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 	padding: 0.5ex 0.5em;
 	border-radius: 8px;
 	border: 1px solid #bbb;
+        font-size: 120%;
 }
 
 .ui_filter_head a.active {
