@@ -46,7 +46,7 @@ end
 						
 ui.form	{
 	method = "post",
-	attr = { class = "inline-block", id = "page_bs1" },
+	attr = { id = "page_bs1" },
 	module = 'wizard',
 	view = 'page_bs2',
 	id = 'page_bs1',
