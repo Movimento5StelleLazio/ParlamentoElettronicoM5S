@@ -13,15 +13,11 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
--- Forzo temporaneamente i valori delle variabili per saltare le pagine 10 e 11
---local technical_area_1 = param.get("technical_area_1", atom.integer) or 0
---local technical_area_2 = param.get("technical_area_2", atom.integer) or 0
---local technical_area_3 = param.get("technical_area_3", atom.integer) or 0
---local technical_area_4 = param.get("technical_area_4", atom.integer) or 0
+-- Forzo temporaneamente i valori delle variabili per saltare la pagina 11
 --local proposer1 = param.get("proposer1", atom.boolean) or false
 --local proposer2 = param.get("proposer2", atom.boolean) or false
 --local proposer3 = param.get("proposer3", atom.boolean) or false
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = true
 local proposer2 = false
 local proposer3 = false
