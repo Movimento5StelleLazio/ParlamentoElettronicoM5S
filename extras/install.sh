@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-FRONTENDSRC=$HOME/parelon/ParlamentoElettronicoM5S
-CORESRC=$HOME/parelon/ParlamentoElettronicoM5SCore
-WEBMCPSRC=$HOME/parelon/ParlamentoElettronicoM5S/extras/webmcp
-FRONTENDDST=$HOME/parelon/liquid_feedback_frontend
-COREDST=$HOME/parelon/liquid_feedback_core
-WEBMCPDST=$HOME/parelon/webmcp
+FRONTENDSRC=/opt/ParlamentoElettronicoM5S
+CORESRC=/opt/ParlamentoElettronicoM5SCore
+WEBMCPSRC=/opt/ParlamentoElettronicoM5S/extras/webmcp
+FRONTENDDST=/opt/liquid_feedback_frontend
+COREDST=/opt/liquid_feedback_core
+WEBMCPDST=/opt/webmcp
 HELPDIR=${FRONTENDDST}/locale/help/
-ROCKETWIKICMD=$HOME/parelon/rocketwiki-lqfb/rocketwiki-lqfb
-CONFIGFILE=$HOME/parelon/ParlamentoElettronicoM5S/extras/myconfig.lua
-INITFILE=$HOME/parelon/ParlamentoElettronicoM5S/extras/init.lua
-LFUPDATED=$HOME/parelon/ParlamentoElettronicoM5S/extras/lf_updated
-INITSCRIPT=$HOME/parelon/ParlamentoElettronicoM5S/extras/lf_updated.initrd
-NOTIFYD=$HOME/parelon/ParlamentoElettronicoM5S/extras/start_notify.sh
+ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
+CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
+INITFILE=/opt/ParlamentoElettronicoM5S/extras/init.lua
+LFUPDATED=/opt/ParlamentoElettronicoM5S/extras/lf_updated
+INITSCRIPT=/opt/ParlamentoElettronicoM5S/extras/lf_updated.initrd
+NOTIFYD=/opt/ParlamentoElettronicoM5S/extras/start_notify.sh
 HTTPDUSER=www-data
 
 if [ "z$(id -u)" != "z0" ];then

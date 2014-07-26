@@ -39,7 +39,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 
 ui.form	{
 	method = "post",
-	attr = { class = "inline-block", id = "page_bs7" },
+	attr = { id = "page_bs7" },
 	module = 'wizard',
 	view = "page_bs8",
 	params={

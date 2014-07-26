@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
@@ -46,8 +46,8 @@ end
 						
 ui.form	{
 	method = "post",
-	attr = { class = "inline-block", id = "page_bs1" },
-	module = 'wizard_private',
+	attr = { id = "page_bs1" },
+	module = 'wizard',
 	view = 'page_bs2',
 	id = 'page_bs1',
 	params={
@@ -72,7 +72,7 @@ ui.form	{
 	routing = {
 		ok = {
 			mode   = 'redirect',
-			module = 'wizard_private',
+			module = 'wizard',
 			view = 'pag_bs2',
 			params = {
 				area_id = area_id,
@@ -96,7 +96,7 @@ ui.form	{
 		},
 		error = {
 			mode   = '',
-			module = 'unit_private',
+			module = 'unit',
 			view = 'show_ext_bs'
 		}
 	}, 
@@ -160,7 +160,7 @@ ui.form	{
 						ui.container{attr={class="span3 offset2 text-center"},content=function()
 							ui.link {
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick"},
-								module = "unit_private",
+								module = "unit",
 								view = "show_ext_bs",
 								params = { unit_id = unit_id, wizard = true, filter = "my_areas" },
 								id=app.session.member.unit_id,
