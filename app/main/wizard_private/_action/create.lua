@@ -1,20 +1,41 @@
-
-if param.get("indietro")=="true" then
-
-return request.redirect{
-  module = "wizard",
-  view = "show_ext_bs"
-}
-
-
-end
-
 local issue
 local area
 
+local area_id=param.get("area_id", atom.integer)
+local unit_id=param.get("unit_id", atom.integer)
+local policy_id = param.get("policy_id", atom.integer) or 0
+local issue_title = param.get("issue_title", atom.string) or ""
+local issue_brief_description = param.get("issue_brief_description", atom.string) or ""
+local issue_keywords = param.get("issue_keywords", atom.string) or ""
+local problem_description = param.get("problem_description", atom.string) or ""
+local aim_description = param.get("aim_description", atom.string) or ""
+local initiative_title = param.get("initiative_title", atom.string) or ""
+local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
+local draft = param.get("draft", atom.string) or ""
+local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local proposer1 = param.get("proposer1", atom.boolean) or false
+local proposer2 = param.get("proposer2", atom.boolean) or false
+local proposer3 = param.get("proposer3", atom.boolean) or false
+local formatting_engine = param.get("formatting_engine")
+
+trace.debug( "area_id: "..tostring(area_id) )
+trace.debug( "unit_id: "..tostring(unit_id) )
+trace.debug( "policy_id: "..tostring(policy_id) )
+trace.debug( "issue_title: "..issue_title )
+trace.debug( "issue_brief_description: "..issue_brief_description )
+trace.debug( "issue_keywords: "..issue_keywords )
+trace.debug( "problem_description: "..problem_description )
+trace.debug( "aim_description: "..aim_description )
+trace.debug( "initiative_title: "..initiative_title )
+trace.debug( "initiative_brief_description: "..initiative_brief_description )
+trace.debug( "draft: "..draft )
+trace.debug( "technical_areas: "..tostring(technical_areas) )
+trace.debug( "proposer1: "..tostring(proposer1) )
+trace.debug( "proposer2: "..tostring(proposer2) )
+trace.debug( "proposer3: "..tostring(proposer3) ) 
+
 local issue_id = param.get("issue_id", atom.integer)
 
-local area_id = param.get("area_id", atom.integer)
 if area_id then
 	area = Area:by_id(area_id)
 		if not area.active then
@@ -31,7 +52,6 @@ if not app.session.member:has_voting_right_for_unit_id(area.unit_id) then
   error("access denied")
 end
 
-local policy_id = param.get("policy_id_hidden", atom.integer)
 local policy
 if policy_id then
   policy = Policy:by_id(policy_id)
@@ -71,16 +91,12 @@ if (tmp and tmp.text_entries_left < 1) and not (app.session.member.elected or ap
   return false
 end
 
-local initiative_title = param.get("initiative_title")
-
 local name = util.trim(initiative_title)
 
 if #name < 3 then
   slot.put_into("error", _"This title is really too short!")
   return false
 end
-
-local formatting_engine = param.get("formatting_engine")
 
 local formatting_engine_valid = false
 for fe, dummy in pairs(config.formatting_engine_executeables) do
@@ -104,10 +120,10 @@ if not issue then
   issue.area_id = area.id
   issue.policy_id = policy_id
   issue.member_id=app.session.member_id
-  issue.title=param.get("issue_title")
-  issue.brief_description=param.get("issue_brief_description")
-  issue.problem_description=param.get("problem_description")
-  issue.aim_description=param.get("aim_description")
+  issue.title=issue_title
+  issue.brief_description=issue_brief_description
+  issue.problem_description=problem_description
+  issue.aim_description=aim_description
   
   
 --  issue.keywords=param.get("issue_keywords")
@@ -167,22 +183,22 @@ end
 initiative.issue_id = issue.id
 initiative.name = name
 trace.debug("line 151")
-initiative.title=param.get("initiative_title")
-initiative.brief_description=param.get("initiative_brief_description")
-initiative.competence_fields=param.get("technical_area_1")
+initiative.title=initiative_title
+initiative.brief_description=initiative_brief_description
+initiative.competence_fields=technical_areas
  
 trace.debug("line 156")
-local proposer1=param.get("proposer_hidden_1",atom.boolean)
+--local proposer1=param.get("proposer1",atom.boolean)
 if proposer1 then
-initiative.author_type="other"
+initiative.author_type="citizens"
 end
 
-local proposer2=param.get("proposer_hidden_2",atom.boolean)
+--local proposer2=param.get("proposer2",atom.boolean)
 if proposer2 then
 initiative.author_type="elected"
 end
 
-local proposer3=param.get("proposer_hidden_3",atom.boolean)
+--local proposer3=param.get("proposer3",atom.boolean)
 if proposer3 then
 initiative.author_type="other"
 end
@@ -196,7 +212,7 @@ initiative:save()
 local draft = Draft:new()
 draft.initiative_id = initiative.id
 draft.formatting_engine = formatting_engine
-draft.content = param.get("draft")
+draft.content = draft
 draft.author_id = app.session.member.id
 draft:save()
 
@@ -214,7 +230,6 @@ if not is_polling then
   supporter:save()
  end
 
-
 -- Keyword registration
 function string:split(sep)
   local sep, fields = sep or ":", {}
@@ -223,25 +238,75 @@ function string:split(sep)
   return fields
 end
 
+-- non-technical keywords
 for i,k in ipairs(param.get("issue_keywords"):split(",")) do
    local keyword
    keyword = Keyword:by_name(k)
    if not keyword then
      keyword = Keyword:new()
      keyword.name = k
+     keyword.technical_keyword = false
      keyword:save()
      keyword = Keyword:by_name(k)
    end
-   if keyword then
+   if keyword and not keyword.technical_keyword then
      local issue_keyword = IssueKeyword:new()
      issue_keyword.issue_id = issue.id
      issue_keyword.keyword_id = keyword.id
      issue_keyword:save()
-   else
-     slot.put_into("error",_"Failed to save keywords for issue")
+   elseif keyword and keyword.technical_keyword then
+   	 keyword = Keyword:new()
+     keyword.name = k
+     keyword.technical_keyword = false
+     keyword:save()
+     keyword = Keyword:by_name(k)
+     if keyword then
+		   local issue_keyword = IssueKeyword:new()
+		   issue_keyword.issue_id = issue.id
+		   issue_keyword.keyword_id = keyword.id
+		   issue_keyword:save()
+ 		 else
+    	 slot.put_into("error",_"Failed to save keywords for issue")
+     end
+   end
+end
+
+-- technical keywords
+trace.debug("technical_areas "..technical_areas)
+for i,k in ipairs(param.get("technical_areas"):split(",")) do
+	 trace.debug("t-keyword "..k)
+   local keyword
+   keyword = Keyword:by_name(k)
+   if not keyword then
+     keyword = Keyword:new()
+     keyword.name = k
+     keyword.technical_keyword = true
+     keyword:save()
+     keyword = Keyword:by_name(k)
+   end
+   if keyword and keyword.technical_keyword then
+     local issue_keyword = IssueKeyword:new()
+     issue_keyword.issue_id = issue.id
+     issue_keyword.keyword_id = keyword.id
+     issue_keyword:save()
+   elseif keyword and not keyword.technical_keyword then
+   	 keyword = Keyword:new()
+     keyword.name = k
+     keyword.technical_keyword = true
+     keyword:save()
+     keyword = Keyword:by_name(k)
+     if keyword then
+		   local issue_keyword = IssueKeyword:new()
+		   issue_keyword.issue_id = issue.id
+		   issue_keyword.keyword_id = keyword.id
+		   issue_keyword:save()
+ 		 else
+    	 slot.put_into("error",_"Failed to save keywords for issue")
+     end
    end
 end
 -- end of keywords
+
 
 
 slot.put_into("notice", _"Initiative successfully created")
@@ -256,7 +321,7 @@ slot.put_into("notice", _"Initiative successfully created")
             ]]--
  
  request.redirect{
-  module = "issue",
+  module = "issue_private",
   view = "show_ext_bs",
   params={view="homepage"},
   id=issue.id

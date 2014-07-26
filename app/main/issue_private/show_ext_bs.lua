@@ -185,9 +185,11 @@ ui.container{attr={class="row-fluid"}, content=function()
         local keywords=Keyword:by_issue_id(issue.id)
         if keywords and #keywords > 0 then
           for k = 1, #keywords do
-            ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
-              ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-            end }
+          	if not keywords[k].technical_keyword then
+		          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
+		            ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+		          end }
+		        end
           end
         end
       end }
@@ -198,18 +200,23 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.tag{content=  _"Technical competence areas:" }
         end }
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
+					ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+						ui.container{ attr = { class = "span12"}, content = function()
+							local keywords=Keyword:by_issue_id(issue.id)
+							if keywords and #keywords > 0 then
+								for k = 1, #keywords do
+									if keywords[k].technical_keyword then
+										ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
+											ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+										end }
+									end
+								end
+							end
+						end }
+					end }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
-        for i,k in ipairs(areas) do
-          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
-            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
-          end }
-        end
-      end }
-    end }
+    
     ui.container{ attr = { class = "row-fluid spaceline3"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
@@ -280,8 +287,8 @@ ui.container{attr={class="row-fluid"}, content=function()
 
         ui.container{attr = {class="row-fluid"}, content =function()
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
-          local quorum_supporters  
-          if issue.population > 0 then
+          local quorum_supporters
+					if issue.population and issue.population > 0 then
             quorum_supporters = math.ceil(issue.population * quorum_percent / 100)
           else
             quorum_supporters = 0
@@ -364,12 +371,6 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
   end }
 end }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '19px', maxFontSize: '32px'}); " }
---ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
---ui.script{static = "js/jquery.equalheight.js"}
---ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 

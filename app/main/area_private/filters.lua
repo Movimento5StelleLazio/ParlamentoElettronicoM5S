@@ -30,7 +30,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _(config.gui_preset.M5S.units[unit_name].area_filter_title) }
   ui.link {
     attr = { class="area_filter_button button orange"  },
-    module = "unit",
+    module = "unit_private",
     view = "show_ext",
     id = area.unit_id,
     content = function()
@@ -41,7 +41,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   if unit_name == "cittadini" or unit_name == "iscritti" then
     ui.link {
       attr = { class="area_filter_button button orange"  },
-      module = "area",
+      module = "area_private",
       view = "show_ext",
       params = { state = "admission"},
       id = area.id,
@@ -52,7 +52,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   end
   ui.link {
     attr = { class="area_filter_button button orange"  },
-    module = "area",
+    module = "area_private",
     view = "show_ext",
     params = { state = "development"},
     id = area.id,
@@ -62,7 +62,7 @@ ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
   }
   ui.link {
     attr = { class="area_filter_button button orange"  },
-    module = "area",
+    module = "area_private",
     view = "show_ext",
     params = { state = "closed"},
     id = area.id,
