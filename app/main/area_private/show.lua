@@ -7,7 +7,7 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 slot.select("head", function()
-  execute.view{ module = "area_private", view = "_head", params = { area = area, show_content = true, member = app.session.member } }
+  execute.view{ module = "area", view = "_head", params = { area = area, show_content = true, member = app.session.member } }
 end)
 
 ui.container{
@@ -31,7 +31,7 @@ local delegations_selector = area:get_reference_selector("delegations")
   :join("member", "trustee", "trustee.id = delegation.trustee_id AND trustee.active")
 
 local tabs = {
-  module = "area_private",
+  module = "area",
   view = "show_tab",
   static_params = { area_id = area.id },
 }

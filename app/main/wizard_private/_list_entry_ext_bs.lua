@@ -7,7 +7,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span2"}, content = function()
         ui.link{  
-          module = "wizard_private", view = "page_bs1",
+          module = "wizard_private", view = "wizard_new_initiative_bs",
           params = {area_id = area.id, unit_id=area.unit_id},
           attr = { class = "btn btn-primary btn-large btn_margin" }, content = function()
             ui.heading{level=5,content=_"AREA "..area.id}

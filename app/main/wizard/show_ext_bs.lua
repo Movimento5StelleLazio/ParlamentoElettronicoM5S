@@ -3,6 +3,7 @@ slot.set_layout("custom")
 local unit_id = param.get_id()
 trace.debug("unit_id="..unit_id)
 local filter = param.get("filter")
+local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 if not app.session.member_id then
   return false
@@ -55,7 +56,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -90,7 +91,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset["custom"].units[unit_name].unit_title) or _"THEMATIC AREAS" 
+        content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()

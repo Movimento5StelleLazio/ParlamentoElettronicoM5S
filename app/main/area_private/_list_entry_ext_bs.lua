@@ -15,8 +15,8 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
           }
         else
           ui.link{
-            module = "wizard_private", view = "page_bs1",
-            params = {area_id = area.id, unit_id  = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
+            module = "wizard_private", view = "wizard_new_initiative_bs",
+            params = {area_id = area.id, unit_id=area.unit_id},
             attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
               ui.heading{level=5,content=_"AREA "..area.id}
             end
@@ -47,7 +47,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         }
         slot.put(" &middot; ")
         ui.link{ 
-          module = "area_private", view = "show_ext_bs", id = area.id, params = { state = "voting" },
+          module = "area", view = "show_ext_bs", id = area.id, params = { state = "voting" },
           text = _("#{count} in voting", { count = area.issues_voting_count }) 
         }
         slot.put(" &middot; ")

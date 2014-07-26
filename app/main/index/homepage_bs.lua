@@ -108,12 +108,32 @@ ui.container{attr={class="row-fluid"},content=function()
         ui.link{attr={class="btn btn-primary btn-large large_btn"},
           module = "unit", view = "show_ext_bs",
           id=config.gui_preset["custom"].units["cittadini"].type_id,
-          params={wizard=true, filter = "my_areas" },
+          params={wizard=true},
           content=function()
              ui.heading{level=3, content=_"Homepage write new issue"}
           end }
       end }
     end }
+
+
+    
+      --[[ui.container{attr={class="span4 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
+          module="unit", view="show_ext_bs",
+          id=config.gui_preset["custom"].units["eletti"].type_id,
+          content=function()
+            ui.heading{level=3, content=_"Homepage read m5s issues"}
+          end }
+      end }
+       
+      ui.container{attr={class="span4 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary btn-large large_btn"},
+          module="unit", view="show_ext_bs",
+          id=config.gui_preset[gui_preset].units["altri_gruppi"].type_id,
+          content=function()
+            ui.heading{level=3, content=_"Homepage read other issues"}
+          end }
+      end }]]
       end }
     end }
     
@@ -244,3 +264,6 @@ ui.container{attr={class="row-fluid"},content=function()
     end }
   end }
 end }
+
+
+

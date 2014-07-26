@@ -17,13 +17,6 @@ function Keyword:by_name(name)
     :exec()
 end
 
-function Keyword:by_technical(name)
-  return self:new_selector()
-    :add_where{ "technical_keyword = ?", name }
-    :optional_object_mode()
-    :exec()
-end
-
 function Keyword:by_issue_id(issue_id)
   return self:new_selector()
     :join("issue_keyword",nil,{"keyword.id = issue_keyword.keyword_id AND issue_keyword.issue_id = ?", issue_id})

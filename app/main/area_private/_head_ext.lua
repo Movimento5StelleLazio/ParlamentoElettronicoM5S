@@ -8,7 +8,7 @@ if app.session.member_id then
 end
 
 if not param.get("hide_unit", atom.boolean) then
-  execute.view{ module = "unit_private", view = "_head", params = { unit = area.unit, member = member } }
+  execute.view{ module = "unit", view = "_head", params = { unit = area.unit, member = member } }
 end
 
 ui.container{ attr = { class = "area_head" }, content = function()
@@ -18,7 +18,7 @@ ui.container{ attr = { class = "area_head" }, content = function()
   ui.container{ attr = { class = "title" }, content = function()
     -- area name
     ui.link{
-      module = "area_private", view = "filters", id = area.id,
+      module = "area", view = "filters", id = area.id,
       attr = { class = "area_name" }, content = area.name 
     }
   end }

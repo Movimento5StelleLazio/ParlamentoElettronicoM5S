@@ -3,7 +3,7 @@ slot.set_layout("custom")
 local type_id = param.get_id()
 local filter = param.get("filter") or "my_areas"
 --local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
-local wizard = param.get("wizard", atom.boolean) or false
+local wizard = param.get("wizard", boolean)
 
 if not app.session.member_id then
   return false
@@ -138,4 +138,13 @@ ui.container{ attr = { class="row-fluid"}, content=function()
 		  end }
 		end
   end }
-end }
+end}
+
+ui.script{static = "js/jquery.equalheight.js"}
+ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+ui.script{static = "js/jquery.fittext.js"}
+ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '24px', maxFontSize: '32px'}); " }
+ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
+
+

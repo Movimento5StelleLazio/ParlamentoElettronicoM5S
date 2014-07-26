@@ -10,8 +10,6 @@ local view = param.get("view") or "homepage"
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
-trace.debug( "issue.population"..tostring(issue.population))
-
 local function round(num, idp)
   return tonumber(string.format("%." .. (idp or 0) .. "f", num))
 end
@@ -187,11 +185,9 @@ ui.container{attr={class="row-fluid"}, content=function()
         local keywords=Keyword:by_issue_id(issue.id)
         if keywords and #keywords > 0 then
           for k = 1, #keywords do
-          	if not keywords[k].technical_keyword then
-		          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
-		            ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-		          end }
-		        end
+            ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
+              ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+            end }
           end
         end
       end }
@@ -202,23 +198,18 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.tag{content=  _"Technical competence areas:" }
         end }
         ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
-					ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-						ui.container{ attr = { class = "span12"}, content = function()
-							local keywords=Keyword:by_issue_id(issue.id)
-							if keywords and #keywords > 0 then
-								for k = 1, #keywords do
-									if keywords[k].technical_keyword then
-										ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
-											ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-										end }
-									end
-								end
-							end
-						end }
-					end }
       end }
     end }
-    
+    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+      ui.container{ attr = { class = "span12"}, content = function()
+        areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
+        for i,k in ipairs(areas) do
+          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
+            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
+          end }
+        end
+      end }
+    end }
     ui.container{ attr = { class = "row-fluid spaceline3"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
@@ -286,10 +277,11 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
 		
-				ui.container{attr = {class="row-fluid"}, content =function()
+
+        ui.container{attr = {class="row-fluid"}, content =function()
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
-          local quorum_supporters
-					if issue.population and issue.population > 0 then
+          local quorum_supporters  
+          if issue.population > 0 then
             quorum_supporters = math.ceil(issue.population * quorum_percent / 100)
           else
             quorum_supporters = 0

@@ -17,7 +17,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
     execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
   
       ui.link{
-        module = "area_private", view = "filters_bs", id = area.id,
+        module = "area", view = "filters_bs", id = area.id,
         attr = { class = "area_label" }, content = area.name 
       }
     
