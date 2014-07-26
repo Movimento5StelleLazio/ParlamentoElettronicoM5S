@@ -415,7 +415,7 @@ return {
 ["History"] = "Cronologia";
 ["Home"] = "Homepage";
 ["Homepage Choose action:"]="Puoi leggere, valutare ed integrare le proposte di legge presentate dai cittadini, presentare una tua proposta, votare quelle attualmente in discussione::";
-["Homepage read new issues"]="CITTADINI";
+["Homepage read new issues"]="LEGGI";
 ["Homepage read m5s issues"]="ELETTI";
 ["Homepage read other issues"]="ALTRI GRUPPI";
 ["Homepage welcome text"]="TI TROVI NELL'ASSEMBLEA DEDICATA ALLA COSA PUBBLICA.\n";
