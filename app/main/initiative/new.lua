@@ -14,13 +14,16 @@ trace.debug("is elected? " .. tostring(app.session.member.elected))
 trace.debug("area_id: " .. tostring(area.id))
 trace.debug("unit_id: " .. tostring(area.unit_id))
 local unit = Unit:new_selector():add_where{"id=?",area.unit_id}:single_object_mode():exec()
+local module = "wizard"
 if string.match(unit.name, ".ASSEMBLEA INTERNA.") then
-	execute.view { module = "wizard_private", view = "wizard_new_initiative_bs", params = { area_id = area.id } }
-	return
+	module = module .. "_private"
 end
 
-if not app.session.member.elected then
-	execute.view { module = "wizard", view = "wizard_new_initiative_bs", params = { area_id = area.id } }
+if app.session.member.elected then
+	execute.view { module = module, view = "page_bs12", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
+	return
+else
+	execute.view { module = module, view = "page_bs1", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
 	return
 end
 
