@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or ""
+local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
@@ -40,7 +40,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 ui.form	{
 	method = "post",
 	attr = { id = "page_bs7" },
-	module = 'wizard',
+	module = 'wizard_private',
 	view = "page_bs8",
 	params={
 		area_id = area_id,
@@ -64,7 +64,7 @@ ui.form	{
 	routing = {
 		ok = {
 			mode   = 'redirect',
-			module = 'wizard',
+			module = 'wizard_private',
 			view = 'pag_bs8',
 			params = {
 				area_id = area_id,
@@ -163,7 +163,7 @@ end }
 ui.form	{
 	method = "post",
 	attr = { class = "inline-block", id = "page_bs7_back" },
-	module = 'wizard',
+	module = 'wizard_private',
 	view = 'page_bs6',
 	params={
 		area_id = area_id,
@@ -187,7 +187,7 @@ ui.form	{
 	routing = {
 		ok = {
 			mode   = 'redirect',
-			module = 'wizard',
+			module = 'wizard_private',
 			view = 'pag_bs6',
 			params = {
 				area_id = area_id,
