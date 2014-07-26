@@ -1,22 +1,23 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local wizard = param.get("wizard", atom.boolean) or false
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span2 text-center"}, content = function()
-        if not wizard then
+        if app.session.member.elected then
           ui.link{  
-            module = "area", view = "filters_bs", id = area.id,
+            module = "wizard", view = "page_bs12", id = area.id,
+            params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
             attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
               ui.heading{level=5,content=_"AREA "..area.id}
             end
           }
         else
           ui.link{
-            module = "wizard", view = "wizard_new_initiative_bs",
-            params = {area_id = area.id, unit_id=area.unit_id},
+            module = "wizard", view = "page_bs1",
+            params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
             attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
               ui.heading{level=5,content=_"AREA "..area.id}
             end
