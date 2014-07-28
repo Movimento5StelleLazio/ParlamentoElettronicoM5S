@@ -39,7 +39,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 
 ui.form	{
 	method = "post",
-	attr = { id = "page_bs7" },
+	attr = { class = "inline-block", id = "page_bs7" },
 	module = 'wizard',
 	view = "page_bs8",
 	params={
@@ -117,9 +117,8 @@ ui.form	{
 							end }
 						end }
 				
-						ui.container {
-							attr={style="width:100%;text-align: center;"},
-							content=function()     
+						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
+							ui.container{attr={class="span12"}, content=function()
 								ui.field.text {
 									attr={id="initiative_title",style=" font-size: 25px;height: 30px;width: 60%;"},
 									name="initiative_title",
@@ -127,9 +126,10 @@ ui.form	{
 									label_attr={style="font-size:20px;"},
 									value = initiative_title
 								}
+							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs7_back\").submit();"},
@@ -141,7 +141,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs7\").submit();"},

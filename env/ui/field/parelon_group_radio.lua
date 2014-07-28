@@ -8,8 +8,8 @@ function ui.field.parelon_group_radio(args)
 					ui.field.parelon_radio {
 						name = "parelon_radio"..args.id,
 						id = value.id,
-						label = tostring(value.name),
-						label_attr={args.label_attr},
+						text = tostring(value.name),
+						text_attr={args.text_attr},
 						container_attr=container_attr,
 						value = true,
 						attr = { onClick = "getElementById(\""..args.out_id.."\").label = "..tostring(value.id) }
@@ -19,8 +19,8 @@ function ui.field.parelon_group_radio(args)
 					ui.field.parelon_radio {
 						name = "parelon_radio"..args.id,
 						id = value.id,
-						label = tostring(value.name),
-						label_attr={args.label_attr},
+						text = tostring(value.name),
+						text_attr={args.text_attr},
 						container_attr=container_attr,
 						attr = { onClick = "getElementById(\""..args.out_id.."\").value = "..tostring(value.id) }
 					}

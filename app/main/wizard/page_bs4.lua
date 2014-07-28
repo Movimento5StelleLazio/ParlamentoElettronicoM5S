@@ -117,21 +117,21 @@ ui.form	{
 							end }
 						end }
 		
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span6 pagination-justify alert alert-info"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"},content=function()
+							ui.container{attr={class="span5 pagination-justify alert alert-info"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Keywords"}
 								ui.tag{tag="em",content=  _"Keywords note"}
 							end }
-							ui.container{attr={class="span6 collapse",style="height:20em;"},content=function()
+							ui.container{attr={class="span7",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "issue_keywords",
-									attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"}
+									attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none"}
 								}
 							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs4_back\").submit();"},
@@ -143,7 +143,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs4\").submit();"},
@@ -220,5 +220,5 @@ ui.form	{
 }
 
 ui.script{static="js/jquery.tagsinput.js"}
-ui.script{script="$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
+ui.script{script="$('#issue_keywords').tagsInput({'height':'98%','width':'98%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
 ui.script{script="$('#issue_keywords').importTags('"..issue_keywords.."')"}

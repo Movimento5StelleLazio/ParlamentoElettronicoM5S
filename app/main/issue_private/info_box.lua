@@ -78,8 +78,3 @@ ui.container{ attr = { class = "issue_info_box2"}, content = function()
     end }
   end }
 end }
-
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext_info_box1').fitText(1.0, {minFontSize: '12px', maxFontSize: '22px'}); " }
-ui.script{script = "jQuery('.fittext_info_box2').fitText(1.0, {minFontSize: '10px', maxFontSize: '18px'}); " }
-

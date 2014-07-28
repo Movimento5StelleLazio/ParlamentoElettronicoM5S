@@ -1,6 +1,6 @@
 slot.set_layout("custom")
---local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
+local create = param.get("create", atom.boolean) or false
 local area = Area:by_id(param.get_id())
 local state = param.get("state") or "any"
 local scope = param.get("scope") or "all_units"
@@ -14,18 +14,6 @@ app.html_title.title = area.name
 app.html_title.subtitle = _("Area")
 
 util.help("area.show")
-
--- Get the unit name from the configuration file
---[[local unit_name
-for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == area.unit_id then unit_name = i end
-end
-
-if not config.gui_preset[gui_preset].units[unit_name] then
-  slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
-  return false
-end]]
-local unit_name = "iscritti"
 
 -- Determines the desc order button text
 local inv_txt
@@ -56,31 +44,31 @@ local category
 local issues_desc
 
 if state == "admission" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_admission or Issue:get_state_name_for_state('admission')
+  issues_desc = _"Citizens Initiatives Looking For Supporters" or Issue:get_state_name_for_state('admission')
 elseif state == "development" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_development or _"Development"
+  issues_desc = _"M5S Members Initiatives In Discussion" or _"Development"
 elseif state == "discussion" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_development or Issue:get_state_name_for_state('discussion')
+  issues_desc = _"M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('discussion')
 elseif state == "voting" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_development or Issue:get_state_name_for_state('voting')
+  issues_desc = _"M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('voting')
 elseif state == "verification" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_development or Issue:get_state_name_for_state('verification')
+  issues_desc = _"M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('verification')
 elseif state == "committee" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_development or _"Committee"
+  issues_desc = _"M5S Members Initiatives In Discussion" or _"Committee"
 elseif state == "closed" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_closed or _"Closed"
+  issues_desc = _"M5S Members Initiatives Completed or Retired" or _"Closed"
 elseif state == "canceled" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_closed or _"Canceled"
+  issues_desc = _"M5S Members Initiatives Completed or Retired" or _"Canceled"
 elseif state == "finished" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_closed or _"Finished"
+  issues_desc = _"M5S Members Initiatives Completed or Retired" or _"Finished"
 elseif state == "finished_with_winner" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_closed or _"Finished (with winner)"
+  issues_desc = _"M5S Members Initiatives Completed or Retired" or _"Finished (with winner)"
 elseif state == "finished_without_winner" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_closed or _"Finished (without winner)"
+  issues_desc = _"M5S Members Initiatives Completed or Retired" or _"Finished (without winner)"
 elseif state == "open" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_open or _"Open"
+  issues_desc = _"Open"
 elseif state == "any" then
-  issues_desc = config.gui_preset["custom"].units[unit_name].issues_desc_any or _"Any"
+  issues_desc = _"Any"
 else
   issues_desc = _"Unknown"
 end
@@ -94,6 +82,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           module = "area_private",
           id = area.id,
           view = "filters_bs",
+		  params = { create = create },
           content = function()
             ui.heading{level=3,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -105,7 +94,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = (member.realname ~= "" and member.realname or member.login)}) }
+             ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = (member.realname ~= "" and member.realname or member.login)}) }
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -159,14 +148,6 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-local spanstyle
-if unit_name == "cittadini" or unit_name == "iscritti" then
-  spanstyle =""
-else
-  spanstyle="margin-left: 12.5%"
-end
-
-
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class="span12 well"}, content=function()
     ui.container{ attr = { class="row-fluid"}, content=function()
@@ -190,7 +171,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           end
            
           local btn_style = "width:33%;"
-          if unit_name == "cittadini" or unit_name == "iscritti" then
+		  if not app.session.member.elected then
             btn_style = "width:25%;"
             ui.link {
               attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
@@ -257,12 +238,3 @@ ui.container{ attr = { class="row-fluid"}, content=function()
     end }
   end }
 end }
-
-ui.script{static = "js/jquery.equalheight.js"}
---ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext').fitText(1.0, {minFontSize: '24px', maxFontSize: '28px'}); " }
-ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(1.0, {minFontSize: '12px', maxFontSize: '26px'}); " }
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
-

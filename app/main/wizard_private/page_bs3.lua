@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
@@ -118,29 +118,21 @@ ui.form	{
 						end }
 
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span12"},content=function()
-								ui.container{attr={class="row-fluid"},content=function()
-									ui.container{attr={class="span10 offset1"},content=function()            
-										ui.container{attr={class="row-fluid"},content=function()
-											ui.container{attr={class="span6 pagination-justify issue_brief_span alert alert-info"},content=function()
-												ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"} --controllare se necessario il tag                    
-												ui.tag{tag="em",content=  _"Description note"} --controllare se necessario il tag
-											end }
-											ui.container{attr={class="span6 issue_brief_span"},content=function()
-												ui.tag{
-													tag="textarea",
-													attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;resize:none;"},
-													content=issue_brief_description
-												}
-												ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"} --controllare se necessario il tag
-											end }
-										end }
-									end }
-								end }
+							ui.container{attr={class="span5 pagination-justify alert alert-info"},content=function()
+								ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}
+								ui.tag{tag="em",content=  _"Description note"}
+							end }
+							ui.container{attr={class="span7 issue_brief_span"},content=function()
+								ui.tag{
+									tag="textarea",
+									attr={id="issue_brief_description",name="issue_brief_description", class="span12", style = "height:4em;resize: none"},
+									content=issue_brief_description
+								}
+								ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
 							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs3_back\").submit();"},
@@ -152,7 +144,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs3\").submit();"},

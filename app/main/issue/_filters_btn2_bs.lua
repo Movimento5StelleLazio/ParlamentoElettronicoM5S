@@ -4,7 +4,7 @@ local orderby = param.get("orderby")
 local desc = param.get("desc",atom.boolean)
 local interest = param.get("interest") 
 local scope = param.get("scope") 
-local btns = param.get("btns","table")
+local btns = param.get("btns","table") or { }
 local ftl_btns = param.get("ftl_btns",atom.boolean)
 
 local module = request.get_module()
@@ -258,4 +258,4 @@ ui.container{ attr = { class = "row-fluid btn_box_bottom"}, content = function()
 
   end }
 end }
-ui.script{static="js/jquery.toggle_flt.js"}
+--ui.script{static="js/jquery.toggle_flt.js"}

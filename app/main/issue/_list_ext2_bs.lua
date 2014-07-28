@@ -13,11 +13,12 @@ local ftl_btns = param.get("ftl_btns",atom.boolean)
 
 if list == "proposals" then
   issues_selector:join("initiative", nil, "initiative.issue_id = issue.id")
-  issues_selector:join("current_draft", nil, {"current_draft.initiative_id = initiative.id AND current_draft.author_id = ?", app.session.member.id })
+  issues_selector:join("current_draft", nil, {"current_draft.initiative_id = initiative.id AND current_draft.author_id = ?", app.session.member.id })  
+  issues_selector:add_where("issue.closed ISNULL")
 end
 
 issues_selector:join("area", nil, "area.id = issue.area_id")
-issues_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name NOT LIKE \'\%ASSEMBLEA INTERNA\%\'")
+issues_selector:join("unit", nil, "unit.id = area.unit_id AND unit.public")
 
 ui.paginate{
   per_page = tonumber(param.get("per_page") or 25),
@@ -39,17 +40,10 @@ ui.paginate{
         end }
       end }
     end
-    
-    local target = "_show_ext2_bs"
-    if list == "voted" or list == "proposals" then
-      target = "_show_ext_bs"
-    else
-      target = "_show_ext2_bs"
-    end
 
     ui.container{ attr = { class = "issues" }, content = function()
       for i, issue in ipairs(issues) do
-        execute.view{ module = "issue", view = target,
+        execute.view{ module = "issue", view = "_show_ext2_bs",
           params = {
             issue = issue,
     --        for_listing = true,

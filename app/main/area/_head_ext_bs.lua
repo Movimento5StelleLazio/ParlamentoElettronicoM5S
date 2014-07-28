@@ -1,6 +1,6 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local wizard = param.get("create", boolean)
 
 local show_content = param.get("show_content", atom.boolean)
 
@@ -20,7 +20,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span11" }, content = function()
         ui.link{
-          module = "area", view = "filters_bs", attr={class = "label label-area fixclick" }, id = area.id, content = function()
+          module = "area", view = "filters_bs", params = { create = create }, attr={class = "label label-area fixclick" }, id = area.id, content = function()
             ui.tag{tag="strong",content=area.name}
           end 
         }

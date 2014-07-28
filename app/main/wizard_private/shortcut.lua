@@ -66,7 +66,7 @@ ui.form {
 		error = {
 			mode   = 'redirect',
 			module = 'wizard',
-			view = 'page_bs12',
+			view = 'shortcut',
 			params={
 				area_id = area_id,
 				unit_id = unit_id,
@@ -92,31 +92,25 @@ ui.form {
 	content=function()
 	
 	ui.container{attr={class="row-fluid"},content=function()
-		ui.container{attr={class="span12 text-center"},content=function()
-			ui.container{attr={ class  = "row-fluid" } , content = function()
-				ui.container{attr={ class  = "well span12" }, content = function()
-					ui.container{attr={ class  = "row-fluid" } , content = function()
-						ui.container{attr={ class  = "span12" }, content = function()
-							ui.heading{level=1, content = _"WIZARD HEADER END" }
+		ui.container{attr={class="span12 well text-center"},content=function()
+			ui.container{ attr = { class  = "row-fluid" } , content = function()
+				ui.container{attr={class="span3"},content=function()
+					ui.link {
+						attr={id="btnPreviuos",class="span9 btn btn-primary large_btn fixclick"},
+						module = "unit",
+						view = "show_ext_bs",
+						params = { unit_id = unit_id, create = true, filter = "my_areas" },
+						id=app.session.member.unit_id,
+						content=function()              
+						ui.heading { level=3, content=function()                     
+							ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+							slot.put(_"Back Phase")
 						end }
 					end }
-					ui.container{ attr = { class  = "row-fluid spaceline3" } , content = function()
-						ui.container{ attr = { class  = "span3" }, content = function()
-							-- implementare "indietro"
-							ui.tag {
-								tag = "a",
-								attr = { class="btn btn-primary btn-large table-cell fixclick"},
-								content = function()
-									ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
-										ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-										slot.put(_"Back to previous page")
-								end }
-							end }				
-						end }
-						ui.container{ attr = { class  = "span9" }, content = function()
-							ui.heading{level=3, content = _"WIZARD END"}
-						end }
-					end }
+				end }
+				ui.container{ attr = { class  = "span6" }, content = function()
+					ui.heading{level=1, content = _"WIZARD SHORTCUT HEADER" }
+					ui.heading{level=3, content = _"WIZARD SHORTCUT"}
 				end }
 			end }
 			ui.container{attr={class="row-fluid"},content=function()
@@ -313,7 +307,6 @@ ui.form {
 				end }
 			end }
 		end }
-		
 		-- Pulsanti
 		ui.container{attr={class="row-fluid"},content=function()
 			ui.container{attr={class="span3 text-center",style="width: 100%;"},content=function()

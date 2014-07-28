@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
@@ -39,7 +39,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 
 ui.form	{
 	method = "post",
-	attr = { id = "page_bs7" },
+	attr = { class = "inline-block", id = "page_bs7" },
 	module = 'wizard_private',
 	view = "page_bs8",
 	params={
@@ -117,9 +117,8 @@ ui.form	{
 							end }
 						end }
 				
-						ui.container {
-							attr={style="width:100%;text-align: center;"},
-							content=function()     
+						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
+							ui.container{attr={class="span12"}, content=function()
 								ui.field.text {
 									attr={id="initiative_title",style=" font-size: 25px;height: 30px;width: 60%;"},
 									name="initiative_title",
@@ -127,9 +126,10 @@ ui.form	{
 									label_attr={style="font-size:20px;"},
 									value = initiative_title
 								}
+							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs7_back\").submit();"},
@@ -141,7 +141,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs7\").submit();"},

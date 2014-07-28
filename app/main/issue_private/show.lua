@@ -8,13 +8,13 @@ if not app.html_title.title then
 end
 
 slot.select("head", function()
-  execute.view{ module = "area", view = "_head", params = { area = issue.area } }
+  execute.view{ module = "area_private", view = "_head", params = { area = issue.area } }
 end)
 
 util.help("issue.show")
 
 slot.select("head", function()
-  execute.view{ module = "issue", view = "_show", params = { issue = issue } }
+  execute.view{ module = "issue_private", view = "_show", params = { issue = issue } }
 end )
 
 if app.session:has_access("all_pseudonymous") then

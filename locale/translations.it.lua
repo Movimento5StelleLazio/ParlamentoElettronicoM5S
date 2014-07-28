@@ -115,7 +115,7 @@ return {
 ["SHOW ONLY THE FOLLOWING UNITS:"]="MOSTRA SOLO LE SEGUENTI UNITA':";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
 ["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
-["You are now inside the Digital Assembly of M5S Lazio's Public Affairs."]="Ti trovi nell'assemblea dedicata alla cosa pubblica.";
+["You are now inside the Digital Assembly for Public Affairs."]="Ti trovi nell'assemblea dedicata alla cosa pubblica.";
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la tua regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa puoi fare:";
 ["Choose by pressing one of the following buttons:"]="Puoi leggere, valutare ed integrare le proposte di legge presentate dai cittadini o dagli eletti, presentare una tua proposta, votare quelle attualmente in discussione:";
@@ -355,7 +355,7 @@ return {
 ["Draft text"]="TESTO DELLA PROPOSTA:";
 ["Draft text title"]="INSERISCI IL TESTO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Edit"] = "Modifica";
-["Edit areas"] = "Modifica aree";
+["Edit areas"] = "Modifica aree tematiche";
 ["Edit draft"] = "Modifica bozza";
 ["Edit initiative"] = "Modifica iniziativa";
 ["Edit my page"] = "Modifica la mia pagina";
@@ -655,7 +655,7 @@ return {
 ["Please enter your login name. You will receive an email with a link to reset your password."] = "Inserire il nome di login. Riceverai un'eMail con un link per reimpostare la password.";
 ["Please enter your new password twice."] = "Inserire la nuova password due volte.";
 ["Please select your preferred notification level"] = "Per favore selezionare il livello di notifica";
-["Policies"] = "Regole";
+["Policies"] = "Regole di discussione";
 ["Policy"] = "Regola";
 ["Policy '#{name}'"] = "Regola '#{name}'";
 ["Policy: '#{name}'"] = "Regola: '#{name}'";
@@ -848,7 +848,7 @@ return {
 ["Unit delegation"] = "Delega unità";
 ["Unit list"] = "Elenco unità";
 ["Unit: '#{name}'"] = "Unità: '#{name}'";
-["Units"] = "Unità";
+["Units"] = "Unità territoriali";
 ["Units and areas"] = "Unità ed aree";
 ["Unknown author"] = "Autore sconosciuto";
 ["Update voting comment"] = "Aggiorna commento al voto";
@@ -884,8 +884,10 @@ return {
 ["Wiki engine for statement"] = "Motore Wiki per ?statement?";
 ["Withdraw"] = "Ritira";
 ["Withdraw membership"] = "Ritira partecipazione";
-["WIZARD END"]="La tua proposta è pronta. Ricontrolla accuratamente i campi del modulo sottostante prima di salvare la tua proposta e sottoporla all'attenzione dell'assembla. Se  la proposta otterrà un numero sufficiente di sostenitori , sarà messa ai voti in competizioni con le eventuali proposte alternative che gli altri utenti avanzeranno per risolvere il problema da te indicato.";
+["WIZARD END"]="La tua proposta è pronta. Ricontrolla accuratamente i campi del modulo sottostante prima di salvare la tua proposta e sottoporla all'attenzione dell'assembla. Se la proposta otterrà un numero sufficiente di sostenitori, sarà messa ai voti in competizioni con le eventuali proposte alternative che gli altri utenti avanzeranno per risolvere il problema da te indicato.";
+["WIZARD SHORTCUT"]="Hai avuto accesso al modulo di inserimento veloce delle proposte per eletti. Controlla con attenzione i campi inseriti prima di salvare e pubblicare la proposta.";
 ["WIZARD HEADER END"]="CREAZIONE NUOVA PROPOSTA COMPLETATA";
+["WIZARD SHORTCUT HEADER"]="CREAZIONE VELOCE NUOVA PROPOSTA";
 ["Yes"] = "Si";
 ["Yesterday at #{time}"] = "Ieri alle #{time}";
 ["You already voted this issue"] = "Hai già votato questa questione";

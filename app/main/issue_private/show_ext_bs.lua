@@ -45,9 +45,9 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large fixclick" },
-          module = return_module,
+          module = "area_private",
           id = issue.area.id,
-          view = return_view,
+          view = "show_ext_bs",
           params = param.get_all_cgi(),
           content = function()
             ui.heading{level=3 ,content=function()
@@ -57,7 +57,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span8" }, content = function()
+      ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr={class="span12"}, content=function()
             ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Details for issue Q"..issue.id}
@@ -113,7 +113,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
-        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }
+        execute.view{ module = "issue_private", view = "phasesbar", params = { state=issue.state } }
       end }
     end }
   end }
@@ -130,7 +130,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
+        execute.view{ module = "issue_private", view = "info_data", params = {issue=issue}  }
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
@@ -265,9 +265,9 @@ ui.container{attr={class="row-fluid"}, content=function()
               ui.container{ attr = { class = "span4"}, content = function()
                 ui.link{
                   attr = { class="btn btn-primary spaceline btn_box_bottom fixclick"  },
-                  module = "wizard",
+                  module = "wizard_private",
                   params = { issue_id=issue.id},
-                  view = "new",
+                  view = "page_bs1",
                   content = function()
                     ui.container{ attr = { class = "row-fluid"}, content = function()
                       ui.container{ attr = { class = "span4"}, content = function()
@@ -371,6 +371,6 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
   end }
 end }
+
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
-
