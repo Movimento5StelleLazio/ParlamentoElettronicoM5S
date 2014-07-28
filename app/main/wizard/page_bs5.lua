@@ -140,28 +140,20 @@ ui.form	{
 						end }
 		
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span12"},content=function()
-								ui.container{attr={class="row-fluid"},content=function()
-									ui.container{attr={class="span10 offset1 text-center"},content=function()
-										ui.container{attr={class="row-fluid"},content=function()
-											ui.container{attr={class="span6 pagination-justify alert alert-info issue_desc"},content=function()
-												ui.tag{tag="p", attr={class="text-center"}, content=  _"Problem description"}
-												ui.tag{tag="em",content=  _"Problem note"}
-											end }
-											ui.container{attr={class="span6 issue_desc"},content=function()
-												ui.tag{
-													tag="textarea",
-													attr={id="problem_description",name="problem_description",style="height:100%;width:100%;resize:none;"},
-													content=problem_description
-												}
-											end }
-										end }
-									end }
-								end }
+							ui.container{attr={class="span5 pagination-justify alert alert-info issue_desc"},content=function()
+								ui.tag{tag="p", attr={class="text-center"}, content=  _"Problem description"}
+								ui.tag{tag="em",content=  _"Problem note"}
+							end }
+							ui.container{attr={class="span7 issue_desc"},content=function()
+								ui.tag{
+									tag="textarea",
+									attr={id="problem_description",name="problem_description",style="resize:none;height:100%", class="span12"},
+									content=problem_description
+								}
 							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs5_back\").submit();"},
@@ -173,7 +165,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs5\").submit();"},

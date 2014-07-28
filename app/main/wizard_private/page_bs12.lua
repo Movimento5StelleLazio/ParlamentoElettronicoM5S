@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or true
 local proposer2 = param.get("proposer2", atom.boolean) or true
 local proposer3 = param.get("proposer3", atom.boolean) or true
@@ -45,6 +45,8 @@ ui.form {
 	params={
 		area_id = area_id,
 		unit_id = unit_id,
+		area_name = area_name,
+		unit_name = unit_name,
 		policy_id = policy_id,
 		issue_title = issue_title,
 		issue_brief_description = issue_brief_description,
@@ -61,15 +63,30 @@ ui.form {
 		formatting_engine = "rocketwiki"
 	},
 	routing = {
-		ok = {
-			mode   = 'forward',
-			module = 'index',
-			view = 'homepage_bs'
-		},
 		error = {
-			mode   = 'forward',
-			module = 'index',
-			view = 'index'
+			mode   = 'redirect',
+			module = 'wizard_private',
+			view = 'page_bs12',
+			params={
+				area_id = area_id,
+				unit_id = unit_id,
+				area_name = area_name,
+				unit_name = unit_name,
+				policy_id = policy_id,
+				issue_title = issue_title,
+				issue_brief_description = issue_brief_description,
+				issue_keywords = issue_keywords,
+				problem_description = problem_description,
+				aim_description = aim_description,
+				initiative_title = initiative_title,
+				initiative_brief_description = initiative_brief_description,
+				draft = draft,
+				technical_areas = technical_areas,
+				proposer1 = proposer1,
+				proposer2 = proposer2,
+				proposer3 = proposer3,
+				formatting_engine = "rocketwiki"
+			}
 		} 
 	}, 
 	content=function()

@@ -310,15 +310,6 @@ end
 
 
 slot.put_into("notice", _"Initiative successfully created")
-
- 
-            --[[
-            request.redirect{
-              module = "index",
-              view = "homepage_bs",
-              id = initiative.id
-            }
-            ]]--
  
  request.redirect{
   module = "issue",

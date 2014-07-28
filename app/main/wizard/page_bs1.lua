@@ -46,7 +46,7 @@ end
 						
 ui.form	{
 	method = "post",
-	attr = { id = "page_bs1" },
+	attr = { class = "inline-block", id = "page_bs1" },
 	module = 'wizard',
 	view = 'page_bs2',
 	id = 'page_bs1',
@@ -103,6 +103,7 @@ ui.form	{
 	content=function()
 		ui.container{attr={class="row-fluid"},content=function()
 			ui.container{attr={class="span12 well"},content=function()
+			
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -114,6 +115,7 @@ ui.form	{
 				    end }
 				  end }
 				end }
+				
 				ui.container{attr={class="row-fluid spaceline2"},content=function()
 				  ui.container{attr={class="span12 depression_box"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
@@ -125,44 +127,38 @@ ui.form	{
 							end }
 						end }
 	
-						ui.container{attr={class="row-fluid spaceline2"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()   
-								ui.container{attr={class="row-fluid"},content=function()      
-									ui.container{attr={class="span12"},content=function()					
-										ui.container{attr={class="row-fluid spaceline2"},content=function()
-											--valore selezionato
-											ui.field.hidden {
-												html_name = "policy_id",
-												attr = { id = "policy_id" },
-												value = param.get("policy_id", atom.integer) or 0
-											}					
-				
-											--radio-button group
-											ui.container {
-												attr={class="row-fluid text-center"},
-												content=function()
-													ui.field.parelon_group_radio {
-														id = "policy_id",
-														out_id = "policy_id",
-														elements = policies,
-														selected = policy_id,
-														attr = {
-															label_attr={ class="inline" },
-															container_attr={class="span12 inline-block" }
-														}
-													}								
-											end }
-										end }
-									end }
+						ui.container{attr={class="row-fluid  spaceline3"},content=function()
+							ui.container{attr={class="span12 text-center"},content=function()
+								--valore selezionato
+								ui.field.hidden {
+									html_name = "policy_id",
+									attr = { id = "policy_id" },
+									value = param.get("policy_id", atom.integer) or 0
+								}					
+
+								--radio-button group
+								ui.container {
+									attr={class="row-fluid text-center"},
+									content=function()
+										ui.field.parelon_group_radio {
+											id = "policy_id",
+											out_id = "policy_id",
+											elements = policies,
+											selected = policy_id,
+											attr = {
+												label_attr={ class="inline" },
+												container_attr={class="span12 inline-block" }
+											}
+										}								
 								end }
 							end }
 						end }
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.link {
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick"},
 								module = "unit",
 								view = "show_ext_bs",
-								params = { unit_id = unit_id, wizard = true, filter = "my_areas" },
+								params = { unit_id = unit_id, create = true, filter = "my_areas" },
 								id=app.session.member.unit_id,
 								content=function()              
 								ui.heading { level=3, content=function()                     
@@ -172,7 +168,7 @@ ui.form	{
 							end }
   					end }
   					
-  					ui.container{attr={class="span3 offset2 text-center"},content=function()
+  					ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn",onClick="getElementById(\"page_bs1\").submit();"},

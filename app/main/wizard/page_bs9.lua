@@ -121,23 +121,19 @@ ui.form	{
 							end }
 						end }
 				
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span10 offset1 text-center"},content=function()
-								ui.container{attr={class="row-fluid"},content=function()
-									ui.container{attr={class="span6 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
-										ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
-										ui.tag{tag="em",content=  _"Draft note"}
-									end }
-									ui.tag{
-										tag="textarea",
-										attr={id="draft",name="draft",class="span6 collapse", style="height:32em; resize:none;"},
-										content=draft
-									}
-								end }
+						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
+							ui.container{attr={class="span5 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
+								ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
+								ui.tag{tag="em",content=  _"Draft note"}
 							end }
+							ui.tag{
+								tag="textarea",
+								attr={id="draft",name="draft",class="span7", style="height:32em; resize:none;"},
+								content=draft
+							}
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs9_back\").submit();"},
@@ -149,7 +145,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs9\").submit();"},

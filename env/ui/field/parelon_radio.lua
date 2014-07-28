@@ -51,7 +51,7 @@ function ui.field.parelon_radio(args)
         label_attr    = { class = "ui_radio_label" },
         content_first = false,
         content       = function()
-          ui.tag{ tag  = "input", attr = attr }
+          ui.tag{ tag  = "input", attr = attr, content = args.text }
         end
       }
       ui.hidden_field{

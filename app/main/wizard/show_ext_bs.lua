@@ -1,7 +1,6 @@
 slot.set_layout("custom")
 
 local unit_id = param.get_id()
-trace.debug("unit_id="..unit_id)
 local filter = param.get("filter")
 
 if not app.session.member_id then
@@ -20,30 +19,14 @@ end
 
 areas_selector:join("unit", nil, "unit.id = area.unit_id' ")
 
-local unit_name = "cittadini"
---[[for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == unit_id then unit_name = i end
-end]]
-
-if not unit_name then
-  slot.put_into("error", "Cannot find unit_id in configuration!")
-  return false
-end
-
-local return_view = "homepage_bs"
-
-if unit_name == "iscritti" then
-  return_view = "index"
-end
-
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn table-cell"  },
-          module = "index",
-          view = return_view,
+          module = "index", --non sono convinto che sia questo il back corretto
+          view = "homepage_bs",
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -55,7 +38,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset["custom"].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -90,7 +73,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset["custom"].units[unit_name].unit_title) or _"THEMATIC AREAS" 
+        content = _"CITIZENS THEMATIC AREAS" or _"THEMATIC AREAS" 
       }
     end }
     ui.container{ attr = { class ="row-fluid" }, content = function()
@@ -131,13 +114,4 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       }
     end }
   end }
-end}
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
-
-
+end }

@@ -13,7 +13,7 @@ local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
 local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
+local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
@@ -39,7 +39,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 
 ui.form	{
 	method = "post",
-	attr = { id = "page_bs2" },
+	attr = { class = "inline-block", id = "page_bs2" },
 	module = 'wizard_private',
 	view = 'page_bs3',
 	params={
@@ -117,27 +117,20 @@ ui.form	{
 							end }
 						end }
 	
-						ui.container{attr={class="row-fluid spaceline2"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()   
-								ui.container{attr={class="row-fluid"},content=function()      
-									ui.container{attr={class="span12"},content=function()					
-										ui.container{attr={class="row-fluid spaceline2"},content=function()
-											ui.field.text {
-												attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
-												name="issue_title",
-												label=_"Problem Title",
-												value = issue_title,
-												label_attr={style="font-size:20px"}
-											}
-										end }
-								
-									end }
-								end }
+						ui.container{attr={class="row-fluid  spaceline3"},content=function()
+							ui.container{attr={class="span12 text-center"},content=function()
+								ui.field.text {
+									attr={id="issue_title",style=" font-size: 25px;height: 30px;width: 60%;"},
+									name="issue_title",
+									label=_"Problem Title",
+									value = issue_title,
+									label_attr={style="font-size:20px"}
+								}
 							end }
 						end }
 						
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs2_back\").submit();"},
@@ -149,7 +142,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs2\").submit();"},

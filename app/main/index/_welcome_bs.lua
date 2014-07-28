@@ -1,7 +1,7 @@
 slot.set_layout("custom")
 --local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
-ui.script{static = "js/jquery.fittext.js"}
+--ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
@@ -239,71 +239,55 @@ if app.session.member_id then
         end }
       end }
 
+      -- inizio icone
       ui.container{attr = {class = "row-fluid" },content = function()
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
-                ui.link{
-                  module="index",
-                  view="homepage_bs",
-                  attr = {class = "btn btn-primary btn-large large_btn fixclick" },
-                  content=function()
-                    ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
-                  end
-                }
-              end }
-            end }
-          end }
-        end }
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{ attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
-                ui.link{
-                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  module="index",
-                  view="homepage_private_bs",					
-                  content=function()
-                    ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-                  end
-                }
-              end }
-            end }
-          end }
-        end }
-        ui.script{static = "js/jquery.equalheight.js"}
-        ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+       ui.container{ attr = {class = "span6 text-center" },
+content=function()
+        ui.image{attr = {class = "img_assembly_small" },
+static="parlamento_icon_small.png" }
+       end }
+       ui.container{ attr = {class = "span6 text-center" },
+content=function()
+        ui.image{ attr = {class = "img_assembly_small" },
+static="parlamento_icon_small.png" }
+       end }
       end }
-    end }
-  end }
-             --[[ execute.view{module="index",view="_registration_info"} ]]--
+			--  fine icone
+			--  Bottoni
 
+		  ui.container{attr = {class = "row-fluid" },content = function()
+		    ui.container{attr = {class = "span6" },content = function()
+		      ui.link{
+		        attr = {class = "btn btn-primary btn-large large_btn fixclick" },
+		        module="index",
+		        view="homepage_bs",
+		        content=function()
+		        ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
+		      end }
+		     end }
+
+	      ui.container{attr = {class = "span6" },content = function()
+	        ui.link{
+	          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+	          module="index", view="homepage_private_bs",					
+	          content=function()
+	            ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+          end }
+	      end }
+	    end }
+	  end }
+	end }
+	--[[ execute.view{module="index",view="_registration_info"} ]]--
 else
-
   if config.motd_public then
     local help_text = config.motd_public
     ui.container{
       attr = { class = "wiki motd" },
       content = function()
         slot.put(format.wiki_text(help_text))
-      end
-    }
+    end }
   end
-
-
   ui.container{ attr = { class = "row-fluid" }, content = function ()
-
     ui.form{
       attr = { id="login_div", class = "well span6" },
       module = 'index',
@@ -401,14 +385,7 @@ else
           end }
         end }
       end }
-
     end }
   end }
-
 --  execute.view{module="index",view="_registration_info"}
-
---ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
---ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
-
 end

@@ -20,7 +20,7 @@ ui.add_partial_param_names{
   "issue_list" 
 }
 
-local filters = execute.load_chunk{module="issue", chunk="_filters.lua", params = {
+local filters = execute.load_chunk{module="issue_private", chunk="_filters.lua", params = {
   member = member, for_member = for_member, state = for_state, for_unit = for_unit, for_area = for_area
 }}
 
@@ -37,7 +37,7 @@ filters.content = function()
 
         for i, issue in ipairs(issues) do
 
-          execute.view{ module = "issue", view = "_show", params = {
+          execute.view{ module = "issue_private", view = "_show", params = {
             issue = issue, for_listing = true, for_member = for_member
           } }
           

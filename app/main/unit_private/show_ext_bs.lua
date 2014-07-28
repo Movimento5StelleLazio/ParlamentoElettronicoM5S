@@ -1,9 +1,7 @@
 slot.set_layout("custom")
 
-local type_id = param.get_id()
-local filter = param.get("filter") or "my_areas"
---local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
-local wizard = param.get("wizard", atom.boolean) or false
+local filter = param.get("filter")
+local create = param.get("create", atom.boolean) or false
 
 if not app.session.member_id then
   return false
@@ -19,25 +17,14 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.name LIKE '%ASSEMBLEA INTERNA%' ")
-
-local unit_name = "iscritti"
---[[for i,v in pairs(config.gui_preset[gui_preset].units) do
-  trace.debug('unit_id '..type_id..' type_id '..config.gui_preset[gui_preset].units[i].type_id)
-  if config.gui_preset[gui_preset].units[i].type_id == type_id then unit_name = i end
-end]]
-
-if not unit_name then
-  slot.put_into("error", "Cannot find type_id in configuration!")
-  return false
-end
+areas_selector:join("unit", nil, "unit.id = area.unit_id AND NOT unit.public ")
 
 ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn"  },
+          attr = { class="btn btn-primary btn-large large_btn" },
           module = "index",
           view = "homepage_private_bs",
           content = function()
@@ -48,10 +35,10 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span9 text-center" }, content = function()
+      ui.container{ attr = { class  = "span8 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,content=_(config.gui_preset["custom"].units["iscritti"].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -78,8 +65,7 @@ if filter == "my_areas" then
   btn2=btn_class_active
 else
   btn1=btn_class_active
-end
-  
+end  
 
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class ="span12 well" }, content = function()
@@ -87,7 +73,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset["custom"].units["iscritti"].unit_title) or _"THEMATIC AREAS" 
+        content = _"M5S MEMBERS THEMATIC AREAS" or _"THEMATIC AREAS" 
       }
     end }
     ui.container{ attr = { class ="row-fluid text-center" }, content = function()
@@ -96,8 +82,7 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           attr = { class=btn1  }, 
           module = "unit_private",
           view = "show_ext_bs",
-          id = type_id,					
-          params = { wizard = wizard },
+          params = { create = create },
           content = function()
             ui.heading{level=3, content= _"SHOW ALL AREAS"}
           end 
@@ -108,34 +93,21 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           attr = { class=btn2  },
           module = "unit_private",
           view = "show_ext_bs",
-          id = type_id,		
-          params = { filter = "my_areas", wizard = wizard },
+          params = { filter = "my_areas", create = create },
           content = function()
             ui.heading{level=3, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
     end }
-    if wizard then
-		  ui.container{ attr = { class="row-fluid spaceline"}, content=function()
-		    ui.container{ attr = { class = "span12 spaceline" }, content = function()
-		      execute.view{  
-		        module = "area_private",
-		        view = "_list_ext_bs",
-		        params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
-		      }
-		    end }
-		  end }
-		else
-			ui.container{ attr = { class="row-fluid spaceline"}, content=function()
-		    ui.container{ attr = { class = "span12 spaceline" }, content = function()
-		      execute.view{  
-		        module = "area_private",
-		        view = "_list_ext_bs",
-		        params = { areas_selector = areas_selector, member = app.session.member }
-		      }
-		    end }
-		  end }
-		end
+    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
+      ui.container{ attr = { class = "span12 spaceline" }, content = function()
+        execute.view{  
+          module = "area_private",
+          view = "_list_ext_bs",
+          params = { areas_selector = areas_selector, member = app.session.member, create = create }
+        }
+      end }
+    end }
   end }
 end }

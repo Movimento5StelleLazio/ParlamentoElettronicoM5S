@@ -15,12 +15,12 @@ trace.debug("area_id: " .. tostring(area.id))
 trace.debug("unit_id: " .. tostring(area.unit_id))
 local unit = Unit:new_selector():add_where{"id=?",area.unit_id}:single_object_mode():exec()
 local module = "wizard"
-if string.match(unit.name, ".ASSEMBLEA INTERNA.") then
+if not unit.public then
 	module = module .. "_private"
 end
 
 if app.session.member.elected then
-	execute.view { module = module, view = "page_bs12", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
+	execute.view { module = module, view = "shortcut", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
 	return
 else
 	execute.view { module = module, view = "page_bs1", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }

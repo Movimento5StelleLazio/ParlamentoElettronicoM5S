@@ -631,16 +631,16 @@ h3 {
   line-height: 50px;
 }
 h1 {
-  font-size: 36px;
+  font-size: 60.5px;
 }
 h2 {
-  font-size: 32px;
+  font-size: 49.5px;
 }
 h3 {
-  font-size: 28px;
+  font-size: 38.5px;
 }
 h4 {
-  font-size: 24px;
+  font-size: 27.5px;
 }
 h5 {
   font-size: 22px;
@@ -649,10 +649,10 @@ h6 {
   font-size: 18.7px;
 }
 h1 small {
-  font-size: 30px;
+  font-size: 38.5px;
 }
 h2 small {
-  font-size: 26px;
+  font-size: 27.5px;
 }
 h3 small {
   font-size: 22px;
@@ -3861,10 +3861,10 @@ a.badge:focus {
   box-shadow: none;
 }
 .btn-large {
-  /*padding: 11px 25px;
+  padding: 11px 25px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  border-radius: 20px;*/
+  border-radius: 20px;
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -4676,16 +4676,16 @@ h3 {
   line-height: 31.25px;
 }
 h1 {
-  font-size: 34px;
+  font-size: 44px;
 }
 h2 {
-  font-size: 28px;
+  font-size: 38.5px;
 }
 h3 {
-  font-size: 26px;
+  font-size: 30.799999999999997px;
 }
 h4 {
-  font-size: 24px;
+  font-size: 26.4px;
 }
 h5 {
   font-size: 22px;
@@ -5210,7 +5210,7 @@ h6 {
 }
 .arrow_medium {
   vertical-align: middle;
-  height: 55px;
+  height: 70px;
   width: 70px;
   padding-left: 8px;
   padding-right: 8px;
@@ -5391,6 +5391,37 @@ a.delegation_info:focus {
   background-color: #fa7;
   color: #000;
 }
+
+input[type=radio].css-checkbox {
+display:none;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+padding-left:26px;
+height:21px; 
+display:inline-block;
+line-height:21px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:21px;
+vertical-align:middle;
+cursor:pointer;
+
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+background-position: 0 -21px;
+}
+label.css-label {
+background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_fd56754130250f37ec4c5ea1252eb511.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
 /* 
   Media query
 */

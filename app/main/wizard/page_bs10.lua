@@ -117,12 +117,12 @@ ui.form	{
 							end }
 						end }
 		
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span6 pagination-justify alert alert-info"},content=function()
+						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
+							ui.container{attr={class="span5 pagination-justify alert alert-info"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Technical competence areas:"}
 								ui.tag{tag="em",content=  _"Description technical note"}
 							end }
-							ui.container{attr={class="span6 collapse",style="height:20em;"},content=function()
+							ui.container{attr={class="span7",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "technical_areas",
@@ -131,7 +131,7 @@ ui.form	{
 							end }
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs10_back\").submit();"},
@@ -143,7 +143,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center"},content=function()
+						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs10\").submit();"},
@@ -220,5 +220,5 @@ ui.form	{
 }
 
 ui.script{static="js/jquery.tagsinput.js"}
-ui.script{script="$('#technical_areas').tagsInput({'height':'96%','width':'96%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
+ui.script{script="$('#technical_areas').tagsInput({'height':'98%','width':'98%','defaultText':'".._"Add a keyword".."','maxChars' : 20});"}
 ui.script{script="$('#technical_areas').importTags('"..technical_areas.."')"}
