@@ -41,7 +41,7 @@ trace.debug( "proposer3: "..tostring(proposer3) )
 
 ui.form	{
 	method = "post",
-	attr = { class = "inline-block", id = "page_bs10" },
+	attr = { id = "page_bs10" },
 	module = 'wizard',
 	view = 'page_bs12',
 	params={
@@ -116,6 +116,11 @@ ui.form	{
 				    end }
 				  end }
 				end }
+																ui.container{attr={class="row-fluid"},content=function()
+						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
+				ui.image{  static="png/barra/step_7_f10.png"}
+												end }
+								end }
 				ui.container{attr={class="row-fluid spaceline2"},content=function()
 				  ui.container{attr={class="span12 depression_box"},content=function()	
 						ui.container{attr={class="row-fluid"},content=function()
