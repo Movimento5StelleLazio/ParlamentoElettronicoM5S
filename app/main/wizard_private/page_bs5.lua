@@ -100,7 +100,7 @@ ui.form	{
 				end }
 																ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/barra/step_4_f5.png"}
+				ui.image{  static="png/step_4_f5.png"}
 												end }
 								end }
 				ui.container{attr={class="row-fluid spaceline2"},content=function()

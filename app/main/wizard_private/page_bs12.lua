@@ -148,7 +148,7 @@ ui.form {
 	end }
 													ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/barra/step_end.png"}
+				ui.image{  static="png/step_end.png"}
 												end }
 								end }
 
