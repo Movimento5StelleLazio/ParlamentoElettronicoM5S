@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-FRONTENDSRC=/opt/ParlamentoElettronicoM5S
-CORESRC=/opt/ParlamentoElettronicoM5SCore
-WEBMCPSRC=/opt/ParlamentoElettronicoM5S/extras/webmcp
-FRONTENDDST=/opt/liquid_feedback_frontend
-COREDST=/opt/liquid_feedback_core
-WEBMCPDST=/opt/webmcp
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+FRONTENDSRC=../
+CORESRC=../../ParlamentoElettronicoM5SCore
+WEBMCPSRC=./webmcp
+FRONTENDDST=../../liquid_feedback_frontend
+COREDST=../../liquid_feedback_core
+WEBMCPDST=../../webmcp
 HELPDIR=${FRONTENDDST}/locale/help/
-ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
-CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
-INITFILE=/opt/ParlamentoElettronicoM5S/extras/init.lua
-LFUPDATED=/opt/ParlamentoElettronicoM5S/extras/lf_updated
-INITSCRIPT=/opt/ParlamentoElettronicoM5S/extras/lf_updated.initrd
-NOTIFYD=/opt/ParlamentoElettronicoM5S/extras/start_notify.sh
+ROCKETWIKICMD=../../rocketwiki-lqfb/rocketwiki-lqfb
+CONFIGFILE=./myconfig.lua
+INITFILE=./init.lua
+LFUPDATED=./lf_updated
+INITSCRIPT=./lf_updated.initrd
+NOTIFYD=./start_notify.sh
 HTTPDUSER=www-data
 
 if [ "z$(id -u)" != "z0" ];then
