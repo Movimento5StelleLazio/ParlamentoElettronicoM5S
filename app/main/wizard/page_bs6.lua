@@ -1,5 +1,6 @@
 slot.set_layout("custom")
 
+local issue_id=param.get("issue_id", atom.integer) or 0
 local area_id=param.get("area_id", atom.integer)
 local unit_id=param.get("unit_id", atom.integer)
 local area_name=param.get("area_name", atom.string)
@@ -19,6 +20,7 @@ local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
 
 -- trace di controllo sui valori dei parametri
+trace.debug( "issue_id: "..tostring(issue_id) )
 trace.debug( "area_id: "..tostring(area_id) )
 trace.debug( "area_name: "..area_name )
 trace.debug( "unit_id: "..tostring(unit_id) )
@@ -37,12 +39,36 @@ trace.debug( "proposer1: "..tostring(proposer1) )
 trace.debug( "proposer2: "..tostring(proposer2) )
 trace.debug( "proposer3: "..tostring(proposer3) ) 
 
+--set the back parameters
+local view_back = "page_bs4"
+local module_back = "wizard"
+local params_back = {
+	area_id = area_id,
+	unit_id = unit_id,
+	area_name = area_name,
+	unit_name = unit_name,
+	policy_id = policy_id,
+	issue_title = issue_title,
+	issue_brief_description = issue_brief_description,
+	issue_keywords = issue_keywords,
+	problem_description = problem_description,
+	aim_description = aim_description,
+	initiative_title = initiative_title,
+	initiative_brief_description = initiative_brief_description,
+	draft = draft,
+	technical_areas = technical_areas,
+	proposer1 = proposer1,
+	proposer2 = proposer2,
+	proposer3 = proposer3
+}
+
 ui.form	{
 	method = "post",
 	attr = { class = "inline-block", id = "page_bs6" },
 	module = 'wizard',
 	view = 'page_bs7',	
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -67,6 +93,7 @@ ui.form	{
 			module = 'wizard',
 			view = 'pag_bs7',
 			params = {
+				issue_id = issue_id,
 				area_id = area_id,
 				unit_id = unit_id,
 				area_name = area_name,
@@ -92,7 +119,16 @@ ui.form	{
 			view = 'index',
 		}
 	}, 
-	content = function()	
+	content = function()		
+		local progresso = _"FASE <strong>6</strong> di 10"
+		
+		if issue_id ~= 0 then
+			progresso = _"FASE <strong>1</strong> di 5"
+			view_back = "show_ext_bs"
+			module_back = "issue"
+			params_back = { issue_id = issue_id }
+		end
+		
 		ui.container{attr={class="row-fluid"},content=function()
 			ui.container{attr={class="span12 well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
@@ -111,7 +147,7 @@ ui.form	{
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center"},content=function()
 								ui.heading{level=3,content=function() 
-									slot.put(_"FASE <strong>6</strong> di 10") 
+									slot.put(progresso) 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content=  _"Give a description to the aim you want to achieve"}
 							end }
@@ -165,51 +201,15 @@ end }
 ui.form	{
 	method = "post",
 	attr = { class = "inline-block", id = "page_bs6_back" },
-	module = 'wizard',
-	view = 'page_bs5',
-	params={
-		area_id = area_id,
-		unit_id = unit_id,
-		area_name = area_name,
-		unit_name = unit_name,
-		policy_id = policy_id,
-		issue_title = issue_title,
-		issue_brief_description = issue_brief_description,
-		issue_keywords = issue_keywords,
-		problem_description = problem_description,
-		aim_description = aim_description,
-		initiative_title = initiative_title,
-		initiative_brief_description = initiative_brief_description,
-		draft = draft,
-		technical_areas = technical_areas,
-		proposer1 = proposer1,
-		proposer2 = proposer2,
-		proposer3 = proposer3
-	},
+	module = module_back,
+	view = view_back,
+	params = params_back,
 	routing = {
 		ok = {
 			mode   = 'redirect',
-			module = 'wizard',
-			view = 'pag_bs5',
-			params = {
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
+			module = module_back,
+			view = view_back,
+			params = params_back
 		},
 		error = {
 			mode   = '',

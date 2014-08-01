@@ -36,15 +36,15 @@ local class = "phases_box phasesbar_autoresize"
 
 ui.container{ attr = { class = "phases_in_box"}, content = function()
   ui.container{ attr = { class = class}, content = function()
-    ui.image{  attr = { class = "phase_arrow", type="image/svg+xml", style = "margin-left: "..arrow_offset.."px;".."margin-top:"..arrow_margintop.."px;" }, static="svg/phase_arrow.svg"..svgz }
-    ui.image{  attr = { class = "phases_bar", type="image/svg+xml" }, static = "svg/phases_bar_it.svg"..svgz }
-    ui.image{  attr = { class = "admission", type="image/svg+xml", style = admission_offset }, static="svg/admission.svg"..svgz }
-    ui.image{  attr = { class = "discussion", type="image/svg+xml", style = discussion_offset }, static="svg/discussion.svg"..svgz }
-    ui.image{  attr = { class = "verification", type="image/svg+xml", style = verification_offset }, static="svg/verification.svg"..svgz }
-    ui.image{  attr = { class = "voting", type="image/svg+xml", style = voting_offset }, static="svg/voting.svg"..svgz }
-    ui.image{  attr = { class = "committee", type="image/svg+xml", style = committee_offset }, static="svg/committee.svg"..svgz }
-    ui.image{  attr = { class = "committee_voting", type="image/svg+xml", style = committee_voting_offset }, static="svg/voting.svg"..svgz }
-    ui.image{  attr = { class = "finished", type="image/svg+xml", style = finished_offset }, static="svg/finished.svg"..svgz }
+    ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;".."margin-top:"..arrow_margintop.."px;" }, static="png/phase_arrow.png" }
+    ui.image{  attr = { class = "phases_bar", }, static = "png/phases_bar_it.png"}
+    ui.image{  attr = { class = "admission", style = admission_offset }, static="png/admission.png" }
+    ui.image{  attr = { class = "discussion", style = discussion_offset }, static="png/discussion.png" }
+    ui.image{  attr = { class = "verification", style = verification_offset }, static="png/verification.png" }
+    ui.image{  attr = { class = "voting", style = voting_offset }, static="png/voting.png" }
+    ui.image{  attr = { class = "committee", style = committee_offset }, static="png/committee.png" }
+    ui.image{  attr = { class = "committee_voting", style = committee_voting_offset }, static="png/voting.png" }
+    ui.image{  attr = { class = "finished", style = finished_offset }, static="png/finished.png" }
   end }
 end }
 

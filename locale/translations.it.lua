@@ -93,8 +93,8 @@ return {
 ["Back to issue listing"]="Indietro";
 ["Back to homepage"]="Torna alla Homepage";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
-["INITIATIVES LOOKING FOR SUPPORTERS"] = "IN CERCA DI SOSTENITORI";
-["INITIATIVES NOW IN DISCUSSION"] = "ATTUALMENTE IN DISCUSSIONE";
+["INITIATIVES LOOKING FOR SUPPORTERS"] = "NUOVE";
+["INITIATIVES NOW IN DISCUSSION"] = "IN DISCUSSIONE";
 ["COMPLETED OR RETIRED INITIATIVES"] = "COMPLETATE O RITIRATE";
 ["CHOOSE THE INITIATIVE TO EXAMINE:"]="SCEGLI LA PROPOSTA DA ESAMINARE:";
 ["CHOOSE THE THEMATIC AREA"]="SCEGLI L'AREA TEMATICA";
@@ -113,8 +113,8 @@ return {
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"]="FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
 ["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"]="FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
 ["SHOW ONLY THE FOLLOWING UNITS:"]="MOSTRA SOLO LE SEGUENTI UNITA':";
-["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
-["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Interna Della Regione Lazio";
+["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, ti trovi nell'Assemblea della Regione Lazio";
+["#{realname}, you are now in the Regione Lazio Internal Assembly"]="#{realname}, ti trovi nell'Assemblea Interna della Regione Lazio";
 ["You are now inside the Digital Assembly for Public Affairs."]="Ti trovi nell'assemblea dedicata alla cosa pubblica.";
 ["Here laws and measures for Region and his citizens are being discussed."]="Qui si discutono le leggi e provvedimenti che riguardano la tua regione e i suoi cittadini.";
 ["What you want to do?"]="Cosa puoi fare:";

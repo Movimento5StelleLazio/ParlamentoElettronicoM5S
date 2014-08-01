@@ -127,8 +127,8 @@ ui.form	{
 							end }
 						end }
 	
-						ui.container{attr={class="row-fluid  spaceline3"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"},content=function()
+							ui.container{attr={class="span6 offset3"},content=function()
 								--valore selezionato
 								ui.field.hidden {
 									html_name = "policy_id",
@@ -138,17 +138,15 @@ ui.form	{
 
 								--radio-button group
 								ui.container {
-									attr={class="row-fluid text-center"},
+									attr={class="row-fluid"},
 									content=function()
 										ui.field.parelon_group_radio {
 											id = "policy_id",
 											out_id = "policy_id",
 											elements = policies,
 											selected = policy_id,
-											attr = {
-												label_attr={ class="inline" },
-												container_attr={class="span12 inline-block" }
-											}
+											attr={class="parelon-checkbox spaceline3"},
+											label_attr={class="parelon-label spaceline3"}
 										}								
 								end }
 							end }

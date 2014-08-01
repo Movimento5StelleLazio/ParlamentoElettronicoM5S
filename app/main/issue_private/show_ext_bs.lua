@@ -67,8 +67,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr={class="span12 nowrap"}, content=function()
             ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
             slot.put("<input id='issue_url_box' type='text' value="..url..">") 
-            ui.script{static="js/jquery.select_popover.js"}
-
+            
             ui.tag{
               tag="a",
               attr={
@@ -263,11 +262,36 @@ ui.container{attr={class="row-fluid"}, content=function()
               end }
     
               ui.container{ attr = { class = "span4"}, content = function()
+              	local area = Area:by_id(issue.area_id)
+              	local unit = Unit:by_id(area.unit_id)
+              	local issue_keywords = ""
+              	local keywords=Keyword:by_issue_id(issue.id)
+								if keywords and #keywords > 0 then
+									for k = 1, #keywords do
+										if not keywords[k].technical_keyword then
+											issue_keywords = issue_keywords .. keywords[k].name
+											if k ~= #keywords then
+												issue_keywords = issue_keywords .. ","
+											end
+										end
+									end
+								end
                 ui.link{
                   attr = { class="btn btn-primary spaceline btn_box_bottom fixclick"  },
                   module = "wizard_private",
-                  params = { issue_id=issue.id},
-                  view = "page_bs1",
+                  params = {
+                   issue_id = issue.id,
+                   area_id = area.id,
+                   area_name = area.name,
+                   unit_id = unit.id,
+                   unit_name = unit.name,
+                   policy_id = issue.policy_id,
+                   issue_title = issue.title,
+									 issue_brief_description = issue.brief_description,
+									 issue_keywords = issue_keywords,
+									 problem_description = issue.problem_description,
+								   aim_description = issue.aim_description},
+                   view = "page_bs6",
                   content = function()
                     ui.container{ attr = { class = "row-fluid"}, content = function()
                       ui.container{ attr = { class = "span4"}, content = function()

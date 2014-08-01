@@ -1,41 +1,25 @@
 slot.set_layout("custom")
 
+local issue_id=param.get("issue_id", atom.integer) or 0
+local draft_id = param.get("draft_id", atom.integer) or 0
 local area_id=param.get("area_id", atom.integer)
 local unit_id=param.get("unit_id", atom.integer)
 local area_name=param.get("area_name", atom.string)
 local unit_name= param.get("unit_name", atom.string)
-local policy_id = param.get("policy_id", atom.integer) or 0
-local issue_title = param.get("issue_title", atom.string) or ""
-local issue_brief_description = param.get("issue_brief_description", atom.string) or ""
-local issue_keywords = param.get("issue_keywords", atom.string) or ""
-local problem_description = param.get("problem_description", atom.string) or ""
-local aim_description = param.get("aim_description", atom.string) or ""
-local initiative_title = param.get("initiative_title", atom.string) or ""
-local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
-local draft = param.get("draft", atom.string) or ""
-local technical_areas = param.get("technical_areas", atom.string) or ""
-local proposer1 = param.get("proposer1", atom.boolean) or true
-local proposer2 = param.get("proposer2", atom.boolean) or true
-local proposer3 = param.get("proposer3", atom.boolean) or true
 
 -- trace di controllo sui valori dei parametri
+trace.debug( "issue_id: "..tostring(issue_id) )
+trace.debug( "draft_id: "..tostring(draft_id) )
 trace.debug( "area_id: "..tostring(area_id) )
 trace.debug( "area_name: "..area_name )
 trace.debug( "unit_id: "..tostring(unit_id) )
 trace.debug( "unit_name: "..tostring(unit_name) )
-trace.debug( "policy_id: "..tostring(policy_id) )
-trace.debug( "issue_title: "..issue_title )
-trace.debug( "issue_brief_description: "..issue_brief_description )
-trace.debug( "issue_keywords: "..issue_keywords )
-trace.debug( "problem_description: "..problem_description )
-trace.debug( "aim_description: "..aim_description )
-trace.debug( "initiative_title: "..initiative_title )
-trace.debug( "initiative_brief_description: "..initiative_brief_description )
-trace.debug( "draft: "..draft )
-trace.debug( "technical_areas: "..tostring(technical_areas) )
-trace.debug( "proposer1: "..tostring(proposer1) )
-trace.debug( "proposer2: "..tostring(proposer2) )
-trace.debug( "proposer3: "..tostring(proposer3) )
+
+--set the back parameters
+local view_back = "show_ext_bs"
+local module_back = "unit"
+local params_back = { unit_id = unit_id, create = true, filter = "my_areas" }
+}
 
 ui.form {
 	method = "post",
@@ -43,6 +27,7 @@ ui.form {
 	module = 'wizard',
 	action = 'create',
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -68,6 +53,7 @@ ui.form {
 			module = 'wizard',
 			view = 'shortcut',
 			params={
+				issue_id = issue_id,
 				area_id = area_id,
 				unit_id = unit_id,
 				area_name = area_name,
@@ -90,6 +76,23 @@ ui.form {
 		} 
 	}, 
 	content=function()
+	local disable = "block"
+	local only_draft = "block"
+	if issue_id then
+		disable = " hidden"
+		view_back = "show_ext_bs"
+		module_back = "issue"
+		params_back = { issue_id = issue_id }
+	elseif draft_id then
+		disable = " hidden"
+		only_draft = " hidden"
+		disable = " hidden"
+		view_back = "show_ext_bs"
+		module_back = "issue"
+		params_back = { issue_id = issue_id }
+	end
+	
+	trace.debug( "disable: "..disable.."; only_draft: "..only_draft)
 	
 	ui.container{attr={class="row-fluid"},content=function()
 		ui.container{attr={class="span12 well text-center"},content=function()
@@ -97,9 +100,9 @@ ui.form {
 				ui.container{attr={class="span3"},content=function()
 					ui.link {
 						attr={id="btnPreviuos",class="span9 btn btn-primary large_btn fixclick"},
-						module = "unit",
-						view = "show_ext_bs",
-						params = { unit_id = unit_id, create = true, filter = "my_areas" },
+						module = module_back,
+						view = view_back,
+						params = params_back,
 						id=app.session.member.unit_id,
 						content=function()              
 						ui.heading { level=3, content=function()                     
@@ -129,7 +132,7 @@ ui.form {
 	ui.container{attr={class="row-fluid spaceline3"},content=function()
 		ui.container{attr={class="span12 text-center"},content=function()
 			--Selezione policy
-			ui.container{ attr={class="formSelect",style=""},content=function()
+			ui.container{ attr={class="formSelect"},content=function()
 					local area_policies = AllowedPolicy:get_policy_by_area_id(area_id)
 					local policies = {}
 
@@ -137,7 +140,7 @@ ui.form {
 						policies[#policies+1] = { id = k.policy_id, name = Policy:by_id(k.policy_id).name }
 					end
 
-					ui.container{attr={class="formSelect", style=""},content=function()
+					ui.container{attr={class="formSelect"..disable},content=function()
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
 							ui.container{attr={class="span12 text-center"},content=function()
 								ui.container{attr={class="inline-block"},content=function()
@@ -154,20 +157,17 @@ ui.form {
 												out_id = "policy_id",
 												elements = policies,
 												selected = policy_id,
-												attr = {
-													label_attr={ class="inline" },
-													container_attr={class="span12 inline-block" }
-												}
+												attr={class="parelon-checkbox spaceline3"},
+												label_attr={class="parelon-label spaceline3"}
 											}								
 										end }
 									end }
 								end }                                                      
 							end }
-						end }
 					end }
 				end }
 				-- Box questione
-				ui.container{attr={class="row-fluid spaceline3"},content=function()
+				ui.container{attr={class="row-fluid spaceline3"..disable},content=function()
 					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
 						--Titolo box questione
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
@@ -233,13 +233,13 @@ ui.form {
 				ui.container{attr={class="row-fluid spaceline3"},content=function()
 					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
 						-- Titolo box proposta			  
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"..only_draft},content=function()
 							ui.container{attr={class="span4 offset1"},content=function()      
 								ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase text-center" }, content = _"PROPOSTA" }
 							end }
 						end }
 						-- Titolo proposta
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"..only_draft},content=function()
 							ui.container{attr={class="span4 offset1 text-right"},content=function() 
 								ui.tag{tag="label", content=_"Initiative Title"}
 							end }
@@ -248,7 +248,7 @@ ui.form {
 							end }
 						end }
 						-- Descrizione breve proposta
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"..only_draft},content=function()
 							ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
 								ui.tag{tag="p",content=  _"Initiative short description"}
 --                      ui.tag{tag="em",content=  _"Initiative short note"}
@@ -262,7 +262,7 @@ ui.form {
 							end }
 						end }
 						-- Descrizione dell'obiettivo
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
+						ui.container{attr={class="row-fluid spaceline3"..only_draft},content=function()
 							ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
 								ui.tag{tag="p",content=  _"Target description"}
 --                      ui.tag{tag="em",content=  _"Target note"}
@@ -290,7 +290,7 @@ ui.form {
 							end }
 						end }
 						-- Keywords competenze tecniche
-						ui.container{attr={class="row-fluid spaceline4"},content=function()
+						ui.container{attr={class="row-fluid spaceline4"..only_draft},content=function()
 							ui.container{attr={class="span4 offset1 text-right"},content=function()
 								ui.tag{tag="p",content=  _"Keywords"}
 --                     ui.tag{tag="em",content=  _"Keywords note"}
@@ -307,6 +307,7 @@ ui.form {
 				end }
 			end }
 		end }
+		
 		-- Pulsanti
 		ui.container{attr={class="row-fluid"},content=function()
 			ui.container{attr={class="span3 text-center",style="width: 100%;"},content=function()

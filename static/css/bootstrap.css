@@ -4817,7 +4817,7 @@ h6 {
   border-color: rgba(0, 0, 0, 0.15);
 }
 .paper {
-  background-image: url(http://192.168.1.17/lf/static/less/../svg/paper_tile.svg);
+  background-image: url(../svg/paper_tile.svg);
 }
 .head-chocolate,
 .head-darkorange,
@@ -4936,7 +4936,7 @@ h6 {
   box-shadow: 0px 5px 7px #808080;
   color: #ffffff;
   background: #000000;
-  background-image: url(http://192.168.1.17/lf/static/less/../svg/wood_tile.svg);
+  background-image: url(../wood_tile.png);
   border-radius: 6px 6px 0 0;
   padding: 8px;
   overflow: hidden;
@@ -5390,36 +5390,6 @@ a.delegation_info:focus {
 .highlighted {
   background-color: #fa7;
   color: #000;
-}
-
-input[type=radio].css-checkbox {
-display:none;
-}
-
-input[type=radio].css-checkbox + label.css-label {
-padding-left:26px;
-height:21px; 
-display:inline-block;
-line-height:21px;
-background-repeat:no-repeat;
-background-position: 0 0;
-font-size:21px;
-vertical-align:middle;
-cursor:pointer;
-
-}
-
-input[type=radio].css-checkbox:checked + label.css-label {
-background-position: 0 -21px;
-}
-label.css-label {
-background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_fd56754130250f37ec4c5ea1252eb511.png);
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
 }
 
 /* 

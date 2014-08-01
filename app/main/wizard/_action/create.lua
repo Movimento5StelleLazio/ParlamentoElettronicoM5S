@@ -1,6 +1,7 @@
 local issue
 local area
 
+local issue_id = param.get("issue_id", atom.integer) or 0
 local area_id=param.get("area_id", atom.integer)
 local unit_id=param.get("unit_id", atom.integer)
 local policy_id = param.get("policy_id", atom.integer) or 0
@@ -11,13 +12,14 @@ local problem_description = param.get("problem_description", atom.string) or ""
 local aim_description = param.get("aim_description", atom.string) or ""
 local initiative_title = param.get("initiative_title", atom.string) or ""
 local initiative_brief_description = param.get("initiative_brief_description", atom.string) or ""
-local draft = param.get("draft", atom.string) or ""
+local draft_text = param.get("draft", atom.string) or ""
 local technical_areas = param.get("technical_areas", atom.string) or tostring(area_id)
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
 local formatting_engine = param.get("formatting_engine")
 
+trace.debug( "issue_id: "..tostring(issue_id) )
 trace.debug( "area_id: "..tostring(area_id) )
 trace.debug( "unit_id: "..tostring(unit_id) )
 trace.debug( "policy_id: "..tostring(policy_id) )
@@ -28,13 +30,11 @@ trace.debug( "problem_description: "..problem_description )
 trace.debug( "aim_description: "..aim_description )
 trace.debug( "initiative_title: "..initiative_title )
 trace.debug( "initiative_brief_description: "..initiative_brief_description )
-trace.debug( "draft: "..draft )
+trace.debug( "draft: "..draft_text )
 trace.debug( "technical_areas: "..tostring(technical_areas) )
 trace.debug( "proposer1: "..tostring(proposer1) )
 trace.debug( "proposer2: "..tostring(proposer2) )
 trace.debug( "proposer3: "..tostring(proposer3) ) 
-
-local issue_id = param.get("issue_id", atom.integer)
 
 if area_id then
 	area = Area:by_id(area_id)
@@ -125,9 +125,6 @@ if not issue then
   issue.problem_description=problem_description
   issue.aim_description=aim_description
   
-  
---  issue.keywords=param.get("issue_keywords")
-  
   if policy.polling then
     issue.accepted = 'now'
     issue.state = 'discussion'
@@ -165,6 +162,54 @@ if not issue then
   end
   
   local issue=issue:save()
+  issue_id = issue.id
+  
+		-- Keyword registration
+	function string:split(sep)
+		local sep, fields = sep or ":", {}
+		local pattern = string.format("([^%s]+)", sep)
+		self:gsub(pattern, function(c) fields[#fields+1] = c end)
+		return fields
+	end
+
+	-- issue keywords
+	trace.debug("non-technical keywords: "..issue_keywords)
+	for i,k in ipairs(param.get("issue_keywords"):split(",")) do
+		 local keyword = Keyword:new_selector()
+			:add_where{ "name LIKE ? AND NOT technical_keyword", k }
+			:join("issue_keyword", nil, {"keyword.id = issue_keyword.keyword_id AND issue_keyword.issue_id = ?", issue_id})
+		  :add_group_by("keyword.id")
+		  :add_order_by("keyword.id")
+		 	:optional_object_mode()
+		  :exec()
+		  
+		 if not keyword then
+		 	 trace.debug("creo nuova keyword")
+		   keyword = Keyword:new()
+		   keyword.name = k
+		   keyword.technical_keyword = false
+		   keyword:save() 
+		   trace.debug("keyword creata con id "..tostring(keyword.id).."; creo nuova issue_keyword")
+		   local issue_keyword = IssueKeyword:new()
+		   issue_keyword.issue_id = issue_id
+		   issue_keyword.keyword_id = keyword.id
+		   issue_keyword:save()
+		   trace.debug("nuova issue_keyword creata per la coppia keyword_id: "..tostring(keyword.id).."; issue_id: "..tostring(issue_id))
+		 elseif keyword then
+		 	 trace.debug("uso la keyword di id "..tostring(keyword.id) )
+		   local issue_keyword = IssueKeyword:by_pk(issue_id, keyword.id)     
+		   if not issue_keyword then
+		   	 trace.debug("creo nuova issue_keyword")
+				 local issue_keyword = IssueKeyword:new()
+				 issue_keyword.issue_id = issue_id
+				 issue_keyword.keyword_id = keyword.id
+				 issue_keyword = issue_keyword:save()
+				 trace.debug("nuova issue_keyword creata per la coppia keyword_id: "..tostring(keyword.id).."; issue_id: "..tostring(issue_id))
+		   end
+		 else
+			 slot.put_into("error",_"Failed to save keywords for issue")
+		 end
+	end
 
   if config.etherpad then
     local result = net.curl(
@@ -182,12 +227,10 @@ if param.get("polling", atom.boolean) and app.session.member:has_polling_right_f
 end
 initiative.issue_id = issue.id
 initiative.name = name
-trace.debug("line 151")
 initiative.title=initiative_title
 initiative.brief_description=initiative_brief_description
 initiative.competence_fields=technical_areas
- 
-trace.debug("line 156")
+
 --local proposer1=param.get("proposer1",atom.boolean)
 if proposer1 then
 initiative.author_type="citizens"
@@ -203,16 +246,13 @@ if proposer3 then
 initiative.author_type="other"
 end
 
-trace.debug("line 168")
 param.update(initiative, "discussion_url")
-trace.debug("line 170")
 initiative:save()
-
 
 local draft = Draft:new()
 draft.initiative_id = initiative.id
 draft.formatting_engine = formatting_engine
-draft.content = draft
+draft.content = draft_text
 draft.author_id = app.session.member.id
 draft:save()
 
@@ -238,76 +278,46 @@ function string:split(sep)
   return fields
 end
 
--- non-technical keywords
-for i,k in ipairs(param.get("issue_keywords"):split(",")) do
-   local keyword
-   keyword = Keyword:by_name(k)
-   if not keyword then
-     keyword = Keyword:new()
-     keyword.name = k
-     keyword.technical_keyword = false
-     keyword:save()
-     keyword = Keyword:by_name(k)
-   end
-   if keyword and not keyword.technical_keyword then
-     local issue_keyword = IssueKeyword:new()
-     issue_keyword.issue_id = issue.id
-     issue_keyword.keyword_id = keyword.id
-     issue_keyword:save()
-   elseif keyword and keyword.technical_keyword then
-   	 keyword = Keyword:new()
-     keyword.name = k
-     keyword.technical_keyword = false
-     keyword:save()
-     keyword = Keyword:by_name(k)
-     if keyword then
-		   local issue_keyword = IssueKeyword:new()
-		   issue_keyword.issue_id = issue.id
-		   issue_keyword.keyword_id = keyword.id
-		   issue_keyword:save()
- 		 else
-    	 slot.put_into("error",_"Failed to save keywords for issue")
-     end
-   end
-end
-
--- technical keywords
+-- initiative keywords
 trace.debug("technical_areas "..technical_areas)
 for i,k in ipairs(param.get("technical_areas"):split(",")) do
 	 trace.debug("t-keyword "..k)
-   local keyword
-   keyword = Keyword:by_name(k)
+   local keyword = Keyword:new_selector()
+		:add_where{ "name LIKE ? AND technical_keyword", k }
+		:join("issue_keyword", nil, {"keyword.id = issue_keyword.keyword_id AND issue_keyword.issue_id = ?", issue_id})
+    :add_group_by("keyword.id")
+    :add_order_by("keyword.id")
+   	:optional_object_mode()
+    :exec()
+    
    if not keyword then
+   	 trace.debug("creo nuova keyword")
      keyword = Keyword:new()
      keyword.name = k
      keyword.technical_keyword = true
-     keyword:save()
-     keyword = Keyword:by_name(k)
-   end
-   if keyword and keyword.technical_keyword then
+     keyword:save() 
+     trace.debug("keyword creata con id "..tostring(keyword.id).."; creo nuova issue_keyword")
      local issue_keyword = IssueKeyword:new()
-     issue_keyword.issue_id = issue.id
+     issue_keyword.issue_id = issue_id
      issue_keyword.keyword_id = keyword.id
      issue_keyword:save()
-   elseif keyword and not keyword.technical_keyword then
-   	 keyword = Keyword:new()
-     keyword.name = k
-     keyword.technical_keyword = true
-     keyword:save()
-     keyword = Keyword:by_name(k)
-     if keyword then
+     trace.debug("nuova issue_keyword creata per la coppia keyword_id: "..tostring(keyword.id).."; issue_id: "..tostring(issue_id))
+   elseif keyword then
+   	 trace.debug("uso la keyword di id "..tostring(keyword.id) )
+     local issue_keyword = IssueKeyword:by_pk(issue_id, keyword.id)     
+     if not issue_keyword then
+     	 trace.debug("creo nuova issue_keyword")
 		   local issue_keyword = IssueKeyword:new()
-		   issue_keyword.issue_id = issue.id
+		   issue_keyword.issue_id = issue_id
 		   issue_keyword.keyword_id = keyword.id
-		   issue_keyword:save()
- 		 else
-    	 slot.put_into("error",_"Failed to save keywords for issue")
+		   issue_keyword = issue_keyword:save()
+		   trace.debug("nuova issue_keyword creata per la coppia keyword_id: "..tostring(keyword.id).."; issue_id: "..tostring(issue_id))
      end
+	 else
+  	 slot.put_into("error",_"Failed to save keywords for issue")
    end
 end
 -- end of keywords
-
-
 
 slot.put_into("notice", _"Initiative successfully created")
  
