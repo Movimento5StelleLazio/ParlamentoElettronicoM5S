@@ -15,48 +15,36 @@ function ui.field.parelon_radio(args)
   if not args.readonly and args.style == "radio" then
     extra_args.disable_label_for_id = true
   end
-  ui.form_element(args, extra_args, function(args)
-    local value = args.value
-    if value ~= true and value ~= false and value ~= nil then
-      error("Boolean value must be true, false or nil.")
+  local value = args.value
+  if value ~= true and value ~= false and value ~= nil then
+    error("Boolean value must be true, false or nil.")
+  end
+  if value == nil then
+    if args.nil_allowed then
+      value = args.default
+    else
+      value = args.default or false
     end
-    if value == nil then
-      if args.nil_allowed then
-        value = args.default
-      else
-        value = args.default or false
-      end
+  end
+    local attr = table.new(args.attr)
+    attr.type  = "radio"
+    attr.name  = args.name
+    attr.id = ui.create_unique_id()
+    local label_attr = table.new(args.label_attr)
+    label_attr["for"] = tostring(attr.id)
+    if value == true then
+      attr.checked = "checked"
+    else
+      attr.checked = nil
     end
-    if args.readonly then
-      ui.tag{
-        tag     = args.tag,
-        attr    = args.attr,
-        content = format.boolean(value, args.format_options)
-      }
-    elseif style == "radio" then
-      local attr = table.new(args.attr)
-      attr.type  = "radio"
-      attr.name  = args.html_name
-      attr.id    = ui.create_unique_id()
-      attr.value = "1"
-      if value == true then
-        attr.checked = "checked"
-      else
-        attr.checked = nil
+    ui.container{
+      label_attr = args.label_attr,
+      content    = function()
+        ui.tag{ tag  = "input", attr = attr }
+        ui.tag{ tag = "label", attr = label_attr, content = args.label }
       end
-      ui.container{
-        attr          = { class = "ui_radio_div" },
-        label         = args.true_as or "",  -- TODO: localize
-        label_for     = attr.id,
-        label_attr    = { class = "ui_radio_label" },
-        content_first = false,
-        content       = function()
-          ui.tag{ tag  = "input", attr = attr, content = args.text }
-        end
-      }
-      ui.hidden_field{
+    }
+--[[      ui.hidden_field{
         name = args.html_name .. "__format", value = "boolean"
-      }
-    end
-  end)
+      }]]
 end

@@ -1,7 +1,5 @@
 slot.set_layout("custom")
---local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
---ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
@@ -23,7 +21,7 @@ if not app.session.member_id then
         end }
       end
     }
-  end}
+  end }
 end
 
 if app.session.member_id then
@@ -60,11 +58,10 @@ if app.session.member_id then
                     	trace.debug(member.realname .. " " .. member.login)
                       slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
-                      ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
+                      ui.script{ script = 'getLocation("current_location", " '.. _"You're connected from" ..'");'}                      
                     end }
                   end }
                 end }
-  
                 
                 --[[ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
@@ -118,15 +115,7 @@ if app.session.member_id then
         end }
      end 
 
-      local lastLogin = member:get_login_data()
-      -- Demo data start
-      --------------------------------------------------------------------------
-      --[[if not lastLogin or not lastLogin.geolat or not lastLogin.geolng or not lastLogin.login_time  then
-        lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
-        --lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = "2013-07-08 20:06:55.072482+02" }
-      end]]
-      --------------------------------------------------------------------------
-      -- Stop demo data
+      --[[local lastLogin = member:get_login_data()
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
 
         ui.container{attr = {class = "row-fluid spaceline" },content = function()
@@ -145,25 +134,25 @@ if app.session.member_id then
                           })
                         }
                         slot.put("&nbsp;")
-                        ui.tag{ tag="span", attr = { id = "location"}, content="" }
-                        ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
+                        ui.tag{ tag="span", attr = { id = "last_location"}, content="" }
+                        ui.script{ script = 'getLastLocation('..lastLogin.geolat..','..lastLogin.geolng..',"last_location", "'..  _"from " ..'");'} 
                     end }
                   end }
   
                 end }
   
-                --[[ui.container{attr = {class = "row-fluid" },content = function()
+                --[ [ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }]]
+                end }] ]
   
               end }
   
-              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[ [ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
@@ -176,7 +165,7 @@ if app.session.member_id then
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
-              end }]]
+              end }] ]
             end }
   
           end }
@@ -201,18 +190,18 @@ if app.session.member_id then
   
                 end }
   
-                --[[ui.container{attr = {class = "row-fluid" },content = function()
+                --[ [ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }]]
+                end }] ]
   
               end }
   
-              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[ [ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
@@ -225,13 +214,13 @@ if app.session.member_id then
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
-              end }]]
+              end }] ]
             end }
   
           end }
         end }
 			
-      end
+      end]]
 
       ui.container{attr = {class = "row-fluid spaceline" },content = function()
         ui.container{ attr = { class  = "span12 text-center" }, content = function()

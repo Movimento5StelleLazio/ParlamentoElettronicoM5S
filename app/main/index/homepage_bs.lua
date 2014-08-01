@@ -145,7 +145,7 @@ btns = {
 }
 
 
-ui.container{attr={class="row-fluid"},content=function()
+--[[ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.chunk{
       module = "issue" ,
@@ -160,7 +160,7 @@ ui.container{attr={class="row-fluid"},content=function()
       }
     }
   end }
-end }
+end }]]
 
 if not issues_selector_voted or not issues_selector_myinitiatives then
   return true

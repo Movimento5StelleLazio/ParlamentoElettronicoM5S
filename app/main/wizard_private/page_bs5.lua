@@ -65,6 +65,7 @@ ui.form	{
 	module = 'wizard_private',
 	view = 'page_bs6',
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -82,37 +83,6 @@ ui.form	{
 		proposer1 = proposer1,
 		proposer2 = proposer2,
 		proposer3 = proposer3
-	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard_private',
-			view = 'pag_bs6',
-			params = {
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
 	}, 
 	content = function()	
 		ui.container{attr={class="row-fluid"},content=function()
@@ -190,6 +160,7 @@ ui.form	{
 	module = 'wizard_private',
 	view = 'page_bs4',
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -207,36 +178,5 @@ ui.form	{
 		proposer1 = proposer1,
 		proposer2 = proposer2,
 		proposer3 = proposer3
-	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard_private',
-			view = 'pag_bs4',
-			params = {
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
 	}
 }

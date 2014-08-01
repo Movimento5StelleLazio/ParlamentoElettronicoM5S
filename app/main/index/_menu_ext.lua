@@ -1,4 +1,4 @@
-ui.tag{ tag = "ul", attr = {id="menu_dropdown", class="dropdown-menu"}, content = function()
+ui.tag{ tag = "ul", attr = {class="dropdown-menu"}, content = function()
 
   if app.session.member_id then
     ui.tag{ tag = "li", content = function()

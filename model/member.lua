@@ -614,7 +614,6 @@ function Member.object:get_login_data(mode)
     selector:add_where{ "member_id = ? AND geolat IS NOT NULL AND geolng IS NOT NULL", app.session.member.id }
 --    :add_where{ "login_time < ?", self.last_login }
     selector:add_order_by('"login_time" DESC')
-    selector:limit(1)
     selector:optional_object_mode()
   return selector:exec()
 end

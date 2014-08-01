@@ -1,5 +1,6 @@
 slot.set_layout("custom")
 
+local issue_id=param.get("issue_id", atom.integer) or 0
 local area_id=param.get("area_id", atom.integer)
 local unit_id=param.get("unit_id", atom.integer)
 local area_name=param.get("area_name", atom.string)
@@ -19,6 +20,7 @@ local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
 
 -- trace di controllo sui valori dei parametri
+trace.debug( "issue_id: "..tostring(issue_id) )
 trace.debug( "area_id: "..tostring(area_id) )
 trace.debug( "area_name: "..area_name )
 trace.debug( "unit_id: "..tostring(unit_id) )
@@ -43,6 +45,7 @@ ui.form	{
 	module = 'wizard',
 	view = 'page_bs12',
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -67,6 +70,7 @@ ui.form	{
 			module = 'wizard',
 			view = 'pag_bs12',
 			params = {
+				issue_id = issue_id,
 				area_id = area_id,
 				unit_id = unit_id,
 				area_name = area_name,
@@ -93,6 +97,12 @@ ui.form	{
 		}
 	}, 
 	content = function()
+		local progresso = _"FASE <strong>10</strong> di 10"
+		
+		if issue_id ~= 0 then
+			progresso = _"FASE <strong>5</strong> di 5"
+		end
+		
 		ui.container{attr={class="row-fluid"},content=function()
 			ui.container{attr={class="span12 well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
@@ -111,7 +121,7 @@ ui.form	{
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center"},content=function()
 								ui.heading{level=3,content=function() 
-									slot.put(_"FASE <strong>10</strong> di 10") 
+									slot.put(progresso) 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content = _"Insert Technical Areas"}
 							end }
@@ -168,6 +178,7 @@ ui.form	{
 	module = 'wizard',
 	view = 'page_bs9',
 	params={
+		issue_id = issue_id,
 		area_id = area_id,
 		unit_id = unit_id,
 		area_name = area_name,
@@ -192,6 +203,7 @@ ui.form	{
 			module = 'wizard',
 			view = 'pag_bs9',
 			params = {
+				issue_id = issue_id,
 				area_id = area_id,
 				unit_id = unit_id,
 				area_name = area_name,

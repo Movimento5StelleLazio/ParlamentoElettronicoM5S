@@ -44,6 +44,6 @@ end
 
 
 for i, area in ipairs(areas) do
-  execute.view { module = "area", view = "_list_entry_ext_bs", params = { area = area, member = member, create=create } }
+  execute.view { module = "area_private", view = "_list_entry_ext_bs", params = { area = area, member = member, create=create } }
 end 
 
