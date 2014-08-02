@@ -93,8 +93,7 @@ ui.form	{
 		}
 	}, 
 	content = function()
-		ui.container{attr={class="row-fluid"},content=function()
-			ui.container{attr={class="span12 well"},content=function()
+		ui.container{attr={class="row-fluid well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -111,23 +110,24 @@ ui.form	{
 				ui.image{  static="png/step_2_f3.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid spaceline2"},content=function()
-				  ui.container{attr={class="span12 depression_box"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
-								ui.heading{level=3,content=function() 
+
+
+						ui.container{attr={class="row-fluid depression_box paper"},content=function()
+												ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span12 text-center spaceline"},content=function()
+								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(_"FASE <strong>3</strong> di 10") 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content = _"Give a short description to the problem you want to solve"}
 							end }
-						end }
+							end }
 
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span5 pagination-justify alert alert-info"},content=function()
+							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}
 								ui.tag{tag="em",content=  _"Description note"}
 							end }
-							ui.container{attr={class="span7 issue_brief_span"},content=function()
+							ui.container{attr={class="span6 issue_brief_span"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="issue_brief_description",name="issue_brief_description", class="span12", style = "height:4em;resize: none"},
@@ -135,9 +135,11 @@ ui.form	{
 								}
 								ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
 							end }
+						end }					
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+												ui.container{attr={class="row-fluid spaceline"},content=function()
+						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs3_back\").submit();"},
@@ -149,7 +151,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset4 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs3\").submit();"},
@@ -158,12 +160,10 @@ ui.form	{
 								    slot.put(_"Next Phase")
 								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
 									end }
+									end }
 							end }
 						end }										
-					end }
-				end }
 			end }
-		end }
 end }
 
 --	ROUTING BACK

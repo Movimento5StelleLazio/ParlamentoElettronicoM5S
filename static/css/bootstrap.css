@@ -527,7 +527,7 @@ a:focus {
   padding-right: 20px;
   padding-left: 20px;
   *zoom: 1;
-  max-width: 1340px;
+  max-width: 1450px;
   margin: 0 auto;
 }
 .container-fluid:before,
@@ -3482,9 +3482,9 @@ button.close {
   display: inline-block;
   padding: 2px 4px;
   font-size: 18.612px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   line-height: 14px;
-  color: #ffffff;
+  color: #434242;
   vertical-align: baseline;
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -3524,7 +3524,21 @@ a.badge:focus {
 }
 .label-warning,
 .badge-warning {
-  background-color: #ffaf00;
+  background-color: #ff9300;
+  
+  background: rgb(255, 142, 30);
+  background: -moz-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+  background: -webkit-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+  background: -o-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+  background: -ms-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+  background: linear-gradient(180deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 17px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    2px 2px 17px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         2px 2px 17px 0px rgba(50, 50, 50, 0.75);
+  
 }
 .label-warning[href],
 .badge-warning[href] {
@@ -4653,7 +4667,7 @@ div.tagsinput div {
 body {
   margin: 0;
   font-family: Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #F9EAD6;
   font-weight: normal;
 }
 a {
@@ -4669,13 +4683,13 @@ a.badge:focus {
   cursor: pointer;
 }
 h1 {
-  line-height: 43.75px;
+  line-height: 28px;
 }
 h2 {
-  line-height: 37.5px;
+  line-height: 25px;
 }
 h3 {
-  line-height: 31.25px;
+  line-height: 22px;
 }
 h1 {
   font-size: 30px;
@@ -4718,7 +4732,7 @@ h6 {
 .label,
 .badge {
   margin: 2px;
-  padding: 4px 6px;
+  padding: 6px 15px;
   line-height: 20px;
   white-space: normal;
 }
@@ -4956,7 +4970,7 @@ h6 {
   -webkit-box-shadow: inset 0px 5px 7px rgba(0,0,0,.45);
   -moz-box-shadow: inset 0px 5px 7px rgba(0,0,0,.45);
   box-shadow: inset 0px 5px 7px rgba(0,0,0,.45);
-  padding: 10px 10px 10px 10px;
+  /*padding: 10px 10px 10px 10px;*/
   margin-bottom: 25px;
   background-color: #FFFFFF;
   -webkit-border-radius: 10px;
@@ -5236,7 +5250,11 @@ h6 {
   margin-bottom: 15px;
 }
 .issue_box {
-  margin-bottom: 35px;
+  /*margin-bottom: 35px;*/
+    -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
 }
 #issue_url_box {
   width: 66%;

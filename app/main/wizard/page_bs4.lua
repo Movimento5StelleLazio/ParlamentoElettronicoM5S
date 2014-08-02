@@ -93,8 +93,7 @@ ui.form	{
 		}
 	}, 
 	content = function()
-		ui.container{attr={class="row-fluid"},content=function()
-			ui.container{attr={class="span12 well"},content=function()
+		ui.container{attr={class="row-fluid well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -111,11 +110,11 @@ ui.form	{
 				ui.image{  static="png/step_3_f4.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid spaceline2"},content=function()
-				  ui.container{attr={class="span12 depression_box"},content=function()	
+				ui.container{attr={class="row-fluid spaceline"},content=function()
+				  ui.container{attr={class="span12 depression_box paper"},content=function()	
 						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
-								ui.heading{level=3,content=function() 
+							ui.container{attr={class="span12 text-center spaceline"},content=function()
+								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(_"FASE <strong>4</strong> di 10") 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content = _"Insert the keywords for the issue"}
@@ -123,20 +122,22 @@ ui.form	{
 						end }
 		
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span5 pagination-justify alert alert-info"},content=function()
+							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Keywords"}
 								ui.tag{tag="em",content=  _"Keywords note"}
 							end }
-							ui.container{attr={class="span7",style="height:4em;"},content=function()
+							ui.container{attr={class="span6",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "issue_keywords",
 									attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none"}
 								}
 							end }
+						end }		
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="row-fluid spaceline"},content=function()
+						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs4_back\").submit();"},
@@ -148,7 +149,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset4 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs4\").submit();"},
@@ -159,8 +160,7 @@ ui.form	{
 									end }
 							end }
 						end }										
-					end }
-				end }
+						end }
 			end }
 		end }
 end }
