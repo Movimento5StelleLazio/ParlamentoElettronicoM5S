@@ -10,11 +10,11 @@ COREDST=../../liquid_feedback_core
 WEBMCPDST=../../webmcp
 HELPDIR=${FRONTENDDST}/locale/help
 ROCKETWIKICMD=../../rocketwiki-lqfb/rocketwiki-lqfb
-CONFIGFILE=./myconfig.lua
-INITFILE=./init.lua
-LFUPDATED=./lf_updated
-INITSCRIPT=./lf_updated.initrd
-NOTIFYD=./start_notify.sh
+CONFIGFILE=myconfig.lua
+INITFILE=init.lua
+LFUPDATED=lf_updated
+INITSCRIPT=lf_updated.initrd
+NOTIFYD=start_notify.sh
 HTTPDUSER=www-data
 
 if [ "z$(id -u)" != "z0" ];then
@@ -150,7 +150,11 @@ echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
 cp -a $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
 echo $?
 mkdir -p ${FRONTENDDST}/config/
+<<<<<<< HEAD
 cp init.lua ${FRONTENDDST}/config/
+=======
+cp ${FRONTENDSRC}/extras/init.lua ${FRONTENDDST}/config/
+>>>>>>> upstream/test
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp

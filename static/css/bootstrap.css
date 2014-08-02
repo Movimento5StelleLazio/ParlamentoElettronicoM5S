@@ -527,6 +527,8 @@ a:focus {
   padding-right: 20px;
   padding-left: 20px;
   *zoom: 1;
+  max-width: 1340px;
+  margin: 0 auto;
 }
 .container-fluid:before,
 .container-fluid:after {
@@ -631,16 +633,16 @@ h3 {
   line-height: 50px;
 }
 h1 {
-  font-size: 60.5px;
+  font-size: 36px;
 }
 h2 {
-  font-size: 49.5px;
+  font-size: 32px;
 }
 h3 {
-  font-size: 38.5px;
+  font-size: 28.5px;
 }
 h4 {
-  font-size: 27.5px;
+  font-size: 24.5px;
 }
 h5 {
   font-size: 22px;
@@ -4676,19 +4678,19 @@ h3 {
   line-height: 31.25px;
 }
 h1 {
-  font-size: 44px;
+  font-size: 30px;
 }
 h2 {
-  font-size: 38.5px;
+  font-size: 28px;
 }
 h3 {
-  font-size: 30.799999999999997px;
+  font-size: 26px;
 }
 h4 {
-  font-size: 26.4px;
+  font-size: 22px;
 }
 h5 {
-  font-size: 22px;
+  font-size: 20px;
 }
 h6 {
   font-size: 18.7px;
@@ -5210,8 +5212,8 @@ h6 {
 }
 .arrow_medium {
   vertical-align: middle;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   padding-left: 8px;
   padding-right: 8px;
 }
