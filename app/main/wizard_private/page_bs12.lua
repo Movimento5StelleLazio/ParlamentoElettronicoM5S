@@ -122,14 +122,14 @@ ui.form {
 								tag = "a",
 								attr = { class="btn btn-primary btn-large table-cell fixclick", onclick="getElementById('page_bs12_back').submit()"},
 								content = function()
-									ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+									ui.heading{level=3, content=function()
 										ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
 										slot.put(_"Back to previous page")
 								end }
 							end }				
 						end }
 						ui.container{ attr = { class  = "span9" }, content = function()
-							ui.heading{level=3, content = _"WIZARD END"}
+							ui.heading{level=4, content = _"WIZARD END"}
 						end }
 					end }
 				end }
@@ -185,7 +185,7 @@ ui.form {
 									}							
 										end }
 									end }
-								end }                                                      
+								end }
 							end }
 						end }
 					end }

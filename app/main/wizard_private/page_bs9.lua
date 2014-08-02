@@ -115,8 +115,7 @@ ui.form	{
 ]]
 		end
 		
-		ui.container{attr={class="row-fluid"},content=function()
-			ui.container{attr={class="span12 well"},content=function()
+		ui.container{attr={class="row-fluid well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -133,11 +132,10 @@ ui.form	{
 				ui.image{  static="png/step_6_f9.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid spaceline2"},content=function()
-				  ui.container{attr={class="span12 depression_box"},content=function()
+				ui.container{attr={class="row-fluid depression_box paper"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
-								ui.heading{level=3,content=function() 
+							ui.container{attr={class="span12 text-center spaceline"},content=function()
+								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(progresso) 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content=  _"Insert the text for your initiative to solve the problem"}
@@ -145,7 +143,7 @@ ui.form	{
 						end }
 				
 						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-							ui.container{attr={class="span5 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
+							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
 								ui.tag{tag="em",content=  _"Draft note"}
 							end }
@@ -155,8 +153,10 @@ ui.form	{
 								content=draft
 							}
 						end }
+											end }
+																	ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs9_back\").submit();"},
@@ -168,7 +168,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset4 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs9\").submit();"},
@@ -180,9 +180,7 @@ ui.form	{
 							end }
 						end }										
 					end }
-				end }
 			end }
-		end }
 end }
 
 --	ROUTING BACK
