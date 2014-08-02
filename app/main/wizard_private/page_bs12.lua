@@ -96,11 +96,13 @@ ui.form {
 		} 
 	}, 
 	content=function()
-	local disable = "block"
-	local only_draft = "block"
-	if issue_id then
+	local disable = ""
+	local only_draft = ""
+	if issue_id ~= 0 then
 		disable = " hidden"
-	elseif draft_id then
+	end
+	
+  if draft_id ~= 0 then
 		disable = " hidden"
 		only_draft = " hidden"
 	end
