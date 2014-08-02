@@ -101,8 +101,7 @@ ui.form	{
 		}
 	}, 
 	content=function()
-		ui.container{attr={class="row-fluid"},content=function()
-			ui.container{attr={class="span12 well"},content=function()
+		ui.container{attr={class="row-fluid well"},content=function()
 			
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
@@ -117,20 +116,19 @@ ui.form	{
 				end }
 								ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12  alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/barra/step_1_f1.png"}
+				ui.image{  static="png/step_1_f1.png"}
 												end }
 								end }
 				
-				ui.container{attr={class="row-fluid spaceline2"},content=function()
-				  ui.container{attr={class="span12 depression_box"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
-								ui.heading{level=3,content=function() 
+
+						ui.container{attr={class="row-fluid depression_box paper"},content=function()
+							ui.container{attr={class="span12 text-center spaceline"},content=function()
+								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(_"FASE <strong>1</strong> di 10") 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content= _"How much time does your proposal need to be examined?" }
 							end }
-						end }
+
 	
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
 							ui.container{attr={class="span6 offset3"},content=function()
@@ -155,8 +153,10 @@ ui.form	{
 										}								
 								end }
 							end }
+						end }						
 						end }
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container {attr={class="row-fluid spaceline"}, content=function()
+						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.link {
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick"},
 								module = "unit",
@@ -171,7 +171,7 @@ ui.form	{
 							end }
   					end }
   					
-  					ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+  					ui.container{attr={class="span3 offset4 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn",onClick="getElementById(\"page_bs1\").submit();"},
@@ -181,9 +181,9 @@ ui.form	{
 								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
 									end }
 							end }
+							end }
 						end }
-					end }
-				end }			
-			end }
+		
+
 		end }
 end }

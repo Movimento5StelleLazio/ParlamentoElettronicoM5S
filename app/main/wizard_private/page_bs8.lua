@@ -103,8 +103,7 @@ ui.form	{
 			progresso = _"FASE <strong>3</strong> di 5"
 		end
 		
-		ui.container{attr={class="row-fluid"},content=function()
-			ui.container{attr={class="span12 well"},content=function()
+		ui.container{attr={class="row-fluid well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -121,31 +120,32 @@ ui.form	{
 				ui.image{  static="png/step_6_f8.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid spaceline2"},content=function()
-				  ui.container{attr={class="span12 depression_box"},content=function()
+				ui.container{attr={class="row-fluid  depression_box paper"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
-								ui.heading{level=3,content=function() 
+							ui.container{attr={class="span12 text-center spaceline"},content=function()
+								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(progresso) 
 								end }
 								ui.heading{level=4,attr={class="uppercase"},content=  _"Give a brief description for your initiative to solve the problem"}
 							end }
 						end }
 						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-							ui.container{attr={class="span5 pagination-justify alert alert-info init_brief"},content=function()
+							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info init_brief"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Initiative short description"}
 								ui.tag{tag="em",content=  _"Initiative short note"}
 							end }
-							ui.container{attr={class="span7 init_brief"},content=function()
+							ui.container{attr={class="span6 init_brief"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:none;", class="span12"},
 									content=initiative_brief_description
 								}
 							end }
+						end }			
 						end }
+						ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs8_back\").submit();"},
@@ -157,7 +157,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset2 text-center spaceline3"},content=function()
+						ui.container{attr={class="span3 offset4 text-center"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs8\").submit();"},
@@ -169,9 +169,8 @@ ui.form	{
 							end }
 						end }										
 					end }
-				end }
-			end }
-		end }
+
+					end }
 end }
 
 --	ROUTING BACK
