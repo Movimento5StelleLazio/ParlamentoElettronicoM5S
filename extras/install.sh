@@ -2,13 +2,13 @@
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-FRONTENDSRC=../
+FRONTENDSRC=..
 CORESRC=../../ParlamentoElettronicoM5SCore
-WEBMCPSRC=./webmcp
+WEBMCPSRC=webmcp
 FRONTENDDST=../../liquid_feedback_frontend
 COREDST=../../liquid_feedback_core
 WEBMCPDST=../../webmcp
-HELPDIR=${FRONTENDDST}/locale/help/
+HELPDIR=${FRONTENDDST}/locale/help
 ROCKETWIKICMD=../../rocketwiki-lqfb/rocketwiki-lqfb
 CONFIGFILE=./myconfig.lua
 INITFILE=./init.lua
@@ -150,7 +150,7 @@ echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
 cp -a $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
 echo $?
 mkdir -p ${FRONTENDDST}/config/
-cp ${FRONTENDSRC}/config/init.lua ${FRONTENDDST}/config/
+cp init.lua ${FRONTENDDST}/config/
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp
@@ -159,10 +159,10 @@ echo "Installing Core..."
 cp -a ${CORESRC}/* ${COREDST} 
 
 echo "Installing configuration file..."
-cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+cp ${CONFIGFILE} ${FRONTENDDST}/config
 
 echo "Installing init file..."
-cp ${INITFILE} ${FRONTENDDST}/config/
+cp ${INITFILE} ${FRONTENDDST}/config
 
 echo "Compiling WebMCP..."
 cd ${WEBMCPSRC}
