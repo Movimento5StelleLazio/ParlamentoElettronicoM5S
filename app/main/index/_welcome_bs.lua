@@ -30,8 +30,7 @@ if app.session.member_id then
   
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{ attr = { class  = "span12 well text-center" }, content = function()
-
-      ui.script{ static = "js/position.js" }
+			ui.script{ static = "js/position.js" }
       
       local curLogin = member:get_login_data('last')
 
