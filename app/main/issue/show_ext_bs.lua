@@ -59,8 +59,8 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12"}, content=function()
-            ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Details for issue Q"..issue.id}
+          ui.container{attr={class="span4 offset3"}, content=function()
+            ui.heading{level=1,attr={class="fittext1 uppercase label label-warning"},content=_"Details for issue Q"..issue.id}
           end }
         end }
         ui.container{attr={class="row-fluid"}, content=function()
@@ -117,13 +117,14 @@ ui.container{attr={class="row-fluid"}, content=function()
     end }
   end }
 end }
-
 ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 alert alert-simple issue_box paper"}, content=function()
+ui.container{attr={class="span12 well"}, content=function()
+ui.container{attr={class="row-fluid depression_box paper "}, content=function()
+  ui.container{attr={class="span10 offset1 spaceline3"}, content=function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.tag{tag="strong",content=function()
-          ui.heading { level=5, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
+          ui.heading { level=5, attr = { class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
         end }
       end }
     end }
@@ -133,7 +134,7 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
+      ui.container{ attr = { class = "span12 well"}, content = function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
@@ -157,13 +158,13 @@ ui.container{attr={class="row-fluid"}, content=function()
     end
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+        ui.heading{ level=5, attr = { class = "uppercase label label-warning" }, content = function()
           ui.tag{content= _"By user:" }
         end }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span8"}, content = function()
+      ui.container{ attr = { class = "span12 well"}, content = function()
         if issue.member_id and issue.member_id > 0 then
           execute.view{ module="member", view="_info_data", id=issue.member_id }
         else
@@ -171,16 +172,18 @@ ui.container{attr={class="row-fluid"}, content=function()
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+        ui.heading{ level=5, attr = { class = "uppercase label label-warning" }, content = function()
           ui.tag{content= _"Keywords:" }
         end }
-        ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
+        
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+
+      ui.container{ attr = { class = "span12 well"}, content = function()
+          ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
         local keywords=Keyword:by_issue_id(issue.id) 
         if keywords and #keywords > 0 then
           for k = 1, #keywords do
@@ -387,10 +390,10 @@ ui.container{attr={class="row-fluid"}, content=function()
                 init_ord=init_ord
               }
             }
-
+          end }
           end }
         end }
-
+        end }
       end }
     end }
   end }

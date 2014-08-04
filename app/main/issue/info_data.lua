@@ -1,6 +1,6 @@
 local issue = param.get("issue","table")
 ui.container{ attr = { class = "row-fluid"}, content = function()
-  ui.container{ attr = { class = "span12 alert issue_info_data"}, content = function()
+  ui.container{ attr = { class = "span12 well"}, content = function()
     ui.link{
       module = "unit", view = "show", id = issue.area.unit_id,
       content=function()

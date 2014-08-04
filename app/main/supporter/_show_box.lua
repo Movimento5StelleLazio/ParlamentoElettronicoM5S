@@ -63,7 +63,7 @@ if not initiative.issue.fully_frozen and not initiative.issue.closed then
   elseif not initiative.revoked and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id) then
     local params = param.get_all_cgi()
     params.dyn = nil
-    ui.link{
+    ui.link{ attr = { class = "btn btn-primary btn_size_fix fixclick" }, 
       text    = _"Support this initiative",
       module  = "initiative",
       action  = "add_support",
@@ -87,7 +87,7 @@ if not initiative.issue.closed then
       content = _"Ignore initiative"
     }
     slot.put(" (")
-    ui.link{
+    ui.link{ attr = { class = "btn btn-primary  btn_size_fix fixclick" },
       text   = _"Cancel [nullify]",
       module = "initiative",
       action = "update_ignore",
@@ -105,7 +105,7 @@ if not initiative.issue.closed then
     }
     slot.put(")")
   else
-    ui.link{
+    ui.link{ attr = { class = "btn btn-primary  btn_size_fix fixclick" },
       text    = _"Ignore initiative",
       module  = "initiative",
       action  = "update_ignore",
