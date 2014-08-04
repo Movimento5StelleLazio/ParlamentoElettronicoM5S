@@ -150,11 +150,7 @@ echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
 cp -a $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
 echo $?
 mkdir -p ${FRONTENDDST}/config/
-<<<<<<< HEAD
-cp init.lua ${FRONTENDDST}/config/
-=======
 cp ${FRONTENDSRC}/extras/init.lua ${FRONTENDDST}/config/
->>>>>>> upstream/test
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp
