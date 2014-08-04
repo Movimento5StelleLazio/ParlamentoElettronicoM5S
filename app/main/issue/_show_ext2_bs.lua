@@ -35,32 +35,33 @@ end
 local svgz = ""
 --local svgz = "z"
 
-ui.container{ attr = { class = "row-fluid"}, content = function()
-  ui.container{ attr = { class = "well"}, content = function()
 	ui.container { attr={class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span3"}, content = function()
+      ui.container{ attr = { class = "span7 spaceline"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
       end }
-      ui.container{ attr = { class = "span9"}, content = function()
+          end }
+      ui.container{ attr = { class = "row-fluid depression_box paper "}, content = function()
+     ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span9 offset1 phasesheight"}, content = function()
         execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
+     end }
       end }
-    end }
 
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{attr = { class = "alert alert-simple issue_box paper"} , content = function()
+
 
       	ui.container{ attr = { class = "row-fluid"}, content = function()
-        	ui.tag{tag="strong", attr = {class = "span12"},  content=function()
-          	ui.heading { level=5,content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
+        	ui.tag{tag="strong", attr = {class = "span4 offset1"},  content=function()
+          	ui.heading { level=5,attr = {class = "alert head-chocolate"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
           end }
-        end }
+
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
+          ui.container{ attr = { class = "span10 offset1"}, content = function()
             execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
           end }
         end }
-    
+            end }
         --[[
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
@@ -70,13 +71,13 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         --]]
     
         ui.container{ attr = { class = "row-fluid"}, content = function()
-            ui.tag { tag="p", attr = { class="span12 issue_brief_description" }, content = issue.brief_description or _"No description available" }
+            ui.tag { tag="p", attr = { class="span10 offset1 issue_brief_description" }, content = issue.brief_description or _"No description available" }
         end }
 
 --        local links = {}
       
         ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
+          ui.container{ attr = { class = "span10 offset1"}, content = function()
             local content
             if #issue.initiatives == 1 then
               content= #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  
@@ -88,7 +89,7 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12 well"}, content =function()
+          ui.container{attr = {class="span10 offset1 well"}, content =function()
             local initiatives_selector = issue:get_reference_selector("initiatives")
             local highlight_string = param.get("highlight_string")
             if highlight_string then
@@ -135,8 +136,9 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
                 end   
             end }
           end
+          ui.container{attr = {class="row-fluid"}, content =function()
           ui.link { 
-            attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
+            attr = { id = "issue_see_det_"..issue.id, class = "span4 offset4 btn btn-primary" },
             module = "issue",
             view = "show_ext_bs",
             id = issue.id,
@@ -153,8 +155,9 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
             content = function()
               ui.heading{level=5,content=_"SEE DETAILS"}
           end }
+                    end }
+                          ui.container{attr = {class="row-fluid spaceline2"}, content =function()    
+                                  end }
         end }
-      end }
     end }
   end }
-end }

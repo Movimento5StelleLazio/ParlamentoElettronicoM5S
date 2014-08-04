@@ -92,8 +92,9 @@ ui.container{ attr = { class = "initiative_head" },
       and not initiative.revoked
       and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id)
     then
-      ui.container{ attr = { class = "content" }, content = function()
+      ui.container{ attr = { class = "content text-center" }, content = function()
         ui.link{
+        attr = { class = "btn btn-primary btn_size_fix fixclick" },
           module = "suggestion", view = "new", params = { initiative_id = initiative.id },
           text = _"New suggestion"
         }

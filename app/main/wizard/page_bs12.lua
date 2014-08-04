@@ -96,22 +96,21 @@ ui.form {
 		} 
 	}, 
 	content=function()
-	local disable = "block"
-	local only_draft = "block"
-	if issue_id then
+	local disable = ""
+	local only_draft = ""
+	if issue_id ~= 0 then
 		disable = " hidden"
-	elseif draft_id then
+	end
+	if draft_id ~= 0 then
 		disable = " hidden"
 		only_draft = " hidden"
 	end
 	trace.debug( "disable: "..disable.."; only_draft: "..only_draft)
 	
-	ui.container{attr={class="row-fluid"},content=function()
-		ui.container{attr={class="span12 text-center"},content=function()
-			ui.container{attr={ class  = "row-fluid" } , content = function()
-				ui.container{attr={ class  = "well span12" }, content = function()
+	ui.container{attr={class="row-fluid well"},content=function()
+
 					ui.container{attr={ class  = "row-fluid" } , content = function()
-						ui.container{attr={ class  = "span12" }, content = function()
+						ui.container{attr={ class  = "span12 text-center" }, content = function()
 							ui.heading{level=1, content = _"WIZARD HEADER END" }
 						end }
 					end }
@@ -120,7 +119,7 @@ ui.form {
 							-- implementare "indietro"
 							ui.tag {
 								tag = "a",
-								attr = { class="btn btn-primary btn-large table-cell fixclick", onclick="getElementById('page_bs12_back').submit()"},
+								attr = { class="btn btn-primary btn-large fixclick", onclick="getElementById('page_bs12_back').submit()"},
 								content = function()
 									ui.heading{level=3, content=function()
 										ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -132,8 +131,6 @@ ui.form {
 							ui.heading{level=4, content = _"WIZARD END"}
 						end }
 					end }
-				end }
-			end }
 			ui.container{attr={class="row-fluid"},content=function()
 				ui.container{attr={class="span12 text-center"},content=function()
 					ui.heading{level=2,attr={class="spaceline"}, content= function()
@@ -144,15 +141,13 @@ ui.form {
 					end }
 				end }
 			end }	  
-		end }
-	end }
 													ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
 				ui.image{  static="png/step_end.png"}
 												end }
 								end }
 
-	ui.container{attr={class="row-fluid"},content=function()
+	ui.container{attr={class="row-fluid depression_box paper"},content=function()
 		ui.container{attr={class="span12 text-center"},content=function()
 			--Selezione policy
 			ui.container{ attr={class="formSelect"},content=function()
@@ -165,10 +160,10 @@ ui.form {
 
 					ui.container{attr={class="formSelect"..disable},content=function()
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
+							ui.container{attr={class="span12"},content=function()
 								ui.container{attr={class="inline-block"},content=function()
 									ui.container{attr={class="text-left"},content=function()
-										ui.container {attr={class="row-fluid text-center"},content=function()
+										ui.container {attr={class="row-fluid"},content=function()
 										--policy selezionata cambiata
 											ui.field.hidden {
 												html_name = "policy_id",
@@ -191,6 +186,8 @@ ui.form {
 						end }
 					end }
 				end }
+			end }		
+         end }
 				-- Box questione
 				ui.container{attr={class="row-fluid spaceline3 "..disable},content=function()
 					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
@@ -330,8 +327,7 @@ ui.form {
 						end }
 					end }
 				end }
-			end }
-		end }
+
 		
 		-- Pulsanti
 		ui.container{attr={class="row-fluid"},content=function()
@@ -390,6 +386,7 @@ ui.form {
 				end }        
 		  end }
 		end } 
+end }	
 end }
 
 --	ROUTING BACK

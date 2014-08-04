@@ -65,7 +65,7 @@
   display: inherit !important;
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 1500px) {
   .hidden-desktop {
     display: inherit !important;
   }
@@ -171,43 +171,43 @@ h5 {
   .navbar-static-top .container,
   .navbar-fixed-top .container,
   .navbar-fixed-bottom .container {
-    width: 1170px;
+    width: 1500px;
   }
   .span12 {
-    width: 1170px;
+    width: 1500px;
   }
   .span11 {
-    width: 1070px;
+    width: 1375px;
   }
   .span10 {
-    width: 970px;
+    width: 1250px;
   }
   .span9 {
-    width: 870px;
+    width: 1125px;
   }
   .span8 {
-    width: 770px;
+    width: 1000px;
   }
   .span7 {
-    width: 670px;
+    width: 875px;
   }
   .span6 {
-    width: 570px;
+    width: 750px;
   }
   .span5 {
-    width: 470px;
+    width: 625px;
   }
   .span4 {
-    width: 370px;
+    width: 500px;
   }
   .span3 {
-    width: 270px;
+    width: 375px;
   }
   .span2 {
-    width: 170px;
+    width: 250px;
   }
   .span1 {
-    width: 70px;
+    width: 125px;
   }
   .offset12 {
     margin-left: 1230px;
@@ -430,62 +430,62 @@ h5 {
   input.span12,
   textarea.span12,
   .uneditable-input.span12 {
-    width: 1156px;
+    width: 1450px;
   }
   input.span11,
   textarea.span11,
   .uneditable-input.span11 {
-    width: 1056px;
+    width: 1320px;
   }
   input.span10,
   textarea.span10,
   .uneditable-input.span10 {
-    width: 956px;
+    width: 1210px;
   }
   input.span9,
   textarea.span9,
   .uneditable-input.span9 {
-    width: 856px;
+    width: 1009px;
   }
   input.span8,
   textarea.span8,
   .uneditable-input.span8 {
-    width: 756px;
+    width: 970px;
   }
   input.span7,
   textarea.span7,
   .uneditable-input.span7 {
-    width: 656px;
+    width: 850px;
   }
   input.span6,
   textarea.span6,
   .uneditable-input.span6 {
-    width: 556px;
+    width: 730px;
   }
   input.span5,
   textarea.span5,
   .uneditable-input.span5 {
-    width: 456px;
+    width: 605px;
   }
   input.span4,
   textarea.span4,
   .uneditable-input.span4 {
-    width: 356px;
+    width: 485px;
   }
   input.span3,
   textarea.span3,
   .uneditable-input.span3 {
-    width: 256px;
+    width: 365px;
   }
   input.span2,
   textarea.span2,
   .uneditable-input.span2 {
-    width: 156px;
+    width: 245px;
   }
   input.span1,
   textarea.span1,
   .uneditable-input.span1 {
-    width: 56px;
+    width: 120px;
   }
   .thumbnails {
     margin-left: -30px;

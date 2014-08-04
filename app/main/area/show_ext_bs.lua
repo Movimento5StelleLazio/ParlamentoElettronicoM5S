@@ -149,15 +149,14 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
 end }
 
 ui.container{ attr = { class="row-fluid"}, content=function()
-  ui.container{ attr = { class="span12 well"}, content=function()
+ui.container{ attr = { class="span12 well"}, content=function()
     ui.container{ attr = { class="row-fluid"}, content=function()
       ui.container{ attr = { class="span12 text-center"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid btn_box_top  btn_box_bottom"}, content=function()
-      ui.container{ attr = { class="span12 text-center"}, content=function()
-        ui.container{ attr = { class="btn-group"}, content=function()
+    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
+      ui.container{ attr = { class="span12 text-center btn-group"}, content=function()
           local btna,btnb,btnc,btnd = "", "", "", ""
           if orderby == "supporters" then
             btna = " active"
@@ -170,55 +169,54 @@ ui.container{ attr = { class="row-fluid"}, content=function()
             btnd = " active"
           end
            
-          local btn_style = "width:33%;"
+--          local btn_style = "width:25%;"
 		  if not app.session.member.elected then
-            btn_style = "width:25%;"
+--            btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btna, style=btn_style },
+              attr = { class="btn btn-primary fixclick"..btna, style=btn_style },
               module = "area",
               view = "show_ext_bs",
               id = area.id,
               params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
               content = function()
-                ui.heading { level=4, attr={class="fittext1"}, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+                ui.heading { level=4, content = _"ORDER BY NUMBER OF SUPPORTERS" }
               end
             }
 		  end 
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnb, style=btn_style },
+            attr = { class="btn btn-primary fixclick"..btnb, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY DATE OF CREATION" }
+              ui.heading { level=4, content = _"ORDER BY DATE OF CREATION" }
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnc, style=btn_style },
+            attr = { class="btn btn-primary fixclick"..btnc, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = _"ORDER BY LAST EVENT DATE"  }
+              ui.heading { level=4, content = _"ORDER BY LAST EVENT DATE"  }
             end
           }
           ui.link {
-            attr = { class="btn btn-primary btn-large table-cell wrap fixclick"..btnd, style=btn_style },
+            attr = { class="btn btn-primary fixclick"..btnd, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4,attr={class="fittext1"}, content = inv_txt  }
+              ui.heading { level=4, content = inv_txt  }
             end
           }
         end }
-      end }
     end }
-    ui.container{ attr = { class="row-fluid"}, content=function()
-      ui.container{ attr = { id="issues_box", class="span12 well-inside"}, content=function()
+
+      ui.container{ attr = { id="issues_box", class="row-fluid spaceline"}, content=function()
         execute.view{
           module="issue" ,
           view="_list_ext2_bs",
@@ -235,6 +233,5 @@ ui.container{ attr = { class="row-fluid"}, content=function()
           }
         }
       end }
-    end }
-  end }
+      end }
 end }
