@@ -159,10 +159,10 @@ echo "Installing Core..."
 cp -a ${CORESRC}/* ${COREDST} 
 
 echo "Installing configuration file..."
-cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+cp ${CONFIGFILE} ${FRONTENDDST}/config
 
 echo "Installing init file..."
-cp ${INITFILE} ${FRONTENDDST}/config/
+cp ${INITFILE} ${FRONTENDDST}/config
 
 echo "Compiling WebMCP..."
 cd ${WEBMCPSRC}
