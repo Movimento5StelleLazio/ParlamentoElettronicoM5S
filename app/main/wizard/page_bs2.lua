@@ -134,7 +134,7 @@ ui.form	{
 						end }
 						-- Pulsante "Indietro"
 						ui.container{attr={class="row-fluid"},content=function()
-						ui.container{attr={class="span3 offset1 text-center"},content=function()
+						ui.container{attr={class="span3 offset1 text-center spaceline"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs2_back\").submit();"},
@@ -146,7 +146,7 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset4 text-center"},content=function()
+						ui.container{attr={class="span3 offset4 text-center spaceline"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs2\").submit();"},

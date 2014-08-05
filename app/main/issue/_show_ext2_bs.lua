@@ -51,8 +51,8 @@ local svgz = ""
 
 
       	ui.container{ attr = { class = "row-fluid"}, content = function()
-        	ui.tag{tag="strong", attr = {class = "span4 offset1"},  content=function()
-          	ui.heading { level=5,attr = {class = "alert head-chocolate"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
+        	ui.tag{tag="strong", attr = {class = "span7 offset1"},  content=function()
+          	ui.heading { level=5,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
           end }
 
 
@@ -71,9 +71,14 @@ local svgz = ""
         --]]
     
         ui.container{ attr = { class = "row-fluid"}, content = function()
-            ui.tag { tag="p", attr = { class="span10 offset1 issue_brief_description" }, content = issue.brief_description or _"No description available" }
+        ui.container{attr = {class = "span7 offset1"},  content=function()
+          	ui.heading { level=5,attr = {class = "label label-warning"}, content = "Breve descrizione" }
+          end }
+          end }
+                  ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.tag { tag="p", attr = { class="span10 offset1 issue_brief_description well-inside paper" }, content = issue.brief_description or _"No description available" }
         end }
-
+        end }
 --        local links = {}
       
         ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
@@ -84,7 +89,7 @@ local svgz = ""
             else
               content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
             end
-            ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block"}, content = content }
+            ui.heading{ level=5, attr = { class = "label label-warning"}, content = content }
           end }
         end }
     
@@ -160,4 +165,4 @@ local svgz = ""
                                   end }
         end }
     end }
-  end }
+

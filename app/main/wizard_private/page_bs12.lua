@@ -108,12 +108,10 @@ ui.form {
 	end
 	trace.debug( "disable: "..disable.."; only_draft: "..only_draft)
 	
-	ui.container{attr={class="row-fluid"},content=function()
-		ui.container{attr={class="span12 text-center"},content=function()
-			ui.container{attr={ class  = "row-fluid" } , content = function()
-				ui.container{attr={ class  = "well span12" }, content = function()
+	ui.container{attr={class="row-fluid well"},content=function()
+
 					ui.container{attr={ class  = "row-fluid" } , content = function()
-						ui.container{attr={ class  = "span12" }, content = function()
+						ui.container{attr={ class  = "span12 text-center" }, content = function()
 							ui.heading{level=1, content = _"WIZARD HEADER END" }
 						end }
 					end }
@@ -122,7 +120,7 @@ ui.form {
 							-- implementare "indietro"
 							ui.tag {
 								tag = "a",
-								attr = { class="btn btn-primary btn-large table-cell fixclick", onclick="getElementById('page_bs12_back').submit()"},
+								attr = { class="btn btn-primary btn-large fixclick", onclick="getElementById('page_bs12_back').submit()"},
 								content = function()
 									ui.heading{level=3, content=function()
 										ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
@@ -134,8 +132,6 @@ ui.form {
 							ui.heading{level=4, content = _"WIZARD END"}
 						end }
 					end }
-				end }
-			end }
 			ui.container{attr={class="row-fluid"},content=function()
 				ui.container{attr={class="span12 text-center"},content=function()
 					ui.heading{level=2,attr={class="spaceline"}, content= function()
@@ -146,15 +142,13 @@ ui.form {
 					end }
 				end }
 			end }	  
-		end }
-	end }
 													ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
 				ui.image{  static="png/step_end.png"}
 												end }
 								end }
 
-	ui.container{attr={class="row-fluid"},content=function()
+	ui.container{attr={class="row-fluid depression_box paper"},content=function()
 		ui.container{attr={class="span12 text-center"},content=function()
 			--Selezione policy
 			ui.container{ attr={class="formSelect"},content=function()
@@ -167,10 +161,10 @@ ui.form {
 
 					ui.container{attr={class="formSelect"..disable},content=function()
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
+							ui.container{attr={class="span12"},content=function()
 								ui.container{attr={class="inline-block"},content=function()
 									ui.container{attr={class="text-left"},content=function()
-										ui.container {attr={class="row-fluid text-center"},content=function()
+										ui.container {attr={class="row-fluid"},content=function()
 										--policy selezionata cambiata
 											ui.field.hidden {
 												html_name = "policy_id",
@@ -192,6 +186,8 @@ ui.form {
 						end }
 					end }
 				end }
+			end }		
+         end }
 				-- Box questione
 				ui.container{attr={class="row-fluid spaceline3 "..disable},content=function()
 					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
@@ -219,7 +215,7 @@ ui.form {
 							ui.container{attr={class="span6 issue_brief_span"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:100%;resize:none;"},
+									attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:250px;resize:yes;"},
 									content=issue_brief_description
 								}
 							end }
@@ -230,10 +226,10 @@ ui.form {
 								ui.tag{tag="p",content=  _"Keywords"}
 --                     ui.tag{tag="em",content=  _"Keywords note"}
 								end }
-								ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
+								ui.container{attr={class="span6 collapse",style="height:200px;"},content=function()
 									ui.tag{
 										tag="textarea",
-										attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="resize:none;"},
+										attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="height:200px;resize:none;"},
 										content=issue_keywords
 									}
 							end }
@@ -247,7 +243,7 @@ ui.form {
 							ui.container{attr={class="span6 issue_desc"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="problem_description",name="problem_description",style="height:100%;width:100%;resize:none;"},
+									attr={id="problem_description",name="problem_description",style="height:250px;width:100%;resize:yes;"},
 									content=problem_description
 								}
 							end }
@@ -282,7 +278,7 @@ ui.form {
 							ui.container{attr={class="span6 init_brief"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="initiative_brief_description",name="initiative_brief_description",style="height:100%;width:100%;resize:none;"},
+									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:yes;height:250px;width:100%;resize:none;"},
 									content=initiative_brief_description
 								}
 							end }
@@ -296,7 +292,7 @@ ui.form {
 							ui.container{attr={class="span6 aim_desc"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="aim_description",name="aim_description",style="height:100%;width:100%;resize:none;"},
+									attr={id="aim_description",name="aim_description",style="height:250px;width:100%;resize:yes;"},
 									content=aim_description
 								}
 							end }
@@ -310,7 +306,7 @@ ui.form {
 							ui.container{attr={class="span6 draft"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="draft",name="draft",style="height:100%;width:100%;resize:none;"},
+									attr={id="draft",name="draft",style="height:250px;width:100%;resize:yes;"},
 									content=draft
 								}
 							end }
@@ -324,15 +320,14 @@ ui.form {
 								ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
 									ui.tag{
 										tag="textarea",
-										attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"},
+										attr={id="technical_areas",name="technical_areas",class="tagsinput",style="height:250px;resize:none;"},
 										content=technical_areas
 									}
 							end }
 						end }
 					end }
 				end }
-			end }
-		end }
+
 		
 		-- Pulsanti
 		ui.container{attr={class="row-fluid"},content=function()
@@ -391,6 +386,7 @@ ui.form {
 				end }        
 		  end }
 		end } 
+end }	
 end }
 
 --	ROUTING BACK

@@ -32,10 +32,10 @@ else
   arrow_offset = 416
 end
 
-local class = "phases_box phasesbar_autoresize"
+-- local class = 
 
-ui.container{ attr = { class = "phases_in_box"}, content = function()
-  ui.container{ attr = { class = class}, content = function()
+ui.container{ attr = { class = "phases_in_box "}, content = function()
+  ui.container{ attr = { class = "phases_box phasesbar_autoresize"}, content = function()
     ui.image{  attr = { class = "phase_arrow", style = "margin-left: "..arrow_offset.."px;".."margin-top:"..arrow_margintop.."px;" }, static="png/phase_arrow.png" }
     ui.image{  attr = { class = "phases_bar", }, static = "png/phases_bar_it.png"}
     ui.image{  attr = { class = "admission", style = admission_offset }, static="png/admission.png" }

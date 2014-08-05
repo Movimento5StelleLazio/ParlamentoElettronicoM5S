@@ -5,14 +5,14 @@ local create = param.get("create", atom.boolean) or false
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span2 text-center"}, content = function()
+      ui.container{ attr = { class = "span2 text-center spaceline"}, content = function()
       	if create then
 		      if app.session.member.elected then
 		        ui.link{  
 		          module = "wizard_private", view = "shortcut",
 		          params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
 		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
-		            ui.heading{level=5,content=_"AREA "..area.id}
+		            ui.heading{level=3,content=_"AREA "..area.id}
 		          end
 		        }
 		      else
@@ -20,7 +20,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
 		          module = "wizard_private", view = "page_bs1",
 		          params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
 		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
-		            ui.heading{level=5,content=_"AREA "..area.id}
+		            ui.heading{level=3,content=_"AREA "..area.id}
 		          end
 		        }
 		      end
@@ -28,7 +28,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
 		    	ui.link{  
 		          module = "area_private", view = "filters_bs", id = area.id,
 		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
-		            ui.heading{level=5,content=_"AREA "..area.id}
+		            ui.heading{level=3,content=_"AREA "..area.id}
 		          end
 		        }
         end

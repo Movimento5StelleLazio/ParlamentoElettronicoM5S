@@ -1,5 +1,6 @@
 slot.select('navbar', function()
-
+    ui.container{ attr={ class="row-fluid" }, content = function()
+        ui.container{ attr={ class="span5" }, content = function()
     ui.tag { tag="ul", attr={class="nav"}, content= function()
       ui.tag { tag="li", content=function()
         ui.link{
@@ -10,12 +11,12 @@ slot.select('navbar', function()
           view   = 'index'
         }
       end }
-    
+        end }
     end }
-    ui.container{ attr={ class="btn-group nav pull-right" }, content = function()
+    ui.container{ attr={ class="span2 offset5 spaceline nav pull-right" }, content = function()
 			ui.tag{
 				tag = "a",
-				attr = { datatoggle="dropdown", class="btn btn-primary fixclick btn-dropdown-toggle"},
+				attr = { datatoggle="dropdown", class="text-center label label-warning fixclick btn-dropdown-toggle"},
 				module = "index",
 				view = "menu_ext",
 				content = function()
@@ -39,6 +40,8 @@ slot.select('navbar', function()
 			}  
 		  execute.view{ module = "index", view = "_menu_ext" }        
 			end
+  	}
+  				end
   	}
 end)
 

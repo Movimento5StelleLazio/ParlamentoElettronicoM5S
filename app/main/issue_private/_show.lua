@@ -172,7 +172,8 @@ ui.container{ attr = { class = class }, content = function()
             }
           }
         elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-          links[#links+1] = {
+          links[#links+1] = { 
+            attr = { class="btn btn-primary btn_size_fix fixclick" },
             text    = _"Add my interest",
             module  = "interest",
             action  = "update",
@@ -192,9 +193,9 @@ ui.container{ attr = { class = class }, content = function()
 
       if not issue.closed and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
         if issue.member_info.own_delegation_scope ~= "issue" then
-          links[#links+1] = { text = _"Delegate issue", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
+          links[#links+1] = { attr = { class="btn btn-primary btn_size_fix fixclick" }, text = _"Delegate issue", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
         else
-          links[#links+1] = { text = _"Change issue delegation", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
+          links[#links+1] = { attr = { class="btn btn-primary btn_size_fix fixclick" }, text = _"Change issue delegation", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
         end
       end
     end
@@ -202,7 +203,7 @@ ui.container{ attr = { class = class }, content = function()
     if config.issue_discussion_url_func then
       local url = config.issue_discussion_url_func(issue)
       links[#links+1] = {
-        attr = { target = "_blank" },
+        attr = { class="btn btn-primary btn_size_fix fixclick", target = "_blank" },
         external = url,
         content = _"Discussion on issue"
       }
@@ -210,7 +211,7 @@ ui.container{ attr = { class = class }, content = function()
 
     if config.etherpad and app.session.member then
       links[#links+1] = {
-        attr = { target = "_blank" },
+        attr = { class="btn btn-primary btn_size_fix fixclick", target = "_blank" },
         external = issue.etherpad_url,
         content = _"Issue pad"
       }
@@ -220,7 +221,7 @@ ui.container{ attr = { class = class }, content = function()
     if app.session.member_id and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
       if not issue.fully_frozen and not issue.closed then
       links[#links+1] = {
-          attr   = { class = "action" },
+          attr   = { class = "btn btn-primary btn_size_fix fixclick action" },
           text   = _"Create alternative initiative",
           module = "initiative",
           view   = "new",
@@ -231,7 +232,7 @@ ui.container{ attr = { class = class }, content = function()
 
   end
     
-  ui.container{ attr = { class = "content actions" }, content = function()
+  ui.container{ attr = { class = "content actions text-center spaceline" }, content = function()
     for i, link in ipairs(links) do
       if link.in_brackets then
         slot.put(" (")
