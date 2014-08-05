@@ -165,7 +165,7 @@ ui.form	{
 							ui.container{attr={class="span6 aim_desc"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="aim_description",name="aim_description", class="span12", style="resize:none;"},
+									attr={id="aim_description",name="aim_description", class="span12", style="resize:none;height:260px;"},
 									content=aim_description
 								}
 							end }

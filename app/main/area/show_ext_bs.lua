@@ -173,7 +173,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
 		  if not app.session.member.elected then
 --            btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary fixclick"..btna, style=btn_style },
+              attr = { class="btn btn-primary fixclick filter_btn"..btna, style=btn_style },
               module = "area",
               view = "show_ext_bs",
               id = area.id,
@@ -184,7 +184,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
             }
 		  end 
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnb, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnb, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -194,7 +194,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnc, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnc, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,
@@ -204,7 +204,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnd, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnd, style=btn_style },
             module = "area",
             view = "show_ext_bs",
             id = area.id,

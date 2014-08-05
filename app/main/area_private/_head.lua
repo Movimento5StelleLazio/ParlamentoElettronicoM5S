@@ -11,7 +11,7 @@ if not param.get("hide_unit", atom.boolean) then
   execute.view{ module = "unit_private", view = "_head", params = { unit = area.unit, member = member } }
 end
 
-ui.container{ attr = { class = "area_head" }, content = function()
+ui.container{ attr = { class = "area_head paper" }, content = function()
 
   execute.view{ module = "delegation", view = "_info", params = { area = area, member = member } }
 

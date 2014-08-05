@@ -137,7 +137,7 @@ ui.form	{
 							ui.container{attr={class="span6 init_brief"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:none;", class="span12"},
+									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:none;height:260px;", class="span12"},
 									content=initiative_brief_description
 								}
 							end }

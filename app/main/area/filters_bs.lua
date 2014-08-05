@@ -24,7 +24,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
     ui.container{ attr = { class  = "row-fluid btn_box_top  btn_box_bottom" }, content = function()
       ui.container{attr={class="span3", style=spanstyle},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
+          attr = { class="btn btn-primary btn-large large_btn fixclick" },
           module = "unit",
           view = "show_ext_bs",
           id = area.unit_id,
@@ -39,7 +39,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end }
       ui.container{attr={class="span3"},content = function()
         ui.link {
-		  attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
+		  attr = { class="btn btn-primary btn-large large_btn fixclick" },
 		  module = "area",
 		  view = "show_ext_bs",
 		  params = { state = "admission"},
@@ -51,7 +51,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end }
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
+          attr = { class="btn btn-primary btn-large large_btn fixclick" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "development"},
@@ -63,7 +63,7 @@ ui.container{ attr = { class  = "row-fluid" }, content = function()
       end }
       ui.container{attr={class="span3"},content = function()
         ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
+          attr = { class="btn btn-primary btn-large large_btn fixclick" },
           module = "area",
           view = "show_ext_bs",
           params = { state = "closed"},

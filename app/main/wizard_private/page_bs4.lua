@@ -111,7 +111,7 @@ ui.form	{
 												end }
 								end }
 				ui.container{attr={class="row-fluid spaceline"},content=function()
-				  ui.container{attr={class="span12 depression_box paper"},content=function()	
+				  ui.container{attr={class="span12 well-inside paper"},content=function()	
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center spaceline"},content=function()
 								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
@@ -136,8 +136,8 @@ ui.form	{
 						end }		
 						end }
 						-- Pulsante "Indietro"
-						ui.container{attr={class="row-fluid spaceline"},content=function()
-						ui.container{attr={class="span3 offset1 text-center"},content=function()
+						ui.container{attr={class="row-fluid"},content=function()
+						ui.container{attr={class="span3 offset1 text-center spaceline"},content=function()
 							ui.tag {
 								tag = "a",
 								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs4_back\").submit();"},
@@ -149,10 +149,10 @@ ui.form	{
 							end }
   					end }
   					-- Pulsante "Avanti"
-						ui.container{attr={class="span3 offset4 text-center"},content=function()
+						ui.container{attr={class="span3 offset4 text-center spaceline"},content=function()
 							ui.tag {
 								tag = "a",
-								attr={id="btnNext",class="btn btn-primary large_btn", onClick="getElementById(\"page_bs4\").submit();"},
+								attr={id="btnNext",class="btn btn-primary large_btn fixclick", onClick="getElementById(\"page_bs4\").submit();"},
 								content=function()
 									ui.heading{ level=3, content=function()
 								    slot.put(_"Next Phase")

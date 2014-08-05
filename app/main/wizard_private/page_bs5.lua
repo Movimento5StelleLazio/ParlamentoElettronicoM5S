@@ -121,7 +121,7 @@ ui.form	{
 							ui.container{attr={class="span6 issue_desc"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="problem_description",name="problem_description",style="resize:none;height:100%", class="span12"},
+									attr={id="problem_description",name="problem_description",style="resize:none;height:260px;", class="span12"},
 									content=problem_description
 								}
 							end }

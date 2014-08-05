@@ -1,7 +1,7 @@
 local member = Member:by_id(param.get_id())
 
 ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 alert member_data"}, content=function()
+  ui.container{attr={class="span12"}, content=function()
     ui.container{attr={class="row-fluid"}, content=function()
       ui.container{attr={class="span3 text-center"}, content=function()
         execute.view{
@@ -16,23 +16,23 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
 
       ui.container{attr={class="span6"}, content=function()
-        ui.heading{level=6,content=function()
+        ui.heading{level=3,content=function()
           ui.tag{content=_"Name"..": "}
           ui.tag{tag="strong",content=member.realname}
         end }
-        ui.heading{level=6,content=function()
+        ui.heading{level=3,content=function()
           ui.tag{content=_"NIN"..": "}
           ui.tag{tag="strong",content=member.nin}
         end }
-        ui.heading{level=6,content=function()
+        ui.heading{level=3,content=function()
           ui.tag{content=_"Comune"..": "}
           ui.tag{tag="strong",content="Roma"}
         end }
-        ui.heading{level=6,content=function()
+        ui.heading{level=3,content=function()
           ui.tag{content=_"Municipio"..": "}
           ui.tag{tag="strong",content="IX"}
         end }
-        ui.heading{level=6,content=function()
+        ui.heading{level=3,content=function()
           ui.tag{content=_"Certificatore"..": "}
           ui.tag{tag="strong",content="Paolo Rossi"}
         end }
@@ -46,7 +46,7 @@ ui.container{attr={class="row-fluid"}, content=function()
             onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
           },
           content=function()
-            ui.heading{level=6,attr={class=""},content= _"Report false identity"}
+            ui.heading{level=3,attr={class=""},content= _"Report false identity"}
           end
         }
       end }
