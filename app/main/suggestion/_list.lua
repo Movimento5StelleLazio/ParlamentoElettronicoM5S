@@ -9,10 +9,10 @@ if true or not show_filter then
   ui_filters = function(args) args.content() end
 end
 
-ui.container{ attr = { class = "initiative_head" },
+ui.container{ attr = { class = "initiative_head span10" },
   content = function()
     ui.tag{ tag = "a", attr = { class = "title", name = "suggestions" }, content = _"Suggestions" }
-    ui.container{ attr = { class = "content" }, content = function()
+    ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.paginate{
         selector = suggestions_selector,
         anchor = "suggestions",

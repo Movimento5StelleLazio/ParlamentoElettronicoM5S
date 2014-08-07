@@ -84,7 +84,7 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
               end
 
 
-              ui.heading{level=5,attr={class=""},content=function()
+              ui.heading{level=3,attr={class=""},content=function()
                 slot.put(_"Read".." p"..initiative.id)
               end }
             end

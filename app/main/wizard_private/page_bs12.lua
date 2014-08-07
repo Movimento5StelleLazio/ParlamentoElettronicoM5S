@@ -101,8 +101,7 @@ ui.form {
 	if issue_id ~= 0 then
 		disable = " hidden"
 	end
-	
-  if draft_id ~= 0 then
+	if draft_id ~= 0 then
 		disable = " hidden"
 		only_draft = " hidden"
 	end
@@ -171,13 +170,14 @@ ui.form {
 												attr = { id = "policy_id" },
 												value = param.get("policy_id", atom.integer) or 0
 											}
-											ui.field.parelon_group_radio {
-												id = "policy_id",
-												out_id = "policy_id",
-												elements = policies,
-												selected = policy_id,
-												attr={class="parelon-checkbox spaceline3"},
-											label_attr={class="parelon-label spaceline3"}
+								--radio-button group
+										ui.field.parelon_group_radio {
+											id = "policy_id",
+											out_id = "policy_id",
+											elements = policies,
+											selected = policy_id,
+											attr={class="parelon-checkbox spaceline3 "},
+											label_attr={class="parelon-label spaceline3 "}
 									}							
 										end }
 									end }

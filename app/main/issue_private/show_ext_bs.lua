@@ -59,8 +59,8 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span4 offset3"}, content=function()
-            ui.heading{level=1,attr={class="fittext1 uppercase label label-warning"},content=_"Details for issue Q"..issue.id}
+          ui.container{attr={class="span7 offset1 label label-warning text-center"}, content=function()
+            ui.heading{level=1,attr={class="fittext1 uppercase "},content=_"Details for issue Q"..issue.id}
           end }
         end }
         ui.container{attr={class="row-fluid"}, content=function()
@@ -82,10 +82,10 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
-      ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
+   --[[   ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
---[[
+
             slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
           end }
         end }
@@ -97,74 +97,70 @@ ui.container{attr={class="row-fluid"}, content=function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
             slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
---]]
+
           end }
         end }
-      end }
+      end }--]]
     end }
   end }
 end }
 
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12"}, content=function()
+
     ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class = "span3"}, content = function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
         execute.view{ module = "issue_private", view = "phasesbar", params = { state=issue.state } }
-      end }
-    end }
   end }
 end }
-
-ui.container{attr={class="row-fluid"}, content=function()
-ui.container{attr={class="span12 well"}, content=function()
-ui.container{attr={class="row-fluid depression_box paper "}, content=function()
-  ui.container{attr={class="span10 offset1 spaceline3"}, content=function()
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag{tag="strong",content=function()
-          ui.heading { level=5, attr = { class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
+	ui.container{attr={class="row-fluid"}, content=function()
+	ui.container{attr={class="span12 well"}, content=function()
+	ui.container{attr={class="row-fluid"}, content=function()
+	  ui.container{attr={class="span12 spaceline3"}, content=function()
+	    ui.container{ attr = { class = "row-fluid"}, content = function()
+	      ui.container{ attr = { class = "span12"}, content = function()
+		ui.tag{tag="strong",content=function()
+		  ui.heading { level=3, attr = { class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
         end }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        execute.view{ module = "issue_private", view = "info_data", params = {issue=issue}  }
-      end }
-    end }
+    	ui.container{ attr = { class = "row-fluid"}, content = function()
+      	ui.container{ attr = { class = "span12 well"}, content = function()
+   	   ui.container{ attr = { class = "row-fluid"}, content = function()
+     	   ui.container{ attr = { class = "span6"}, content = function()
+              execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
+      			end }
+
+     	ui.container{ attr = { class = "span6"}, content = function()
+		ui.heading{ level=3, attr = { class = "spaceline" }, content = function()
+			  ui.tag{content= _"Issue created at:"}
+			  ui.tag{tag="span",content="  "..format.timestamp(issue.created)}
+                   if issue.state == "admission" then
+		ui.heading{ level=3, attr = { class = "spaceline" }, content = function() 
+			   ui.tag{content=_"Time limit to reach the supporters quorum:"}
+			   ui.tag{tag="span",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+		    end }
+    end
+		   end }
+		  end }
+		 end }
+		end }
+	       end }
      ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-          ui.heading { level=5, attr = { class = "label label-warning"}, content = "Breve descrizione" }
+          ui.heading { level=3, attr = { class = "label label-warning"}, content = "Breve descrizione" }
         end }
       end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 well"}, content = function()
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
+
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
-          ui.tag{content= _"Issue created at:"}
-          ui.tag{tag="strong",content="  "..format.timestamp(issue.created)}
-        end }
-      end }
-    end }
-    if issue.state == "admission" then
-      ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-        ui.container{ attr = { class = "span12"}, content = function()
-            ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
-              ui.tag{content=_"Time limit to reach the supporters quorum:"}
-              ui.tag{tag="strong",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
-            end }
-        end }
-      end }
-    end
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase label label-warning" }, content = function()
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
           ui.tag{content= _"By user:" }
         end }
       end }
@@ -180,7 +176,7 @@ ui.container{attr={class="row-fluid depression_box paper "}, content=function()
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase label label-warning" }, content = function()
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
           ui.tag{content= _"Keywords:" }
         end }
         
@@ -213,7 +209,7 @@ ui.container{attr={class="row-fluid depression_box paper "}, content=function()
         end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase label label-warning" }, content = function()
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
           ui.tag{content=  _"Technical competence areas:" }
         end }					
         ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -237,35 +233,35 @@ ui.container{attr={class="row-fluid depression_box paper "}, content=function()
     
     ui.container{ attr = { class = "row-fluid spaceline3"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "label label-warning" }, content = _"Problem description:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Problem description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 well-inside"}, content = function()
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
         ui.tag{content=issue.problem_description  or _"No description available" } 
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "label label-warning" }, content = _"Aim description:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Aim description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 well-inside"}, content = function()
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
         ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
 
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "label label-warning" }, content = _"Proposed solutions:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Proposed solutions:" }
       end }
     end }
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
                 ui.container{ attr = { class = "span12 well"}, content = function()
             ui.container{ attr = { class = "row-fluid"}, content = function()
-              ui.container{ attr = { class = "span8 spaceline"}, content = function()
+              ui.container{ attr = { class = "span8 spaceline text-justify"}, content = function()
                 if #issue.initiatives == 1 then
                   content= _"initiative"
                 else
@@ -274,11 +270,11 @@ ui.container{attr={class="row-fluid depression_box paper "}, content=function()
     
                 ui.tag{content=function()
                   
-                  slot.put( _("Vi sono attualmente <strong>#{count}</strong> proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro <strong>#{days}</strong> affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                  slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa <br /> Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
                 end }
               end }
     
-              ui.container{ attr = { class = "span4"}, content = function()
+              ui.container{ attr = { class = "span3 offset1"}, content = function()
               	local area = Area:by_id(issue.area_id)
               	local unit = Unit:by_id(area.unit_id)
               	local issue_keywords = ""
@@ -332,36 +328,42 @@ ui.container{attr={class="row-fluid depression_box paper "}, content=function()
           else
             quorum_supporters = 0
           end
-                    ui.container{attr = {class="row-fluid spaceline3"}, content =function()
-                                  ui.tag{tag="hr /",content="Cerca le proposte alternative:" }
+                    ui.container{attr = {class="row-fluid spaceline3"}, content =function()  
+                    ui.container{attr = {class="span12 well-inside paper"}, content =function()                  
+ 			ui.container{attr = {class="row-fluid spaceline"}, content =function()
+                                        ui.container{attr = {class="span10 offset1 text-center spaceline label label-warning"}, content =function()
+                                  ui.tag{tag="h3",content="LEGGI I TESTI INTEGRALI DELLE PROPOSTE PER RISOLVERE LA QUESTIONE:" }
+                                    end }
                     end }
-          ui.container{attr = {class="row-fluid spaceline3"}, content =function()
+          ui.container{attr = {class="row-fluid spaceline3 spaceline-bottom"}, content =function()
               local btna, btnb = "",""
               if init_ord == "supporters" then btna = " active" end
               if init_ord == "event" then btnb = " active" end
 
               ui.link{
-                attr = { class="span4 offset1 btn btn-primary large_btn fixclick wrap"..btna },
+                attr = { class="span4 offset1"..btna },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
                 params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" },
                 content = function()
-                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
+                  ui.heading{level=6,attr={class="btn btn-primary fixclick "},content=_"ORDER BY NUMBER OF SUPPORTERS"}
                 end
               }
               ui.link{
-                attr = { class="span4 offset2 btn btn-primary large_btn fixclick wrap"..btnb },
+                attr = { class="span4 offset2"..btnb },
                 module = request.get_module(),
                 id = issue.id,
                 view = request.get_view(),
                 params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" },
                 content = function()
-                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
+                  ui.heading{level=6,attr={class="btn btn-primary fixclick"},content=_"ORDER BY LAST EVENT DATE"}
+            	end }
+               end }
 
-            end }
-            end }
-                   ui.container{attr = {class="row-fluid"}, content =function() 
+              end }
+             end }
+                   ui.container{attr = {class="row-fluid spaceline2"}, content =function() 
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
               ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
@@ -415,3 +417,4 @@ end }
 
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
+

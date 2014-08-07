@@ -36,28 +36,29 @@ local svgz = ""
 --local svgz = "z"
 
 	ui.container { attr={class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span7 spaceline"}, content = function()
+         ui.container{ attr = { class = "span7 spaceline"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
-      end }
+           end }
           end }
-      ui.container{ attr = { class = "row-fluid depression_box paper "}, content = function()
-     ui.container{ attr = { class = "row-fluid"}, content = function()
-            ui.container{ attr = { class = "span9 offset1 phasesheight"}, content = function()
+      ui.container{ attr = { class = "row-fluid"}, content = function()
+     
+           ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span9 phasesheight"}, content = function()
         execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
-     end }
-      end }
+          end }
+         end }
 
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+
 
 
       	ui.container{ attr = { class = "row-fluid"}, content = function()
-        	ui.tag{tag="strong", attr = {class = "span7 offset1"},  content=function()
-          	ui.heading { level=5,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
+        	ui.tag{tag="strong", attr = {class = "span7"},  content=function()
+          	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
           end }
 
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span10 offset1"}, content = function()
+          ui.container{ attr = { class = "span12 well"}, content = function()
             execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
           end }
         end }
@@ -71,53 +72,33 @@ local svgz = ""
         --]]
     
         ui.container{ attr = { class = "row-fluid"}, content = function()
-        ui.container{attr = {class = "span7 offset1"},  content=function()
-          	ui.heading { level=5,attr = {class = "label label-warning"}, content = "Breve descrizione" }
+        ui.container{attr = {class = "span7"},  content=function()
+          	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Breve descrizione" }
           end }
-          end }
+
                   ui.container{ attr = { class = "row-fluid"}, content = function()
-            ui.tag { tag="p", attr = { class="span10 offset1 issue_brief_description well-inside paper" }, content = issue.brief_description or _"No description available" }
+            ui.tag { tag="p", attr = { class="span12 well-inside paper" }, content = issue.brief_description or _"No description available" }
         end }
         end }
 --        local links = {}
       
         ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-          ui.container{ attr = { class = "span10 offset1"}, content = function()
+          ui.container{ attr = { class = "span12"}, content = function()
             local content
             if #issue.initiatives == 1 then
               content= #issue.initiatives.._" INITIATIVE TO RESOLVE THE ISSUE"  
             else
               content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
             end
-            ui.heading{ level=5, attr = { class = "label label-warning"}, content = content }
+            ui.heading{ level=3, attr = { class = "label label-warning"}, content = content }
           end }
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span10 offset1 well"}, content =function()
-            local initiatives_selector = issue:get_reference_selector("initiatives")
-            local highlight_string = param.get("highlight_string")
-            if highlight_string then
-              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-            end
-            execute.view {
-              module = "initiative",
-              view = "_list_ext_bs",
-              params = {
-                issue = issue,
-                initiatives_selector = initiatives_selector,
-                highlight_initiative = for_initiative,
-                highlight_string = highlight_string,
-                no_sort = true,
-                limit = (for_listing or for_initiative) and 5 or nil,
-                hide_more_initiatives=false,
-                limit=25,
-                for_member = for_member
-              }
-            }
+          ui.container{attr = {class="span12 well"}, content =function()
+
           end }
-        end }
-    
+
         ui.container{attr = {class="row-fluid"}, content =function()
           if app.session.member_id and direct_voter then
             ui.container {
@@ -143,7 +124,7 @@ local svgz = ""
           end
           ui.container{attr = {class="row-fluid"}, content =function()
           ui.link { 
-            attr = { id = "issue_see_det_"..issue.id, class = "span4 offset4 btn btn-primary" },
+            attr = { id = "issue_see_det_"..issue.id, class = "span4 offset4 text-center" },
             module = "issue",
             view = "show_ext_bs",
             id = issue.id,
@@ -158,11 +139,12 @@ local svgz = ""
               ftl_btns = ftl_btns
             },
             content = function()
-              ui.heading{level=5,content=_"SEE DETAILS"}
+              ui.heading{ level=3,attr = {class="btn btn-primary large_btn"}, content=_"SEE DETAILS"}
           end }
-                    end }
-                          ui.container{attr = {class="row-fluid spaceline2"}, content =function()    
-                                  end }
+         end }
+               ui.container{attr = {class="row-fluid spaceline2"}, content =function()    
+         end }
         end }
-    end }
+       end }
+      end }
 

@@ -25,8 +25,8 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn table-cell"  },
-          module = "index", --non sono convinto che il back debba essere questo
-          view = "homepage_private_bs",
+          module = "index", --non sono convinto che sia questo il back corretto
+          view = "homepage_bs",
           content = function()
             ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}

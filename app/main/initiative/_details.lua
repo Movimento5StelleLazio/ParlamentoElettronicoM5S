@@ -1,16 +1,16 @@
 local initiative = param.get("initiative", "table")
 
 ui.form{
-  attr = { class = "vertical" },
+  attr = { class = "span10 offset1" },
   record = initiative,
   readonly = true,
   content = function()
-    ui.field.text{
+    ui.field.text{ attr = { class = "label" },
       label = _"Created at",
       value = format.timestamp(initiative.created)
     }
     if initiative.revoked then
-      ui.field.text{
+      ui.field.text{ 
          label = _"Revoked at",
          value = format.timestamp(initiative.revoked)
        }

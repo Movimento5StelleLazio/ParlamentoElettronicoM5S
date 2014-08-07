@@ -34,11 +34,11 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
         end
       end }
       ui.container{ attr = { class = "span10" }, content = function()
-        ui.container{ attr = { class = "row-fluid" }, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            execute.view{ module = "area_private", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
-          end }
-        end }
+--        ui.container{ attr = { class = "row-fluid" }, content = function()
+--          ui.container{ attr = { class = "span12"}, content = function()
+            execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
+--          end }
+--        end }
         ui.tag{ content = _"Issues:" }
         slot.put(" ")
         ui.link{ 

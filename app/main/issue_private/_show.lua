@@ -152,10 +152,9 @@ ui.container{ attr = { class = class }, content = function()
           links[#links+1] = { content = _"You are interested" }
         end
       end
-      
       if not issue.closed and not issue.fully_frozen then
         if issue.member_info.own_participation then
-          links[#links+1] = {
+          links[#links+1] = { attr = { class = "label label-inverse", style="margin-right: 50px;" }, 
             in_brackets = true,
             text    = _"Withdraw",
             module  = "interest",

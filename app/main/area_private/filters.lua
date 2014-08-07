@@ -11,8 +11,8 @@ app.html_title.subtitle = _("Area")
 util.help("area.show")
 
 ui.container{ attr = { class  = "area_filter_header_box" }, content = function()
-  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = app.session.member.realname}) }
-  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _("CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:") }
+  ui.tag { tag = "p", attr = { id = "unit_title", class  = "welcome_text_l"}, content = _("#{realname}, you are now in the Regione Lazio Assembly", {realname = app.session.member.realname}) }
+  ui.tag { tag = "p", attr = { class  = "welcome_text_xl"}, content = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:" }
   ui.link {
     attr = { class="area_filter_button button orange"  },
     module = "unit_private",
