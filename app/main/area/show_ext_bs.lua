@@ -75,7 +75,7 @@ end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
-    ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
+    ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn fixclick"  },
@@ -99,7 +99,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+             ui.heading{level=2,attr={class="label label-warning"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
           end }
         end }
       end }

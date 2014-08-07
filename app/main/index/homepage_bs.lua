@@ -59,10 +59,8 @@ ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
       
     ui.container{attr={class="row-fluid"},content=function()    
---		  ui.container{attr={class="span12"},content=function()
-	  	--Back button
 		    ui.link{
-		      attr = { class="span3 inline btn btn-primary btn-large large_btn"  },
+		      attr = { class="span3 inline btn btn-primary large_btn"  },
 		      module = "index",
 		      view = "index",
 		      content = function()
@@ -71,7 +69,7 @@ ui.container{attr={class="row-fluid"},content=function()
 		          slot.put(_"Back to previous page")
 	        	end }
 		  	end }
-			  ui.container { attr = { class = "span6 text-center" }, content = function()
+			  ui.container { attr = { class = "span9 text-center" }, content = function()
 			  ui.heading{level=1, content=function()
 			    slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}))
 			  end }
@@ -79,7 +77,7 @@ ui.container{attr={class="row-fluid"},content=function()
 	    ui.heading{level=6, content=_"You are now inside the Digital Assembly for Public Affairs."}
 	    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
 	    	end }
---		  end }
+
 		end }
 
     ui.container{attr={class="row-fluid spaceline"},content=function()
@@ -92,7 +90,7 @@ ui.container{attr={class="row-fluid"},content=function()
     ui.container{attr={class="row-fluid text-center"},content=function()
     
       ui.container{attr={class="span6 spaceline"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn"},
+        ui.link{attr={class="btn btn-primary large_btn"},
           module="unit",
           view="show_ext_bs",
           params = { filter = "my_areas" },
@@ -102,7 +100,7 @@ ui.container{attr={class="row-fluid"},content=function()
       end }
     
       ui.container{attr={class="span6 spaceline"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn"},
+        ui.link{attr={class="btn btn-primary large_btn"},
           module = "unit", view = "show_ext_bs",
           params={create=true, filter = "my_areas" },
           content=function()

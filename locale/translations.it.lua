@@ -91,9 +91,9 @@ return {
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
 ["Back to previous page"]="Indietro";
 ["Back to issue listing"]="Indietro";
-["Back to homepage"]="Torna alla Homepage";
+["Back to homepage"]="Homepage";
 ["#{realname}, you are now in the Regione Lazio Assembly"]="#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
-["INITIATIVES LOOKING FOR SUPPORTERS"] = "NUOVE";
+["INITIATIVES LOOKING FOR SUPPORTERS"] = "NUOVE PROPOSTE";
 ["INITIATIVES NOW IN DISCUSSION"] = "IN DISCUSSIONE";
 ["COMPLETED OR RETIRED INITIATIVES"] = "COMPLETATE O RITIRATE";
 ["CHOOSE THE INITIATIVE TO EXAMINE:"]="SCEGLI LA PROPOSTA DA ESAMINARE:";
@@ -105,7 +105,7 @@ return {
 ["M5S MEMBERS THEMATIC AREAS"]="AREE TEMATICHE DEGLI ISCRITTI";
 ["OTHER POLITICAL GROUPS THEMATIC AREAS"]="AREE TEMATICHE DI ALTRI GRUPPI POLITICI";
 ["CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE DEGLI ELETTI M5S VUOI LEGGERE:";
-["CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE DEI CITTADINI VUOI LEGGERE:";
+["CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE VUOI LEGGERE:";
 ["CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE DEGLI ISCRITTI VUOI LEGGERE:";
 ["CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:"]="SCEGLI QUALI PROPOSTE DI ALTRI GRUPPI POLITICI VUOI LEGGERE:";
 ["APPLY FILTERS"]="APPLICA FILTRI";
@@ -177,7 +177,7 @@ return {
 ["Activate account"] = "Attiva utente";
 ["Active?"] = "Attivo?";
 ["Add alternative initiative to issue"] = "Aggiungi una proposta alternativa alla questione";
-["Add my interest"] = "Aggiungi interesse alla questione";
+["Add my interest"] = "Interessati";
 ["Add new suggestion"] = "Aggiungi nuovo suggerimento";
 ["Add new unit"] = "Aggiungi nuova unità";
 ["Add to my contacts"] = "Aggiungi ai miei contatti";
@@ -287,7 +287,7 @@ return {
 ["Counting starts soon"] = "Conteggio imminente";
 ["Create / edit area"] = "Crea / modifica area";
 ["Create / edit policy"] = "Crea / modifica regola";
-["Create alternative initiative"] = "Crea proposta alternativa";
+["Create alternative initiative"] = "Proponi alternativa";
 ["Create new area"] = "Crea nuova area";
 ["Create new initiative"]="CREA UNA NUOVA PROPOSTA";
 ["Create new issue"] = "Crea nuova questione";
@@ -430,7 +430,7 @@ return {
 ["Identification"] = "Identificazione";
 ["If this link is not working, please open following url in your web browser:\n\n"] = "Se questo link non dovesse funzionare, aprire il seguente indirizzo nel browser:\n\n";
 ["Ignore Areas"] = "Ignora aree";
-["Ignore initiative"] = "Ignora proposta";
+["Ignore initiative"] = "Ignora";
 ["Ignore member"] = "Ignora utente";
 ["Images"] = "Immagini";
 ["Implicitly admitted"] = false;
@@ -567,7 +567,7 @@ return {
 ["New passwords does not match."] = "Le password non corrispondono.";
 ["New passwords is too short."] = "Password troppo corta.";
 ["New phase"]="Nuovo";
-["New suggestion"] = "Nuovo suggerimento";
+["New suggestion"] = "EMENDA";
 ["Newest"] = "Ultimo";
 ["Next Phase"]="AVANTI";
 ["No"] = false;
@@ -778,7 +778,7 @@ return {
 ["Suggestion for initiative: '#{name}'"] = "Suggerimento per la proposta: '#{name}'";
 ["Suggestions"] = "Suggerimenti";
 ["Sunday"] = "Domenica";
-["Support this initiative"] = "Sostieni questa proposta";
+["Support this initiative"] = "Sostieni";
 ["Supported"] = "Sostenute";
 ["Supporter"] = "Sostenitore";
 ["Supporters"] = "Sostenitori";

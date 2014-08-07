@@ -24,7 +24,7 @@ local routing = {
     params = param.get_all_cgi()
   }
 }
-
+ui.container{attr={class="span3 spaceline"}, content=function()
 if not initiative.issue.fully_frozen and not initiative.issue.closed then
   if supporter then
     if not supporter:has_critical_opinion() then
@@ -50,8 +50,8 @@ if not initiative.issue.fully_frozen and not initiative.issue.closed then
         end
       end }
     end
-    slot.put(" (")
-    ui.link{
+    --slot.put(" (")
+    ui.link{attr = { class = "btn btn-primary btn_size_fix fixclick" },
       text    = _"Withdraw",
       module  = "initiative",
       action  = "remove_support",
@@ -59,7 +59,7 @@ if not initiative.issue.fully_frozen and not initiative.issue.closed then
       routing = routing,
       partial = partial
     }
-    slot.put(") ")
+    --slot.put(") ")
   elseif not initiative.revoked and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id) then
     local params = param.get_all_cgi()
     params.dyn = nil
@@ -74,20 +74,20 @@ if not initiative.issue.fully_frozen and not initiative.issue.closed then
     slot.put(" ")
   end
 end
+end }
 
-
-
+ui.container{attr={class="span3 spaceline"}, content=function()
 if not initiative.issue.closed then
-  if not initiative.issue.fully_frozen and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id) then
+ --[[ if not initiative.issue.fully_frozen and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id) then
     slot.put(" &middot; ")
-  end
+  end ]]
   local ignored_initiative = IgnoredInitiative:by_pk(app.session.member.id, initiative.id)
   if ignored_initiative then
     ui.tag{
       content = _"Ignore initiative"
     }
-    slot.put(" (")
-    ui.link{ attr = { class = "btn btn-primary  btn_size_fix fixclick" },
+--    slot.put(" (")
+    ui.link{ attr = { class = "btn btn-primary btn_size_fix fixclick" },
       text   = _"Cancel [nullify]",
       module = "initiative",
       action = "update_ignore",
@@ -103,9 +103,9 @@ if not initiative.issue.closed then
         }
       }
     }
-    slot.put(")")
+--    slot.put(")")
   else
-    ui.link{ attr = { class = "btn btn-primary  btn_size_fix fixclick" },
+    ui.link{ attr = { class = "btn btn-primary btn_size_fix fixclick" },
       text    = _"Ignore initiative",
       module  = "initiative",
       action  = "update_ignore",
@@ -122,3 +122,5 @@ if not initiative.issue.closed then
     }
   end
 end
+
+end }

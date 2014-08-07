@@ -15,7 +15,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         }
       end }
 
-      ui.container{attr={class="span6"}, content=function()
+      ui.container{attr={class="span6 spaceline2"}, content=function()
         ui.heading{level=3,content=function()
           ui.tag{content=_"Name"..": "}
           ui.tag{tag="strong",content=member.realname}
@@ -38,7 +38,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
 
-      ui.container{attr={class="span3 text-center"}, content=function()
+      ui.container{attr={class="span3 spaceline4 text-center"}, content=function()
         ui.anchor{
           attr = {
             href = "#",

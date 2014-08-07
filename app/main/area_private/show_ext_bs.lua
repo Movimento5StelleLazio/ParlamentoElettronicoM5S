@@ -75,7 +75,7 @@ end
 
 ui.container{ attr = { class  = "row-fluid" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
-    ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
+    ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large large_btn fixclick"  },
@@ -94,12 +94,12 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
       ui.container{ attr = { class  = "span9" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = (member.realname ~= "" and member.realname or member.login)}) }
+             ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = (member.realname ~= "" and member.realname or member.login)}) }
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+             ui.heading{level=2,attr={class="label label-warning"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
           end }
         end }
       end }
@@ -173,7 +173,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
 		  if not app.session.member.elected then
 --            btn_style = "width:25%;"
             ui.link {
-              attr = { class="btn btn-primary fixclick"..btna, style=btn_style },
+              attr = { class="btn btn-primary fixclick filter_btn"..btna, style=btn_style },
               module = "area_private",
               view = "show_ext_bs",
               id = area.id,
@@ -182,9 +182,9 @@ ui.container{ attr = { class="span12 well"}, content=function()
                 ui.heading { level=4, content = _"ORDER BY NUMBER OF SUPPORTERS" }
               end
             }
-          end
+		  end 
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnb, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnb, style=btn_style },
             module = "area_private",
             view = "show_ext_bs",
             id = area.id,
@@ -194,7 +194,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnc, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnc, style=btn_style },
             module = "area_private",
             view = "show_ext_bs",
             id = area.id,
@@ -204,7 +204,7 @@ ui.container{ attr = { class="span12 well"}, content=function()
             end
           }
           ui.link {
-            attr = { class="btn btn-primary fixclick"..btnd, style=btn_style },
+            attr = { class="btn btn-primary fixclick filter_btn"..btnd, style=btn_style },
             module = "area_private",
             view = "show_ext_bs",
             id = area.id,

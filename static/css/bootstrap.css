@@ -11,13 +11,21 @@
 }
 
 .btn_size_fix {
-  width: 270px;
+  width: 140px;
   /*height: 60px;*/
   margin-left: 20px;
+  padding: 0 6px 6px 0;
   }
-  
+.btn_size_fix_h {
+  height: 60px;
+  margin-left: 20px;
+  padding: 0 6px 6px 0;
+  }
 .slot_default {
  margin-top:125px;
+}
+.spaceline-bottom {
+  margin-bottom: 20px;
 }
 
 .spaceline {
@@ -645,6 +653,9 @@ a.text-success:focus {
 }
 .text-center {
   text-align: center;
+}
+.text-justify {
+  text-align: justify;
 }
 h1,
 h2,
@@ -3071,15 +3082,12 @@ button.close {
   border-radius: 6px 0 6px 6px;
 }
 .navbar-inverse .navbar-inner {
-  background-color: #1b1b1b;
-  background-image: -moz-linear-gradient(top, #222222, #111111);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
-  background-image: -webkit-linear-gradient(top, #222222, #111111);
-  background-image: -o-linear-gradient(top, #222222, #111111);
-  background-image: linear-gradient(to bottom, #222222, #111111);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
-  border-color: #252525;
+  background: rgb(63, 63, 63);
+background: -moz-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
+background: -webkit-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
+background: -o-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
+background: -ms-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
+background: linear-gradient(180deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
 }
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a {
@@ -3523,8 +3531,8 @@ button.close {
 .badge {
   display: inline-block;
   padding: 2px 4px;
-  font-size: 18.612px;
-  /*font-weight: bold;*/
+  /*font-size: 18.612px;
+  font-weight: bold;*/
   line-height: 14px;
   color: #434242;
   vertical-align: baseline;
@@ -5088,7 +5096,7 @@ margin-top: 100px;
   Buttons
 */
 .large_btn {
-  width: 220px;
+  width: 190px;
 }
 .large_btn_home {
   max-width: 292px;
