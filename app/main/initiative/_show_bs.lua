@@ -183,12 +183,13 @@ ui.container{attr={class="row-fluid"}, content=function()
       end } ]]
      end }
 end }
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span7"}, content=function()
-        execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
-      end }
-    end }
-
+  ui.container{ attr = { class = "row-fluid"}, content = function()
+end }
+  ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span9 phasesheight"}, content = function()
+        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
+          end }
+         end }
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
 
@@ -201,6 +202,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
     end }
+
     ui.container{ attr = { class = "row-fluid"}, content = function()
     ui.container{ attr = { class = "row-fluid span12 well"}, content = function()
       ui.container{ attr = { class = "span5"}, content = function()
@@ -537,7 +539,14 @@ end }
 ui.heading{ level=1, content = "Questa proposta è in risposta alla questione:" }
 end }
 end }
-       ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+       
+
+ui.container{attr={class="row-fluid spaceline2"}, content=function()
+  ui.container{attr={class="span7"}, content=function()
+        execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
+      end }
+    end }
+     ui.container{ attr = { class = "row-fluid"}, content = function()
      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
        ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
             local issue_id = issue.id
