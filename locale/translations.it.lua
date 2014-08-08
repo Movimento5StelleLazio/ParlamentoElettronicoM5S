@@ -83,9 +83,9 @@ return {
 [" INITIATIVE TO RESOLVE THE ISSUE"]=" PROPOSTA PER RISOLVERE LA QUESTIONE";
 ["Order by supporters"]="Per sostenitori";
 ["Order by date"]="Per data";
-["ORDER BY NUMBER OF SUPPORTERS"]="PER NUMERO DI SOSTENITORI";
+["ORDER BY NUMBER OF SUPPORTERS"]="NUMERO DI SOSTENITORI";
 ["ORDER BY DATE OF CREATION"]="DATA DI IMMISSIONE";
-["ORDER BY LAST EVENT DATE"]="DATA DELL'ULTIMO EVENTO";
+["ORDER BY LAST EVENT DATE"]="DATA ULTIMO EVENTO";
 ["INVERT ORDER FROM DESCENDING TO ASCENDING"]="INVERTI ORDINE";
 ["INVERT ORDER FROM ASCENDING TO DESCENDING"]="INVERTI ORDINE";
 ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
@@ -860,7 +860,7 @@ return {
 ["Verification starts soon"] = "Fase di verifica imminente";
 ["Verification time"] = "Tempo di verifica";
 ["Version"] = "Versione";
-["Vote now"] = "Vota adesso";
+["Vote now"] = "Vota";
 ["Voted"] = "Votata";
 ["Voted no"] = "Votato NO";
 ["Voted yes"] = "Votato SI";
@@ -1042,4 +1042,9 @@ return {
 ["< new >"]="<nuovo>";
 ["< select template >"]="seleziona template...";
 ["Elected?"] = "Eletto?";
+["Do you think that this initiative needs to be examined by experts? Click here to support the request for a technical committee to be summoned"] = "Se ritieni che per giudicare la validità di questa proposta sia necessario richiedere il parere di una commissione tecnica di esperti nel campo specifico premi questo Bottone:";
+["TECHNICAL COMMITTEE REPORT"] = "Rapporto commissione tecnica";
+["- No technical committee summoned yet for this initiative -"] = "Nessuna commisione tecnica istitutita";
+["Summon a committee"] = "Richiedi Commissione";
+["<strong>#{count_supporters}</strong> people support the request to summon a technical committee. <strong>#{count_remaining}</strong> people still needed.<br>The committee will be summoned only if the initiative will gather enough supporters."] = " <strong>#{count_supporters}</strong>  persone hanno fatto richiesta di una commissione tecnica<br /> E' richiesto l' appoggio di<strong>#{count_remaining}</strong> persone per raggiungere il quorum. <br />Anche se si raggiunge il quorum, la commissione verrà istituita solo se almeno una proposta supererà la prima votazione ";
 }

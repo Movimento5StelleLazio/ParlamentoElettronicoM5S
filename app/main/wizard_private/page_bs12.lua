@@ -147,7 +147,7 @@ ui.form {
 												end }
 								end }
 
-	ui.container{attr={class="row-fluid depression_box paper"},content=function()
+	ui.container{attr={class="row-fluid well-inside paper"},content=function()
 		ui.container{attr={class="span12 text-center"},content=function()
 			--Selezione policy
 			ui.container{ attr={class="formSelect"},content=function()

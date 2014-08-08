@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local issue = Issue:by_id(param.get("issue_id"), atom.integer)
 
 local member_id = param.get("member_id", atom.integer)
