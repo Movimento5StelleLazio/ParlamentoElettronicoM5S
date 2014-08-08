@@ -146,7 +146,7 @@ ui.form	{
 				ui.image{  static="png/step_5_f6.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid  depression_box paper"},content=function()
+				ui.container{attr={class="row-fluid  well-inside paper"},content=function()
 
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center spaceline"},content=function()

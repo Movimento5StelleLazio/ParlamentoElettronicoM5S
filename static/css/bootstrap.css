@@ -9,7 +9,10 @@
 .margin_line  {
   margin-left: 20px;
 }
-
+.icon-small {
+   height: 60px;
+   width: 60px;
+}
 .btn_size_fix {
   width: 140px;
   /*height: 60px;*/
