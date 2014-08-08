@@ -3574,14 +3574,12 @@ a.badge:focus {
 }
 .label-warning,
 .badge-warning {
-  background-color: #ff9300;
-  
-  background: rgb(255, 142, 30);
-  background: -moz-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
-  background: -webkit-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
-  background: -o-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
-  background: -ms-linear-gradient(90deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
-  background: linear-gradient(180deg, rgb(255, 142, 30) 0%, rgb(255, 183, 61) 70%);
+background: rgb(255, 182, 73);
+background: -moz-linear-gradient(90deg, rgb(255, 182, 73) 0%, rgb(201, 136, 38) 100%);
+background: -webkit-linear-gradient(90deg, rgb(255, 182, 73) 0%, rgb(201, 136, 38) 100%);
+background: -o-linear-gradient(90deg, rgb(255, 182, 73) 0%, rgb(201, 136, 38) 100%);
+background: -ms-linear-gradient(90deg, rgb(255, 182, 73) 0%, rgb(201, 136, 38) 100%);
+background: linear-gradient(180deg, rgb(255, 182, 73) 0%, rgb(201, 136, 38) 100%);
   -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
@@ -3596,12 +3594,12 @@ box-shadow:         2px 2px 17px 0px rgba(50, 50, 50, 0.75);
 }
 .label-success,
 .badge-success {
-background: rgb(119, 247, 34);
-background: -moz-linear-gradient(90deg, rgb(119, 247, 34) 0%, rgb(90, 198, 43) 84%);
-background: -webkit-linear-gradient(90deg, rgb(119, 247, 34) 0%, rgb(90, 198, 43) 84%);
-background: -o-linear-gradient(90deg, rgb(119, 247, 34) 0%, rgb(90, 198, 43) 84%);
-background: -ms-linear-gradient(90deg, rgb(119, 247, 34) 0%, rgb(90, 198, 43) 84%);
-background: linear-gradient(180deg, rgb(119, 247, 34) 0%, rgb(90, 198, 43) 84%);
+background: rgb(183, 255, 135);
+background: -moz-linear-gradient(90deg, rgb(183, 255, 135) 0%, rgb(114, 142, 77) 100%);
+background: -webkit-linear-gradient(90deg, rgb(183, 255, 135) 0%, rgb(114, 142, 77) 100%);
+background: -o-linear-gradient(90deg, rgb(183, 255, 135) 0%, rgb(114, 142, 77) 100%);
+background: -ms-linear-gradient(90deg, rgb(183, 255, 135) 0%, rgb(114, 142, 77) 100%);
+background: linear-gradient(180deg, rgb(183, 255, 135) 0%, rgb(114, 142, 77) 100%);
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
@@ -5096,11 +5094,11 @@ margin-top: 100px;
   Buttons
 */
 .large_btn {
-  width: 190px;
+  width: 210px;
 }
-.large_btn_home {
-  max-width: 292px;
-  height: 90px;
+.large_btn_filter {
+  max-width: 210px;
+  height: 55px;
 }
 .large_btn_show_ext {
   max-width: 230px;
@@ -5279,10 +5277,17 @@ margin-top: 100px;
 .img_assembly_small {
   max-width: 30%;
 }
+.arrow_big{
+  vertical-align: middle;
+  height: 70px;
+  width: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .arrow_medium {
   vertical-align: middle;
   height: 46px;
-  width: 34px;
+  width: 60px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -5367,17 +5372,17 @@ margin-top: 100px;
   width: 70px;
   z-index: 10;
 }
-.admission {
+.admission {210px
   height: 60px;
   margin-left: 22px;
   margin-top: 47px;
   width: 60px;
 }
 .discussion {
-  height: 65px;
-  margin-left: 87px;
+  height: 59px;
+  margin-left: 93px;
   margin-top: 48px;
-  width: 65px;
+  width: 59px;
 }
 .verification {
   height: 33px;
