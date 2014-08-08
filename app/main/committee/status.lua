@@ -40,18 +40,18 @@ ui.form {
 									}
 									if not committee_id then
 										ui.container{attr={class="row-fluid"},content=function()
-											ui.image{  attr = { class = "span12", }, static = "svg/commission_box_step3.svg"}
+											ui.image{  attr = { class = "span12", }, static = "svg/png/commission_step_4.png"}
 											end
 										}
 									else
 										if not report_id then
 											ui.container{attr={class="row-fluid"},content=function()
-												ui.image{  attr = { class = "span12", }, static = "svg/commission_box_step4.svg"}
+												ui.image{  attr = { class = "span12", }, static = "png/commission_step_5.png"}
 												end
 											}
 										else
 											ui.container{attr={class="row-fluid"},content=function()
-												ui.image{  attr = { class = "span12", }, static = "svg/commission_box_step5.svg"}
+												ui.image{  attr = { class = "span12", }, static = "png/commission_step_6.png"}
 												end
 											}
 										end

@@ -65,7 +65,7 @@
   display: inherit !important;
 }
 
-@media (min-width: 768px) and (max-width: 1500px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .hidden-desktop {
     display: inherit !important;
   }
@@ -83,19 +83,22 @@
   font-size: 18px;
   }
 .large_btn {
-  width: 160px;
+  width: 140px;
   }
 h3 {
-  font-size: 16px;
- }
-h2 {
   font-size: 18px;
  }
-h1 {
+h2 {
   font-size: 20px;
+ }
+h1 {
+  font-size: 22px;
  }
 h5 {
   font-size: 14px;
+ }
+h4 {
+  font-size: 16px;
  }
 }
 }

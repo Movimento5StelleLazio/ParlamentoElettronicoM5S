@@ -169,8 +169,15 @@ ui.container{ attr = { class="span12 well"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
-      ui.container{ attr = { class="span12 text-center btn-group"}, content=function()
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span12 well-inside paper"}, content=function()
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span6 offset3"}, content=function()
+       ui.heading{ level=3, attr = { class = "uppercase text-center" }, content = function()
+          ui.tag{content= "Ordina le proposte per:" }
+      end }
+    end }
+      end }
           local btna,btnb,btnc,btnd = "", "", "", ""
           if orderby == "supporters" then
             btna = " active"

@@ -185,13 +185,14 @@ ui.container{attr={class="row-fluid"}, content=function()
 end }
   ui.container{ attr = { class = "row-fluid"}, content = function()
 end }
+  ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span12 well"}, content=function()
   ui.container{ attr = { class = "row-fluid"}, content = function()
-            ui.container{ attr = { class = "span9 phasesheight"}, content = function()
+            ui.container{ attr = { class = "span9 offset1 phasesheight"}, content = function()
         execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
           end }
          end }
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 well"}, content=function()
+
 
 
 
@@ -230,18 +231,56 @@ ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span8 offset2 text-center label label-warning spaceline3"}, content=function()
              ui.tag{tag="h3",content="LEGGI IL TESTO INTEGRALE E DAI IL TUO SOSTEGNO:" }
   end }
+  end }     
+      ui.container{attr={class="row-fluid spaceline text-center"}, content=function()
+      ui.container{attr={class="span12 well-inside paper"}, content=function()
+ ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span10 offset1 text-justify spaceline"}, content=function()
+             ui.tag{tag="p",content="Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea" }
+  end }
   end } 
 
- ui.container{attr={class="row-fluid spaceline text-center"}, content=function()
-ui.container{attr={class="span3 spaceline"}, content=function()
-        ui.link{
-        attr = { class = "btn btn-primary btn_size_fix fixclick" },
-          module = "supporter", view = "show_box", params = { initiative_id = initiative.id },
-          text = "PARTECIPA"
-        }
-          end }
 
-
+       ui.container{attr={class="row-fluid spaceline text-center"}, content=function()
+        ui.container{attr={class="span3 spaceline"}, content=function()
+	 if not issue.closed and not issue.fully_frozen then
+		if issue.member_info.own_participation then
+		  ui.link { attr = { class = "btn btn-primary btn_size_fix fixclick"}, 
+		    in_brackets = true,
+		    text    = _"Withdraw",
+		    module  = "interest",
+		    action  = "update",
+		    params  = { issue_id = issue.id, delete = true },
+		    routing = {
+		      default = {
+		        mode = "redirect",
+		        module = request.get_module(),
+		        view = request.get_view(),
+		        id = param.get_id_cgi(),
+		        params = param.get_all_cgi()
+		      }
+		    }
+		  }
+		elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
+		  ui.link{ 
+		    attr = { class="btn btn-primary btn_size_fix fixclick" },
+		    text    = _"Add my interest",
+		    module  = "interest",
+		    action  = "update",
+		    params  = { issue_id = issue.id },
+		    routing = {
+		      default = {
+		        mode = "redirect",
+		        module = request.get_module(),
+		        view = request.get_view(),
+		        id = param.get_id_cgi(),
+		        params = param.get_all_cgi()
+		      }
+		    }
+		  }
+       		 end
+      		end
+              end }
 
 if app.session.member_id then
     ui.container{ content = function()
@@ -266,6 +305,7 @@ ui.container{attr={class="span3 spaceline"}, content=function()
 end }
 end }
 end }
+
 if app.session:has_access("authors_pseudonymous") then
     ui.container{ attr = { class = "content" }, content = function()
       ui.tag{
@@ -478,6 +518,8 @@ ui.container{attr={class="row-fluid"}, content=function()
   end
 end }
   end }
+end }
+end }
      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
       ui.container{ attr = { class = "span12 well"}, content = function()
        ui.container{ attr = { class = "row-fluid"}, content = function()
@@ -608,49 +650,24 @@ end }
 
 end }
 end }
-     ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
-      ui.container{ attr = { class = "span12 well"}, content = function()
-     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span3 offset1"}, content = function()
-     ui.image{static="png/committee_big.png"}
-        end }
-      ui.container{ attr = { class = "span5 offset2 text-center label label-warning"}, content = function()
-  ui.heading{ level=1, attr = { class = "spaceline "},  content = "Rapporto commissione tecnica" }
+ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+            execute.view{
+              module = "committee",
+              view   = "view",
+              params = {
+                state=state,
+                orderby=orderby,
+                desc=desc,
+                scope=scope,
+                interest=interest,
+                list="proposals",
+                ftl_btns=ftl_btns,
+                for_member=member,
+                for_details = false,
+                selector = issues_selector_myinitiatives
+              }
+            }
 
-        end }
-        end }
-
-     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-     ui.image{static="svg/commission_box_step0.svg"}
-        end }
-        end }
-     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
-     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span6 spaceline"}, content = function()
-  ui.heading{ level=3, attr = { class = " text-justify"},  content = "Se ritieni che per giudicare la validità di questa proposta sia necessario richiedere il parere di una commissione tecnica di esperti nel campo specifico premi questo Bottone:" }
-     end }
-      ui.container{ attr = { class = "span1 spaceline"}, content = function()
-     ui.image{static="svg/arrow-right.svg"}
-     end }
-      ui.container{ attr = { class = "span3 offset1 spaceline"}, content = function()
-        ui.anchor{
-          attr = {
-            href = "#",
-            class = "btn btn-primary medium_btn",
-            onclick = "alert('Richiedi commissione tecnica! (Ancora non implementato)' );"
-          },
-          content=function()
-            ui.heading{level=3,attr={class=""},content= "Richiedi commissione"}
-          end
-        }
-     end }
-     end }
-
-     end }
-     end }
-     end }
 end }
 
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
@@ -667,55 +684,11 @@ end }
         else
           ui.heading{ level=6, content = _"No author for this issue" }
         end
-      end }
-    end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=3, attr = { class = "uppercase  label label-warning" }, content = function()
-          ui.tag{content= _"Keywords:" }
-        end }
-        ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
-      end }
-    end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
-        local keywords=Keyword:by_issue_id(issue.id) 
-        if keywords and #keywords > 0 then
-          for k = 1, #keywords do
-          	if not keywords[k].technical_keyword then
-		          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
-		            ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-		          end }
-		        end
-          		end
-        		end
-      		  end }
-    		 end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=3, attr = { class = "uppercase label label-warning" }, content = function()
-          ui.tag{content=  _"Technical competence areas:" }
-        end }
-        ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
-					ui.container{ attr = { class = "row-fluid"}, content = function()
-						ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
-							local keywords=Keyword:by_issue_id(issue.id)
-							if keywords and #keywords > 0 then
-								for k = 1, #keywords do
-									if keywords[k].technical_keyword then
-										ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
-											ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-										end }
-									end
-								end
-							end
-						end }
-					end }
-      				       end }
-    				      end }
-				     end }
-  				    end }
-				   end }
+		       end }
+		      end }
+		     end }
+  		    end }
+		   end }
 
 
 ui.script{static = "js/jquery.quorum_bar.js"}
