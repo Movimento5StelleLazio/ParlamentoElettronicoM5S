@@ -35,9 +35,22 @@ util.help("area.show")
        ui.container{attr={class="span9"},content = function()
          ui.tag { tag = "h1", content = _("#{realname}, you are now in the Regione Lazio Assembly", {realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login)}) }
 	       end }
+
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span9 offset3 text-center" }, content = function()
+        ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
+          ui.container{ attr = { class  = "span6 text-right" }, content = function()
+            ui.heading{level=3 ,content=_"Ti trovi nell' area tematica:" }
+          end }
+            local area_id = area.id
+	    local name = area.name
+          ui.container{ attr = { class  = "span6 text-left" }, content = function()
+         ui.heading{level=3 ,content= name }
+          end }
+        end }
+          end }
+        end }
 	      end }
-
-
            ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
            ui.container{ attr = { class  = "span12 well-inside paper" }, content = function()
            ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()      
