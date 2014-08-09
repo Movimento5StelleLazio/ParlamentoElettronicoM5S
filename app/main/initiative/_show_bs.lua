@@ -335,7 +335,7 @@ end }
                     ui.container{ attr = { class = "span5"}, content = function()
     ui.container{ attr = { class = "row-fluid spaceline-bottom"}, content = function()
 
-                    ui.container{ attr = { class = "span6  btn btn-primary "}, content = function()
+                    ui.container{ attr = { class = "span6  btn btn-primary fixclick"}, content = function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
  ui.container{ attr = { class = "span6"}, content = function()
 ui.image{static="png/voting.png"}
@@ -351,7 +351,7 @@ ui.container{ attr = { class = "span6 text-center spaceline"}, content = functio
               
             },
             content = function()
-              ui.heading{ level=2, attr = { class = "spaceline"}, content=_"Vote now"}
+              ui.heading{ level=2, attr = { class = "spaceline fixclick"}, content=_"Vote now"}
           end }
           end }
           end }
