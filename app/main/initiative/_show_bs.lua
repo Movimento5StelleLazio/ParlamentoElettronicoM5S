@@ -702,7 +702,7 @@ end }
 
 end }
 end }
-ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+--[[ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
             execute.view{
               module = "committee",
               view   = "view",
@@ -720,7 +720,7 @@ ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
               }
             }
 
-end }
+end }]]
 
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span7"}, content = function()
