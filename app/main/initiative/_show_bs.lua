@@ -562,7 +562,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 
     execute.view{
       module = "draft",
-      view = "show",
+      view = "_show",
       params = {
         draft = initiative.current_draft
       }
