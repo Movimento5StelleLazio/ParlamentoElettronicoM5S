@@ -71,7 +71,8 @@ ui.form {
 				proposer1 = proposer1,
 				proposer2 = proposer2,
 				proposer3 = proposer3,
-				formatting_engine = "rocketwiki"
+				formatting_engine = "rocketwiki",
+				resource = resource
 			}
 		} 
 	}, 
@@ -301,6 +302,20 @@ ui.form {
 										attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"},
 										content=technical_areas
 									}
+							end }
+						end }
+						-- link youtube
+						ui.container{attr={class="row-fluid spaceline3 "},content=function()
+							ui.container{attr={class="span4 offset1 text-right"},content=function()
+								ui.tag{tag="p",content=  _"Youtube video"}
+--                      ui.tag{tag="em",content=  _"Draft note"}
+							end }
+							ui.container{attr={class="span6"},content=function()
+								ui.tag{
+									tag="textarea",
+									attr={id="resource",name="resource"},
+									content=resource
+								}
 							end }
 						end }
 					end }

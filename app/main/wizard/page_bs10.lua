@@ -18,6 +18,7 @@ local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
+local resource = param.get("resource", atom.string) or ""
 
 -- trace di controllo sui valori dei parametri
 trace.debug( "issue_id: "..tostring(issue_id) )
@@ -37,7 +38,8 @@ trace.debug( "draft: "..draft )
 trace.debug( "technical_areas: "..tostring(technical_areas) )
 trace.debug( "proposer1: "..tostring(proposer1) )
 trace.debug( "proposer2: "..tostring(proposer2) )
-trace.debug( "proposer3: "..tostring(proposer3) ) 
+trace.debug( "proposer3: "..tostring(proposer3) )
+trace.debug( "resource: "..(resource and resource or "none") )
 
 ui.form	{
 	method = "post",
@@ -62,40 +64,9 @@ ui.form	{
 		technical_areas = technical_areas,
 		proposer1 = proposer1,
 		proposer2 = proposer2,
-		proposer3 = proposer3
+		proposer3 = proposer3,
+		resource = resource
 	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard',
-			view = 'pag_bs12',
-			params = {
-				issue_id = issue_id,
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
-	}, 
 	content = function()
 		local progresso = _"FASE <strong>10</strong> di 10"
 		
@@ -115,11 +86,11 @@ ui.form	{
 				    end }
 				  end }
 				end }
-																ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/step_7_f10.png"}
-												end }
-								end }
+								ui.image{  static="png/step_7_f10.png"}
+							end }
+					end }
 				ui.container{attr={class="row-fluid well-inside paper"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center spaceline"},content=function()
@@ -142,9 +113,19 @@ ui.form	{
 									attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"}
 								}
 							end }
-						end }					
 						end }
-												ui.container{attr={class="row-fluid spaceline"},content=function()
+						
+						ui.container{attr={class="row-fluid"}, content=function()
+							ui.heading{level=4, attr={class="span4 offset1"}, content="Se lo hai fatto, puoi inserire il link di un video youtube relativo alla tua proposta"}
+							ui.field.text {
+								attr={id="resource", class="span6"},
+								name="resource",
+								value = resource
+							}
+						end }					
+					end }
+						
+					ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
@@ -167,11 +148,9 @@ ui.form	{
 								    slot.put(_"Next Phase")
 								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
 									end }
-							end }
 								end }
-						end }										
-
-
+							end }
+						end }
 			end }
 end }
 
@@ -200,39 +179,8 @@ ui.form	{
 		technical_areas = technical_areas,
 		proposer1 = proposer1,
 		proposer2 = proposer2,
-		proposer3 = proposer3
-	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard',
-			view = 'pag_bs9',
-			params = {
-				issue_id = issue_id,
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
+		proposer3 = proposer3,
+		resource = resource
 	}
 }
 

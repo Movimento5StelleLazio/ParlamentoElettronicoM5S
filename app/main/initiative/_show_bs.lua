@@ -528,9 +528,11 @@ ui.container{attr={class="row-fluid"}, content=function()
           content = function()
             slot.put(_"Edit draft")
           end,
-          module = "draft",
-          view = "new",
-          params = { initiative_id = initiative.id }
+          --module = "draft",
+          --view = "new",
+          module = "wizard",
+          view = "page_bs9",
+          params = { draft_id = initiative.current_draft.id, initiative_id = initiative.id }
         }
         slot.put(" &middot; ")
         ui.link{
