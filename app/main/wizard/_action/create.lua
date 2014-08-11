@@ -18,6 +18,7 @@ local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
 local formatting_engine = param.get("formatting_engine")
+local resource = param.get("resource")
 
 trace.debug( "issue_id: "..tostring(issue_id) )
 trace.debug( "area_id: "..tostring(area_id) )
@@ -318,6 +319,16 @@ for i,k in ipairs(param.get("technical_areas"):split(",")) do
    end
 end
 -- end of keywords
+
+-- video presentation
+if resource then
+	local video = Resource:new()
+	video.url = resource
+	video.initiative_id = initiative.id
+	video.type = "video"
+	video.title = "video presentation of initiative p"..tostring(initiative.id)
+	video:save()
+end
 
 slot.put_into("notice", _"Initiative successfully created")
  

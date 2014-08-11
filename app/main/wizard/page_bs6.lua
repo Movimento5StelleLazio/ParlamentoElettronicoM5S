@@ -18,6 +18,7 @@ local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or false
 local proposer2 = param.get("proposer2", atom.boolean) or false
 local proposer3 = param.get("proposer3", atom.boolean) or false
+local resource = param.get("resource", atom.string) or ""
 
 -- trace di controllo sui valori dei parametri
 trace.debug( "issue_id: "..tostring(issue_id) )
@@ -37,7 +38,8 @@ trace.debug( "draft: "..draft )
 trace.debug( "technical_areas: "..tostring(technical_areas) )
 trace.debug( "proposer1: "..tostring(proposer1) )
 trace.debug( "proposer2: "..tostring(proposer2) )
-trace.debug( "proposer3: "..tostring(proposer3) ) 
+trace.debug( "proposer3: "..tostring(proposer3) )
+trace.debug( "resource: "..(resource and resource or "none") )
 
 --set the back parameters
 local view_back = "page_bs4"
@@ -59,7 +61,8 @@ local params_back = {
 	technical_areas = technical_areas,
 	proposer1 = proposer1,
 	proposer2 = proposer2,
-	proposer3 = proposer3
+	proposer3 = proposer3,
+	resource = resource
 }
 
 ui.form	{
@@ -85,40 +88,9 @@ ui.form	{
 		technical_areas = technical_areas,
 		proposer1 = proposer1,
 		proposer2 = proposer2,
-		proposer3 = proposer3
+		proposer3 = proposer3,
+		resource = resource
 	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard',
-			view = 'pag_bs7',
-			params = {
-				issue_id = issue_id,
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
-	}, 
 	content = function()		
 		local progresso = _"FASE <strong>6</strong> di 10"
 		
@@ -208,18 +180,5 @@ ui.form	{
 	attr = { class = "inline-block", id = "page_bs6_back" },
 	module = module_back,
 	view = view_back,
-	params = params_back,
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = module_back,
-			view = view_back,
-			params = params_back
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
-	}
+	params = params_back
 }

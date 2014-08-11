@@ -36,6 +36,10 @@ function ui.field.popover(args)
 				attr["title data-original-title"] = args.attr.datatitle
 			end
 			
+			if args.attr.datahtml then
+				attr["data-html"] = args.attr.datahtml
+			end
+			
 			attr["id"] = ui.create_unique_id()
 			
 			if type(args.content) == "function" then

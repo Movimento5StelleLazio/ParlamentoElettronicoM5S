@@ -19,6 +19,7 @@ local technical_areas = param.get("technical_areas", atom.string) or ""
 local proposer1 = param.get("proposer1", atom.boolean) or true
 local proposer2 = param.get("proposer2", atom.boolean) or true
 local proposer3 = param.get("proposer3", atom.boolean) or true
+local resource = param.get("resource", atom.string) or ""
 
 -- trace di controllo sui valori dei parametri
 trace.debug( "issue_id: "..tostring(issue_id) )
@@ -40,6 +41,7 @@ trace.debug( "technical_areas: "..tostring(technical_areas) )
 trace.debug( "proposer1: "..tostring(proposer1) )
 trace.debug( "proposer2: "..tostring(proposer2) )
 trace.debug( "proposer3: "..tostring(proposer3) )
+trace.debug( "resource: "..(resource and resource or "none") )
 
 ui.form {
 	method = "post",
@@ -65,7 +67,8 @@ ui.form {
 		proposer1 = proposer1,
 		proposer2 = proposer2,
 		proposer3 = proposer3,
-		formatting_engine = "rocketwiki"
+		formatting_engine = "rocketwiki",
+		resource = resource
 	},
 	routing = {
 		error = {
@@ -91,7 +94,8 @@ ui.form {
 				proposer1 = proposer1,
 				proposer2 = proposer2,
 				proposer3 = proposer3,
-				formatting_engine = "rocketwiki"
+				formatting_engine = "rocketwiki",
+				resource = resource
 			}
 		} 
 	}, 
@@ -325,6 +329,20 @@ ui.form {
 									}
 							end }
 						end }
+						-- link youtube
+						ui.container{attr={class="row-fluid spaceline3 "},content=function()
+							ui.container{attr={class="span4 offset1 text-right"},content=function()
+								ui.tag{tag="p",content=  _"Youtube video"}
+--                      ui.tag{tag="em",content=  _"Draft note"}
+							end }
+							ui.container{attr={class="span6"},content=function()
+								ui.tag{
+									tag="textarea",
+									attr={id="resource",name="resource"},
+									content=resource
+								}
+							end }
+						end }
 					end }
 				end }
 
@@ -414,39 +432,8 @@ ui.form	{
 		technical_areas = technical_areas,
 		proposer1 = proposer1,
 		proposer2 = proposer2,
-		proposer3 = proposer3
-	},
-	routing = {
-		ok = {
-			mode   = 'redirect',
-			module = 'wizard',
-			view = 'pag_bs10',
-			params = {
-				issue_id = issue_id,
-				area_id = area_id,
-				unit_id = unit_id,
-				area_name = area_name,
-				unit_name = unit_name,
-				policy_id = policy_id,
-				issue_title = issue_title,
-				issue_brief_description = issue_brief_description,
-				issue_keywords = issue_keywords,
-				problem_description = problem_description,
-				aim_description = aim_description,
-				initiative_title = initiative_title,
-				initiative_brief_description = initiative_brief_description,
-				draft = draft,
-				technical_areas = technical_areas,
-				proposer1 = proposer1,
-				proposer2 = proposer2,
-				proposer3 = proposer3
-			}
-		},
-		error = {
-			mode   = '',
-			module = 'index',
-			view = 'index',
-		}
+		proposer3 = proposer3,
+		resource = resource
 	}
 }
 

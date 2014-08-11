@@ -17,14 +17,14 @@ trace.debug( "unit_name: "..tostring(unit_name) )
 
 --set the back parameters
 local view_back = "show_ext_bs"
-local module_back = "unit"
+local module_back = "unit_private"
 local params_back = { unit_id = unit_id, create = true, filter = "my_areas" }
 }
 
 ui.form {
 	method = "post",
 	attr = { id = "page_bs12", class = "" },
-	module = 'wizard',
+	module = 'wizard_private',
 	action = 'create',
 	params={
 		issue_id = issue_id,
@@ -50,7 +50,7 @@ ui.form {
 	routing = {
 		error = {
 			mode   = 'redirect',
-			module = 'wizard',
+			module = 'wizard_private',
 			view = 'shortcut',
 			params={
 				issue_id = issue_id,
@@ -71,7 +71,8 @@ ui.form {
 				proposer1 = proposer1,
 				proposer2 = proposer2,
 				proposer3 = proposer3,
-				formatting_engine = "rocketwiki"
+				formatting_engine = "rocketwiki",
+				resource = resource
 			}
 		} 
 	}, 
@@ -301,6 +302,20 @@ ui.form {
 										attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"},
 										content=technical_areas
 									}
+							end }
+						end }
+						-- link youtube
+						ui.container{attr={class="row-fluid spaceline3 "},content=function()
+							ui.container{attr={class="span4 offset1 text-right"},content=function()
+								ui.tag{tag="p",content=  _"Youtube video"}
+--                      ui.tag{tag="em",content=  _"Draft note"}
+							end }
+							ui.container{attr={class="span6"},content=function()
+								ui.tag{
+									tag="textarea",
+									attr={id="resource",name="resource"},
+									content=resource
+								}
 							end }
 						end }
 					end }
