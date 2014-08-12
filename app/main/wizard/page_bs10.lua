@@ -86,46 +86,69 @@ ui.form	{
 				    end }
 				  end }
 				end }
-				ui.container{attr={class="row-fluid"},content=function()
+																ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-								ui.image{  static="png/step_7_f10.png"}
-							end }
-					end }
+				ui.image{  static="png/step_7_f10.png"}
+												end }
+								end }
 				ui.container{attr={class="row-fluid well-inside paper"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(progresso) 
-								end }
-								ui.heading{level=4,attr={class="uppercase"},content = _"Insert Technical Areas"}
+
+
 							end }
 						end }
 		
-						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
-								ui.tag{tag="p", attr={class="text-center"}, content=  _"Technical competence areas:"}
-								ui.tag{tag="em",content=  _"Description technical note"}
+
+
+ui.container{attr={class="row-fluid"},content=function()
+					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
+									slot.put(progresso)
+								end }
 							end }
-							ui.container{attr={class="span6",style="height:4em;"},content=function()
+						ui.container{attr={class="span3 text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
+						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
+
+							ui.image{ static="png/help.png"}
+								end }	
+				ui.container{attr={class="span10 text-center spaceline"},content=function()					
+						ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Insert Technical Areas",
+						datacontent=_"Description technical note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+								end }							
+							end }
+						end }
+					end }
+
+
+
+						ui.container{attr={class="row-fluid text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
+								ui.tag{tag="p", attr={class="text-center"}, content=  _"Technical competence areas:"}
+
+							end }
+							ui.container{attr={class="row-fluid",style="height:4em;"},content=function()
+							ui.container{attr={class="span10 offset1 spaceline-bottom",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "technical_areas",
 									attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"}
 								}
 							end }
-						end }
-						
-						ui.container{attr={class="row-fluid"}, content=function()
-							ui.heading{level=4, attr={class="span4 offset1"}, content="Se lo hai fatto, puoi inserire il link di un video youtube relativo alla tua proposta"}
-							ui.field.text {
-								attr={id="resource", class="span6"},
-								name="resource",
-								value = resource
-							}
+							end }
 						end }					
-					end }
-						
-					ui.container{attr={class="row-fluid spaceline"},content=function()
+						end }
+												ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
@@ -148,9 +171,11 @@ ui.form	{
 								    slot.put(_"Next Phase")
 								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
 									end }
-								end }
 							end }
-						end }
+								end }
+						end }										
+
+
 			end }
 end }
 

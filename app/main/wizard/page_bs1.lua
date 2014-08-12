@@ -106,7 +106,7 @@ ui.form	{
 
 	
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span6 offset3"},content=function()
+							ui.container{attr={class="span7 offset3 spaceline-bottom"},content=function()
 								--valore selezionato
 								ui.field.hidden {
 									html_name = "policy_id",
@@ -116,7 +116,7 @@ ui.form	{
 
 								--radio-button group
 								ui.container {
-									attr={class="row-fluid block"},
+									attr={class="row-fluid"},
 									content=function()
 										ui.field.parelon_group_radio {
 											id = "policy_id",

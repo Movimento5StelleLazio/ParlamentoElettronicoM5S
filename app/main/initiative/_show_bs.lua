@@ -161,7 +161,27 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
           end }
       end }     
-
+            	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Ti trovi nei dettagli della QUESTIONE, con le informazioni integrali. Al box SOLUZIONI PROPOSTE puoi leggere la, o le PROPOSTE presentate per risolvere la QUESTIONE, o presentrare una tua PROPOSTA alternativa. ",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
     --[[  ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
@@ -191,6 +211,29 @@ end }
             ui.container{ attr = { class = "span9 offset1 phasesheight"}, content = function()
         execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
           end }
+          
+            	    ui.container{attr={class="span1 offset1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"La barra delle fasi la trovi in testa alle questioni ed alle proposte, tienila d' occhio, in quanto ti avvisa quando puoi emendare o votare la proposta. ",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+          
          end }
 
 
@@ -231,18 +274,32 @@ end }
   ui.container{attr={class="span8 offset2 text-center label label-warning spaceline3"}, content=function()
              ui.tag{tag="h3",content="LEGGI IL TESTO INTEGRALE E DAI IL TUO SOSTEGNO:" }
   end }
+              	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
   end }     
       ui.container{attr={class="row-fluid spaceline text-center"}, content=function()
       ui.container{attr={class="span12 well-inside paper"}, content=function()
- ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span10 offset1 text-justify spaceline"}, content=function()
-             ui.tag{tag="p",content="Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea" }
-  end }
-  end } 
-
-
        ui.container{attr={class="row-fluid spaceline text-center"}, content=function()
-        ui.container{attr={class="span3 spaceline"}, content=function()
+        ui.container{attr={class="span3 spaceline spaceline-bottom"}, content=function()
 	 if not issue.closed and not issue.fully_frozen then
 		if issue.member_info.own_participation then
 		  ui.link { attr = { class = "btn btn-primary btn_size_fix fixclick"}, 
@@ -294,7 +351,7 @@ if app.session.member_id then
     end }
 
 
-ui.container{attr={class="span3 spaceline"}, content=function()
+ui.container{attr={class="span3 spaceline spaceline-bottom"}, content=function()
         ui.link{
         attr = { class = "btn btn-primary btn_size_fix fixclick" },
           module = "suggestion", view = "new", params = { initiative_id = initiative.id },
@@ -528,11 +585,9 @@ ui.container{attr={class="row-fluid"}, content=function()
           content = function()
             slot.put(_"Edit draft")
           end,
-          --module = "draft",
-          --view = "new",
-          module = "wizard",
-          view = "page_bs9",
-          params = { draft_id = initiative.current_draft.id, initiative_id = initiative.id }
+          module = "draft",
+          view = "new",
+          params = { initiative_id = initiative.id }
         }
         slot.put(" &middot; ")
         ui.link{
@@ -628,7 +683,7 @@ end }
 end }
 end }
      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
-      ui.container{ attr = { class = "span12 well"}, content = function()
+      ui.container{ attr = { class = "span12 well-blue"}, content = function()
        ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
        ui.container{ attr = { class = "span8 offset2 text-center label label-warning"}, content = function()     
 

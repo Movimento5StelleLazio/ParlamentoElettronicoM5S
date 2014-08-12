@@ -57,10 +57,13 @@ end
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
+
+
       
-    ui.container{attr={class="row-fluid"},content=function()    
+    ui.container{attr={class="row-fluid"},content=function()  
+    ui.container{attr={class="span3 "},content=function()   
 		    ui.link{
-		      attr = { class="span3 inline btn btn-primary large_btn"  },
+		      attr = { class="btn btn-primary large_btn"  },
 		      module = "index",
 		      view = "index",
 		      content = function()
@@ -68,8 +71,9 @@ ui.container{attr={class="row-fluid"},content=function()
 		          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
 		          slot.put(_"Back to previous page")
 	        	end }
+	        	end }
 		  	end }
-			  ui.container { attr = { class = "span9 text-center" }, content = function()
+			  ui.container { attr = { class = "span7 text-center" }, content = function()
 			  ui.heading{level=1, content=function()
 			    slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}))
 			  end }
@@ -77,17 +81,34 @@ ui.container{attr={class="row-fluid"},content=function()
 	    ui.heading{level=6, content=_"You are now inside the Digital Assembly for Public Affairs."}
 	    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
 	    	end }
+	    	
+	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Choose by pressing one of the following buttons:",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
 
 		end }
+					ui.container{attr={class="row-fluid spaceline"},content=function()
+						ui.container{attr={class="span12 well-inside paper "},content=function()
 
-    ui.container{attr={class="row-fluid spaceline"},content=function()
-      ui.container{attr={class="span12"},content=function()
-        ui.heading{level=2, content=_"What you want to do?"}
-        ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
-      end }
-    end }
-
-    ui.container{attr={class="row-fluid text-center"},content=function()
+    ui.container{attr={class="row-fluid text-center spaceline-bottom"},content=function()
     
       ui.container{attr={class="span6 spaceline"},content=function()
         ui.link{attr={class="btn btn-primary large_btn"},
@@ -105,6 +126,8 @@ ui.container{attr={class="row-fluid"},content=function()
           params={create=true, filter = "my_areas" },
           content=function()
              ui.heading{level=3, content=_"Homepage write new issue"}
+        end }
+      end }
         end }
       end }
     end }

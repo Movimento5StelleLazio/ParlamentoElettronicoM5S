@@ -91,7 +91,7 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span9" }, content = function()
+      ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
              ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = (member.realname ~= "" and member.realname or member.login)}) }
@@ -99,13 +99,13 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center spaceline" }, content = function()
-             ui.heading{level=2,attr={class="label label-warning"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+             ui.heading{level=2,attr={class="label label-warning"},content=_"Scegli la questione da esaminare:" }
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
-          ui.container{ attr = { class  = "span5 offset1 text-right" }, content = function()
+          ui.container{ attr = { class  = "span5 text-right" }, content = function()
             ui.heading{level=3 ,content=_"Ti trovi nell' area tematica:" }
           end }
             local area_id = area.id
@@ -113,13 +113,39 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           ui.container{ attr = { class  = "span6 text-left" }, content = function()
          ui.heading{level=3 ,content= name }
           end }
+          
+
+          
+          
         end }
           end }
         end }
       end }
-    end }
-  end }
-end }
+                   	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Sei nell' elenco delle QUESTIONI presentate per questa area tematica, puoi applicare i filtri per selezionare con maggior precisione quelle di tuo interesse, o scorrere le QUESTIONI ed entrare nei dettagli.",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+         						  end 
+						} 
+		  end }
+		end }
+	end }
 
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
   btns = {

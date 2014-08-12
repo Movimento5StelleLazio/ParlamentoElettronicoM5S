@@ -49,8 +49,8 @@ local svgz = ""
          end }
 
 
-
-
+      	ui.container{ attr = { class = "row-fluid"}, content = function()
+      	ui.container{ attr = { class = "span12 well-blue"}, content = function()
       	ui.container{ attr = { class = "row-fluid"}, content = function()
         	ui.tag{tag="strong", attr = {class = "span7"},  content=function()
           	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
@@ -142,6 +142,8 @@ local svgz = ""
               ui.heading{ level=3,attr = {class="btn btn-primary large_btn"}, content=_"SEE DETAILS"}
           end }
          end }
+         end }
+                end }
                ui.container{attr = {class="row-fluid spaceline2"}, content =function()    
          end }
         end }

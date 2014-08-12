@@ -35,10 +35,10 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span8 text-center" }, content = function()
+      ui.container{ attr = { class  = "span7 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,content=_("#{realname}, you are now in the Regione Lazio Internal Assembly", {realname = member.realname})}
+            ui.heading{level=1,content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
@@ -46,8 +46,32 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
             ui.heading{level=2, content=_"CHOOSE THE THEMATIC AREA"}
           end }
         end }
+
       end }
+      
+      	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
     end }
+
   end }
 end }
 

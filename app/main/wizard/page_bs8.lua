@@ -91,30 +91,54 @@ ui.form	{
 				ui.image{  static="png/step_6_f8.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid  well-inside paper"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(progresso) 
+				ui.container{attr={class="row-fluid"},content=function()
+						ui.container{attr={class="span12  well-inside paper"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
+					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
+								slot.put(progresso) 
 								end }
-								ui.heading{level=4,attr={class="uppercase"},content=  _"Give a brief description for your initiative to solve the problem"}
+							end }
+						ui.container{attr={class="span3 text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
+						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
+
+							ui.image{ static="png/help.png"}
+								end }	
+				ui.container{attr={class="span10 text-center spaceline"},content=function()					
+						ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Give a brief description for your initiative to solve the problem",
+						datacontent=_"Initiative short note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+								end }							
 							end }
 						end }
-						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info init_brief"},content=function()
+					end }
+						ui.container{attr={class="row-fluid spaceline text-center"},content=function()
+							ui.container{attr={class="span4 offset4"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Initiative short description"}
-								ui.tag{tag="em",content=  _"Initiative short note"}
 							end }
-							ui.container{attr={class="span6 init_brief"},content=function()
+						end }	
+						ui.container{attr={class="row-fluid spaceline text-center"},content=function()
+							ui.container{attr={class="span10 offset1"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:none;height:260px;", class="span12"},
 									content=initiative_brief_description
 								}
 							end }
-						end }			
-						end }
+									end }
+
 						ui.container{attr={class="row-fluid spaceline"},content=function()
+							end }
+						end }
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {

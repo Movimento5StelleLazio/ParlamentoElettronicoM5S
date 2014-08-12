@@ -118,32 +118,63 @@ ui.form	{
 				ui.image{  static="png/step_5_f6.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid  well-inside paper"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
 
 						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(progresso) 
+							ui.container{attr={class="span12 well-inside paper"},content=function()
+
+
+
+					
+
+
+
+						ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+					ui.heading{level=3, attr={class="label label-warning"}, content=function() 
+							slot.put(progresso)
 								end }
-								ui.heading{level=4,attr={class="uppercase"},content=  _"Give a description to the aim you want to achieve"}
+							end }
+						ui.container{attr={class="span3 text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
+						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
+
+							ui.image{ static="png/help.png"}
+								end }	
+				ui.container{attr={class="span10 text-center spaceline"},content=function()					
+						ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Give a description to the aim you want to achieve",
+						datacontent=_"Target note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+								end }							
 							end }
 						end }
-
+					end }
 						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info aim_desc"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Target description"}
-								ui.tag{tag="em",content=  _"Target note"}
-							end }
-							ui.container{attr={class="span6 aim_desc"},content=function()
+								end }
+							ui.container{attr={class="row-fluid"},content=function()
+								ui.container{attr={class="span10 offset1"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="aim_description",name="aim_description", class="span12", style="resize:none;height:260px;"},
 									content=aim_description
 								}
+								end }
 							end }
 						end }						
-						end }			
+					end }			
 							ui.container{attr={class="row-fluid spaceline"},content=function()
+							end }
+						end }
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
