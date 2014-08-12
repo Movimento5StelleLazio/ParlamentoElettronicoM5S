@@ -91,21 +91,61 @@ ui.container{ attr = { class  = "row-fluid" } , content = function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span9" }, content = function()
+      ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
              ui.heading{level=1,attr={class="fittext0"},content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = (member.realname ~= "" and member.realname or member.login)}) }
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span12 text-center spaceline" }, content = function()
+             ui.heading{level=2,attr={class="label label-warning"},content=_"Scegli la questione da esaminare:" }
+          end }
+        end }
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-             ui.heading{level=2,attr={class="label label-warning"},content=_"CHOOSE THE INITIATIVE TO EXAMINE:" }
+        ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
+          ui.container{ attr = { class  = "span5 text-right" }, content = function()
+            ui.heading{level=3 ,content=_"Ti trovi nell' area tematica:" }
+          end }
+            local area_id = area.id
+	    local name = area.name
+          ui.container{ attr = { class  = "span6 text-left" }, content = function()
+         ui.heading{level=3 ,content= name }
+          end }
+          
+
+          
+          
+        end }
           end }
         end }
       end }
-    end }
-  end }
-end }
+                   	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Sei nell' elenco delle QUESTIONI presentate per questa area tematica, puoi applicare i filtri per selezionare con maggior precisione quelle di tuo interesse, o scorrere le QUESTIONI ed entrare nei dettagli.",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+         						  end 
+						} 
+		  end }
+		end }
+	end }
 
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
   btns = {
@@ -155,8 +195,15 @@ ui.container{ attr = { class="span12 well"}, content=function()
         ui.heading{level=3,content=_(issues_desc) or "Initiatives:" }
       end }
     end }
-    ui.container{ attr = { class="row-fluid spaceline"}, content=function()
-      ui.container{ attr = { class="span12 text-center btn-group"}, content=function()
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span12 well-inside paper"}, content=function()
+    ui.container{ attr = { class="row-fluid"}, content=function()
+      ui.container{ attr = { class="span6 offset3"}, content=function()
+       ui.heading{ level=3, attr = { class = "uppercase text-center" }, content = function()
+          ui.tag{content= "Ordina le proposte per:" }
+      end }
+    end }
+      end }
           local btna,btnb,btnc,btnd = "", "", "", ""
           if orderby == "supporters" then
             btna = " active"
@@ -168,54 +215,62 @@ ui.container{ attr = { class="span12 well"}, content=function()
           if desc then
             btnd = " active"
           end
-           
+               ui.container{ attr = { class="row-fluid spaceline"}, content=function()
 --          local btn_style = "width:25%;"
 		  if not app.session.member.elected then
---            btn_style = "width:25%;"
+--            btn_style = "width:25%;"      
+            ui.container{ attr = { class="span3 text-center spaceline  spaceline-bottom"}, content=function()
             ui.link {
-              attr = { class="btn btn-primary fixclick filter_btn"..btna, style=btn_style },
-              module = "area_private",
+              attr = { class="btn btn-primary large_btn fixclick"..btna, style=btn_style },
+              module = "area",
               view = "show_ext_bs",
               id = area.id,
               params = { state=state, orderby="supporters", interest=interest, desc=desc, ftl_btns=ftl_btns},
               content = function()
-                ui.heading { level=4, content = _"ORDER BY NUMBER OF SUPPORTERS" }
+                ui.heading { level=3, content = _"ORDER BY NUMBER OF SUPPORTERS" }
               end
             }
+        end }
 		  end 
+            ui.container{ attr = { class="span3 text-center spaceline  spaceline-bottom"}, content=function()
           ui.link {
-            attr = { class="btn btn-primary fixclick filter_btn"..btnb, style=btn_style },
-            module = "area_private",
+            attr = { class="btn btn-primary large_btn fixclick"..btnb, style=btn_style },
+            module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="creation_date", interest=interest, desc=desc, ftl_btns=ftl_btns },
             content = function()
-              ui.heading { level=4, content = _"ORDER BY DATE OF CREATION" }
+              ui.heading { level=3, content = _"ORDER BY DATE OF CREATION" }
             end
           }
+        end }
+            ui.container{ attr = { class="span3 text-center spaceline  spaceline-bottom"}, content=function()
           ui.link {
-            attr = { class="btn btn-primary fixclick filter_btn"..btnc, style=btn_style },
-            module = "area_private",
+            attr = { class="btn btn-primary large_btn fixclick"..btnc, style=btn_style },
+            module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby="event", interest=interest, desc=desc, ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4, content = _"ORDER BY LAST EVENT DATE"  }
+              ui.heading { level=3, content = _"ORDER BY LAST EVENT DATE"  }
             end
           }
+        end }
+            ui.container{ attr = { class="span3 text-center spaceline  spaceline-bottom"}, content=function()
           ui.link {
-            attr = { class="btn btn-primary fixclick filter_btn"..btnd, style=btn_style },
-            module = "area_private",
+            attr = { class="btn btn-primary large_btn_filter fixclick"..btnd, style=btn_style },
+            module = "area",
             view = "show_ext_bs",
             id = area.id,
             params = { state=state, orderby=orderby, interest=interest, desc=not(desc), ftl_btns=ftl_btns},
             content = function()
-              ui.heading { level=4, content = inv_txt  }
+              ui.heading { level=3, content = inv_txt  }
             end
           }
         end }
     end }
-
+    end }
+    end }
       ui.container{ attr = { id="issues_box", class="row-fluid spaceline"}, content=function()
         execute.view{
           module="issue_private" ,

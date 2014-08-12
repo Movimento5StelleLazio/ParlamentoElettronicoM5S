@@ -91,7 +91,8 @@ ui.form	{
 				ui.image{  static="png/step_6_f7.png"}
 												end }
 								end }
-				ui.container{attr={class="row-fluid  well-inside paper"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span12 well-inside paper text-center spaceline"},content=function()
 						ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 text-center spaceline"},content=function()
 								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
@@ -111,6 +112,7 @@ ui.form	{
 									value = initiative_title
 								}
 							end }
+						end }
 						end }
 						end }
 						ui.container{attr={class="row-fluid spaceline"},content=function()

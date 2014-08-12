@@ -57,7 +57,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           end
         }
       end }
-      ui.container{ attr = { class  = "span9" }, content = function()
+      ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
           ui.container{attr={class="span7 offset1 label label-warning text-center"}, content=function()
             ui.heading{level=1,attr={class="fittext1 uppercase "},content=_"Details for issue Q"..issue.id}
@@ -82,7 +82,29 @@ ui.container{attr={class="row-fluid"}, content=function()
           end }
         end }
       end }
-   --[[   ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
+      
+            	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Ti trovi nei dettagli della QUESTIONE, con le informazioni integrali. Al box SOLUZIONI PROPOSTE puoi leggere la, o le PROPOSTE presentate per risolvere la QUESTIONE, o presentrare una tua PROPOSTA alternativa. ",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+       --[[   ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12" }, content = function()
 
