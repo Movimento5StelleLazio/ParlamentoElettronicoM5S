@@ -94,7 +94,7 @@ ui.form	{
 						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 						slot.put(_"FASE <strong>3</strong> di 10") 
 								end }
-							end }
+								end }
 								
 
 		ui.container{attr={class="span3 text-center spaceline"},content=function()

@@ -96,7 +96,7 @@ ui.form	{
 
 	
 						ui.container{attr={class="row-fluid  spaceline3"},content=function()
-							ui.container{attr={class="span12 text-center"},content=function()
+							ui.container{attr={class="span10 offset1 text-center"},content=function()
 								ui.field.text {
 									attr={id="issue_title"},
 									name="issue_title",

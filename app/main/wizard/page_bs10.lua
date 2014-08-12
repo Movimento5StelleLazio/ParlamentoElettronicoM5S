@@ -86,19 +86,12 @@ ui.form	{
 				    end }
 				  end }
 				end }
-																ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/step_7_f10.png"}
-												end }
-								end }
-				ui.container{attr={class="row-fluid well-inside paper"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-
-
+								ui.image{  static="png/step_7_f10.png"}
 							end }
-						end }
-		
+					end }
+				ui.container{attr={class="row-fluid well-inside paper"},content=function()
 
 
 ui.container{attr={class="row-fluid"},content=function()
@@ -148,7 +141,18 @@ ui.container{attr={class="row-fluid"},content=function()
 							end }
 						end }					
 						end }
-												ui.container{attr={class="row-fluid spaceline"},content=function()
+						
+						ui.container{attr={class="row-fluid"}, content=function()
+							ui.heading{level=4, attr={class="span4 offset1"}, content="Se lo hai fatto, puoi inserire il link di un video youtube relativo alla tua proposta"}
+							ui.field.text {
+								attr={id="resource", class="span6"},
+								name="resource",
+								value = resource
+							}
+						end }					
+					end }
+						
+					ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
