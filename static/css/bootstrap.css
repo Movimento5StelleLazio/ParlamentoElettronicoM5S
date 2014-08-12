@@ -2337,7 +2337,7 @@ table th[class*="span"],
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.well {
+/*.well {
   min-height: 20px;
   padding: 25px;
   margin-bottom: 20px;
@@ -2348,7 +2348,7 @@ table th[class*="span"],
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
 }
 .well blockquote {
   border-color: #ddd;
@@ -3632,7 +3632,7 @@ background: linear-gradient(180deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
   border-bottom-color: #ffffff;
 }
 .popover.left .arrow {
-  top: 50%;
+  top: 6%;
   right: -11px;
   margin-top: -11px;
   border-right-width: 0;
@@ -4965,6 +4965,9 @@ margin-top: 100px;
   border-radius: 3px;
 }
 .well {
+ min-height: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
   background-color: #fffcd3;
   border: 0;
   -webkit-border-radius: 10px;
@@ -4980,6 +4983,26 @@ margin-top: 100px;
   background-image: -o-linear-gradient(top, #fffeed, #fffcd3);
   background-image: linear-gradient(to bottom, #fffeed, #fffcd3);
   background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeed', endColorstr='#fffffcd3', GradientType=0);
+}
+.well-blue {
+ min-height: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  background-color: rgb(170, 218, 255);
+  border: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 11px #808080;
+  -moz-box-shadow: 0px 5px 11px #808080;
+  box-shadow: 0px 5px 11px #808080;
+background: rgb(170, 218, 255);
+background: -moz-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
+background: -webkit-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
+background: -o-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
+background: -ms-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
+background: linear-gradient(180deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeed', endColorstr='#fffffcd3', GradientType=0);
 }
 .well-inside {
