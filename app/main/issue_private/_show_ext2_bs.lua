@@ -95,7 +95,7 @@ local svgz = ""
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12 depression_box"}, content =function()
+          ui.container{attr = {class="span12 well-inside"}, content =function()
             local initiatives_selector = issue:get_reference_selector("initiatives")
             local highlight_string = param.get("highlight_string")
             if highlight_string then

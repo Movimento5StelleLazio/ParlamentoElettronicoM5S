@@ -74,7 +74,8 @@ ui.form	{
 			progresso = _"FASE <strong>2</strong> di 5"
 		end
 		
-		ui.container{attr={class="row-fluid well"},content=function()
+		ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="span12 well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
 				  ui.container{attr={class="span12 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
@@ -143,7 +144,7 @@ ui.form	{
 					end }
 				end }
 			end }
-
+			end }
 --	ROUTING BACK
 
 ui.form	{

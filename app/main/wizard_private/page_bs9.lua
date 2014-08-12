@@ -112,9 +112,10 @@ if draft_id ~= 0 then
 				next_view = "page_bs12"
 	]]
 		
-			ui.container{attr={class="row-fluid well"},content=function()
+			ui.container{attr={class="row-fluid"},content=function()
+						ui.container{attr={class="span12 well"},content=function()
 					ui.container{attr={class="row-fluid"},content=function()
-						ui.container{attr={class="span12 text-center"},content=function()
+						ui.container{attr={class="span10 offset1 text-center"},content=function()
 						  ui.heading{level=1, attr={class="uppercase"},content= _"Create new draft"}
 						  ui.heading{level=2,attr={class="spaceline"}, content= function()
 						    slot.put(_"Unit"..": ".."<strong>"..Unit:by_id(area.unit_id).name.."</strong>" )
@@ -123,29 +124,55 @@ if draft_id ~= 0 then
 						    slot.put( _"Area"..": ".."<strong>"..area.name.."</strong>" )
 						  end }
 						end }
+										  				  			ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Insert the text for your initiative to solve the problem",
+								datacontent=_"Draft note",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
 					end }
-					ui.container{attr={class="row-fluid well-inside paper"},content=function()
+					ui.container{attr={class="row-fluid"},content=function()
+											ui.container{attr={class="span12 well-inside paper"},content=function()
 							ui.container{attr={class="row-fluid"},content=function()
 								ui.container{attr={class="span12 text-center spaceline"},content=function()
 									ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 										slot.put(progresso) 
 									end }
-									ui.heading{level=4,attr={class="uppercase"},content=  _"Insert the text for your initiative to solve the problem"}
 								end }
 							end }
 				
-							ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-								ui.container{attr={class="span4 offset1 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
+							ui.container{attr={class="row-fluid spaceline text-center"},content=function()
+								ui.container{attr={class="span6 offset3"},content=function()
 									ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
-									ui.tag{tag="em",content=  _"Draft note"}
+							end }
 								end }
+								
+															ui.container{attr={class="row-fluid spaceline text-center"},content=function()
+								ui.container{attr={class="span10 offset1"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="content",name="content",class="span7", style="height:32em; resize:none;"},
 									content=new_draft
 								}
-							end }
 												end }
+																								end }
+												end }
+																								end }
 																		ui.container{attr={class="row-fluid spaceline"},content=function()
 							-- Pulsante "Indietro"
 							ui.container{attr={class="span3 offset1 text-center"},content=function()
@@ -173,6 +200,7 @@ if draft_id ~= 0 then
 							end }										
 						end }
 				end }
+					end }
 	end }
 else
 	ui.form	{
@@ -214,9 +242,10 @@ else
 	]]
 			end
 		
-			ui.container{attr={class="row-fluid well"},content=function()
+			ui.container{attr={class="row-fluid"},content=function()
+						ui.container{attr={class="span12 well"},content=function()
 					ui.container{attr={class="row-fluid"},content=function()
-						ui.container{attr={class="span12 text-center"},content=function()
+						ui.container{attr={class="span10 offset1 text-center"},content=function()
 						  ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
 						  ui.heading{level=2,attr={class="spaceline"}, content= function()
 						    slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
@@ -225,34 +254,59 @@ else
 						    slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
 						  end }
 						end }
+																  				  			ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Insert the text for your initiative to solve the problem",
+								datacontent=_"Draft note",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
 					end }
 																	ui.container{attr={class="row-fluid"},content=function()
 							ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
 					ui.image{  static="png/step_6_f9.png"}
 													end }
 									end }
-					ui.container{attr={class="row-fluid well-inside paper"},content=function()
+					ui.container{attr={class="row-fluid"},content=function()
+										ui.container{attr={class="span12 well-inside paper"},content=function()
 							ui.container{attr={class="row-fluid"},content=function()
 								ui.container{attr={class="span12 text-center spaceline"},content=function()
 									ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 										slot.put(progresso) 
 									end }
-									ui.heading{level=4,attr={class="uppercase"},content=  _"Insert the text for your initiative to solve the problem"}
 								end }
 							end }
 				
 							ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-								ui.container{attr={class="span4 offset1 pagination-justify alert alert-info collapse", style="height:100%"},content=function()
+								ui.container{attr={class="span6 offset3"},content=function()
 									ui.tag{tag="p", attr={class="text-center"}, content=  _"Draft text"}
-									ui.tag{tag="em",content=  _"Draft note"}
 								end }
+															end }
+															ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
+																							ui.container{attr={class="span10 offset1"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="draft",name="draft",class="span7", style="height:32em; resize:none;"},
+									attr={id="draft",name="draft",style="height:22em; resize:none;"},
 									content=draft
 								}
-							end }
+													end }
+																										end }
 												end }
+													end }
 																		ui.container{attr={class="row-fluid spaceline"},content=function()
 							-- Pulsante "Indietro"
 							ui.container{attr={class="span3 offset1 text-center"},content=function()
@@ -281,7 +335,7 @@ else
 						end }
 				end }
 	end }
-
+	end }
 end
 
 --	ROUTING BACK

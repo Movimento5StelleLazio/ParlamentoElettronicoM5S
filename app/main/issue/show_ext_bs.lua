@@ -40,7 +40,7 @@ end
 local url=request.get_absolute_baseurl().."issue/show/show_ext2_bs/"..tostring(issue.id)..".html"
 
 ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 well-blue"}, content=function()
+  ui.container{attr={class="span12 well"}, content=function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
@@ -83,7 +83,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
       
-	    ui.container{attr={class="span1 text-center "},content=function()
+            	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
@@ -137,7 +137,7 @@ end }
   end }
 end }
 	ui.container{attr={class="row-fluid"}, content=function()
-	ui.container{attr={class="span12 well"}, content=function()
+	ui.container{attr={class="span12 well-blue"}, content=function()
 	ui.container{attr={class="row-fluid"}, content=function()
 	  ui.container{attr={class="span12 spaceline3"}, content=function()
 	    ui.container{ attr = { class = "row-fluid"}, content = function()

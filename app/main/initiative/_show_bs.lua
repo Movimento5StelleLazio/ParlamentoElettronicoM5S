@@ -376,41 +376,41 @@ local vote_link_text
 if voteable then 
   vote_link_text = direct_voter and _"Change vote" or _"Vote now"
 
-	ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-		ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
+ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+	ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
 
-			ui.container{ attr = { class = "span4 offset1 spaceline"}, content = function()
-				ui.heading{ level=2, content= "La proposta è passata alla fase di votazione: clicca  sul pulsante per votare:"}
-			end }
-			ui.container{ attr = { class = "span2 spaceline"}, content = function()
-				ui.image{ static="svg/arrow-right.svg"}
-			end }
+		ui.container{ attr = { class = "span4 offset1 spaceline"}, content = function()
+			ui.heading{ level=2, content= "Se la proposta è passata per la fase di votazione, clicca  sul pulsante per votare:"}
+		end }
+		ui.container{ attr = { class = "span2 spaceline"}, content = function()
+			ui.image{ static="svg/arrow-right.svg"}
+		end }
 			
-			ui.container{ attr = { class = "span5"}, content = function()
-				ui.container{ attr = { class = "row-fluid spaceline-bottom"}, content = function()
-					ui.link {        
-						attr = { id = "issue_see_det_"..issue.id},
-						module = "vote",
-						view = "list",
-						id = issue.id,
-						params = {issue_id = issue.id },
-						content = function()
-						ui.container{ attr = { class = "span6  btn btn-primary "}, content = function()
-							ui.container{ attr = { class = "row-fluid"}, content = function()
-								ui.container{ attr = { class = "span6"}, content = function()
-									ui.image{static="png/voting.png"}
-								end }
+		ui.container{ attr = { class = "span5"}, content = function()
+			ui.container{ attr = { class = "row-fluid spaceline-bottom"}, content = function()
+				ui.link {        
+					attr = { id = "issue_see_det_"..issue.id},
+					module = "vote",
+					view = "list",
+					id = issue.id,
+					params = {issue_id = issue.id },
+					content = function()
+					ui.container{ attr = { class = "span6  btn btn-primary "}, content = function()
+						ui.container{ attr = { class = "row-fluid"}, content = function()
+							ui.container{ attr = { class = "span6"}, content = function()
+								ui.image{static="png/voting.png"}
+							end }
 
-								ui.container{ attr = { class = "span6 text-center spaceline"}, content = function()									
-											ui.heading{ level=2, attr = { class = "spaceline"}, content=_"Vote now"}
-									end }
+							ui.container{ attr = { class = "span6 text-center spaceline"}, content = function()									
+										ui.heading{ level=2, attr = { class = "spaceline"}, content=_"Vote now"}
 								end }
 							end }
 						end }
 					end }
-			end }
+				end }
 		end }
 	end }
+end }
 elseif vote_comment_able then
   vote_link_text = direct_voter and _"Update voting comment"
 end 
