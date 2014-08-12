@@ -95,10 +95,30 @@ local svgz = ""
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12 well"}, content =function()
-
+          ui.container{attr = {class="span12 depression_box"}, content =function()
+            local initiatives_selector = issue:get_reference_selector("initiatives")
+            local highlight_string = param.get("highlight_string")
+            if highlight_string then
+              initiatives_selector:add_field( {'"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+            end
+            execute.view{
+              module = "initiative",
+              view = "_list_ext_bs",
+              params = {
+                issue = issue,
+                initiatives_selector = initiatives_selector,
+                highlight_initiative = for_initiative,
+                highlight_string = highlight_string,
+                no_sort = true,
+                limit = (for_listing or for_initiative) and 5 or nil,
+                hide_more_initiatives=false,
+                limit=25,
+                for_member = for_member
+              }
+            }
           end }
-
+        end }
+    
         ui.container{attr = {class="row-fluid"}, content =function()
           if app.session.member_id and direct_voter then
             ui.container {
@@ -148,5 +168,4 @@ local svgz = ""
          end }
         end }
        end }
-      end }
 
