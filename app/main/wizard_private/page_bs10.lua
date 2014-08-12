@@ -139,7 +139,6 @@ ui.container{attr={class="row-fluid"},content=function()
 								}
 							end }
 							end }
-						end }					
 						end }
 						
 						ui.container{attr={class="row-fluid"}, content=function()
