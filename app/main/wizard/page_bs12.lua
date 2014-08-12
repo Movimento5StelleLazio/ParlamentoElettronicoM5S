@@ -111,15 +111,10 @@ ui.form {
 	end
 	trace.debug( "disable: "..disable.."; only_draft: "..only_draft)
 	
-	ui.container{attr={class="row-fluid well"},content=function()
-
+	ui.container{attr={class="row-fluid"},content=function()
+		ui.container{attr={class="span12 well"},content=function()
 					ui.container{attr={ class  = "row-fluid" } , content = function()
-						ui.container{attr={ class  = "span12 text-center" }, content = function()
-							ui.heading{level=1, content = _"WIZARD HEADER END" }
-						end }
-					end }
-					ui.container{ attr = { class  = "row-fluid spaceline3" } , content = function()
-						ui.container{ attr = { class  = "span3" }, content = function()
+											ui.container{ attr = { class  = "span3" }, content = function()
 							-- implementare "indietro"
 							ui.tag {
 								tag = "a",
@@ -131,8 +126,29 @@ ui.form {
 								end }
 							end }				
 						end }
-						ui.container{ attr = { class  = "span9" }, content = function()
-							ui.heading{level=4, content = _"WIZARD END"}
+						ui.container{attr={ class  = "span7 label label-warning text-center" }, content = function()
+							ui.heading{level=1, content = _"WIZARD HEADER END" }
+						end }
+									ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Insert Technical Areas",
+								datacontent=_"WIZARD END",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="icon"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
 						end }
 					end }
 			ui.container{attr={class="row-fluid"},content=function()
@@ -151,8 +167,8 @@ ui.form {
 												end }
 								end }
 
-	ui.container{attr={class="row-fluid well-inside paper"},content=function()
-		ui.container{attr={class="span12 text-center"},content=function()
+	ui.container{attr={class="row-fluid"},content=function()
+		ui.container{attr={class="span12 text-center well-inside paper"},content=function()
 			--Selezione policy
 			ui.container{ attr={class="formSelect"},content=function()
 					local area_policies = AllowedPolicy:get_policy_by_area_id(area_id)
@@ -163,7 +179,7 @@ ui.form {
 					end
 
 					ui.container{attr={class="formSelect"..disable},content=function()
-						ui.container{attr={class="row-fluid spaceline3 "},content=function()
+						ui.container{attr={class="row-fluid spaceline1 spaceline-bottom "},content=function()
 							ui.container{attr={class="span12"},content=function()
 								ui.container{attr={class="inline-block"},content=function()
 									ui.container{attr={class="text-left"},content=function()
@@ -194,29 +210,35 @@ ui.form {
          end }
 				-- Box questione
 				ui.container{attr={class="row-fluid spaceline3 "..disable},content=function()
-					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
+					ui.container{attr={class="span12 well-blue", style="padding-bottom:30px"},content=function()
 						--Titolo box questione
-						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1"},content=function()      
-								ui.heading{ level=5, attr = { class = "alert head-orange uppercase text-center" }, content = _"QUESTIONE" }
+						ui.container{attr={class="row-fluid spaceline "},content=function()
+							ui.container{attr={class="span10 offset1  offset3 label label-warning "},content=function()      
+								ui.heading{ level=1, attr = { class = "uppercase text-center" }, content = _"QUESTIONE" }
 							end }
 						end }
 						--Titolo questione
-						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right"},content=function() 
-								ui.tag{tag="label", content=_"Problem Title"}
+						ui.container{attr={class="row-fluid spaceline "},content=function()
+							ui.container{attr={class="row-fluid spaceline "},content=function()
+								ui.container{attr={class="span10 offset1 text-left"},content=function() 
+									ui.tag{tag="label", content=_"Problem Title"}
+							end }
 						end }
-						ui.container{attr={class="span6"},content=function() 
-								ui.tag{tag="input",attr={id="issue_title", name="issue_title", value=issue_title, style="width:100%;"}, content=""}
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1 text-left spaceline"},content=function() 
+									ui.tag{tag="input",attr={id="issue_title", name="issue_title", value=issue_title, style="width:70%;"}, content=""}
+								end }
 							end }
 						end }
 						-- Descrizione breve questione
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right issue_brief_span"},content=function()
+							ui.container{attr={class="span10 offset1 text-left"},content=function()
 								ui.tag{tag="p",content=  _"Description to the problem you want to solve"}
 --									ui.tag{tag="em",content=  _"Description note"}
 							end }
-							ui.container{attr={class="span6 issue_brief_span"},content=function()
+						end }
+						ui.container{attr={class="row-fluid "},content=function()
+							ui.container{attr={class="span10 offset1 issue_brief_span"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="issue_brief_description",name="issue_brief_description", style="width:100%;height:250px;resize:yes;"},
@@ -226,11 +248,13 @@ ui.form {
 						end }
 						-- Keywords
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right"},content=function()
+							ui.container{attr={class="span10 offset1 text-left"},content=function()
 								ui.tag{tag="p",content=  _"Keywords"}
 --                     ui.tag{tag="em",content=  _"Keywords note"}
 								end }
-								ui.container{attr={class="span6 collapse",style="height:200px;"},content=function()
+							end }
+							ui.container{attr={class="row-fluid"},content=function()
+								ui.container{attr={class="span10 offset1 collapse",style="height:200px;"},content=function()
 									ui.tag{
 										tag="textarea",
 										attr={id="issue_keywords",name="issue_keywords",class="tagsinput",style="height:200px;resize:none;"},
@@ -240,11 +264,13 @@ ui.form {
 						end }
 						-- Descrizione del problema
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right issue_desc"},content=function()
+							ui.container{attr={class="span10 offset1 text-left issue_desc"},content=function()
 								ui.tag{tag="p",content=  _"Problem description"}
 --                      ui.tag{tag="em",content=  _"Problem note"}
-							end }
-							ui.container{attr={class="span6 issue_desc"},content=function()
+						end }	
+					end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1  issue_desc"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="problem_description",name="problem_description",style="height:250px;width:100%;resize:yes;"},
@@ -257,29 +283,33 @@ ui.form {
 
 				-- Box proposta
 				ui.container{attr={class="row-fluid spaceline3 "},content=function()
-					ui.container{attr={class="span12 text-center alert alert-simple issue_box paper", style="padding-bottom:30px"},content=function()
+					ui.container{attr={class="span12 well", style="padding-bottom:30px"},content=function()
 						-- Titolo box proposta			  
-						ui.container{attr={class="row-fluid spaceline3 "..only_draft},content=function()
-							ui.container{attr={class="span4 offset1"},content=function()      
-								ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase text-center" }, content = _"PROPOSTA" }
+						ui.container{attr={class="row-fluid"..only_draft},content=function()
+							ui.container{attr={class="span6 offset3 label label-warning text-center"},content=function()      
+								ui.heading{ level=1, content = _"PROPOSTA" }
 							end }
 						end }
 						-- Titolo proposta
 						ui.container{attr={class="row-fluid spaceline3 "..only_draft},content=function()
-							ui.container{attr={class="span4 offset1 text-right"},content=function() 
+							ui.container{attr={class="span10 offset1 text-left"},content=function() 
 								ui.tag{tag="label", content=_"Initiative Title"}
 							end }
-							ui.container{attr={class="span6"},content=function() 
+						end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1 "},content=function() 
 								ui.tag{tag="input",attr={id="initiative_title", name="initiative_title", value=initiative_title, style="width:100%;"}, content=""}
 							end }
 						end }
 						-- Descrizione breve proposta
 						ui.container{attr={class="row-fluid spaceline3 "..only_draft},content=function()
-							ui.container{attr={class="span4 offset1 text-right init_brief"},content=function()
+							ui.container{attr={class="span10 offset1 text-left init_brief"},content=function()
 								ui.tag{tag="p",content=  _"Initiative short description"}
 --                      ui.tag{tag="em",content=  _"Initiative short note"}
 							end }
-							ui.container{attr={class="span6 init_brief"},content=function()
+						end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1  init_brief"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="initiative_brief_description",name="initiative_brief_description",style="resize:yes;height:250px;width:100%;resize:none;"},
@@ -289,11 +319,13 @@ ui.form {
 						end }
 						-- Descrizione dell'obiettivo
 						ui.container{attr={class="row-fluid spaceline3 "..only_draft},content=function()
-							ui.container{attr={class="span4 offset1 text-right aim_desc"},content=function()
+							ui.container{attr={class="span10 offset1 text-left aim_desc"},content=function()
 								ui.tag{tag="p",content=  _"Target description"}
 --                      ui.tag{tag="em",content=  _"Target note"}
 							end }
-							ui.container{attr={class="span6 aim_desc"},content=function()
+						end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1  aim_desc"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="aim_description",name="aim_description",style="height:250px;width:100%;resize:yes;"},
@@ -303,11 +335,13 @@ ui.form {
 						end }
 						-- Testo della proposta
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right draft"},content=function()
+							ui.container{attr={class="span10 offset1 text-left draft"},content=function()
 								ui.tag{tag="p",content=  _"Draft text"}
 --                      ui.tag{tag="em",content=  _"Draft note"}
 							end }
-							ui.container{attr={class="span6 draft"},content=function()
+						end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1  draft"},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="draft",name="draft",style="height:250px;width:100%;resize:yes;"},
@@ -317,11 +351,13 @@ ui.form {
 						end }
 						-- Keywords competenze tecniche
 						ui.container{attr={class="row-fluid spaceline3 "..only_draft},content=function()
-							ui.container{attr={class="span4 offset1 text-right"},content=function()
+							ui.container{attr={class="span10 offset1 text-left"},content=function()
 								ui.tag{tag="p",content=  _"Keywords"}
 --                     ui.tag{tag="em",content=  _"Keywords note"}
 								end }
-								ui.container{attr={class="span6 collapse",style="height:auto;"},content=function()
+							end }
+						ui.container{attr={class="row-fluid"},content=function()
+								ui.container{attr={class="span10 offset1  collapse",style="height:auto;"},content=function()
 									ui.tag{
 										tag="textarea",
 										attr={id="technical_areas",name="technical_areas",class="tagsinput",style="height:250px;resize:none;"},
@@ -331,11 +367,13 @@ ui.form {
 						end }
 						-- link youtube
 						ui.container{attr={class="row-fluid spaceline3 "},content=function()
-							ui.container{attr={class="span4 offset1 text-right"},content=function()
+							ui.container{attr={class="span10 offset1 text-left"},content=function()
 								ui.tag{tag="p",content=  _"Youtube video"}
 --                      ui.tag{tag="em",content=  _"Draft note"}
 							end }
-							ui.container{attr={class="span6"},content=function()
+						end }
+						ui.container{attr={class="row-fluid"},content=function()
+							ui.container{attr={class="span10 offset1 "},content=function()
 								ui.tag{
 									tag="textarea",
 									attr={id="resource",name="resource"},
@@ -355,11 +393,11 @@ ui.form {
 						ui.container{attr={class="row-fluid"},content=function()						
 							ui.container{attr={class="span3 text-center",style="margin-left: 7em;" },content=function()
 								--pulsante anteprima
-								ui.container{attr={id="btnAnteprima",class="btn btn-primary _btn_large fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
+								ui.container{attr={id="btnAnteprima",class="btn btn-primary _btn_large fixclick",disabled="true",style="opacity:0.5;float:left;height: 40px;"},
 									module = "wizard",
 									view = "anteprima",
 									content=function()
-										ui.heading{level=4, attr = {class = "fittext_btn_wiz" },content=function()
+										ui.heading{level=3, attr = {class = "fittext_btn_wiz" },content=function()
 											ui.container{attr={class="row-fluid"},content=function()
 												ui.container{attr={class="span12"},content=function()
 													slot.put(_"Show preview"  )
@@ -371,11 +409,11 @@ ui.form {
 							--pulsante "Save preview"
 							ui.container{attr={class="span3 text-center"},content=function()
 								ui.container{
-									attr={id="btnSalvaPreview",class="btn btn-primary btn-large fixclick",disabled="true",style="opacity:0.5;float:left;height: 103px;"},
+									attr={id="btnSalvaPreview",class="btn btn-primary btn-large fixclick",disabled="true",style="opacity:0.5;float:left;height: 40px;"},
 									module = "wizard",
 									view = "_save_preview",
 									content=function()
-										ui.heading { level=4, attr = {class = "fittext_btn_wiz" }, content=function()
+										ui.heading { level=3, attr = {class = "fittext_btn_wiz" }, content=function()
 											ui.container { attr={class="row-fluid"}, content=function()
 												ui.container { attr={class="span12"}, content=function()
 													slot.put(_"Save preview"  )
@@ -388,15 +426,16 @@ ui.form {
 							ui.container{attr={class="span3 text-center"},content=function()
 								ui.tag{
 									tag="a",
-										attr={id="btnSaveIssue",class="btn btn-primary btn-large fixclick",style="float:left;cursor:pointer;height: 103px;", onclick="getElementById(\"page_bs12\").submit()"},
+										attr={id="btnSaveIssue",class="btn btn-primary btn-large fixclick",style="float:left;cursor:pointer;height: 40px;", onclick="getElementById(\"page_bs12\").submit()"},
 										content=function()													
-										ui.heading { level=4, attr = {class = "fittext_btn_wiz" }, content=function()
+										ui.heading { level=3, attr = {class = "fittext_btn_wiz" }, content=function()
 											ui.container { attr={class="row-fluid"}, content=function()
 												ui.container { attr={class="span12"}, content=function()
 													slot.put(_"Save issue"  )
 												end }
 											end }																			
 										end }
+									end }
 								end	}
 							end }										 
 						end	}
