@@ -116,7 +116,7 @@ if not move_down and not move_up then
   if not preview and not cancel then
     request.redirect{
       module = "issue",
-      view = "show",
+      view = "show_ext_bs",
       id = issue.id
     }
   end

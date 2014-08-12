@@ -83,7 +83,7 @@ ui.container{attr={class="row-fluid"}, content=function()
         end }
       end }
       
-            	    ui.container{attr={class="span1 text-center "},content=function()
+	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
@@ -122,7 +122,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 
           end }
         end }
-      end }--]]
+      end }]]
     end }
   end }
 end }
@@ -180,6 +180,44 @@ end }
       end }
     end }
 
+		if app.session.member_id and issue.state == 'voting' then
+			ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+				ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
+
+					ui.container{ attr = { class = "span4 offset1 spaceline"}, content = function()
+						ui.heading{ level=2, content= "La proposta è passata alla fase di votazione: clicca  sul pulsante per votare:"}
+					end }
+					ui.container{ attr = { class = "span2 spaceline"}, content = function()
+						ui.image{ static="svg/arrow-right.svg"}
+					end }
+
+					ui.container{ attr = { class = "span5"}, content = function()
+						ui.container{ attr = { class = "row-fluid spaceline-bottom"}, content = function()
+							ui.link {        
+								attr = { id = "issue_see_det_"..issue.id},
+								module = "vote",
+								view = "list",
+								id = issue.id,
+								params = {issue_id = issue.id },
+								content = function()
+									ui.container{ attr = { class = "span6  btn btn-primary "}, content = function()
+										ui.container{ attr = { class = "row-fluid"}, content = function()
+											ui.container{ attr = { class = "span6"}, content = function()
+												ui.image{static="png/voting.png"}
+											end }
+
+											ui.container{ attr = { class = "span6 text-center spaceline"}, content = function()									
+												ui.heading{ level=2, attr = { class = "spaceline"}, content=_"Vote now"}
+											end }
+										end }
+									end }
+							end }
+						end }
+					end }
+				end }
+			end }
+		end
+
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
@@ -206,12 +244,12 @@ end }
     end }
         ui.container{ attr = { class = "row-fluid"}, content = function()
                 ui.container{ attr = { class = "span12 well"}, content = function()
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    --[[ui.container{ attr = { class = "row-fluid"}, content = function()
 
       ui.container{ attr = { class = "span12"}, content = function()
           ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
-          end }
-          end }
+          -end }
+          end }]]
               ui.container{ attr = { class = "row-fluid"}, content = function()
 
       ui.container{ attr = { class = "span12"}, content = function()
@@ -236,7 +274,7 @@ end }
         end }					
         ui.container{ attr = { class = "row-fluid"}, content = function()
 						ui.container{ attr = { class = "span12 well"}, content = function()
-        ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
+        --[[ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }]]
 
 							local keywords=Keyword:by_issue_id(issue.id)
 							if keywords and #keywords > 0 then
@@ -290,9 +328,13 @@ end }
                   content= _"initiatives"
                 end
     
+    						
                 ui.tag{content=function()
-                  
-                  slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa <br /> Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                  if issue.state == 'admission' then
+                  	slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa <br /> Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                  else
+                  	slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa.",{ count=#issue.initiatives }) )
+                  end
                 end }
               end }
     
