@@ -92,27 +92,54 @@ ui.form	{
 							end }
 					end }
 				ui.container{attr={class="row-fluid well-inside paper"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(progresso) 
+
+
+ui.container{attr={class="row-fluid"},content=function()
+					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
+									slot.put(progresso)
 								end }
-								ui.heading{level=4,attr={class="uppercase"},content = _"Insert Technical Areas"}
+							end }
+						ui.container{attr={class="span3 text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
+						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
+
+							ui.image{ static="png/help.png"}
+								end }	
+				ui.container{attr={class="span10 text-center spaceline"},content=function()					
+						ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Insert Technical Areas",
+						datacontent=_"Description technical note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+								end }							
 							end }
 						end }
-		
-						ui.container{attr={class="row-fluid spaceline3 text-center"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
+					end }
+
+
+
+						ui.container{attr={class="row-fluid text-center"},content=function()
+							ui.container{attr={class="row-fluid"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Technical competence areas:"}
-								ui.tag{tag="em",content=  _"Description technical note"}
+
 							end }
-							ui.container{attr={class="span6",style="height:4em;"},content=function()
+							ui.container{attr={class="row-fluid",style="height:4em;"},content=function()
+							ui.container{attr={class="span10 offset1 spaceline-bottom",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "technical_areas",
 									attr={id="technical_areas",name="technical_areas",class="tagsinput",style="resize:none;"}
 								}
 							end }
+							end }
+						end }					
 						end }
 						
 						ui.container{attr={class="row-fluid"}, content=function()
@@ -148,9 +175,11 @@ ui.form	{
 								    slot.put(_"Next Phase")
 								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
 									end }
-								end }
 							end }
-						end }
+								end }
+						end }										
+
+
 			end }
 end }
 

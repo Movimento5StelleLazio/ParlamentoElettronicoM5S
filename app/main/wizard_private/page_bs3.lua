@@ -87,29 +87,68 @@ ui.form	{
 								end }
 
 
-						ui.container{attr={class="row-fluid well-inside paper"},content=function()
-												ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(_"FASE <strong>3</strong> di 10") 
+		ui.container{attr={class="row-fluid"},content=function()
+			ui.container{attr={class="span12 well-inside paper"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
+					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
+						slot.put(_"FASE <strong>3</strong> di 10") 
 								end }
-								ui.heading{level=4,attr={class="uppercase"},content = _"Give a short description to the problem you want to solve"}
-							end }
-							end }
+								end }
+								
 
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
-								ui.tag{tag="p", attr={class="text-center"}, content=  _"Description to the problem you want to solve"}
-								ui.tag{tag="em",content=  _"Description note"}
+		ui.container{attr={class="span3 text-center spaceline"},content=function()
+		
+
+
+ui.container{attr={class="row-fluid"},content=function()
+		ui.container{attr={class="span2 text-center spaceline"},content=function()
+									ui.image{ static="png/help.png"}
+
+end }
+	
+		ui.container{attr={class="span10 text-center spaceline"},content=function()					ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Description to the problem you want to solve",
+						datacontent=_"Description note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+end }
+
+end }
+
+
+
 							end }
-							ui.container{attr={class="span6 issue_brief_span"},content=function()
+						end }
+		ui.container{attr={class="row-fluid"},content=function()
+			ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
+				ui.heading{level=4,attr={class="uppercase"},content = _"Give a short description to the problem you want to solve"}
+							end }
+						end }
+
+						ui.container{attr={class="row-fluid spaceline"},content=function()
+
+							ui.container{attr={class="span10 offset1"},content=function()
 								ui.tag{
 									tag="textarea",
-									attr={id="issue_brief_description",name="issue_brief_description", class="span12", style = "height:4em;resize: none"},
+									attr={id="issue_brief_description",name="issue_brief_description", style = "height:4em;resize: none"},
 									content=issue_brief_description
 								}
-								ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
+end }
 							end }
+
+						ui.container{attr={class="row-fluid"},content=function()
+
+							ui.container{attr={class="span8 offset1"},content=function()
+								ui.tag{tag="small", attr={class="uppercase"}, content= _"Maxiumum number of characters is 140 (#{chars} left)"}
+											end }					
+						end }		
 						end }					
 						end }
 						-- Pulsante "Indietro"

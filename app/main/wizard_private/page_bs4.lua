@@ -88,20 +88,49 @@ ui.form	{
 				ui.container{attr={class="row-fluid spaceline"},content=function()
 				  ui.container{attr={class="span12 well-inside paper"},content=function()	
 						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
+							ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
 								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(_"FASE <strong>4</strong> di 10") 
 								end }
-								ui.heading{level=4,attr={class="uppercase"},content = _"Insert the keywords for the issue"}
+								
 							end }
+		ui.container{attr={class="span3 text-center spaceline"},content=function()
+		
+
+
+ui.container{attr={class="row-fluid"},content=function()
+		ui.container{attr={class="span2 text-center"},content=function()
+									ui.image{ static="png/help.png"}
+
+end }
+	
+		ui.container{attr={class="span10 text-center"},content=function()					ui.field.popover{
+						attr={
+						dataplacement="left",
+						datahtml = "true";
+						datatitle= _"Insert the keywords for the issue",
+						datacontent=_"Keywords note",
+						class = "btn btn-primary",
+						datahtml = "true"
+						},
+						content = "Suggerimento"
+					}
+end }
+
+end }
+							end }
+
 						end }
 		
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span4 offset1 pagination-justify alert alert-info"},content=function()
-								ui.tag{tag="p", attr={class="text-center"}, content=  _"Keywords"}
-								ui.tag{tag="em",content=  _"Keywords note"}
-							end }
-							ui.container{attr={class="span6",style="height:4em;"},content=function()
+				ui.container{attr={class="row-fluid spaceline"},content=function()
+					ui.container{attr={class="span10 offset1 text-center"},content=function()
+						ui.heading{level=4,attr={class="uppercase"},content = _"Keywords"}
+end }
+						end }
+
+						ui.container{attr={class="row-fluid spaceline"},content=function()
+						
+							ui.container{attr={class="span10 offset1 spaceline-bottom",style="height:4em;"},content=function()
 								ui.tag{
 									tag="input", 
 									id = "issue_keywords",
