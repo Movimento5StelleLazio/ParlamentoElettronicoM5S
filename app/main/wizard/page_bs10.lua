@@ -94,7 +94,7 @@ ui.form	{
 				ui.container{attr={class="row-fluid well-inside paper"},content=function()
 
 
-ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="row-fluid"},content=function()
 					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
 						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(progresso)
@@ -139,7 +139,6 @@ ui.container{attr={class="row-fluid"},content=function()
 								}
 							end }
 							end }
-						end }					
 						end }
 						
 						ui.container{attr={class="row-fluid"}, content=function()
