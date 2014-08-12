@@ -68,9 +68,10 @@ ui.form	{
 		resource = resource
 	},
 	content = function()	
-		ui.container{attr={class="row-fluid well"},content=function()
+		ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="span12 well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
-				  ui.container{attr={class="span12 text-center"},content=function()
+				  ui.container{attr={class="span10 offset1 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
 				    ui.heading{level=2,attr={class="spaceline"}, content= function()
 				      slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
@@ -79,6 +80,27 @@ ui.form	{
 				      slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
 				    end }
 				  end }
+			ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Give a description to the problem you want to solve",
+								datacontent=_"Problem note",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
 				end }
 					ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
@@ -93,27 +115,6 @@ ui.form	{
 							slot.put(_"FASE <strong>5</strong> di 10") 
 								end }
 							end }
-						ui.container{attr={class="span3 text-center"},content=function()
-							ui.container{attr={class="row-fluid"},content=function()
-						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
-
-							ui.image{ static="png/help.png"}
-								end }	
-				ui.container{attr={class="span10 text-center spaceline"},content=function()					
-						ui.field.popover{
-						attr={
-						dataplacement="left",
-						datahtml = "true";
-						datatitle= _"Give a description to the problem you want to solve",
-						datacontent=_"Problem note",
-						class = "btn btn-primary",
-						datahtml = "true"
-						},
-						content = "Suggerimento"
-					}
-								end }							
-							end }
-						end }
 					end }
 
 		
@@ -160,7 +161,7 @@ end }
 														end }
 						end }										
 
-
+			end }
 			end }
 end }
 

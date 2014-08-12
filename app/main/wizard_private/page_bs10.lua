@@ -74,9 +74,10 @@ ui.form	{
 			progresso = _"FASE <strong>5</strong> di 5"
 		end
 		
-		ui.container{attr={class="row-fluid well"},content=function()
+		ui.container{attr={class="row-fluid"},content=function()
+				ui.container{attr={class="span12 well"},content=function()
 				ui.container{attr={class="row-fluid"},content=function()
-				  ui.container{attr={class="span12 text-center"},content=function()
+				  ui.container{attr={class="span10 offset1 text-center"},content=function()
 				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
 				    ui.heading{level=2,attr={class="spaceline"}, content= function()
 				      slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
@@ -85,46 +86,42 @@ ui.form	{
 				      slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
 				    end }
 				  end }
+				  										  				  			ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Insert Technical Areas",
+								datacontent=_"Description technical note",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
 				end }
-				ui.container{attr={class="row-fluid"},content=function()
+																ui.container{attr={class="row-fluid"},content=function()
 						ui.container{attr={class="span12 alert alert-simple issue_box paper"},content=function()
-								ui.image{  static="png/step_7_f10.png"}
-							end }
-					end }
-				ui.container{attr={class="row-fluid well-inside paper"},content=function()
-
-
-ui.container{attr={class="row-fluid"},content=function()
+				ui.image{  static="png/step_7_f10.png"}
+												end }
+								end }
+				ui.container{attr={class="row-fluid"},content=function()
+								ui.container{attr={class="span12 well-inside paper"},content=function()
+			ui.container{attr={class="row-fluid"},content=function()
 					ui.container{attr={class="span6 offset3 text-center spaceline"},content=function()
 						ui.heading{level=3, attr={class="label label-warning"}, content=function() 
 									slot.put(progresso)
 								end }
 							end }
-						ui.container{attr={class="span3 text-center"},content=function()
-							ui.container{attr={class="row-fluid"},content=function()
-						 		ui.container{attr={class="span2 text-center spaceline"},content=function()
-
-							ui.image{ static="png/help.png"}
-								end }	
-				ui.container{attr={class="span10 text-center spaceline"},content=function()					
-						ui.field.popover{
-						attr={
-						dataplacement="left",
-						datahtml = "true";
-						datatitle= _"Insert Technical Areas",
-						datacontent=_"Description technical note",
-						class = "btn btn-primary",
-						datahtml = "true"
-						},
-						content = "Suggerimento"
-					}
-								end }							
-							end }
-						end }
 					end }
-
-
-
 						ui.container{attr={class="row-fluid text-center"},content=function()
 							ui.container{attr={class="row-fluid"},content=function()
 								ui.tag{tag="p", attr={class="text-center"}, content=  _"Technical competence areas:"}
@@ -149,9 +146,9 @@ ui.container{attr={class="row-fluid"},content=function()
 								value = resource
 							}
 						end }					
-					end }
-						
-					ui.container{attr={class="row-fluid spaceline"},content=function()
+						end }
+												end }
+												ui.container{attr={class="row-fluid spaceline"},content=function()
 						-- Pulsante "Indietro"
 						ui.container{attr={class="span3 offset1 text-center"},content=function()
 							ui.tag {
@@ -177,7 +174,7 @@ ui.container{attr={class="row-fluid"},content=function()
 							end }
 								end }
 						end }										
-
+			end }
 
 			end }
 end }

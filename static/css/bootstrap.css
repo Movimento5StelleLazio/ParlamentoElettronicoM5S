@@ -1095,11 +1095,11 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 80%;
+  width: 100%;
 }
 textarea {
   height: auto;
-  width: 80%;
+  width: 100%;
 }
 textarea,
 input[type="text"],
@@ -3632,7 +3632,7 @@ background: linear-gradient(180deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
   border-bottom-color: #ffffff;
 }
 .popover.left .arrow {
-  top: 6%;
+  top: 18px;
   right: -11px;
   margin-top: -11px;
   border-right-width: 0;
@@ -4812,7 +4812,7 @@ div.tagsinput span.tag {
   white-space: nowrap;
 }
 div.tagsinput input {
-  width: 100%;
+  width: 100%100%;
   margin: 0px;
   border: 1px solid transparent;
   padding: 5px;
@@ -4997,13 +4997,31 @@ margin-top: 100px;
   -webkit-box-shadow: 0px 5px 11px #808080;
   -moz-box-shadow: 0px 5px 11px #808080;
   box-shadow: 0px 5px 11px #808080;
-background: rgb(170, 218, 255);
-background: -moz-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
-background: -webkit-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
-background: -o-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
-background: -ms-linear-gradient(90deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
-background: linear-gradient(180deg, rgb(170, 218, 255) 0%, rgb(94, 196, 255) 70%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeed', endColorstr='#fffffcd3', GradientType=0);
+background: rgb(224, 255, 204);
+background: -moz-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -webkit-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -o-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -ms-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: linear-gradient(180deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+}
+.well-orange {
+ min-height: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  background-color: rgb(170, 218, 255);
+  border: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 11px #808080;
+  -moz-box-shadow: 0px 5px 11px #808080;
+  box-shadow: 0px 5px 11px #808080;
+background: rgb(224, 255, 204);
+background: -moz-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -webkit-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -o-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: -ms-linear-gradient(90deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
+background: linear-gradient(180deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70%);
 }
 .well-inside {
   -webkit-box-shadow: inset 0px 2px 7px rgba(0,0,0,.35);
