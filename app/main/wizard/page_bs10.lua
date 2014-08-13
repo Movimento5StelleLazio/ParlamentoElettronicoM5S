@@ -86,7 +86,7 @@ ui.form	{
 				      slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
 				    end }
 				  end }
-				  										  				  			ui.container{attr={class="span1 text-center "},content=function()
+			ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",

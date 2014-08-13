@@ -1,124 +1,29 @@
 /* Style reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,a,img,form,label,legend,table,tbody,tfoot,thead,tr,th,td
 	{
-	margin: 0;
+	/*	margin: 0;
 	padding: 0;
-	/*border-radius: 8px;*/
+border-radius: 8px;
 	outline: 0;
 	font-weight: inherit;
 	font-style: inherit;
-	font-size: 102%;
+	font-size: 18px;
 	font-family: inherit;
-	vertical-align: baseline;
+	vertical-align: baseline;*/
 }
 
-body {
-	line-height: 1;
-	color: black;
-  background-color: #F9EAD6;
-}
 
-li {
-	line-height: 133%;
-}
-
-p {
-	margin-top: 2ex;
-	margin-bottom: 2ex;
-}
-
-a {
-	text-decoration: none;
-}
-
-table {
-	border-collapse: separate;
-	border-spacing: 0;
-}
-
-caption,th,td {
-	text-align: left;
-	font-weight: normal;
-}
-
-a:focus {
-	outline: 1px solid #f90;
 }
 /*************************************************************************
  * Some global definitions 
  */
-body {
-  background-color: #F9EAD6;
-	background-image: url("back.png");
-	line-height: 120%:
-}
 
-body,th,td {
-	font-family: Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 10pt;
-	padding: 0;
-	margin: 0;
-}
 
 .page,.topbar_content {
 	/*max-width: 1130px;*/
 	margin: 0 auto;
 }
 
-body,a {
-	color: #000;
-}
-
-img {
-	border: none;
-}
-
-table {
-	border-collapse: collapse;
-	border: none;
-}
-
-td,th {
-	padding: 0.5ex 0.5em 0.5ex 0em;
-}
-
-td {
-	vertical-align: top;
-}
-
-th {
-	vertical-align: bottom;
-	font-weight: bold;
-}
-
-a.active {
-	color: #fff;
-}
-
-.revoked {
-	text-decoration: line-through;
-}
-
-.highlighted {Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: #fa7;
-	color: #000;
-}
-
-.admin_only {
-	font-style: italic;
-}
-
-h1 {
-	font-size: 150%;
-}
-
-h2 {
-	font-size: 125%;
-}
-
-.inline {
-	display: inline;
-}
 
 /*************************************************************************
  * Notices, warnings and errors
@@ -576,7 +481,7 @@ a.delegation_info:hover,a.delegation_info:focus {
 
 /*************************************************************************
  * ui.tab
- */
+ 
 .ui_tabs_links {
 	line-height: 460%;
         text-align:center;
@@ -600,7 +505,7 @@ a.delegation_info:hover,a.delegation_info:focus {
   border-color: #ffca65 #ffca65 #ffb018;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #ffca65;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders 
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-color: #ffca65;
@@ -648,7 +553,7 @@ a.delegation_info:hover,a.delegation_info:focus {
   border-color: #ffc14b #ffc14b #fea700;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #ffc14b;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+ Darken IE7 buttons by default so they stand out more given they won't have borders 
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-color: #ffc14b;
@@ -659,7 +564,7 @@ a.delegation_info:hover,a.delegation_info:focus {
   background-repeat: no-repeat;
   border-color: transparent;
 }
-
+*/
 /*************************************************************************
  * ui.filters
  */
@@ -886,7 +791,7 @@ div.notifications {
 
 /*************************************************************************
  * Positive / Negtive votes
- */
+
 .positive_votes span {
 	display: inline;
 }
@@ -912,8 +817,8 @@ div.notifications {
 	padding-left: 0.2ex !important;
 	padding-right: 0.2ex !important;
 }
-
-.active {
+*/
+.active_black {
 	background-color: #444;
 	color: #fff;
 }

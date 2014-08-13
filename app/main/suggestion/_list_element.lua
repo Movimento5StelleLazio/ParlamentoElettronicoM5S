@@ -33,8 +33,11 @@ local ui_filters = ui.filters
 if true or not show_filter then
   ui_filters = function(args) args.content() end
 end
-
-ui.container{ attr = { class = "box" },
+ui.container{ attr = { class = "row-fluid" },
+  content = function()
+  ui.container{ attr = { class = "span12 well-inside paper" },
+  content = function()
+ui.container{ attr = { class = "row-fluid" },
   content = function()
     ui.paginate{
       selector = suggestions_selector,
@@ -58,7 +61,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = _"Collective opinion of supporters",
-              label_attr = { style = "width: 101px;" },
+              label_attr = { style = "width: 20%;" },
               content = function(record)
                 if record.minus2_unfulfilled_count then
                   local max_value = record.initiative.supporter_count
@@ -78,7 +81,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = _"My opinion",
-              label_attr = { style = "width: 130px; font-style: italic;" },
+              label_attr = { style = "width: 28%" },
               content = function(record)
                 local degree
                 local opinion
@@ -98,7 +101,7 @@ ui.container{ attr = { class = "box" },
                           ui.tag{
                             tag = "span",
                             attr = {
-                              class = "action" .. (degree == -2 and " active_red2" or "")
+                              class = "action label " .. (degree == -2 and " active_red2" or "")
                             },
                             content = _"must not"
                           }
@@ -106,28 +109,28 @@ ui.container{ attr = { class = "box" },
                         if degree == -1 then
                           ui.tag{
                             tag = "span",
-                            attr = { class = "action" .. (degree == -1 and " active_red1" or "") },
+                            attr = { class = "action label" .. (degree == -1 and " active_red1" or "") },
                             content = _"should not"
                           }
                         end
                         if degree == nil then
                           ui.tag{
                             tag = "span",
-                            attr = { class = "action" .. (degree == nil and " active" or "") },
+                            attr = { class = "action label" .. (degree == nil and " active_black" or "") },
                             content = _"neutral"
                           }
                         end
                         if degree == 1 then
                           ui.tag{
                             tag = "span",
-                            attr = { class = "action" .. (degree == 1 and " active_green1" or "") },
+                            attr = { class = "action label" .. (degree == 1 and " active_green1" or "") },
                             content = _"should"
                           }
                         end
                         if degree == 2 then
                           ui.tag{
                             tag = "span",
-                            attr = { class = "action" .. (degree == 2 and " active_green2" or "") },
+                            attr = { class = "action label" .. (degree == 2 and " active_green2" or "") },
                             content = _"must"
                           }
                         end
@@ -137,7 +140,7 @@ ui.container{ attr = { class = "box" },
                         params['initiative_id'] = initiative.id
 
                         ui.link{
-                          attr = { class = "action" .. (degree == 2 and " active_green2" or "") },
+                          attr = { class = "action label" .. (degree == 2 and " active_green2" or "") },
                           text = _"must",
                           module = "opinion",
                           action = "update",
@@ -148,9 +151,9 @@ ui.container{ attr = { class = "box" },
                           },
                           partial = partial
                         }
-                        slot.put(" ")
+                        slot.put(" - ")
                         ui.link{
-                          attr = { class = "action" .. (degree == 1 and " active_green1" or "") },
+                          attr = { class = "action label" .. (degree == 1 and " active_green1" or "") },
                           text = _"should",
                           module = "opinion",
                           action = "update",
@@ -161,9 +164,9 @@ ui.container{ attr = { class = "box" },
                           },
                           partial = partial
                         }
-                        slot.put(" ")
+                        slot.put(" - ")
                         ui.link{
-                          attr = { class = "action" .. (degree == nil and " active" or "") },
+                          attr = { class = "action label" .. (degree == nil and " active_black" or "") },
                           text = _"neutral",
                           module = "opinion",
                           action = "update",
@@ -174,9 +177,9 @@ ui.container{ attr = { class = "box" },
                           },
                           partial = partial
                         }
-                        slot.put(" ")
+                        slot.put(" - ")
                         ui.link{
-                          attr = { class = "action" .. (degree == -1 and " active_red1" or "") },
+                          attr = { class = "action label" .. (degree == -1 and " active_red1" or "") },
                           text = _"should not",
                           module = "opinion",
                           action = "update",
@@ -187,9 +190,9 @@ ui.container{ attr = { class = "box" },
                           },
                           partial = partial
                         }
-                        slot.put(" ")
+                        slot.put(" - ")
                         ui.link{
-                          attr = { class = "action" .. (degree == -2 and " active_red2" or "") },
+                          attr = { class = "action label" .. (degree == -2 and " active_red2" or "") },
                           text = _"must not",
                           module = "opinion",
                           action = "update",
@@ -212,7 +215,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = _"Suggestion currently not implemented",
-              label_attr = { style = "width: 101px;" },
+              label_attr = { style = "width:10%;" },
               content = function(record)
                 if record.minus2_unfulfilled_count then
                   local max_value = record.initiative.supporter_count
@@ -232,7 +235,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = _"Suggestion currently implemented",
-              label_attr = { style = "width: 101px;" },
+              label_attr = { style = "width:10%;" },
               content = function(record)
                 if record.minus2_fulfilled_count then
                   local max_value = record.initiative.supporter_count
@@ -252,7 +255,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = app.session.member_id and _"I consider suggestion as" or nil,
-              label_attr = { style = "width: 100px; font-style: italic;" },
+              label_attr = { style = "width:20%;" },
               content = function(record)
                 local degree
                 local opinion
@@ -265,7 +268,7 @@ ui.container{ attr = { class = "box" },
                 if opinion then
 
                   ui.link{
-                    attr = { class = opinion.fulfilled and "action active" or "action" },
+                    attr = { class = opinion.fulfilled and "action active_black label" or "action label"  },
                     text = _"implemented",
                     module = "opinion",
                     action = "update",
@@ -278,7 +281,7 @@ ui.container{ attr = { class = "box" },
                   }
                   slot.put("<br />")
                   ui.link{
-                    attr = { class = not opinion.fulfilled and "action active" or "action" },
+                    attr = { class = not opinion.fulfilled and "action active_black label" or "action label" },
                     text = _"not implemented",
                     module = "opinion",
                     action = "update",
@@ -295,6 +298,7 @@ ui.container{ attr = { class = "box" },
             },
             {
               label = app.session.member_id and _"So I'm" or nil,
+              label_attr = { style = "width:18%;" },
               content = function(record)
                 local opinion
                 if app.session.member_id then
@@ -319,4 +323,8 @@ ui.container{ attr = { class = "box" },
       end
     }
   end
+}
+  end
+}  
+	end
 }

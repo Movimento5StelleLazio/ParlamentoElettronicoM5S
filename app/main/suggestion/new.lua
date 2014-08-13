@@ -4,14 +4,15 @@ slot.put_into("title", _"Add new suggestion")
 
 ui.actions(function()
   ui.link{
-    content = function()
-        ui.image{ static = "icons/16/cancel.png" }
-        slot.put(_"Cancel")
-    end,
-    module = "initiative",
-    view = "show",
-    id = initiative_id,
-    params = { tab = "suggestions" }
+		attr = { class = "btn btn-primary" },
+		  content = function()
+		      ui.image{ attr = { class = "arrow_small" }, static = "svg/arrow-left.svg" }
+		      slot.put(_"Back")
+		  end,
+		  module = "initiative",
+		  view = "show",
+		  id = initiative_id,
+		  params = { tab = "suggestions" }
   }
 end)
 
@@ -65,7 +66,7 @@ ui.form{
       content = function()
         ui.tag{
           tag = "label",
-          attr = { class = "ui_field_label" },
+          attr = { class = "label" },
           content = function() slot.put("&nbsp;") end,
         }
         ui.tag{

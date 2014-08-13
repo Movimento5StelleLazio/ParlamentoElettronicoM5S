@@ -41,7 +41,7 @@ ui.paginate{
       end }
     end
 
-    ui.container{ attr = { class = "issues" }, content = function()
+    ui.container{ attr = { class = "row-fluid" }, content = function()
       for i, issue in ipairs(issues) do
         execute.view{ module = "issue", view = "_show_ext2_bs",
           params = {

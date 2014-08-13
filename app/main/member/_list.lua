@@ -57,7 +57,10 @@ if issue or initiative then
       members_selector:add_order_by("weight DESC, name, id")
   end
 end
-
+ui.container{ attr = { class = "row-fluid" },
+  content = function()
+  ui.container{ attr = { class = "span12 well-inside paper" },
+  content = function()
 ui_filters{
   label = _"Change order",
   selector = members_selector,
@@ -94,5 +97,9 @@ ui_filters{
         slot.put('<br style="clear: left;" />')
       end
     }
+  end
+}
+  end
+}
   end
 }

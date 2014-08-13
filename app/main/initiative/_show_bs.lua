@@ -415,117 +415,123 @@ elseif vote_comment_able then
   vote_link_text = direct_voter and _"Update voting comment"
 end 
 
-if app.session:has_access("authors_pseudonymous") then
-    ui.container{ attr = { class = "content" }, content = function()
-      ui.tag{
-        attr = { class = "initiator_names" },
-        content = function()
-          for i, initiator in ipairs(initiators) do
-            slot.put(" ")
-            if app.session:has_access("all_pseudonymous") then
-              ui.link{
-                content = function ()
-                  execute.view{
-                    module = "member_image",
-                    view = "_show",
-                    params = {
-                      member = initiator,
-                      image_type = "avatar",
-                      show_dummy = true,
-                      class = "micro_avatar",
-                      popup_text = text
-                    }
-                  }
-                end,
-                module = "member", view = "show", id = initiator.id
-              }
-              slot.put(" ")
-            end
-            ui.link{
-              text = initiator.name,
-              module = "member", view = "show", id = initiator.id
-            }
-            if not initiator.accepted then
-              ui.tag{ attr = { title = _"Not accepted yet" }, content = "?" }
-            end
-          end
-          if initiator and initiator.accepted and not initiative.issue.fully_frozen and not initiative.issue.closed and not initiative.revoked then
-            slot.put(" &middot; ")
-            ui.link{
-              attr = { class = "action" },
-              content = function()
-                slot.put(_"Invite initiator")
-              end,
-              module = "initiative",
-              view = "add_initiator",
-              params = { initiative_id = initiative.id }
-            }
-            if #initiators > 1 then
-              slot.put(" &middot; ")
-              ui.link{
-                content = function()
-                  slot.put(_"Remove initiator")
-                end,
-                module = "initiative",
-                view = "remove_initiator",
-                params = { initiative_id = initiative.id }
-              }
-            end
-          end
-          if initiator and initiator.accepted == false then
-              slot.put(" &middot; ")
-              ui.link{
-                text   = _"Cancel refuse of invitation",
-                module = "initiative",
-                action = "remove_initiator",
-                params = {
-                  initiative_id = initiative.id,
-                  member_id = app.session.member.id
-                },
-                routing = {
-                  ok = {
-                    mode = "redirect",
-                    module = "initiative",
-                    view = "show",
-                    id = initiative.id
-                  }
-                }
-              }
-          end
-          if (initiative.discussion_url and #initiative.discussion_url > 0) then
-            slot.put(" &middot; ")
-            if initiative.discussion_url:find("^https?://") then
-              if initiative.discussion_url and #initiative.discussion_url > 0 then
-                ui.link{
-                  attr = {
-                    target = "_blank",
-                    title = _"Discussion with initiators"
-                  },
-                  text = _"Discuss with initiators",
-                  external = initiative.discussion_url
-                }
-              end
-            else
-              slot.put(encode.html(initiative.discussion_url))
-            end
-          end
-          if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
-            slot.put(" &middot; ")
-            ui.link{
-              text   = _"change discussion URL",
-              module = "initiative",
-              view   = "edit",
-              id     = initiative.id
-            }
-            slot.put(" ")
-          end
-        end
-      }
-    end }
-  end
+--  if app.session:has_access("authors_pseudonymous") then
+  --  ui.container{ attr = { class = "content" }, content = function()
+  --  ui.tag{
+--        attr = { class = "initiator_names" },
+--        content = function()
+ --         for i, initiator in ipairs(initiators) do
+--            slot.put(" ")
+--            if app.session:has_access("all_pseudonymous") then
+--              ui.link{
+--                content = function ()
+--                  execute.view{
+--                    module = "member_image",
+--                    view = "_show",
+--                    params = {
+--                      member = initiator,
+--                      image_type = "avatar",
+--                      show_dummy = true,
+--                      class = "micro_avatar",
+--                      popup_text = text
+--                    }
+--                  }
+--                end,
+--                module = "member", view = "show", id = initiator.id
+--              }
+--              slot.put(" ")
+--            end
+--            ui.link{
+--              text = initiator.name,
+--              module = "member", view = "show", id = initiator.id
+--            }
+--            if not initiator.accepted then
+--              ui.tag{ attr = { title = _"Not accepted yet" }, content = "?" }
+--            end
+--          end
+--          if initiator and initiator.accepted and not initiative.issue.fully_frozen and not initiative.issue.closed and not initiative.revoked then
+--            slot.put(" &middot; ")
+--            ui.link{
+--              attr = { class = "action" },
+--              content = function()
+--                slot.put(_"Invite initiator")
+--              end,
+--              module = "initiative",
+--              view = "add_initiator",
+--              params = { initiative_id = initiative.id }
+--            }
+--              slot.put(" &middot; ")
+--              ui.link{
+--                content = function()
+ --                 slot.put(_"Remove initiator")
+--                end,
+--                module = "initiative",
+--                view = "remove_initiator",
+--                params = { initiative_id = initiative.id }
+--              }
+--            end
+--          end
+--          if initiator and initiator.accepted == false then
+--              slot.put(" &middot; ")
+--              ui.link{
+--                text   = _"Cancel refuse of invitation",
+--                module = "initiative",
+--                action = "remove_initiator",
+--                params = {
+--                  initiative_id = initiative.id,
+--                  member_id = app.session.member.id
+--                },
+--                routing = {
+ --                 ok = {
+ --                   mode = "redirect",
+--                    module = "initiative",
+--                    view = "show",
+--                    id = initiative.id
+--                  }
+--                }
+--              }
+ --         end
+--          if (initiative.discussion_url and #initiative.discussion_url > 0) then
+--            slot.put(" &middot; ")
+--            if initiative.discussion_url:find("^https?://") then
+--              if initiative.discussion_url and #initiative.discussion_url > 0 then
+--                  attr = {
+--                    target = "_blank",
+--                    title = _"Discussion with initiators"
+--                  },
+ --                 text = _"Discuss with initiators",
+--                  external = initiative.discussion_url
+--                }
+--              end
+--            else
+ --             slot.put(encode.html(initiative.discussion_url))
+--            end
+--          end
+--          if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
+ --           slot.put(" &middot; ")
+--            ui.link{
+ --             text   = _"change discussion URL",
+--              module = "initiative",
+--              view   = "edit",
+--              id     = initiative.id
+--            }
+--            slot.put(" ")
+--          end
+--        end
+--      }
+--    end }
+--  end
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well-inside paper spaceline"}, content=function()
-
+ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span12 spaceline"}, content=function()
+  		local initiative_id = initiative.id
+	    local title = initiative.title
+	    local policy_name = Policy:by_id(issue.policy_id).name 
+	        
+  
+  end }
+  end }
   local supporter
 
   if app.session.member_id then
@@ -579,6 +585,7 @@ ui.container{attr={class="row-fluid"}, content=function()
     local drafts_count = initiative:get_reference_selector("drafts"):count()
 
     ui.container{ attr = { class = "row-fluid" }, content = function()
+        ui.container{ attr = { class = "span5 offset7 text-right spaceline-bottom" }, content = function()
     
       if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
         ui.link{               attr = { class = "label label-warning" },
@@ -590,7 +597,7 @@ ui.container{attr={class="row-fluid"}, content=function()
           params = { initiative_id = initiative.id }
         }
         slot.put(" &middot; ")
-        ui.link{
+        ui.link{               attr = { class = "label label-warning" },
           content = function()
             slot.put(_"Revoke initiative")
           end,
@@ -601,20 +608,22 @@ ui.container{attr={class="row-fluid"}, content=function()
         slot.put(" &middot; ")
       end
     end }
-      ui.tag{
-        attr = { class = "" },
+        end }
+       ui.container{ attr = { class = "row-fluid spaceline-bottom" }, content = function() 
+      ui.tag{tag="h3",
         content = _("Latest draft created at #{date} #{time}", {
           date = format.date(initiative.current_draft.created),
           time = format.time(initiative.current_draft.created)
         })
       }
-      if drafts_count > 1 then
+      end }
+--[[      if drafts_count > 1 then
         slot.put(" &middot; ")
         ui.link{
           module = "draft", view = "list", params = { initiative_id = initiative.id },
           text = _("List all revisions (#{count})", { count = drafts_count })
         }
-      end
+      end]]
 
 
     execute.view{
@@ -641,10 +650,12 @@ end }
         ui.container{ attr = { class = "span12  well-inside paper "}, content = function()
        ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
         ui.container{ attr = { class = "span6 text-center"}, content = function() 
-           ui.image{static="png/video-player.png"}
+           ui.container{       
+          content = function()
+            slot.put('<iframe width="560" height="315" src="//www.youtube.com/embed/WeAZjP0gv7w" frameborder="0" allowfullscreen></iframe>')
 
 end }
-
+end }
         ui.container{ attr = { class = "span6 spaceline3"}, content = function() 
              ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
         ui.container{ attr = { class = "span1 offset2 "}, content = function()      
@@ -700,13 +711,12 @@ ui.container{attr={class="row-fluid spaceline2"}, content=function()
      ui.container{ attr = { class = "row-fluid"}, content = function()
      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
        ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
-            local issue_id = issue.id
-	    local title = issue.title
-	    local policy_name = Policy:by_id(issue.policy_id).name       
+       ui.container{ attr = { class = "span12"}, content = function()
+      
 
-ui.container{ attr = { class = "span12"}, content = function()
+
 		ui.heading { level=1, attr = { class = "text-center"},
-		content = title
+		content = "LA PROPOSTA"
 	}		
 end }
 end }
@@ -795,13 +805,133 @@ end }]]
         end
 		       end }
 		      end }
-		     end }
+
+
+
+--//  suggestion area
+
+
+      ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span12 well"}, content = function()
+					if not show_as_head then
+						execute.view{
+							module = "suggestion",
+							view = "_list",
+							params = {
+								initiative = initiative,
+								suggestions_selector = initiative:get_reference_selector("suggestions"),
+								tab_id = param.get("tab_id")
+							}
+						}
+
+						if app.session:has_access("all_pseudonymous") then
+							if initiative.issue.fully_frozen and initiative.issue.closed then
+								local members_selector = initiative.issue:get_reference_selector("direct_voters")
+										  :left_join("vote", nil, { "vote.initiative_id = ? AND vote.member_id = member.id", initiative.id })
+										  :add_field("direct_voter.weight as voter_weight")
+										  :add_field("coalesce(vote.grade, 0) as grade")
+										  :add_field("direct_voter.comment as voter_comment")
+										  :left_join("initiative", nil, "initiative.id = vote.initiative_id")
+										  :left_join("issue", nil, "issue.id = initiative.issue_id")
+						
+								ui.anchor{ name = "voter", attr = { class = "heading" }, content = _"Voters" }
+						
+								execute.view{
+									module = "member",
+									view = "_list",
+									params = {
+										initiative = initiative,
+										for_votes = true,
+										members_selector = members_selector,
+										paginator_name = "voter"
+									}
+								}
+							end
+	 
+							local members_selector = initiative:get_reference_selector("supporting_members_snapshot")
+										    :join("issue", nil, "issue.id = direct_supporter_snapshot.issue_id")
+										    :join("direct_interest_snapshot", nil, "direct_interest_snapshot.event = issue.latest_snapshot_event AND direct_interest_snapshot.issue_id = issue.id AND direct_interest_snapshot.member_id = member.id")
+										    :add_field("direct_interest_snapshot.weight")
+										    :add_where("direct_supporter_snapshot.event = issue.latest_snapshot_event")
+										    :add_where("direct_supporter_snapshot.satisfied")
+										    :add_field("direct_supporter_snapshot.informed", "is_informed")
+
+							if members_selector:count() > 0 then
+								if issue.fully_frozen then
+									ui.anchor{ name = "supporters", attr = { class = "heading" }, content = _"Supporters (before begin of voting)" }
+								else
+									ui.anchor{ name = "supporters", attr = { class = "heading" }, content = _"Supporters" }
+								end      
+ 
+								execute.view{
+									module = "member",
+									view = "_list",
+									params = {
+										initiative = initiative,
+										members_selector = members_selector,
+										paginator_name = "supporters"
+									}
+							}
+							else
+								if issue.fully_frozen then
+									ui.anchor{ name = "supporters", attr = { class = "heading" }, content = _"No supporters (before begin of voting)" }
+								else
+									ui.anchor{ name = "supporters", attr = { class = "heading" }, content = _"No supporters" }
+								end						
+
+								slot.put("<br />")
+							end
+ 
+							local members_selector = initiative:get_reference_selector("supporting_members_snapshot")
+										    :join("issue", nil, "issue.id = direct_supporter_snapshot.issue_id")
+										    :join("direct_interest_snapshot", nil, "direct_interest_snapshot.event = issue.latest_snapshot_event AND direct_interest_snapshot.issue_id = issue.id AND direct_interest_snapshot.member_id = member.id")
+										    :add_field("direct_interest_snapshot.weight")
+										    :add_where("direct_supporter_snapshot.event = issue.latest_snapshot_event")
+										    :add_where("NOT direct_supporter_snapshot.satisfied")
+										    :add_field("direct_supporter_snapshot.informed", "is_informed")
+
+							if members_selector:count() > 0 then
+								if issue.fully_frozen then
+									ui.anchor{ name = "potential_supporters", attr = { class = "heading" }, content = _"Potential supporters (before begin of voting)" }
+								else
+									ui.anchor{ name = "potential_supporters", attr = { class = "heading" }, content = _"Potential supporters" }
+								end
+   
+								execute.view{
+									module = "member",
+									view = "_list",
+									params = {
+										initiative = initiative,
+										members_selector = members_selector,
+										paginator_name = "potential_supporters"
+									}
+								}
+							else
+								if issue.fully_frozen then
+									ui.anchor{ name = "potential_supporters", attr = { class = "heading" }, content = _"No potential supporters (before begin of voting)" }
+								else
+									ui.anchor{ name = "potential_supporters", attr = { class = "heading" }, content = _"No potential supporters" }
+								end
+								slot.put("<br />")
+							end
+
+							ui.container{ attr = { class = "heading" }, content = _"Details" }
+							execute.view {
+								module = "initiative",
+								view = "_details",
+								params = {
+									initiative = initiative,
+									members_selector = members_selector
+								}
+							}
+
+						end
+					end
+				end }
+								end }
+						     end }
   		    end }
 		   end }
-
-
-
-
-ui.script{static = "js/jquery.quorum_bar.js"}
-ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
+					ui.script{static = "js/jquery.quorum_bar.js"}
+					ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 

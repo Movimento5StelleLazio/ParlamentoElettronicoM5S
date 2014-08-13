@@ -1,3 +1,4 @@
+slot.set_layout("custom")
 local suggestion = Suggestion:by_id(param.get_id())
 
 -- redirect to initiative if suggestion does not exist anymore

@@ -202,7 +202,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="span12 well-inside"},content=function()
+  --        ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext2_bs",
@@ -219,7 +219,7 @@ ui.container{attr={class="row-fluid"},content=function()
                 selector = issues_selector_voted
               }
             }
-          end }
+--          end }
         end }
       end }
     end }
@@ -238,7 +238,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="well-inside span12"},content=function()
+--          ui.container{attr={class="well-inside span12"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext2_bs",
@@ -256,7 +256,7 @@ ui.container{attr={class="row-fluid"},content=function()
               }
             }
           end }
-        end }
+--        end }
       end }
     end }
   end }
