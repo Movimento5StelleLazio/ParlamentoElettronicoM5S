@@ -225,7 +225,7 @@ if app.session.member_id then
         ui.container{ attr = { class  = "span10 offset1 text-center" }, content = function()
           ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
         end }
-  	    ui.container{attr={class="span1 text-center "},content=function()
+                      	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
@@ -245,7 +245,7 @@ if app.session.member_id then
 								}
 						  end 
 						}
-					end }
+						end }
       end }
 
       -- inizio icone

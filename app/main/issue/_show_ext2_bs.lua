@@ -55,14 +55,14 @@ local svgz = ""
         	ui.tag{tag="strong", attr = {class = "span7"},  content=function()
           	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
           end }
-
+            end }
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12 well"}, content = function()
             execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
           end }
         end }
-            end }
+
         --[[
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
@@ -164,7 +164,8 @@ local svgz = ""
          end }
          end }
                 end }
-               ui.container{attr = {class="row-fluid spaceline2"}, content =function()    
+               ui.container{attr = {class="row-fluid spaceline2"}, content =function() 
+                 ui.tag{tag = "hr", attr = {class=""} }  
          end }
         end }
        end }

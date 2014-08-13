@@ -421,7 +421,7 @@ a:focus {
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 1500px;
+  width: 1280px;
 }
 .span12 {
   width: 1375px;
@@ -912,8 +912,8 @@ dd {
 hr {
   margin: 25px 0;
   border: 0;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #ffffff;
+  border-top: 2px solid #AE8F7F;
+  border-bottom: 2px solid #AE8F7F;
 }
 abbr[title],
 abbr[data-original-title] {
@@ -1060,7 +1060,7 @@ textarea {
   font-family: Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 label {
-  display: block;
+  /*display: block;*/
   margin-bottom: 5px;
 }
 select,
@@ -3656,12 +3656,13 @@ background: linear-gradient(180deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);
   vertical-align: baseline;
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #999999;
+  background-color: #ebebeb;
 }
 .label {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+    border: 1px solid #FFB649;
 }
 .badge {
   padding-left: 9px;
@@ -3724,14 +3725,25 @@ border-radius: 5px;
 -webkit-box-shadow: 5px 5px 22px 0px rgba(50, 50, 50, 0.6);
 -moz-box-shadow:    5px 5px 22px 0px rgba(50, 50, 50, 0.6);
 box-shadow:         5px 5px 22px 0px rgba(50, 50, 50, 0.6);
-}
+}AE8F7F
 .label-success[href],
 .badge-success[href] {
   background-color: #356635;
 }
 .label-info,
 .badge-info {
-  background-color: #3a87ad;
+background: rgb(216, 238, 255);
+background: -moz-linear-gradient(90deg, rgb(216, 238, 255) 0%, rgb(186, 215, 255) 70%);
+background: -webkit-linear-gradient(90deg, rgb(216, 238, 255) 0%, rgb(186, 215, 255) 70%);
+background: -o-linear-gradient(90deg, rgb(216, 238, 255) 0%, rgb(186, 215, 255) 70%);
+background: -ms-linear-gradient(90deg, rgb(216, 238, 255) 0%, rgb(186, 215, 255) 70%);
+background: linear-gradient(180deg, rgb(216, 238, 255) 0%, rgb(186, 215, 255) 70%);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-shadow: 3px 3px 21px 0px rgba(50, 50, 50, 0.44);
+-moz-box-shadow:    3px 3px 21px 0px rgba(50, 50, 50, 0.44);
+box-shadow:         3px 3px 21px 0px rgba(50, 50, 50, 0.44);
 }
 .label-info[href],
 .badge-info[href] {
