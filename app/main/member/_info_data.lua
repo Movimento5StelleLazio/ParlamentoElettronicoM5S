@@ -23,15 +23,15 @@ ui.container{attr={class="row-fluid"}, content=function()
 				routing = {
 					ok = {
 						mode = 'redirect',
-						module = 'issue',
-						view = 'show_ext_bs',
-						id = param.get("issue_id", atom.integer)
+						module = param.get("module", atom.string),
+						view = param.get("view", atom.string),
+						id = param.get("content_id", atom.integer)
 					},
 					error = {
 						mode = 'redirect',
-						module = 'issue',
-						view = 'show_ext_bs',
-						id = param.get("issue_id", atom.integer)
+						module = param.get("module", atom.string),
+						view = param.get("view", atom.string),
+						id = param.get("content_id", atom.integer)
 					}
 				},
 				content = function()

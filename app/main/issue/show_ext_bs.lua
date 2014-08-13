@@ -228,12 +228,14 @@ end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 well"}, content = function()
         if issue.member_id and issue.member_id > 0 then
-          execute.view{ module="member", view="_info_data", id=issue.member_id, params={issue_id = issue.id} }
+          execute.view{ module="member", view="_info_data", id=issue.member_id, params={ module = "issue", view = "show_ext_bs", content_id = issue.id} }
         else
           ui.heading{ level=6, content = _"No author for this issue" }
         end
       end }
     end }
+    
+    
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
