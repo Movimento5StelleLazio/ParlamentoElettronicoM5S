@@ -225,7 +225,7 @@ if app.session.member_id then
         ui.container{ attr = { class  = "span10 offset1 text-center" }, content = function()
           ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
         end }
-                      	    ui.container{attr={class="span1 text-center "},content=function()
+  	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
@@ -245,7 +245,7 @@ if app.session.member_id then
 								}
 						  end 
 						}
-						end }
+					end }
       end }
 
       -- inizio icone
@@ -284,9 +284,91 @@ static="parlamento_icon_small.png" }
           end }
 	      end }
 	    end }
+	    -- cruscotto di stato
+			ui.container{
+				attr={class="well spaceline3"},
+				content = function()
+					ui.container{
+						attr = {class="row-fluid"},
+						content = function()
+							ui.heading{
+								attr = {class="span12 text-left"},
+								level=4,
+								content=_"The summary of the status of all the issues in you are interested in is this:"
+							}
+						end
+					}
+					ui.container{
+						attr = {class="row-fluid"},
+						content = function()
+							local issues_new_count = 0.0
+							local issues_discussion_count = 0.0
+							local issues_frozen_count = 0.0
+							local issues_voting_count = 0.0
+							local issues_finished_count = 0.0
+							local issues_canceled_count = 0.0
+							local status_selector = db:new_selector()
+								:from("area")
+								:add_field("area.id")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'admission')", "issues_new_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'discussion')", "issues_discussion_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'verification')", "issues_frozen_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'voting')", "issues_voting_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen NOTNULL AND issue.closed NOTNULL)", "issues_finished_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen ISNULL AND issue.closed NOTNULL)", "issues_canceled_count")								
+								:join("issue", nil, { "area.id = issue.area_id AND area.active = TRUE" })
+								:join("unit", nil, "unit.id = area.unit_id AND unit.public ")
+								:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", app.session.member.id })
+								:add_group_by("area.id")
+								:exec()
+							for i,k in ipairs(status_selector) do
+								issues_new_count = issues_new_count + k.issues_new_count
+								issues_discussion_count = issues_discussion_count + k.issues_discussion_count
+								issues_frozen_count = issues_frozen_count + k.issues_frozen_count
+								issues_voting_count = issues_voting_count + k.issues_voting_count
+								issues_finished_count = issues_finished_count + k.issues_finished_count
+								issues_canceled_count = issues_canceled_count + k.issues_canceled_count
+							end
+							
+							
+							ui.link{ 
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-info"},
+						    text = _("#{count} new", { count = issues_new_count }) 
+						  }
+						  ui.link{
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-info"},
+						    text = _("#{count} in discussion", { count = issues_discussion_count }) 
+						  }
+						  ui.link{
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-info"},
+						    text = _("#{count} in verification", { count = issues_frozen_count }) 
+						  }
+						  ui.link{
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-danger"},
+						    text = _("#{count} in voting", { count = issues_voting_count }) 
+						  }
+						  ui.link{
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-success"},
+						    text = _("#{count} finished", { count = issues_finished_count }) 
+						  }
+						  ui.link{
+						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+						    attr = {class="span2 btn-warning"},
+						    text = _("#{count} canceled", { count = issues_canceled_count }) 
+						  }
+						end
+					}
+				end
+			}
 	  end }
 	end }
 	--[[ execute.view{module="index",view="_registration_info"} ]]--
+	
 else
   if config.motd_public then
     local help_text = config.motd_public

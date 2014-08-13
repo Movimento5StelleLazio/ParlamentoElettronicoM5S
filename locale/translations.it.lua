@@ -627,7 +627,7 @@ return {
 ["Outgoing delegations"] = "Deleghe attive";
 ["Parent unit"] = "Unità superiore";
 ["Participants"] = "Partecipanti";
-["Participate in this area"] = "Partecipa in quest'Area";
+["Participate in this area"] = "Partecipa a quest'Area";
 ["Paste areas from template"]= "Incolla Aree da Template";
 ["Paste Template"]= "Incolla Template";
 ["Password"] = false;
@@ -1047,4 +1047,5 @@ return {
 ["- No technical committee summoned yet for this initiative -"] = "Nessuna commisione tecnica istitutita";
 ["Summon a committee"] = "Richiedi Commissione";
 ["<strong>#{count_supporters}</strong> people support the request to summon a technical committee. <strong>#{count_remaining}</strong> people still needed.<br>The committee will be summoned only if the initiative will gather enough supporters."] = " <strong>#{count_supporters}</strong>  persone hanno fatto richiesta di una commissione tecnica<br /> E' richiesto l' appoggio di<strong>#{count_remaining}</strong> persone per raggiungere il quorum. <br />Anche se si raggiunge il quorum, la commissione verrà istituita solo se almeno una proposta supererà la prima votazione ";
+["The summary of the status of all the issues in you are interested in is this:"] = "Questo è il riassunto dello stato di tutte le questioni nelle tue aree tematiche preferite:"
 }
