@@ -129,7 +129,7 @@ end }
 
 
     ui.container{attr={class="row-fluid"}, content=function()
-      ui.container{ attr = { class = "span3"}, content = function()
+      ui.container{ attr = { class = "span3 well-blue spaceline paper-green"}, content = function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
@@ -234,8 +234,6 @@ end }
         end
       end }
     end }
-    
-    
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
         ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()

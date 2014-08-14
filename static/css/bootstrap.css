@@ -366,7 +366,7 @@ textarea {
 body {
   margin: 0;
   font-family: Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   color: #000000;
   background-color: #ffffff;
@@ -3993,10 +3993,6 @@ box-shadow:         2px 2px 19px 0px rgba(50, 50, 50, 0.75);
 
   *zoom: 1;
   padding: 6px 20px;
-  margin-bottom: 0;
-  font-size: 22px;
-  line-height: 25px;
-  text-align: center;
   vertical-align: middle;
   cursor: pointer;
   color: #333333;
@@ -5064,6 +5060,9 @@ background: linear-gradient(180deg, rgb(224, 255, 204) 0%, rgb(198, 237, 147) 70
 }
 .paper {
   background-image: url(../svg/paper_tile.svg);
+}
+.paper-green {
+  background-image: url(../png/paper_tile.png);
 }
 .head-chocolate,
 .head-darkorange,

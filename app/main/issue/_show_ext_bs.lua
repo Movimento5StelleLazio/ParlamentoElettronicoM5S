@@ -22,7 +22,7 @@ end
 ui.container{ attr = { class = "row-fluid well"}, content = function()
   ui.container{ attr = { class = "span12"}, content = function()
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span7"}, content = function()
+      ui.container{ attr = { class = "span7 well-blue spaceline paper-green"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
       end }
     end }

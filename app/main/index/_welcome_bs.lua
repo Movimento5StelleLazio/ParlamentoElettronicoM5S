@@ -93,10 +93,10 @@ if app.session.member_id then
         end }
       else
         ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
+          ui.container{ attr = { class  = "span8 offset2 well text-center" }, content = function()
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
-                ui.heading{level=4,content=function()
+                ui.heading{level=1,content=function()
                   slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                 end }
               end }
@@ -286,14 +286,17 @@ static="parlamento_icon_small.png" }
 	    end }
 	    -- cruscotto di stato
 			ui.container{
-				attr={class="well spaceline3"},
+				attr={class="row-fluid"},
+				content = function()
+							ui.container{
+				attr={class="span10 offset1 well spaceline3"},
 				content = function()
 					ui.container{
 						attr = {class="row-fluid"},
 						content = function()
 							ui.heading{
-								attr = {class="span12 text-left"},
-								level=4,
+								attr = {class="span10 offset1 text-center"},
+								level=3,
 								content=_"The summary of the status of all the issues in you are interested in is this:"
 							}
 						end
@@ -301,6 +304,12 @@ static="parlamento_icon_small.png" }
 					ui.container{
 						attr = {class="row-fluid"},
 						content = function()
+						ui.container{
+							attr = {class="span12 well-inside paper"},
+							content = function()
+							ui.container{
+								attr = {class="row-fluid"},
+								content = function()
 							local issues_new_count = 0.0
 							local issues_discussion_count = 0.0
 							local issues_frozen_count = 0.0
@@ -330,43 +339,55 @@ static="parlamento_icon_small.png" }
 								issues_canceled_count = issues_canceled_count + k.issues_canceled_count
 							end
 							
-							
-							ui.link{ 
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-info"},
-						    text = _("#{count} new", { count = issues_new_count }) 
-						  }
-						  ui.link{
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-info"},
-						    text = _("#{count} in discussion", { count = issues_discussion_count }) 
-						  }
-						  ui.link{
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-info"},
-						    text = _("#{count} in verification", { count = issues_frozen_count }) 
-						  }
-						  ui.link{
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-danger"},
-						    text = _("#{count} in voting", { count = issues_voting_count }) 
-						  }
-						  ui.link{
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-success"},
-						    text = _("#{count} finished", { count = issues_finished_count }) 
-						  }
-						  ui.link{
-						    module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
-						    attr = {class="span2 btn-warning"},
-						    text = _("#{count} canceled", { count = issues_canceled_count }) 
-						  }
-						end
-					}
-				end
-			}
-	  end }
-	end }
+							ui.container{
+								attr = {class="row-fluid"},
+								content = function()
+									ui.link{ 
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary large_btn spaceline spaceline-bottom"},
+										text = _("#{count} new", { count = issues_new_count }) 
+									}
+
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in discussion", { count = issues_discussion_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in verification", { count = issues_frozen_count }) 
+									}						 
+					      end 
+					    }
+						   ui.container{
+								attr = {class="row-fluid"},
+								content = function()
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in voting", { count = issues_voting_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} finished", { count = issues_finished_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} canceled", { count = issues_canceled_count }) 
+															}
+												end
+											}
+										end
+									}
+								end }
+							end }
+						end }
+					end }
+				end }
+			end }
 	--[[ execute.view{module="index",view="_registration_info"} ]]--
 	
 else
