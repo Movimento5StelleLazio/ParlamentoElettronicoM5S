@@ -1047,5 +1047,7 @@ return {
 ["- No technical committee summoned yet for this initiative -"] = "Nessuna commisione tecnica istitutita";
 ["Summon a committee"] = "Richiedi Commissione";
 ["<strong>#{count_supporters}</strong> people support the request to summon a technical committee. <strong>#{count_remaining}</strong> people still needed.<br>The committee will be summoned only if the initiative will gather enough supporters."] = " <strong>#{count_supporters}</strong>  persone hanno fatto richiesta di una commissione tecnica<br /> E' richiesto l' appoggio di<strong>#{count_remaining}</strong> persone per raggiungere il quorum. <br />Anche se si raggiunge il quorum, la commissione verrà istituita solo se almeno una proposta supererà la prima votazione ";
-["The summary of the status of all the issues in you are interested in is this:"] = "Questo è il riassunto dello stato di tutte le questioni nelle tue aree tematiche preferite:"
+["The summary of the status of all the issues in you are interested in is this:"] = "Questo è il riassunto dello stato di tutte le questioni nelle tue aree tematiche preferite:";
+["I found this issue very interesting and I\'m supporting it! Supporter it you too!"] = "Ho trovato questa discussione molto interessante e la sostengo! Sostienila anche tu!";
+["I found this initiative very interesting and I\'m supporting it! Supporter it you too!"] = "Ho trovato questa proposta molto interessante e la sostengo! Sostienila anche tu!";
 }

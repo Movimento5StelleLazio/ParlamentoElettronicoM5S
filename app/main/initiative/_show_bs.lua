@@ -114,6 +114,11 @@ elseif view == "area_private" then
 end
 
 local url=request.get_absolute_baseurl().."initiative/show/"..tostring(initiative.id)..".html"
+trace.debug(url)
+--url = string.gsub(url, ":", "\%3A")
+--trace.debug(url)
+url = encode.url{ base = request.get_absolute_baseurl(), module = "initiative", view = "show", params = { initiative_id = initiative.id } }
+trace.debug(url)
 
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
@@ -160,8 +165,31 @@ ui.container{attr={class="row-fluid"}, content=function()
             }
           end }
           end }
+          
+        ui.container { attr = { id="social_box", class="spaceline"}, content = function()
+		      ui.container{ attr = { class  = "row-fluid"}, content = function()
+		        ui.container{ attr = { class  = "offset3 span1" }, content = function()
+
+		          slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+		        end }
+		        ui.container{ attr = { class  = "span1" }, content = function()
+		        	local message 
+		          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this initiative very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'" data-count="vertical" data-lang="it">Tweet</a>')
+		        end }
+		        ui.container{ attr={class="span1"},content=function()
+		        	slot.put('<div class="g-plusone" data-size="tall"></div>')
+		        end }
+		        ui.container{ attr = {class="span1"}, content = function()
+		        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
+		        end }
+		        ui.container{ attr={class="span1"}, content=function()
+		        	slot.put('<script type="IN/Share" data-counter="top"></script>')
+		        end }
+		      end }
+				end }
+    
       end }     
-            	    ui.container{attr={class="span1 text-center "},content=function()
+  	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
