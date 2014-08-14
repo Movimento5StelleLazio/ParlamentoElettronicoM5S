@@ -151,7 +151,7 @@ trace.debug(url)
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Ti trovi nei dettagli della QUESTIONE, con le informazioni integrali. Al box SOLUZIONI PROPOSTE puoi leggere la, o le PROPOSTE presentate per risolvere la QUESTIONE, o presentrare una tua PROPOSTA alternativa. ",
+								datacontent=_"Ti trovi nei dettagli della PROPOSTA, con le informazioni integrali, in ogni box i tutor per le funzionalità specifiche ",
 								datahtml = "true",
 								class = "text-center"
 							},
@@ -281,7 +281,7 @@ trace.debug(url)
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
+								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interesse allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione. Emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea e ti identifica come sostenitore potenziale, se il tuo emendamento passa, verrai identificato come sostenitore, un SOSTENITORE partecipa attivamente alla promozione della PROPOSTA ",
 								datahtml = "true",
 								class = "text-center"
 							},

@@ -27,8 +27,8 @@ ui.container{ attr = { class = "row-fluid" },
 							attr={
 								dataplacement="left",
 								datahtml = "true";
-								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
+								datatitle= _"Box di aiuto",
+								datacontent=_"In questo box trovi l' Elenco degli emendamenti presentati (click sul titolo evidenziato per vedere il dettaglio), ed il loro andamento nel gradimento ed opinione dell' Assemblea, puoi tu stesso presentare un emendamento, oppure dare la tua opinione, consenso o diniego, di uno o piu emendamenti, queste azioni condizionano la stesura finale del testo di Legge, da proporre per il voto definitivo. Ogni sostenitore ha diritto ad un max di 3 emendamenti (Regola sperimentale).",
 								datahtml = "true",
 								class = "text-center"
 							},

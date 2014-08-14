@@ -221,18 +221,21 @@ if app.session.member_id then
 			
       end]]
 
-      ui.container{attr = {class = "row-fluid spaceline" },content = function()
-        ui.container{ attr = { class  = "span10 offset1 text-center" }, content = function()
-          ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
-        end }
-                      	    ui.container{attr={class="span1 text-center "},content=function()
+						      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+						      	ui.container{attr={class="span5 offset4 text-right spaceline "},content=function()
+						          ui.heading{level=3, content= "La prima volta? clik qui:"}
+						                      end }
+						      ui.container{attr={class="span1 text-left spaceline"},content=function()
+				        		ui.image { attr={class="arrow_medium"},static = "svg/arrow-right.svg"}
+						                            	    
+						                            	    end }
+       	ui.container{attr={class="span1 text-left "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
-								datahtml = "true",
+								datacontent=_"Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
 								class = "text-center"
 							},
 							content = function() 
@@ -246,6 +249,11 @@ if app.session.member_id then
 						  end 
 						}
 						end }
+						end }
+						      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+        ui.container{ attr = { class  = "span10 offset1 text-center" }, content = function()
+          ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
+        end }
       end }
 
       -- inizio icone
