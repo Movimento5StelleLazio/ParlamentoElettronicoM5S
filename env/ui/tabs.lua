@@ -36,27 +36,7 @@ function ui.tabs(tabs)
 		        end
 		      end
 		    }
-		                  	    ui.container{attr={class="span1 text-center "},content=function()
-					ui.field.popover{
-							attr={
-								dataplacement="left",
-								datahtml = "true";
-								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
-								datahtml = "true",
-								class = "text-center"
-							},
-							content = function() 
-								ui.container{
-								  attr={class="row-fluid"},
-									content=function()
-				        		ui.image { static = "png/tutor.png"}                                                
---								    ui.heading{level=3 , content= _"What you want to do?"}
-									end 
-								}
-						  end 
-						}
-						end }
+
               end
 			}
 			              end

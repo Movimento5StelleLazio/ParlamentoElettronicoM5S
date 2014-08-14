@@ -7,7 +7,7 @@ ui.form{
   readonly = true,
   content = function()       
   ui.container { attr = { class = "row-fluid" }, content = function()
-    ui.container { attr = { class = "span10 offset1 label label-warning" }, content = function()
+    ui.container { attr = { class = "span8 offset1 label label-warning" }, content = function()
       ui.container{
       attr = { class = "span6" },
       content = function()
@@ -24,6 +24,27 @@ ui.form{
 }  
     end
 } 
+                  	    ui.container{attr={class="span1 offset1 text-right "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto",
+								datacontent=_"Qui puoi esprimere la tua opinione, in merito all' emendamento presentato: 1) OPINIONE DEI SOSTENITORI; sono le opinioni dei sostenitori, il colore va dal verde (positivo) al Rosso (negativo) - 2) LA  MIA OPINIONE; hai 5 opzioni con diverse sfumature, se la tua opinione è positiva condiziona il campo RITENGO L' EMENDAMENTO. - 3) ADOTTATO - NON ADOTTATO - 4) RITENGO L' EMENDAMENTO; Implementato e sono soddisfatto, se ho espresso un opinione DEVE - DOVREBBE, Implementato e non sono soddisfatto, se ho espresso un opinione, NON DEVE - NON DOVREBBE; Non Implementato e sono soddisfatto, se ho espresso un opinione NON DEVE - NON DOVREBBE; Non implementato e Non sono soddisfatto se ho espresso un opinione DEVE - DOVREBBE.",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
     end
 }    
    ui.container { attr = { class = "row-fluid spaceline spaceline-bottom text-left" }, content = function()
