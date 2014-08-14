@@ -662,7 +662,20 @@ end }
         ui.container{ attr = { class = "span6 text-center"}, content = function() 
            ui.container{       
           content = function()
-            slot.put('<iframe width="560" height="315" src="//www.youtube.com/embed/WeAZjP0gv7w" frameborder="0" allowfullscreen></iframe>')
+          	local resource = Resource:by_initiative_id(initiative.id)
+          	if resource and resource.url ~= "" then
+          		if resource.url:gmatch("https://www.youtube.com/watch?v=") then
+          			local code = resource.url:sub(resource.url:find("=")+1)
+          			trace.debug("url: "..resource.url.."; code: "..code)
+          			trace.debug(code)          			
+            		slot.put('<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/'..code..'\" frameborder=\"0\" allowfullscreen></iframe>')
+            	else
+            		trace.debug("url: "..resource.url)
+            		slot.put('<iframe width="560" height="315" src="//www.youtube.com/embed/'..resource.url..'" frameborder="0" allowfullscreen></iframe>')
+            	end
+            else
+            	ui.image{static = "png/video-player.png" }
+            end
 
 end }
 end }
@@ -800,7 +813,7 @@ end }]]
     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12 well"}, content = function()
         if issue.member_id and issue.member_id > 0 then
-          execute.view{ module="member", view="_info_data", id=issue.member_id }
+          execute.view{ module="member", view="_info_data", id=issue.member_id, params={ module = "initiative", view = "show", content_id = initiative.id} }
         else
           ui.heading{ level=6, content = _"No author for this issue" }
         end
