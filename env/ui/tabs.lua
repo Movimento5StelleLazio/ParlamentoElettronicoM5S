@@ -9,7 +9,7 @@ function ui.tabs(tabs)
      ui.container{ attr = { class = "row-fluid" }, content = function()
 			ui.container{ attr = { class = "span12 well text-center spaceline spaceline-bottom" },	content = function()
      ui.container{ attr = { class = "row-fluid" }, content = function()
-			ui.container{ attr = { class = "span8 spaceline offset2" },	content = function()
+			ui.container{ attr = { class = "span11" },	content = function()
 		        for i, tab in ipairs(tabs) do
 		          local params = param.get_all_cgi()
 		          if tab.link_params then
@@ -20,7 +20,7 @@ function ui.tabs(tabs)
 		          params["tab"] = i > 1 and tab.name or nil
 		          ui.link{
 		            attr = { 
-		              class = "btn btn-primary large_btn margin_line", (
+		              class = "btn btn-primary large_btn margin_line spaceline spaceline-bottom", (
 		                tab.name == current_tab and "selected" .. (tab.class and (" " .. tab.class) or "") or
 		                not current_tab and i == 1 and "selected" .. (tab.class and (" " .. tab.class) or "") or
 		                "" .. (tab.class and (" " .. tab.class) or "")

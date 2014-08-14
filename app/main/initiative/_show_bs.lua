@@ -189,7 +189,7 @@ ui.container{attr={class="row-fluid"}, content=function()
 				end }
     
       end }     
-  	    ui.container{attr={class="span1 text-center "},content=function()
+            	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
 								dataplacement="left",

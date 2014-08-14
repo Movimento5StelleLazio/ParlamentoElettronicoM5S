@@ -122,11 +122,13 @@ for i, unit in ipairs(units) do
         areas:load_delegation_info_once_for_member_id(member.id)
         
         for i, area in ipairs(areas) do
+        ui.container{ attr = { class = "well" }, content = function()
           execute.view{
-            module = "area", view = "_list_entry", params = {
+            module = "area", view = "_list_entry_ext_bs", params = {
               area = area, member = member
             }
           }
+          end }
         end
       end 
 
