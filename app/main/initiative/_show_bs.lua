@@ -616,7 +616,17 @@ ui.container{attr={class="row-fluid"}, content=function()
           time = format.time(initiative.current_draft.created)
         })
       }
-      end }
+      end }       
+      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+       ui.container{ attr = { class = "span12"}, content = function()
+      
+
+
+		ui.heading { level=1, attr = { class = "text-center"},
+		content = "LA PROPOSTA"
+	}		
+end }
+end }
 --[[      if drafts_count > 1 then
         slot.put(" &middot; ")
         ui.link{
@@ -710,16 +720,7 @@ ui.container{attr={class="row-fluid spaceline2"}, content=function()
     end }
      ui.container{ attr = { class = "row-fluid"}, content = function()
      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
-       ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
-       ui.container{ attr = { class = "span12"}, content = function()
-      
 
-
-		ui.heading { level=1, attr = { class = "text-center"},
-		content = "LA PROPOSTA"
-	}		
-end }
-end }
        ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
             local issue_id = issue.id
 	    local created = issue.created
