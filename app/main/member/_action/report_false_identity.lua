@@ -20,24 +20,22 @@ for i,k in ipairs(admins) do
 	if i < #admins then
 		to = to .. ", "
 	end
+	local success = net.send_mail{
+		envelope_from = config.mail_envelope_from,
+		from          = config.mail_from,
+		reply_to      = config.mail_reply_to,
+		to            = k.notify_email,
+		subject       = subject,
+		content_type  = "text/plain; charset=UTF-8",
+		content       = content
+	}
+	if not success then
+		slot.put_into("error", "Error reporting the false identity. Please retry.")
+		return false
+	end
 end
 
 trace.debug("admins for this user: "..to)
 
-local success = net.send_mail{
-	envelope_from = config.mail_envelope_from,
-	from          = config.mail_from,
-	reply_to      = config.mail_reply_to,
-	to            = to,
-	subject       = subject,
-	content_type  = "text/plain; charset=UTF-8",
-	content       = content
-}
-
-if success then
-	slot.put_into("notice", "False identity reported to admins.")
-	return true
-else
-	slot.put_into("error", "Error reporting the false identity. Please retry.")
-	return false
-end
+slot.put_into("notice", "False identity reported to admins.")
+return true

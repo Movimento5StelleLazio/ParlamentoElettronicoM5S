@@ -37,7 +37,8 @@ if not app.html_title.title then
   app.html_title.title = _("Issue ##{id}", { id = issue.id })
 end
 
-local url=request.get_absolute_baseurl().."issue/show/show_ext2_bs/"..tostring(issue.id)..".html"
+local url=request.get_absolute_baseurl().."issue/show_ext_bs/"..tostring(issue.id)..".html"
+trace.debug("url: "..url)
 
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
@@ -104,26 +105,28 @@ ui.container{attr={class="row-fluid"}, content=function()
 						  end 
 						}
 						end }
-       --[[   ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
+					end }
+ 			ui.container { attr = { id="social_box", class="spaceline"}, content = function()
+	      ui.container{ attr = { class  = "row-fluid"}, content = function()
+	        ui.container{ attr = { class  = "offset3 span1" }, content = function()
 
-            slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
-          end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
-          end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
-
-          end }
-        end }
-      end }]]
-    end }
+	          slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+	        end }
+	        ui.container{ attr = { class  = "span1" }, content = function()
+	        	local message 
+	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'" data-count="vertical" data-lang="it">Tweet</a>')
+	        end }
+	        ui.container{ attr={class="span1"},content=function()
+	        	slot.put('<div class="g-plusone" data-size="tall"></div>')
+	        end }
+	        ui.container{ attr = {class="span1"}, content = function()
+	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
+	        end }
+	        ui.container{ attr={class="span1"}, content=function()
+	        	slot.put('<script type="IN/Share" data-counter="top"></script>')
+	        end }
+	      end }
+			end }
   end }
 end }
 
