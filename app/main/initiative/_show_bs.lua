@@ -170,7 +170,7 @@ trace.debug(url)
      ui.container { attr = { id="social_box", class="row-fluid spaceline"}, content = function()
 			ui.container { attr = { class="span5"}, content = function()
 				ui.container { attr = { class="row-fluid spaceline"}, content = function()
-				  ui.container{ attr = { class  = " span2" }, content = function()
+--[[				  ui.container{ attr = { class  = " span2" }, content = function()
 						slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
 	        end }
 	        ui.container{ attr={class="span2"},content=function()
@@ -181,7 +181,7 @@ trace.debug(url)
 	        end }
 	        ui.container{ attr = {class="span2"}, content = function()
 	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-	        end }
+	        end }]]
 	        ui.container{ attr = { class  = "span2" }, content = function()
 	        	local message 
 	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'"  data-count="vertical" data-lang="it">Tweet</a>')
