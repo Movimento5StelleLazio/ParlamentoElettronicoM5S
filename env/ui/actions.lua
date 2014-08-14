@@ -1,5 +1,5 @@
 function ui.actions(content)
   slot.select("head", function()
-    ui.container{ attr = { class = "actions" }, content = content }
+    ui.container{ attr = { class = "row-fluid" }, content = content }
   end)
 end

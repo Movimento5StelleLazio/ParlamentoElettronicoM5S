@@ -36,11 +36,11 @@ local svgz = ""
 --local svgz = "z"
 
 	ui.container { attr={class = "row-fluid"}, content = function()
-         ui.container{ attr = { class = "span7 spaceline"}, content = function()
+         ui.container{ attr = { class = "span7 well-blue spaceline paper-green"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
            end }
           end }
-      ui.container{ attr = { class = "row-fluid"}, content = function()
+
      
            ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span9 phasesheight"}, content = function()
@@ -168,5 +168,5 @@ local svgz = ""
                  ui.tag{tag = "hr", attr = {class=""} }  
          end }
         end }
-       end }
+
 

@@ -130,18 +130,18 @@ ui.container{attr={class="row-fluid"}, content=function()
           content = function()
             ui.heading{level=3 ,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(return_btn_txt)
+              slot.put(_"Back to previous page")
             end }
           end }
               end }
 
       ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12"}, content=function()
-            ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Details for initiative P"..initiative.id}
+          ui.container{attr={class="span8 offset2 text-center label label-warning"}, content=function()
+            ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Dettagli della Proposta N°"..initiative.id}
           end }
         end }
-        ui.container{attr={class="row-fluid"}, content=function()
+        ui.container{attr={class="row-fluid spaceline"}, content=function()
           ui.container{attr={class="span9 nowrap"}, content=function()
             ui.heading{level=6,attr={class=""},content=_"Initiative link (copy the link and share to the web):"}
             slot.put("<input id='initiative_url_box' type='text' value="..url..">") 
@@ -616,7 +616,17 @@ ui.container{attr={class="row-fluid"}, content=function()
           time = format.time(initiative.current_draft.created)
         })
       }
-      end }
+      end }       
+      ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
+       ui.container{ attr = { class = "span12"}, content = function()
+      
+
+
+		ui.heading { level=1, attr = { class = "text-center"},
+		content = "LA PROPOSTA"
+	}		
+end }
+end }
 --[[      if drafts_count > 1 then
         slot.put(" &middot; ")
         ui.link{
@@ -717,22 +727,13 @@ end }
        
 
 ui.container{attr={class="row-fluid spaceline2"}, content=function()
-  ui.container{attr={class="span7"}, content=function()
+  ui.container{attr={class="span7 well-blue spaceline paper-green"}, content=function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
     end }
      ui.container{ attr = { class = "row-fluid"}, content = function()
      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
-       ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
-       ui.container{ attr = { class = "span12"}, content = function()
-      
 
-
-		ui.heading { level=1, attr = { class = "text-center"},
-		content = "LA PROPOSTA"
-	}		
-end }
-end }
        ui.container{ attr = { class = "row-fluid spaceline"}, content = function()
             local issue_id = issue.id
 	    local created = issue.created
