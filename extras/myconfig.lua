@@ -4,7 +4,7 @@
 
 -- Name of this instance, defaults to name of config file
 -- ------------------------------------------------------------------------
-config.instance_name = "Parlamento Elettronico Movimento Cinque Stelle"
+config.instance_name = "Parlamento Elettronico Online"
 
 
 -- Information about service provider (HTML)
@@ -21,7 +21,7 @@ config.gui_preset = {
     start_page = "_welcome_bs",
     units = {
       eletti = {
-        unit_id = 44,
+        type_id = 1,
         unit_title = _"ELECTEDS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE ELECTEDS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -29,7 +29,7 @@ config.gui_preset = {
         issues_desc_closed = _"Electeds Initiatives Completed or Retired"
       },
       cittadini = {
-        unit_id = 1,
+        type_id = 0,
         unit_title = _"CITIZENS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -38,7 +38,7 @@ config.gui_preset = {
         issues_desc_admission =  _"Citizens Initiatives Looking For Supporters"
       },
       iscritti = {
-        unit_id = 3,
+        type_id = 0,
         unit_title = _"M5S MEMBERS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE MEMBERS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Internal Assembly",
@@ -47,7 +47,7 @@ config.gui_preset = {
         issues_desc_admission =  _"M5S Members Initiatives Looking For Supporters"
       },
       altri_gruppi = {
-        unit_id = 4,
+        type_id = 2,
         unit_title = _"OTHER POLITICAL GROUPS THEMATIC AREAS",
         area_filter_title = _"CHOOSE THE OTHER GROUPS INITIATIVES YOU WANT TO READ:",
         assembly_title = _"#{realname}, you are now in the Regione Lazio Assembly",
@@ -81,25 +81,18 @@ config.use_terms_checkboxes = {
   
 -- Absolute base url of application
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "/lf"
+config.absolute_base_url = "https://test.parelon.com/lf"
 
 
 -- Connection information for the LiquidFeedback database
 -- ------------------------------------------------------------------------
-config.database = { engine='postgresql', dbname='liquid_feedback' }
-config.secure_database = { engine='postgresql', dbname='liquid_feedback' }
---[[
 config.secure_database = { 
   engine='postgresql', 
-  dbname='liquid_feedback', 
-  conninfo='',
-  host='',
-  hostaddr='',
-  port='',
-  user='',
-  password=''
+  dbname='parelon_cert', 
+  host='localhost',
+  port='5432',
+  user='www-data'
 }
---]]
 
 
 -- Location of the rocketwiki binaries
@@ -150,13 +143,13 @@ config.default_lang = "it"
 
 -- Prefix of all automatic mails, defaults to "[Liquid Feedback] "
 -- ------------------------------------------------------------------------
-config.mail_subject_prefix = "Parlamento Elettronico M5S "
+config.mail_subject_prefix = "Parlamento Elettronico Online "
 
 -- Sender of all automatic mails, defaults to system defaults
 -- ------------------------------------------------------------------------
--- config.mail_envelope_from = "liquidfeedback@example.com"
-config.mail_from = { name = "Parlamento Elettronico M5S", address = "liquidfeedback@example.com" }
--- config.mail_reply_to = { name = "Support", address = "support@example.com" }
+config.mail_envelope_from = "info@parelon.com"
+config.mail_from = { name = "Parlamento Elettronico Online", address = "info@parelon.com" }
+config.mail_reply_to = { name = "Support", address = "support@parelon.com" }
 
 -- Configuration of password hashing algorithm (defaults to "crypt_sha512")
 -- ------------------------------------------------------------------------

@@ -50,7 +50,6 @@ ui.container{
                                     attr={class="button orange" },
                                     module="unit",
                                     view="show_ext",
-                                    id=config.gui_preset.M5S.units["cittadini"].unit_id,
                                     content=_"Homepage read new issues"  
                                     } 
                         end
@@ -67,7 +66,6 @@ ui.container{
                             attr={class="button orange "},
                             module = "wizard",
                             view = "show_ext",
-                            id=config.gui_preset.M5S.units["eletti"].unit_id,
                             content=_"Homepage write new issue" 
                         } 
                      end
@@ -82,7 +80,6 @@ ui.container{
                                 attr={class="button orange "},
                                 module="unit",
                                 view="show_ext",
-                                id=config.gui_preset.M5S.units["eletti"].unit_id,
                                 content=_"Homepage read m5s issues" 
                             } 
                         end
@@ -97,7 +94,6 @@ ui.container{
                             attr={class="button orange"},
                             module="unit",
                             view="show_ext",
-                            id=config.gui_preset.M5S.units["altri_gruppi"].unit_id,
                             content=_"Homepage read other issues",  
                                    
                         }  

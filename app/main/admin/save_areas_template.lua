@@ -78,5 +78,3 @@ end
 slot.put("</script>")
 
 ui.script{ static = "js/custom.js" }
-
-

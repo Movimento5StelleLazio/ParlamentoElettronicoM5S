@@ -5,7 +5,7 @@ local for_details = param.get("for_details", "boolean") or false
 
 local class =""
 if for_details then
-  class = " alert alert-simple initiative_box paper"
+  class = "initiative_box well-inside paper"
 end
 
 local function round(num, idp)
@@ -56,7 +56,7 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
           :add_where{ "event.initiative_id = ? AND event.occurrence > ? AND event.id NOT IN ("..chkids..")", initiative.id, app.session.member.activated }
           :exec()
 
-        ui.container{ attr = { class = "span2 text-center" }, content = function()
+        ui.container{ attr = { class = "span2 text-center spaceline2" }, content = function()
           ui.link{
             attr = { class="btn btn-primary btn_read_initiative"  },
             module = "initiative",
@@ -84,7 +84,7 @@ ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
               end
 
 
-              ui.heading{level=5,attr={class=""},content=function()
+              ui.heading{level=3,attr={class=""},content=function()
                 slot.put(_"Read".." p"..initiative.id)
               end }
             end

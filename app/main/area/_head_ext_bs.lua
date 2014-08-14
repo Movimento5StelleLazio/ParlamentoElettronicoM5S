@@ -1,6 +1,6 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local wizard = param.get("create", boolean)
 
 local show_content = param.get("show_content", atom.boolean)
 
@@ -20,7 +20,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
       ui.container{ attr = { class = "span11" }, content = function()
         ui.link{
-          module = "area", view = "filters_bs", attr={class = "label label-area fixclick" }, id = area.id, content = function()
+          module = "area", view = "filters_bs", params = { create = create }, attr={class = "label label-area fixclick" }, id = area.id, content = function()
             ui.tag{tag="strong",content=area.name}
           end 
         }
@@ -41,7 +41,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
             if membership then
               
               if app.session.member_id == member.id then
-                ui.tag{ content = _"You are participating in this area" }
+                ui.tag{ attr = { class = "label label-success" }, content = _"You are participating in this area" }
                 slot.put(" ")
                 ui.tag{ content = function()
                   slot.put("(")
@@ -67,7 +67,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               end
     
             elseif app.session.member_id == member.id and member:has_voting_right_for_unit_id(area.unit_id) then
-              ui.link{
+              ui.link{ attr = {class = "label label-warning" },
                 text   = _"Participate in this area",
                 module = "membership",
                 action = "update",
@@ -96,7 +96,7 @@ ui.container{ attr = { class = "row-fluid" }, content = function()
               slot.put(" &middot; ")
               --]]
     
-              ui.link{
+              ui.link{attr = {class = "label label-warning" },
                 content = function()
                   slot.put(_"Create new issue")
                 end,

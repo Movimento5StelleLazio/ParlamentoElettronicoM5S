@@ -40,7 +40,7 @@ ui.container{ attr = { class = "area_head" }, content = function()
             slot.put(" ")
             ui.tag{ content = function()
               slot.put("(")
-              ui.link{
+              ui.link{ attr = { class = "label label-warning" }, 
                 text    = _"Withdraw",
                 module  = "membership",
                 action  = "update",

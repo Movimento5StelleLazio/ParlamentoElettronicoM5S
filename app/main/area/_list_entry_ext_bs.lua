@@ -1,34 +1,44 @@
 local area = param.get("area", "table")
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local create = param.get("create", atom.boolean) or false
 
 ui.container{ attr = { class = "row-fluid" }, content = function()
   ui.container{ attr = { class = "span12 well-inside"}, content = function()
     ui.container{ attr = { class = "row-fluid" }, content = function()
-      ui.container{ attr = { class = "span2 text-center"}, content = function()
-        if not wizard then
-          ui.link{  
-            module = "area", view = "filters_bs", id = area.id,
-            attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
-              ui.heading{level=5,content=_"AREA "..area.id}
-            end
-          }
-        else
-          ui.link{
-            module = "wizard", view = "wizard_new_initiative_bs",
-            params = {area_id = area.id, unit_id=area.unit_id},
-            attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
-              ui.heading{level=5,content=_"AREA "..area.id}
-            end
-          }
+      ui.container{ attr = { class = "span2 text-center spaceline"}, content = function()
+      	if create then
+		      if app.session.member.elected then
+		        ui.link{  
+		          module = "wizard", view = "shortcut",
+		          params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
+		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
+		            ui.heading{level=3,content=_"AREA "..area.id}
+		          end
+		        }
+		      else
+		        ui.link{
+		          module = "wizard", view = "page_bs1",
+		          params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
+		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
+		            ui.heading{level=3,content=_"AREA "..area.id}
+		          end
+		        }
+		      end
+		    else
+		    	ui.link{  
+		          module = "area", view = "filters_bs", id = area.id,
+		          attr = { class = "btn btn-primary btn-large btn_margin fixclick" }, content = function()
+		            ui.heading{level=3,content=_"AREA "..area.id}
+		          end
+		        }
         end
       end }
       ui.container{ attr = { class = "span10" }, content = function()
-        ui.container{ attr = { class = "row-fluid" }, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
+--        ui.container{ attr = { class = "row-fluid" }, content = function()
+--          ui.container{ attr = { class = "span12"}, content = function()
             execute.view{ module = "area", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
-          end }
-        end }
+--          end }
+--        end }
         ui.tag{ content = _"Issues:" }
         slot.put(" ")
         ui.link{ 

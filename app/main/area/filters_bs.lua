@@ -1,7 +1,7 @@
 slot.set_layout("custom")
 
+local create = param.get("create", atom.boolean)
 local area = Area:by_id(param.get_id())
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
 if not area then
   slot.put_into("error", "Please provide a valid area id")
@@ -13,91 +13,121 @@ app.html_title.subtitle = _("Area")
 
 util.help("area.show")
 
-local unit_name
-for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == area.unit_id then unit_name = i end
-end
- 
-if not config.gui_preset[gui_preset].units[unit_name] then
-  slot.put_into("error", "unit_id for selected area is not configured in config.gui_preset")
-  return false
-end
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+        	ui.container{ attr = { class  = "span12 well" }, content = function()
+        
 
-local spanstyle
-if unit_name == "cittadini" or unit_name == "iscritti" then
-  spanstyle =""
-else
-  spanstyle="margin-left: 12.5%"
-end
+     				ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
+       				ui.container{attr={class="span3"},content = function()
+		  						ui.link {
+										attr = { class="btn btn-primary large_btn fixclick" },
+										module = "unit",
+										view = "show_ext_bs",
+										id = area.unit_id,
+										params = { filter = "my_areas" },
+										content = function()
+            		ui.heading{level=3,attr={class="fittext"},content=function()
+              	ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+                slot.put(_"Back to previous page")
+                end }
+               end }
+              end }
+       ui.container{attr={class="span8"},content = function()
+         ui.tag { tag = "h1", content = _("#{realname}, you are now in the Regione Lazio Assembly", {realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login)}) }
+	       end }
+	       
+	       						ui.container{attr={class="span1 text-center "},content=function()
 
-ui.container{ attr = { class  = "row-fluid" }, content = function()
-  ui.container{ attr = { class  = "span12 well" }, content = function()
-    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h4", attr = {class = "span12"},  content = _(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = app.session.member.realname}) }
-    end }
-    ui.container{ attr = { class  = "row-fluid text-center" }, content = function()
-      ui.tag { tag = "h3",attr = {class = "span12"}, content = _(config.gui_preset[gui_preset].units[unit_name].area_filter_title) }
-    end }
-    ui.container{ attr = { class  = "row-fluid btn_box_top  btn_box_bottom" }, content = function()
-      ui.container{attr={class="span3", style=spanstyle},content = function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "unit",
-          view = "show_ext_bs",
-          id = area.unit_id,
-          content = function()
-            ui.heading{level=3,attr={class="fittext"},content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(_"Back to previous page")
-            end }
-          end
-        }
-      end }
-      if unit_name == "cittadini" or unit_name == "iscritti" then
-        ui.container{attr={class="span3"},content = function()
-          ui.link {
-            attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-            module = "area",
-            view = "show_ext_bs",
-            params = { state = "admission"},
-            id = area.id,
-            content = function()
-              ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES LOOKING FOR SUPPORTERS"}
-            end 
-        }
+	
+				
+						ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Le NUOVE PROPOSTE sono quelle attualmente presenti in questa area tematica, IN DISCUSSIONE sono quelle attualmente sono attive, COMPLETATE O RITIRATE tutte le altre proposte in archivio.",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+	       
+          end }
+          
+          
+          
+          
+          
+        ui.container{ attr = { class  = "row-fluid" }, content = function()
+          ui.container{ attr = { class  = "span9 offset3 text-center" }, content = function()
+        ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()
+          ui.container{ attr = { class  = "span6 text-right" }, content = function()
+            ui.heading{level=3 ,content=_"Ti trovi nell' area tematica:" }
+          end }
+            local area_id = area.id
+	    local name = area.name
+          ui.container{ attr = { class  = "span6 text-left" }, content = function()
+         ui.heading{level=3 ,content= name }
+          end }
         end }
-      end
-      ui.container{attr={class="span3"},content = function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
-          view = "show_ext_bs",
-          params = { state = "development"},
-          id = area.id,
-          content = function()
-            ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES NOW IN DISCUSSION"}
-          end 
-        }
-      end }
-      ui.container{attr={class="span3"},content = function()
-        ui.link {
-          attr = { class="btn btn-primary btn-large large_btn table-cell eq1 fixclick" },
-          module = "area",
-          view = "show_ext_bs",
-          params = { state = "closed"},
-          id = area.id,
-          content = function()
-            ui.heading{level=3, attr={class="fittext"},content=_"COMPLETED OR RETIRED INITIATIVES"}
-          end 
-        }
-      end }
-     end
-    }
-  
-  end }
-  ui.script{static = "js/jquery.equalheight.js"}
-  ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-  ui.script{static = "js/jquery.fittext.js"}
-  ui.script{script = "jQuery('.fittext').fitText(); " }
+            end }
+        end }
+ui.container{attr={class="row-fluid spaceline spaceline-bottom"},content=function()
+ end }
+           ui.container{ attr = { class  = "row-fluid spaceline3" }, content = function()
+           ui.container{ attr = { class  = "span12 well-inside paper" }, content = function()
+           ui.container{ attr = { class  = "row-fluid spaceline" }, content = function()      
+                 ui.tag { tag = "h3",attr = {class = "span6 offset3 text-center label label-warning"}, content = _("CHOOSE THE CITIZENS INITIATIVES YOU WANT TO READ:") }
+                 end }
+      
 
-end }
+          ui.container{ attr = { class  = "row-fluid spaceline3 text-center" }, content = function()
+          ui.container{attr={class="span4"},content = function()
+                  ui.link {
+		  attr = { class="btn btn-primary large_btn btn_size_fix_h fixclick" },
+		  module = "area",
+		  view = "show_ext_bs",
+		  params = { state = "admission"},
+		  id = area.id,
+		  content = function()
+		    ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES LOOKING FOR SUPPORTERS"}
+		  end }
+                 end }
+          ui.container{attr={class="span4"},content = function()
+		  ui.link {
+		  attr = { class="btn btn-primary large_btn btn_size_fix_h fixclick" },
+		  module = "area",
+		  view = "show_ext_bs",
+		  params = { state = "development"},
+		  id = area.id,
+		  content = function()
+		    ui.heading{level=3, attr={class="fittext"},content=_"INITIATIVES NOW IN DISCUSSION"}
+		  end }
+                end }
+          ui.container{attr={class="span4"},content = function()
+		  ui.link {
+		  attr = { class="btn btn-primary large_btn btn_size_fix_h fixclick" },
+		  module = "area",
+		  view = "show_ext_bs",
+		  params = { state = "closed"},
+		  id = area.id,
+		  content = function()
+		    ui.heading{level=3, attr={class="fittext"},content=_"COMPLETED OR RETIRED INITIATIVES"}
+                 end }
+                end }
+               end }
+          ui.container{ attr = { class  = "row-fluid spaceline2 text-center" }, content = function()
+               end }
+              end }
+             end }  
+			end }
+           end }

@@ -1,18 +1,20 @@
-#/bin/bash
+#!/usr/bin/env bash
 
-FRONTENDSRC=/opt/ParlamentoElettronicoM5S
-CORESRC=/opt/ParlamentoElettronicoM5SCore
-WEBMCPSRC=/opt/ParlamentoElettronicoM5S/extras/webmcp
-FRONTENDDST=/opt/liquid_feedback_frontend
-COREDST=/opt/liquid_feedback_core
-WEBMCPDST=/opt/webmcp
-HELPDIR=${FRONTENDDST}/locale/help/
-ROCKETWIKICMD=/opt/rocketwiki-lqfb/rocketwiki-lqfb
-CONFIGFILE=/opt/ParlamentoElettronicoM5S/extras/myconfig.lua
-INITFILE=/opt/ParlamentoElettronicoM5S/extras/init.lua
-LFUPDATED=/opt/ParlamentoElettronicoM5S/extras/lf_updated
-INITSCRIPT=/opt/ParlamentoElettronicoM5S/extras/lf_updated.initrd
-NOTIFYD=/opt/ParlamentoElettronicoM5S/extras/start_notify.sh
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+FRONTENDSRC=..
+CORESRC=../../ParlamentoElettronicoM5SCore
+WEBMCPSRC=webmcp
+FRONTENDDST=../../liquid_feedback_frontend
+COREDST=../../liquid_feedback_core
+WEBMCPDST=../../webmcp
+HELPDIR=${FRONTENDDST}/locale/help
+ROCKETWIKICMD=../../rocketwiki-lqfb/rocketwiki-lqfb
+CONFIGFILE=myconfig.lua
+INITFILE=init.lua
+LFUPDATED=lf_updated
+INITSCRIPT=lf_updated.initrd
+NOTIFYD=start_notify.sh
 HTTPDUSER=www-data
 
 if [ "z$(id -u)" != "z0" ];then
@@ -36,13 +38,15 @@ done
 
 export LANG=en_US.UTF-8
 
-if [ "z${fast}" == "zyes" ]; then
-   cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,utils} ${FRONTENDDST}/
+if [ "z${fast}" == "yes" ]; then
+   echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
+   cp -a $FRONTENDSRC/{app, db, env, fastpath, locale, model, static, utils} ${FRONTENDDST}/
+   echo $?
    echo "Fast copy done"
    exit 0
 fi
 
-if [ "z${auto}" == "zno" ];then
+if [ "z${auto}" == "no" ];then
 	echo ""
 	echo "Ready to install ParlamentoElettronicoM5S"
 	echo "Please confirm installation parameters"
@@ -142,9 +146,11 @@ if ! [ -d "${WEBMCPDST}" ]; then
 fi
 
 echo "Installing Frontend..."
-cp -a ${FRONTENDSRC}/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+echo $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils}
+cp -a $FRONTENDSRC/{app,db,env,fastpath,locale,model,static,tmp,utils} ${FRONTENDDST}
+echo $?
 mkdir -p ${FRONTENDDST}/config/
-cp ${FRONTENDSRC}/config/init.lua ${FRONTENDDST}/config/
+cp ${FRONTENDSRC}/extras/init.lua ${FRONTENDDST}/config/
 
 echo "Changing ownership of tmp directory..."
 chown ${HTTPDUSER} ${FRONTENDDST}/tmp
@@ -153,10 +159,10 @@ echo "Installing Core..."
 cp -a ${CORESRC}/* ${COREDST} 
 
 echo "Installing configuration file..."
-cp ${CONFIGFILE} ${FRONTENDDST}/config/ 
+cp ${CONFIGFILE} ${FRONTENDDST}/config
 
 echo "Installing init file..."
-cp ${INITFILE} ${FRONTENDDST}/config/
+cp ${INITFILE} ${FRONTENDDST}/config
 
 echo "Compiling WebMCP..."
 cd ${WEBMCPSRC}
@@ -203,5 +209,10 @@ echo "Cleaining..."
 cd ${WEBMCPSRC}
 make clean 1>/dev/null
 cd -
+
+chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $FRONTENDDST
+chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $COREDST
+chown -R $(id -g -n $(who am i | awk '{print $1}')):$(who am i | awk '{print $1}') $WEBMCPDST
+chown -R www-data $FRONTENDDST/tmp
 
 echo "Installation complete..."

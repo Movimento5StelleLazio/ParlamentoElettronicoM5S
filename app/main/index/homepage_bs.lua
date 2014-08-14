@@ -1,6 +1,6 @@
 slot.set_layout("custom")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
+local type_id = param.get_id()
 local state = param.get("state") or "any"
 local scope = param.get("scope") or "all_units"
 local orderby = param.get("orderby") or "event" 
@@ -10,7 +10,7 @@ local member = app.session.member
 local ftl_btns = param.get("ftl_btns",atom.boolean) or false
 
 -- Right selector
-local issues_selector_myinitiatives =Issue:new_selector()
+local issues_selector_myinitiatives = Issue:new_selector()
 execute.chunk{
   module    = "issue",
   chunk     = "_filters_ext",
@@ -57,73 +57,83 @@ end
  
 ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 well text-center"},content=function()
-    ui.container{attr={class="row-fluid"},content=function()
-      ui.container{attr={class="span12"},content=function()
-        ui.heading{level=1, content=function()
-          slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = app.session.member.realname}))
-        end }
 
-        ui.heading{level=6, content=_"You are now inside the Digital Assembly of M5S Lazio's Public Affairs."}
-        ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
-      end }
-    end }
 
-    ui.container{attr={class="row-fluid spaceline"},content=function()
-      ui.container{attr={class="span12"},content=function()
-        ui.heading{level=2, content=_"What you want to do?"}
-        ui.heading{level=6, content=_"Choose by pressing one of the following buttons:"}
-      end }
-    end }
+      
+    ui.container{attr={class="row-fluid"},content=function()  
+    ui.container{attr={class="span3 "},content=function()   
+		    ui.link{
+		      attr = { class="btn btn-primary large_btn"  },
+		      module = "index",
+		      view = "index",
+		      content = function()
+		        ui.heading{level=3, content=function()
+		          ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+		          slot.put(_"Back to previous page")
+	        	end }
+	        	end }
+		  	end }
+			  ui.container { attr = { class = "span7 text-center" }, content = function()
+			  ui.heading{level=1, content=function()
+			    slot.put(_("Welcome <strong>#{realname}.</strong>", {realname = (app.session.member.realname and app.session.member.realname or app.session.member.login)}))
+			  end }
 
-    ui.container{attr={class="row-fluid btn_box_top btn_box_bottom"},content=function()
+	    ui.heading{level=6, content=_"You are now inside the Digital Assembly for Public Affairs."}
+	    ui.heading{level=6, content=_"Here laws and measures for Region and his citizens are being discussed."}
+	    	end }
+	    	
+	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Choose by pressing one of the following buttons:",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+
+		end }
+					ui.container{attr={class="row-fluid spaceline"},content=function()
+						ui.container{attr={class="span12 well-inside paper "},content=function()
+
+    ui.container{attr={class="row-fluid text-center spaceline-bottom"},content=function()
     
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
-          module="unit", view="show_ext_bs",
-          id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
+      ui.container{attr={class="span6 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary large_btn"},
+          module="unit",
+          view="show_ext_bs",
+          params = { filter = "my_areas" },
           content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read new issues"}
+            ui.heading{level=3, content=_"Homepage read new issues"}
           end }
       end }
     
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
+      ui.container{attr={class="span6 spaceline"},content=function()
+        ui.link{attr={class="btn btn-primary large_btn"},
           module = "unit", view = "show_ext_bs",
-          id=config.gui_preset[gui_preset].units["cittadini"].unit_id,
-          params={wizard=true},
+          params={create=true, filter = "my_areas" },
           content=function()
-             ui.heading{level=3,attr={class="fittext"}, content=_"Homepage write new issue"}
-          end }
+             ui.heading{level=3, content=_"Homepage write new issue"}
+        end }
       end }
-    
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
-          module="unit", view="show_ext_bs",
-          id=config.gui_preset[gui_preset].units["eletti"].unit_id,
-          content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read m5s issues"}
-          end }
+        end }
       end }
-       
-      ui.container{attr={class="span3"},content=function()
-        ui.link{attr={class="btn btn-primary btn-large large_btn table-cell eq1 fixclick"},
-          module="unit", view="show_ext_bs",
-          id=config.gui_preset[gui_preset].units["altri_gruppi"].unit_id,
-          content=function()
-            ui.heading{level=3, attr={class="fittext"}, content=_"Homepage read other issues"}
-          end }
-      end }
-
     end }
-  end }
+	end }
 end }
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(window).load(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext').fitText(0.9, {minFontSize: '10px', maxFontSize: '28px'});" }
-
-
-
+    
 btns = {
   default_state = 'any',
   state = {
@@ -156,7 +166,7 @@ btns = {
 }
 
 
-ui.container{attr={class="row-fluid"},content=function()
+--[[ui.container{attr={class="row-fluid"},content=function()
   ui.container{attr={class="span12 text-center"},content=function()
     execute.chunk{
       module = "issue" ,
@@ -171,7 +181,7 @@ ui.container{attr={class="row-fluid"},content=function()
       }
     }
   end }
-end }
+end }]]
 
 if not issues_selector_voted or not issues_selector_myinitiatives then
   return true
@@ -192,7 +202,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="span12 well-inside"},content=function()
+  --        ui.container{attr={class="span12 well-inside"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext2_bs",
@@ -204,12 +214,12 @@ ui.container{attr={class="row-fluid"},content=function()
                 interest=interest,
                 list="voted",
                 ftl_btns=ftl_btns,
-		for_member=member,
+								for_member=member,
                 for_details = false,
                 selector = issues_selector_voted
               }
             }
-          end }
+--          end }
         end }
       end }
     end }
@@ -228,7 +238,7 @@ ui.container{attr={class="row-fluid"},content=function()
           end }
         end }
         ui.container{attr={class="row-fluid"},content=function()
-          ui.container{attr={class="span12 well-inside"},content=function()
+--          ui.container{attr={class="well-inside span12"},content=function()
             execute.view{
               module = "issue",
               view   = "_list_ext2_bs",
@@ -246,11 +256,8 @@ ui.container{attr={class="row-fluid"},content=function()
               }
             }
           end }
-        end }
+--        end }
       end }
     end }
   end }
 end }
-
-
-

@@ -11,7 +11,7 @@ if not param.get("hide_unit", atom.boolean) then
   execute.view{ module = "unit", view = "_head", params = { unit = area.unit, member = member } }
 end
 
-ui.container{ attr = { class = "area_head" }, content = function()
+ui.container{ attr = { class = "area_head paper" }, content = function()
 
   execute.view{ module = "delegation", view = "_info", params = { area = area, member = member } }
 
@@ -36,7 +36,7 @@ ui.container{ attr = { class = "area_head" }, content = function()
         if membership then
           
           if app.session.member_id == member.id then
-            ui.tag{ content = _"You are participating in this area" }
+            ui.tag{  attr = { class = "label label-success" }, content = _"You are participating in this area" }
             slot.put(" ")
             ui.tag{ content = function()
               slot.put("(")
@@ -58,11 +58,11 @@ ui.container{ attr = { class = "area_head" }, content = function()
               slot.put(")")
             end }
           else
-            ui.tag{ content = _"Member is participating in this area" }
+            ui.tag{content = _"Member is participating in this area" }
           end
 
         elseif app.session.member_id == member.id and member:has_voting_right_for_unit_id(area.unit_id) then
-          ui.link{
+          ui.link{ attr = { class = "label label-warning" }, 
             text   = _"Participate in this area",
             module = "membership",
             action = "update",
@@ -89,7 +89,7 @@ ui.container{ attr = { class = "area_head" }, content = function()
           end
           slot.put(" &middot; ")
 
-          ui.link{
+          ui.link{   attr = { class = "label label-warning" }, 
             content = function()
               slot.put(_"Create new issue")
             end,

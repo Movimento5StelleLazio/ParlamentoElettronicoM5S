@@ -1,10 +1,7 @@
 slot.set_layout("custom")
 
-local unit_id = param.get_id()
 local filter = param.get("filter")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
-local wizard = param.get("wizard", boolean)
-
+local create = param.get("create", atom.boolean) or false
 
 if not app.session.member_id then
   return false
@@ -20,58 +17,61 @@ else
   areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-if unit_id then
-  areas_selector:add_where{ "area.unit_id = ?", unit_id }
-else
-  slot.put_into("error", "No unit_id was provided!")
-  return false
-end
+areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.public ")
 
-local unit_name
-for i,v in pairs(config.gui_preset[gui_preset].units) do
-  if config.gui_preset[gui_preset].units[i].unit_id == unit_id then unit_name = i end
-end
-
-if not unit_name then
-  slot.put_into("error", "Cannot find unit_id in configuration!")
-  return false
-end
-
-local return_view = "homepage_bs"
-
-if unit_name == "iscritti" then
-  return_view = "index"
-end
-
-ui.container{ attr = { class  = "row-fluid" } , content = function()
+ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
   ui.container{ attr = { class  = "well span12" }, content = function()
     ui.container{ attr = { class  = "row-fluid" }, content = function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
-          attr = { class="btn btn-primary btn-large large_btn table-cell fixclick"  },
+          attr = { class="btn btn-primary btn-large large_btn" },
           module = "index",
-          view = return_view,
+          view = "homepage_bs",
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3, content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(_"Back to previous page")
             end }
           end
         }
       end }
-      ui.container{ attr = { class  = "span9 text-center" }, content = function()
+      ui.container{ attr = { class  = "span7 text-center" }, content = function()
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=1,attr={class="fittext0"},content=_(config.gui_preset[gui_preset].units[unit_name].assembly_title, {realname = member.realname})}
+            ui.heading{level=1,content=_("#{realname}, you are now in the Regione Lazio Assembly", {realname = member.realname})}
           end }
         end }
         ui.container{ attr = { class  = "row-fluid" }, content = function()
           ui.container{ attr = { class  = "span12 text-center" }, content = function()
-            ui.heading{level=2,attr={class="fittext0"},content=_"CHOOSE THE THEMATIC AREA"}
+            ui.heading{level=2, content=_"CHOOSE THE THEMATIC AREA"}
           end }
         end }
+
       end }
+      
+      	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse. Una volta che ti sarai attivato, ti appare un sommario delle proposte presentate nelle varie aree, puoi navigare nelle aree, e presentare una nuova questione per quell' area.",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
     end }
+
   end }
 end }
 
@@ -81,15 +81,15 @@ ui.container{ attr = { class="row-fluid text-center"}, content=function()
   end }
 end }
 
-btn_class = "btn btn-primary btn-large large_btn_show_ext table-cell eq1 fixclick"
-btn_class_active = "btn btn-primary btn-large active large_btn_show_ext table-cell eq1 fixclick"
+btn_class = "btn btn-primary btn-large large_btn"
+btn_class_active = "btn btn-primary btn-large active large_btn"
 btn1, btn2 = btn_class,btn_class
+
 if filter == "my_areas" then
   btn2=btn_class_active
 else
   btn1=btn_class_active
-end
-  
+end  
 
 ui.container{ attr = { class="row-fluid"}, content=function()
   ui.container{ attr = { class ="span12 well" }, content = function()
@@ -97,31 +97,29 @@ ui.container{ attr = { class="row-fluid"}, content=function()
       ui.tag { 
         tag = "h3", 
         attr = { class  = "span12 text-center"  }, 
-        content = _(config.gui_preset[gui_preset].units[unit_name].unit_title) or _"THEMATIC AREAS" 
+        content = _"CITIZENS THEMATIC AREAS" or _"THEMATIC AREAS" 
       }
     end }
-    ui.container{ attr = { class ="row-fluid" }, content = function()
-      ui.container{attr={class="span4 offset2"},content=function()
+    ui.container{ attr = { class ="row-fluid text-center" }, content = function()
+      ui.container{attr={class="span6"},content=function()
         ui.link { 
           attr = { class=btn1  }, 
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { wizard = wizard},
+          params = { create = create },
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ALL AREAS"}
+            ui.heading{level=3, content= _"SHOW ALL AREAS"}
           end 
         }
       end }
-      ui.container{attr={class="span4 offset1"},content=function()
+      ui.container{attr={class="span6"},content=function()
         ui.link {
           attr = { class=btn2  },
           module = "unit",
           view = "show_ext_bs",
-          id = unit_id,
-          params = { filter = "my_areas", wizard = wizard},
+          params = { filter = "my_areas", create = create },
           content = function()
-            ui.heading{level=3, attr={class="fittext1"}, content= _"SHOW ONLY PARTECIPATED AREAS"}
+            ui.heading{level=3, content= _"SHOW ONLY PARTECIPATED AREAS"}
           end 
         }
       end }
@@ -131,18 +129,9 @@ ui.container{ attr = { class="row-fluid"}, content=function()
         execute.view{  
           module = "area",
           view = "_list_ext_bs",
-          params = { areas_selector = areas_selector, member = app.session.member, wizard = wizard }
+          params = { areas_selector = areas_selector, member = app.session.member, create = create }
         }
       end }
     end }
   end }
-end}
-
-ui.script{static = "js/jquery.equalheight.js"}
-ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext0').fitText(1.0, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext1').fitText(1.3, {minFontSize: '24px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '17px', maxFontSize: '32px'}); " }
-
-
+end }

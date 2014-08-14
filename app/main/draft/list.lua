@@ -1,7 +1,7 @@
 local initiative = Initiative:by_id(param.get("initiative_id", atom.number))
 
 execute.view{
-  module = "initiative", view = "_show", params = {
+  module = "initiative", view = "_show_bs", params = {
     initiative = initiative, show_as_head = true
   }
 }

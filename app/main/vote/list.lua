@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local issue = Issue:by_id(param.get("issue_id"), atom.integer)
 
 local member_id = param.get("member_id", atom.integer)
@@ -178,7 +180,24 @@ ui.script{
     )
   end
 }
-
+     ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span12 well spaceline"}, content=function()
+     ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span2 "}, content=function()
+ui.image{static="png/voting.png"}
+end }
+  ui.container{attr={class="span8 offset1 spaceline label label-warning text-center"}, content=function()
+ui.heading{ level=1, content= "Sei nel box di voto per la proposta:"}
+            local issue_id = issue.id
+	    local title = issue.title
+	    local policy_name = Policy:by_id(issue.policy_id).name 
+         ui.heading{level=3 ,content= title }
+end }
+end }
+end }
+end }
+     ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span12 well-inside paper spaceline"}, content=function()
 ui.form{
   record = direct_voter,
   attr = {
@@ -210,17 +229,22 @@ ui.form{
           scoring = ""
         end
       end
+     ui.container{attr={class="row-fluid"}, content=function()
+  ui.container{attr={class="span12 text-center spaceline-bottom"}, content=function()
       slot.put('<input type="hidden" name="scoring" value="' .. scoring .. '"/>')
       -- TODO abstrahieren
       ui.tag{
         tag = "input",
         attr = {
           type = "submit",
-          class = "voting_done1",
+          class = "btn btn-primary large_btn",
           value = submit_button_text
         }
       }
+end }
+end }
     end
+
     ui.container{
       attr = { id = "voting" },
       content = function()
@@ -235,6 +259,8 @@ ui.form{
           else
             class = "abstention"
           end
+          ui.container{ attr = { class = "row-fluid text-center" }, content = function()
+          ui.container{ attr = { class = "span8 offset2 text-center" }, content = function()
           if
             #entries > 0 or
             (grade == 1 and not approval_used) or
@@ -318,7 +344,7 @@ ui.form{
                 end
                 ui.tag {
                   tag     = "div",
-                  attr    = { class = "cathead" },
+                  attr    = { class = "text-center" },
                   content = heading
                 }
                 for i, initiative in ipairs(entries) do
@@ -418,18 +444,25 @@ ui.form{
                             ui.tag{ content = initiator.name }
                             slot.put(" ")
                           end
+
+         
                         end
                       }
                     end
-                  }
+                  }        
+
                 end
+
               end
             }
+
           end
+        end }
+        end }
         end
       end
     }
-    if app.session.member_id and preview then
+--[[    if app.session.member_id and preview then
       local formatting_engine = param.get("formatting_engine")
       local comment = param.get("comment")
       local rendered_comment = format.wiki_text(comment, formatting_engine)
@@ -492,8 +525,11 @@ ui.form{
           }
         }
       end
-    end
+    end --]]
   end
 }
-
+  end
+}
+  end
+}
 

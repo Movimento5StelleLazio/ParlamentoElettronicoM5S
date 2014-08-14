@@ -1,7 +1,7 @@
 local areas_selector = param.get("areas_selector", "table")
 local hide_membership = param.get("hide_membership", atom.boolean)
 local member = param.get("member", "table")
-local wizard = param.get("wizard", boolean)
+local create = param.get("create", atom.boolean) or false
 
 areas_selector
   :reset_fields()
@@ -44,6 +44,6 @@ end
 
 
 for i, area in ipairs(areas) do
-  execute.view { module = "area", view = "_list_entry_ext_bs", params = { area = area, member = member,wizard=wizard } }
+  execute.view { module = "area", view = "_list_entry_ext_bs", params = { area = area, member = member, create=create } }
 end 
 

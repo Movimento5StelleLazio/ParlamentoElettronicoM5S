@@ -35,37 +35,34 @@ end
 local svgz = ""
 --local svgz = "z"
 
-ui.container{ attr = { class = "row-fluid"}, content = function()
-  ui.container{ attr = { class = "span12 spaceline"}, content = function()
-
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span3"}, content = function()
+	ui.container { attr={class = "row-fluid"}, content = function()
+         ui.container{ attr = { class = "span7 well-blue spaceline paper-green"}, content = function()
         execute.view{ module = "issue", view = "info_box", params={issue=issue}  }
-      end }
-      ui.container{ attr = { class = "span9"}, content = function()
-        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
-      end }
-
-    end }
-
-
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 alert alert-simple issue_box paper"}, content = function()
-
-        ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            ui.tag{tag="strong",content=function()
-              ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title or _"No title for this issue" }
-            end }
+           end }
           end }
-        end }
+
+     
+           ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.container{ attr = { class = "span9 phasesheight"}, content = function()
+        execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }       
+          end }
+         end }
+
+
+      	ui.container{ attr = { class = "row-fluid"}, content = function()
+      	ui.container{ attr = { class = "span12 well-blue"}, content = function()
+      	ui.container{ attr = { class = "row-fluid"}, content = function()
+        	ui.tag{tag="strong", attr = {class = "span7"},  content=function()
+          	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for this issue") }
+          end }
+            end }
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
+          ui.container{ attr = { class = "span12 well"}, content = function()
             execute.view{ module = "issue", view = "info_data", params = { issue = issue } }
           end }
         end }
-    
+
         --[[
         ui.container{ attr = { class = "row-fluid"}, content = function()
           ui.container{ attr = { class = "span12"}, content = function()
@@ -75,11 +72,14 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         --]]
     
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12"}, content = function()
-            ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
+        ui.container{attr = {class = "span7"},  content=function()
+          	ui.heading { level=3,attr = {class = "label label-warning"}, content = "Breve descrizione" }
           end }
-        end }
 
+                  ui.container{ attr = { class = "row-fluid"}, content = function()
+            ui.tag { tag="p", attr = { class="span12 well-inside paper" }, content = issue.brief_description or _"No description available" }
+        end }
+        end }
 --        local links = {}
       
         ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
@@ -90,12 +90,12 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
             else
               content= #issue.initiatives.._" INITIATIVES TO RESOLVE THE ISSUE" 
             end
-            ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block"}, content = content }
+            ui.heading{ level=3, attr = { class = "label label-warning"}, content = content }
           end }
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span12 depression_box"}, content =function()
+          ui.container{attr = {class="span12 well-inside"}, content =function()
             local initiatives_selector = issue:get_reference_selector("initiatives")
             local highlight_string = param.get("highlight_string")
             if highlight_string then
@@ -120,51 +120,53 @@ ui.container{ attr = { class = "row-fluid"}, content = function()
         end }
     
         ui.container{attr = {class="row-fluid"}, content =function()
-          ui.container{attr = {class="span8"}, content =function()
-            if app.session.member_id and direct_voter then
-              ui.container {
-                attr = { id = "issue_vote_box_"..issue.id, class = "issue_vote_box" },
-                content = function()
-                  ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
-                  if direct_voter then
-                    ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
-                      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
-                      ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
-                    end}
-                  else 
-                    ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
-                      ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
-                      ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
-                    end}
-                  end   
-                end
-              }
-            end
-          end }
-          ui.container{attr = {class="span4"}, content =function()
-            ui.link{ 
-              attr = { id = "issue_see_det_"..issue.id, class = "btn btn-primary btn-large pull-right issue_see_det_btn" },
-              module = "issue",
-              view = "show_ext_bs",
-              id = issue.id,
-              params = { 
-                view="area",
-                state = state,
-                orderby = orderby,
-                desc = desc,
-                interest = interest,
-                scope = scope,
-                view = view,
-                ftl_btns = ftl_btns
-              },
+          if app.session.member_id and direct_voter then
+            ui.container {
+              attr = { id = "issue_vote_box_"..issue.id, class = "span8 issue_vote_box" },
               content = function()
-                ui.heading{level=5,content=_"SEE DETAILS"}
-              end
-            }
+              	--local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
+              	
+                ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YOUR VOTE IS" }
+                local vote = (Vote:new_selector():add_where("issue_id = "..issue.id.." AND member_id = "..app.session.member.id):optional_object_mode():exec()).grade
+                trace.debug("vote: "..tostring(vote))
+                if vote == 1 then                  	
+                  ui.container{attr = {class="issue_thumb_cont_up"}, content =function()
+                    ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"YES" }
+                    ui.image{ static="svg/thumb_up.svg"..svgz, attr= { class = "thumb"}  }
+                  end}
+                else 
+                  ui.container{attr = {class="issue_thumb_cont_down"}, content =function()
+                    ui.tag{tag = "p", attr = {class="issue_vote_txt"}, content = _"NO" }
+                    ui.image{ static="svg/thumb_down.svg"..svgz, attr= { class = "thumb"}  }
+                  end}
+                end   
+            end }
+          end
+          ui.container{attr = {class="row-fluid"}, content =function()
+          ui.link { 
+            attr = { id = "issue_see_det_"..issue.id, class = "span4 offset4 text-center" },
+            module = "issue",
+            view = "show_ext_bs",
+            id = issue.id,
+            params = { 
+              view="area",
+              state = state,
+              orderby = orderby,
+              desc = desc,
+              interest = interest,
+              scope = scope,
+              view = view,
+              ftl_btns = ftl_btns
+            },
+            content = function()
+              ui.heading{ level=3,attr = {class="btn btn-primary large_btn"}, content=_"SEE DETAILS"}
           end }
+         end }
+         end }
+                end }
+               ui.container{attr = {class="row-fluid spaceline2"}, content =function() 
+                 ui.tag{tag = "hr", attr = {class=""} }  
+         end }
         end }
 
-      end }
-    end }
-  end }
-end }
+

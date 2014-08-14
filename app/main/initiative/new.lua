@@ -3,12 +3,28 @@ local area
 
 local issue_id = param.get("issue_id", atom.integer)
 if issue_id then
-  issue = Issue:new_selector():add_where{"id=?",issue_id}:single_object_mode():exec()
+  issue = Issue:by_id(issue_id)
   area = issue.area
-
 else
   local area_id = param.get("area_id", atom.integer)
-  area = Area:new_selector():add_where{"id=?",area_id}:single_object_mode():exec()
+  area = Area:by_id(area_id)
+end
+
+trace.debug("is elected? " .. tostring(app.session.member.elected))
+trace.debug("area_id: " .. tostring(area.id))
+trace.debug("unit_id: " .. tostring(area.unit_id))
+local unit = Unit:new_selector():add_where{"id=?",area.unit_id}:single_object_mode():exec()
+local module = "wizard"
+if not unit.public then
+	module = module .. "_private"
+end
+
+if app.session.member.elected then
+	execute.view { module = module, view = "shortcut", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
+	return
+else
+	execute.view { module = module, view = "page_bs1", params = { area_id = area.id, area_name = area.name, unit_id = unit.id, unit_name = unit.name } }
+	return
 end
 
 local polling = param.get("polling", atom.boolean)

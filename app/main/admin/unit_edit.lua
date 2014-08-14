@@ -40,6 +40,7 @@ ui.form{
     ui.field.text{     label = _"Name",         name = "name" }
     ui.field.text{     label = _"Description",  name = "description", multiline = true }
     ui.field.boolean{  label = _"Active?",      name = "active" }
+    ui.field.boolean{  label = _"Public?",      name = "public" }
 
     slot.put("<br />")
     ui.submit{         text  = _"Save" }

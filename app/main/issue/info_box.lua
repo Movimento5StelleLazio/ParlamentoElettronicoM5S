@@ -40,21 +40,19 @@ elseif issue.closed  then
   end
 end
 
-ui.container{ attr = { class = "issue_info_box2"}, content = function()
-  ui.container{ attr = { class = "row-fluid"}, content = function()
-    ui.container{ attr = { class = "span12"}, content = function()
-      ui.heading{ level=6, attr={class="fittext_info_box1"}, content = function()
+
+ 
+
+      ui.heading{ level=2, content = function()
         if event_image then
-          ui.image{ attr = { class = ""}, static = "icons/16/" .. event_image }
+          ui.image{ attr = { class = "paper-green"}, static = "icons/16/" .. event_image }
         end
         slot.put(event_name or "")
       end }
 
-    end }
-  end }
-  ui.container{ attr = { class = "row-fluid"}, content = function()
-    ui.container{ attr = { class = "span12"}, content = function()
-      ui.tag{ tag = "p", attr={class="fittext_info_box2"}, content = function()
+
+
+      ui.tag{ tag = "p", attr = { class = "paper-green"},  content = function()
         if issue.closed then
           slot.put(" &middot; ")
           ui.tag{ content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
@@ -71,15 +69,9 @@ ui.container{ attr = { class = "issue_info_box2"}, content = function()
               ui.tag{ content = _("Counting starts soon") }
             end
           else
-            ui.tag{ content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+            ui.tag{ attr = { class = "paper-green"}, content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
           end
         end
-      end }
-    end }
   end }
-end }
 
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext_info_box1').fitText(1.0, {minFontSize: '12px', maxFontSize: '22px'}); " }
-ui.script{script = "jQuery('.fittext_info_box2').fitText(1.0, {minFontSize: '10px', maxFontSize: '18px'}); " }
 

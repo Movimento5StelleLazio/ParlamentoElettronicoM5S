@@ -23,6 +23,10 @@ elseif view == "area" then
   return_module="area"
   return_view="show_ext_bs"
   return_btn_txt=_"Back to issue listing"
+elseif view == "area_private" then
+	return_module = "area_private"
+	return_view = "show_ext_bs"
+	return_btn_txt = _"Back to issue listing"
 end
 
 if app.session.member_id then
@@ -33,7 +37,8 @@ if not app.html_title.title then
   app.html_title.title = _("Issue ##{id}", { id = issue.id })
 end
 
-local url=request.get_absolute_baseurl().."issue/show/show_ext2_bs/"..tostring(issue.id)..".html"
+local url=request.get_absolute_baseurl().."issue/show_ext_bs/"..tostring(issue.id)..".html"
+trace.debug("url: "..url)
 
 ui.container{attr={class="row-fluid"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
@@ -41,12 +46,12 @@ ui.container{attr={class="row-fluid"}, content=function()
       ui.container{ attr = { class  = "span3" }, content = function()
         ui.link{
           attr = { class="btn btn-primary btn-large fixclick" },
-          module = return_module,
+          module = "area",
           id = issue.area.id,
-          view = return_view,
+          view = "show_ext_bs",
           params = param.get_all_cgi(),
           content = function()
-            ui.heading{level=3,attr={class="fittext_back_btn"},content=function()
+            ui.heading{level=3 ,content=function()
               ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
               slot.put(return_btn_txt)
             end }
@@ -55,234 +60,377 @@ ui.container{attr={class="row-fluid"}, content=function()
       end }
       ui.container{ attr = { class  = "span8" }, content = function()
         ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12"}, content=function()
-            ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Details for issue Q"..issue.id}
+          ui.container{attr={class="span7 offset1 label label-warning text-center"}, content=function()
+            ui.heading{level=1,attr={class="fittext1 uppercase "},content=_"Details for issue Q"..issue.id}
           end }
         end }
-        ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12 nowrap"}, content=function()
-            ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
-            slot.put("<input id='issue_url_box' type='text' value="..url..">") 
-            ui.script{static="js/jquery.select_popover.js"}
 
-            ui.tag{
-              tag="a",
-              attr={
-                id="select_btn",
-                href="#",
-                class="btn btn-primary inline-block"
-              },
-              content=function()
-                ui.heading{level=6,content=_"Select"}
+      end }
+      
+            	    ui.container{attr={class="span1 text-center "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Ti trovi nei dettagli della QUESTIONE, con le informazioni integrali. Al box SOLUZIONI PROPOSTE puoi leggere la, o le PROPOSTE presentate per risolvere la QUESTIONE, o presentrare una tua PROPOSTA alternativa. ",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+					end } 
+					
+     ui.container { attr = { id="social_box", class="row-fluid spaceline"}, content = function()
+			ui.container { attr = { class="span5"}, content = function()
+				ui.container { attr = { class="row-fluid spaceline"}, content = function()
+--[[				  ui.container{ attr = { class  = " span2" }, content = function()
+						slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+	        end }
+	        ui.container{ attr={class="span2"},content=function()
+	        	slot.put('<div class="g-plusone" data-size="tall"></div>')
+	        end }
+	        ui.container{ attr={class="span2"}, content=function()
+	        	slot.put('<script type="IN/Share" data-counter="top"></script>')
+	        end }
+	        ui.container{ attr = {class="span2"}, content = function()
+	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
+	        end }]]
+	        ui.container{ attr = { class  = "span2" }, content = function()
+	        	local message 
+	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'"  data-count="vertical" data-lang="it">Tweet</a>')
+	        end }
+	       end }
+				end }
+					ui.container{attr={class="span6 nowrap"}, content=function()
+            ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
+		          slot.put("<input id='issue_url_box' type='text' value="..url..">") 
+		          ui.tag{
+		            tag="a",
+		            attr={
+		              id="select_btn",
+		              href="#",
+		              class="btn btn-primary inline-block"
+		            },
+		            content=function()
+		     				ui.heading{level=6,content=_"Select"}
               end
             }
           end }
-        end }
-      end }
-      ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
---[[
-            slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
-          end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
-          end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
---]]
-          end }
-        end }
-      end }
-    end }
-  end }
+				end }		
+					end }
 end }
 
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12"}, content=function()
+
     ui.container{attr={class="row-fluid"}, content=function()
-      ui.container{ attr = { class = "span3"}, content = function()
+      ui.container{ attr = { class = "span3 well-blue spaceline paper-green"}, content = function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
       ui.container{ attr = { class = "span9"}, content = function()
         execute.view{ module = "issue", view = "phasesbar", params = { state=issue.state } }
-      end }
-    end }
   end }
 end }
-
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 alert alert-simple issue_box paper"}, content=function()
-    ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.tag{tag="strong",content=function()
-          ui.heading { level=5, content = "Q"..issue.id.." - "..issue.title or _"No title for the issue!" }
+	ui.container{attr={class="row-fluid"}, content=function()
+	ui.container{attr={class="span12 well-blue"}, content=function()
+	ui.container{attr={class="row-fluid"}, content=function()
+	  ui.container{attr={class="span12 spaceline3"}, content=function()
+	    ui.container{ attr = { class = "row-fluid"}, content = function()
+	      ui.container{ attr = { class = "span12"}, content = function()
+		ui.tag{tag="strong",content=function()
+		  ui.heading { level=3, attr = { class = "label label-warning"}, content = "Q"..issue.id.." - "..(issue.title or _"No title for the issue!") }
         end }
       end }
     end }
-    ui.container{ attr = { class = "row-fluid"}, content = function()
+    	ui.container{ attr = { class = "row-fluid"}, content = function()
+      	ui.container{ attr = { class = "span12 well"}, content = function()
+   	   ui.container{ attr = { class = "row-fluid"}, content = function()
+     	   ui.container{ attr = { class = "span6"}, content = function()
+              execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
+      			end }
+
+     	ui.container{ attr = { class = "span6"}, content = function()
+		ui.heading{ level=3, attr = { class = "spaceline" }, content = function()
+			  ui.tag{content= _"Issue created at:"}
+			  ui.tag{tag="span",content="  "..format.timestamp(issue.created)}
+                   if issue.state == "admission" then
+		ui.heading{ level=3, attr = { class = "spaceline" }, content = function() 
+			   ui.tag{content=_"Time limit to reach the supporters quorum:"}
+			   ui.tag{tag="span",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+		    end }
+    end
+		   end }
+		  end }
+		 end }
+		end }
+	       end }
+     ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        execute.view{ module = "issue", view = "info_data", params = {issue=issue}  }
+          ui.heading { level=3, attr = { class = "label label-warning"}, content = "Breve descrizione" }
+        end }
       end }
-    end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
         ui.tag { tag="p", attr = { class="issue_brief_description" }, content = issue.brief_description or _"No description available" }
       end }
     end }
+
+		if app.session.member_id and issue.state == 'voting' then
+			ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+				ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
+
+					ui.container{ attr = { class = "span4 offset1 spaceline"}, content = function()
+						ui.heading{ level=2, content= "La proposta è passata alla fase di votazione: clicca  sul pulsante per votare:"}
+					end }
+					ui.container{ attr = { class = "span2 spaceline"}, content = function()
+						ui.image{ static="svg/arrow-right.svg"}
+					end }
+
+					ui.container{ attr = { class = "span5"}, content = function()
+						ui.container{ attr = { class = "row-fluid spaceline-bottom"}, content = function()
+							ui.link {        
+								attr = { id = "issue_see_det_"..issue.id},
+								module = "vote",
+								view = "list",
+								id = issue.id,
+								params = {issue_id = issue.id },
+								content = function()
+									ui.container{ attr = { class = "span6  btn btn-primary "}, content = function()
+										ui.container{ attr = { class = "row-fluid"}, content = function()
+											ui.container{ attr = { class = "span6"}, content = function()
+												ui.image{static="png/voting.png"}
+											end }
+
+											ui.container{ attr = { class = "span6 text-center spaceline"}, content = function()									
+												ui.heading{ level=2, attr = { class = "spaceline"}, content=_"Vote now"}
+											end }
+										end }
+									end }
+							end }
+						end }
+					end }
+				end }
+			end }
+		end
+
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase spaceline" }, content = function()
-          ui.tag{content= _"Issue created at:"}
-          ui.tag{tag="strong",content="  "..format.timestamp(issue.created)}
-        end }
-      end }
-    end }
-    if issue.state == "admission" then
-      ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-        ui.container{ attr = { class = "span12"}, content = function()
-            ui.heading{ level=5, attr = { class = "uppercase" }, content = function() 
-              ui.tag{content=_"Time limit to reach the supporters quorum:"}
-              ui.tag{tag="strong",content="  "..format.interval_text(issue.state_time_left, { mode = "time_left" }) }
-            end }
-        end }
-      end }
-    end
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
           ui.tag{content= _"By user:" }
         end }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span8"}, content = function()
+      ui.container{ attr = { class = "span12 well"}, content = function()
         if issue.member_id and issue.member_id > 0 then
-          execute.view{ module="member", view="_info_data", id=issue.member_id }
+          execute.view{ module="member", view="_info_data", id=issue.member_id, params={ module = "issue", view = "show_ext_bs", content_id = issue.id} }
         else
           ui.heading{ level=6, content = _"No author for this issue" }
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+    ui.container{ attr = { class = "row-fluid"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
           ui.tag{content= _"Keywords:" }
         end }
-        ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
+        
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+                ui.container{ attr = { class = "span12 well"}, content = function()
+    --[[ui.container{ attr = { class = "row-fluid"}, content = function()
+
       ui.container{ attr = { class = "span12"}, content = function()
-        local keywords=Keyword:by_issue_id(issue.id)
+          ui.tag{ content = _"(Press a keyword to see all issues created until today discussing that topic)" }
+          -end }
+          end }]]
+              ui.container{ attr = { class = "row-fluid"}, content = function()
+
+      ui.container{ attr = { class = "span12"}, content = function()
+        local keywords=Keyword:by_issue_id(issue.id) 
         if keywords and #keywords > 0 then
           for k = 1, #keywords do
-            ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
-              ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
-            end }
+          	if not keywords[k].technical_keyword then
+		          ui.tag{tag="span",attr={ class="btn btn-danger btn-small filter_btn nowrap"}, content=function()
+		            ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+		          end }
+		        end
           end
         end
       end }
     end }
-    ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
-      ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "uppercase" }, content = function()
-          ui.tag{content=  _"Technical competence areas:" }
+    end }
         end }
-        ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }
-      end }
-    end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        areas={"biologia","chimica","fisica", "ingegneria edile", "riciclaggio", "ecologia"}
-        for i,k in ipairs(areas) do
-          ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
-            ui.heading{ level=5, attr = { class = "uppercase" },content = k}
-          end }
-        end
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = function()
+          ui.tag{content=  _"Technical competence areas:" }
+        end }					
+        ui.container{ attr = { class = "row-fluid"}, content = function()
+						ui.container{ attr = { class = "span12 well"}, content = function()
+        --[[ui.tag{ content = _"(Press an area of competence to see all issues created until today concerning that area)" }]]
+
+							local keywords=Keyword:by_issue_id(issue.id)
+							if keywords and #keywords > 0 then
+								for k = 1, #keywords do
+									if keywords[k].technical_keyword then
+										ui.tag{tag="span",attr={ class="btn btn-info btn-small filter_btn nowrap"}, content=function()
+											ui.heading{ level=5, attr = { class = "uppercase" },content = keywords[k].name}
+										end }
+									end
+								end
+							end
+						end }
+					end }
       end }
     end }
+    
     ui.container{ attr = { class = "row-fluid spaceline3"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Problem description:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Problem description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 depression_box"}, content = function()
-        ui.tag{content=issue.problem_description  or _"No description available" }
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
+        ui.tag{content=issue.problem_description  or _"No description available" } 
       end }
     end }
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-orange uppercase inline-block" }, content = _"Aim description:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Aim description:" }
       end }
     end }
     ui.container{ attr = { class = "row-fluid"}, content = function()
-      ui.container{ attr = { class = "span12 depression_box"}, content = function()
+      ui.container{ attr = { class = "span12 well-inside paper"}, content = function()
         ui.tag{content=issue.aim_description  or _"No description available"  }
       end }
     end }
 
     ui.container{ attr = { class = "row-fluid spaceline2"}, content = function()
       ui.container{ attr = { class = "span12"}, content = function()
-        ui.heading{ level=5, attr = { class = "alert head-chocolate uppercase inline-block" }, content = _"Proposed solutions:" }
+        ui.heading{ level=3, attr = { class = "label label-warning" }, content = _"Proposed solutions:" }
       end }
     end }
-    ui.container{attr = {class="row-fluid"}, content =function()
-      ui.container{attr = {class="span12 depression_box"}, content =function()
 
         ui.container{ attr = { class = "row-fluid"}, content = function()
-          ui.container{ attr = { class = "span12 alert label-area"}, content = function()
+                ui.container{ attr = { class = "span12 well"}, content = function()
             ui.container{ attr = { class = "row-fluid"}, content = function()
-              ui.container{ attr = { class = "span8"}, content = function()
+              ui.container{ attr = { class = "span8 spaceline text-justify"}, content = function()
                 if #issue.initiatives == 1 then
                   content= _"initiative"
                 else
                   content= _"initiatives"
                 end
     
+    						
                 ui.tag{content=function()
-                  
-                  slot.put( _("Vi sono attualmente <strong>#{count}</strong> proposte per risolvere la questione sollevata. Decidi a quale dare il tuo sostegno o presenta una proposta tua. Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro <strong>#{days}</strong> affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                  if issue.state == 'admission' then
+                  	slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa <br /> Almeno una proposta tra quelle presentate deve raggiungere il quorum di sostenitori entro #{days} affinche' la questione venga ammessa alla fase successiva.",{ count=#issue.initiatives, days=format.interval_text(issue.state_time_left)}) )
+                  else
+                  	slot.put( _("Vi sono attualmente #{count} proposte per risolvere la questione sollevata.<br />Leggi le proposte integrali, decidi a quale dare il tuo sostegno o presenta una proposta alternativa.",{ count=#issue.initiatives }) )
+                  end
                 end }
               end }
     
-              ui.container{ attr = { class = "span4"}, content = function()
+              ui.container{ attr = { class = "span3 offset1"}, content = function()
+              	local area = Area:by_id(issue.area_id)
+              	local unit = Unit:by_id(area.unit_id)
+              	local issue_keywords = ""
+              	local keywords=Keyword:by_issue_id(issue.id)
+								if keywords and #keywords > 0 then
+									for k = 1, #keywords do
+										if not keywords[k].technical_keyword then
+											issue_keywords = issue_keywords .. keywords[k].name
+											if k ~= #keywords then
+												issue_keywords = issue_keywords .. ","
+											end
+										end
+									end
+								end
                 ui.link{
-                  attr = { class="btn btn-primary spaceline btn_box_bottom fixclick"  },
+                  attr = { class="btn btn-primary spaceline fixclick"  },
                   module = "wizard",
-                  params = { issue_id=issue.id},
-                  view = "new",
+                  params = {
+                   issue_id = issue.id,
+                   area_id = area.id,
+                   area_name = area.name,
+                   unit_id = unit.id,
+                   unit_name = unit.name,
+                   policy_id = issue.policy_id,
+                   issue_title = issue.title,
+									 issue_brief_description = issue.brief_description,
+									 issue_keywords = issue_keywords,
+									 problem_description = issue.problem_description,
+								   aim_description = issue.aim_description},
+                   view = "page_bs6",
                   content = function()
                     ui.container{ attr = { class = "row-fluid"}, content = function()
-                      ui.container{ attr = { class = "span4"}, content = function()
+                      ui.container{ attr = { class = "span3"}, content = function()
                         ui.image{ attr = { class="pen_paper"}, static="svg/pen_paper.svg"}
                       end }
-                      ui.container{ attr = { class = "span6"}, content = function()
-                        ui.heading{level=5,attr={class="fittext_write"},content=_"Create your own alternative initiative"}
+                      ui.container{ attr = { class = "span9"}, content = function()
+                        ui.heading{level=3,attr={class="text-center"},content=_"Create your own alternative initiative"}
                       end }
                     end }
                   end
                 }
               end }
             end }
-          end }
-        end }
 		
 
         ui.container{attr = {class="row-fluid"}, content =function()
           local quorum_percent = issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
-          local quorum_supporters  
-          if issue.population and issue.population > 0 then
-            quorum_supporters = math.floor(issue.population * quorum_percent / 100)
+          local quorum_supporters
+					if issue.population and issue.population > 0 then
+            quorum_supporters = math.ceil(issue.population * quorum_percent / 100)
           else
             quorum_supporters = 0
           end
+                    ui.container{attr = {class="row-fluid spaceline3"}, content =function()  
+                    ui.container{attr = {class="span12 well-inside paper"}, content =function()                  
+ 			ui.container{attr = {class="row-fluid spaceline"}, content =function()
+                                        ui.container{attr = {class="span10 offset1 text-center spaceline label label-warning"}, content =function()
+                                  ui.tag{tag="h3",content="LEGGI I TESTI INTEGRALI DELLE PROPOSTE PER RISOLVERE LA QUESTIONE:" }
+                                    end }
+                    end }
+          ui.container{attr = {class="row-fluid spaceline3 spaceline-bottom"}, content =function()
+              local btna, btnb = "",""
+              if init_ord == "supporters" then btna = " active" end
+              if init_ord == "event" then btnb = " active" end
 
+              ui.link{
+                attr = { class="span4 offset1"..btna },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" },
+                content = function()
+                  ui.heading{level=6,attr={class="btn btn-primary fixclick "},content=_"ORDER BY NUMBER OF SUPPORTERS"}
+                end
+              }
+              ui.link{
+                attr = { class="span4 offset2"..btnb },
+                module = request.get_module(),
+                id = issue.id,
+                view = request.get_view(),
+                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" },
+                content = function()
+                  ui.heading{level=6,attr={class="btn btn-primary fixclick"},content=_"ORDER BY LAST EVENT DATE"}
+            	end }
+               end }
+
+              end }
+             end }
+                   ui.container{attr = {class="row-fluid spaceline2"}, content =function() 
           ui.container{attr = {class="span2 offset2"}, content =function()
             ui.container{attr = {class="initiative_quorum_out_box"}, content =function()
               ui.container{attr = {id="quorum_box", class="initiative_quorum_box", style="left:"..2+quorum_percent.."%"}, content =function()
@@ -293,39 +441,11 @@ ui.container{attr={class="row-fluid"}, content=function()
             end }
           end }
 
-          ui.container{attr = {class="span7 offset1 text-center"}, content =function()
-            ui.container{attr = {class="btn-group"}, content =function()
-              local btna, btnb = "",""
-              if init_ord == "supporters" then btna = " active" end
-              if init_ord == "event" then btnb = " active" end
 
-              ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btna,style="width:50%;"  },
-                module = request.get_module(),
-                id = issue.id,
-                view = request.get_view(),
-                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="supporters" },
-                content = function()
-                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY NUMBER OF SUPPORTERS"}
-                end
-              }
-              ui.link{
-                attr = { class="btn btn-primary btn-large table-cell fixclick wrap"..btnb,style="width:50%;"  },
-                module = request.get_module(),
-                id = issue.id,
-                view = request.get_view(),
-                params = { state=state, orderby=orderby, desc=desc, interest=interest,scope=scope,view=view,ftl_btns=ftl_btns, init_ord="event" },
-                content = function()
-                  ui.heading{level=6,attr={class="fittext_ord"},content=_"ORDER BY LAST EVENT DATE"}
-                end
-              }
-            end }
-
-          end }
         end }
 		
 
-        ui.container{attr = {class="row-fluid spaceline2"}, content =function()
+        ui.container{attr = {class="row-fluid"}, content =function()
           ui.container{attr = {class="span12 initiative_list_box"}, content =function()
 
             local initiatives_selector = issue:get_reference_selector("initiatives")
@@ -352,20 +472,16 @@ ui.container{attr={class="row-fluid"}, content=function()
                 init_ord=init_ord
               }
             }
-
           end }
+                    end }
+          end }
+                  end }
         end }
-
-      end }
     end }
   end }
 end }
-ui.script{static = "js/jquery.fittext.js"}
-ui.script{script = "jQuery('.fittext_back_btn').fitText(1.1, {minFontSize: '14px', maxFontSize: '32px'}); " }
-ui.script{script = "jQuery('.fittext_write').fitText(0.9, {minFontSize: '19px', maxFontSize: '32px'}); " }
---ui.script{script = "jQuery('.fittext_ord').fitText(0.9, {minFontSize: '12px', maxFontSize: '32px'}); " }
---ui.script{static = "js/jquery.equalheight.js"}
---ui.script{script = '$(document).ready(function() { equalHeight($(".eq_ord")); $(window).resize(function() { equalHeight($(".eq_ord")); }); }); ' }
+end }
+
 ui.script{static = "js/jquery.quorum_bar.js"}
 ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 

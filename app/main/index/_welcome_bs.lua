@@ -1,7 +1,5 @@
 slot.set_layout("custom")
-local gui_preset=db:query('SELECT gui_preset FROM system_setting')[1][1] or 'default'
 
-ui.script{static = "js/jquery.fittext.js"}
 if not app.session.member_id then
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{
@@ -23,7 +21,7 @@ if not app.session.member_id then
         end }
       end
     }
-  end}
+  end }
 end
 
 if app.session.member_id then
@@ -32,16 +30,15 @@ if app.session.member_id then
   
   ui.container{attr = {class = "row-fluid" },content = function()
     ui.container{ attr = { class  = "span12 well text-center" }, content = function()
-
-      ui.script{ static = "js/position.js" }
+			ui.script{ static = "js/position.js" }
       
       local curLogin = member:get_login_data('last')
 
       -- Demo data start
       --------------------------------------------------------------------------
-      if not curLogin or not curLogin.geolat or not curLogin.geolng or not curLogin.login_time  then
+      --[[if not curLogin or not curLogin.geolat or not curLogin.geolng or not curLogin.login_time  then
         curLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
-      end
+      end]]
       --------------------------------------------------------------------------
       -- Stop demo data
 
@@ -57,38 +54,38 @@ if app.session.member_id then
                 ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
-                      slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                    	trace.debug(member.realname .. " " .. member.login)
+                      slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                       ui.tag{ tag="span", attr = { id = "current_location"}, content="" }
-                      ui.script{ script = 'codelatlng('..curLogin.geolat..','..curLogin.geolng..',"current_location","'.." ".._"You're connected from".." "..'");'}
+                      ui.script{ script = 'getLocation("current_location", " '.. _"You're connected from" ..'");'}                      
                     end }
                   end }
                 end }
-  
                 
-                ui.container{attr = {class = "row-fluid" },content = function()
+                --[[ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"If it is not so, press here:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
+                end }]]
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[[ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick",
+                    class = "btn btn-primary fixclick",
                     onclick = "alert('Posizione aggiornata! (Non implementato)');"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Correct your position"}
+                    ui.heading{level=3 ,content= _"Correct your position"}
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
-              end }
+              end }]]
             end }
   
   
@@ -96,11 +93,11 @@ if app.session.member_id then
         end }
       else
         ui.container{attr = {class = "row-fluid" },content = function()
-          ui.container{ attr = { class  = "span12 alert location_data text-center" }, content = function()
+          ui.container{ attr = { class  = "span8 offset2 well text-center" }, content = function()
             ui.container{attr = {class = "row-fluid" },content = function()
               ui.container{ attr = { class  = "span12" }, content = function()
-                ui.heading{level=4,content=function()
-                  slot.put( _("Welcome <strong>#{realname}</strong>.", {realname = member.realname}) )
+                ui.heading{level=1,content=function()
+                  slot.put( _("Welcome <strong>#{realname}</strong>.",  {realname = (member.realname ~= "" and member.realname or member.login)}) )
                 end }
               end }
             end }
@@ -117,15 +114,7 @@ if app.session.member_id then
         end }
      end 
 
-      local lastLogin = member:get_login_data()
-      -- Demo data start
-      --------------------------------------------------------------------------
-      if not lastLogin or not lastLogin.geolat or not lastLogin.geolng or not lastLogin.login_time  then
-        lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = atom.timestamp:load("2013-07-10 18:05:55") }
-        --lastLogin = { member_id = member.id, geolat = "41.87499810", geolng = "12.51125750", login_time = "2013-07-08 20:06:55.072482+02" }
-      end
-      --------------------------------------------------------------------------
-      -- Stop demo data
+      --[[local lastLogin = member:get_login_data()
       if lastLogin and lastLogin.geolat and lastLogin.geolng and lastLogin.login_time then
 
         ui.container{attr = {class = "row-fluid spaceline" },content = function()
@@ -137,7 +126,6 @@ if app.session.member_id then
   
                   ui.container{ attr = { class  = "span12 text-left" }, content = function()
                     ui.heading{level=4,content=function()
-                      if lastLogin and lastLogin.login_time then
                         ui.tag{
                           content= _("Your last login was on #{last_login_date} at #{last_login_time}", {
                             last_login_date = format.date(lastLogin.login_time),
@@ -145,118 +133,281 @@ if app.session.member_id then
                           })
                         }
                         slot.put("&nbsp;")
-                        ui.tag{ tag="span", attr = { id = "location"}, content="" }
-                        ui.script{ script = 'codelatlng('..lastLogin.geolat..','..lastLogin.geolng..',"location","'.._"from "..'");'}
-                      end
+                        ui.tag{ tag="span", attr = { id = "last_location"}, content="" }
+                        ui.script{ script = 'getLastLocation('..lastLogin.geolat..','..lastLogin.geolng..',"last_location", "'..  _"from " ..'");'} 
                     end }
                   end }
   
                 end }
   
-                ui.container{attr = {class = "row-fluid" },content = function()
+                --[ [ui.container{attr = {class = "row-fluid" },content = function()
                   ui.container{ attr = { class  = "span12 text-right" }, content = function()
                     ui.heading{level=6,content=function()
                       slot.put(_"You didn't logged in from this location? Report it immediatly:")
                       ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
                     end }
                   end }
-                end }
+                end }] ]
   
               end }
   
-              ui.container{ attr = { class  = "span3 text-right" }, content = function()
+              --[ [ui.container{ attr = { class  = "span3 text-right" }, content = function()
                 ui.anchor{
                   attr = {
                     href = "#",
-                    class = "btn btn-primary medium_btn fixclick", 
+                    class = "btn btn-primary fixclick", 
                     onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
                   },
                   content=function()
-                    ui.heading{level=6,attr={class="fittext_report"},content= _"Report suspect data"}
+                    ui.heading{level=3, content= _"Report suspect data"}
                   end
                 }
                 ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
   
-              end }
+              end }] ]
             end }
   
           end }
         end }
 
-      end
+			else
+			
+			ui.container{attr = {class = "row-fluid spaceline" },content = function()
+          ui.container{ attr = { class  = "span12 alert location_data2 text-center" }, content = function()
+            ui.container{attr = {class = "row-fluid" },content = function()
+  
+              ui.container{ attr = { class  = "span9 text-center" }, content = function()
+                ui.container{attr = {class = "row-fluid" },content = function()
+  
+                  ui.container{ attr = { class  = "span12 text-left" }, content = function()
+                    ui.heading{level=4,content=function()
+                      if lastLogin and lastLogin.login_time then
+                        ui.tag{ content= _("This is your first connection") }
+                      end
+                    end }
+                  end }
+  
+                end }
+  
+                --[ [ui.container{attr = {class = "row-fluid" },content = function()
+                  ui.container{ attr = { class  = "span12 text-right" }, content = function()
+                    ui.heading{level=6,content=function()
+                      slot.put(_"You didn't logged in from this location? Report it immediatly:")
+                      ui.image{ attr = { class="arrow_small"}, static="svg/arrow-right.svg"}
+                    end }
+                  end }
+                end }] ]
+  
+              end }
+  
+              --[ [ui.container{ attr = { class  = "span3 text-right" }, content = function()
+                ui.anchor{
+                  attr = {
+                    href = "#",
+                    class = "btn btn-primary fixclick", 
+                    onclick = "alert('Dato sospetto segnalato! (Non implementato)' );"
+                  },
+                  content=function()
+                    ui.heading{level=3, content= _"Report suspect data"}
+                  end
+                }
+                ui.script{script = "jQuery('.fittext_report').fitText(1.0, {minFontSize: '19px', maxFontSize: '28px'}); " }
+  
+              end }] ]
+            end }
+  
+          end }
+        end }
+			
+      end]]
 
-      ui.container{attr = {class = "row-fluid spaceline" },content = function()
-        ui.container{ attr = { class  = "span12 text-center" }, content = function()
+						      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+						      	ui.container{attr={class="span5 offset4 text-right spaceline "},content=function()
+						          ui.heading{level=3, content= "La prima volta? clik qui:"}
+						                      end }
+						      ui.container{attr={class="span1 text-left spaceline"},content=function()
+				        		ui.image { attr={class="arrow_medium"},static = "svg/arrow-right.svg"}
+						                            	    
+						                            	    end }
+       	ui.container{attr={class="span1 text-left "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto per la pagina",
+								datacontent=_"Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+						end }
+						      ui.container{attr = {class = "row-fluid spaceline" },content = function()
+        ui.container{ attr = { class  = "span10 offset1 text-center" }, content = function()
           ui.heading{level=2,attr = { class  = "uppercase" }, content= _"Choose the assembly you want to participate:"}
         end }
       end }
 
+      -- inizio icone
       ui.container{attr = {class = "row-fluid" },content = function()
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
-                ui.link{
-                  module="index",
-                  view="homepage_bs",
-                  attr = {class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
-                  content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"REGIONE LAZIO ASSEMBLY"}
-                  end
-                }
-              end }
-            end }
-          end }
-        end }
-        ui.container{ attr = {class = "span6 text-center" }, content=function()
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.container{attr = {class = "span12" },content = function()
-              ui.image{ attr = {class = "img_assembly_small" }, static="parlamento_icon_small.png" }
-            end }
-          end }
-          ui.container{attr = {class = "row-fluid" },content = function()
-            ui.tag{tag="span",attr={class="span12"},content=function()
-              ui.container{attr = {class = "inline-block" },content = function()
-                ui.link{
-                  attr = { class = "btn btn-primary btn-large large_btn_home table-cell eq1 fixclick" },
-                  module="unit",
-                  view="show_ext_bs",
-                  id=config.gui_preset[gui_preset].units["iscritti"].unit_id,
-                  content=function()
-                    ui.heading{level=3,attr={class="fittext"},content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
-                  end
-                }
-              end }
-            end }
-          end }
-        end }
-        ui.script{static = "js/jquery.equalheight.js"}
-        ui.script{script = '$(document).ready(function() { equalHeight($(".eq1")); $(window).resize(function() { equalHeight($(".eq1")); }); }); ' }
+       ui.container{ attr = {class = "span6 text-center" },
+content=function()
+        ui.image{attr = {class = "img_assembly_small" },
+static="parlamento_icon_small.png" }
+       end }
+       ui.container{ attr = {class = "span6 text-center" },
+content=function()
+        ui.image{ attr = {class = "img_assembly_small" },
+static="parlamento_icon_small.png" }
+       end }
       end }
-    end }
-  end }
-  execute.view{module="index",view="_registration_info"}
+			--  fine icone
+			--  Bottoni
 
+		  ui.container{attr = {class = "row-fluid" },content = function()
+		    ui.container{attr = {class = "span6" },content = function()
+		      ui.link{
+		        attr = {class = "btn btn-primary btn-large large_btn fixclick" },
+		        module="index",
+		        view="homepage_bs",
+		        content=function()
+		        ui.heading{level=3, content= _"REGIONE LAZIO ASSEMBLY"}
+		      end }
+		     end }
+
+	      ui.container{attr = {class = "span6" },content = function()
+	        ui.link{
+	          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+	          module="index", view="homepage_private_bs",					
+	          content=function()
+	            ui.heading{level=3, content= _"5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"}
+          end }
+	      end }
+	    end }
+	    -- cruscotto di stato
+			ui.container{
+				attr={class="row-fluid"},
+				content = function()
+							ui.container{
+				attr={class="span10 offset1 well spaceline3"},
+				content = function()
+					ui.container{
+						attr = {class="row-fluid"},
+						content = function()
+							ui.heading{
+								attr = {class="span10 offset1 text-center"},
+								level=3,
+								content=_"The summary of the status of all the issues in you are interested in is this:"
+							}
+						end
+					}
+					ui.container{
+						attr = {class="row-fluid"},
+						content = function()
+						ui.container{
+							attr = {class="span12 well-inside paper"},
+							content = function()
+							ui.container{
+								attr = {class="row-fluid"},
+								content = function()
+							local issues_new_count = 0.0
+							local issues_discussion_count = 0.0
+							local issues_frozen_count = 0.0
+							local issues_voting_count = 0.0
+							local issues_finished_count = 0.0
+							local issues_canceled_count = 0.0
+							local status_selector = db:new_selector()
+								:from("area")
+								:add_field("area.id")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'admission')", "issues_new_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'discussion')", "issues_discussion_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'verification')", "issues_frozen_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'voting')", "issues_voting_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen NOTNULL AND issue.closed NOTNULL)", "issues_finished_count")
+								:add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen ISNULL AND issue.closed NOTNULL)", "issues_canceled_count")								
+								:join("issue", nil, { "area.id = issue.area_id AND area.active = TRUE" })
+								:join("unit", nil, "unit.id = area.unit_id AND unit.public ")
+								:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", app.session.member.id })
+								:add_group_by("area.id")
+								:exec()
+							for i,k in ipairs(status_selector) do
+								issues_new_count = issues_new_count + k.issues_new_count
+								issues_discussion_count = issues_discussion_count + k.issues_discussion_count
+								issues_frozen_count = issues_frozen_count + k.issues_frozen_count
+								issues_voting_count = issues_voting_count + k.issues_voting_count
+								issues_finished_count = issues_finished_count + k.issues_finished_count
+								issues_canceled_count = issues_canceled_count + k.issues_canceled_count
+							end
+							
+							ui.container{
+								attr = {class="row-fluid"},
+								content = function()
+									ui.link{ 
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary large_btn spaceline spaceline-bottom"},
+										text = _("#{count} new", { count = issues_new_count }) 
+									}
+
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in discussion", { count = issues_discussion_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in verification", { count = issues_frozen_count }) 
+									}						 
+					      end 
+					    }
+						   ui.container{
+								attr = {class="row-fluid"},
+								content = function()
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} in voting", { count = issues_voting_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} finished", { count = issues_finished_count }) 
+									}
+									ui.link{
+										module = "unit", view = "show_ext_bs", params = { filter="my_areas" },
+										attr = {class="span4 btn btn-primary spaceline spaceline-bottom large_btn "},
+										text = _("#{count} canceled", { count = issues_canceled_count }) 
+															}
+												end
+											}
+										end
+									}
+								end }
+							end }
+						end }
+					end }
+				end }
+			end }
+	--[[ execute.view{module="index",view="_registration_info"} ]]--
+	
 else
-
   if config.motd_public then
     local help_text = config.motd_public
     ui.container{
       attr = { class = "wiki motd" },
       content = function()
         slot.put(format.wiki_text(help_text))
-      end
-    }
+    end }
   end
-
-
   ui.container{ attr = { class = "row-fluid" }, content = function ()
-
     ui.form{
       attr = { id="login_div", class = "well span6" },
       module = 'index',
@@ -299,7 +450,7 @@ else
             ui.container{ attr = { class = "span6 offset3" }, content = function()
               ui.tag{ 
                 tag="button",
-                attr = { type="submit", class="btn btn-primary btn-large fixclick" }, 
+                attr = { type="submit", class="btn btn-primary btn-large large_btn spaceline fixclick" }, 
                 content= function()
                   ui.heading{ level=4, attr = { class="inline-block"}, content= _"Login"}
                 end 
@@ -319,9 +470,9 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="registration", class = "span12" }, content = function ()
+            ui.container{ attr = { id="registration", class = "span12 spaceline" }, content = function ()
               ui.link{
-                attr = {class="btn btn-primary btn-large fixclick"},
+                attr = {class="btn btn-primary btn-large large_btn fixclick"},
                 module = "index",
                 view = "register",
                 content = function()
@@ -341,7 +492,7 @@ else
             end }
           end }
           ui.container{ attr = { class = "row-fluid text-center" }, content = function ()
-            ui.container{ attr = { id="lost_password", class = "span12" }, content = function ()
+            ui.container{ attr = { id="lost_password", class = "span12 spaceline" }, content = function ()
               ui.link{
                 attr = { class="btn btn-primary btn-large fixclick"},
                 module = 'index',
@@ -354,14 +505,7 @@ else
           end }
         end }
       end }
-
     end }
   end }
-
-  execute.view{module="index",view="_registration_info"}
-
---ui.script{static = "js/jquery.fittext.js"}
---ui.script{script = "jQuery('.fittext_register').fitText(0.7, {minFontSize: '18px', maxFontSize: '28px'}); " }
---ui.script{script = "jQuery('.fittext').fitText(1.1, {minFontSize: '25px', maxFontSize: '28px'}); " }
-
+--  execute.view{module="index",view="_registration_info"}
 end

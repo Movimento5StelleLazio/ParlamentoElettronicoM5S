@@ -9,10 +9,45 @@ if true or not show_filter then
   ui_filters = function(args) args.content() end
 end
 
-ui.container{ attr = { class = "initiative_head" },
+ui.container{ attr = { class = "row-fluid" },
   content = function()
-    ui.tag{ tag = "a", attr = { class = "title", name = "suggestions" }, content = _"Suggestions" }
-    ui.container{ attr = { class = "content" }, content = function()
+  ui.container{ attr = { class = "span12 well-inside paper" },
+  content = function()
+    
+    
+    
+   ui.container{ attr = { class = "row-fluid spaceline spaceline-bottom" },
+  content = function()
+  ui.container{ attr = { class = "span6 offset3 label label-warning" },
+  content = function() 
+    ui.tag{ tag = "h1", attr = { class = "text-center", name = "suggestions" }, content = _"Suggestions" }
+    end }
+                  	    ui.container{attr={class="span1 offset1 text-right "},content=function()
+					ui.field.popover{
+							attr={
+								dataplacement="left",
+								datahtml = "true";
+								datatitle= _"Box di aiuto",
+								datacontent=_"In questo box trovi l' Elenco degli emendamenti presentati (click sul titolo evidenziato per vedere il dettaglio), ed il loro andamento nel gradimento ed opinione dell' Assemblea, puoi tu stesso presentare un emendamento, oppure dare la tua opinione, consenso o diniego, di uno o piu emendamenti, queste azioni condizionano la stesura finale del testo di Legge, da proporre per il voto definitivo. Ogni sostenitore ha diritto ad un max di 3 emendamenti (Regola sperimentale).",
+								datahtml = "true",
+								class = "text-center"
+							},
+							content = function() 
+								ui.container{
+								  attr={class="row-fluid"},
+									content=function()
+				        		ui.image { static = "png/tutor.png"}                                                
+--								    ui.heading{level=3 , content= _"What you want to do?"}
+									end 
+								}
+						  end 
+						}
+						end }
+    end }
+    
+    
+    
+    ui.container{ attr = { class = "row-fluid spaceline" }, content = function()
       ui.paginate{
         selector = suggestions_selector,
         anchor = "suggestions",
@@ -26,7 +61,7 @@ ui.container{ attr = { class = "initiative_head" },
             end
           else
             ui.list{
-              attr = { style = "table-layout: fixed;" },
+              attr = { class = "table stripped" },
               records = suggestions,
               columns = {
                 {
@@ -50,7 +85,7 @@ ui.container{ attr = { class = "initiative_head" },
                 },
                 {
                   content = function(record)
-                    ui.link{
+                    ui.link{ attr = { class = "label label-info" },
                       text = record.name,
                       module = "suggestion",
                       view = "show",
@@ -92,12 +127,17 @@ ui.container{ attr = { class = "initiative_head" },
       and not initiative.revoked
       and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id)
     then
-      ui.container{ attr = { class = "content" }, content = function()
-        ui.link{
-          module = "suggestion", view = "new", params = { initiative_id = initiative.id },
-          text = _"New suggestion"
-        }
+      ui.container{ attr = { class = "row-fluid text-center" }, content = function()
+		    ui.container{ attr = { class = "span6 offset3 text-center spaceline-bottom" }, content = function()
+		      ui.link{
+		      attr = { class = "btn btn-primary btn_size_fix fixclick" },
+		        module = "suggestion", view = "new", params = { initiative_id = initiative.id },
+		        text = _"New suggestion"
+		      }
+       end }
       end }
     end
+  end
+}
   end
 }
