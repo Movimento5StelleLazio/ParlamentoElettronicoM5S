@@ -120,75 +120,31 @@ trace.debug(url)
 url = encode.url{ base = request.get_absolute_baseurl(), module = "initiative", view = "show", params = { initiative_id = initiative.id } }
 trace.debug(url)
 
-ui.container{attr={class="row-fluid"}, content=function()
-  ui.container{attr={class="span12 well"}, content=function()
-
-
-    ui.container{ attr = { class  = "row-fluid" }, content = function()
-      ui.container{ attr = { class  = "span3" }, content = function()
-        ui.link{
-          attr = { class="btn btn-primary btn-large fixclick" },
-          module = "area",
-          id = issue.area.id,
-          view = "show_ext_bs",
-          params = param.get_all_cgi(),
-          content = function()
-            ui.heading{level=3 ,content=function()
-              ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-              slot.put(_"Back to previous page")
-            end }
-          end }
-              end }
-
-      ui.container{ attr = { class  = "span8" }, content = function()
-        ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span8 offset2 text-center label label-warning"}, content=function()
-            ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Dettagli della Proposta N°"..initiative.id}
-          end }
-        end }
-        ui.container{attr={class="row-fluid spaceline"}, content=function()
-          ui.container{attr={class="span9 nowrap"}, content=function()
-            ui.heading{level=6,attr={class=""},content=_"Initiative link (copy the link and share to the web):"}
-            slot.put("<input id='initiative_url_box' type='text' value="..url..">") 
-                    end }
-          ui.container{attr={class="span2 spaceline nowrap"}, content=function()
-            ui.tag{
-              tag="a",
-              attr={
-                id="select_btn",
-                href="#",
-                class="btn btn-primary inline-block"
-              },
-              content=function()
-                ui.heading{level=3,content=_"Select"}
-              end
-            }
-          end }
-          end }
-          
-        ui.container { attr = { id="social_box", class="spaceline"}, content = function()
-		      ui.container{ attr = { class  = "row-fluid"}, content = function()
-		        ui.container{ attr = { class  = "offset3 span1" }, content = function()
-
-		          slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+	ui.container{attr={class="row-fluid"}, content=function()
+	  ui.container{attr={class="span12 well"}, content=function()
+			ui.container{ attr = { class  = "row-fluid" }, content = function()
+		    ui.container{ attr = { class  = "span3" }, content = function()
+		      ui.link{
+		        attr = { class="btn btn-primary btn-large fixclick" },
+		        module = "area",
+		        id = issue.area.id,
+		        view = "show_ext_bs",
+		        params = param.get_all_cgi(),
+		        content = function()
+		          ui.heading{level=3 ,content=function()
+		            ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
+		            slot.put(_"Back to previous page")
+		          end }
 		        end }
-		        ui.container{ attr = { class  = "span1" }, content = function()
-		        	local message 
-		          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this initiative very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'" data-count="vertical" data-lang="it">Tweet</a>')
-		        end }
-		        ui.container{ attr={class="span1"},content=function()
-		        	slot.put('<div class="g-plusone" data-size="tall"></div>')
-		        end }
-		        ui.container{ attr = {class="span1"}, content = function()
-		        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-		        end }
-		        ui.container{ attr={class="span1"}, content=function()
-		        	slot.put('<script type="IN/Share" data-counter="top"></script>')
+		            end }
+
+		    ui.container{ attr = { class  = "span8" }, content = function()
+		      ui.container{attr={class="row-fluid"}, content=function()
+		        ui.container{attr={class="span8 offset2 text-center label label-warning"}, content=function()
+		          ui.heading{level=1,attr={class="fittext1 uppercase"},content=_"Dettagli della Proposta N°"..initiative.id}
 		        end }
 		      end }
-				end }
-    
-      end }     
+		    end }     
             	    ui.container{attr={class="span1 text-center "},content=function()
 					ui.field.popover{
 							attr={
@@ -209,31 +165,48 @@ ui.container{attr={class="row-fluid"}, content=function()
 								}
 						  end 
 						}
-						end }
-    --[[  ui.container{ attr = { id="social_box", class  = "span1 text-right" }, content = function()
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-
-            slot.put('<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="lucida grande"></div>')
+	end }
+ end }
+     ui.container { attr = { id="social_box", class="row-fluid spaceline"}, content = function()
+			ui.container { attr = { class="span5"}, content = function()
+				ui.container { attr = { class="row-fluid spaceline"}, content = function()
+				  ui.container{ attr = { class  = " span2" }, content = function()
+						slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+	        end }
+	        ui.container{ attr={class="span2"},content=function()
+	        	slot.put('<div class="g-plusone" data-size="tall"></div>')
+	        end }
+	        ui.container{ attr={class="span2"}, content=function()
+	        	slot.put('<script type="IN/Share" data-counter="top"></script>')
+	        end }
+	        ui.container{ attr = {class="span2"}, content = function()
+	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
+	        end }
+	        ui.container{ attr = { class  = "span2" }, content = function()
+	        	local message 
+	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'"  data-count="vertical" data-lang="it">Tweet</a>')
+	        end }
+	       end }
+				end }
+					ui.container{attr={class="span6 nowrap"}, content=function()
+            ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
+		          slot.put("<input id='issue_url_box' type='text' value="..url..">") 
+		          ui.tag{
+		            tag="a",
+		            attr={
+		              id="select_btn",
+		              href="#",
+		              class="btn btn-primary inline-block"
+		            },
+		            content=function()
+		     				ui.heading{level=6,content=_"Select"}
+              end
+            }
           end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<div class="g-plusone" data-size="tall" data-href='..url..'></div><script type="text/javascript">window.___gcfg = {lang: "it"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>')
-          end }
-        end }
-        ui.container{ attr = { class  = "row-fluid" }, content = function()
-          ui.container{ attr = { class  = "span12" }, content = function()
-            slot.put('<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>')
-
-          end }
-        end }
-      end } ]]
-     end }
-end }
-  ui.container{ attr = { class = "row-fluid"}, content = function()
-end }
-  ui.container{attr={class="row-fluid"}, content=function()
+				end }	
+			end }
+		end }
+  ui.container{attr={class="row-fluid spaceline"}, content=function()
   ui.container{attr={class="span12 well"}, content=function()
   ui.container{ attr = { class = "row-fluid"}, content = function()
             ui.container{ attr = { class = "span9 offset1 phasesheight"}, content = function()
@@ -969,11 +942,10 @@ end }]]
 
 						end
 					end
-				end }
-								end }
-						     end }
-  		    end }
-		   end }
+			 end }
+			end }
+		 end }
+  	end }
 					ui.script{static = "js/jquery.quorum_bar.js"}
 					ui.script{script = "jQuery('#quorum_box').quorum_bar(); " }
 

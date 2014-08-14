@@ -64,24 +64,7 @@ ui.container{attr={class="row-fluid"}, content=function()
             ui.heading{level=1,attr={class="fittext1 uppercase "},content=_"Details for issue Q"..issue.id}
           end }
         end }
-        ui.container{attr={class="row-fluid"}, content=function()
-          ui.container{attr={class="span12 nowrap"}, content=function()
-            ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
-            slot.put("<input id='issue_url_box' type='text' value="..url..">") 
-            
-            ui.tag{
-              tag="a",
-              attr={
-                id="select_btn",
-                href="#",
-                class="btn btn-primary inline-block"
-              },
-              content=function()
-                ui.heading{level=6,content=_"Select"}
-              end
-            }
-          end }
-        end }
+
       end }
       
             	    ui.container{attr={class="span1 text-center "},content=function()
@@ -105,29 +88,46 @@ ui.container{attr={class="row-fluid"}, content=function()
 						  end 
 						}
 						end }
-					end }
- 			ui.container { attr = { id="social_box", class="spaceline"}, content = function()
-	      ui.container{ attr = { class  = "row-fluid"}, content = function()
-	        ui.container{ attr = { class  = "offset3 span1" }, content = function()
-
-	          slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+					end } 
+					
+     ui.container { attr = { id="social_box", class="row-fluid spaceline"}, content = function()
+			ui.container { attr = { class="span5"}, content = function()
+				ui.container { attr = { class="row-fluid spaceline"}, content = function()
+				  ui.container{ attr = { class  = " span2" }, content = function()
+						slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
 	        end }
-	        ui.container{ attr = { class  = "span1" }, content = function()
-	        	local message 
-	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'" data-count="vertical" data-lang="it">Tweet</a>')
-	        end }
-	        ui.container{ attr={class="span1"},content=function()
+	        ui.container{ attr={class="span2"},content=function()
 	        	slot.put('<div class="g-plusone" data-size="tall"></div>')
 	        end }
-	        ui.container{ attr = {class="span1"}, content = function()
-	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-	        end }
-	        ui.container{ attr={class="span1"}, content=function()
+	        ui.container{ attr={class="span2"}, content=function()
 	        	slot.put('<script type="IN/Share" data-counter="top"></script>')
 	        end }
-	      end }
-			end }
-  end }
+	        ui.container{ attr = {class="span2"}, content = function()
+	        	slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
+	        end }
+	        ui.container{ attr = { class  = "span2" }, content = function()
+	        	local message 
+	          slot.put('<a data-hashtags="parelon" data-url="'..url..'" href="https://twitter.com/share" class="twitter-share-button" data-text="'.. _"I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" ..'"  data-count="vertical" data-lang="it">Tweet</a>')
+	        end }
+	       end }
+				end }
+					ui.container{attr={class="span6 nowrap"}, content=function()
+            ui.heading{level=6,attr={class=""},content=_"Issue link (copy the link and share to the web):"}
+		          slot.put("<input id='issue_url_box' type='text' value="..url..">") 
+		          ui.tag{
+		            tag="a",
+		            attr={
+		              id="select_btn",
+		              href="#",
+		              class="btn btn-primary inline-block"
+		            },
+		            content=function()
+		     				ui.heading{level=6,content=_"Select"}
+              end
+            }
+          end }
+				end }		
+					end }
 end }
 
 
