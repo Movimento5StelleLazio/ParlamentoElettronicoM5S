@@ -314,9 +314,9 @@ return {
 ["Delete"] = "Elimina";
 ["Delete filter"] = "Elimina filtro";
 ["Description"] = "Descrizione";
-["Description note"]="NOTA: In questo campo vanno riassunte in poche parole il problema (la condizione che rende necessario un intervento) e l'obiettivo da raggiungere (la condizione che si ipotizza la migliore di quella attuale ed auspicabile";
+["Description note"]="QUESTIONE: In questo campo vanno riassunte in poche parole il problema (la condizione che rende necessario un intervento) e l'obiettivo da raggiungere (la condizione che si ipotizza la migliore di quella attuale ed auspicabile)";
 ["Description to the problem you want to solve"]="BREVE DESCRIZIONE DELLA QUESTIONE:";
-["Description technical note"]="(Nota: le aree di competenza tecnica che selezionerete sono solo indicative. Gli iscritti potranno indicare una commisione di qualsiasi area di competenza tecnica per valutare la fattibilità e l'efficacia della proposta.)";
+["Description technical note"]="(Nota: le aree di competenza tecnica che proporrete sono solo indicative. Gli iscritti potranno indicare una commisione di qualsiasi area di competenza tecnica per valutare la fattibilità e l'efficacia della proposta.)";
 ["Details"] = "Dettagli";
 ["Developer settings"] = "Settaggi sviluppatore";
 ["Diff"] = "Differenze";
@@ -351,7 +351,7 @@ return {
 ["Download database export"] = false;
 ["Download documents"] = "Scarica documenti";
 ["Draft"] = "Bozza";
-["Draft note"]="NOTA: Nel campo è necessario inserire il testo  della proposta verra e propria. La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati sopra nel campo 'Descrizione del Risultato'.Sarà sempre possibilein seguito modificarla introducendo emendamenti. Tutte le versioni del documento saranno conservate e potranno essere consultate in qualsiasi momento in caso si volesse tornare ad una precedenteversione del testo.Altri Utenti potranno proporre loro emendamenti o sostenere emendamenti di loro pari, ma sarà sempre l'autore della proposta a decidere  se accettali o meno nel testo definitivo.Il testo definitivo se avrà superato il quorum di sostenitori sarà poi sottoposto alla votazione, in competizione con le eventuali proposte alternative degli altri utenti.";
+["Draft note"]="PROPOSTA: Nel campo è necessario inserire il testo  della proposta verra e propria divisa per articoli numerati e ove necessario in comma.<br />La proposta deve essere una soluzione al problema precedentemente indicato nel campo 'Descrizione del Problema', che permette di raggiungere i risultati che si sono specificati sopra nel campo 'Descrizione del Risultato'.<br />Sarà sempre possibile in seguito modificarla introducendo emendamenti. <br />Tutte le versioni del documento saranno conservate e potranno essere consultate in qualsiasi momento in caso si volesse tornare ad una precedente versione del testo.";
 ["Draft text"]="TESTO DELLA PROPOSTA:";
 ["Draft text title"]="INSERISCI IL TESTO DELLA TUA PROPOSTA PER RISOLVERE O LENIRE IL PROBLEMA";
 ["Edit"] = "Modifica";
@@ -456,7 +456,7 @@ return {
 ["Initiative quorum numerator"] = "Numeratore quorum proposta";
 ["Initiative revoked"] = "Proposta revocata";
 ["Initiative short description"]="BREVE DESCRIZIONE DELLA PROPOSTA:";
-["Initiative short note"]="NOTA: La decisione iniziale di interessarsi ad una proposta viene presa in base a questa descrizione, quindi cercate di essere piu' chiarie di includere tutte le idee più rilevanti della vostra proposta.";
+["Initiative short note"]="PROPOSTA: Questa anteprima della Proposta serve agli utenti per decidere se interessarsi e sostenere questa iniziativa, quindi cercate di essere chiari, coinvolgenti e di includere tutte le idee più rilevanti della vostra proposta.";
 ["Initiative successfully created"] = "Proposta creata correttamente";
 ["Initiative successfully updated"] = "Proposta aggiornata correttamente";
 ["Initiative: "] = "Proposta: ";
@@ -497,7 +497,7 @@ return {
 ["Issues:"] = "Questioni:";
 ["JavaScript is disabled or not available."] = "JavaScript disabilitato o non disponibile.";
 ["Keywords"]="PAROLE CHIAVE:";
-["Keywords note"]="NOTA: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
+["Keywords note"]="QUESTIONE: digitate parole o espressioni che meglio etichettano gli ambiti di applicazione e di contenuti della vostra proposta, separandole da virgola.";
 ["Insert the keywords for the issue"]="Inserisci le parole chiave per la questione";
 ["Add a keyword"]="Aggiungi una parola chiave";
 ["Last activity (updated daily)"] = "Ultima attività (aggiornato giornalmente)";
@@ -673,7 +673,7 @@ return {
 ["Preview voting comment"] = "Anteprima commento di voto";
 ["Problem Title"]="TITOLO DELLA QUESTIONE:";
 ["Problem description"]="DESCRIZIONE DEL PROBLEMA:";
-["Problem note"]="NOTA: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cui si vuole ottemperare con il documento proposto.";
+["Problem note"]="QUESTIONE: In questo campo è necessario descrivere la condizione attuale e dimostrare la presenza di un problema  o di una urgenza che la proposta  si pone di risolvere o lenire (es. una emergenza sociale), oppure di una contesa a cui la proposta vuol dare soluzione (es. ambiguità giuridica), o di un impegno pendente a cui si vuole ottemperare con il documento proposto.";
 ["Proceed with registration"] = "Procedere con la registrazione";
 ["Profession"] = "Professione";
 ["Profile"] = "Profilo";
@@ -786,7 +786,7 @@ return {
 ["Syntax help"] = "Guida alla formattazione";
 ["Target description"]="DESCRIZIONE DELL'OBIETTIVO";
 ["Target description title"]="DESCRIVI L'OBIETTIVO CHE SI RITIENE NECESSARIO RAGGIUNGERE";
-["Target note"]="NOTA: In queso campo è necessario indicare lo scenario auspicato o il risultato che la proposta si pone di ottenere (es. giustizia sociale), oppure il prodotto legislativo che si desidera (es. nuova normativa),o le specifiche ed i requisiti del documento(es. limiti di spesa).";
+["Target note"]="PROPOSTA: In queso campo è necessario indicare lo scenario auspicato o il risultato che la proposta si pone di ottenere (es. giustizia sociale), oppure il prodotto legislativo che si desidera (es. nuova normativa),o le specifiche ed i requisiti del documento(es. limiti di spesa).";
 ["Template Areas"]= "Aree del Template";
 ["Template Description"]= "Descrizione";
 ["Template has been added"]="Template salvato con successo";

@@ -30,7 +30,7 @@ ui.form{
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto",
-								datacontent=_"Qui puoi esprimere la tua opinione, in merito all' emendamento presentato: 1) OPINIONE DEI SOSTENITORI; sono le opinioni dei sostenitori, il colore va dal verde (positivo) al Rosso (negativo) - 2) LA  MIA OPINIONE; hai 5 opzioni con diverse sfumature, se la tua opinione è positiva condiziona il campo RITENGO L' EMENDAMENTO. - 3) ADOTTATO - NON ADOTTATO - 4) RITENGO L' EMENDAMENTO; Implementato e sono soddisfatto, se ho espresso un opinione DEVE - DOVREBBE, Implementato e non sono soddisfatto, se ho espresso un opinione, NON DEVE - NON DOVREBBE; Non Implementato e sono soddisfatto, se ho espresso un opinione NON DEVE - NON DOVREBBE; Non implementato e Non sono soddisfatto se ho espresso un opinione DEVE - DOVREBBE.",
+								datacontent=_("Qui puoi esprimere la tua opinione, in merito all' emendamento presentato: <ol><li> OPINIONE DEI SOSTENITORI; sono le opinioni dei sostenitori, il colore va dal verde (positivo) al Rosso (negativo)</li><li>LA  MIA OPINIONE; hai 5 opzioni con diverse sfumature, se la tua opinione è positiva condiziona il campo RITENGO L' EMENDAMENTO.</li><li> ADOTTATO - NON ADOTTATO </li><li>RITENGO L' EMENDAMENTO; Implementato e sono soddisfatto, se ho espresso un opinione DEVE - DOVREBBE, Implementato e non sono soddisfatto, se ho espresso un opinione, NON DEVE - NON DOVREBBE; Non Implementato e sono soddisfatto, se ho espresso un opinione NON DEVE - NON DOVREBBE; Non implementato e Non sono soddisfatto se ho espresso un opinione DEVE - DOVREBBE.</li></0l>"),
 								datahtml = "true",
 								class = "text-center"
 							},
