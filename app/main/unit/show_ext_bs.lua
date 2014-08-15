@@ -55,7 +55,7 @@ ui.container{ attr = { class  = "row-fluid spaceline" } , content = function()
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse. Una volta che ti sarai attivato, ti appare un sommario delle proposte presentate nelle varie aree, puoi navigare nelle aree, e presentare una nuova questione per quell' area.",
+								datacontent=_"Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse. <br />Una volta che ti sarai attivato, ti appare il sommario delle QUESTIONI sollevate e nel dettaglio la, o le varie PROPOSTE presentate per risolvere. <br />Puoi navigare nelle aree, interessarti, emendare e sostenere una o più PROPOSTE, o presentare una tua nuova QUESTIONE e PROPOSTA per quell' area selezionata.",
 								datahtml = "true",
 								class = "text-center"
 							},

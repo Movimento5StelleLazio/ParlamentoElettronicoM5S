@@ -199,7 +199,7 @@ trace.debug(url)
 		              class="btn btn-primary inline-block"
 		            },
 		            content=function()
-		     				ui.heading{level=6,content=_"Select"}
+		     				ui.heading{level=3,content=_"Select"}
               end
             }
           end }
@@ -271,7 +271,7 @@ trace.debug(url)
  end }
  ui.container{attr={class="row-fluid"}, content=function()
  ui.container{attr={class="span12 well"}, content=function()
- ui.container{attr={class="row-fluid"}, content=function()
+ ui.container{attr={class="row-fluid"}, content=function() 
   ui.container{attr={class="span8 offset2 text-center label label-warning spaceline3"}, content=function()
              ui.tag{tag="h3",content="LEGGI IL TESTO INTEGRALE E DAI IL TUO SOSTEGNO:" }
   end }
@@ -281,7 +281,7 @@ trace.debug(url)
 								dataplacement="left",
 								datahtml = "true";
 								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interesse allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione. Emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea e ti identifica come sostenitore potenziale, se il tuo emendamento passa, verrai identificato come sostenitore, un SOSTENITORE partecipa attivamente alla promozione della PROPOSTA ",
+								datacontent=_("Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta.<br />Dare il tuo interesse allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione. <br />Emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea e ti identifica come sostenitore potenziale, se il tuo emendamento passa, verrai identificato come sostenitore, un SOSTENITORE partecipa attivamente alla promozione della PROPOSTA"),
 								datahtml = "true",
 								class = "text-center"
 							},
@@ -669,10 +669,10 @@ end }
           			local code = resource.url:sub(resource.url:find("=")+1)
           			trace.debug("url: "..resource.url.."; code: "..code)
           			trace.debug(code)          			
-            		slot.put('<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/'..code..'\" frameborder=\"0\" allowfullscreen></iframe>')
+            		slot.put('<iframe width=\"100%\" height=\"315\" src=\"//www.youtube.com/embed/'..code..'\" frameborder=\"0\" allowfullscreen></iframe>')
             	else
             		trace.debug("url: "..resource.url)
-            		slot.put('<iframe width="560" height="315" src="//www.youtube.com/embed/'..resource.url..'" frameborder="0" allowfullscreen></iframe>')
+            		slot.put('<iframe width="100%" height="315" src="//www.youtube.com/embed/'..resource.url..'" frameborder="0" allowfullscreen></iframe>')
             	end
             else
             	ui.image{static = "png/video-player.png" }
@@ -728,7 +728,7 @@ end }
        
 
 ui.container{attr={class="row-fluid spaceline2"}, content=function()
-  ui.container{attr={class="span7 well-blue spaceline paper-green"}, content=function()
+  ui.container{attr={class="span4 offset4 well-blue spaceline paper-green"}, content=function()
         execute.view{ module = "issue", view = "info_box", params = {issue=issue}  }
       end }
     end }
