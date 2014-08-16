@@ -1,36 +1,36 @@
-#!/usr/bin/env lua
+#! /usr/bin/env lua
 mondelefant = require("mondelefant")
 
 -- Standarddatenbankverbindung ist globale Variable 'db'
 function mondelefant.class_prototype:get_db_conn() return db end
 
 -- Verbindung aufbauen
-db = assert(mondelefant.connect{engine='postgresql', dbname='test'})
+db = assert(mondelefant.connect { engine = 'postgresql', dbname = 'test' })
 
-Product = mondelefant.new_class{ table = "product" }
-ProductVariant = mondelefant.new_class{ table = "product_variant" }
+Product = mondelefant.new_class { table = "product" }
+ProductVariant = mondelefant.new_class { table = "product_variant" }
 
-Product:add_reference{
-  mode     = "1m",
-  to       = ProductVariant,
-  this_key = "number",
-  that_key = "product_number",
-  ref      = "product_variants",
-  back_ref = "product",
-  --default_order = '"number"'
+Product:add_reference {
+    mode = "1m",
+    to = ProductVariant,
+    this_key = "number",
+    that_key = "product_number",
+    ref = "product_variants",
+    back_ref = "product",
+    --default_order = '"number"'
 }
 
-ProductVariant:add_reference{
-  mode     = "m1",
-  to       = Product,
-  this_key = "product_number",
-  that_key = "number",
-  ref      = "product",
-  back_ref = nil,
-  --default_order = '"id"'
+ProductVariant:add_reference {
+    mode = "m1",
+    to = Product,
+    this_key = "product_number",
+    that_key = "number",
+    ref = "product",
+    back_ref = nil,
+    --default_order = '"id"'
 }
 
-p = Product:new_selector():single_object_mode():add_where{"name=?", "Noodles"}:exec()
+p = Product:new_selector():single_object_mode():add_where { "name=?", "Noodles" }:exec()
 
 
 --[[

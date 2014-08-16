@@ -11,14 +11,12 @@
 --
 
 function ui_deprecated.submit(args)
-  local args = args or {}
-  args.label = args.label or 'Submit'
-  slot.put(
-    '<div class="ui_field ui_submit">',
-      '<div class="label">&nbsp;</div>',
-      '<div class="value">',
+    local args = args or {}
+    args.label = args.label or 'Submit'
+    slot.put('<div class="ui_field ui_submit">',
+        '<div class="label">&nbsp;</div>',
+        '<div class="value">',
         '<input type="submit" value="', encode.html(args.label), '" />',
-      '</div>',
-    '</div>'
-  )
+        '</div>',
+        '</div>')
 end

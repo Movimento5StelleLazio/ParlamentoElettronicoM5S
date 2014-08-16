@@ -5,8 +5,8 @@ trace.debug_table(
 
 This function can be used to include debug output in the trace log.
 
---]]--
+--]] --
 
 function trace.debug_table(table)
-  trace._new_entry{ type = "debug_table", message = table }
+    trace._new_entry { type = "debug_table", message = table }
 end

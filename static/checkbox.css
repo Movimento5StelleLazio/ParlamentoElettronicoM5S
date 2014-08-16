@@ -1,31 +1,32 @@
 /* radio checkbox parelon */
 input[type=radio].parelon-checkbox {
-	display:none;
+    display: none;
 }
 
 input[type=radio].parelon-checkbox + label.parelon-label {
-	background-image:url(png/checkbox.png);
-	padding-left:41px;
-	height:36px; 
-	display:inline-block;
-	line-height:36px;
-	background-repeat:no-repeat;
-	background-position: 0 0;
-	font-size:28px;
-	vertical-align:middle;
-	cursor:pointer;
+    background-image: url(png/checkbox.png);
+    padding-left: 41px;
+    height: 36px;
+    display: inline-block;
+    line-height: 36px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 28px;
+    vertical-align: middle;
+    cursor: pointer;
 
 }
 
 input[type=radio].parelon-checkbox:checked + label.parelon-label {
-	background-position: 0 -36px;
+    background-position: 0 -36px;
 }
+
 label.parelon-label {
 
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

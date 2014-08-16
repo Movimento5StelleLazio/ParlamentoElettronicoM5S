@@ -11,12 +11,10 @@
 --
 
 function ui_deprecated.image(args)
-  assert(args.image, "No image argument given.")
-  slot.put(
-    '<img src="',
-    request.get_relative_baseurl(),
-    'static/',
-    args.image,
-    '" />'
-  )
+    assert(args.image, "No image argument given.")
+    slot.put('<img src="',
+        request.get_relative_baseurl(),
+        'static/',
+        args.image,
+        '" />')
 end

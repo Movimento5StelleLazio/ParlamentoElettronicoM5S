@@ -48,7 +48,7 @@ auth.openid.xrds_document{
   return_to_view   = "return"
 }
 
---]]--
+--]] --
 function auth.openid.xrds_header(args)
-  cgi.add_header("X-XRDS-Location: " .. encode.url(args))
+    cgi.add_header("X-XRDS-Location: " .. encode.url(args))
 end

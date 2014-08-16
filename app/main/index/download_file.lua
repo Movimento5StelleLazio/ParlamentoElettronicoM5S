@@ -1,5 +1,5 @@
 if not config.download_dir then
-  error("feature not enabled")
+    error("feature not enabled")
 end
 
 local filename = param.get("filename")
