@@ -11,9 +11,9 @@ in the application configuration file. TODO: By now, at least the slot
 names "default", "trace" and "system_error" need to be white-listed, as
 these slots are currently hardwired in ui._partial_load_js(...).
 
---]]--
+--]] --
 
 function ui.enable_partial_loading()
-  ui._partial_loading_enabled = true
-  request.force_absolute_baseurl()
+    ui._partial_loading_enabled = true
+    request.force_absolute_baseurl()
 end

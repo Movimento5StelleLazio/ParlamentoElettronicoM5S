@@ -6,8 +6,8 @@ locale.get(
 
 This function is used to read locale settings, which have been set with locale.set(...) or locale.do_with(...).
 
---]]--
+--]] --
 
 function locale.get(category)
-  return locale._current_data[category]
+    return locale._current_data[category]
 end

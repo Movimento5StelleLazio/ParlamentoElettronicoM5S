@@ -10,8 +10,8 @@ This function is used to write strings into the active slot.
 -- NOTE: ACCELERATED FUNCTION
 -- Do not change unless also you also update webmcp_accelerator.c
 
---]]--
+--]] --
 
 function slot.put(...)
-  return slot.put_into(slot._active_slot, ...)
+    return slot.put_into(slot._active_slot, ...)
 end

@@ -8,19 +8,17 @@ execute.view{
 
 Executes a view directly (without associated filters).
 
---]]--
+--]] --
 
 function execute.view(args)
-  local module = args.module
-  local view = args.view
-  trace.enter_view{ module = module, view = view }
-  execute.file_path{
-    file_path = encode.file_path(
-      request.get_app_basepath(),
-      'app', request.get_app_name(), module, view .. '.lua'
-    ),
-    id     = args.id,
-    params = args.params
-  }
-  trace.execution_return()
+    local module = args.module
+    local view = args.view
+    trace.enter_view { module = module, view = view }
+    execute.file_path {
+        file_path = encode.file_path(request.get_app_basepath(),
+            'app', request.get_app_name(), module, view .. '.lua'),
+        id = args.id,
+        params = args.params
+    }
+    trace.execution_return()
 end

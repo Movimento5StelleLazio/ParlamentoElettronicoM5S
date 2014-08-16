@@ -6,21 +6,21 @@
 -- collectgarbage("stop")
 
 -- open and set default database handle
-db = assert(mondelefant.connect{
-  engine='postgresql',
-  dbname='webmcp_demo'
+db = assert(mondelefant.connect {
+    engine = 'postgresql',
+    dbname = 'webmcp_demo'
 })
-at_exit(function() 
-  db:close()
+at_exit(function()
+    db:close()
 end)
 function mondelefant.class_prototype:get_db_conn() return db end
 
 -- enable output of SQL commands in trace system
 function db:sql_tracer(command)
-  return function(error_info)
-    local error_info = error_info or {}
-    trace.sql{ command = command, error_position = error_info.position }
-  end
+    return function(error_info)
+        local error_info = error_info or {}
+        trace.sql { command = command, error_position = error_info.position }
+    end
 end
 
 -- 'request.get_relative_baseurl()' should be replaced by the absolute
@@ -40,9 +40,6 @@ request.set_absolute_baseurl(request.get_relative_baseurl())
 
 
 function mondelefant.class_prototype:by_id(id)
-  return self:new_selector()
-    :add_where{ "id = ?", id }
-    :optional_object_mode()
-    :exec()
+    return self:new_selector():add_where { "id = ?", id }:optional_object_mode():exec()
 end
 

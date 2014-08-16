@@ -1,6 +1,6 @@
 if app.session.member == nil then
-  execute.inner()
-  return
+    execute.inner()
+    return
 end
 --[[
 slot.select('searchbox', function()

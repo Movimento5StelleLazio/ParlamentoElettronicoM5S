@@ -7,12 +7,12 @@ ui.heading{
 
 This function inserts a heading into the active slot.
 
---]]--
+--]] --
 
 function ui.heading(args)
-  return ui.tag{
-    tag     = "h" .. (args.level or 1),
-    attr    = args.attr,
-    content = args.content
-  }
+    return ui.tag {
+        tag = "h" .. (args.level or 1),
+        attr = args.attr,
+        content = args.content
+    }
 end

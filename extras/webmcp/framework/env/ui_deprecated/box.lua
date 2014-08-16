@@ -20,10 +20,10 @@ ui_deprecated.box{
 --]]
 
 function ui_deprecated.box(args)
-  if args.class then
-    args.html_options = args.html_options or {}
-    args.html_options.class = args.class
-  end
-  ui_deprecated.tag('div', args)
+    if args.class then
+        args.html_options = args.html_options or {}
+        args.html_options.class = args.class
+    end
+    ui_deprecated.tag('div', args)
 end
 

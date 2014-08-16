@@ -1,3 +1,3 @@
-ui.field.text{
-      value=_"Maintenance"
-      }
+ui.field.text {
+    value = _ "Maintenance"
+}

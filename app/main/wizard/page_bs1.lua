@@ -1,10 +1,10 @@
 slot.set_layout("custom")
 
-local issue_id=param.get("issue_id", atom.integer) or 0
-local area_id=param.get("area_id", atom.integer)
-local unit_id=param.get("unit_id", atom.integer)
-local area_name=param.get("area_name", atom.string)
-local unit_name= param.get("unit_name", atom.string)
+local issue_id = param.get("issue_id", atom.integer) or 0
+local area_id = param.get("area_id", atom.integer)
+local unit_id = param.get("unit_id", atom.integer)
+local area_name = param.get("area_name", atom.string)
+local unit_name = param.get("unit_name", atom.string)
 local policy_id = param.get("policy_id", atom.integer) or 0
 local issue_title = param.get("issue_title", atom.string) or ""
 local issue_brief_description = param.get("issue_brief_description", atom.string) or ""
@@ -21,168 +21,236 @@ local proposer3 = param.get("proposer3", atom.boolean) or false
 local resource = param.get("resource", atom.string) or ""
 
 -- trace di controllo sui valori dei parametri
-trace.debug( "issue_id: "..tostring(issue_id) )
-trace.debug( "area_id: "..tostring(area_id) )
-trace.debug( "area_name: "..area_name )
-trace.debug( "unit_id: "..tostring(unit_id) )
-trace.debug( "unit_name: "..tostring(unit_name) )
-trace.debug( "policy_id: "..tostring(policy_id) )
-trace.debug( "issue_title: "..issue_title )
-trace.debug( "issue_brief_description: "..issue_brief_description )
-trace.debug( "issue_keywords: "..issue_keywords )
-trace.debug( "problem_description: "..problem_description )
-trace.debug( "aim_description: "..aim_description )
-trace.debug( "initiative_title: "..initiative_title )
-trace.debug( "initiative_brief_description: "..initiative_brief_description )
-trace.debug( "draft: "..draft )
-trace.debug( "technical_areas: "..tostring(technical_areas) )
-trace.debug( "proposer1: "..tostring(proposer1) )
-trace.debug( "proposer2: "..tostring(proposer2) )
-trace.debug( "proposer3: "..tostring(proposer3) )
-trace.debug( "resource: "..(resource and resource or "none") )
+trace.debug("issue_id: " .. tostring(issue_id))
+trace.debug("area_id: " .. tostring(area_id))
+trace.debug("area_name: " .. area_name)
+trace.debug("unit_id: " .. tostring(unit_id))
+trace.debug("unit_name: " .. tostring(unit_name))
+trace.debug("policy_id: " .. tostring(policy_id))
+trace.debug("issue_title: " .. issue_title)
+trace.debug("issue_brief_description: " .. issue_brief_description)
+trace.debug("issue_keywords: " .. issue_keywords)
+trace.debug("problem_description: " .. problem_description)
+trace.debug("aim_description: " .. aim_description)
+trace.debug("initiative_title: " .. initiative_title)
+trace.debug("initiative_brief_description: " .. initiative_brief_description)
+trace.debug("draft: " .. draft)
+trace.debug("technical_areas: " .. tostring(technical_areas))
+trace.debug("proposer1: " .. tostring(proposer1))
+trace.debug("proposer2: " .. tostring(proposer2))
+trace.debug("proposer3: " .. tostring(proposer3))
+trace.debug("resource: " .. (resource and resource or "none"))
 
 local area_policies = AllowedPolicy:get_policy_by_area_id(area_id)
 local policies = {}
 
-for i,k in ipairs(area_policies) do
-	policies[#policies+1] = { id = k.policy_id, name = Policy:by_id(k.policy_id).name }
+for i, k in ipairs(area_policies) do
+    policies[#policies + 1] = { id = k.policy_id, name = Policy:by_id(k.policy_id).name }
 end
-						
-ui.form	{
-	method = "post",
-	attr = { id = "page_bs1" },
-	module = 'wizard',
-	view = 'page_bs2',
-	id = 'page_bs1',
-	params={
-		issue_id = issue_id,
-		area_id = area_id,
-		unit_id = unit_id,
-		area_name = area_name,
-		unit_name = unit_name,
-		policy_id = policy_id,
-		issue_title = issue_title,
-		issue_brief_description = issue_brief_description,
-		issue_keywords = issue_keywords,
-		problem_description = problem_description,
-		aim_description = aim_description,
-		initiative_title = initiative_title,
-		initiative_brief_description = initiative_brief_description,
-		draft = draft,
-		technical_areas = technical_areas,
-		proposer1 = proposer1,
-		proposer2 = proposer2,
-		proposer3 = proposer3,
-		resource = resource
-	},
-	content=function()
-		ui.container{attr={class="row-fluid"},content=function()
-					ui.container{attr={class="span12 well"},content=function()
-				ui.container{attr={class="row-fluid"},content=function()
-				  ui.container{attr={class="span10 offset1 text-center"},content=function()
-				    ui.heading{level=1, attr={class="uppercase"},content= _"Create new issue"}
-				    ui.heading{level=2,attr={class="spaceline"}, content= function()
-				      slot.put(_"Unit"..": ".."<strong>"..unit_name.."</strong>" )
-				    end }
-				    ui.heading{level=2,content= function()
-				      slot.put( _"Area"..": ".."<strong>"..area_name.."</strong>" )
-				    end }
-				  end }
-				                	    ui.container{attr={class="span1 text-center "},content=function()
-					ui.field.popover{
-							attr={
-								dataplacement="left",
-								datahtml = "true";
-								datatitle= _"Box di aiuto per la pagina",
-								datacontent=_"Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
-								datahtml = "true",
-								class = "text-center"
-							},
-							content = function() 
-								ui.container{
-								  attr={class="row-fluid"},
-									content=function()
-				        		ui.image { static = "png/tutor.png"}                                                
---								    ui.heading{level=3 , content= _"What you want to do?"}
-									end 
-								}
-						  end 
-						}
-						end }
-				end }
-								ui.container{attr={class="row-fluid"},content=function()
-						ui.container{attr={class="span12  alert alert-simple issue_box paper"},content=function()
-				ui.image{  static="png/step_1_f1.png"}
-												end }
-								end }
-				
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12  well-inside paper"},content=function()
-						ui.container{attr={class="row-fluid"},content=function()
-							ui.container{attr={class="span12 text-center spaceline"},content=function()
-								ui.heading{level=3, attr={class="label label-warning"}, content=function() 
-									slot.put(_"FASE <strong>1</strong> di 10") 
-								end }
-								ui.heading{level=4,attr={class="uppercase"},content= _"How much time does your proposal need to be examined?" }
-							end }
 
-	
-						ui.container{attr={class="row-fluid spaceline3"},content=function()
-							ui.container{attr={class="span7 offset3 spaceline-bottom"},content=function()
-								--valore selezionato
-								ui.field.hidden {
-									html_name = "policy_id",
-									attr = { id = "policy_id" },
-									value = param.get("policy_id", atom.integer) or 0
-								}					
+ui.form {
+    method = "post",
+    attr = { id = "page_bs1" },
+    module = 'wizard',
+    view = 'page_bs2',
+    id = 'page_bs1',
+    params = {
+        issue_id = issue_id,
+        area_id = area_id,
+        unit_id = unit_id,
+        area_name = area_name,
+        unit_name = unit_name,
+        policy_id = policy_id,
+        issue_title = issue_title,
+        issue_brief_description = issue_brief_description,
+        issue_keywords = issue_keywords,
+        problem_description = problem_description,
+        aim_description = aim_description,
+        initiative_title = initiative_title,
+        initiative_brief_description = initiative_brief_description,
+        draft = draft,
+        technical_areas = technical_areas,
+        proposer1 = proposer1,
+        proposer2 = proposer2,
+        proposer3 = proposer3,
+        resource = resource
+    },
+    content = function()
+        ui.container {
+            attr = { class = "row-fluid" },
+            content = function()
+                ui.container {
+                    attr = { class = "span12 well" },
+                    content = function()
+                        ui.container {
+                            attr = { class = "row-fluid" },
+                            content = function()
+                                ui.container {
+                                    attr = { class = "span10 offset1 text-center" },
+                                    content = function()
+                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                        ui.heading {
+                                            level = 2,
+                                            attr = { class = "spaceline" },
+                                            content = function()
+                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                            end
+                                        }
+                                        ui.heading {
+                                            level = 2,
+                                            content = function()
+                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                            end
+                                        }
+                                    end
+                                }
+                                ui.container {
+                                    attr = { class = "span1 text-center " },
+                                    content = function()
+                                        ui.field.popover {
+                                            attr = {
+                                                dataplacement = "left",
+                                                datahtml = "true";
+                                                datatitle = _ "Box di aiuto per la pagina",
+                                                datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
+                                                datahtml = "true",
+                                                class = "text-center"
+                                            },
+                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "row-fluid" },
+                                                    content = function()
+                                                        ui.image { static = "png/tutor.png" }
+                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                                    end
+                                                }
+                                            end
+                                        }
+                                    end
+                                }
+                            end
+                        }
+                        ui.container {
+                            attr = { class = "row-fluid" },
+                            content = function()
+                                ui.container {
+                                    attr = { class = "span12  alert alert-simple issue_box paper" },
+                                    content = function()
+                                        ui.image { static = "png/step_1_f1.png" }
+                                    end
+                                }
+                            end
+                        }
 
-								--radio-button group
-								ui.container {
-									attr={class="row-fluid"},
-									content=function()
-										ui.field.parelon_group_radio {
-											id = "policy_id",
-											out_id = "policy_id",
-											elements = policies,
-											selected = policy_id,
-											attr={class="parelon-checkbox spaceline3"},
-											label_attr={class="parelon-label spaceline3"}
-										}								
-								end }
-							end }
-						end }						
-						end }
-												end }						
-						end }
-						ui.container {attr={class="row-fluid spaceline"}, content=function()
-						ui.container{attr={class="span3 offset1 text-center"},content=function()
-							ui.link {
-								attr={id="btnPreviuos",class="btn btn-primary large_btn fixclick"},
-								module = "unit",
-								view = "show_ext_bs",
-								params = { unit_id = unit_id, create = true, filter = "my_areas" },
-								id=app.session.member.unit_id,
-								content=function()              
-								ui.heading { level=3, content=function()                     
-									ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-left.svg"}
-									slot.put(_"Back Phase")
-								end }
-							end }
-  					end }
-  					
-  					ui.container{attr={class="span3 offset4 text-center"},content=function()
-							ui.tag {
-								tag = "a",
-								attr={id="btnNext",class="btn btn-primary large_btn",onClick="getElementById(\"page_bs1\").submit();"},
-								content=function()
-									ui.heading{ level=3, content=function()
-								    slot.put(_"Next Phase")
-								    ui.image{ attr = { class="arrow_medium"}, static="svg/arrow-right.svg"}
-									end }
-							end }
-							end }
-						end }
-				end }
+                        ui.container {
+                            attr = { class = "row-fluid" },
+                            content = function()
+                                ui.container {
+                                    attr = { class = "span12  well-inside paper" },
+                                    content = function()
+                                        ui.container {
+                                            attr = { class = "row-fluid" },
+                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "span12 text-center spaceline" },
+                                                    content = function()
+                                                        ui.heading {
+                                                            level = 3,
+                                                            attr = { class = "label label-warning" },
+                                                            content = function()
+                                                                slot.put(_ "FASE <strong>1</strong> di 10")
+                                                            end
+                                                        }
+                                                        ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "How much time does your proposal need to be examined?" }
+                                                    end
+                                                }
 
-		end }
-end }
+
+                                                ui.container {
+                                                    attr = { class = "row-fluid spaceline3" },
+                                                    content = function()
+                                                        ui.container {
+                                                            attr = { class = "span7 offset3 spaceline-bottom" },
+                                                            content = function()
+                                                            --valore selezionato
+                                                                ui.field.hidden {
+                                                                    html_name = "policy_id",
+                                                                    attr = { id = "policy_id" },
+                                                                    value = param.get("policy_id", atom.integer) or 0
+                                                                }
+
+                                                                --radio-button group
+                                                                ui.container {
+                                                                    attr = { class = "row-fluid" },
+                                                                    content = function()
+                                                                        ui.field.parelon_group_radio {
+                                                                            id = "policy_id",
+                                                                            out_id = "policy_id",
+                                                                            elements = policies,
+                                                                            selected = policy_id,
+                                                                            attr = { class = "parelon-checkbox spaceline3" },
+                                                                            label_attr = { class = "parelon-label spaceline3" }
+                                                                        }
+                                                                    end
+                                                                }
+                                                            end
+                                                        }
+                                                    end
+                                                }
+                                            end
+                                        }
+                                    end
+                                }
+                            end
+                        }
+                        ui.container {
+                            attr = { class = "row-fluid spaceline" },
+                            content = function()
+                                ui.container {
+                                    attr = { class = "span3 offset1 text-center" },
+                                    content = function()
+                                        ui.link {
+                                            attr = { id = "btnPreviuos", class = "btn btn-primary large_btn fixclick" },
+                                            module = "unit",
+                                            view = "show_ext_bs",
+                                            params = { unit_id = unit_id, create = true, filter = "my_areas" },
+                                            id = app.session.member.unit_id,
+                                            content = function()
+                                                ui.heading {
+                                                    level = 3,
+                                                    content = function()
+                                                        ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                                                        slot.put(_ "Back Phase")
+                                                    end
+                                                }
+                                            end
+                                        }
+                                    end
+                                }
+
+                                ui.container {
+                                    attr = { class = "span3 offset4 text-center" },
+                                    content = function()
+                                        ui.tag {
+                                            tag = "a",
+                                            attr = { id = "btnNext", class = "btn btn-primary large_btn", onClick = "getElementById(\"page_bs1\").submit();" },
+                                            content = function()
+                                                ui.heading {
+                                                    level = 3,
+                                                    content = function()
+                                                        slot.put(_ "Next Phase")
+                                                        ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-right.svg" }
+                                                    end
+                                                }
+                                            end
+                                        }
+                                    end
+                                }
+                            end
+                        }
+                    end
+                }
+            end
+        }
+    end
+}
