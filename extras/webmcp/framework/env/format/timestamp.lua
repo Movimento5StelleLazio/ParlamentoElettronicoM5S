@@ -9,11 +9,11 @@ format.timestamp(
 
 Formats a timestamp according to the locale settings.
 
---]]--
+--]] --
 
 function format.timestamp(value, options)
-  if value == nil then
-    return options.nil_as or ""
-  end
-  return format.date(value, options) .. " " .. format.time(value, options)
+    if value == nil then
+        return options.nil_as or ""
+    end
+    return format.date(value, options) .. " " .. format.time(value, options)
 end

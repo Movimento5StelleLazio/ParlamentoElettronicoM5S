@@ -1,94 +1,97 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>LiquidFeedback Error</title>
-<link rel="stylesheet" type="text/css" media="screen"
-	href="__BASEURL__/static/trace.css" />
-<style>
-body {
-	font-family: sans-serif;
-}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>LiquidFeedback Error</title>
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="__BASEURL__/static/trace.css"/>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
 
-.title {
-	font-size: 150%;
-	font-weight: bold;
-}
+        .title {
+            font-size: 150%;
+            font-weight: bold;
+        }
 
-.layout_trace {
-	left: 0;
-}
+        .layout_trace {
+            left: 0;
+        }
 
-a {
-	background-color: #ddd;
-	color: #000;
-	padding: 1ex;
-	margin: 1ex;
-	line-height: 300%;
-	border: 1px solid #777;
-}
+        a {
+            background-color: #ddd;
+            color: #000;
+            padding: 1ex;
+            margin: 1ex;
+            line-height: 300%;
+            border: 1px solid #777;
+        }
 
-hr {
-	margin-top: 2ex;
-	margin-bottom: 2ex;
-}
-</style>
+        hr {
+            margin-top: 2ex;
+            margin-bottom: 2ex;
+        }
+    </style>
 </head>
 <body class="system_error">
 
-	<div class="title">
-		<img src="__BASEURL__/static/lang/it.png" /> Ooops, errore di sistema
-	</div>
-	<p>Molto probabilmente hai trovato un bug. Niente panico, puoi scegliere tra 
-	   una delle seguenti opzioni:</p>
+<div class="title">
+    <img src="__BASEURL__/static/lang/it.png"/> Ooops, errore di sistema
+</div>
+<p>Molto probabilmente hai trovato un bug. Niente panico, puoi scegliere tra
+    una delle seguenti opzioni:</p>
 
-	<nobr>
-		<a href="__BASEURL__">Vai alla Home</a>
-	</nobr>
-	<nobr>
-		<a href="#" onclick="window.location.reload()">Ricarica la pagina</a>
-	</nobr>
-	<nobr>
-		<a href="mailto:bug@parelon.com?subject=Bug Report&body=">Segnala il bug</a> 
-	</nobr>
+<nobr>
+    <a href="__BASEURL__">Vai alla Home</a>
+</nobr>
+<nobr>
+    <a href="#" onclick="window.location.reload()">Ricarica la pagina</a>
+</nobr>
+<nobr>
+    <a href="mailto:bug@parelon.com?subject=Bug Report&body=">Segnala il bug</a>
+</nobr>
 
-	<hr />
+<hr/>
 
-	<div class="title">
-		<img src="__BASEURL__/static/lang/en.png" /> Ooops, a system error
-		occured
-	</div>
-	<p>Most probably you found a software bug. Don't panic, you can now
-		choose one of the following options:</p>
+<div class="title">
+    <img src="__BASEURL__/static/lang/en.png"/> Ooops, a system error
+    occured
+</div>
+<p>Most probably you found a software bug. Don't panic, you can now
+    choose one of the following options:</p>
 
-	<nobr>
-		<a href="__BASEURL__">Go to start page</a>
-	</nobr>
-	<nobr>
-		<a href="#" onclick="window.location.reload()">Retry request</a>
-	</nobr>
-	<nobr>
-		<a href="mailto:bug@parelon.com?subject=Bug Report&body=">Create bug report</a>
-	</nobr>
+<nobr>
+    <a href="__BASEURL__">Go to start page</a>
+</nobr>
+<nobr>
+    <a href="#" onclick="window.location.reload()">Retry request</a>
+</nobr>
+<nobr>
+    <a href="mailto:bug@parelon.com?subject=Bug Report&body=">Create bug report</a>
+</nobr>
 
-	<hr />
-	<p>
-		If you write a bug report, please include the following output in your
-		bug report.<br /> Se stai effettuando una segnalazione, per piacere copia e incolla
-		il seguente tracciato.
-	</p>
-	<tt style="font-size: 75%;">
-		<!-- WEBMCP SLOT system_error -->
-	</tt>
+<hr/>
+<p>
+    If you write a bug report, please include the following output in your
+    bug report.<br/> Se stai effettuando una segnalazione, per piacere copia e incolla
+    il seguente tracciato.
+</p>
+<tt style="font-size: 75%;">
+    <!-- WEBMCP SLOT system_error -->
+</tt>
 
 
-	<div class="layout_trace" id="layout_trace" style="xdisplay: none">
-		<div id="trace_show"
-			onclick="document.getElementById('trace_content').style.display='block';this.style.display='none';"
-			style="display: none;">TRACE</div>
-		<div id="trace_content">
-			<!-- WEBMCP SLOT trace -->
-			<div class="trace_close"
-				onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">close</div>
-		</div>
+<div class="layout_trace" id="layout_trace" style="xdisplay: none">
+    <div id="trace_show"
+         onclick="document.getElementById('trace_content').style.display='block';this.style.display='none';"
+         style="display: none;">TRACE
+    </div>
+    <div id="trace_content">
+        <!-- WEBMCP SLOT trace -->
+        <div class="trace_close"
+             onclick="document.getElementById('trace_show').style.display='block';document.getElementById('trace_content').style.display='none';">
+            close
+        </div>
+    </div>
 </body>
 </html>

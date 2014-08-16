@@ -1,4 +1,3 @@
-
 --[[--
 db_handle,                            -- database handle, or nil in case of error
 errmsg,                               -- error message
@@ -18,7 +17,7 @@ mondelefant.connect{
 
 Opens a new database connection and returns a handle for that connection. You may chose to specify host, port, dbname, etc. as seperated arguments, or to use a "conninfo" string, which is directly passed to PostgreSQL's libpq.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_connect(lua_State *L)
 --//--
@@ -29,7 +28,7 @@ Opens a new database connection and returns a handle for that connection. You ma
 
 Closes the database connection. This method may be called multiple times and is called automatically when the database handle is garbage collected.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_close(lua_State *L)
 --//--
@@ -41,7 +40,7 @@ status =             -- true, if database connection has no malfunction
 
 Returns false, if the database connection has a malfunction, otherwise true.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_is_ok(lua_State *L)
 --//--
@@ -58,7 +57,7 @@ Depending on the transaction status of the connection a string is returned:
 - inerror
 - unknown
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_get_transaction_status(lua_State *L)
 --//--
@@ -70,7 +69,7 @@ db_list =                  -- database result being an empty list
 
 Creates an empty database result representing a list. The used meta-table is "result_metatable". The attribute "_connection" is set to the database handle, and the attribute "_type" is set to "list".
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_create_list(lua_State *L)
 --//--
@@ -82,7 +81,7 @@ db_object =                  -- database result being an empty object (row)
 
 Creates an empty database result representing an object (row). The used meta-table is "result_metatable". The attribute "_connection" is set to the database handle, and the attribute "_type" is set to "object". Additionally the attributes "_data", "_dirty" and "_ref" are initialized with an empty table. TODO: Documentation of _data, _dirty and _ref.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_create_object(lua_State *L)
 --//--
@@ -96,7 +95,7 @@ quoted_encoded_string =    -- encoded and quoted string
 
 Prepares a string to be used safely within SQL queries. This function is database dependent (see "backslash_quote" server configuration option for PostgreSQL).
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_quote_string(lua_State *L)
 --//--
@@ -110,7 +109,7 @@ quoted_encoded_data =      -- encoded and quoted data (as Lua string)
 
 Prepares a binary string to be used safely within SQL queries (as "bytea" type). This function is database dependent.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_quote_binary(lua_State *L)
 --//--
@@ -133,7 +132,7 @@ TODO: documentation of input-converters
 
 List of sub-structures are tables with an optional "sep" value, which is used as seperator. Each (numerically indexed) entry  of this table is passed to a recursive call of "assemble_command" and concatenated with the given seperator, or ", ", if no seperator is given.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_assemble_command(lua_State *L)
 --//--
@@ -156,7 +155,7 @@ This method executes one or multiple SQL commands and returns its results. Each 
 
 The mode of the last command may be ommitted and default to "list".
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_try_query(lua_State *L)
 --//--
@@ -167,7 +166,7 @@ The mode of the last command may be ommitted and default to "list".
 
 Causes a Lua error to be thrown. If the database connection has "error_objects" set to true, then the object is thrown itself, otherwise a string is thrown.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_errorobject_escalate(lua_State *L)
 --//--
@@ -184,7 +183,7 @@ Checks, if a given error is of a given kind.
 Example:
 db_error:is_kind_of("IntegrityConstraintViolation")
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_errorobject_is_kind_of(lua_State *L)
 --//--
@@ -204,7 +203,7 @@ result2,            -- result of second command
 
 Same as "try_query" but raises error, when occurring.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_conn_query(lua_State *L)
 --//--
@@ -219,7 +218,7 @@ mondelefant.set_class(
 
 This function sets a class for a given database result list or object. If a result list is given as first argument, the class is also set for all elements of the list.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_set_class(lua_State *L)
 --//--
@@ -231,7 +230,7 @@ mondelefant.new_class()
 
 This function creates a new class (model) used for database result lists or objects.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_new_class(lua_State *L) 
 --//--
@@ -245,7 +244,7 @@ reference_data =           -- table with reference information
 
 This function performs a lookup for the given name in the "reference" table. Prototypes are used, when lookup was unsuccessful.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_class_get_reference(lua_State *L)
 --//--
@@ -259,7 +258,7 @@ reference_name =                            -- reference name
 
 This function performs a lookup for the given name in the "foreign_keys" table. Prototypes are used, when lookup was unsuccessful.
 
---]]--
+--]] --
 -- implemented in mondelefant_native.c as
 -- static int mondelefant_class_get_reference(lua_State *L)
 --//--

@@ -7,14 +7,14 @@ ui.anchor{
 
 This function writes an HTML anchor into the active slot.
 
---]]--
+--]] --
 
 function ui.anchor(args)
-  local attr = table.new(args.attr)
-  attr.name = args.name
-  return ui.tag{
-    tag = "a",
-    attr = attr,
-    content = args.content
-  }
+    local attr = table.new(args.attr)
+    attr.name = args.name
+    return ui.tag {
+        tag = "a",
+        attr = attr,
+        content = args.content
+    }
 end

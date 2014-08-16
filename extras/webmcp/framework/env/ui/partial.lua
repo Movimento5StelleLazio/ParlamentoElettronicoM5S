@@ -18,15 +18,15 @@ reloading partially.
 The function has an effect on inner calls of ui.link{..., partial = {...}}
 and ui.form{..., partial = {...}}.
 
---]]--
+--]] --
 
 function ui.partial(args)
-  local old_state = ui._partial_state
-  ui._partial_state = table.new(args)
-  ui._partial_state.param_name_hash = {}
-  if args.param_names then
-    ui.add_partial_param_names(args.param_names)
-  end
-  args.content()
-  ui._partial_state = old_state
+    local old_state = ui._partial_state
+    ui._partial_state = table.new(args)
+    ui._partial_state.param_name_hash = {}
+    if args.param_names then
+        ui.add_partial_param_names(args.param_names)
+    end
+    args.content()
+    ui._partial_state = old_state
 end

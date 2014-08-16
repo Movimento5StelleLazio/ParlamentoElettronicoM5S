@@ -28,31 +28,31 @@ net.send_mail{
 
 This function sends a mail using the /usr/sbin/sendmail command. It returns true on success, otherwise false.
 
---]]--
+--]] --
 
 function net.send_mail(args)
-  local mail
-  if type(args) == "string" then
-    mail = args
-  else
-    mail = encode.mime.mail(args)
-  end
-  local envelope_from = args.envelope_from
-  local command = {"/usr/sbin/sendmail", "-t", "-i"}
-  if
+    local mail
+    if type(args) == "string" then
+        mail = args
+    else
+        mail = encode.mime.mail(args)
+    end
+    local envelope_from = args.envelope_from
+    local command = { "/usr/sbin/sendmail", "-t", "-i" }
+    if
     envelope_from and
-    string.find(envelope_from, "^[0-9A-Za-z%.-_@0-9A-Za-z%.-_]+$")
-  then
-    command[#command+1] = "-f"
-    command[#command+1] = envelope_from
-  end
-  local stdout, errmsg, status = extos.pfilter(mail, table.unpack(command))
-  if not status then
-    error("Error while calling sendmail: " .. errmsg)
-  end
-  if status == 0 then
-    return true
-  else
-    return false
-  end
+            string.find(envelope_from, "^[0-9A-Za-z%.-_@0-9A-Za-z%.-_]+$")
+    then
+        command[#command + 1] = "-f"
+        command[#command + 1] = envelope_from
+    end
+    local stdout, errmsg, status = extos.pfilter(mail, table.unpack(command))
+    if not status then
+        error("Error while calling sendmail: " .. errmsg)
+    end
+    if status == 0 then
+        return true
+    else
+        return false
+    end
 end

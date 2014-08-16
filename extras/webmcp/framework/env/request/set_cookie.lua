@@ -9,35 +9,31 @@ request.set_cookie{
 
 This function is similar to rocketwiki.set_cookie{...}, except that it automatically sets the path to the application base. It also sets secure=true, if the secure option is unset and the application base URL starts with "https://".
 
---]]--
+--]] --
 
 function request.set_cookie(args)
-  local path = args.path
-  if not path then
-    path = string.match(
-      request.get_absolute_baseurl(),
-      "://[^/]*(.*)"
-    )
-    if path == nil or path == "" then
-      path = "/"
+    local path = args.path
+    if not path then
+        path = string.match(request.get_absolute_baseurl(),
+            "://[^/]*(.*)")
+        if path == nil or path == "" then
+            path = "/"
+        end
     end
-  end
-  local secure = args.secure
-  if secure == nil then
-    if string.find(
-      string.lower(request.get_absolute_baseurl()),
-      "^https://"
-    ) then
-      secure = true
-    else
-      secure = false
+    local secure = args.secure
+    if secure == nil then
+        if string.find(string.lower(request.get_absolute_baseurl()),
+            "^https://") then
+            secure = true
+        else
+            secure = false
+        end
     end
-  end
-  cgi.set_cookie{
-    name   = args.name,
-    value  = args.value,
-    domain = args.domain,
-    path   = path,
-    secure = secure
-  }
+    cgi.set_cookie {
+        name = args.name,
+        value = args.value,
+        domain = args.domain,
+        path = path,
+        secure = secure
+    }
 end

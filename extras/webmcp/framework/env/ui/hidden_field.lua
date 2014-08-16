@@ -7,13 +7,13 @@ ui.hidden_field{
 
 This function inserts a hidden form field in the active slot. It is a low level function compared to ui.field.hidden{...}.
 
---]]--
+--]] --
 
 function ui.hidden_field(args)
-  local args = args or {}
-  local attr = table.new(args.attr)
-  attr.type  = "hidden"
-  attr.name  = args.name
-  attr.value = atom.dump(args.value)
-  return ui.tag{ tag  = "input", attr = attr }
+    local args = args or {}
+    local attr = table.new(args.attr)
+    attr.type = "hidden"
+    attr.name = args.name
+    attr.value = atom.dump(args.value)
+    return ui.tag { tag = "input", attr = attr }
 end

@@ -8,12 +8,8 @@ encode.concat_file_path(
 
 This function takes a variable amount of strings as arguments and returns a concatenation with slashes as seperators. Multiple slashes following each other directly are transformed into a single slash.
 
---]]--
+--]] --
 
 function encode.concat_file_path(...)
-  return (
-    string.gsub(
-      table.concat({...}, "/"), "/+", "/"
-    )
-  )
+    return (string.gsub(table.concat({ ... }, "/"), "/+", "/"))
 end

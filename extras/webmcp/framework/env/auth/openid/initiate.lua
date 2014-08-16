@@ -22,35 +22,33 @@ authenticated successfully, he/she is forwarded to the URL given by the
 "return_to" argument. Under this URL the application has to verify the
 result by calling auth.openid.verify{...}.
 
---]]--
+--]] --
 
 function auth.openid.initiate(args)
-  local dd, errmsg, errcode = auth.openid.discover(args)
-  if not dd then
-    return nil, errmsg, errcode
-  end
-  -- TODO: Use request.redirect once it supports external URLs
-  cgi.set_status("303 See Other")
-  cgi.add_header(
-    "Location: " ..
-    encode.url{
-      external = dd.op_endpoint,
-      params = {
-        ["openid.ns"]         = "http://specs.openid.net/auth/2.0",
-        ["openid.mode"]       = "checkid_setup",
-        ["openid.claimed_id"] = dd.claimed_identifier or
-                                "http://specs.openid.net/auth/2.0/identifier_select",
-        ["openid.identity"]   = dd.op_local_identifier or dd.claimed_identifier or
-                                "http://specs.openid.net/auth/2.0/identifier_select",
-        ["openid.return_to"]  = encode.url{
-                                  base   = request.get_absolute_baseurl(),
-                                  module = args.return_to_module,
-                                  view   = args.return_to_view
-                                },
-        ["openid.realm"]      = args.realm or request.get_absolute_baseurl()
-      }
-    }
-  )
-  cgi.send_data()
-  exit()
+    local dd, errmsg, errcode = auth.openid.discover(args)
+    if not dd then
+        return nil, errmsg, errcode
+    end
+    -- TODO: Use request.redirect once it supports external URLs
+    cgi.set_status("303 See Other")
+    cgi.add_header("Location: " ..
+            encode.url {
+                external = dd.op_endpoint,
+                params = {
+                    ["openid.ns"] = "http://specs.openid.net/auth/2.0",
+                    ["openid.mode"] = "checkid_setup",
+                    ["openid.claimed_id"] = dd.claimed_identifier or
+                            "http://specs.openid.net/auth/2.0/identifier_select",
+                    ["openid.identity"] = dd.op_local_identifier or dd.claimed_identifier or
+                            "http://specs.openid.net/auth/2.0/identifier_select",
+                    ["openid.return_to"] = encode.url {
+                        base = request.get_absolute_baseurl(),
+                        module = args.return_to_module,
+                        view = args.return_to_view
+                    },
+                    ["openid.realm"] = args.realm or request.get_absolute_baseurl()
+                }
+            })
+    cgi.send_data()
+    exit()
 end

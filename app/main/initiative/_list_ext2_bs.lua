@@ -2,10 +2,10 @@ local for_details = param.get("for_details", "boolean") or false
 local init_ord = param.get("init_ord") or "event"
 local list = param.get("list")
 
-local initiatives=Initiative:new_selector()
+local initiatives = Initiative:new_selector()
 
 initiatives:reset_fields()
-initiatives:add_where{ "initiative.issue_id = ?", tonumber(param.get_id()) }
+initiatives:add_where { "initiative.issue_id = ?", tonumber(param.get_id()) }
 initiatives:add_field("initiative.issue_id")
 initiatives:add_field("initiative.id")
 initiatives:add_field("initiative.name")
@@ -39,8 +39,8 @@ initiatives:add_field("initiative.title")
 initiatives:add_field("initiative.brief_description")
 initiatives:add_field("initiative.competence_fields")
 initiatives:add_field("initiative.author_type")
-initiatives:add_field( "max(event.id)", "last_event_id" )
-initiatives:left_join( "event", nil, "event.initiative_id = initiative.id" )
+initiatives:add_field("max(event.id)", "last_event_id")
+initiatives:left_join("event", nil, "event.initiative_id = initiative.id")
 initiatives:add_group_by("initiative.issue_id")
 initiatives:add_group_by("initiative.id")
 initiatives:add_group_by("initiative.name")
@@ -77,26 +77,26 @@ initiatives:add_group_by("initiative.author_type")
 
 
 if init_ord == "supporters" then
-  initiatives:add_order_by("supporter_count DESC")
+    initiatives:add_order_by("supporter_count DESC")
 elseif init_ord == "event" then
-  initiatives:add_order_by("last_event_id DESC")
+    initiatives:add_order_by("last_event_id DESC")
 end
 
 if list == "proposals" then
-  initiatives:join("current_draft", nil, {"current_draft.initiative_id = initiative.id AND current_draft.author_id = ?",app.session.member_id })
+    initiatives:join("current_draft", nil, { "current_draft.initiative_id = initiative.id AND current_draft.author_id = ?", app.session.member_id })
 end
 
 if list == "voted" then
-  initiatives:join("vote", nil, {"vote.initiative_id = initiative.id AND vote.issue_id = ?", tonumber(param.get_id()) })
+    initiatives:join("vote", nil, { "vote.initiative_id = initiative.id AND vote.issue_id = ?", tonumber(param.get_id()) })
 end
 
 for i, initiative in ipairs(initiatives:exec()) do
-  execute.view{
-    module = "initiative",
-    view = "_list_element_ext2_bs",
-    params = {
-      for_details=for_details,
-      initiative = initiative
+    execute.view {
+        module = "initiative",
+        view = "_list_element_ext2_bs",
+        params = {
+            for_details = for_details,
+            initiative = initiative
+        }
     }
-  }
 end

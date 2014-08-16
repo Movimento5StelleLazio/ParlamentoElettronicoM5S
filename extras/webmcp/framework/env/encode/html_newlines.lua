@@ -6,8 +6,8 @@ encode.html_newlines(
 
 This function transforms LF control characters (\n) into <br/> tags.
 
---]]--
+--]] --
 
 function encode.html_newlines(text)
-  return (string.gsub(text, '\n', '<br/>'))
+    return (string.gsub(text, '\n', '<br/>'))
 end
