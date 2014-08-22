@@ -19,7 +19,6 @@ trace.debug("unit_name: " .. tostring(unit_name))
 local view_back = "show_ext_bs"
 local module_back = "unit"
 local params_back = { unit_id = unit_id, create = true, filter = "my_areas" }
-}
 
 ui.form {
     method = "post",
@@ -79,12 +78,13 @@ ui.form {
     content = function()
         local disable = "block"
         local only_draft = "block"
-        if issue_id then
+        if issue_id ~= 0 then
             disable = " hidden"
             view_back = "show_ext_bs"
             module_back = "issue"
             params_back = { issue_id = issue_id }
-        elseif draft_id then
+		end
+        if draft_id ~= 0 then
             disable = " hidden"
             only_draft = " hidden"
             disable = " hidden"
@@ -255,7 +255,7 @@ ui.form {
                                                         ui.container {
                                                             attr = { class = "span6" },
                                                             content = function()
-                                                                ui.tag { tag = "input", attr = { id = "issue_title", name = "issue_title", value = issue_title, style = "width:100%;" }, content = "" }
+                                                                ui.tag { tag = "input", attr = { id = "issue_title", name = "issue_title", value = issue_title or "", style = "width:100%;" }, content = "" }
                                                             end
                                                         }
                                                     end
@@ -277,7 +277,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "issue_brief_description", name = "issue_brief_description", style = "width:100%;height:100%;resize:none;" },
-                                                                    content = issue_brief_description
+                                                                    content = issue_brief_description or ""
                                                                 }
                                                             end
                                                         }
@@ -300,7 +300,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "issue_keywords", name = "issue_keywords", class = "tagsinput", style = "resize:none;" },
-                                                                    content = issue_keywords
+                                                                    content = issue_keywords or ""
                                                                 }
                                                             end
                                                         }
@@ -323,7 +323,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "problem_description", name = "problem_description", style = "height:100%;width:100%;resize:none;" },
-                                                                    content = problem_description
+                                                                    content = problem_description or ""
                                                                 }
                                                             end
                                                         }
@@ -388,7 +388,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "initiative_brief_description", name = "initiative_brief_description", style = "height:100%;width:100%;resize:none;" },
-                                                                    content = initiative_brief_description
+                                                                    content = initiative_brief_description or ""
                                                                 }
                                                             end
                                                         }
@@ -411,7 +411,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "aim_description", name = "aim_description", style = "height:100%;width:100%;resize:none;" },
-                                                                    content = aim_description
+                                                                    content = aim_description or ""
                                                                 }
                                                             end
                                                         }
@@ -434,7 +434,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "draft", name = "draft", style = "height:100%;width:100%;resize:none;" },
-                                                                    content = draft
+                                                                    content = draft or ""
                                                                 }
                                                             end
                                                         }
@@ -457,7 +457,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "technical_areas", name = "technical_areas", class = "tagsinput", style = "resize:none;" },
-                                                                    content = technical_areas
+                                                                    content = technical_areas or ""
                                                                 }
                                                             end
                                                         }
@@ -480,7 +480,7 @@ ui.form {
                                                                 ui.tag {
                                                                     tag = "textarea",
                                                                     attr = { id = "resource", name = "resource" },
-                                                                    content = resource
+                                                                    content = resource or ""
                                                                 }
                                                             end
                                                         }
@@ -612,7 +612,9 @@ ui.form {
                 }
             end
         }
+    end
+}
 
-        ui.script { static = "js/jquery.tagsinput.js" }
-        ui.script { script = "$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'" .. _ "Add a keyword" .. "','maxChars' : 20});" }
-        ui.script { script = "$('#technical_areas').tagsInput({'height':'96%','width':'96%','defaultText':'" .. _ "Add a keyword" .. "','maxChars' : 20});" }
+ui.script { static = "js/jquery.tagsinput.js" }
+ui.script { script = "$('#issue_keywords').tagsInput({'height':'96%','width':'96%','defaultText':'" .. _ "Add a keyword" .. "','maxChars' : 20});" }
+ui.script { script = "$('#technical_areas').tagsInput({'height':'96%','width':'96%','defaultText':'" .. _ "Add a keyword" .. "','maxChars' : 20});" }
