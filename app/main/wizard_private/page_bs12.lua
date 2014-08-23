@@ -615,11 +615,11 @@ ui.form {
                                                             attr = { class = "row-fluid" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span3 text-center", style = "margin-left: 7em;" },
+                                                                    attr = { class = "span4 text-center"},
                                                                     content = function()
                                                                     --pulsante anteprima
                                                                         ui.container {
-                                                                            attr = { id = "btnAnteprima", class = "btn btn-primary _btn_large fixclick", disabled = "true", style = "opacity:0.5;float:left;height: 40px;" },
+                                                                            attr = { id = "btnAnteprima", class = "btn btn-primary large_btn fixclick", disabled = "true", style = "opacity:0.5;" },
                                                                             module = "wizard",
                                                                             view = "anteprima",
                                                                             content = function()
@@ -646,10 +646,10 @@ ui.form {
                                                                 }
                                                                 --pulsante "Save preview"
                                                                 ui.container {
-                                                                    attr = { class = "span3 text-center" },
+                                                                    attr = { class = "span4 text-center" },
                                                                     content = function()
                                                                         ui.container {
-                                                                            attr = { id = "btnSalvaPreview", class = "btn btn-primary btn-large fixclick", disabled = "true", style = "opacity:0.5;float:left;height: 40px;" },
+                                                                            attr = { id = "btnSalvaPreview", class = "btn btn-primary large_btn fixclick", disabled = "true", style = "opacity:0.5;" },
                                                                             module = "wizard",
                                                                             view = "_save_preview",
                                                                             content = function()
@@ -676,11 +676,11 @@ ui.form {
                                                                 }
                                                                 --pulsante Save
                                                                 ui.container {
-                                                                    attr = { class = "span3 text-center" },
+                                                                    attr = { class = "span4 text-center" },
                                                                     content = function()
                                                                         ui.tag {
                                                                             tag = "a",
-                                                                            attr = { id = "btnSaveIssue", class = "btn btn-primary btn-large fixclick", style = "float:left;cursor:pointer;height: 40px;", onclick = "getElementById(\"page_bs12\").submit()" },
+                                                                            attr = { id = "btnSaveIssue", class = "btn btn-primary large_btn fixclick", style = "cursor:pointer;", onclick = "getElementById(\"page_bs12\").submit()" },
                                                                             content = function()
                                                                                 ui.heading {
                                                                                     level = 3,

@@ -750,7 +750,7 @@ return {
     ["Show policies in use"] = "Mostra regole in uso";
     ["Show policies not in use"] = "Mostra regole disabilitate";
     ["Show profile"] = "Visualizza profilo";
-    ["Show preview"] = "ANTEPRIMA";
+    ["Show preview"] = "ANTEPRIMA PROPOSTA";
     ["So I'm"] = "Quindi sono";
     ["Software"] = "Software";
     ["Sorry, but there is not confirmed email address for your account. Please contact the administrator or support."] = "Spiacente, questo iscritto non ha un indirizzo eMail confermato. Contattare l'amministratore per il supporto.";

@@ -573,7 +573,7 @@ else
                                                 tag = "button",
                                                 attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
                                                 content = function()
-                                                    ui.heading { level = 4, attr = { class = "inline-block" }, content = _ "Login" }
+                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
                                                 end
                                             }
                                         end
@@ -616,7 +616,7 @@ else
                                                         module = "index",
                                                         view = "register",
                                                         content = function()
-                                                            ui.heading { level = 4, content = _ "Registrati" }
+                                                            ui.heading { level = 3, content = _ "Registrati" }
                                                         end
                                                     }
                                                 end
@@ -652,11 +652,11 @@ else
                                                 attr = { id = "lost_password", class = "span12 spaceline" },
                                                 content = function()
                                                     ui.link {
-                                                        attr = { class = "btn btn-primary btn-large fixclick" },
+                                                        attr = { class = "btn btn-primary large_btn fixclick" },
                                                         module = 'index',
                                                         view = 'reset_password',
                                                         content = function()
-                                                            ui.heading { level = 4, content = _ "Reset Password" }
+                                                            ui.heading { level = 3, content ="Ripristina" }
                                                         end
                                                     }
                                                 end
