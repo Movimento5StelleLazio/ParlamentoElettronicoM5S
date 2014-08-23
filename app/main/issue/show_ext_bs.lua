@@ -159,7 +159,7 @@ ui.container {
                                         class = "btn btn-primary inline-block"
                                     },
                                     content = function()
-                                        ui.heading { level = 6, content = _ "Select" }
+                                        ui.heading { level = 3, content = _ "Select" }
                                     end
                                 }
                             end
@@ -671,23 +671,23 @@ ui.container {
                                                                                 if init_ord == "event" then btnb = " active" end
 
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset1" .. btna },
+                                                                                    attr = { class = "span4 offset2 text-center" .. btna },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),
                                                                                     params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = scope, view = view, ftl_btns = ftl_btns, init_ord = "supporters" },
                                                                                     content = function()
-                                                                                        ui.heading { level = 6, attr = { class = "btn btn-primary fixclick " }, content = _ "ORDER BY NUMBER OF SUPPORTERS" }
+                                                                                        ui.heading { level = 3, attr = { class = "btn btn-primary large_btn fixclick " }, content = _ "ORDER BY NUMBER OF SUPPORTERS" }
                                                                                     end
                                                                                 }
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset2" .. btnb },
+                                                                                    attr = { class = "span4 text-center" .. btnb },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),
                                                                                     params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = scope, view = view, ftl_btns = ftl_btns, init_ord = "event" },
                                                                                     content = function()
-                                                                                        ui.heading { level = 6, attr = { class = "btn btn-primary fixclick" }, content = _ "ORDER BY LAST EVENT DATE" }
+                                                                                        ui.heading { level = 3, attr = { class = "btn btn-primary large_btn fixclick" }, content = _ "ORDER BY LAST EVENT DATE" }
                                                                                     end
                                                                                 }
                                                                             end
