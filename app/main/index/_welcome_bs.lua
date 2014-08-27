@@ -285,7 +285,7 @@ if app.session.member_id then
                             ui.container {
                                 attr = { class = "span5 offset4 text-right spaceline " },
                                 content = function()
-                                    ui.heading { level = 3, content = "La prima volta? clik qui:" }
+                                    ui.heading { level = 3, content = "La prima volta? clicca qui:" }
                                 end
                             }
                             ui.container {
