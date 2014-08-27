@@ -1,7 +1,11 @@
 local initiative = param.get("initiative", "table")
 local selected = param.get("selected", atom.boolean)
-local for_member = param.get("for_member", "table") or app.session.member
 local for_details = param.get("for_details", "boolean") or false
+local for_member
+
+if app.session.member then
+	for_member = param.get("for_member", "table") or app.session.member
+end
 
 local class = ""
 if for_details then
@@ -36,7 +40,7 @@ ui.container {
                         local span = 2
 
 
-                        if for_details then
+                        if for_details and app.session.member then
                             -- Get member checked events for initiative
                             local checked_events = Event:new_selector():join("checked_event", nil, "checked_event.event_id = event.id"):add_where { "checked_event.member_id = ?", for_member.id }:exec()
 
