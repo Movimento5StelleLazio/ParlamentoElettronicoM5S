@@ -39,7 +39,7 @@ ui.container {
     attr = { class = "row-fluid" },
     content = function()
         ui.container {
-            attr = { class = "span7 spaceline" },
+            attr = { class = "span10 offset1 well-blue spaceline paper-green" },
             content = function()
                 execute.view { module = "issue_private", view = "info_box", params = { issue = issue } }
             end
@@ -51,47 +51,61 @@ ui.container {
     content = function()
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "span9 phasesheight" },
             content = function()
-                ui.container {
-                    attr = { class = "span9 phasesheight" },
-                    content = function()
-                        execute.view { module = "issue_private", view = "phasesbar", params = { state = issue.state } }
-                    end
-                }
+                execute.view { module = "issue_private", view = "phasesbar", params = { state = issue.state } }
             end
         }
+    end
+}
 
 
+ui.container {
+    attr = { class = "row-fluid" },
+    content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "span12 well-blue" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well-blue" },
+                    attr = { class = "row-fluid" },
+                    content = function()
+                        ui.tag {
+                            tag = "strong",
+                            attr = { class = "span7" },
+                            content = function()
+                                ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
+                            end
+                        }
+                    end
+                }
+
+                ui.container {
+                    attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "span12 well" },
                             content = function()
-                                ui.tag {
-                                    tag = "strong",
-                                    attr = { class = "span7" },
-                                    content = function()
-                                        ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
-                                    end
-                                }
+                                execute.view { module = "issue_private", view = "info_data", params = { issue = issue } }
+                            end
+                        }
+                    end
+                }
 
+                --[[
+                ui.container{ attr = { class = "row-fluid"}, content = function()
+                  ui.container{ attr = { class = "span12"}, content = function()
+                    execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
+                  end }
+                end }
+                --]]
 
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 well" },
-                                            content = function()
-                                                execute.view { module = "issue_private", view = "info_data", params = { issue = issue } }
-                                            end
-                                        }
-                                    end
-                                }
+                ui.container {
+                    attr = { class = "row-fluid" },
+                    content = function()
+                        ui.container {
+                            attr = { class = "span7" },
+                            content = function()
+                                ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Breve descrizione" }
                             end
                         }
                         --[[
@@ -105,137 +119,126 @@ ui.container {
                         ui.container {
                             attr = { class = "row-fluid" },
                             content = function()
-                                ui.container {
-                                    attr = { class = "span7" },
-                                    content = function()
-                                        ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Breve descrizione" }
-                                    end
-                                }
-
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.tag { tag = "p", attr = { class = "span12 well-inside paper" }, content = issue.brief_description or _ "No description available" }
-                                    end
-                                }
-                            end
-                        }
-                        --        local links = {}
-
-                        ui.container {
-                            attr = { class = "row-fluid spaceline2" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12" },
-                                    content = function()
-                                        local content
-                                        if #issue.initiatives == 1 then
-                                            content = #issue.initiatives .. _ " INITIATIVE TO RESOLVE THE ISSUE"
-                                        else
-                                            content = #issue.initiatives .. _ " INITIATIVES TO RESOLVE THE ISSUE"
-                                        end
-                                        ui.heading { level = 3, attr = { class = "label label-warning" }, content = content }
-                                    end
-                                }
-                            end
-                        }
-
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 well-inside" },
-                                    content = function()
-                                        local initiatives_selector = issue:get_reference_selector("initiatives")
-                                        local highlight_string = param.get("highlight_string")
-                                        if highlight_string then
-                                            initiatives_selector:add_field({ '"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-                                        end
-                                        execute.view {
-                                            module = "initiative",
-                                            view = "_list_ext_bs",
-                                            params = {
-                                                issue = issue,
-                                                initiatives_selector = initiatives_selector,
-                                                highlight_initiative = for_initiative,
-                                                highlight_string = highlight_string,
-                                                no_sort = true,
-                                                limit = (for_listing or for_initiative) and 5 or nil,
-                                                hide_more_initiatives = false,
-                                                limit = 25,
-                                                for_member = for_member
-                                            }
-                                        }
-                                    end
-                                }
-                            end
-                        }
-
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                if app.session.member_id and direct_voter then
-                                    ui.container {
-                                        attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
-                                        content = function()
-                                        --local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
-
-                                            ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YOUR VOTE IS" }
-                                            local vote = (Vote:new_selector():add_where("issue_id = " .. issue.id .. " AND member_id = " .. app.session.member.id):optional_object_mode():exec()).grade
-                                            trace.debug("vote: " .. tostring(vote))
-                                            if vote == 1 then
-                                                ui.container {
-                                                    attr = { class = "issue_thumb_cont_up" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YES" }
-                                                        ui.image { static = "svg/thumb_up.svg" .. svgz, attr = { class = "thumb" } }
-                                                    end
-                                                }
-                                            else
-                                                ui.container {
-                                                    attr = { class = "issue_thumb_cont_down" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "NO" }
-                                                        ui.image { static = "svg/thumb_down.svg" .. svgz, attr = { class = "thumb" } }
-                                                    end
-                                                }
-                                            end
-                                        end
-                                    }
-                                end
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.link {
-                                            attr = { id = "issue_see_det_" .. issue.id, class = "span4 offset4 text-center" },
-                                            module = "issue",
-                                            view = "show_ext_bs",
-                                            id = issue.id,
-                                            params = {
-                                                view = "area",
-                                                state = state,
-                                                orderby = orderby,
-                                                desc = desc,
-                                                interest = interest,
-                                                scope = scope,
-                                                view = view,
-                                                ftl_btns = ftl_btns
-                                            },
-                                            content = function()
-                                                ui.heading { level = 3, attr = { class = "btn btn-primary large_btn" }, content = _ "SEE DETAILS" }
-                                            end
-                                        }
-                                    end
-                                }
+                                ui.tag { tag = "p", attr = { class = "span12 well-inside paper" }, content = issue.brief_description or _ "No description available" }
                             end
                         }
                     end
                 }
+                --        local links = {}
+
                 ui.container {
                     attr = { class = "row-fluid spaceline2" },
                     content = function()
+                        ui.container {
+                            attr = { class = "span12" },
+                            content = function()
+                                local content
+                                if #issue.initiatives == 1 then
+                                    content = #issue.initiatives .. _ " INITIATIVE TO RESOLVE THE ISSUE"
+                                else
+                                    content = #issue.initiatives .. _ " INITIATIVES TO RESOLVE THE ISSUE"
+                                end
+                                ui.heading { level = 3, attr = { class = "label label-warning" }, content = content }
+                            end
+                        }
                     end
                 }
+
+                ui.container {
+                    attr = { class = "row-fluid" },
+                    content = function()
+                        ui.container {
+                            attr = { class = "span12 well-inside" },
+                            content = function()
+                                local initiatives_selector = issue:get_reference_selector("initiatives")
+                                local highlight_string = param.get("highlight_string")
+                                if highlight_string then
+                                    initiatives_selector:add_field({ '"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+                                end
+                                execute.view {
+                                    module = "initiative",
+                                    view = "_list_ext_bs",
+                                    params = {
+                                        issue = issue,
+                                        initiatives_selector = initiatives_selector,
+                                        highlight_initiative = for_initiative,
+                                        highlight_string = highlight_string,
+                                        no_sort = true,
+                                        limit = (for_listing or for_initiative) and 5 or nil,
+                                        hide_more_initiatives = false,
+                                        limit = 25,
+                                        for_member = for_member
+                                    }
+                                }
+                            end
+                        }
+                    end
+                }
+
+                ui.container {
+                    attr = { class = "row-fluid" },
+                    content = function()
+                        if app.session.member_id and direct_voter then
+                            ui.container {
+                                attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
+                                content = function()
+                                --local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
+
+                                    ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YOUR VOTE IS" }
+                                    local vote = (Vote:new_selector():add_where("issue_id = " .. issue.id .. " AND member_id = " .. app.session.member.id):optional_object_mode():exec()).grade
+                                    trace.debug("vote: " .. tostring(vote))
+                                    if vote == 1 then
+                                        ui.container {
+                                            attr = { class = "issue_thumb_cont_up" },
+                                            content = function()
+                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YES" }
+                                                ui.image { static = "svg/thumb_up.svg" .. svgz, attr = { class = "thumb" } }
+                                            end
+                                        }
+                                    else
+                                        ui.container {
+                                            attr = { class = "issue_thumb_cont_down" },
+                                            content = function()
+                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "NO" }
+                                                ui.image { static = "svg/thumb_down.svg" .. svgz, attr = { class = "thumb" } }
+                                            end
+                                        }
+                                    end
+                                end
+                            }
+                        end
+                        ui.container {
+                            attr = { class = "row-fluid" },
+                            content = function()
+                                ui.link {
+                                    attr = { id = "issue_see_det_" .. issue.id, class = "span4 offset4 text-center" },
+                                    module = "issue_private",
+                                    view = "show_ext_bs",
+                                    id = issue.id,
+                                    params = {
+                                        view = "area",
+                                        state = state,
+                                        orderby = orderby,
+                                        desc = desc,
+                                        interest = interest,
+                                        scope = scope,
+                                        view = view,
+                                        ftl_btns = ftl_btns
+                                    },
+                                    content = function()
+                                        ui.heading { level = 3, attr = { class = "btn btn-primary large_btn" }, content = _ "SEE DETAILS" }
+                                    end
+                                }
+                            end
+                        }
+                    end
+                }
+            end
+        }
+        ui.container {
+            attr = { class = "row-fluid spaceline2" },
+            content = function()
+                ui.tag { tag = "hr", attr = { class = "" } }
             end
         }
     end
