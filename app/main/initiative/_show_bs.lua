@@ -1,6 +1,6 @@
 slot.set_layout("custom")
 
-local initiative = param.get("initiative", "table")
+--[[local initiative = param.get("initiative", "table")
 
 local show_as_head = param.get("show_as_head", atom.boolean)
 
@@ -28,7 +28,7 @@ execute.chunk {
 }
 if app.session.member_id then
     issue:load_everything_for_member_id(app.session.member_id)
-end
+end]]
 
 local initiative = param.get("initiative", "table")
 
@@ -97,18 +97,24 @@ local function round(num, idp)
 end
 
 local return_view, return_module
-if view == "homepage" then
-    return_module = "index"
-    return_view = "homepage_bs"
-    return_btn_txt = _ "Back to homepage"
-elseif view == "area" then
-    return_module = "area"
-    return_view = "show_ext_bs"
-    return_btn_txt = _ "Back to issue listing"
-elseif view == "area_private" then
-    return_module = "area_private"
-    return_view = "show_ext_bs"
-    return_btn_txt = _ "Back to issue listing"
+if app.session.member then
+	if view == "homepage" then
+		  return_module = "index"
+		  return_view = "homepage_bs"
+		  return_btn_txt = _ "Back to homepage"
+	elseif view == "area" then
+		  return_module = "area"
+		  return_view = "show_ext_bs"
+		  return_btn_txt = _ "Back to issue listing"
+	elseif view == "area_private" then
+		  return_module = "area_private"
+		  return_view = "show_ext_bs"
+		  return_btn_txt = _ "Back to issue listing"
+	end
+else
+	return_module = "issue"
+  return_view = "show_ext_bs"
+  return_btn_txt = _ "Back to issue listing"
 end
 
 local url = request.get_absolute_baseurl() .. "initiative/show/" .. tostring(initiative.id) .. ".html"
@@ -130,6 +136,7 @@ ui.container {
                         ui.container {
                             attr = { class = "span3" },
                             content = function()
+                            	if app.session.member then
                                 ui.link {
                                     attr = { class = "btn btn-primary btn-large fixclick" },
                                     module = "area",
@@ -146,6 +153,7 @@ ui.container {
                                         }
                                     end
                                 }
+                               end
                             end
                         }
 
@@ -200,8 +208,8 @@ ui.container {
                                 ui.container {
                                     attr = { class = "row-fluid spaceline" },
                                     content = function()
-                                    --[[				  ui.container{ attr = { class  = " span2" }, content = function()
-                                                            slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+                                    				  ui.container{ attr = { class  = " span2" }, content = function()
+                                                            slot.put('<div class="fb-like" data-href="'..url..'" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
                                                 end }
                                                 ui.container{ attr={class="span2"},content=function()
                                                     slot.put('<div class="g-plusone" data-size="tall"></div>')
@@ -211,7 +219,7 @@ ui.container {
                                                 end }
                                                 ui.container{ attr = {class="span2"}, content = function()
                                                     slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-                                                end }]]
+                                                end }
                                         ui.container {
                                             attr = { class = "span2" },
                                             content = function()
@@ -392,92 +400,94 @@ ui.container {
                                         }
                                     end
                                 }
-                                ui.container {
-                                    attr = { class = "row-fluid spaceline text-center" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 well-inside paper" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid spaceline text-center" },
-                                                    content = function()
-                                                        ui.container {
-                                                            attr = { class = "span3 spaceline spaceline-bottom" },
-                                                            content = function()
-                                                                if not issue.closed and not issue.fully_frozen then
-                                                                    if issue.member_info.own_participation then
-                                                                        ui.link {
-                                                                            attr = { class = "btn btn-primary btn_size_fix fixclick" },
-                                                                            in_brackets = true,
-                                                                            text = _ "Withdraw",
-                                                                            module = "interest",
-                                                                            action = "update",
-                                                                            params = { issue_id = issue.id, delete = true },
-                                                                            routing = {
-                                                                                default = {
-                                                                                    mode = "redirect",
-                                                                                    module = request.get_module(),
-                                                                                    view = request.get_view(),
-                                                                                    id = param.get_id_cgi(),
-                                                                                    params = param.get_all_cgi()
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-                                                                        ui.link {
-                                                                            attr = { class = "btn btn-primary btn_size_fix fixclick" },
-                                                                            text = _ "Add my interest",
-                                                                            module = "interest",
-                                                                            action = "update",
-                                                                            params = { issue_id = issue.id },
-                                                                            routing = {
-                                                                                default = {
-                                                                                    mode = "redirect",
-                                                                                    module = request.get_module(),
-                                                                                    view = request.get_view(),
-                                                                                    id = param.get_id_cgi(),
-                                                                                    params = param.get_all_cgi()
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    end
-                                                                end
-                                                            end
-                                                        }
+                                if app.session.member then
+		                              ui.container {
+		                                  attr = { class = "row-fluid spaceline text-center" },
+		                                  content = function()
+		                                      ui.container {
+		                                          attr = { class = "span12 well-inside paper" },
+		                                          content = function()
+		                                              ui.container {
+		                                                  attr = { class = "row-fluid spaceline text-center" },
+		                                                  content = function()
+		                                                      ui.container {
+		                                                          attr = { class = "span3 spaceline spaceline-bottom" },
+		                                                          content = function()
+		                                                              if not issue.closed and not issue.fully_frozen then
+		                                                                  if issue.member_info.own_participation then
+		                                                                      ui.link {
+		                                                                          attr = { class = "btn btn-primary btn_size_fix fixclick" },
+		                                                                          in_brackets = true,
+		                                                                          text = _ "Withdraw",
+		                                                                          module = "interest",
+		                                                                          action = "update",
+		                                                                          params = { issue_id = issue.id, delete = true },
+		                                                                          routing = {
+		                                                                              default = {
+		                                                                                  mode = "redirect",
+		                                                                                  module = request.get_module(),
+		                                                                                  view = request.get_view(),
+		                                                                                  id = param.get_id_cgi(),
+		                                                                                  params = param.get_all_cgi()
+		                                                                              }
+		                                                                          }
+		                                                                      }
+		                                                                  elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
+		                                                                      ui.link {
+		                                                                          attr = { class = "btn btn-primary btn_size_fix fixclick" },
+		                                                                          text = _ "Add my interest",
+		                                                                          module = "interest",
+		                                                                          action = "update",
+		                                                                          params = { issue_id = issue.id },
+		                                                                          routing = {
+		                                                                              default = {
+		                                                                                  mode = "redirect",
+		                                                                                  module = request.get_module(),
+		                                                                                  view = request.get_view(),
+		                                                                                  id = param.get_id_cgi(),
+		                                                                                  params = param.get_all_cgi()
+		                                                                              }
+		                                                                          }
+		                                                                      }
+		                                                                  end
+		                                                              end
+		                                                          end
+		                                                      }
 
-                                                        if app.session.member_id then
-                                                            ui.container {
-                                                                content = function()
-                                                                    execute.view {
-                                                                        module = "supporter",
-                                                                        view = "_show_box",
-                                                                        params = {
-                                                                            initiative = initiative
-                                                                        }
-                                                                    }
-                                                                end
-                                                            }
+		                                                      if app.session.member_id then
+		                                                          ui.container {
+		                                                              content = function()
+		                                                                  execute.view {
+		                                                                      module = "supporter",
+		                                                                      view = "_show_box",
+		                                                                      params = {
+		                                                                          initiative = initiative
+		                                                                      }
+		                                                                  }
+		                                                              end
+		                                                          }
 
 
-                                                            ui.container {
-                                                                attr = { class = "span3 spaceline spaceline-bottom" },
-                                                                content = function()
-                                                                    ui.link {
-                                                                        attr = { class = "btn btn-primary btn_size_fix fixclick" },
-                                                                        module = "suggestion",
-                                                                        view = "new",
-                                                                        params = { initiative_id = initiative.id },
-                                                                        text = _ "New suggestion"
-                                                                    }
-                                                                end
-                                                            }
-                                                        end
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
+		                                                          ui.container {
+		                                                              attr = { class = "span3 spaceline spaceline-bottom" },
+		                                                              content = function()
+		                                                                  ui.link {
+		                                                                      attr = { class = "btn btn-primary btn_size_fix fixclick" },
+		                                                                      module = "suggestion",
+		                                                                      view = "new",
+		                                                                      params = { initiative_id = initiative.id },
+		                                                                      text = _ "New suggestion"
+		                                                                  }
+		                                                              end
+		                                                          }
+		                                                      end
+		                                                  end
+		                                              }
+		                                          end
+		                                      }
+		                                  end
+		                              }
+		                            end
                                 local direct_voter
                                 if app.session.member_id then
                                     direct_voter = issue.member_info.direct_voted
@@ -1072,39 +1082,41 @@ ui.container {
                             }
 
                 end }]]
-
-                ui.container {
-                    attr = { class = "row-fluid spaceline2" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span7" },
-                            content = function()
-                                ui.heading {
-                                    level = 3,
-                                    attr = { class = "uppercase label label-warning" },
-                                    content = function()
-                                        ui.tag { content = _ "By user:" }
-                                    end
-                                }
-                            end
-                        }
-                    end
-                }
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 well" },
-                            content = function()
-                                if issue.member_id and issue.member_id > 0 then
-                                    execute.view { module = "member", view = "_info_data", id = issue.member_id, params = { module = "initiative", view = "show", content_id = initiative.id } }
-                                else
-                                    ui.heading { level = 6, content = _ "No author for this issue" }
-                                end
-                            end
-                        }
-                    end
-                }
+								if app.session.member then
+		              ui.container {
+		                  attr = { class = "row-fluid spaceline2" },
+		                  content = function()
+		                      ui.container {
+		                          attr = { class = "span7" },
+		                          content = function()
+		                              ui.heading {
+		                                  level = 3,
+		                                  attr = { class = "uppercase label label-warning" },
+		                                  content = function()
+		                                      ui.tag { content = _ "By user:" }
+		                                  end
+		                              }
+		                          end
+		                      }
+		                  end
+		              }
+                
+		              ui.container {
+		                  attr = { class = "row-fluid" },
+		                  content = function()
+		                      ui.container {
+		                          attr = { class = "span12 well" },
+		                          content = function()
+		                              if issue.member_id and issue.member_id > 0 then
+		                                  execute.view { module = "member", view = "_info_data", id = issue.member_id, params = { module = "initiative", view = "show", content_id = initiative.id } }
+		                              else
+		                                  ui.heading { level = 6, content = _ "No author for this issue" }
+		                              end
+		                          end
+		                      }
+		                  end
+		              }
+		            end
 
 
 

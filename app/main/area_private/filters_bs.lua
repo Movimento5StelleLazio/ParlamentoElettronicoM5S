@@ -64,7 +64,7 @@ ui.container {
                                         dataplacement = "left",
                                         datahtml = "true";
                                         datatitle = _ "Box di aiuto per la pagina",
-                                        datacontent = _ "Le NUOVE PROPOSTE sono quelle di cui non ti sei mai interessato ne hai sostenuto, IN DISCUSSIONE sono quelle di cui ti interessi e sostieni, COMPLETATE O RITIRATE tutte le altre proposte in archivio.",
+                                        datacontent = _ "Le NUOVE PROPOSTE sono quelle attualmente presenti in questa area tematica, IN DISCUSSIONE sono quelle attualmente sono attive, COMPLETATE O RITIRATE tutte le altre proposte in archivio.",
                                         datahtml = "true",
                                         class = "text-center"
                                     },

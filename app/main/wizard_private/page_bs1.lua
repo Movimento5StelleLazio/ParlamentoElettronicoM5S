@@ -112,7 +112,7 @@ ui.form {
                                                 dataplacement = "left",
                                                 datahtml = "true";
                                                 datatitle = _ "Box di aiuto per la pagina",
-                                                datacontent = _ "Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta, dare il tuo interessa allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione, emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea",
+                                                datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
                                                 datahtml = "true",
                                                 class = "text-center"
                                             },
@@ -252,3 +252,5 @@ ui.form {
                 }
             end
         }
+    end
+}

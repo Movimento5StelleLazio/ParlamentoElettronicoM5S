@@ -52,22 +52,24 @@ ui.container {
                         ui.container {
                             attr = { class = "span3" },
                             content = function()
-                                ui.link {
-                                    attr = { class = "btn btn-primary btn-large fixclick" },
-                                    module = "area",
-                                    id = issue.area.id,
-                                    view = "show_ext_bs",
-                                    params = param.get_all_cgi(),
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(return_btn_txt)
-                                            end
-                                        }
-                                    end
-                                }
+                            		if app.session.member then
+		                              ui.link {
+		                                  attr = { class = "btn btn-primary btn-large fixclick" },
+		                                  module = "area",
+		                                  id = issue.area.id,
+		                                  view = "show_ext_bs",
+		                                  params = param.get_all_cgi(),
+		                                  content = function()
+		                                      ui.heading {
+		                                          level = 3,
+		                                          content = function()
+		                                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+		                                              slot.put(return_btn_txt)
+		                                          end
+		                                      }
+		                                  end
+		                              }
+                                end
                             end
                         }
                         ui.container {
@@ -123,8 +125,8 @@ ui.container {
                                 ui.container {
                                     attr = { class = "row-fluid spaceline" },
                                     content = function()
-                                    --[[				  ui.container{ attr = { class  = " span2" }, content = function()
-                                                            slot.put('<div class="fb-like" data-href="'..url..'" data-width="100%" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
+                                    				  ui.container{ attr = { class  = " span2" }, content = function()
+                                                    slot.put('<div class="fb-like" data-href="'..url..'" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
                                                 end }
                                                 ui.container{ attr={class="span2"},content=function()
                                                     slot.put('<div class="g-plusone" data-size="tall"></div>')
@@ -134,7 +136,7 @@ ui.container {
                                                 end }
                                                 ui.container{ attr = {class="span2"}, content = function()
                                                     slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-                                                end }]]
+                                                end }
                                         ui.container {
                                             attr = { class = "span2" },
                                             content = function()
@@ -159,7 +161,7 @@ ui.container {
                                         class = "btn btn-primary inline-block"
                                     },
                                     content = function()
-                                        ui.heading { level = 6, content = _ "Select" }
+                                        ui.heading { level = 3, content = _ "Select" }
                                     end
                                 }
                             end
@@ -353,39 +355,40 @@ ui.container {
                                         end
                                     }
                                 end
-
-                                ui.container {
-                                    attr = { class = "row-fluid spaceline2" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12" },
-                                            content = function()
-                                                ui.heading {
-                                                    level = 3,
-                                                    attr = { class = "label label-warning" },
-                                                    content = function()
-                                                        ui.tag { content = _ "By user:" }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 well" },
-                                            content = function()
-                                                if issue.member_id and issue.member_id > 0 then
-                                                    execute.view { module = "member", view = "_info_data", id = issue.member_id, params = { module = "issue", view = "show_ext_bs", content_id = issue.id } }
-                                                else
-                                                    ui.heading { level = 6, content = _ "No author for this issue" }
-                                                end
-                                            end
-                                        }
-                                    end
-                                }
+																if app.session.member then
+		                              ui.container {
+		                                  attr = { class = "row-fluid spaceline2" },
+		                                  content = function()
+		                                      ui.container {
+		                                          attr = { class = "span12" },
+		                                          content = function()
+		                                              ui.heading {
+		                                                  level = 3,
+		                                                  attr = { class = "label label-warning" },
+		                                                  content = function()
+		                                                      ui.tag { content = _ "By user:" }
+		                                                  end
+		                                              }
+		                                          end
+		                                      }
+		                                  end
+		                              }
+		                              ui.container {
+		                                  attr = { class = "row-fluid" },
+		                                  content = function()
+		                                      ui.container {
+		                                          attr = { class = "span12 well" },
+		                                          content = function()
+		                                              if issue.member_id and issue.member_id > 0 then
+		                                                  execute.view { module = "member", view = "_info_data", id = issue.member_id, params = { module = "issue", view = "show_ext_bs", content_id = issue.id } }
+		                                              else
+		                                                  ui.heading { level = 6, content = _ "No author for this issue" }
+		                                              end
+		                                          end
+		                                      }
+		                                  end
+		                              }
+                               	end
                                 ui.container {
                                     attr = { class = "row-fluid" },
                                     content = function()
@@ -563,7 +566,6 @@ ui.container {
                                                                     content = _ "initiatives"
                                                                 end
 
-
                                                                 ui.tag {
                                                                     content = function()
                                                                         if issue.state == 'admission' then
@@ -671,23 +673,23 @@ ui.container {
                                                                                 if init_ord == "event" then btnb = " active" end
 
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset1" .. btna },
+                                                                                    attr = { class = "span4 offset2 text-center" .. btna },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),
                                                                                     params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = scope, view = view, ftl_btns = ftl_btns, init_ord = "supporters" },
                                                                                     content = function()
-                                                                                        ui.heading { level = 6, attr = { class = "btn btn-primary fixclick " }, content = _ "ORDER BY NUMBER OF SUPPORTERS" }
+                                                                                        ui.heading { level = 3, attr = { class = "btn btn-primary large_btn fixclick " }, content = _ "ORDER BY NUMBER OF SUPPORTERS" }
                                                                                     end
                                                                                 }
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset2" .. btnb },
+                                                                                    attr = { class = "span4 text-center" .. btnb },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),
                                                                                     params = { state = state, orderby = orderby, desc = desc, interest = interest, scope = scope, view = view, ftl_btns = ftl_btns, init_ord = "event" },
                                                                                     content = function()
-                                                                                        ui.heading { level = 6, attr = { class = "btn btn-primary fixclick" }, content = _ "ORDER BY LAST EVENT DATE" }
+                                                                                        ui.heading { level = 3, attr = { class = "btn btn-primary large_btn fixclick" }, content = _ "ORDER BY LAST EVENT DATE" }
                                                                                     end
                                                                                 }
                                                                             end

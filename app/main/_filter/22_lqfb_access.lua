@@ -17,9 +17,11 @@ local restricted = not ((module == 'index'
         or view == "menu"
         or action == "set_lang"
         or view == "404"))
+        or module == "issue" and view == "show_ext_bs"
+        or module == "initiative" and view == "show"
         or module == 'auditor'
         or module == 'idcard_scan')
-
+trace.debug("restricted: " .. tostring(restricted))
 if restricted and app.session.member.lqfb_access ~= true and app.session.member.admin ~= true then
     --error('The administrator has disabled the access to this module')
     slot.put("error", "You're account is not active yet: wait for/require your confirmation email or contact your auditor.")

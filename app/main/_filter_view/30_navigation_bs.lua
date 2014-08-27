@@ -3,15 +3,9 @@ slot.select('navbar', function()
         attr = { class = "row-fluid" },
         content = function()
             ui.container {
-                attr = { class = "span5" },
+                attr = { class = "span3" },
                 content = function()
-                    ui.tag {
-                        tag = "ul",
-                        attr = { class = "nav" },
-                        content = function()
-                            ui.tag {
-                                tag = "li",
-                                content = function()
+                    
                                     ui.link {
                                         content = function()
                                             ui.image { static = "logo_withe.png" }
@@ -19,18 +13,28 @@ slot.select('navbar', function()
                                         module = 'index',
                                         view = 'index'
                                     }
-                                end
-                            }
-                        end
-                    }
+
                 end
             }
             ui.container {
-                attr = { class = "span2 offset5 spaceline nav pull-right" },
+                attr = { class = "span4 spaceline " },
+                content = function()
+                slot.put('<a href="http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2"')
+            ui.link {
+            	content = function()
+                	ui.image { static = "donate.png" }
+                        end
+                }
+
+
+                end
+            }
+            ui.container {
+                attr = { class = "span2 nav pull-right" },
                 content = function()
                     ui.tag {
                         tag = "a",
-                        attr = { datatoggle = "dropdown", class = "text-center label label-warning fixclick btn-dropdown-toggle" },
+                        attr = { datatoggle = "dropdown", class = "text-center spaceline label label-warning fixclick btn-dropdown-toggle" },
                         module = "index",
                         view = "menu_ext",
                         content = function()
