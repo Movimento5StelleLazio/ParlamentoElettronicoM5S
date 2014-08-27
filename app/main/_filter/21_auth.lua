@@ -27,7 +27,7 @@ if app.session:has_access("anonymous") then
             or module == "unit" and view == "show"
             or module == "policy" and view == "show"
             or module == "policy" and view == "list"
-            or module == "issue" and view == "show"
+            or module == "issue" and view == "show_ext_bs"
             or module == "initiative" and view == "show"
             or module == "suggestion" and view == "show"
             or module == "draft" and view == "diff"
