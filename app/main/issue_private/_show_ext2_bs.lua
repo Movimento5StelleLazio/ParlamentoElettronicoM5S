@@ -240,5 +240,4 @@ ui.container {
         }
     end
 }
-end }
 

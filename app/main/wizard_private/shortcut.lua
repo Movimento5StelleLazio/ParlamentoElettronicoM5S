@@ -19,7 +19,6 @@ trace.debug("unit_name: " .. tostring(unit_name))
 local view_back = "show_ext_bs"
 local module_back = "unit_private"
 local params_back = { unit_id = unit_id, create = true, filter = "my_areas" }
-}
 
 ui.form {
     method = "post",
