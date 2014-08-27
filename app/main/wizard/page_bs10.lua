@@ -162,9 +162,6 @@ ui.form {
                                                 }
                                             end
                                         }
-
-
-
                                         ui.container {
                                             attr = { class = "row-fluid text-center" },
                                             content = function()

@@ -566,7 +566,6 @@ ui.container {
                                                                     content = _ "initiatives"
                                                                 end
 
-
                                                                 ui.tag {
                                                                     content = function()
                                                                         if issue.state == 'admission' then

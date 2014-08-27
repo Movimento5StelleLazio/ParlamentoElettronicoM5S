@@ -40,9 +40,6 @@ elseif issue.closed then
     end
 end
 
-
-
-
 ui.heading {
     level = 2,
     content = function()
@@ -52,8 +49,6 @@ ui.heading {
         slot.put(event_name or "")
     end
 }
-
-
 
 ui.tag {
     tag = "p",

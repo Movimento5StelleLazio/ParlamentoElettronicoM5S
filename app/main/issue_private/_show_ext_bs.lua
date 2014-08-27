@@ -29,7 +29,7 @@ ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
-                            attr = { class = "span7" },
+                            attr = { class = "span7 well-blue spaceline paper-green" },
                             content = function()
                                 execute.view { module = "issue_private", view = "info_box", params = { issue = issue } }
                             end
