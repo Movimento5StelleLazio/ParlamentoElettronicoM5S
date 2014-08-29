@@ -112,7 +112,7 @@ if app.session.member then
 		  return_btn_txt = _ "Back to issue listing"
 	end
 else
-	return_module = "issue"
+  return_module = "issue"
   return_view = "show_ext_bs"
   return_btn_txt = _ "Back to issue listing"
 end
@@ -200,12 +200,12 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { id = "social_box", class = "row-fluid spaceline" },
-                    content = function()
+		   attr = { id = "social_box", class = "row-fluid spaceline", style = "display:flex;align-items:center" },
+                   content = function()
+                      	ui.container { attr = {class="span3"}, content = function() slot.put('<div data-url="'..url..'" class="addthis_sharing_toolbox"></div>') end }
                         ui.container {
-                            attr = { class = "offset1 span10 nowrap" },
+                            attr = { class = "span9 nowrap" },
                             content = function()
-                            		slot.put('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53edc26168a2bcf2"></script>')
                                 ui.heading { level = 6, attr = { class = "" }, content = _ "Issue link (copy the link and share to the web):" }
                                 slot.put("<input id='issue_url_box' type='text' value=" .. url .. ">")
                                 ui.tag {

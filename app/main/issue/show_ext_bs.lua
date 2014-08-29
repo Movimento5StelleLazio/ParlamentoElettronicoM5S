@@ -117,12 +117,12 @@ ui.container {
                 }
 
                 ui.container {
-                    attr = { id = "social_box", class = "row-fluid spaceline" },
+                    attr = { id = "social_box", class = "row-fluid spaceline", style = "display:flex;align-items:center" },
                     content = function()
-                        ui.container {
-                            attr = { class = "offset1 span10 nowrap" },
+                       ui.container { attr = {class="span3"}, content = function() slot.put('<div class="addthis_sharing_toolbox" data-url="'..url..'"></div>') end }
+                       ui.container {
+                            attr = { class = "span9 nowrap" },
                             content = function()
-                            		slot.put('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53edc26168a2bcf2"></script>')
                                 ui.heading { level = 6, attr = { class = "" }, content = _ "Issue link (copy the link and share to the web):" }
                                 slot.put("<input id='issue_url_box' type='text' value=" .. url .. ">")
                                 ui.tag {
@@ -537,6 +537,7 @@ ui.container {
                                                                 else
                                                                     content = _ "initiatives"
                                                                 end
+
 
                                                                 ui.tag {
                                                                     content = function()
