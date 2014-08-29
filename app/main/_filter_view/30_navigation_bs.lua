@@ -12,10 +12,12 @@ slot.select('navbar', function()
                                         end,
                                         module = 'index',
                                         view = 'index'
-                                    }
+                               	    }
 
                 end
             }
+            
+            --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }]]
             ui.container {
                 attr = { class = "span4 spaceline " },
                 content = function()
@@ -25,10 +27,9 @@ slot.select('navbar', function()
                 	ui.image { static = "donate.png" }
                         end
                 }
-
-
                 end
             }
+            
             ui.container {
                 attr = { class = "span2 nav pull-right" },
                 content = function()

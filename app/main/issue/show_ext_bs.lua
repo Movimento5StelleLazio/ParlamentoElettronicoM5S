@@ -117,39 +117,11 @@ ui.container {
                 }
 
                 ui.container {
-                    attr = { id = "social_box", class = "row-fluid spaceline" },
+                    attr = { id = "social_box", class = "row-fluid spaceline", style = "display:flex;align-items:center" },
                     content = function()
-                        ui.container {
-                            attr = { class = "span5" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid spaceline" },
-                                    content = function()
-                                    				  ui.container{ attr = { class  = " span2" }, content = function()
-                                                    slot.put('<div class="fb-like" data-href="'..url..'" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"},content=function()
-                                                    slot.put('<div class="g-plusone" data-size="tall"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"}, content=function()
-                                                    slot.put('<script type="IN/Share" data-counter="top"></script>')
-                                                end }
-                                                ui.container{ attr = {class="span2"}, content = function()
-                                                    slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-                                                end }
-                                        ui.container {
-                                            attr = { class = "span2" },
-                                            content = function()
-                                                local message
-                                                slot.put('<a data-hashtags="parelon" data-url="' .. url .. '" href="https://twitter.com/share" class="twitter-share-button" data-text="' .. _ "I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" .. '"  data-count="vertical" data-lang="it">Tweet</a>')
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span6 nowrap" },
+                       ui.container { attr = {class="span3"}, content = function() slot.put('<div class="addthis_sharing_toolbox" data-url="'..url..'"></div>') end }
+                       ui.container {
+                            attr = { class = "span9 nowrap" },
                             content = function()
                                 ui.heading { level = 6, attr = { class = "" }, content = _ "Issue link (copy the link and share to the web):" }
                                 slot.put("<input id='issue_url_box' type='text' value=" .. url .. ">")
@@ -565,6 +537,7 @@ ui.container {
                                                                 else
                                                                     content = _ "initiatives"
                                                                 end
+
 
                                                                 ui.tag {
                                                                     content = function()
