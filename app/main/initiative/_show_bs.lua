@@ -112,7 +112,7 @@ if app.session.member then
 		  return_btn_txt = _ "Back to issue listing"
 	end
 else
-	return_module = "issue"
+  return_module = "issue"
   return_view = "show_ext_bs"
   return_btn_txt = _ "Back to issue listing"
 end
@@ -200,39 +200,11 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { id = "social_box", class = "row-fluid spaceline" },
-                    content = function()
+		   attr = { id = "social_box", class = "row-fluid spaceline", style = "display:flex;align-items:center" },
+                   content = function()
+                      	ui.container { attr = {class="span3"}, content = function() slot.put('<div data-url="'..url..'" class="addthis_sharing_toolbox"></div>') end }
                         ui.container {
-                            attr = { class = "span5" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid spaceline" },
-                                    content = function()
-                                    				  ui.container{ attr = { class  = " span2" }, content = function()
-                                                            slot.put('<div class="fb-like" data-href="'..url..'" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"},content=function()
-                                                    slot.put('<div class="g-plusone" data-size="tall"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"}, content=function()
-                                                    slot.put('<script type="IN/Share" data-counter="top"></script>')
-                                                end }
-                                                ui.container{ attr = {class="span2"}, content = function()
-                                                    slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-                                                end }
-                                        ui.container {
-                                            attr = { class = "span2" },
-                                            content = function()
-                                                local message
-                                                slot.put('<a data-hashtags="parelon" data-url="' .. url .. '" href="https://twitter.com/share" class="twitter-share-button" data-text="' .. _ "I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" .. '"  data-count="vertical" data-lang="it">Tweet</a>')
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span6 nowrap" },
+                            attr = { class = "span9 nowrap" },
                             content = function()
                                 ui.heading { level = 6, attr = { class = "" }, content = _ "Issue link (copy the link and share to the web):" }
                                 slot.put("<input id='issue_url_box' type='text' value=" .. url .. ">")
@@ -264,7 +236,7 @@ ui.container {
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
-                        ui.container {
+                    		ui.container {
                             attr = { class = "span9 offset1 phasesheight" },
                             content = function()
                                 execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
@@ -301,7 +273,7 @@ ui.container {
 
 
 
-                ui.container {
+                --[[ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
@@ -358,7 +330,7 @@ ui.container {
                             end
                         }
                     end
-                }
+                }]]
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
@@ -382,7 +354,7 @@ ui.container {
                                                         dataplacement = "left",
                                                         datahtml = "true";
                                                         datatitle = _ "Box di aiuto per la pagina",
-                                                        datacontent = _("Puoi interessarti, sostenere, ignorare o proporre emendamenti alla proposta.<br />Dare il tuo interesse allarga la platea dei votanti e quindi in percentuale il quorum da raggiungere per permettere alla proposta di passare alla votazione. <br />Emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea e ti identifica come sostenitore potenziale, se il tuo emendamento passa, verrai identificato come sostenitore, un SOSTENITORE partecipa attivamente alla promozione della PROPOSTA"),
+                                                        datacontent = _("Puoi sostenere, ignorare o proporre emendamenti alla proposta.<br /><i>Sostenere</i> la proposta vuol dire solo ritenere che per te la proposta <i>merita</i> di passare alla fase di votazione.<br />Emendare la proposta ti permette di proporre modifiche parziali da sottoporre al giudizio dell'assemblea. Se ritieni che il tuo emendamento <i>deve/non deve</i> essere accolto verrai identificato come sostenitore potenziale, altrimenti verrai identificato come sostenitore. Un SOSTENITORE partecipa attivamente alla promozione della PROPOSTA"),
                                                         datahtml = "true",
                                                         class = "text-center"
                                                     },
@@ -410,63 +382,26 @@ ui.container {
 		                                              ui.container {
 		                                                  attr = { class = "row-fluid spaceline text-center" },
 		                                                  content = function()
-		                                                      ui.container {
-		                                                          attr = { class = "span3 spaceline spaceline-bottom" },
-		                                                          content = function()
-		                                                              if not issue.closed and not issue.fully_frozen then
-		                                                                  if issue.member_info.own_participation then
-		                                                                      ui.link {
-		                                                                          attr = { class = "btn btn-primary btn_size_fix fixclick" },
-		                                                                          in_brackets = true,
-		                                                                          text = _ "Withdraw",
-		                                                                          module = "interest",
-		                                                                          action = "update",
-		                                                                          params = { issue_id = issue.id, delete = true },
-		                                                                          routing = {
-		                                                                              default = {
-		                                                                                  mode = "redirect",
-		                                                                                  module = request.get_module(),
-		                                                                                  view = request.get_view(),
-		                                                                                  id = param.get_id_cgi(),
-		                                                                                  params = param.get_all_cgi()
-		                                                                              }
-		                                                                          }
-		                                                                      }
-		                                                                  elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
-		                                                                      ui.link {
-		                                                                          attr = { class = "btn btn-primary btn_size_fix fixclick" },
-		                                                                          text = _ "Add my interest",
-		                                                                          module = "interest",
-		                                                                          action = "update",
-		                                                                          params = { issue_id = issue.id },
-		                                                                          routing = {
-		                                                                              default = {
-		                                                                                  mode = "redirect",
-		                                                                                  module = request.get_module(),
-		                                                                                  view = request.get_view(),
-		                                                                                  id = param.get_id_cgi(),
-		                                                                                  params = param.get_all_cgi()
-		                                                                              }
-		                                                                          }
-		                                                                      }
-		                                                                  end
-		                                                              end
-		                                                          end
-		                                                      }
-
-		                                                      if app.session.member_id then
-		                                                          ui.container {
-		                                                              content = function()
-		                                                                  execute.view {
-		                                                                      module = "supporter",
-		                                                                      view = "_show_box",
-		                                                                      params = {
-		                                                                          initiative = initiative
-		                                                                      }
-		                                                                  }
-		                                                              end
-		                                                          }
-
+		                                                  			ui.container {
+		                                                  					attr={class="span1"},
+		                                                  					content = function()
+		                                                  							if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
+																																				ui.field.rank{ attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
+																																		end
+		                                                  					end
+		                                                  			}
+	                                                          ui.container {
+	                                                          		attr = { class = "spaceline spaceline-bottom" },
+	                                                              content = function()
+	                                                                  execute.view {
+	                                                                      module = "supporter",
+	                                                                      view = "_show_box",
+	                                                                      params = {
+	                                                                          initiative = initiative
+	                                                                      }
+	                                                                  }
+	                                                               end
+	                                                           }
 
 		                                                          ui.container {
 		                                                              attr = { class = "span3 spaceline spaceline-bottom" },
@@ -480,97 +415,96 @@ ui.container {
 		                                                                  }
 		                                                              end
 		                                                          }
-		                                                      end
 		                                                  end
 		                                              }
 		                                          end
 		                                      }
 		                                  end
 		                              }
-		                            end
-                                local direct_voter
-                                if app.session.member_id then
-                                    direct_voter = issue.member_info.direct_voted
-                                end
+		                              local direct_voter
+		                              if app.session.member_id then
+		                                  direct_voter = issue.member_info.direct_voted
+		                              end
 
-                                local voteable = app.session.member_id and issue.state == 'voting' and
-                                        app.session.member:has_voting_right_for_unit_id(issue.area.unit_id)
+		                              local voteable = app.session.member_id and issue.state == 'voting' and
+		                                      app.session.member:has_voting_right_for_unit_id(issue.area.unit_id)
 
-                                local vote_comment_able = app.session.member_id and issue.closed and direct_voter
+		                              local vote_comment_able = app.session.member_id and issue.closed and direct_voter
 
-                                local vote_link_text
-                                if voteable then
-                                    vote_link_text = direct_voter and _ "Change vote" or _ "Vote now"
+		                              local vote_link_text
+		                              if voteable then
+		                                  vote_link_text = direct_voter and _ "Change vote" or _ "Vote now"
 
-                                    ui.container {
-                                        attr = { class = "row-fluid spaceline2" },
-                                        content = function()
-                                            ui.container {
-                                                attr = { class = "span12 well-inside paper" },
-                                                content = function()
+		                                  ui.container {
+		                                      attr = { class = "row-fluid spaceline2" },
+		                                      content = function()
+		                                          ui.container {
+		                                              attr = { class = "span12 well-inside paper" },
+		                                              content = function()
 
-                                                    ui.container {
-                                                        attr = { class = "span4 offset1 spaceline" },
-                                                        content = function()
-                                                            ui.heading { level = 2, content = "Se la proposta è passata per la fase di votazione, clicca  sul pulsante per votare:" }
-                                                        end
-                                                    }
-                                                    ui.container {
-                                                        attr = { class = "span2 spaceline" },
-                                                        content = function()
-                                                            ui.image { static = "svg/arrow-right.svg" }
-                                                        end
-                                                    }
+		                                                  ui.container {
+		                                                      attr = { class = "span4 offset1 spaceline" },
+		                                                      content = function()
+		                                                          ui.heading { level = 2, content = "Se la proposta è passata per la fase di votazione, clicca  sul pulsante per votare:" }
+		                                                      end
+		                                                  }
+		                                                  ui.container {
+		                                                      attr = { class = "span2 spaceline" },
+		                                                      content = function()
+		                                                          ui.image { static = "svg/arrow-right.svg" }
+		                                                      end
+		                                                  }
 
-                                                    ui.container {
-                                                        attr = { class = "span5" },
-                                                        content = function()
-                                                            ui.container {
-                                                                attr = { class = "row-fluid spaceline-bottom" },
-                                                                content = function()
-                                                                    ui.link {
-                                                                        attr = { id = "issue_see_det_" .. issue.id },
-                                                                        module = "vote",
-                                                                        view = "list",
-                                                                        id = issue.id,
-                                                                        params = { issue_id = issue.id },
-                                                                        content = function()
-                                                                            ui.container {
-                                                                                attr = { class = "span6  btn btn-primary " },
-                                                                                content = function()
-                                                                                    ui.container {
-                                                                                        attr = { class = "row-fluid" },
-                                                                                        content = function()
-                                                                                            ui.container {
-                                                                                                attr = { class = "span6" },
-                                                                                                content = function()
-                                                                                                    ui.image { static = "png/voting.png" }
-                                                                                                end
-                                                                                            }
+		                                                  ui.container {
+		                                                      attr = { class = "span5" },
+		                                                      content = function()
+		                                                          ui.container {
+		                                                              attr = { class = "row-fluid spaceline-bottom" },
+		                                                              content = function()
+		                                                                  ui.link {
+		                                                                      attr = { id = "issue_see_det_" .. issue.id },
+		                                                                      module = "vote",
+		                                                                      view = "list",
+		                                                                      id = issue.id,
+		                                                                      params = { issue_id = issue.id },
+		                                                                      content = function()
+		                                                                          ui.container {
+		                                                                              attr = { class = "span6  btn btn-primary " },
+		                                                                              content = function()
+		                                                                                  ui.container {
+		                                                                                      attr = { class = "row-fluid" },
+		                                                                                      content = function()
+		                                                                                          ui.container {
+		                                                                                              attr = { class = "span6" },
+		                                                                                              content = function()
+		                                                                                                  ui.image { static = "png/voting.png" }
+		                                                                                              end
+		                                                                                          }
 
-                                                                                            ui.container {
-                                                                                                attr = { class = "span6 text-center spaceline" },
-                                                                                                content = function()
-                                                                                                    ui.heading { level = 2, attr = { class = "spaceline" }, content = _ "Vote now" }
-                                                                                                end
-                                                                                            }
-                                                                                        end
-                                                                                    }
-                                                                                end
-                                                                            }
-                                                                        end
-                                                                    }
-                                                                end
-                                                            }
-                                                        end
-                                                    }
-                                                end
-                                            }
-                                        end
-                                    }
-                                elseif vote_comment_able then
-                                    vote_link_text = direct_voter and _ "Update voting comment"
-                                end
+		                                                                                          ui.container {
+		                                                                                              attr = { class = "span6 text-center spaceline" },
+		                                                                                              content = function()
+		                                                                                                  ui.heading { level = 2, attr = { class = "spaceline" }, content = _ "Vote now" }
+		                                                                                              end
+		                                                                                          }
+		                                                                                      end
+		                                                                                  }
+		                                                                              end
+		                                                                          }
+		                                                                      end
+		                                                                  }
+		                                                              end
+		                                                          }
+		                                                      end
+		                                                  }
+		                                              end
+		                                          }
+		                                      end
+		                                  }
+		                              elseif vote_comment_able then
+		                                  vote_link_text = direct_voter and _ "Update voting comment"
+		                              end
+		                            end                                
 
                                 --  if app.session:has_access("authors_pseudonymous") then
                                 --  ui.container{ attr = { class = "content" }, content = function()
@@ -678,13 +612,22 @@ ui.container {
                                 --      }
                                 --    end }
                                 --  end
+                                ui.container{ attr={class="row-fluid"}, content=function()
+								                        ui.container {
+										                      attr = { class = "span12" },
+										                      content = function()
+										                          ui.heading { level = 3, attr = { class = "label label-warning" }, content = _ "TESTO INTEGRALE" }
+										                      end
+										                  	}
+						                      	end
+		                          	}
                                 ui.container {
                                     attr = { class = "row-fluid" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "span12 well-inside paper spaceline" },
                                             content = function()
-                                                ui.container {
+ --[[                                               ui.container {
                                                     attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
@@ -696,7 +639,7 @@ ui.container {
                                                             end
                                                         }
                                                     end
-                                                }
+                                                }]]
                                                 local supporter
 
                                                 if app.session.member_id then
@@ -745,15 +688,13 @@ ui.container {
 
                                                 if not show_as_head then
                                                     local drafts_count = initiative:get_reference_selector("drafts"):count()
-
-                                                    ui.container {
-                                                        attr = { class = "row-fluid" },
-                                                        content = function()
-                                                            ui.container {
-                                                                attr = { class = "span5 offset7 text-right spaceline-bottom" },
-                                                                content = function()
-
-                                                                    if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
+																										if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
+				                                                ui.container {
+				                                                    attr = { class = "row-fluid" },
+				                                                    content = function()
+				                                                        ui.container {
+				                                                            attr = { class = "span5 offset7 text-right spaceline-bottom" },
+				                                                            content = function()                                                                  
                                                                         ui.link {
                                                                             attr = { class = "label label-warning" },
                                                                             content = function()
@@ -775,10 +716,10 @@ ui.container {
                                                                         }
                                                                         slot.put(" &middot; ")
                                                                     end
-                                                                end
-                                                            }
-                                                        end
-                                                    }
+                                                                }
+                                                            end
+                                                        }
+                                                    end
                                                     ui.container {
                                                         attr = { class = "row-fluid spaceline-bottom" },
                                                         content = function()

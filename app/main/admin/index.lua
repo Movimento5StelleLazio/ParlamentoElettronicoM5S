@@ -44,5 +44,15 @@ ui.tag {
                 }
             end
         }
+        ui.tag {
+            tag = "li",
+            content = function()
+                ui.link {
+                    text = _ "Database Dumps",
+                    module = "admin",
+                    view = "download",
+                }
+            end
+        }
     end
 }

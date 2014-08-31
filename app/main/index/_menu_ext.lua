@@ -75,6 +75,7 @@ ui.tag {
 
                     ui.link {
                         text = _ "Logout",
+                        attr = {style = "font-weight: bold;"},
                         module = 'index',
                         action = 'logout',
                         routing = {
@@ -82,6 +83,31 @@ ui.tag {
                                 mode = "redirect",
                                 module = "index",
                                 view = "index"
+                            }
+                        }
+                    }
+                end
+            }
+        else
+        	ui.tag {
+                tag = "li",
+                content = function()
+
+                    ui.link {
+                        text = _ "Login",
+                        attr = {style = "font-weight: bold;"},
+                        module = 'index',
+                        view = 'login',
+                        routing = {
+                            ok = {
+                                mode = "forward",
+                                module = request.get_module(),
+                                view = request.get_view()
+                            },
+                            error = {
+                            		mode = "redirect",
+                            		module = "index",
+                            		view = "login"
                             }
                         }
                     }

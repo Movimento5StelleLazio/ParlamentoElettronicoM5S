@@ -46,8 +46,6 @@ ui.container {
         }
     end
 }
-
-
 ui.container {
     attr = { class = "row-fluid" },
     content = function()
@@ -237,5 +235,4 @@ ui.container {
         }
     end
 }
-
 

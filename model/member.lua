@@ -412,40 +412,53 @@ function Member:get_search_selector(search_string)
 end
 
 function Member.object:send_invitation(template_file, subject)
-    trace.disable()
-    self.invite_code = multirand.string(24, "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
-    self:save()
-
-    local subject = subject
-    local content
-
-    if template_file then
-        local fh = io.open(template_file, "r")
-        content = fh:read("*a")
-        content = (content:gsub("#{invite_code}", self.invite_code))
-    else
-        subject = config.mail_subject_prefix .. _ "Invitation to LiquidFeedback"
-        content = slot.use_temporary(function()
-            slot.put(_ "Hello\n\n")
-            slot.put(_ "You are invited to LiquidFeedback. To register please click the following link:\n\n")
-            slot.put("https://test.parelon.com/lf/index/register.html?invite=" .. self.invite_code .. "\n\n")
-            slot.put(_ "If this link is not working, please open following url in your web browser:\n\n")
-            slot.put("https://test.parelon.com/lf/index/register.html\n\n")
-            slot.put(_ "On that page please enter the invite key:\n\n")
-            slot.put(self.invite_code .. "\n\n")
-        end)
-    end
-
-    local success = net.send_mail {
-        envelope_from = config.mail_envelope_from,
-        from = config.mail_from,
-        reply_to = config.mail_reply_to,
-        to = self.notify_email_unconfirmed or self.notify_email,
-        subject = subject,
-        content_type = "text/plain; charset=UTF-8",
-        content = content
-    }
-    return success
+  trace.disable()
+  self.invite_code = ""
+  self.invite_code_expiry = db:query("SELECT now()","object").expiry 
+  self:save()
+  
+  self.invite_code = multirand.string( 24, "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz" )
+  self.invite_code_expiry = db:query("SELECT now() + '2 days'::interval as expiry", "object").expiry
+  self:save()
+  
+  local parelonBaseUrl = "https://test.parelon.com/lf/"
+  local subject = subject
+  local content
+  
+  if template_file then
+    local fh = io.open(template_file, "r")
+    content = fh:read("*a")
+    content = (content:gsub("#{invite_code}", self.invite_code))
+  else
+    subject = config.mail_subject_prefix .. _"Invitation to Parlamento Elettronico Online"
+    content = slot.use_temporary(function()
+      slot.put(_"Hello\n\n")
+  		       slot.put(_"You are invited to Parlamento Elettronico Online. To register please click the following link:\n\n")
+  		       slot.put("https://test.parelon.com/lf/index/register.html?invite=" .. self.invite_code .. "\n\nbefore 24h.")
+  		       slot.put(_"If this link is not working, please open following url in your web browser:\n\n")
+  		       slot.put("https://test.parelon.com/lf/index/register.html\n\n")
+  		       slot.put(_"On that page please enter the invite key:\n\n")
+  		       slot.put(self.invite_code.."\n")
+  		       slot.put(_"The invite code will expire in two days: after that, you will need a new invite code generated from your auditor.\n\nBest wishes.\n\nParelon Team")
+    end)
+  end
+  
+	local address
+	if self.notify_email_unconfirmed then
+		address = self.notify_email_unconfirmed
+	else
+		address = self.notify_email
+	end
+	
+  local success = net.send_mail{
+    envelope_from = config.mail_envelope_from,
+    from          = config.mail_from,
+    to            = address,
+    subject       = subject,
+    content_type  = "text/plain; charset=UTF-8",
+    content       = content
+  }
+  return success
 end
 
 function Member.object:set_notify_email(notify_email)

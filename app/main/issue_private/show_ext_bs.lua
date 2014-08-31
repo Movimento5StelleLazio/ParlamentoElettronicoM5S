@@ -37,7 +37,7 @@ if not app.html_title.title then
     app.html_title.title = _("Issue ##{id}", { id = issue.id })
 end
 
-local url = request.get_absolute_baseurl() .. "issue_private/show_ext2_bs/" .. tostring(issue.id) .. ".html"
+local url = request.get_absolute_baseurl() .. "issue_private/show_ext_bs/" .. tostring(issue.id) .. ".html"
 
 ui.container {
     attr = { class = "row-fluid" },
@@ -114,39 +114,11 @@ ui.container {
                 }
 
                 ui.container {
-                    attr = { id = "social_box", class = "row-fluid spaceline" },
+                    attr = { id = "social_box", class = "row-fluid spaceline", style = "display:flex;align-items:center" },
                     content = function()
-                        ui.container {
-                            attr = { class = "span5" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid spaceline" },
-                                    content = function()
-                                    				  ui.container{ attr = { class  = " span2" }, content = function()
-                                                    slot.put('<div class="fb-like" data-href="'..url..'" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"},content=function()
-                                                    slot.put('<div class="g-plusone" data-size="tall"></div>')
-                                                end }
-                                                ui.container{ attr={class="span2"}, content=function()
-                                                    slot.put('<script type="IN/Share" data-counter="top"></script>')
-                                                end }
-                                                ui.container{ attr = {class="span2"}, content = function()
-                                                    slot.put('<a url="'..url..'" href="//it.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>')
-                                                end }
-                                        ui.container {
-                                            attr = { class = "span2" },
-                                            content = function()
-                                                local message
-                                                slot.put('<a data-hashtags="parelon" data-url="' .. url .. '" href="https://twitter.com/share" class="twitter-share-button" data-text="' .. _ "I found this issue very interesting and I\'m supporting it! Please, help me with this: add yourself as supporter!" .. '"  data-count="vertical" data-lang="it">Tweet</a>')
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span6 nowrap" },
+                       ui.container { attr = {class="span3"}, content = function() slot.put('<div class="addthis_sharing_toolbox" data-url="'..url..'"></div>') end }
+                       ui.container {
+                            attr = { class = "span9 nowrap" },
                             content = function()
                                 ui.heading { level = 6, attr = { class = "" }, content = _ "Issue link (copy the link and share to the web):" }
                                 slot.put("<input id='issue_url_box' type='text' value=" .. url .. ">")
@@ -261,6 +233,104 @@ ui.container {
                                         }
                                     end
                                 }
+                                
+                                if app.session.member then
+		                              ui.container {
+		                                  attr = { class = "row-fluid" },
+		                                  content = function()
+		                                      ui.container {
+		                                          attr = { class = "span8 offset2 text-center label label-warning spaceline3" },
+		                                          content = function()
+		                                              ui.tag { tag = "h3", content = "SOSTIENI LA QUESTIONE:" }
+		                                          end
+		                                      }
+		                                      ui.container {
+		                                          attr = { class = "span1 text-center " },
+		                                          content = function()
+		                                              ui.field.popover {
+		                                                  attr = {
+		                                                      dataplacement = "left",
+		                                                      datahtml = "true";
+		                                                      datatitle = _ "Box di aiuto per la pagina",
+		                                                      datacontent = _("Puoi sostenere oppure ritirare il sostegno alla questione.<br /><i>Sostenere</i> la questione non vuol dire <i>votare sì</i>: vuol dire solo ritenere che il problema sollevato <i>merita</i> di essere discusso.\nSe la questione appartiene ad una delle tue aree preferite, sarai aggiunto ai sostenitori della questione come impostazione predefinita."),
+		                                                      datahtml = "true",
+		                                                      class = "text-center"
+		                                                  },
+		                                                  content = function()
+		                                                      ui.container {
+		                                                          attr = { class = "row-fluid" },
+		                                                          content = function()
+		                                                              ui.image { static = "png/tutor.png" }
+		                                                          --								    ui.heading{level=3 , content= _"What you want to do?"}
+		                                                          end
+		                                                      }
+		                                                  end
+		                                              }
+		                                          end
+		                                      }
+		                                  end
+		                              }
+		                              ui.container {
+		                                  attr = { class = "row-fluid spaceline text-center" },
+		                                  content = function()
+		                                      ui.container {
+		                                          attr = { class = "span12 well-inside paper" },
+		                                          content = function()
+		                                              ui.container {
+		                                                  attr = { class = "row-fluid spaceline text-center" },
+		                                                  content = function()
+		                                                      ui.container {
+		                                                          attr = { class = "span12 spaceline spaceline-bottom" },
+		                                                          content = function()
+		                                                              if not issue.closed and not issue.fully_frozen then
+		                                                                  if issue.member_info.own_participation then
+	                                                                  			ui.image { attr={style="height: 50px"}, static="png/thumb_up.png" } 				                                                                  ui.link {
+						                                                                      attr = { class = "btn btn-primary btn_size_fix fixclick" },
+						                                                                      in_brackets = true,
+						                                                                      text = _ "Withdraw",
+						                                                                      module = "interest",
+						                                                                      action = "update",
+						                                                                      params = { issue_id = issue.id, delete = true },
+						                                                                      routing = {
+						                                                                          default = {
+						                                                                              mode = "redirect",
+						                                                                              module = request.get_module(),
+						                                                                              view = request.get_view(),
+						                                                                              id = param.get_id_cgi(),
+						                                                                              params = param.get_all_cgi()
+						                                                                          }
+						                                                                      }
+						                                                                  }
+		                                                                  elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
+		                                                                  		ui.image { attr={style="height: 50px"}, static="png/thumb_down.png" }
+		                                                                      ui.link {
+		                                                                          attr = { class = "btn btn-primary btn_size_fix fixclick" },
+		                                                                          text = _ "Add my interest",
+		                                                                          module = "interest",
+		                                                                          action = "update",
+		                                                                          params = { issue_id = issue.id },
+		                                                                          routing = {
+		                                                                              default = {
+		                                                                                  mode = "redirect",
+		                                                                                  module = request.get_module(),
+		                                                                                  view = request.get_view(),
+		                                                                                  id = param.get_id_cgi(),
+		                                                                                  params = param.get_all_cgi()
+		                                                                              }
+		                                                                          }
+		                                                                      }
+		                                                                  end
+		                                                              end
+		                                                          end
+		                                                      }
+		                                                  end
+		                                              }
+		                                          end
+		                                      }
+		                                  end
+		                              }
+		                            end
+		                            
                                 ui.container {
                                     attr = { class = "row-fluid" },
                                     content = function()
@@ -768,6 +838,43 @@ ui.container {
                         }
                     end
                 }
+                if app.session.member.id then
+				    				local interested_members_selector = issue:get_reference_selector("interested_members_snapshot")
+											:join("issue", nil, "issue.id = direct_interest_snapshot.issue_id")
+											:add_field("direct_interest_snapshot.weight")
+											:add_where("direct_interest_snapshot.event = issue.latest_snapshot_event")
+											ui.container {
+		                      attr = { class = "row-fluid spaceline2" },
+		                      content = function()
+		                          ui.container {
+		                              attr = { class = "span12" },
+		                              content = function()
+		                                  ui.heading { level = 3, attr = { class = "label label-warning" }, content = _ "Interested members" }
+		                              end
+		                          }
+		                  				ui.container {
+										              attr = { class = "row-fluid" },
+										              content = function()
+																			execute.view{
+																				module = "member",
+																				view = "_list",
+																				params = {
+																					issue = issue,
+																					members_selector = interested_members_selector
+																				}
+																			}
+																			ui.container{ attr = { class = "heading" }, content = _"Details" }
+		
+																			execute.view{
+																				module = "issue_private",
+																				view = "_details",
+																				params = { issue = issue }
+																			}
+																	end
+															}
+												 end
+										}
+								end
             end
         }
     end
