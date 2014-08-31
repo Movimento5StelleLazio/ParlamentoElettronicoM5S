@@ -1050,4 +1050,11 @@ return {
     ["The summary of the status of all the issues in you are interested in is this:"] = "Questo è il riassunto dello stato di tutte le questioni nelle tue aree tematiche preferite:";
     ["I found this issue very interesting and I\'m supporting it! Supporter it you too!"] = "Ho trovato questa discussione molto interessante e la sostengo! Sostienila anche tu!";
     ["I found this initiative very interesting and I\'m supporting it! Supporter it you too!"] = "Ho trovato questa proposta molto interessante e la sostengo! Sostienila anche tu!";
+    ["Hello\n\n"] = "Buongiorno\n\n";
+    ["You are invited to Parlamento Elettronico Online. To register please click the following link:\n\n"] = "Sei stato invitato/a a entrare in Parlamento Elettronico Online. Per registrarti clicca sul seguente indirizzo:\n\n";
+    ["If this link is not working, please open following url in your web browser:\n\n"] = "Se il link non dovesse funzionare, per favore apri il seguente indirizzo web dal tuo browser:\n\n";
+    ["On that page please enter the invite key:\n\n"] = "Sulla pagina che si aprirà inserisci il seguente codice di invito:\n\n";
+    ["The invite code will expire in two days: after that, you will need a new invite code generated from your auditor.\n\nBest wishes.\n\nParelon Team"] = "Il codice di invito scadrà tra due giorni: dopodicché il tuo certificatore dovrà generarne un altro.\n\nCordiali Saluti\n\nParelon Team";
+    
+    
 }
