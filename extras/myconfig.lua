@@ -119,7 +119,7 @@ config.formatting_engine_executeables = {
 -- "everything"
 --     -> Show everything a member can see, including profile pages
 -- ------------------------------------------------------------------------
-config.public_access = "none"
+config.public_access = "anonymous"
 
 
 
