@@ -170,7 +170,8 @@ config.mail_reply_to = { name = "Support", address = "support@parelon.com" }
 
 -- Local directory for database dumps offered for download
 -- ------------------------------------------------------------------------
--- config.download_dir = nil
+config.download_dir = "/opt/liquid_feedback_frontend/download/parelon_cert/"
+config.db_dump_dir = "/opt/backups/parelon_cert/"
 
 -- Special use terms for database dump download
 -- ------------------------------------------------------------------------
