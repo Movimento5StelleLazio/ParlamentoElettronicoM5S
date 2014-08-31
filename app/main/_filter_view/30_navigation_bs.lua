@@ -52,8 +52,8 @@ slot.select('navbar', function()
                                 }
                                 slot.put("&nbsp;" .. app.session.member.name)
                             else
-                                --								ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}
-                                slot.put("&nbsp;" .. _ "Select language")
+--								ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}
+                                slot.put("&nbsp;" .. _ "Login")
                             end
                         end
                     }
