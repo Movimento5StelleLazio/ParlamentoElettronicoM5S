@@ -6,13 +6,13 @@ function ui.field.rank(args)
             attr = { class = "rank" },
             content = function()
                 if eligible and value == 1 then
-                    ui.image { attr = args.image_attr, static = "icons/16/award_star_gold_2.png" }
+                    ui.image { attr = args.image_attr, static = "png/winner.png" }
                 elseif eligible and value then
-                    ui.image { attr = args.image_attr, static = "icons/16/award_star_silver_2.png" }
+                    ui.image { attr = args.image_attr, static = "png/second_winner.png" }
                 else
-                    ui.image { attr = args.image_attr, static = "icons/16/cross.png" }
+                    ui.image { attr = args.image_attr, static = "png/cross.png" }
                 end
-                if value then
+                if value and value ~= 1 then
                     ui.tag {
                         attr = { class = "value" },
                         content = tostring(value)

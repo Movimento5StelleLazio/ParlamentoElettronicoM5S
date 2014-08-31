@@ -25,21 +25,7 @@ ui.container {
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
-                    --[[
-                    ui.container{ attr = { class = "span1" }, content = function()
-                      if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
-                        ui.field.rank{ attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
-                      elseif not initiative.issue.closed then
-                        ui.image{ attr = { class = "spaceline" }, static = "icons/16/script.png" }
-                      else
-                        ui.image{ attr = { class = "spaceline" }, static = "icons/16/cross.png" }
-                      end
-                    end }
-                    --]]
-
-                        local span = 2
-
-
+                    		local span = 2
                         if for_details and app.session.member then
                             -- Get member checked events for initiative
                             local checked_events = Event:new_selector():join("checked_event", nil, "checked_event.event_id = event.id"):add_where { "checked_event.member_id = ?", for_member.id }:exec()
@@ -290,7 +276,7 @@ ui.container {
                         }
 
                         ui.container {
-                            attr = { class = "span8" },
+                            attr = { class = "span6" },
                             content = function()
                                 ui.link {
                                     content = function()
@@ -315,14 +301,20 @@ ui.container {
                                     view = "show",
                                     id = initiative.id
                                 }
+                                
                                 --if request.get_view() == "show_ext_bs" then
                                 if for_details then
                                     ui.tag { tag = "p", content = initiative.brief_description }
                                 end
                             end
                         }
+                        ui.container{ attr = { class = "span1"}, content = function()
+									    			if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
+											      		ui.field.rank{ attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
+												    end
+											  end }
                     end
-                }
+                }                
             end
         }
     end

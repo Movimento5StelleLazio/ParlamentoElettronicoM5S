@@ -236,20 +236,20 @@ if proposer3 then
 end
 
 param.update(initiative, "discussion_url")
-initiative:save()
+initiative = initiative:save()
 
 local draft = Draft:new()
 draft.initiative_id = initiative.id
 draft.formatting_engine = formatting_engine
 draft.content = draft_text
 draft.author_id = app.session.member.id
-draft:save()
+draft = draft:save()
 
 local initiator = Initiator:new()
 initiator.initiative_id = initiative.id
 initiator.member_id = app.session.member.id
 initiator.accepted = true
-initiator:save()
+initiator = initiator:save()
 
 if not is_polling then
     local supporter = Supporter:new()
