@@ -49,7 +49,6 @@ ui.container {
 ui.container {
     attr = { class = "row-fluid" },
     content = function()
-
         ui.container {
             attr = { class = "span9 phasesheight" },
             content = function()
