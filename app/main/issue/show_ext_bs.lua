@@ -15,7 +15,7 @@ local orderby = param.get("orderby") or ""
 local desc = param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
-local view = param.get("view") or "homepage"
+local view = param.get("view")
 local ftl_btns = param.get("ftl_btns", atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 

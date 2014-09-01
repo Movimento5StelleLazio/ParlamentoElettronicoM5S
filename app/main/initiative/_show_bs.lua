@@ -1,35 +1,5 @@
 slot.set_layout("custom")
 
---[[local initiative = param.get("initiative", "table")
-
-local show_as_head = param.get("show_as_head", atom.boolean)
-
-initiative:load_everything_for_member_id(app.session.member_id)
-
-local issue = initiative.issue
-
--- TODO performance
-local initiator
-if app.session.member_id then
-    initiator = Initiator:by_pk(initiative.id, app.session.member.id)
-end
-local issues_selector_myinitiatives = Issue:new_selector()
-execute.chunk {
-    module = "issue",
-    chunk = "_filters_ext",
-    params = {
-        state = state,
-        orderby = orderby,
-        desc = desc,
-        scope = scope,
-        interest = interest,
-        selector = issues_selector_myinitiatives
-    }
-}
-if app.session.member_id then
-    issue:load_everything_for_member_id(app.session.member_id)
-end]]
-
 local initiative = param.get("initiative", "table")
 
 local show_as_head = param.get("show_as_head", atom.boolean)
@@ -88,7 +58,7 @@ local orderby = param.get("orderby") or ""
 local desc = param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
-local view = param.get("view") or "homepage"
+local view = param.get("view")
 local ftl_btns = param.get("ftl_btns", atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
@@ -96,25 +66,26 @@ local function round(num, idp)
     return tonumber(string.format("%." .. (idp or 0) .. "f", num))
 end
 
-local return_view, return_module
+local return_view = "show_ext_bs"
+local return_module = "issue"
+local return_btn_txt = _"Back"
+local return_id = initiative.issue_id
 if app.session.member then
-	if view == "homepage" then
-		  return_module = "index"
-		  return_view = "homepage_bs"
-		  return_btn_txt = _ "Back to homepage"
-	elseif view == "area" then
-		  return_module = "area"
-		  return_view = "show_ext_bs"
-		  return_btn_txt = _ "Back to issue listing"
-	elseif view == "area_private" then
-		  return_module = "area_private"
-		  return_view = "show_ext_bs"
-		  return_btn_txt = _ "Back to issue listing"
-	end
-else
-  return_module = "issue"
-  return_view = "show_ext_bs"
-  return_btn_txt = _ "Back to issue listing"
+        if view == "homepage" then
+                  return_module = "index"
+                  return_view = "homepage_bs"
+                  return_btn_txt = _ "Back to homepage"
+        elseif view == "area" then
+                  return_module = "area"
+                  return_view = "show_ext_bs"
+                  return_btn_txt = _ "Back to issue listing"
+                  return_id = issue.area_id
+        elseif view == "area_private" then
+                  return_module = "area_private"
+                  return_view = "show_ext_bs"
+                  return_btn_txt = _ "Back to issue listing"
+                  return_id = issue.area_id
+        end
 end
 
 local url = request.get_absolute_baseurl() .. "initiative/show/" .. tostring(initiative.id) .. ".html"
@@ -139,16 +110,16 @@ ui.container {
                             	if app.session.member then
                                 ui.link {
                                     attr = { class = "btn btn-primary btn-large fixclick" },
-                                    module = "area",
-                                    id = issue.area.id,
-                                    view = "show_ext_bs",
+                                    module = return_module,
+                                    id = return_id,
+                                    view = return_view,
                                     params = param.get_all_cgi(),
                                     content = function()
                                         ui.heading {
                                             level = 3,
                                             content = function()
                                                 ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(_ "Back to previous page")
+                                                slot.put(return_btn_txt)
                                             end
                                         }
                                     end
