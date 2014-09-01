@@ -41,6 +41,30 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+--set the back parameters
+local view_back = "page_bs6"
+local module_back = "wizard"
+local params_back = {
+    area_id = area_id,
+    unit_id = unit_id,
+    area_name = area_name,
+    unit_name = unit_name,
+    policy_id = policy_id,
+    issue_title = issue_title,
+    issue_brief_description = issue_brief_description,
+    issue_keywords = issue_keywords,
+    problem_description = problem_description,
+    aim_description = aim_description,
+    initiative_title = initiative_title,
+    initiative_brief_description = initiative_brief_description,
+    draft = draft,
+    technical_areas = technical_areas,
+    proposer1 = proposer1,
+    proposer2 = proposer2,
+    proposer3 = proposer3,
+    resource = resource
+}
+
 ui.form {
     method = "post",
     attr = { id = "page_bs7" },
@@ -71,7 +95,10 @@ ui.form {
         local progresso = _ "FASE <strong>7</strong> di 10"
 
         if issue_id ~= 0 then
-            progresso = _ "FASE <strong>2</strong> di 5"
+            progresso = _ "FASE <strong>1</strong> di 4"
+            view_back = "show_ext_bs"
+            module_back = "issue"
+            params_back = { id = issue_id, view = "homepage", orderby=false }
         end
 
         ui.container {
@@ -215,27 +242,7 @@ ui.form {
 ui.form {
     method = "post",
     attr = { class = "inline-block", id = "page_bs7_back" },
-    module = 'wizard_private',
-    view = 'page_bs6',
-    params = {
-        issue_id = issue_id,
-        area_id = area_id,
-        unit_id = unit_id,
-        area_name = area_name,
-        unit_name = unit_name,
-        policy_id = policy_id,
-        issue_title = issue_title,
-        issue_brief_description = issue_brief_description,
-        issue_keywords = issue_keywords,
-        problem_description = problem_description,
-        aim_description = aim_description,
-        initiative_title = initiative_title,
-        initiative_brief_description = initiative_brief_description,
-        draft = draft,
-        technical_areas = technical_areas,
-        proposer1 = proposer1,
-        proposer2 = proposer2,
-        proposer3 = proposer3,
-        resource = resource
-    }
+    module = module_back,
+    view = view_back,
+    params = params_back
 }
