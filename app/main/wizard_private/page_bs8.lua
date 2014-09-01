@@ -71,7 +71,7 @@ ui.form {
         local progresso = _ "FASE <strong>8</strong> di 10"
 
         if issue_id ~= 0 then
-            progresso = _ "FASE <strong>3</strong> di 5"
+            progresso = _ "FASE <strong>2</strong> di 4"
         end
 
         ui.container {

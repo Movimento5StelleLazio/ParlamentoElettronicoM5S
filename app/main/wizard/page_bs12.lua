@@ -405,6 +405,34 @@ ui.form {
                                                 }
                                             end
                                         }
+                                        -- Descrizione dell'obiettivo
+                                        ui.container {
+                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "span10 offset1 text-left aim_desc" },
+                                                    content = function()
+                                                        ui.tag { tag = "p", content = _ "Target description" }
+                                                    --                      ui.tag{tag="em",content=  _"Target note"}
+                                                    end
+                                                }
+                                            end
+                                        }
+                                        ui.container {
+                                            attr = { class = "row-fluid" },
+                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "span10 offset1  aim_desc" },
+                                                    content = function()
+                                                        ui.tag {
+                                                            tag = "textarea",
+                                                            attr = { id = "aim_description", name = "aim_description", style = "height:250px;width:100%;resize:yes;" },
+                                                            content = aim_description
+                                                        }
+                                                    end
+                                                }
+                                            end
+                                        }
                                     end
                                 }
                             end
@@ -480,34 +508,7 @@ ui.form {
                                                 }
                                             end
                                         }
-                                        -- Descrizione dell'obiettivo
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-left aim_desc" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", content = _ "Target description" }
-                                                    --                      ui.tag{tag="em",content=  _"Target note"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1  aim_desc" },
-                                                    content = function()
-                                                        ui.tag {
-                                                            tag = "textarea",
-                                                            attr = { id = "aim_description", name = "aim_description", style = "height:250px;width:100%;resize:yes;" },
-                                                            content = aim_description
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
+                                        
                                         -- Testo della proposta
                                         ui.container {
                                             attr = { class = "row-fluid spaceline3 " },

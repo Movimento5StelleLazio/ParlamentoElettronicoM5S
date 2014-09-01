@@ -1,6 +1,5 @@
 slot.set_layout("custom")
 
-local issue_id = param.get("issue_id", atom.integer) or 0
 local area_id = param.get("area_id", atom.integer)
 local unit_id = param.get("unit_id", atom.integer)
 local area_name = param.get("area_name", atom.string)
@@ -41,30 +40,6 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
---set the back parameters
-local view_back = "page_bs4"
-local module_back = "wizard_private"
-local params_back = {
-    area_id = area_id,
-    unit_id = unit_id,
-    area_name = area_name,
-    unit_name = unit_name,
-    policy_id = policy_id,
-    issue_title = issue_title,
-    issue_brief_description = issue_brief_description,
-    issue_keywords = issue_keywords,
-    problem_description = problem_description,
-    aim_description = aim_description,
-    initiative_title = initiative_title,
-    initiative_brief_description = initiative_brief_description,
-    draft = draft,
-    technical_areas = technical_areas,
-    proposer1 = proposer1,
-    proposer2 = proposer2,
-    proposer3 = proposer3,
-    resource = resource
-}
-
 ui.form {
     method = "post",
     attr = { id = "page_bs6" },
@@ -93,13 +68,6 @@ ui.form {
     },
     content = function()
         local progresso = _ "FASE <strong>6</strong> di 10"
-
-        if issue_id ~= 0 then
-            progresso = _ "FASE <strong>1</strong> di 5"
-            view_back = "show_ext_bs"
-            module_back = "issue"
-            params_back = { issue_id = issue_id }
-        end
 
         ui.container {
             attr = { class = "row-fluid" },
@@ -279,7 +247,26 @@ ui.form {
 ui.form {
     method = "post",
     attr = { class = "inline-block", id = "page_bs6_back" },
-    module = module_back,
-    view = view_back,
-    params = params_back
+    module = "wizard",
+    view = "page_bs5",
+    params = {
+		  area_id = area_id,
+		  unit_id = unit_id,
+		  area_name = area_name,
+		  unit_name = unit_name,
+		  policy_id = policy_id,
+		  issue_title = issue_title,
+		  issue_brief_description = issue_brief_description,
+		  issue_keywords = issue_keywords,
+		  problem_description = problem_description,
+		  aim_description = aim_description,
+		  initiative_title = initiative_title,
+		  initiative_brief_description = initiative_brief_description,
+		  draft = draft,
+		  technical_areas = technical_areas,
+		  proposer1 = proposer1,
+		  proposer2 = proposer2,
+		  proposer3 = proposer3,
+		  resource = resource
+	}
 }

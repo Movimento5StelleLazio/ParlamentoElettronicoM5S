@@ -157,7 +157,7 @@ if draft_id ~= 0 then
                                                         attr = { class = "row-fluid" },
                                                         content = function()
                                                             ui.image { static = "png/tutor.png" }
-                                                        --								    ui.heading{level=3 , content= _"What you want to do?"}
+--																											    ui.heading{level=3 , content= _"What you want to do?"}
                                                         end
                                                     }
                                                 end
@@ -301,7 +301,7 @@ else
             local progresso = _ "FASE <strong>9</strong> di 10"
 
             if issue_id ~= 0 then
-                progresso = _ "FASE <strong>4</strong> di 5"
+                progresso = _ "FASE <strong>3</strong> di 4"
             elseif draft_id ~= 0 then
                 progresso = _ "FASE <strong>1</strong> di 1"
                 draft = Draft:by_id(draft_id).content
