@@ -62,7 +62,7 @@ ui.container {
                             content = function()
                             		if app.session.member then
 		                              ui.link {
-		                                  attr = { class = "btn btn-primary btn-large fixclick" },
+		                                  attr = { class = "btn btn-primary large_btn fixclick" },
 		                                  module = "area_private",
 		                                  id = issue.area.id,
 		                                  view = "show_ext_bs",
