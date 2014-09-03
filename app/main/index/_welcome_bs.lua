@@ -52,9 +52,6 @@ if app.session.member_id then
     ui.container {
         attr = { class = "row-fluid" },
         content = function()
-            ui.container {
-                attr = { class = "span12 well text-center" },
-                content = function()
                     ui.script { static = "js/position.js" }
 
                     local curLogin = member:get_login_data('last')
@@ -139,13 +136,13 @@ if app.session.member_id then
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span8 offset2 well text-center" },
+                                    attr = { class = "span12 well text-center" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "row-fluid" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12" },
+                                                    attr = { class = "span5 offset1 spaceline" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 1,
@@ -155,8 +152,41 @@ if app.session.member_id then
                                                         }
                                                     end
                                                 }
-                                            end
-                                        }
+                            ui.container {
+                                attr = { class = "span4 text-right spaceline " },
+                                content = function()
+                                    ui.heading { level = 3, content = "La prima volta? clicca qui:" }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 text-left spaceline" },
+                                content = function()
+                                    ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-right.svg" }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 text-left " },
+                                content = function()
+                                    ui.field.popover {
+                                        attr = {
+                                            dataplacement = "left",
+                                            datahtml = "true";
+                                            datatitle = _ "Box di aiuto per la pagina",
+                                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
+                                            class = "text-center"
+                                        },
+                                        content = function()
+
+                                                    ui.image { static = "png/tutor.png" }
+                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+   
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+
                                     --[[
                                     ui.container{attr = {class = "row-fluid" },content = function()
                                       ui.container{ attr = { class  = "span12" }, content = function()
@@ -279,46 +309,7 @@ if app.session.member_id then
 
                     end]]
 
-                    ui.container {
-                        attr = { class = "row-fluid spaceline" },
-                        content = function()
-                            ui.container {
-                                attr = { class = "span5 offset4 text-right spaceline " },
-                                content = function()
-                                    ui.heading { level = 3, content = "La prima volta? clicca qui:" }
-                                end
-                            }
-                            ui.container {
-                                attr = { class = "span1 text-left spaceline" },
-                                content = function()
-                                    ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-right.svg" }
-                                end
-                            }
-                            ui.container {
-                                attr = { class = "span1 text-left " },
-                                content = function()
-                                    ui.field.popover {
-                                        attr = {
-                                            dataplacement = "left",
-                                            datahtml = "true";
-                                            datatitle = _ "Box di aiuto per la pagina",
-                                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
-                                            class = "text-center"
-                                        },
-                                        content = function()
-                                            ui.container {
-                                                attr = { class = "row-fluid" },
-                                                content = function()
-                                                    ui.image { static = "png/tutor.png" }
-                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                end
-                                            }
-                                        end
-                                    }
-                                end
-                            }
-                        end
-                    }
+
                     ui.container {
                         attr = { class = "row-fluid spaceline" },
                         content = function()
@@ -359,7 +350,7 @@ if app.session.member_id then
                     --  Bottoni
 
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row-fluid text-center" },
                         content = function()
                             ui.container {
                                 attr = { class = "span6" },
@@ -395,7 +386,7 @@ if app.session.member_id then
                         attr = { class = "row-fluid" },
                         content = function()
                             ui.container {
-                                attr = { class = "span10 offset1 well spaceline3" },
+                                attr = { class = "span12 well spaceline3" },
                                 content = function()
                                     ui.container {
                                         attr = { class = "row-fluid" },
@@ -435,56 +426,187 @@ if app.session.member_id then
                                                             ui.container {
                                                                 attr = { class = "row-fluid" },
                                                                 content = function()
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary large_btn spaceline spaceline-bottom" },
-                                                                        text = _("#{count} new", { count = issues_new_count })
-                                                                    }
-
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary spaceline spaceline-bottom large_btn " },
-                                                                        text = _("#{count} in discussion", { count = issues_discussion_count })
-                                                                    }
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary spaceline spaceline-bottom large_btn " },
-                                                                        text = _("#{count} in verification", { count = issues_frozen_count })
-                                                                    }
-                                                                end
-                                                            }
-                                                            ui.container {
+												                                          ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/new-proposal.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} new", { count = issues_new_count }) }
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }
+										                                  						ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/discussion.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} in discussion", { count = issues_discussion_count }) }
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }          
+										                                  						ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/verification.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} in verification", { count = issues_frozen_count }) }
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }          
+                                                          end
+                                                       }
+                                                                                                                   ui.container {
                                                                 attr = { class = "row-fluid" },
                                                                 content = function()
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary spaceline spaceline-bottom large_btn " },
-                                                                        text = _("#{count} in voting", { count = issues_voting_count })
-                                                                    }
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary spaceline spaceline-bottom large_btn " },
-                                                                        text = _("#{count} finished", { count = issues_finished_count })
-                                                                    }
-                                                                    ui.link {
-                                                                        module = "unit",
-                                                                        view = "show_ext_bs",
-                                                                        params = { filter = "my_areas" },
-                                                                        attr = { class = "span4 btn btn-primary spaceline spaceline-bottom large_btn " },
-                                                                        text = _("#{count} canceled", { count = issues_canceled_count })
-                                                                    }
-                                                                end
-                                                            }
+												                                          ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/voting.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} in voting", { count = issues_voting_count })}
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }
+										                                  						ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/finished.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} finished", { count = issues_finished_count }) }
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }          
+										                                  						ui.container {
+												                                              attr = { class = "span4" },
+												                                              content = function()
+																								                        ui.container {
+																								                            attr = { class = "row-fluid spaceline-bottom" },
+																								                            content = function()
+																																							ui.container {
+																																								attr = { class = "span2 offset1 spaceline" },
+																																								content = function()
+																		                      												ui.image {
+																																										static = "png/delete.png"
+																																									}
+																																									end
+																																							 }
+																																	 					ui.link {
+																																		              module = "unit",
+																																		              view = "show_ext_bs",
+																																		              params = { filter = "my_areas" },
+																																		              attr = { class = "span9 text-center spaceline" },
+													 								                                        content = function()
+																																		              ui.heading { level = 4, 				                                                
+																																		              attr = { class = "btn btn-primary large_btn" }, 
+																																		              content = _ ("#{count} canceled", { count = issues_canceled_count }) }
+																										               								end
+																																		          }
+																										                         end
+																										                      }
+										                                               end
+										                                            }          
+                                                          end
+                                                       }
                                                         end
                                                     }
                                                 end
@@ -497,8 +619,6 @@ if app.session.member_id then
                     }
                 end
             }
-        end
-    }
     --[[ execute.view{module="index",view="_registration_info"} ]] --
 
 else

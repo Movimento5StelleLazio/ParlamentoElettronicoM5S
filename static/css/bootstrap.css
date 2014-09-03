@@ -1,3 +1,8 @@
+/* radio checkbox parelon */
+input[type=radio].parelon-checkbox { display: none; }
+input[type=radio].parelon-checkbox + label.parelon-label{background-image:url(png/checkbox.png);padding-left:41px;height:36px;display:inline-block;line-height: 36px;background-repeat: no-repeat;background-position: 0 0;font-size: 28px;vertical-align: middle;cursor: pointer;}
+input[type=radio].parelon-checkbox:checked + label.parelon-label {background-position: 0 -36px;}
+label.parelon-label {-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 .phasesheight{height:180px;}
 .margin_line{margin-left:20px;}
 .icon-small{height:60px;width:60px;}
@@ -101,7 +106,7 @@ h3{orphans:3;widows:3;}
 h2,
 h3{page-break-after:avoid;}
 }
-body{margin:0;font-family:Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;line-height:25px;color:#000000;background-color:#ffffff;}
+body{margin:0;font-family: Arial, sans-serif;font-size:16px;line-height:25px;color:#000000;background-color:#ffffff;}
 a{color:#000000;text-decoration:none;}
 a:hover,
 a:focus{color:#000000;text-decoration:underline;}
@@ -308,7 +313,7 @@ textarea{font-size:22px;font-weight:normal;line-height:25px;}
 input,
 button,
 select,
-textarea{font-family:Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;}
+textarea{font-family: Arial, sans-serif;}
 label{margin-bottom:5px;}
 select,
 textarea,
@@ -1004,7 +1009,7 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 .navbar-form .input-append input,
 .navbar-form .input-prepend input{margin-top:0;}
 .navbar-search{position:relative;float:left;margin-top:5px;margin-bottom:0;}
-.navbar-search .search-query{margin-bottom:0;padding:4px 14px;font-family:Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:1;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;}
+.navbar-search .search-query{margin-bottom:0;padding:4px 14px;font-family: Arial, sans-serif;font-size:13px;font-weight:normal;line-height:1;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;}
 .navbar-static-top{position:static;margin-bottom:0;}
 .navbar-static-top .navbar-inner{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 .navbar-fixed-top,
@@ -1494,7 +1499,7 @@ div.tagsinput input{width:100% 100%;margin:0px;border:1px solid transparent;padd
 div.tagsinput div{display:block;float:left;}
 .tags_clear{clear:both;width:100%;height:0px;}
 .not_valid{background:#FBD8DB !important;color:#90111A !important;}
-body{margin:0;font-family:Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;background-color:#F9EAD6;font-weight:normal;}
+body{margin:0;font-family: Arial, sans-serif;background-color:#F9EAD6;font-weight:normal;}
 a{color:#000000;text-decoration:none !important;}
 a.label:hover,
 a.label:focus,

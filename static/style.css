@@ -532,7 +532,7 @@ div.notifications {
 }
 
 .login input[type=text], .vertical input[type=text], .login input[type=password], .vertical input[type=password], .vertical textarea, #voting_form textarea, .vertical select {
-    font-family: Segoe, "Segoe UI", Candara, Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:Arial, sans-serif;
     font-size: 130%;
     width: 68%;
     border: 1px solid #444;
