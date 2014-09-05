@@ -35,7 +35,7 @@ ui.form {
         if not supported then
             ui.field.text {
                 attr = { class = "warning" },
-                value = _ "You are currently not supporting this initiative directly. By adding suggestions to this initiative you will automatically become a potential supporter."
+                value = _ "You are currently not supporting this initiative directly. \n By adding suggestions 'SHOULD' to this initiative you will automatically become a supporter. \n By adding suggestions 'MUST' to this initiative you will automatically become a potential supporter."
             }
         end
         ui.field.select {

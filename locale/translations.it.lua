@@ -895,7 +895,7 @@ return {
     ["You are already not supporting this initiative"] = "Non sei ancora sostenitore di questa proposta";
     ["You are already supporting the latest draft"] = "Sei ancora sostenitore dell'ultima bozza";
     ["You are currently not invited to any initiative."] = "Non sono presenti inviti per nessuna iniziativa.";
-    ["You are currently not supporting this initiative directly. By adding suggestions to this initiative you will automatically become a potential supporter."] = "Non sei sostenitore diretto di questa proposta. Aggiungendo commenti diventerai automaticamente un potenziale sostenitore.";
+    ["You are currently not supporting this initiative directly. \n By adding suggestions 'SHOULD' to this initiative you will automatically become a supporter. \n By adding suggestions 'MUST' to this initiative you will automatically become a potential supporter."] = "Non sei sostenitore diretto di questa proposta. \n Aggiungendo un commento 'DOVREBBE' diventerai automaticamente sostenitore'. \n Aggiungendo un commento 'DEVE' diventerai automaticamente un potenziale sostenitore";
     ["You are ignoring"] = "Stai ignorando";
     ["You are initiator of this initiative"] = "Sei autore di questa proposta";
     ["You are interested"] = "Sei interessato";

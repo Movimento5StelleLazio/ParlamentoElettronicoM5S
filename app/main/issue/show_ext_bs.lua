@@ -277,7 +277,7 @@ ui.container {
 		                                                      dataplacement = "left",
 		                                                      datahtml = "true";
 		                                                      datatitle = _ "Box di aiuto per la pagina",
-		                                                      datacontent = _("Puoi sostenere oppure ritirare il sostegno alla questione.<br /><i>Sostenere</i> la questione non vuol dire <i>votare sì</i>: vuol dire solo ritenere che il problema sollevato <i>merita</i> di essere discusso.\nSe la questione appartiene ad una delle tue aree preferite, sarai aggiunto ai sostenitori della questione come impostazione predefinita."),
+		                                                      datacontent = _("Puoi sostenere oppure ritirare il sostegno alla questione.<br /><i>Sostenere</i> la questione non vuol dire <i>votare sì</i>: vuol dire solo ritenere che il problema sollevato <i>merita</i> di essere discusso."),
 		                                                      datahtml = "true",
 		                                                      class = "text-center"
 		                                                  },
