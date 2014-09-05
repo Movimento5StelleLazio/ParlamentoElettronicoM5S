@@ -1,6 +1,30 @@
 local policy = Policy:by_id(param.get_id()) or Policy:new()
 
 ui.title(_ "Create / edit policy")
+ui.container{ 
+		attr = {class = "row-fluid well"},
+		content = function()
+			ui.container {
+          attr = { class = "span3" },
+          content = function()
+              ui.link {
+                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+                  module = "admin",
+                  view = "policy_list",
+                  content = function()
+                      ui.heading {
+                          level = 3,
+                          content = function()
+                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                              slot.put(_ "Back to previous page")
+                          end
+                      }
+                  end
+              }
+          end
+      }
+  end
+}
 
 ui.form {
     attr = { class = "vertical" },

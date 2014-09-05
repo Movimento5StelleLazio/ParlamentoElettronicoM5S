@@ -15,6 +15,30 @@ local units = {
 for i, unit in ipairs(Unit:get_flattened_tree()) do
     units[#units + 1] = { id = unit.id, name = unit.name }
 end
+ui.container{ 
+		attr = {class = "row-fluid well"},
+		content = function()
+			ui.container {
+          attr = { class = "span3" },
+          content = function()
+              ui.link {
+                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+                  module = "admin",
+                  view = "unit_list",
+                  content = function()
+                      ui.heading {
+                          level = 3,
+                          content = function()
+                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                              slot.put(_ "Back to previous page")
+                          end
+                      }
+                  end
+              }
+          end
+      }
+  end
+}
 
 ui.form {
     attr = { class = "vertical" },

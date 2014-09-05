@@ -31,6 +31,30 @@ ui.form {
         }
     },
     content = function()
+    		ui.container{ 
+						attr = {class = "row-fluid well"},
+						content = function()
+							ui.container {
+								  attr = { class = "span3" },
+								  content = function()
+								      ui.link {
+								          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+								          module = "admin",
+								          view = "member_list",
+								          content = function()
+								              ui.heading {
+								                  level = 3,
+								                  content = function()
+								                      ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+								                      slot.put(_ "Back to previous page")
+								                  end
+								              }
+								          end
+								      }
+								  end
+							}
+					end
+				}
         ui.field.text { label = _ "Identification", name = "identification" }
         ui.field.text { label = _ "Notification email", name = "notify_email" }
         ui.field.text { label = _ "NIN", name = "nin" }

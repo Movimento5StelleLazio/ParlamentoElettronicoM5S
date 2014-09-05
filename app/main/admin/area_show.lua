@@ -23,6 +23,30 @@ ui.form {
     },
     id = id,
     content = function()
+    		ui.container{ 
+						attr = {class = "row-fluid well"},
+						content = function()
+							ui.container {
+								  attr = { class = "span3" },
+								  content = function()
+								      ui.link {
+								          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+								          module = "admin",
+								          view = "unit_list",
+								          content = function()
+								              ui.heading {
+								                  level = 3,
+								                  content = function()
+								                      ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+								                      slot.put(_ "Back to previous page")
+								                  end
+								              }
+								          end
+								      }
+								  end
+							}
+					end
+				}
         policies = Policy:build_selector { active = true }:exec()
         local def_policy = {
             {
