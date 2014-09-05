@@ -31,6 +31,31 @@ ui.form {
     },
     attr = { class = "vertical" },
     content = function()
+						ui.container{ 
+							attr = {class = "row-fluid well"},
+							content = function()
+								ui.container {
+		                attr = { class = "span3" },
+		                content = function()
+		                    ui.link {
+		                        attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+		                        module = "initiative",
+		                        view = "show",
+		                        params = { initiative_id = initiative_id },
+		                        content = function()
+		                            ui.heading {
+		                                level = 3,
+		                                content = function()
+		                                    ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+		                                    slot.put(_ "Back to previous page")
+		                                end
+		                            }
+		                        end
+		                    }
+		                end
+		            }
+		        end
+		     }
         local supported = Supporter:by_pk(initiative_id, app.session.member.id) and true or false
         if not supported then
             ui.field.text {
