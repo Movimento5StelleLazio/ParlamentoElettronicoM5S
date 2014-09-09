@@ -50,6 +50,30 @@ ui.container{
       }
   end
 }
+ui.container{
+		content = function()
+				ui.link {
+					  text = _ "Create new unit",
+					  module = "admin",
+					  view = "unit_edit"
+				}
+				slot.put(" &middot; ")
+				if inactive then
+					  ui.link {
+					      text = _ "Hide active units",
+					      module = "admin",
+					      view = "unit_list"
+					  }
+				else
+					  ui.link {
+					      text = _ "Show inactive units",
+					      module = "admin",
+					      view = "unit_list",
+					      params = { inactive = true }
+					  }
+				end
+		end
+}
 ui.list {
     records = units,
     columns = {
