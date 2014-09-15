@@ -703,7 +703,7 @@ ui.container {
                                                                         problem_description = issue.problem_description,
                                                                         aim_description = issue.aim_description
                                                                     },
-                                                                    view = "page_bs6",
+                                                                    view = "page_bs7",
                                                                     content = function()
                                                                         ui.container {
                                                                             attr = { class = "row-fluid" },

@@ -570,7 +570,7 @@ ui.form {
                                                             content = function()
                                                                 ui.tag {
                                                                     tag = "a",
-                                                                    attr = { id = "btnSaveIssue", class = "btn btn-primary large_btn fixclick", style = "float:left;cursor:pointer;" },
+                                                                    attr = { id = "btnSaveIssue", class = "btn btn-primary large_btn fixclick", style = "float:left;cursor:pointer;", onclick = "getElementById(\"page_bs12\").submit()" },
                                                                     content = function()
                                                                         ui.heading {
                                                                             level = 3,
