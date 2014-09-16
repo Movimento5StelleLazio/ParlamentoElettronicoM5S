@@ -32,7 +32,7 @@ slot.select('navbar', function()
             ui.container {
                 attr = { class = "span3 spaceline " },
                 content = function()
-                slot.put('<a href="http://www.parelon.com"')
+                slot.put('<a href="http://www.parelon.com/adesione.html"')
             ui.link {
             	content = function()
                 	ui.image { static = "png/iscriviti.png" }
