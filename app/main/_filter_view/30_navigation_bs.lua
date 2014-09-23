@@ -29,12 +29,12 @@ slot.select('navbar', function()
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
-		              slot.put('<a href="http://www.parelon.com"')
-						      ui.link {
-						      	content = function()
-						          	ui.image { static = "png/iscriviti.png" }
-						                  end
-						          }
+                slot.put('<a href="http://www.parelon.com/adesione.html"')
+            ui.link {
+            	content = function()
+                	ui.image { static = "png/iscriviti.png" }
+                        end
+                }
                 end
             }
             if app.session.member then
