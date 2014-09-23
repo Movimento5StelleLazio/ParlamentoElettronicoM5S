@@ -18,10 +18,11 @@ slot.select('navbar', function()
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
-                slot.put('<a href="http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2"')
             ui.link {
             	content = function()
-                	ui.image { static = "donate.png" }
+            			external = "http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2",
+                	image = { static = "donate.png" },
+                	text = ""
                         end
                 }
                 end
@@ -29,10 +30,11 @@ slot.select('navbar', function()
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
-                slot.put('<a href="http://www.parelon.com/adesione.html"')
             ui.link {
             	content = function()
-                	ui.image { static = "png/iscriviti.png" }
+            	 external = "http://www.parelon.com/adesione.html",
+                	image = { static = "png/iscriviti.png" },
+                	text = ""
                         end
                 }
                 end
