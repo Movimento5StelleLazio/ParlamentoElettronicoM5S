@@ -22,9 +22,9 @@ local restricted = not ((module == 'index'
         or module == 'auditor'
         or module == 'idcard_scan')
 trace.debug("restricted: " .. tostring(restricted))
-if restricted and app.session.member.lqfb_access ~= true and app.session.member.admin ~= true then
+if restricted and not ( app.session.member.lqfb_access --[[ or app.session.member.admin ]] ) then
     --error('The administrator has disabled the access to this module')
-    slot.put("error", "You're account is not active yet: wait for/require your confirmation email or contact your auditor.")
+    slot.put_into("error", _ "Your not able to access restricted areas yet: usually this means that you forgot to confirm your email address in your personal page. If you already confirmed your email, please contact your auditor.")
     trace.debug("lqfb access refused")
     request.redirect {
         module = 'index',
