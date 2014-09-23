@@ -12,7 +12,7 @@ trace.debug("area = "..tostring(area.id))
 local unit = Unit:by_id(area.unit_id)
 trace.debug("unit = "..tostring(unit.id))	
 
-if unit.public then
+if app.session.member or unit.public then
 	execute.view {
 	    module = "initiative",
 	    view = "_show_bs",

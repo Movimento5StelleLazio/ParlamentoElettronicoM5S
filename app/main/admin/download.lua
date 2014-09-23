@@ -1,20 +1,33 @@
+slot.set_layout("custom")
+
 if not config.db_dump_dir then
     error("feature not enabled")
 end
 
-slot.put_into("title", _ "Download database dumps")
-
-slot.select("actions", function()
-    ui.link {
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
         content = function()
-            ui.image { static = "icons/16/cancel.png" }
-            slot.put(_ "Cancel")
-        end,
-        module = "admin",
-        view = "index"
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "index",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Download database dumps"
+            }
+        end
     }
 end)
-
 
 local file_list = extos.listdir(config.db_dump_dir)
 

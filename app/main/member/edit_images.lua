@@ -1,6 +1,63 @@
-ui.title(_ "Upload images")
+slot.set_layout("custom")
 
-util.help("member.edit_images", _ "Images")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "member",
+                        view = "show",
+                        id = app.session.member_id,
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span8 spaceline2" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12 label label-warning text-center" },
+                                content = function()
+                                    ui.heading {
+                                        level = 1,
+                                        attr = { class = "fittext1 uppercase " },
+                                        content = _ "Upload images"
+                                    }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Qui puoi modificare l'avatar e la foto del tuo profilo. Quando hai finito le modifiche, clicca su <i>Salva</i> per applicarle.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
 
 ui.form {
     record = app.session.member,
@@ -37,6 +94,13 @@ ui.form {
             }
         }
         ui.field.image { field_name = "photo", label = _ "Photo" }
-        ui.submit { value = _ "Save" }
+        ui.tag {
+            tag = "input",
+            attr = {
+                type = "submit",
+                class = "offset4 btn btn-primary btn-large large_btn",
+                value = _ "Save"
+            }
+        }
     end
 }

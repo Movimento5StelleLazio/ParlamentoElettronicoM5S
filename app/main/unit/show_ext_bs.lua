@@ -19,92 +19,71 @@ end
 
 areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.public ")
 
-ui.container {
-    attr = { class = "row-fluid spaceline" },
-    content = function()
-        ui.container {
-            attr = { class = "well span12" },
-            content = function()
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span3" },
-                            content = function()
-                                ui.link {
-                                    attr = { class = "btn btn-primary btn-large large_btn" },
-                                    module = "index",
-                                    view = "homepage_bs",
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(_ "Back to previous page")
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span7 text-center" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.heading { level = 1, content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = member.realname }) }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.heading { level = 2, content = _ "CHOOSE THE THEMATIC AREA" }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn btn-back" },
+                        module = "index",
+                        view = "homepage_bs",
+                        content = _ "Back to previous page",
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span8 text-center spaceline2" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = member.realname }) }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12 text-center" },
+                                content = function()
+                                    ui.heading { level = 2, content = _ "CHOOSE THE THEMATIC AREA" }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
 
-                        ui.container {
-                            attr = { class = "span1 text-center " },
-                            content = function()
-                                ui.field.popover {
-                                    attr = {
-                                        dataplacement = "left",
-                                        datahtml = "true";
-                                        datatitle = _ "Box di aiuto per la pagina",
-                                        datacontent = _ "Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse. <br />Una volta che ti sarai attivato, ti appare il sommario delle QUESTIONI sollevate e nel dettaglio la, o le varie PROPOSTE presentate per risolvere. <br />Puoi navigare nelle aree, interessarti, emendare e sostenere una o più PROPOSTE, o presentare una tua nuova QUESTIONE e PROPOSTA per quell' area selezionata.",
-                                        datahtml = "true",
-                                        class = "text-center"
-                                    },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.image { static = "png/tutor.png" }
-                                            --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                    end
-                }
-            end
-        }
-    end
-}
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Di default Parelon ti suggerisce le aree in cui sei iscritto, se è la prima volta che sei qui devi selezionare il pulsante TUTTE LE AREE per aderire a quelle di tuo interesse. <br />Una volta che ti sarai attivato, ti appare il sommario delle QUESTIONI sollevate e nel dettaglio la, o le varie PROPOSTE presentate per risolvere. <br />Puoi navigare nelle aree, interessarti, emendare e sostenere una o più PROPOSTE, o presentare una tua nuova QUESTIONE e PROPOSTA per quell' area selezionata.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
 
 ui.container {
     attr = { class = "row-fluid text-center" },

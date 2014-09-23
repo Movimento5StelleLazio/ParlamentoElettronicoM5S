@@ -1,26 +1,26 @@
 slot.set_layout("custom")
 
-local old_draft_id = param.get("old_draft_id", atom.integer)
-local new_draft_id = param.get("new_draft_id", atom.integer)
+local first_initiative_id = param.get("first_initiative_id", atom.integer)
+local second_initiative_id = param.get("second_initiative_id", atom.integer)
 
-if not old_draft_id or not new_draft_id then
+if not first_initiative_id or not second_initiative_id then
     slot.put(_ "Please choose two versions of the draft to compare")
     return
 end
 
-if old_draft_id == new_draft_id then
+if first_initiative_id == second_initiative_id then
     slot.put(_ "Please choose two different versions of the draft to compare")
     return
 end
 
-if old_draft_id > new_draft_id then
-    local tmp = old_draft_id
-    old_draft_id = new_draft_id
-    new_draft_id = tmp
+if first_initiative_id > second_initiative_id then
+    local tmp = first_initiative_id
+    first_initiative_id = second_initiative_id
+    second_initiative_id = tmp
 end
 
-local old_draft = Draft:by_id(old_draft_id)
-local new_draft = Draft:by_id(new_draft_id)
+local first_initiative = Initiative:by_id(first_initiative_id).current_draft
+local second_initiative = Initiative:by_id(second_initiative_id).current_draft
 
 ui.title(function()
     ui.container {
@@ -31,9 +31,9 @@ ui.title(function()
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
-                        module = "draft",
-                        view = "list",
-                        params = { initiative_id = param.get_id() },
+                        module = "initiative",
+                        view = "compare",
+                        params = { issue_id = param.get_id() },
                         image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
@@ -44,19 +44,19 @@ ui.title(function()
                 content = function()
                     ui.heading {
                         level = 1,
-                        content = _ "Confronto tra bozze"
+                        content = _ "Initiatives diff"
                     }
                 end
             }
             ui.container {
-                attr = { class = "span1 text-center" },
+                attr = { class = "span1 text-center spaceline" },
                 content = function()
                     ui.field.popover {
                         attr = {
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Ti trovi nel box che mostra le differenze tra le due bozze selezionate.",
+                            datacontent = _ "Ti trovi nel box che mostra le differenze tra le due proposte selezionate.",
                             datahtml = "true",
                             class = "text-center"
                         },
@@ -76,7 +76,7 @@ ui.title(function()
     }
 end)
 
---if app.session.member_id and not new_draft.initiative.revoked then
+--if app.session.member_id and not second_initiative.initiative.revoked then
 --    local supporter = Supporter:new_selector():add_where { "member_id = ?", app.session.member_id }:count()
 --    if supporter then
 --        ui.container {
@@ -88,13 +88,13 @@ end)
 --                    text = _ "Refresh support to current draft",
 --                    module = "initiative",
 --                    action = "add_support",
---                    id = new_draft.initiative.id,
+--                    id = second_initiative.initiative.id,
 --                    routing = {
 --                        default = {
 --                            mode = "redirect",
 --                            module = "initiative",
 --                            view = "show",
---                            id = new_draft.initiative.id
+--                            id = second_initiative.initiative.id
 --                        }
 --                    }
 --                }
@@ -103,28 +103,28 @@ end)
 --    end
 --end
 
-local old_draft_content = string.gsub(string.gsub(old_draft.content, "\n", " ###ENTER###\n"), " ", "\n")
-local new_draft_content = string.gsub(string.gsub(new_draft.content, "\n", " ###ENTER###\n"), " ", "\n")
+local first_initiative_content = string.gsub(string.gsub(first_initiative.content, "\n", " ###ENTER###\n"), " ", "\n")
+local second_initiative_content = string.gsub(string.gsub(second_initiative.content, "\n", " ###ENTER###\n"), " ", "\n")
 
 local key = multirand.string(26, "123456789bcdfghjklmnpqrstvwxyz");
 
-local old_draft_filename = encode.file_path(request.get_app_basepath(), 'tmp', "diff-" .. key .. "-old.tmp")
-local new_draft_filename = encode.file_path(request.get_app_basepath(), 'tmp', "diff-" .. key .. "-new.tmp")
+local first_initiative_filename = encode.file_path(request.get_app_basepath(), 'tmp', "diff-" .. key .. "-old.tmp")
+local second_initiative_filename = encode.file_path(request.get_app_basepath(), 'tmp', "diff-" .. key .. "-new.tmp")
 
-local old_draft_file = assert(io.open(old_draft_filename, "w"))
-old_draft_file:write(old_draft_content)
-old_draft_file:write("\n")
-old_draft_file:close()
+local first_initiative_file = assert(io.open(first_initiative_filename, "w"))
+first_initiative_file:write(first_initiative_content)
+first_initiative_file:write("\n")
+first_initiative_file:close()
 
-local new_draft_file = assert(io.open(new_draft_filename, "w"))
-new_draft_file:write(new_draft_content)
-new_draft_file:write("\n")
-new_draft_file:close()
+local second_initiative_file = assert(io.open(second_initiative_filename, "w"))
+second_initiative_file:write(second_initiative_content)
+second_initiative_file:write("\n")
+second_initiative_file:close()
 
-local output, err, status = extos.pfilter(nil, "sh", "-c", "diff -U 1000000000 '" .. old_draft_filename .. "' '" .. new_draft_filename .. "' | grep -v ^--- | grep -v ^+++ | grep -v ^@")
+local output, err, status = extos.pfilter(nil, "sh", "-c", "diff -U 1000000000 '" .. first_initiative_filename .. "' '" .. second_initiative_filename .. "' | grep -v ^--- | grep -v ^+++ | grep -v ^@")
 
-os.remove(old_draft_filename)
-os.remove(new_draft_filename)
+os.remove(first_initiative_filename)
+os.remove(second_initiative_filename)
 
 local last_state = "first_run"
 

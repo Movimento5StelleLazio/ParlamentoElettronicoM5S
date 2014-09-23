@@ -1,30 +1,30 @@
-slot.put_into("title", _ "Admin menu")
+slot.set_layout("custom")
 
-ui.container{ 
-		attr = {class = "row-fluid well"},
-		content = function()
-			ui.container {
-          attr = { class = "span3" },
-          content = function()
-              ui.link {
-                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  module = "index",
-                  view = "index",
-                  content = function()
-                      ui.heading {
-                          level = 3,
-                          content = function()
-                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                              slot.put(_ "Back to previous page")
-                          end
-                      }
-                  end
-              }
-          end
-      }
-  end
-}
-		     
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "index",
+                        view = "index",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Admin menu"
+            }
+        end
+    }
+end)
+
 ui.tag {
     tag = "ul",
     content = function()

@@ -5,21 +5,18 @@ slot.select('navbar', function()
             ui.container {
                 attr = { class = "span3" },
                 content = function()
-                    
-                                    ui.link {
-                                        content = function()
-                                            ui.image { static = "logo_withe.png" }
-                                        end,
-                                        module = 'index',
-                                        view = 'index'
-                               	    }
-
+                    ui.link {
+                        module = 'index',
+                        view = 'index',
+                        image = { static = "logo_withe.png" },
+                        text = ""
+                    }
                 end
             }
             
             --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }]]
             ui.container {
-                attr = { class = "span3 spaceline " },
+                attr = { class = "span2 spaceline " },
                 content = function()
                 slot.put('<a href="http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2"')
             ui.link {
@@ -30,17 +27,38 @@ slot.select('navbar', function()
                 end
             }
             ui.container {
-                attr = { class = "span3 spaceline " },
+                attr = { class = "span2 spaceline " },
                 content = function()
-                slot.put('<a href="http://www.parelon.com"')
-            ui.link {
-            	content = function()
-                	ui.image { static = "png/iscriviti.png" }
-                        end
-                }
+		              slot.put('<a href="http://www.parelon.com"')
+						      ui.link {
+						      	content = function()
+						          	ui.image { static = "png/iscriviti.png" }
+						                  end
+						          }
                 end
             }
-            
+            if app.session.member then
+                ui.container {
+                    attr = { class = "offset1 span2 spaceline " },
+                    content = function()
+                        ui.link {
+                            module = 'index',
+                            view = 'search',
+                            content = function()
+                                ui.heading {
+                                    level = 3,
+                                    attr = { style = "width:100%; text-align: center; color: #ff9900" },
+                                    content = function()
+                                        ui.image { attr = { style = "width: 15%" }, static = "png/search.png" }
+                                        slot.put(_ "Search")
+                                    end
+                                }
+                            end
+                        }
+                    end
+                }
+            end
+
             ui.container {
                 attr = { class = "span2 nav pull-right" },
                 content = function()
@@ -63,7 +81,7 @@ slot.select('navbar', function()
                                 }
                                 slot.put("&nbsp;" .. app.session.member.name)
                             else
---								ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}
+                                --								ui.tag{ tag ="i" , attr = { class = "iconic black flag" }, content=""}
                                 slot.put("&nbsp;" .. _ "Login")
                             end
                         end

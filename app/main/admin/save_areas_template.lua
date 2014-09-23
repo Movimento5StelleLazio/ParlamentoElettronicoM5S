@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local _template = Template:get_all_templates()
 
 local _listTemplate = {
@@ -8,8 +10,32 @@ for i, template in ipairs(_template) do
     _listTemplate[#_listTemplate + 1] = { id = template.id, name = template.name, description = template.description }
 end
 
-
-ui.title(_("Unit '#{name}'", { name = param.get("unit_name") }))
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = 'area_list',
+                        id = param.get("unit_id"),
+                        params = { unit_name = param.get("name"), unit_id = param.get("unit_id") },
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _("Unit '#{name}'", { name = param.get("unit_name") })
+            }
+        end
+    }
+end)
 
 ui.form {
     attr = { class = "vertical" },

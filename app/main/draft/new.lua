@@ -1,20 +1,32 @@
-slot.put_into("title", _ "Edit draft")
-
 local initiative = Initiative:by_id(param.get("initiative_id"))
 
-ui.actions(function()
-    ui.link {
+slot.set_layout("custom")
+
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
         content = function()
-            ui.image { static = "icons/16/cancel.png" }
-            slot.put(_ "Cancel")
-        end,
-        module = "initiative",
-        view = "show",
-        id = initiative.id
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "initiative",
+                        view = "show",
+                        id = initiative.id,
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center spaceline3" },
+                content = _ "Edit draft"
+            }
+        end
     }
 end)
-
-
 
 ui.form {
     record = initiative.current_draft,
@@ -31,7 +43,6 @@ ui.form {
         }
     },
     content = function()
-
         ui.field.text { label = _ "Unit", value = initiative.issue.area.unit.name, readonly = true }
         ui.field.text { label = _ "Area", value = initiative.issue.area.name, readonly = true }
         ui.field.text { label = _ "Policy", value = initiative.issue.policy.name, readonly = true }

@@ -1,26 +1,63 @@
+slot.set_layout("custom")
+
 local initiative = Initiative:by_id(param.get_id())
 
-slot.put_into("title", _ "Revoke initiative")
-
-slot.select("actions", function()
-    ui.link {
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
         content = function()
-            ui.image { static = "icons/16/cancel.png" }
-            slot.put(_ "Cancel")
-        end,
-        module = "initiative",
-        view = "show",
-        id = initiative.id,
-        params = {
-            tab = "initiators"
-        }
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = {
+                            class = "btn btn-primary btn-large large_btn fixclick btn-back"
+                        },
+                        module = "initiative",
+                        view = "show",
+                        id = initiative.id,
+                        params = {
+                            tab = "initiators"
+                        },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span8 text-center label label-warning spaceline2 spaceline-bottom fittext1" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        attr = { class = "" },
+                        content = _ "Revoke initiative"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Here you can <i>withdraw</i> your initiative.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
     }
 end)
 
-util.help("initiative.revoke")
-
 ui.form {
-    attr = { class = "vertical" },
+    attr = { class = "vertical", id = "revoke_form" },
     module = "initiative",
     action = "revoke",
     id = initiative.id,
@@ -47,12 +84,36 @@ ui.form {
             foreign_name = "myname",
             value = param.get("suggested_initiative_id", atom.integer)
         }
-        slot.put("")
-        ui.field.boolean {
-            label = _ "Are you sure?",
-            name = "are_you_sure",
-        }
+        ui.container {
+            attr = { class = "row-fluid spaceline2" },
+            content = function()
+                ui.heading {
+                    level = 2,
+                    attr = { class = "span6" },
+                    content = _ "Are you sure that you want to withdraw your initiative?"
+                }
+                ui.link {
+                    attr = {
+                        class = "span2 btn-primary btn text-center",
+                        onclick = "getElementById('revoke_form').submit()"
+                    },
+                    external = "#",
+                    image = { attr = { class = "span3" }, static = "png/ok.png" },
+                    content = _ "Yes, I am sure"
+                }
 
-        ui.submit { text = _ "Revoke initiative" }
+                ui.link {
+                    attr = { class = "offset1 span2 btn-primary btn text-center" },
+                    module = "initiative",
+                    view = "show",
+                    id = initiative.id,
+                    params = {
+                        tab = "initiators"
+                    },
+                    image = { attr = { class = "span3" }, static = "png/cross.png" },
+                    content = _ "No, I am not"
+                }
+            end
+        }
     end
 }

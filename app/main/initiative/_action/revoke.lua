@@ -38,11 +38,6 @@ if suggested_initiative_id ~= -1 then
     initiative.suggested_initiative_id = suggested_initiative.id
 end
 
-if not param.get("are_you_sure", atom.boolean) then
-    slot.put_into("error", _ "You have to mark 'Are you sure' to revoke!")
-    return false
-end
-
 initiative.revoked_by_member_id = app.session.member_id
 initiative.revoked = "now"
 initiative:save()

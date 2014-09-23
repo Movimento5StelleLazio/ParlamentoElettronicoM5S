@@ -1,12 +1,42 @@
+slot.set_layout("custom")
+
 local id = param.get_id()
 
 local member = Member:by_id(id)
 
-if member then
-    ui.title(_("Member: '#{identification}' (#{name})", { identification = member.identification, name = member.name }))
-else
-    ui.title(_ "Register new member")
-end
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "member_list",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            if member then
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _("Member: '#{identification}' (#{name})", { identification = member.identification, name = member.name })
+                }
+            else
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _ "Register new member"
+                }
+            end
+        end
+    }
+end)
+
 
 local units_selector = Unit:new_selector()
 
@@ -31,30 +61,6 @@ ui.form {
         }
     },
     content = function()
-    		ui.container{ 
-						attr = {class = "row-fluid well"},
-						content = function()
-							ui.container {
-								  attr = { class = "span3" },
-								  content = function()
-								      ui.link {
-								          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-								          module = "admin",
-								          view = "member_list",
-								          content = function()
-								              ui.heading {
-								                  level = 3,
-								                  content = function()
-								                      ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-								                      slot.put(_ "Back to previous page")
-								                  end
-								              }
-								          end
-								      }
-								  end
-							}
-					end
-				}
         ui.field.text { label = _ "Identification", name = "identification" }
         ui.field.text { label = _ "Notification email", name = "notify_email" }
         ui.field.text { label = _ "NIN", name = "nin" }
