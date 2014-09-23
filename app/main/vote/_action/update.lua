@@ -1,15 +1,19 @@
 local cancel = param.get("cancel") and true or false
+trace.debug("cancel: " .. tostring(cancel))
+
 if cancel then return end
 
 local issue = Issue:new_selector():add_where { "id = ?", param.get("issue_id", atom.integer) }:for_share():single_object_mode():exec()
 
 local preview = param.get("preview") and true or false
+trace.debug("preview: " .. tostring(preview))
 
 if not app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
     error("access denied")
 end
 
 local update_comment = param.get("update_comment") == "1" and true or false
+trace.debug("update_comment: " .. tostring(update_comment))
 
 if issue.state ~= "voting" and not issue.closed then
     slot.put_into("error", _ "Voting has not started yet.")
@@ -22,6 +26,7 @@ if issue.phase_finished or issue.closed and not update_comment then
 end
 
 local direct_voter = DirectVoter:by_pk(issue.id, app.session.member_id)
+trace.debug("discard: " .. tostring(discard))
 
 if param.get("discard", atom.boolean) then
     if direct_voter then
@@ -113,6 +118,7 @@ if not move_down and not move_up then
     end
 
     if not preview and not cancel then
+        slot.put_into("notice", "Vote casted.")
         request.redirect {
             module = "issue",
             view = "show_ext_bs",
@@ -121,7 +127,7 @@ if not move_down and not move_up then
     end
 
 else
-
+    slot.put_into("notice", "re-ordering your votes...")
     local current_initiative_id = move_up or move_down
 
     local current_grade = tempvotings[current_initiative_id] or 0

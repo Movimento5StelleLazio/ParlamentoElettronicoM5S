@@ -1,5 +1,6 @@
 function ui.field.popover(args)
     ui.container {
+        attr = args.attr.div_attr or nil,
         content = function()
             attr = table.new()
             attr["data-toggle"] = "popover"

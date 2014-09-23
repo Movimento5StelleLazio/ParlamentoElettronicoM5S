@@ -115,6 +115,18 @@ ui.tag {
             }
         end
 
+        ui.tag {
+            tag = "li",
+            content = function()
+
+                ui.link {
+                    text = _ "Show members",
+                    module = "member",
+                    view = "list"
+                }
+            end
+        }
+
         for i, lang in ipairs(config.enabled_languages) do
 
             local langcode

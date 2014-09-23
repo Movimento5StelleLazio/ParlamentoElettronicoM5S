@@ -17,6 +17,11 @@ if initiative.revoked then
     return false
 end
 
+if param.get("member_id", atom.integer) == -1 then
+    slot.put_into("error", _ "You must select an initiator to remove")
+    return false
+end
+
 local initiator_todelete = Initiator:by_pk(initiative.id, param.get("member_id", atom.integer))
 
 if not (initiator and initiator.accepted) and not (initiator.member_id == initiator_todelete.member_id) then
@@ -31,7 +36,7 @@ local initiators = initiative:get_reference_selector("initiators"):add_where("ac
 
 if #initiators > 1 or initiator_todelete.accepted ~= true then
     initiator_todelete:destroy()
-    --  slot.put_into("notice", _"Member has been removed from initiators")
+    slot.put_into("notice", _ "Member has been removed from initiators")
 else
     slot.put_into("error", _ "Can't remove last initiator")
     return false

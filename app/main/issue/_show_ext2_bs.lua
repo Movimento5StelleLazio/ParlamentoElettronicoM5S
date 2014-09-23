@@ -70,36 +70,41 @@ ui.container {
                     content = function()
                         ui.tag {
                             tag = "strong",
-                            attr = { class = "span7" },
+                            attr = { class = "offset3 span6 label label-warning text-center" },
                             content = function()
-                                ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
+                                ui.heading { level = 3, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
                             end
                         }
                     end
                 }
 
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 well" },
-                            content = function()
-                                execute.view { module = "issue", view = "info_data", params = { issue = issue } }
-                            end
-                        }
-                    end
-                }
+--                ui.container {
+--                    attr = { class = "row-fluid" },
+--                    content = function()
+--                        ui.container {
+--                            attr = { class = "span12 well" },
+--                            content = function()
+--                                execute.view { module = "issue", view = "info_data", params = { issue = issue } }
+--                            end
+--                        }
+--                    end
+--                }
 
-                --[[
-                ui.container{ attr = { class = "row-fluid"}, content = function()
-                  ui.container{ attr = { class = "span12"}, content = function()
-                    execute.view{ module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
-                  end }
-                end }
-                --]]
+
+--                ui.container {
+--                    attr = { class = "row-fluid" },
+--                    content = function()
+--                        ui.container {
+--                            attr = { class = "span12" },
+--                            content = function()
+--                                execute.view { module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
+--                            end
+--                        }
+--                    end
+--                }
 
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row-fluid spaceline" },
                     content = function()
                         ui.container {
                             attr = { class = "span7" },
@@ -125,11 +130,11 @@ ui.container {
                             attr = { class = "span12" },
                             content = function()
                                 local content
-                                if #issue.initiatives == 1 then
-                                    content = #issue.initiatives .. _ " INITIATIVE TO RESOLVE THE ISSUE"
-                                else
-                                    content = #issue.initiatives .. _ " INITIATIVES TO RESOLVE THE ISSUE"
-                                end
+                                --if #issue.initiatives == 1 then
+                                --    content = #issue.initiatives .. _ " INITIATIVE TO RESOLVE THE ISSUE"
+                                --else
+                                content = #issue.initiatives .. _ " INITIATIVES TO RESOLVE THE ISSUE"
+                                --end
                                 ui.heading { level = 3, attr = { class = "label label-warning" }, content = content }
                             end
                         }
@@ -158,7 +163,7 @@ ui.container {
                                         no_sort = true,
                                         limit = (for_listing or for_initiative) and 5 or nil,
                                         hide_more_initiatives = false,
-                                        limit = 25,
+                                        limit = 10,
                                         for_member = for_member
                                     }
                                 }
@@ -170,35 +175,35 @@ ui.container {
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
-                        if app.session.member_id and direct_voter then
-                            ui.container {
-                                attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
-                                content = function()
-                                --local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
-
-                                    ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YOUR VOTE IS" }
-                                    local vote = (Vote:new_selector():add_where("issue_id = " .. issue.id .. " AND member_id = " .. app.session.member.id):optional_object_mode():exec()).grade
-                                    trace.debug("vote: " .. tostring(vote))
-                                    if vote == 1 then
-                                        ui.container {
-                                            attr = { class = "issue_thumb_cont_up" },
-                                            content = function()
-                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YES" }
-                                                ui.image { static = "svg/thumb_up.svg" .. svgz, attr = { class = "thumb" } }
-                                            end
-                                        }
-                                    else
-                                        ui.container {
-                                            attr = { class = "issue_thumb_cont_down" },
-                                            content = function()
-                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "NO" }
-                                                ui.image { static = "svg/thumb_down.svg" .. svgz, attr = { class = "thumb" } }
-                                            end
-                                        }
-                                    end
-                                end
-                            }
-                        end
+--                        if app.session.member_id and direct_voter then
+--                            ui.container {
+--                                attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
+--                                content = function()
+--                                --local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
+--
+--                                    ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YOUR VOTE IS" }
+--                                    local vote = (Vote:new_selector():add_where("issue_id = " .. issue.id .. " AND member_id = " .. app.session.member.id):optional_object_mode():exec()).grade
+--                                    trace.debug("vote: " .. tostring(vote))
+--                                    if vote == 1 then
+--                                        ui.container {
+--                                            attr = { class = "issue_thumb_cont_up" },
+--                                            content = function()
+--                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "YES" }
+--                                                ui.image { static = "svg/thumb_up.svg" .. svgz, attr = { class = "thumb" } }
+--                                            end
+--                                        }
+--                                    else
+--                                        ui.container {
+--                                            attr = { class = "issue_thumb_cont_down" },
+--                                            content = function()
+--                                                ui.tag { tag = "p", attr = { class = "issue_vote_txt" }, content = _ "NO" }
+--                                                ui.image { static = "svg/thumb_down.svg" .. svgz, attr = { class = "thumb" } }
+--                                            end
+--                                        }
+--                                    end
+--                                end
+--                            }
+--                        end
                         ui.container {
                             attr = { class = "row-fluid" },
                             content = function()

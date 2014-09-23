@@ -589,7 +589,7 @@ text-alin
     margin-bottom: 0;
 }
 
-#voting_form input[type=submit], .vertical input[type=submit] {
+/*#voting_form input[type=submit], .vertical input[type=submit] {
     font-size: 130%;
     margin-left: 37%;
     background-color: #444444;
@@ -600,7 +600,7 @@ text-alin
 
 #voting_form input[type=submit] {
     margin-left: 0;
-}
+}*/
 
 .login input[type=submit]:hover, .vertical input[type=submit]:hover, .login input[type=submit]:focus, .vertical input[type=submit]:focus {
     background-color: #444444;
@@ -1014,6 +1014,10 @@ x.initiative_link.potentially_supported {
 
 .admitted_info, .not_admitted_info, .revoked_info, .draft_updated_info, .initiator_invite_info {
     padding: 1ex;
+}
+
+.revoked {
+	text-decoration: line-through;
 }
 
 .admitted_info {

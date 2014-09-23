@@ -1,12 +1,42 @@
+slot.set_layout("custom")
+
 local id = param.get_id()
 
 local unit = Unit:by_id(id)
 
-if unit then
-    ui.title(_("Unit: '#{name}'", { name = unit.name }))
-else
-    ui.title(_ "Add new unit")
-end
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "unit_list",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            if unit then
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _("Unit: '#{name}'", { name = unit.name })
+                }
+            else
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _ "Add new unit"
+                }
+            end
+        end
+    }
+end)
+
 
 local units = {
     { id = nil, name = "" }
@@ -15,30 +45,6 @@ local units = {
 for i, unit in ipairs(Unit:get_flattened_tree()) do
     units[#units + 1] = { id = unit.id, name = unit.name }
 end
-ui.container{ 
-		attr = {class = "row-fluid well"},
-		content = function()
-			ui.container {
-          attr = { class = "span3" },
-          content = function()
-              ui.link {
-                  attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                  module = "admin",
-                  view = "unit_list",
-                  content = function()
-                      ui.heading {
-                          level = 3,
-                          content = function()
-                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                              slot.put(_ "Back to previous page")
-                          end
-                      }
-                  end
-              }
-          end
-      }
-  end
-}
 
 ui.form {
     attr = { class = "vertical" },

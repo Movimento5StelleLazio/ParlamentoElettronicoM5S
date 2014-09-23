@@ -1,4 +1,5 @@
 slot.set_layout("custom")
+
 local suggestion = Suggestion:by_id(param.get_id())
 
 -- redirect to initiative if suggestion does not exist anymore
@@ -22,18 +23,54 @@ end
 app.html_title.title = suggestion.name
 app.html_title.subtitle = _("Suggestion ##{id}", { id = suggestion.id })
 
-ui.title(_ "Suggestion for initiative: '#{name}'":gsub("#{name}", suggestion.initiative.name))
-
-ui.actions(function()
-    ui.link {
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
         content = function()
-            ui.image { static = "icons/16/resultset_previous.png" }
-            slot.put(_ "Back")
-        end,
-        module = "initiative",
-        view = "show",
-        id = suggestion.initiative.id,
-        params = { tab = "suggestions" }
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "initiative",
+                        view = "show",
+                        id = suggestion.initiative.id,
+                        params = { tab = "suggestions" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+
+            ui.container {
+                attr = { class = "span8 spaceline2 text-center label label-warning" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        attr = { class = "fittext1 uppercase" },
+                        content = _ "Suggestion for initiative: '#{name}'":gsub("#{name}", suggestion.initiative.name)
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "In questa pagina puoi proporre un emendamento. Se classificherai l'emendamento con un grado <i>deve/non deve</i> verrai aggiunto ai <i>Potenziali sostenitori</i> della proposta fino a quando non riterrai che il tuo emendamento sia stato accolto. Se classificherai <i>dovrebbe/non dovrebbe</i> verrai aggiunto ai <i>Sostenitori</i> della proposta.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
     }
 end)
 

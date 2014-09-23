@@ -1,6 +1,53 @@
-ui.title(_ "Change your password")
+slot.set_layout("custom")
 
-util.help("member.settings.password", _ "Change password")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "member",
+                        view = "settings",
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+
+            ui.container {
+                attr = { class = "span8 spaceline2 text-center label label-warning" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        attr = { class = "fittext1 uppercase" },
+                        content = _ "Change your password"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "In questa pagina puoi modificare la tua password.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
 
 ui.form {
     attr = { class = "vertical" },
@@ -9,14 +56,21 @@ ui.form {
     routing = {
         ok = {
             mode = "redirect",
-            module = "index",
-            view = "index"
+            module = "member",
+            view = "settings"
         }
     },
     content = function()
         ui.field.password { label = _ "Old password", name = "old_password" }
         ui.field.password { label = _ "New password", name = "new_password1" }
         ui.field.password { label = _ "Repeat new password", name = "new_password2" }
-        ui.submit { value = _ "Change password" }
+        ui.tag {
+            tag = "input",
+            attr = {
+                type = "submit",
+                class = "offset4 btn btn-primary btn-large large_btn",
+                value = _ "Change password"
+            }
+        }
     end
 }

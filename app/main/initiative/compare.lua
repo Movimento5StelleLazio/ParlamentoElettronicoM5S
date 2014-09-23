@@ -1,6 +1,6 @@
 slot.set_layout("custom")
 
-local initiative = Initiative:by_id(param.get("initiative_id", atom.number))
+local issue = Issue:by_id(param.get("issue_id", atom.number))
 
 ui.title(function()
     ui.container {
@@ -11,9 +11,9 @@ ui.title(function()
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
-                        module = "initiative",
-                        view = "show",
-                        id = initiative.id,
+                        module = "issue",
+                        view = "show_ext_bs",
+                        id = issue.id,
                         image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
@@ -24,7 +24,7 @@ ui.title(function()
                 content = function()
                     ui.heading {
                         level = 1,
-                        content = _ "Drafts compare"
+                        content = _ "Initiatives comparison"
                     }
                 end
             }
@@ -36,7 +36,7 @@ ui.title(function()
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Ti trovi nel box che consente di confrontare le diverse versioni dei testi di una STESSA proposta. Seleziona le due versioni che vuoi confrontare e poi clicca su <i>Compara</i>",
+                            datacontent = _ "Ti trovi nel box che consente di confrontare le differenti proposte di una STESSA questione. Seleziona le due versioni che vuoi confrontare e poi clicca su <i>Compara</i>",
                             datahtml = "true",
                             class = "text-center"
                         },
@@ -51,22 +51,22 @@ ui.title(function()
 end)
 
 ui.form {
-    module = "draft",
+    module = "initiative",
     view = "diff",
-    id = initiative.id,
+    id = issue.id,
     content = function()
         ui.parelon_list {
             style = "div",
-            records = initiative.drafts,
+            records = issue.initiatives,
             columns = {
                 {
-                    label = _ "Created at",
+                    label = _ "Initiative Title",
                     field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
                     label_attr = { class = "span2 text-center" },
                     content = function(record)
                         ui.field.text {
                             readonly = true,
-                            value = format.timestamp(record.created)
+                            value = record.title
                         }
                     end
                 },
@@ -75,8 +75,15 @@ ui.form {
                     field_attr = { class = "span5 text-center spaceline spaceline-bottom" },
                     label_attr = { class = "span5 text-center" },
                     content = function(record)
-                        if record.author then
-                            return record.author:ui_field_text()
+                        if record.initiators then
+                            local authors = ""
+                            for i,initiator in ipairs(record.initiators) do
+                                authors = authors .. initiator.member.name .. ";"
+                            end
+                            return ui.field.text {
+                                readonly = true,
+                                value = authors
+                            }
                         end
                     end
                 },
@@ -87,20 +94,20 @@ ui.form {
                         ui.link {
                             attr = { class = "action" },
                             text = _ "Show",
-                            module = "draft",
+                            module = "initiative",
                             view = "show",
                             id = record.id,
-                            params = { initiative_id = param.get("initiative_id", atom.number) }
+                            params = { initiative_id = record.id }
                         }
                     end
                 },
                 {
                     field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
                     label_attr = { class = "span2 text-center" },
-                    label = _ "New draft",
+                    label = _ "First initiative",
                     content = function(record)
                         ui.field.parelon_radio {
-                            name = "new_draft_id",
+                            name = "first_initiative_id",
                             attr = {
                                 class = "parelon-checkbox",
                                 value = record.id
@@ -112,10 +119,10 @@ ui.form {
                 {
                     field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
                     label_attr = { class = "span2 text-center" },
-                    label = _ "Old draft",
+                    label = _ "Second initiative",
                     content = function(record)
                         ui.field.parelon_radio {
-                            name = "old_draft_id",
+                            name = "second_initiative_id",
                             attr = {
                                 class = "parelon-checkbox",
                                 value = record.id

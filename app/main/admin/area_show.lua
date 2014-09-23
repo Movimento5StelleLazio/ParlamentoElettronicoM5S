@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local id = param.get_id()
 
 local area = Area:by_id(id) or Area:new()
@@ -6,7 +8,31 @@ if not area.unit_id then
     area.unit_id = param.get("unit_id", atom.integer)
 end
 
-ui.title(_ "Create / edit area")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "area_list",
+                        params = { unit_id = area.unit_id },
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Create / edit area"
+            }
+        end
+    }
+end)
 
 ui.form {
     attr = { class = "vertical" },
@@ -23,30 +49,6 @@ ui.form {
     },
     id = id,
     content = function()
-    		ui.container{ 
-						attr = {class = "row-fluid well"},
-						content = function()
-							ui.container {
-								  attr = { class = "span3" },
-								  content = function()
-								      ui.link {
-								          attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-								          module = "admin",
-								          view = "unit_list",
-								          content = function()
-								              ui.heading {
-								                  level = 3,
-								                  content = function()
-								                      ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-								                      slot.put(_ "Back to previous page")
-								                  end
-								              }
-								          end
-								      }
-								  end
-							}
-					end
-				}
         policies = Policy:build_selector { active = true }:exec()
         local def_policy = {
             {

@@ -1,6 +1,53 @@
-ui.title(_ "Notification settings")
+slot.set_layout("custom")
 
-util.help("member.settings.notification", _ "Notification settings")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "member",
+                        view = "settings",
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+
+            ui.container {
+                attr = { class = "span8 spaceline2 text-center label label-warning" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        attr = { class = "fittext1 uppercase" },
+                        content = _ "Notification settings"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "In questa pagina puoi modificare le impostazioni delle notifiche da ricevere sulla tua email.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
 
 ui.form {
     attr = { class = "vertical" },
@@ -9,8 +56,8 @@ ui.form {
     routing = {
         ok = {
             mode = "redirect",
-            module = "index",
-            view = "index"
+            module = "member",
+            view = "settings"
         }
     },
     content = function()
@@ -125,8 +172,14 @@ ui.form {
         }
 
         slot.put("<br />")
-
-        ui.submit { value = _ "Change notification settings" }
+        ui.tag {
+            tag = "input",
+            attr = {
+                type = "submit",
+                class = "offset4 btn btn-primary btn-large large_btn",
+                value = _ "Change notification settings"
+            }
+        }
     end
 }
  

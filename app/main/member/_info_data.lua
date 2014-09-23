@@ -24,81 +24,90 @@ ui.container {
                                 }
                             end
                         }
-                        ui.form {
-                            method = "post",
-                            attr = { id = "false_identity" },
-                            module = 'member',
-                            action = 'report_false_identity',
-                            params = { member_id = member.id },
-                            routing = {
-                                ok = {
-                                    mode = 'redirect',
-                                    module = param.get("module", atom.string),
-                                    view = param.get("view", atom.string),
-                                    id = param.get("content_id", atom.integer)
-                                },
-                                error = {
-                                    mode = 'redirect',
-                                    module = param.get("module", atom.string),
-                                    view = param.get("view", atom.string),
-                                    id = param.get("content_id", atom.integer)
-                                }
-                            },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span6 spaceline2" },
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.tag { content = _ "Name" .. ": " }
-                                                ui.tag { tag = "strong", content = member.realname }
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.tag { content = _ "NIN" .. ": " }
-                                                ui.tag { tag = "strong", content = member.nin }
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.tag { content = _ "Comune" .. ": " }
-                                                ui.tag { tag = "strong", content = "Roma" }
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.tag { content = _ "Municipio" .. ": " }
-                                                ui.tag { tag = "strong", content = "IX" }
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.tag { content = _ "Certificatore" .. ": " }
-                                                ui.tag { tag = "strong", content = "Paolo Rossi" }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-
                         ui.container {
-                            attr = { class = "span3 spaceline4 text-center" },
+                            attr = { class = "span9" },
                             content = function()
-                                ui.anchor {
-                                    attr = {
-                                        href = "#",
-                                        class = "btn btn-primary table-cell medium_btn spaceline",
-                                        onclick = "document.getElementById(\"false_identity\").submit();"
+                                ui.form {
+                                    method = "post",
+                                    attr = { id = "false_identity" },
+                                    module = 'member',
+                                    action = 'report_false_identity',
+                                    params = { member_id = member.id },
+                                    routing = {
+                                        ok = {
+                                            mode = 'redirect',
+                                            module = param.get("module", atom.string),
+                                            view = param.get("view", atom.string),
+                                            id = param.get("content_id", atom.integer)
+                                        },
+                                        error = {
+                                            mode = 'redirect',
+                                            module = param.get("module", atom.string),
+                                            view = param.get("view", atom.string),
+                                            id = param.get("content_id", atom.integer)
+                                        }
                                     },
                                     content = function()
-                                        ui.heading { level = 3, attr = { class = "" }, content = _ "Report false identity" }
+                                        ui.container {
+                                            attr = { class = "row-fluid" },
+                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "span9 spaceline2" },
+                                                    content = function()
+                                                        ui.heading {
+                                                            level = 3,
+                                                            content = function()
+                                                                ui.tag { content = _ "Name" .. ": " }
+                                                                ui.tag { tag = "strong", content = member.realname }
+                                                            end
+                                                        }
+                                                        ui.heading {
+                                                            level = 3,
+                                                            content = function()
+                                                                ui.tag { content = _ "NIN" .. ": " }
+                                                                ui.tag { tag = "strong", content = member.nin }
+                                                            end
+                                                        }
+                                                    --                                        ui.heading {
+                                                    --                                            level = 3,
+                                                    --                                            content = function()
+                                                    --                                                ui.tag { content = _ "Comune" .. ": " }
+                                                    --                                                ui.tag { tag = "strong", content = "Roma" }
+                                                    --                                            end
+                                                    --                                        }
+                                                    --                                        ui.heading {
+                                                    --                                            level = 3,
+                                                    --                                            content = function()
+                                                    --                                                ui.tag { content = _ "Municipio" .. ": " }
+                                                    --                                                ui.tag { tag = "strong", content = "IX" }
+                                                    --                                            end
+                                                    --                                        }
+                                                    --                                        ui.heading {
+                                                    --                                            level = 3,
+                                                    --                                            content = function()
+                                                    --                                                ui.tag { content = _ "Certificatore" .. ": " }
+                                                    --                                                ui.tag { tag = "strong", content = "Paolo Rossi" }
+                                                    --                                            end
+                                                    --                                        }
+                                                    end
+                                                }
+                                            end
+                                        }
+                                        ui.container {
+                                            attr = { class = "text-center" },
+                                            content = function()
+                                                ui.anchor {
+                                                    attr = {
+                                                        href = "#",
+                                                        class = "btn btn-primary table-cell medium_btn spaceline",
+                                                        onclick = "document.getElementById(\"false_identity\").submit();"
+                                                    },
+                                                    content = function()
+                                                        ui.heading { level = 3, attr = { class = "" }, content = _ "Report false identity" }
+                                                    end
+                                                }
+                                            end
+                                        }
                                     end
                                 }
                             end

@@ -1,12 +1,21 @@
 slot.set_layout("custom")
 
+if not app.session.member then
+    slot.put_into("error", "You must be logged in before you can vote.")
+    request.redirect {
+        module = "index",
+        view = "index"
+    }
+end
+
 local issue = Issue:by_id(param.get("issue_id"), atom.integer)
 
 local member_id = param.get("member_id", atom.integer)
 local member
 local readonly = false
 
-local preview = param.get("preview") and true or false
+local preview = param.get("preview", atom.boolean) and true or false
+trace.debug("preview: " .. tostring(param.get("preview")))
 
 if member_id then
     if not issue.closed then
@@ -45,7 +54,7 @@ if member then
             issue_id = string.format('<a href="%s">%s</a>',
                 encode.url {
                     module = "issue",
-                    view = "show",
+                    view = "show_ext_bs",
                     id = issue.id,
                 },
                 encode.html(tostring(issue.id)))
@@ -56,39 +65,114 @@ else
 
     direct_voter = DirectVoter:by_pk(issue.id, member.id)
 
-    ui.title(_ "Voting")
+    ui.title(function()
+        ui.container {
+            attr = { class = "row-fluid spaceline" },
+            content = function()
+                ui.container {
+                    attr = { class = "span8 offset2 label label-warning text-center" },
+                    content = function()
+                        ui.heading { level = 1, content = _ "You are voting for the issue:" }
+                        local issue_id = issue.id
+                        local title = issue.title
+                        local policy_name = Policy:by_id(issue.policy_id).name
+                        ui.heading { level = 3, content = title }
+                    end
+                }
+                ui.container {
+                    attr = { class = "span1 text-center " },
+                    content = function()
+                        ui.field.popover {
+                            attr = {
+                                dataplacement = "left",
+                                datahtml = "true";
+                                datatitle = _ "Box di aiuto per la pagina",
+                                datacontent = _ "This is the vote box. You can: <i>go back</i>; <i>cast</i>, <i>modify</i> or <i>discard</i> your vote; <i>post</i> or <i>edit</i> a comment to your vote.",
+                                datahtml = "true",
+                                class = "text-center"
+                            },
+                            content = function()
+                                ui.container {
+                                    attr = { class = "row-fluid" },
+                                    content = function()
+                                        ui.image { static = "png/tutor.png" }
+                                    end
+                                }
+                            end
+                        }
+                    end
+                }
+            end
+        }
+    end)
 
     ui.actions(function()
-        ui.link {
-            text = _ "Cancel",
-            module = "issue",
-            view = "show",
-            id = issue.id
-        }
-        if direct_voter then
-            slot.put(" &middot; ")
-            ui.link {
-                text = _ "Discard voting",
-                module = "vote",
-                action = "update",
-                params = {
-                    issue_id = issue.id,
-                    discard = true
-                },
-                routing = {
-                    default = {
-                        mode = "redirect",
-                        module = "issue",
-                        view = "show",
-                        id = issue.id
-                    }
+        ui.container {
+            attr = { class = "row-fluid spaceline2" },
+            content = function()
+                ui.container {
+                    attr = { class = "offset1 span10" },
+                    content = function()
+                        ui.container {
+                            attr = { class = "row-fluid" },
+                            content = function()
+                                ui.link {
+                                    attr = { class = "span3 btn btn-primary fixclick" },
+                                    module = "issue",
+                                    view = "show_ext_bs",
+                                    id = issue.id,
+                                    content = function()
+                                        ui.heading {
+                                            level = 3,
+                                            content = function()
+                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                                                slot.put(_ "Back to previous page")
+                                            end
+                                        }
+                                    end
+                                }
+                                ui.container {
+                                    attr = { class = "offset2 span2" },
+                                    content = function()
+                                        ui.image { static = "png/voting.png" }
+                                    end
+                                }
+                                if direct_voter then
+                                    ui.link {
+                                        attr = { class = "offset2 span3 btn btn-primary fixclick" },
+                                        module = "vote",
+                                        action = "update",
+                                        params = {
+                                            issue_id = issue.id,
+                                            discard = true
+                                        },
+                                        routing = {
+                                            default = {
+                                                mode = "redirect",
+                                                module = "issue",
+                                                view = "show_ext_bs",
+                                                id = issue.id
+                                            }
+                                        },
+                                        content = function()
+                                            ui.heading {
+                                                level = 3,
+                                                content = function()
+                                                    ui.image { attr = { class = "" }, static = "png/delete.png" }
+                                                    slot.put(_ "Discard voting")
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            end
+                        }
+                    end
                 }
-            }
-        end
+            end
+        }
     end)
 end
-
-
 
 local tempvoting_string = param.get("scoring")
 
@@ -146,8 +230,6 @@ for i = 1, max_grade do
     end
 end
 
-
-
 if not readonly then
     util.help("vote.list", _ "Voting")
     slot.put('<script src="' .. request.get_relative_baseurl() .. 'static/js/dragdrop.js"></script>')
@@ -178,35 +260,23 @@ ui.script {
             "voting_text_disapproval_multi             = ", encode.json(_ "Disapproval [many entries]"), ";\n")
     end
 }
-ui.container {
-    attr = { class = "row-fluid" },
+ui.field.popover {
+    attr = {
+        dataplacement = "left",
+        datahtml = "true";
+        datatitle = _ "Box di aiuto per la pagina",
+        datacontent = _ "Use arrows to order initiatives from the one you agree most to the one you disagree most.",
+        datahtml = "true",
+        div_attr = { class = "row-fluid" },
+        class = "offset11 span1"
+    },
     content = function()
-        ui.container {
-            attr = { class = "span12 well spaceline" },
-            content = function()
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span2 " },
-                            content = function()
-                                ui.image { static = "png/voting.png" }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span8 offset1 spaceline label label-warning text-center" },
-                            content = function()
-                                ui.heading { level = 1, content = "Sei nel box di voto per la proposta:" }
-                                local issue_id = issue.id
-                                local title = issue.title
-                                local policy_name = Policy:by_id(issue.policy_id).name
-                                ui.heading { level = 3, content = title }
-                            end
-                        }
-                    end
-                }
-            end
-        }
+--        ui.container {
+--            attr = { class = "row-fluid" },
+--            content = function()
+                ui.image { attr = { class = "" }, static = "png/tutor.png" }
+--            end
+--        }
     end
 }
 ui.container {
@@ -246,48 +316,50 @@ ui.container {
                                     scoring = ""
                                 end
                             end
+
+                            ui.tag {
+                                tag = "input",
+                                attr = {
+                                    type = "hidden",
+                                    name = "scoring",
+                                    value = scoring
+                                }
+                            }
+                            -- TODO abstrahieren
                             ui.container {
                                 attr = { class = "row-fluid" },
                                 content = function()
-                                    ui.container {
-                                        attr = { class = "span12 text-center spaceline-bottom" },
-                                        content = function()
-                                            slot.put('<input type="hidden" name="scoring" value="' .. scoring .. '"/>')
-                                            -- TODO abstrahieren
-                                            ui.tag {
-                                                tag = "input",
-                                                attr = {
-                                                    type = "submit",
-                                                    class = "btn btn-primary large_btn",
-                                                    value = submit_button_text
-                                                }
-                                            }
-                                        end
+                                    ui.tag {
+                                        tag = "input",
+                                        attr = {
+                                            type = "submit",
+                                            class = "offset5 span2 voting_done1 btn btn-primary btn-large large_btn",
+                                            value = submit_button_text
+                                        }
                                     }
                                 end
                             }
                         end
-
                         ui.container {
-                            attr = { id = "voting" },
+                            attr = { class = "row-fluid" },
                             content = function()
-                                local approval_index, disapproval_index = 0, 0
-                                for grade = max_grade, min_grade, -1 do
-                                    local entries = sections[grade]
-                                    local class
-                                    if grade > 0 then
-                                        class = "approval"
-                                    elseif grade < 0 then
-                                        class = "disapproval"
-                                    else
-                                        class = "abstention"
-                                    end
-                                    ui.container {
-                                        attr = { class = "row-fluid text-center" },
-                                        content = function()
-                                            ui.container {
-                                                attr = { class = "span8 offset2 text-center" },
-                                                content = function()
+                                ui.container {
+                                    attr = { class = "offset1 span10" },
+                                    content = function()
+                                        ui.container {
+                                            attr = { id = "voting" },
+                                            content = function()
+                                                local approval_index, disapproval_index = 0, 0
+                                                for grade = max_grade, min_grade, -1 do
+                                                    local entries = sections[grade]
+                                                    local class
+                                                    if grade > 0 then
+                                                        class = "approval"
+                                                    elseif grade < 0 then
+                                                        class = "disapproval"
+                                                    else
+                                                        class = "abstention"
+                                                    end
                                                     if
                                                     #entries > 0 or
                                                             (grade == 1 and not approval_used) or
@@ -371,7 +443,7 @@ ui.container {
                                                                 end
                                                                 ui.tag {
                                                                     tag = "div",
-                                                                    attr = { class = "text-center" },
+                                                                    attr = { class = "cathead" },
                                                                     content = heading
                                                                 }
                                                                 for i, initiative in ipairs(entries) do
@@ -481,76 +553,109 @@ ui.container {
                                                         }
                                                     end
                                                 end
+                                            end
+                                        }
+                                        if app.session.member_id and preview then
+                                            local formatting_engine = param.get("formatting_engine")
+                                            local comment = param.get("comment")
+                                            local rendered_comment = format.wiki_text(comment, formatting_engine)
+                                            slot.put(rendered_comment)
+                                        end
+                                        if (readonly or direct_voter and direct_voter.comment) and not preview then
+                                            local text
+                                            if direct_voter and direct_voter.comment_changed then
+                                                text = _("Voting comment (last updated: #{timestamp})", { timestamp = format.timestamp(direct_voter.comment_changed) })
+                                            elseif direct_voter and direct_voter.comment then
+                                                text = _ "Voting comment"
+                                            end
+                                            if text then
+                                                ui.heading { level = "2", content = text }
+                                            end
+                                            if direct_voter and direct_voter.comment then
+                                                local rendered_comment = direct_voter:get_content('html')
+                                                ui.container {
+                                                    attr = { class = "member_statement" },
+                                                    content = function()
+                                                        slot.put(rendered_comment)
+                                                    end
+                                                }
+                                                slot.put("<br />")
+                                            end
+                                        end
+                                        if app.session.member_id and app.session.member_id == member.id then
+                                            if not readonly or direct_voter then
+                                                ui.field.popover {
+                                                    attr = {
+                                                        dataplacement = "left",
+                                                        datahtml = "true";
+                                                        datatitle = _ "Box di aiuto per la pagina",
+                                                        datacontent = _ "If you'd like to do so, you can post a comment to your vote. To remove a previous comment just leave this space blank and click on <i>Register</i>.",
+                                                        datahtml = "true",
+                                                        div_attr = { class = "row-fluid" },
+                                                        class = "offset11 span1"
+                                                    },
+                                                    content = function()
+                                                    --        ui.container {
+                                                    --            attr = { class = "row-fluid" },
+                                                    --            content = function()
+                                                        ui.image { attr = { class = "" }, static = "png/tutor.png" }
+                                                    --            end
+                                                    --        }
+                                                    end
+                                                }
+                                                ui.field.hidden { name = "update_comment", value = param.get("update_comment") or issue.closed and "1" }
+                                                ui.field.select {
+                                                    label = _ "Wiki engine for statement",
+                                                    name = "formatting_engine",
+                                                    foreign_records = {
+                                                        { id = "rocketwiki", name = "RocketWiki" },
+                                                        { id = "compat", name = _ "Traditional wiki syntax" }
+                                                    },
+                                                    attr = { id = "formatting_engine" },
+                                                    foreign_id = "id",
+                                                    foreign_name = "name",
+                                                    value = param.get("formatting_engine") or direct_voter and direct_voter.formatting_engine
+                                                }
+                                                ui.field.text {
+                                                    label = _ "Voting comment (optional)",
+                                                    name = "comment",
+                                                    multiline = true,
+                                                    value = param.get("comment") or direct_voter and direct_voter.comment,
+                                                    attr = { style = "height: 20ex;" },
+                                                }
+                                            end
+
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    if not readonly or direct_voter then
+                                                        ui.tag {
+                                                            tag = "input",
+                                                            attr = {
+                                                                type = "submit",
+                                                                name = "preview",
+                                                                value = _ "Preview voting comment",
+                                                                class = "preview text-center span5 btn btn-primary btn-large large_btn"
+                                                            }
+                                                        }
+                                                    end
+                                                    if not readonly or preview or direct_voter then
+                                                        ui.tag {
+                                                            tag = "input",
+                                                            attr = {
+                                                                type = "submit",
+                                                                class = "offset4 voting_done2 btn btn-primary btn-large large_btn",
+                                                                value = submit_button_text
+                                                            }
+                                                        }
+                                                    end
+                                                end
                                             }
                                         end
-                                    }
-                                end
+                                    end
+                                }
                             end
                         }
-                    --[[    if app.session.member_id and preview then
-                          local formatting_engine = param.get("formatting_engine")
-                          local comment = param.get("comment")
-                          local rendered_comment = format.wiki_text(comment, formatting_engine)
-                          slot.put(rendered_comment)
-                        end
-                        if (readonly or direct_voter and direct_voter.comment) and not preview then
-                          local text
-                          if direct_voter and direct_voter.comment_changed then
-                            text = _("Voting comment (last updated: #{timestamp})", { timestamp = format.timestamp(direct_voter.comment_changed) })
-                          elseif direct_voter and direct_voter.comment then
-                            text = _"Voting comment"
-                          end
-                          if text then
-                            ui.heading{ level = "2", content = text }
-                          end
-                          if direct_voter and direct_voter.comment then
-                            local rendered_comment = direct_voter:get_content('html')
-                            ui.container{ attr = { class = "member_statement" }, content = function()
-                              slot.put(rendered_comment)
-                            end }
-                            slot.put("<br />")
-                          end
-                        end
-                        if app.session.member_id and app.session.member_id == member.id then
-                          if not readonly or direct_voter then
-                            ui.field.hidden{ name = "update_comment", value = param.get("update_comment") or issue.closed and "1" }
-                            ui.field.select{
-                              label = _"Wiki engine for statement",
-                              name = "formatting_engine",
-                              foreign_records = {
-                                { id = "rocketwiki", name = "RocketWiki" },
-                                { id = "compat", name = _"Traditional wiki syntax" }
-                              },
-                              attr = {id = "formatting_engine"},
-                              foreign_id = "id",
-                              foreign_name = "name",
-                              value = param.get("formatting_engine") or direct_voter and direct_voter.formatting_engine
-                            }
-                            ui.field.text{
-                              label = _"Voting comment (optional)",
-                              name = "comment",
-                              multiline = true,
-                              value = param.get("comment") or direct_voter and direct_voter.comment,
-                              attr = { style = "height: 20ex;" },
-                            }
-                            ui.submit{
-                              name = "preview",
-                              value = _"Preview voting comment",
-                              attr = { class = "preview" }
-                            }
-                          end
-                          if not readonly or preview or direct_voter then
-                            slot.put(" ")
-                            ui.tag{
-                              tag = "input",
-                              attr = {
-                                type = "submit",
-                                class = "voting_done2",
-                                value = submit_button_text
-                              }
-                            }
-                          end
-                        end --]]
                     end
                 }
             end

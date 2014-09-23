@@ -40,6 +40,76 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span10 offset1 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 text-center" },
+                                content = function()
+                                    ui.field.popover {
+                                        attr = {
+                                            dataplacement = "left",
+                                            datahtml = "true";
+                                            datatitle = _ "Give a description to the aim you want to achieve",
+                                            datacontent = _ "Target note",
+                                            datahtml = "true",
+                                            class = "text-center"
+                                        },
+                                        content = function()
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.image { static = "png/tutor.png" }
+                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.image {
+                                attr = { class = "span12" },
+                                static = "png/step_5_f6.png"
+                            }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs6" },
@@ -78,71 +148,12 @@ ui.form {
                         ui.container {
                             attr = { class = "row-fluid" },
                             content = function()
-                                ui.container {
-                                    attr = { class = "span10 offset1 text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span1 text-center " },
-                                    content = function()
-                                        ui.field.popover {
-                                            attr = {
-                                                dataplacement = "left",
-                                                datahtml = "true";
-                                                datatitle = _ "Give a description to the aim you want to achieve",
-                                                datacontent = _ "Target note",
-                                                datahtml = "true",
-                                                class = "text-center"
-                                            },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid" },
-                                                    content = function()
-                                                        ui.image { static = "png/tutor.png" }
-                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_5_f6.png" }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
 
                                 ui.container {
                                     attr = { class = "row-fluid" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12 well-inside paper" },
+                                            attr = { class = "span12" },
                                             content = function()
                                                 ui.container {
                                                     attr = { class = "row-fluid" },
@@ -162,24 +173,49 @@ ui.form {
                                                     end
                                                 }
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline3" },
+                                                    attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "row-fluid" },
-                                                            content = function()
-                                                                ui.tag { tag = "p", attr = { class = "text-center" }, content = _ "Target description" }
-                                                            end
-                                                        }
-                                                        ui.container {
-                                                            attr = { class = "row-fluid" },
+                                                            attr = { class = "span12" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span10 offset1" },
+                                                                    attr = { class = "row-fluid text-center" },
                                                                     content = function()
-                                                                        ui.tag {
-                                                                            tag = "textarea",
-                                                                            attr = { id = "aim_description", name = "aim_description", class = "span12", style = "resize:none;height:260px;" },
-                                                                            content = aim_description
+                                                                        ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Give a description to the aim you want to achieve" }
+                                                                    end
+                                                                }
+                                                                ui.container {
+                                                                    attr = { class = "row-fluid" },
+                                                                    content = function()
+                                                                        ui.container {
+                                                                            attr = { class = "span12 well-inside paper spaceline" },
+                                                                            content = function()
+                                                                                ui.container {
+                                                                                    attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                                                                    content = function()
+                                                                                        ui.heading {
+                                                                                            attr = { class = "span12 text-center" },
+                                                                                            level = 1,
+                                                                                            content = _ "Target description"
+                                                                                        }
+                                                                                    end
+                                                                                }
+                                                                                ui.container {
+                                                                                    attr = { class = "row-fluid" },
+                                                                                    content = function()
+                                                                                        ui.container {
+                                                                                            attr = { class = "span10 offset1" },
+                                                                                            content = function()
+                                                                                                ui.tag {
+                                                                                                    tag = "textarea",
+                                                                                                    attr = { id = "aim_description", name = "aim_description", class = "span12", style = "resize:none;height:260px;" },
+                                                                                                    content = aim_description
+                                                                                                }
+                                                                                            end
+                                                                                        }
+                                                                                    end
+                                                                                }
+                                                                            end
                                                                         }
                                                                     end
                                                                 }
@@ -187,11 +223,11 @@ ui.form {
                                                         }
                                                     end
                                                 }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline" },
-                                            content = function()
+                                                ui.container {
+                                                    attr = { class = "row-fluid spaceline" },
+                                                    content = function()
+                                                    end
+                                                }
                                             end
                                         }
                                     end
@@ -250,23 +286,23 @@ ui.form {
     module = "wizard",
     view = "page_bs5",
     params = {
-		  area_id = area_id,
-		  unit_id = unit_id,
-		  area_name = area_name,
-		  unit_name = unit_name,
-		  policy_id = policy_id,
-		  issue_title = issue_title,
-		  issue_brief_description = issue_brief_description,
-		  issue_keywords = issue_keywords,
-		  problem_description = problem_description,
-		  aim_description = aim_description,
-		  initiative_title = initiative_title,
-		  initiative_brief_description = initiative_brief_description,
-		  draft = draft,
-		  technical_areas = technical_areas,
-		  proposer1 = proposer1,
-		  proposer2 = proposer2,
-		  proposer3 = proposer3,
-		  resource = resource
-	}
+        area_id = area_id,
+        unit_id = unit_id,
+        area_name = area_name,
+        unit_name = unit_name,
+        policy_id = policy_id,
+        issue_title = issue_title,
+        issue_brief_description = issue_brief_description,
+        issue_keywords = issue_keywords,
+        problem_description = problem_description,
+        aim_description = aim_description,
+        initiative_title = initiative_title,
+        initiative_brief_description = initiative_brief_description,
+        draft = draft,
+        technical_areas = technical_areas,
+        proposer1 = proposer1,
+        proposer2 = proposer2,
+        proposer3 = proposer3,
+        resource = resource
+    }
 }
