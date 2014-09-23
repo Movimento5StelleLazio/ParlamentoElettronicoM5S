@@ -13,30 +13,28 @@ slot.select('navbar', function()
                     }
                 end
             }
-            
+
             --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }]]
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
-            ui.link {
-            	content = function()
-            			external = "http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2",
-                	image = { static = "donate.png" },
-                	text = ""
+                    slot.put('<a href="http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2"')
+                    ui.link {
+                        content = function()
+                            ui.image { static = "donate.png" }
                         end
-                }
+                    }
                 end
             }
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
-            ui.link {
-            	content = function()
-            	 external = "http://www.parelon.com/adesione.html",
-                	image = { static = "png/iscriviti.png" },
-                	text = ""
+                    slot.put('<a href="http://www.parelon.com/adesione.html"')
+                    ui.link {
+                        content = function()
+                            ui.image { static = "png/iscriviti.png" }
                         end
-                }
+                    }
                 end
             }
             if app.session.member then

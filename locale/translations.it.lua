@@ -958,6 +958,7 @@ return {
     ["You were potential supporter"] = "Eri un potenziale sostenitore";
     ["You were supporter"] = "Eri sostenitore";
     ["You've successfully registered and you can login now with your login and password!"] = "Registrazione completata correttamente, ora puoi accedere con il tuo nome utente e password!";
+    ["Your not able to access restricted areas yet: usually this means that you forgot to confirm your email address in your personal page. If you already confirmed your email, please contact your auditor."] = "Non sei ancora abilitato all'accesso alle aree ristrette: questo di solito è dovuto al fatto che non hai ancora confermato il tuo indirizzo email nella tua pagina personale. Se lo hai già confermato e non riesci ancora ad accedere alle aree ristrette contatta il tuo certificatore.";
     ["Your email address has been changed, please check for confirmation email with activation link!"] = "Indirizzo eMail modificato, controllare la posta per la conferma tramite link di attivazione!";
     ["Your login has been changed to '#{login}'"] = "Il tuo nome utente è stato cambiato in '#{login}'";
     ["Your name has been changed"] = "Nome aggiornato correttamente";
