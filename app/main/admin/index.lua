@@ -1,5 +1,29 @@
-slot.put_into("title", _ "Admin menu")
+slot.set_layout("custom")
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "index",
+                        view = "index",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Admin menu"
+            }
+        end
+    }
+end)
 
 ui.tag {
     tag = "ul",

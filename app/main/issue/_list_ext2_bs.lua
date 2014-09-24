@@ -21,7 +21,7 @@ issues_selector:join("area", nil, "area.id = issue.area_id")
 issues_selector:join("unit", nil, "unit.id = area.unit_id AND unit.public")
 
 ui.paginate {
-    per_page = tonumber(param.get("per_page") or 25),
+    per_page = tonumber(param.get("per_page") or 5),
     selector = issues_selector,
     content = function()
         local issues = issues_selector:exec()

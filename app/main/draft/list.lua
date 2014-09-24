@@ -1,40 +1,79 @@
+slot.set_layout("custom")
+
 local initiative = Initiative:by_id(param.get("initiative_id", atom.number))
 
-execute.view {
-    module = "initiative",
-    view = "_show_bs",
-    params = {
-        initiative = initiative,
-        show_as_head = true
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "initiative",
+                        view = "show",
+                        id = initiative.id,
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span8 text-center spaceline2 label label-warning fittext1" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        content = _ "Drafts compare"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Ti trovi nel box che consente di confrontare le diverse versioni dei testi di una STESSA proposta. Seleziona le due versioni che vuoi confrontare e poi clicca su <i>Compara</i>",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
     }
-}
-
-ui.link {
-    text = _ "Back to initiative",
-    module = "initiative",
-    view = "show",
-    id = initiative.id
-}
-
-slot.put("<br />")
-slot.put("<br />")
+end)
 
 ui.form {
-    method = "get",
     module = "draft",
     view = "diff",
+    id = initiative.id,
     content = function()
-        ui.list {
+        ui.parelon_list {
+            style = "div",
             records = initiative.drafts,
             columns = {
                 {
                     label = _ "Created at",
+                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "span2 text-center" },
                     content = function(record)
-                        ui.field.text { readonly = true, value = format.timestamp(record.created) }
+                        ui.field.text {
+                            readonly = true,
+                            value = format.timestamp(record.created)
+                        }
                     end
                 },
                 {
-                    label = _ "Author",
+                    label = _ "Authors",
+                    field_attr = { class = "span5 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "span5 text-center" },
                     content = function(record)
                         if record.author then
                             return record.author:ui_field_text()
@@ -42,25 +81,63 @@ ui.form {
                     end
                 },
                 {
+                    field_attr = { class = "span1 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "span1 text-center" },
                     content = function(record)
                         ui.link {
                             attr = { class = "action" },
                             text = _ "Show",
                             module = "draft",
                             view = "show",
-                            id = record.id
+                            id = record.id,
+                            params = { initiative_id = param.get("initiative_id", atom.number) }
                         }
                     end
                 },
                 {
-                    label = _ "Compare",
+                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "span2 text-center" },
+                    label = _ "New draft",
                     content = function(record)
-                        slot.put('<input type="radio" name="old_draft_id" value="' .. tostring(record.id) .. '">')
-                        slot.put('<input type="radio" name="new_draft_id" value="' .. tostring(record.id) .. '">')
+                        ui.field.parelon_radio {
+                            name = "new_draft_id",
+                            attr = {
+                                class = "parelon-checkbox",
+                                value = record.id
+                            },
+                            label_attr = { class = "parelon-label" }
+                        }
+                    end
+                },
+                {
+                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "span2 text-center" },
+                    label = _ "Old draft",
+                    content = function(record)
+                        ui.field.parelon_radio {
+                            name = "old_draft_id",
+                            attr = {
+                                class = "parelon-checkbox",
+                                value = record.id
+                            },
+                            label_attr = { class = "parelon-label" }
+                        }
                     end
                 }
             }
         }
-        ui.submit { text = _ "Compare" }
+        ui.container {
+            attr = { class = "row-fluid spaceline" },
+            content = function()
+                ui.tag {
+                    tag = "input",
+                    attr = {
+                        type = "submit",
+                        class = "btn btn-primary span2 offset10",
+                        value = _ "Compare",
+                    }
+                }
+            end
+        }
     end
 }

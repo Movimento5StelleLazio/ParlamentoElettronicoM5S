@@ -4,7 +4,7 @@ local for_details = param.get("for_details", "boolean") or false
 local for_member
 
 if app.session.member then
-	for_member = param.get("for_member", "table") or app.session.member
+    for_member = param.get("for_member", "table") or app.session.member
 end
 
 local class = ""
@@ -25,7 +25,7 @@ ui.container {
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
-                    		local span = 2
+                        local span = 2
                         if for_details and app.session.member then
                             -- Get member checked events for initiative
                             local checked_events = Event:new_selector():join("checked_event", nil, "checked_event.event_id = event.id"):add_where { "checked_event.member_id = ?", for_member.id }:exec()
@@ -87,8 +87,6 @@ ui.container {
                                                     end
                                                 }
                                             end
-
-
                                             ui.heading {
                                                 level = 3,
                                                 attr = { class = "" },
@@ -289,10 +287,14 @@ ui.container {
                                         ui.heading {
                                             level = 6,
                                             content = function()
+                                                local class = ""
+                                                if initiative.revoked then
+                                                    class = "revoked"
+                                                end
                                                 if for_details then
-                                                    ui.tag { tag = "strong", content = name }
+                                                    ui.tag { tag = "strong", attr = { class = class }, content = name }
                                                 else
-                                                    ui.tag { tag = "strong", content = "p" .. initiative.id .. ": " .. name }
+                                                    ui.tag { tag = "strong", attr = { class = class }, content = "p" .. initiative.id .. ": " .. name }
                                                 end
                                             end
                                         }
@@ -301,20 +303,31 @@ ui.container {
                                     view = "show",
                                     id = initiative.id
                                 }
-                                
+
                                 --if request.get_view() == "show_ext_bs" then
                                 if for_details then
                                     ui.tag { tag = "p", content = initiative.brief_description }
                                 end
                             end
                         }
-                        ui.container{ attr = { class = "span1"}, content = function()
-									    			if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
-											      		ui.field.rank{ attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
-												    end
-											  end }
+                        ui.container {
+                            attr = { class = "span1" },
+                            content = function()
+                                if initiative.revoked then
+                                    ui.container {
+                                        attr = { class = "vertical" },
+                                        content = function()
+                                            ui.image { static = "png/delete.png" }
+                                            slot.put(_ "Revoked by authors")
+                                        end
+                                    }
+                                elseif initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
+                                    ui.field.rank { attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
+                                end
+                            end
+                        }
                     end
-                }                
+                }
             end
         }
     end

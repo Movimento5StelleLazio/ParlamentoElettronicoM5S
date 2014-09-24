@@ -1,6 +1,31 @@
+slot.set_layout("custom")
+
 local policy = Policy:by_id(param.get_id()) or Policy:new()
 
-ui.title(_ "Create / edit policy")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "policy_list",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Create / edit policy"
+            }
+        end
+    }
+end)
 
 ui.form {
     attr = { class = "vertical" },

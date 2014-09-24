@@ -1,4 +1,29 @@
-ui.title(_ "Configuration")
+slot.set_layout("custom")
+
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "index",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Configuration"
+            }
+        end
+    }
+end)
 
 local gui_preset = db:query('SELECT gui_preset FROM system_setting')[1][1]
 
@@ -37,7 +62,7 @@ ui.form {
         }
     },
     content = function()
-        ui.field.select {
+       ui.field.select {
             label = _ "GUI Preset",
             name = "gui_preset",
             selected_record = selected_gui_preset,

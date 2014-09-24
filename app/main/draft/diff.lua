@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local old_draft_id = param.get("old_draft_id", atom.integer)
 local new_draft_id = param.get("new_draft_id", atom.integer)
 
@@ -20,40 +22,86 @@ end
 local old_draft = Draft:by_id(old_draft_id)
 local new_draft = Draft:by_id(new_draft_id)
 
-execute.view {
-    module = "draft",
-    view = "_head",
-    params = { draft = new_draft }
-}
-
-ui.title(_ "Diff")
-
-if app.session.member_id and not new_draft.initiative.revoked then
-    local supporter = Supporter:new_selector():add_where { "member_id = ?", app.session.member_id }:count()
-    if supporter then
-        ui.container {
-            attr = { class = "draft_updated_info" },
-            content = function()
-                slot.put(_ "The draft of this initiative has been updated!")
-                slot.put(" ")
-                ui.link {
-                    text = _ "Refresh support to current draft",
-                    module = "initiative",
-                    action = "add_support",
-                    id = new_draft.initiative.id,
-                    routing = {
-                        default = {
-                            mode = "redirect",
-                            module = "initiative",
-                            view = "show",
-                            id = new_draft.initiative.id
-                        }
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "draft",
+                        view = "list",
+                        params = { initiative_id = param.get_id() },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
                     }
-                }
-            end
-        }
-    end
-end
+                end
+            }
+            ui.container {
+                attr = { class = "span8 text-center spaceline2 label label-warning fittext1" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        content = _ "Confronto tra bozze"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Ti trovi nel box che mostra le differenze tra le due bozze selezionate.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.container {
+                                attr = { class = "row-fluid" },
+                                content = function()
+                                    ui.image { static = "png/tutor.png" }
+                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
+--if app.session.member_id and not new_draft.initiative.revoked then
+--    local supporter = Supporter:new_selector():add_where { "member_id = ?", app.session.member_id }:count()
+--    if supporter then
+--        ui.container {
+--            attr = { class = "draft_updated_info" },
+--            content = function()
+--                slot.put(_ "The draft of this initiative has been updated!")
+--                slot.put(" ")
+--                ui.link {
+--                    text = _ "Refresh support to current draft",
+--                    module = "initiative",
+--                    action = "add_support",
+--                    id = new_draft.initiative.id,
+--                    routing = {
+--                        default = {
+--                            mode = "redirect",
+--                            module = "initiative",
+--                            view = "show",
+--                            id = new_draft.initiative.id
+--                        }
+--                    }
+--                }
+--            end
+--        }
+--    end
+--end
 
 local old_draft_content = string.gsub(string.gsub(old_draft.content, "\n", " ###ENTER###\n"), " ", "\n")
 local new_draft_content = string.gsub(string.gsub(new_draft.content, "\n", " ###ENTER###\n"), " ", "\n")
@@ -111,17 +159,33 @@ local function process_line(line)
     end
 end
 
-if not status then
-    ui.field.text { value = _ "The drafts do not differ" }
-else
-    ui.container {
-        tag = "div",
-        attr = { class = "diff" },
-        content = function()
-            output = output:gsub("[^\n\r]+", function(line)
-                process_line(line)
-            end)
+ui.container {
+    attr = { class = "row-fluid" },
+    content = function()
+        ui.container {
+            attr = { class = "span3" },
+            content = function()
+                ui.heading { level = 3, attr = { class = "label label-warning" }, content = _ "Diff" }
+            end
+        }
+    end
+}
+ui.container {
+    attr = { class = "row-fluid" },
+    content = function()
+        if not status then
+            ui.field.text { value = _ "The drafts do not differ" }
+        else
+            ui.container {
+                tag = "div",
+                attr = { class = "span12 well-inside paper" },
+                content = function()
+                    output = output:gsub("[^\n\r]+", function(line)
+                        process_line(line)
+                    end)
+                end
+            }
         end
-    }
-end 
+    end
+}
 

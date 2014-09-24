@@ -1,22 +1,36 @@
+slot.set_layout("custom")
+
 local search = param.get("search")
 
-ui.title(_ "Member list")
-
-ui.actions(function()
-    ui.link {
-        attr = { class = { "admin_only" } },
-        text = _ "Register new member",
-        module = "admin",
-        view = "member_edit"
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "index",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Member list"
+            }
+        end
     }
 end)
-
 
 ui.form {
     module = "admin",
     view = "member_list",
     content = function()
-
         ui.field.text { label = _ "Search for members", name = "search" }
 
         ui.submit { value = _ "Start search" }
@@ -31,7 +45,6 @@ local members_selector = Member:build_selector {
     admin_search = search,
     order = "identification"
 }
-
 
 ui.paginate {
     selector = members_selector,

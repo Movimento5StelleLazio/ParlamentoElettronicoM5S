@@ -54,6 +54,58 @@ else
   slot.put_into("error", "No selector returned from filter")
 end
 --]]
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "index",
+                        view = "index",
+                        params = { initiative_id = param.get_id() },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span8 text-center" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        content = function()
+                            slot.put(_("Welcome <strong>#{realname}.</strong>", { realname = (app.session.member.realname and app.session.member.realname or app.session.member.login) }))
+                        end
+                    }
+
+                    ui.heading { level = 6, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", { realname = (app.session.member.realname and app.session.member.realname or app.session.member.login) }) }
+                    ui.heading { level = 6, content = _ "Here internal questions are being discussed." }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center " },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Choose by pressing one of the following buttons:",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
 
 ui.container {
     attr = { class = "row-fluid" },
@@ -61,45 +113,8 @@ ui.container {
         ui.container {
             attr = { class = "span12 well text-center" },
             content = function()
-
                 ui.container {
                     attr = { class = "row-fluid" },
-                    content = function()
-                    --		  ui.container{attr={class="span12"},content=function()
-                    --Back button
-                        ui.link {
-                            attr = { class = "span3 inline btn btn-primary btn-large large_btn" },
-                            module = "index",
-                            view = "index",
-                            content = function()
-                                ui.heading {
-                                    level = 3,
-                                    content = function()
-                                        ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                        slot.put(_ "Back to previous page")
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span6 text-center" },
-                            content = function()
-                                ui.heading {
-                                    level = 1,
-                                    content = function()
-                                        slot.put(_("Welcome <strong>#{realname}.</strong>", { realname = (app.session.member.realname and app.session.member.realname or app.session.member.login) }))
-                                    end
-                                }
-
-                                ui.heading { level = 6, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", { realname = (app.session.member.realname and app.session.member.realname or app.session.member.login) }) }
-                                ui.heading { level = 6, content = _ "Here internal questions are being discussed." }
-                            end
-                        }
-                    end
-                }
-
-                ui.container {
-                    attr = { class = "row-fluid spaceline" },
                     content = function()
                         ui.container {
                             attr = { class = "span12" },

@@ -1,3 +1,5 @@
+slot.set_layout("custom")
+
 local search_for = param.get("search_for", atom.string) or "global"
 local search_string = param.get("search", atom.string)
 
@@ -7,8 +9,35 @@ else
     slot.put_into("title", encode.html(_ "Search"))
 end
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    local redirect_data = request.get_redirect_data() or {module = "index", view = "index", id = "0", params = {} }
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick" },
+                        module = redirect_data.module,
+                        view = redirect_data.view,
+                        id = redirect_data.id,
+                        params = redirect_data.params,
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.tag {
+                tag = "strong",
+                attr = { class = "span9 text-center" },
+                content = _ "Search"
+            }
+        end
+    }
+end)
+
 ui.form {
-    method = "get",
     module = "index",
     view = "search",
     routing = {
@@ -59,14 +88,25 @@ if search_string then
 
     if search_for == "global" or search_for == "issue" then
         local issues_selector = Issue:get_search_selector(search_string)
-        execute.view {
-            module = "issue",
-            view = "_list",
-            params = {
-                issues_selector = issues_selector,
-                highlight_string = search_string,
-                no_filter = true
-            },
+
+        ui.container {
+            attr = { class = "row-fluid" },
+            content = function()
+                ui.container {
+                    attr = { class = "offset2 span8" },
+                    content = function()
+                        execute.view {
+                            module = "issue",
+                            view = "_list_ext2_bs",
+                            params = {
+                                selector = issues_selector,
+                                highlight_string = search_string,
+                                no_filter = true
+                            }
+                        }
+                    end
+                }
+            end
         }
     end
 end

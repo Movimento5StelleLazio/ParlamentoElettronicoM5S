@@ -1,12 +1,21 @@
 slot.set_layout("custom")
 
-local issue = Issue:by_id(param.get_id())
+local issue_id = param.get_id()
+if issue_id == 0 then
+	local tmp = param.get("issue_id", atom.integer)
+	if tmp and tmp ~= 0 then
+		issue_id = tmp
+	end
+end
+
+trace.debug("issue "..tostring(issue_id))
+local issue = Issue:by_id(issue_id)
 local state = param.get("state")
 local orderby = param.get("orderby") or ""
 local desc = param.get("desc", atom.boolean)
 local interest = param.get("interest")
 local scope = param.get("scope")
-local view = param.get("view") or "homepage"
+local view = param.get("view")
 local ftl_btns = param.get("ftl_btns", atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
@@ -51,22 +60,24 @@ ui.container {
                         ui.container {
                             attr = { class = "span3" },
                             content = function()
-                                ui.link {
-                                    attr = { class = "btn btn-primary btn-large fixclick" },
-                                    module = "area_private",
-                                    id = issue.area.id,
-                                    view = "show_ext_bs",
-                                    params = param.get_all_cgi(),
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(return_btn_txt)
-                                            end
-                                        }
-                                    end
-                                }
+                            		if app.session.member then
+		                              ui.link {
+		                                  attr = { class = "btn btn-primary large_btn fixclick" },
+		                                  module = "area_private",
+		                                  id = issue.area.id,
+		                                  view = "show_ext_bs",
+		                                  params = param.get_all_cgi(),
+		                                  content = function()
+		                                      ui.heading {
+		                                          level = 3,
+		                                          content = function()
+		                                              ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+		                                              slot.put(return_btn_txt)
+		                                          end
+		                                      }
+		                                  end
+		                              }
+                                end
                             end
                         }
                         ui.container {
@@ -838,7 +849,8 @@ ui.container {
                         }
                     end
                 }
-                if app.session.member.id then
+                if app.session.member then
+			if app.session.member.id then
 				    				local interested_members_selector = issue:get_reference_selector("interested_members_snapshot")
 											:join("issue", nil, "issue.id = direct_interest_snapshot.issue_id")
 											:add_field("direct_interest_snapshot.weight")
@@ -875,6 +887,7 @@ ui.container {
 												 end
 										}
 								end
+			end
             end
         }
     end

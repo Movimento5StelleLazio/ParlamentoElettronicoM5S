@@ -1,23 +1,59 @@
+slot.set_layout("custom")
+
 local initiative = Initiative:by_id(param.get("initiative_id"))
 
-slot.put_into("title", _ "Invite an initiator to initiative")
-
-slot.select("actions", function()
-    ui.link {
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
         content = function()
-            ui.image { static = "icons/16/cancel.png" }
-            slot.put(_ "Cancel")
-        end,
-        module = "initiative",
-        view = "show",
-        id = initiative.id,
-        params = {
-            tab = "initiators"
-        }
+            ui.container {
+                attr = { class = "span3 text-left" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "initiative",
+                        view = "show",
+                        id = initiative.id,
+                        params = {
+                            tab = "initiators"
+                        },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+
+            ui.container {
+                attr = { class = "span8 spaceline2 text-center label label-warning" },
+                content = function()
+                    ui.heading {
+                        level = 1,
+                        attr = { class = "fittext1 uppercase" },
+                        content = _ "Invite an initiator to initiative"
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center spaceline" },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Puoi invitare alcuni tuoi amici come co-autori della proposta. Per farlo, selezionali nell'elenco sottostante e poi clicca su <i>Salva</i>. Per aggiungere amici apri il profilo della persona che vuoi aggiungere cliccando sulla sua miniatura e clicca su <i>Aggiungi ai contatti</i>",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
     }
 end)
-
-util.help("initiative.add_initiator", _ "Invite an initiator to initiative")
 
 ui.form {
     attr = { class = "vertical" },
@@ -55,6 +91,13 @@ ui.form {
             foreign_id = "id",
             foreign_name = "name"
         }
-        ui.submit { text = _ "Save" }
+        ui.tag {
+            tag = "input",
+            attr = {
+                type = "submit",
+                class = "offset4 btn btn-primary btn-large large_btn",
+                value = _ "Save"
+            }
+        }
     end
 }

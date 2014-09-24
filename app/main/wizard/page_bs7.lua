@@ -41,6 +41,78 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+--set the back parameters
+local view_back = "page_bs6"
+local module_back = "wizard"
+local params_back = {
+    area_id = area_id,
+    unit_id = unit_id,
+    area_name = area_name,
+    unit_name = unit_name,
+    policy_id = policy_id,
+    issue_title = issue_title,
+    issue_brief_description = issue_brief_description,
+    issue_keywords = issue_keywords,
+    problem_description = problem_description,
+    aim_description = aim_description,
+    initiative_title = initiative_title,
+    initiative_brief_description = initiative_brief_description,
+    draft = draft,
+    technical_areas = technical_areas,
+    proposer1 = proposer1,
+    proposer2 = proposer2,
+    proposer3 = proposer3,
+    resource = resource
+}
+
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12" },
+                                content = function()
+                                    ui.image { static = "png/step_6_f7.png" }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs7" },
@@ -71,7 +143,10 @@ ui.form {
         local progresso = _ "FASE <strong>7</strong> di 10"
 
         if issue_id ~= 0 then
-            progresso = _ "FASE <strong>2</strong> di 5"
+            progresso = _ "FASE <strong>1</strong> di 4"
+            view_back = "show_ext_bs"
+            module_back = "issue"
+            params_back = { id = issue_id }
         end
 
         ui.container {
@@ -84,42 +159,7 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_6_f7.png" }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 well-inside paper text-center spaceline" },
+                                    attr = { class = "span12" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "row-fluid" },
@@ -141,17 +181,35 @@ ui.form {
                                         }
 
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 text-center" },
+                                            attr = { class = "row-fluid spaceline text-center" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12" },
+                                                    attr = { class = "span12 well-inside paper" },
                                                     content = function()
-                                                        ui.field.text {
-                                                            attr = { id = "initiative_title", style = " font-size: 25px;height: 30px;width: 60%;" },
-                                                            name = "initiative_title",
-                                                            label = _ "Initiative Title",
-                                                            label_attr = { style = "font-size:20px;" },
-                                                            value = initiative_title
+                                                        ui.container {
+                                                            attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                                            content = function()
+                                                                ui.heading {
+                                                                    attr = { class = "span12 text-center" },
+                                                                    level = 1,
+                                                                    content = _ "Initiative Title"
+                                                                }
+                                                            end
+                                                        }
+                                                        ui.container {
+                                                            attr = { class = "row-fluid" },
+                                                            content = function()
+                                                                ui.container {
+                                                                    attr = { class = "span10 offset1" },
+                                                                    content = function()
+                                                                        ui.field.text {
+                                                                            attr = { id = "initiative_title", style = " font-size: 25px;height: 4em;" },
+                                                                            name = "initiative_title",
+                                                                            value = initiative_title
+                                                                        }
+                                                                    end
+                                                                }
+                                                            end
                                                         }
                                                     end
                                                 }
@@ -210,32 +268,24 @@ ui.form {
         }
     end
 }
---	ROUTING BACK
 
-ui.form {
-    method = "post",
-    attr = { class = "inline-block", id = "page_bs7_back" },
-    module = 'wizard',
-    view = 'page_bs6',
-    params = {
-        issue_id = issue_id,
-        area_id = area_id,
-        unit_id = unit_id,
-        area_name = area_name,
-        unit_name = unit_name,
-        policy_id = policy_id,
-        issue_title = issue_title,
-        issue_brief_description = issue_brief_description,
-        issue_keywords = issue_keywords,
-        problem_description = problem_description,
-        aim_description = aim_description,
-        initiative_title = initiative_title,
-        initiative_brief_description = initiative_brief_description,
-        draft = draft,
-        technical_areas = technical_areas,
-        proposer1 = proposer1,
-        proposer2 = proposer2,
-        proposer3 = proposer3,
-        resource = resource
+--	ROUTING BACK
+if issue_id then
+    ui.form {
+        method = "post",
+        attr = { class = "inline-block", id = "page_bs7_back" },
+        module = module_back,
+        view = view_back,
+        params = params_back,
+        id = issue_id
     }
-}
+
+else
+    ui.form {
+        method = "post",
+        attr = { class = "inline-block", id = "page_bs7_back" },
+        module = module_back,
+        view = view_back,
+        params = params_back
+    }
+end

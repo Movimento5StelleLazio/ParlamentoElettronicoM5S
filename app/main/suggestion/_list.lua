@@ -9,52 +9,47 @@ if true or not show_filter then
 end
 
 ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
+    attr={class="row-fluid"},
+    content=function()
         ui.container {
-            attr = { class = "span12 well-inside paper" },
+            attr = { class = "span6 offset3 label label-warning" },
             content = function()
-
-
-
-                ui.container {
-                    attr = { class = "row-fluid spaceline spaceline-bottom" },
+                ui.tag { tag = "h1", attr = { class = "text-center", name = "suggestions" }, content = _ "Suggestions" }
+            end
+        }
+        ui.container {
+            attr = { class = "span1 offset1 text-right " },
+            content = function()
+                ui.field.popover {
+                    attr = {
+                        dataplacement = "left",
+                        datahtml = "true";
+                        datatitle = _ "Box di aiuto",
+                        datacontent = _ "In questo box trovi l' Elenco degli emendamenti presentati (click sul titolo evidenziato per vedere il dettaglio), ed il loro andamento nel gradimento ed opinione dell' Assemblea, puoi tu stesso presentare un emendamento, oppure dare la tua opinione, consenso o diniego, di uno o piu emendamenti, queste azioni condizionano la stesura finale del testo di Legge, da proporre per il voto definitivo. Ogni sostenitore ha diritto ad un max di 3 emendamenti (Regola sperimentale).",
+                        datahtml = "true",
+                        class = "text-center"
+                    },
                     content = function()
                         ui.container {
-                            attr = { class = "span6 offset3 label label-warning" },
+                            attr = { class = "row-fluid" },
                             content = function()
-                                ui.tag { tag = "h1", attr = { class = "text-center", name = "suggestions" }, content = _ "Suggestions" }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span1 offset1 text-right " },
-                            content = function()
-                                ui.field.popover {
-                                    attr = {
-                                        dataplacement = "left",
-                                        datahtml = "true";
-                                        datatitle = _ "Box di aiuto",
-                                        datacontent = _ "In questo box trovi l' Elenco degli emendamenti presentati (click sul titolo evidenziato per vedere il dettaglio), ed il loro andamento nel gradimento ed opinione dell' Assemblea, puoi tu stesso presentare un emendamento, oppure dare la tua opinione, consenso o diniego, di uno o piu emendamenti, queste azioni condizionano la stesura finale del testo di Legge, da proporre per il voto definitivo. Ogni sostenitore ha diritto ad un max di 3 emendamenti (Regola sperimentale).",
-                                        datahtml = "true",
-                                        class = "text-center"
-                                    },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.image { static = "png/tutor.png" }
-                                            --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                            end
-                                        }
-                                    end
-                                }
+                                ui.image { static = "png/tutor.png" }
+                            --								    ui.heading{level=3 , content= _"What you want to do?"}
                             end
                         }
                     end
                 }
+            end
+        }
+    end
+}
 
-
-
+ui.container {
+    attr = { class = "row-fluid spaceline" },
+    content = function()
+        ui.container {
+            attr = { class = "span12 well-inside paper" },
+            content = function()
                 ui.container {
                     attr = { class = "row-fluid spaceline" },
                     content = function()

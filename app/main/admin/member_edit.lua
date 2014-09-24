@@ -1,12 +1,42 @@
+slot.set_layout("custom")
+
 local id = param.get_id()
 
 local member = Member:by_id(id)
 
-if member then
-    ui.title(_("Member: '#{identification}' (#{name})", { identification = member.identification, name = member.name }))
-else
-    ui.title(_ "Register new member")
-end
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "admin",
+                        view = "member_list",
+                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            if member then
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _("Member: '#{identification}' (#{name})", { identification = member.identification, name = member.name })
+                }
+            else
+                ui.tag {
+                    tag = "strong",
+                    attr = { class = "span9 text-center" },
+                    content = _ "Register new member"
+                }
+            end
+        end
+    }
+end)
+
 
 local units_selector = Unit:new_selector()
 
