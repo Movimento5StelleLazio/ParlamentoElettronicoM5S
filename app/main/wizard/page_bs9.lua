@@ -74,6 +74,28 @@ local back_params = {
     proposer3 = proposer3,
     resource = resource
 }
+local next_view = "page_bs10"
+local next_params = {
+    issue_id = issue_id,
+    area_id = area_id,
+    unit_id = unit_id,
+    area_name = area_name,
+    unit_name = unit_name,
+    policy_id = policy_id,
+    issue_title = issue_title,
+    issue_brief_description = issue_brief_description,
+    issue_keywords = issue_keywords,
+    problem_description = problem_description,
+    aim_description = aim_description,
+    initiative_title = initiative_title,
+    initiative_brief_description = initiative_brief_description,
+    draft = draft,
+    technical_areas = technical_areas,
+    proposer1 = proposer1,
+    proposer2 = proposer2,
+    proposer3 = proposer3,
+    resource = resource
+}
 
 local progresso = _ "FASE <strong>9</strong> di 10"
 
@@ -140,22 +162,17 @@ ui.title(function()
 end)
 
 if draft_id ~= 0 then
+
     progresso = _ "FASE <strong>1</strong> di 1"
+    draft_node = Draft:by_id(draft_id)
     draft = Draft:by_id(draft_id).content
+    trace.debug("Initiative id: ".. tostring(draft_node.initiative_id))
     back_module = 'initiative'
     back_view = 'show'
-    back_params = { initiative_id = param.get("initiative_id", atom.integer) }
-elseif issue_id ~= 0 then
-        progresso = _ "FASE <strong>3</strong> di 4"
---    end
-end
-
-ui.form {
-    method = "post",
-    attr = { id = "page_bs9" },
-    module = 'wizard',
-    view = 'page_bs10',
-    params = {
+    back_params = { initiative_id = draft_node.initiative_id }
+    next_view = "page_bs12"
+    next_params = {
+        draft_id = draft_id,
         issue_id = issue_id,
         area_id = area_id,
         unit_id = unit_id,
@@ -175,7 +192,16 @@ ui.form {
         proposer2 = proposer2,
         proposer3 = proposer3,
         resource = resource
-    },
+    }
+elseif issue_id ~= 0 then
+    progresso = _ "FASE <strong>3</strong> di 4"
+end
+ui.form {
+    method = "post",
+    attr = { id = "page_bs9" },
+    module = 'wizard',
+    view = next_view,
+    params = next_params,
     content = function()
         ui.container {
             attr = { class = "row-fluid" },
@@ -299,10 +325,10 @@ ui.form {
 
 --	ROUTING BACK
 
-ui. form {
-method = "post",
-attr = { class = "inline-block", id = "page_bs9_back" },
-module = back_module,
-view = back_view,
-params = back_params
+ui.form {
+    method = "post",
+    attr = { class = "inline-block", id = "page_bs9_back" },
+    module = back_module,
+    view = back_view,
+    params = back_params
 }

@@ -41,6 +41,72 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+
+                    ui.container {
+                        attr = { class = "span10 offset1 text-center" },
+                        content = function()
+                            ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                            ui.heading {
+                                level = 2,
+                                attr = { class = "spaceline" },
+                                content = function()
+                                    slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                end
+                            }
+                            ui.heading {
+                                level = 2,
+                                content = function()
+                                    slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "span1 text-center " },
+                        content = function()
+                            ui.field.popover {
+                                attr = {
+                                    dataplacement = "left",
+                                    datahtml = "true";
+                                    datatitle = _ "Insert the keywords for the issue",
+                                    datacontent = _ "Keywords note",
+                                    datahtml = "true",
+                                    class = "text-center"
+                                },
+                                content = function()
+                                    ui.container {
+                                        attr = { class = "row-fluid" },
+                                        content = function()
+                                            ui.image { static = "png/tutor.png" }
+                                        --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "row-fluid" },
+                content = function()
+                    ui.image {
+                        attr = { class = "span12" },
+                        static = "png/step_3_f4.png"
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs4" },
@@ -78,44 +144,13 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span10 offset1 text-center" },
+                                    attr = { class = "span6 offset3 text-center spaceline" },
                                     content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                         ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
+                                            level = 3,
+                                            attr = { class = "label label-warning" },
                                             content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span1 text-center " },
-                                    content = function()
-                                        ui.field.popover {
-                                            attr = {
-                                                dataplacement = "left",
-                                                datahtml = "true";
-                                                datatitle = _ "Insert the keywords for the issue",
-                                                datacontent = _ "Keywords note",
-                                                datahtml = "true",
-                                                class = "text-center"
-                                            },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid" },
-                                                    content = function()
-                                                        ui.image { static = "png/tutor.png" }
-                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                    end
-                                                }
+                                                slot.put(_ "FASE <strong>4</strong> di 10")
                                             end
                                         }
                                     end
@@ -126,45 +161,26 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 alert alert-simple issue_box paper" },
+                                    attr = { class = "span6 offset3 text-center" },
                                     content = function()
-                                        ui.image { static = "png/step_3_f4.png" }
+                                        ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Give keywords that describe the issue" }
                                     end
                                 }
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid spaceline" },
+                            attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 well-inside paper" },
+                                    attr = { class = "span12 well-inside paper spaceline" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row-fluid spaceline spaceline-bottom" },
                                             content = function()
-                                                ui.container {
-                                                    attr = { class = "span6 offset3 text-center spaceline" },
-                                                    content = function()
-                                                        ui.heading {
-                                                            level = 3,
-                                                            attr = { class = "label label-warning" },
-                                                            content = function()
-                                                                slot.put(_ "FASE <strong>4</strong> di 10")
-                                                            end
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
-
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-center" },
-                                                    content = function()
-                                                        ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Keywords" }
-                                                    end
+                                                ui.heading {
+                                                    attr = { class = "span12 text-center" },
+                                                    level = 1,
+                                                    content = _ "Keywords"
                                                 }
                                             end
                                         }

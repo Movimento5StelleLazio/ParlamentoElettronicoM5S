@@ -268,7 +268,6 @@ ui.form {
         }
     end
 }
-
 --	ROUTING BACK
 if issue_id then
     ui.form {

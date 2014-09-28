@@ -48,12 +48,78 @@ for i, k in ipairs(area_policies) do
     policies[#policies + 1] = { id = k.policy_id, name = Policy:by_id(k.policy_id).name }
 end
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span10 offset1 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 text-center " },
+                                content = function()
+                                    ui.field.popover {
+                                        attr = {
+                                            dataplacement = "left",
+                                            datahtml = "true";
+                                            datatitle = _ "Box di aiuto per la pagina",
+                                            datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
+                                            datahtml = "true",
+                                            class = "text-center"
+                                        },
+                                        content = function()
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.image { static = "png/tutor.png" }
+                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.image { attr = { class = "span12" }, static = "png/step_1_f1.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs1" },
     module = 'wizard_private',
     view = 'page_bs2',
-    id = 'page_bs1',
     params = {
         issue_id = issue_id,
         area_id = area_id,
@@ -86,67 +152,7 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span10 offset1 text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span1 text-center " },
-                                    content = function()
-                                        ui.field.popover {
-                                            attr = {
-                                                dataplacement = "left",
-                                                datahtml = "true";
-                                                datatitle = _ "Box di aiuto per la pagina",
-                                                datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
-                                                datahtml = "true",
-                                                class = "text-center"
-                                            },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid" },
-                                                    content = function()
-                                                        ui.image { static = "png/tutor.png" }
-                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12  alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_1_f1.png" }
-                                    end
-                                }
-                            end
-                        }
-
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12  well-inside paper" },
+                                    attr = { class = "span12" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "row-fluid" },
@@ -164,13 +170,11 @@ ui.form {
                                                         ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "How much time does your proposal need to be examined?" }
                                                     end
                                                 }
-
-
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline3" },
+                                                    attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span7 offset3 spaceline-bottom" },
+                                                            attr = { class = "span12 spaceline well-inside paper text-center" },
                                                             content = function()
                                                             --valore selezionato
                                                                 ui.field.hidden {
@@ -188,8 +192,8 @@ ui.form {
                                                                             out_id = "policy_id",
                                                                             elements = policies,
                                                                             selected = policy_id,
-                                                                            attr = { class = "parelon-checkbox spaceline3" },
-                                                                            label_attr = { class = "parelon-label spaceline3" }
+                                                                            attr = { class = "parelon-checkbox spaceline2" },
+                                                                            label_attr = { class = "parelon-label spaceline2" }
                                                                         }
                                                                     end
                                                                 }

@@ -41,6 +41,77 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span10 offset1 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 text-center " },
+                                content = function()
+                                    ui.field.popover {
+                                        attr = {
+                                            dataplacement = "left",
+                                            datahtml = "true";
+                                            datatitle = _ "Give a description to the problem you want to solve",
+                                            datacontent = _ "Problem note",
+                                            datahtml = "true",
+                                            class = "text-center"
+                                        },
+                                        content = function()
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.image { static = "png/tutor.png" }
+                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.image {
+                                attr = { class = "span12" },
+                                static = "png/step_4_f5.png"
+                            }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs5" },
@@ -78,66 +149,7 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span10 offset1 text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span1 text-center " },
-                                    content = function()
-                                        ui.field.popover {
-                                            attr = {
-                                                dataplacement = "left",
-                                                datahtml = "true";
-                                                datatitle = _ "Give a description to the problem you want to solve",
-                                                datacontent = _ "Problem note",
-                                                datahtml = "true",
-                                                class = "text-center"
-                                            },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid" },
-                                                    content = function()
-                                                        ui.image { static = "png/tutor.png" }
-                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_4_f5.png" }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 well-inside paper" },
+                                    attr = { class = "span12" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "row-fluid" },
@@ -156,27 +168,45 @@ ui.form {
                                                 }
                                             end
                                         }
-
-
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline" },
+                                            attr = { class = "row-fluid" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row-fluid text-center" },
                                                     content = function()
-                                                        ui.tag { tag = "p", attr = { class = "text-center" }, content = _ "Problem description" }
+                                                        ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Give a description to the problem you want to solve" }
                                                     end
                                                 }
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline" },
+                                                    attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span10 offset1 " },
+                                                            attr = { class = "span12 well-inside paper spaceline" },
                                                             content = function()
-                                                                ui.tag {
-                                                                    tag = "textarea",
-                                                                    attr = { id = "problem_description", name = "problem_description", style = "resize:none;height:260px;", class = "span12" },
-                                                                    content = problem_description
+                                                                ui.container {
+                                                                    attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                                                    content = function()
+                                                                        ui.heading {
+                                                                            attr = { class = "span12 text-center" },
+                                                                            level = 1,
+                                                                            content = _ "Problem description"
+                                                                        }
+                                                                    end
+                                                                }
+                                                                ui.container {
+                                                                    attr = { class = "row-fluid" },
+                                                                    content = function()
+                                                                        ui.container {
+                                                                            attr = { class = "span10 offset1" },
+                                                                            content = function()
+                                                                                ui.tag {
+                                                                                    tag = "textarea",
+                                                                                    attr = { id = "problem_description", name = "problem_description", style = "resize:none;height:260px;", class = "span12" },
+                                                                                    content = problem_description
+                                                                                }
+                                                                            end
+                                                                        }
+                                                                    end
                                                                 }
                                                             end
                                                         }

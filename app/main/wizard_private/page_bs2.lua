@@ -41,6 +41,49 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span10 offset1 text-center" },
+                                content = function()
+                                    ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.image { attr = { class = "span12" }, static = "png/step_2_f2.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
 ui.form {
     method = "post",
     attr = { id = "page_bs2" },
@@ -75,46 +118,10 @@ ui.form {
                     attr = { class = "span12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row-fluid spaceline" },
                             content = function()
                                 ui.container {
                                     attr = { class = "span12 text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12  alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_2_f2.png" }
-                                    end
-                                }
-                            end
-                        }
-
-                        ui.container {
-                            attr = { class = "row-fluid well-inside paper spaceline" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 text-center spaceline" },
                                     content = function()
                                         ui.heading {
                                             level = 3,
@@ -126,20 +133,43 @@ ui.form {
                                         ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Give a title to the problem you want to solve" }
                                     end
                                 }
-
-
                                 ui.container {
-                                    attr = { class = "row-fluid  spaceline3" },
+                                    attr = { class = "row-fluid" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span10 offset1 text-center" },
+                                            attr = { class = "span12 well-inside paper spaceline" },
                                             content = function()
-                                                ui.field.text {
-                                                    attr = { id = "issue_title" },
-                                                    name = "issue_title",
-                                                    label = _ "Problem Title",
-                                                    value = issue_title,
-                                                    label_attr = { style = "font-size:20px" }
+                                                ui.container {
+                                                    attr = { class = "row-fluid" },
+                                                    content = function()
+                                                        ui.container {
+                                                            attr = { class = "span12 text-center spaceline spaceline-bottom" },
+                                                            content = function()
+                                                                ui.heading {
+                                                                    level = 1,
+                                                                    content = _ "Issue Title"
+                                                                }
+                                                            end
+                                                        }
+                                                    end
+                                                }
+                                                ui.container {
+                                                    attr = { class = "row-fluid spaceline-bottom" },
+                                                    content = function()
+                                                        ui.container {
+                                                            attr = { class = "span10 offset1 text-center" },
+                                                            content = function()
+                                                                ui.field.text {
+                                                                    attr = {
+                                                                        id = "issue_title",
+                                                                        style = "height:2em;"
+                                                                    },
+                                                                    name = "issue_title",
+                                                                    value = issue_title
+                                                                }
+                                                            end
+                                                        }
+                                                    end
                                                 }
                                             end
                                         }

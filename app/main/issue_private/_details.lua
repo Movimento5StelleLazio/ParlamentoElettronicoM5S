@@ -50,9 +50,9 @@ ui.form {
         end
     end
 }
-ui.form {
-    record = issue.policy,
-    readonly = true,
-    content = function()
-    end
-}
+--ui.form {
+--    record = issue.policy,
+--    readonly = true,
+--    content = function()
+--    end
+--}
