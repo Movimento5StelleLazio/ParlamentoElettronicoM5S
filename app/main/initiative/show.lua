@@ -1,8 +1,9 @@
-local initiative = Initiative:by_id(param.get("initiative_id", atom.integer))
-if not initiative then
-    initiative = Initiative:by_id(param.get_id())
+local initiative_id = param.get("initiative_id", atom.integer) or 0
+if initiative_id == 0 then
+    initiative_id = param.get_id()
 end
 
+local initiative = Initiative:by_id(initiative_id)
 local issue = Issue:by_id(initiative.issue_id)
 trace.debug("issue = "..tostring(issue.id))
 trace.debug("initiative = "..tostring(initiative.id))

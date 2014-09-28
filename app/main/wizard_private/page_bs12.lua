@@ -43,12 +43,89 @@ trace.debug("proposer2: " .. tostring(proposer2))
 trace.debug("proposer3: " .. tostring(proposer3))
 trace.debug("resource: " .. (resource and resource or "none"))
 
-ui.form {
-    method = "post",
-    attr = { id = "page_bs12", class = "" },
-    module = 'wizard_private',
-    action = 'create',
-    params = {
+local action = "create"
+local action_params = {
+    issue_id = issue_id,
+    area_id = area_id,
+    unit_id = unit_id,
+    area_name = area_name,
+    unit_name = unit_name,
+    policy_id = policy_id,
+    issue_title = issue_title,
+    issue_brief_description = issue_brief_description,
+    issue_keywords = issue_keywords,
+    problem_description = problem_description,
+    aim_description = aim_description,
+    initiative_title = initiative_title,
+    initiative_brief_description = initiative_brief_description,
+    draft = draft,
+    technical_areas = technical_areas,
+    proposer1 = proposer1,
+    proposer2 = proposer2,
+    proposer3 = proposer3,
+    formatting_engine = "rocketwiki",
+    resource = resource
+}
+
+local back_view = "page_bs10"
+local back_params = {
+    issue_id = issue_id,
+    area_id = area_id,
+    unit_id = unit_id,
+    area_name = area_name,
+    unit_name = unit_name,
+    policy_id = policy_id,
+    issue_title = issue_title,
+    issue_brief_description = issue_brief_description,
+    issue_keywords = issue_keywords,
+    problem_description = problem_description,
+    aim_description = aim_description,
+    initiative_title = initiative_title,
+    initiative_brief_description = initiative_brief_description,
+    draft = draft,
+    technical_areas = technical_areas,
+    proposer1 = proposer1,
+    proposer2 = proposer2,
+    proposer3 = proposer3,
+    resource = resource
+}
+
+local disable = ""
+local only_draft = ""
+if issue_id ~= 0 then
+    disable = " hidden"
+end
+if draft_id ~= 0 then
+    disable = " hidden"
+    only_draft = " hidden"
+    action = "add_new_draft"
+    action_params = {
+        draft_id = draft_id,
+        issue_id = issue_id,
+        area_id = area_id,
+        unit_id = unit_id,
+        area_name = area_name,
+        unit_name = unit_name,
+        policy_id = policy_id,
+        issue_title = issue_title,
+        issue_brief_description = issue_brief_description,
+        issue_keywords = issue_keywords,
+        problem_description = problem_description,
+        aim_description = aim_description,
+        initiative_title = initiative_title,
+        initiative_brief_description = initiative_brief_description,
+        content = draft,
+        draft = draft,
+        technical_areas = technical_areas,
+        proposer1 = proposer1,
+        proposer2 = proposer2,
+        proposer3 = proposer3,
+        formatting_engine = "rocketwiki",
+        resource = resource
+    }
+    back_view = "page_bs9"
+    back_params = {
+        draft_id = draft_id,
         issue_id = issue_id,
         area_id = area_id,
         unit_id = unit_id,
@@ -67,50 +144,130 @@ ui.form {
         proposer1 = proposer1,
         proposer2 = proposer2,
         proposer3 = proposer3,
-        formatting_engine = "rocketwiki",
         resource = resource
-    },
+    }
+end
+trace.debug("disable: " .. disable .. "; only_draft: " .. only_draft)
+
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid spaceline" },
+        content = function()
+            ui.container {
+                attr = { class = "span12" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span3 text-left" },
+                                content = function()
+                                -- implementare "indietro"
+                                    ui.tag {
+                                        tag = "a",
+                                        attr = {
+                                            class = "btn btn-primary btn-large fixclick btn-back",
+                                            onclick = "getElementById('page_bs12_back').submit();"
+                                        },
+                                        content = function()
+                                            ui.heading {
+                                                level = 3,
+                                                content = function()
+                                                    ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                                                    slot.put(_ "Back to previous page")
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span8 spaceline2 label label-warning text-center" },
+                                content = function()
+                                    ui.heading { level = 1, content = _ "WIZARD HEADER END" }
+                                end
+                            }
+                            ui.container {
+                                attr = { class = "span1 spaceline text-center " },
+                                content = function()
+                                    ui.field.popover {
+                                        attr = {
+                                            dataplacement = "left",
+                                            datahtml = "true";
+                                            datatitle = _ "Insert Technical Areas",
+                                            datacontent = _ "WIZARD END",
+                                            datahtml = "true",
+                                            class = "text-center"
+                                        },
+                                        content = function()
+                                            ui.container {
+                                                attr = { class = "icon" },
+                                                content = function()
+                                                    ui.image { static = "png/tutor.png" }
+                                                --								    ui.heading{level=3 , content= _"What you want to do?"}
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12 text-center" },
+                                content = function()
+                                    ui.heading {
+                                        level = 2,
+                                        attr = { class = "spaceline" },
+                                        content = function()
+                                            slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
+                                        end
+                                    }
+                                    ui.heading {
+                                        level = 2,
+                                        content = function()
+                                            slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span12" },
+                                content = function()
+                                    ui.image { static = "png/step_end.png" }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+        end
+    }
+end)
+
+ui.form {
+    method = "post",
+    attr = { id = "page_bs12", class = "" },
+    module = 'wizard_private',
+    action = action,
+    params = action_params,
     routing = {
         error = {
             mode = 'redirect',
             module = 'wizard_private',
             view = 'page_bs12',
-            params = {
-                issue_id = issue_id,
-                area_id = area_id,
-                unit_id = unit_id,
-                area_name = area_name,
-                unit_name = unit_name,
-                policy_id = policy_id,
-                issue_title = issue_title,
-                issue_brief_description = issue_brief_description,
-                issue_keywords = issue_keywords,
-                problem_description = problem_description,
-                aim_description = aim_description,
-                initiative_title = initiative_title,
-                initiative_brief_description = initiative_brief_description,
-                draft = draft,
-                technical_areas = technical_areas,
-                proposer1 = proposer1,
-                proposer2 = proposer2,
-                proposer3 = proposer3,
-                formatting_engine = "rocketwiki",
-                resource = resource
-            }
+            params = action_params
         }
     },
     content = function()
-        local disable = ""
-        local only_draft = ""
-        if issue_id ~= 0 then
-            disable = " hidden"
-        end
-        if draft_id ~= 0 then
-            disable = " hidden"
-            only_draft = " hidden"
-        end
-        trace.debug("disable: " .. disable .. "; only_draft: " .. only_draft)
-
         ui.container {
             attr = { class = "row-fluid" },
             content = function()
@@ -118,96 +275,7 @@ ui.form {
                     attr = { class = "span12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span3" },
-                                    content = function()
-                                    -- implementare "indietro"
-                                        ui.tag {
-                                            tag = "a",
-                                            attr = { class = "btn btn-primary btn-large fixclick", onclick = "getElementById('page_bs12_back').submit()" },
-                                            content = function()
-                                                ui.heading {
-                                                    level = 3,
-                                                    content = function()
-                                                        ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                        slot.put(_ "Back to previous page")
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span7 label label-warning text-center" },
-                                    content = function()
-                                        ui.heading { level = 1, content = _ "WIZARD HEADER END" }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "span1 text-center " },
-                                    content = function()
-                                        ui.field.popover {
-                                            attr = {
-                                                dataplacement = "left",
-                                                datahtml = "true";
-                                                datatitle = _ "Insert Technical Areas",
-                                                datacontent = _ "WIZARD END",
-                                                datahtml = "true",
-                                                class = "text-center"
-                                            },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "icon" },
-                                                    content = function()
-                                                        ui.image { static = "png/tutor.png" }
-                                                    --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 text-center" },
-                                    content = function()
-                                        ui.heading {
-                                            level = 2,
-                                            attr = { class = "spaceline" },
-                                            content = function()
-                                                slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>")
-                                            end
-                                        }
-                                        ui.heading {
-                                            level = 2,
-                                            content = function()
-                                                slot.put(_ "Area" .. ": " .. "<strong>" .. area_name .. "</strong>")
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "span12 alert alert-simple issue_box paper" },
-                                    content = function()
-                                        ui.image { static = "png/step_end.png" }
-                                    end
-                                }
-                            end
-                        }
-
-                        ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row-fluid" .. disable },
                             content = function()
                                 ui.container {
                                     attr = { class = "span12 text-center well-inside paper" },
@@ -224,7 +292,7 @@ ui.form {
                                                 end
 
                                                 ui.container {
-                                                    attr = { class = "formSelect" .. disable },
+                                                    attr = { class = "formSelect" },
                                                     content = function()
                                                         ui.container {
                                                             attr = { class = "row-fluid spaceline1 spaceline-bottom " },
@@ -328,7 +396,7 @@ ui.form {
                                                 ui.container {
                                                     attr = { class = "span10 offset1 text-left" },
                                                     content = function()
-                                                        ui.tag { tag = "p", content = _ "Description to the problem you want to solve" }
+                                                        ui.tag { tag = "p", content = _ "Brief description" }
                                                     --									ui.tag{tag="em",content=  _"Description note"}
                                                     end
                                                 }
@@ -366,7 +434,7 @@ ui.form {
                                             attr = { class = "row-fluid" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 collapse", style = "height:200px;" },
+                                                    attr = { class = "span10 offset1 collapse", style = "height:60px;" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -394,7 +462,7 @@ ui.form {
                                             attr = { class = "row-fluid" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1  issue_desc" },
+                                                    attr = { class = "span10 offset1 issue_desc" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -446,68 +514,70 @@ ui.form {
                                     attr = { class = "span12 well", style = "padding-bottom:30px" },
                                     content = function()
                                     -- Titolo box proposta
-                                        ui.container {
-                                            attr = { class = "row-fluid" .. only_draft },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span6 offset3 label label-warning text-center" },
-                                                    content = function()
-                                                        ui.heading { level = 1, content = _ "PROPOSTA" }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        -- Titolo proposta
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
-                                                    content = function()
-                                                        ui.tag { tag = "label", content = _ "Initiative Title" }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 " },
-                                                    content = function()
-                                                        ui.tag { tag = "input", attr = { id = "initiative_title", name = "initiative_title", value = initiative_title, style = "width:100%;" }, content = "" }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        -- Descrizione breve proposta
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-left init_brief" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", content = _ "Initiative short description" }
-                                                    --                      ui.tag{tag="em",content=  _"Initiative short note"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1  init_brief" },
-                                                    content = function()
-                                                        ui.tag {
-                                                            tag = "textarea",
-                                                            attr = { id = "initiative_brief_description", name = "initiative_brief_description", style = "resize:yes;height:250px;width:100%;resize:none;" },
-                                                            content = initiative_brief_description
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
+                                        if only_draft == "" then
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span6 offset3 label label-warning text-center" },
+                                                        content = function()
+                                                            ui.heading { level = 1, content = _ "PROPOSTA" }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            -- Titolo proposta
+                                            ui.container {
+                                                attr = { class = "row-fluid spaceline3 " },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 text-left" },
+                                                        content = function()
+                                                            ui.tag { tag = "label", content = _ "Initiative Title" }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 " },
+                                                        content = function()
+                                                            ui.tag { tag = "input", attr = { id = "initiative_title", name = "initiative_title", value = initiative_title, style = "width:100%;" }, content = "" }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            -- Descrizione breve proposta
+                                            ui.container {
+                                                attr = { class = "row-fluid spaceline3 " },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 text-left init_brief" },
+                                                        content = function()
+                                                            ui.tag { tag = "p", content = _ "Initiative short description" }
+                                                        --                      ui.tag{tag="em",content=  _"Initiative short note"}
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1  init_brief" },
+                                                        content = function()
+                                                            ui.tag {
+                                                                tag = "textarea",
+                                                                attr = { id = "initiative_brief_description", name = "initiative_brief_description", style = "resize:yes;height:250px;width:100%;resize:none;" },
+                                                                content = initiative_brief_description
+                                                            }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                        end
                                         -- Testo della proposta
                                         ui.container {
                                             attr = { class = "row-fluid spaceline3 " },
@@ -529,69 +599,71 @@ ui.form {
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
-                                                            attr = { id = "draft", name = "draft", style = "height:250px;width:100%;resize:yes;" },
+                                                            attr = { id = "draft", name = "draft", style = "height:500px;;resize:yes;" },
                                                             content = draft
                                                         }
                                                     end
                                                 }
                                             end
                                         }
-                                        -- Keywords competenze tecniche
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", content = _ "Keywords" }
-                                                    --                     ui.tag{tag="em",content=  _"Keywords note"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1  collapse", style = "height:auto;" },
-                                                    content = function()
-                                                        ui.tag {
-                                                            tag = "textarea",
-                                                            attr = { id = "technical_areas", name = "technical_areas", class = "tagsinput", style = "height:250px;resize:none;" },
-                                                            content = technical_areas
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        -- link youtube
-                                        ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
-                                                    content = function()
-                                                        ui.tag { tag = "p", content = _ "Youtube video" }
-                                                    --                      ui.tag{tag="em",content=  _"Draft note"}
-                                                    end
-                                                }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "span10 offset1 " },
-                                                    content = function()
-                                                        ui.tag {
-                                                            tag = "textarea",
-                                                            attr = { id = "resource", name = "resource" },
-                                                            content = resource
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
+                                        if only_draft == "" then
+                                            -- Keywords competenze tecniche
+                                            ui.container {
+                                                attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 text-left" },
+                                                        content = function()
+                                                            ui.tag { tag = "p", content = _ "Keywords" }
+                                                        --                     ui.tag{tag="em",content=  _"Keywords note"}
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 collapse" .. only_draft, style = "height:60px;" },
+                                                        content = function()
+                                                            ui.tag {
+                                                                tag = "textarea",
+                                                                attr = { id = "technical_areas", name = "technical_areas", class = "tagsinput", style = "height:250px;resize:none;" },
+                                                                content = technical_areas
+                                                            }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            -- link youtube
+                                            ui.container {
+                                                attr = { class = "row-fluid spaceline3 " },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 text-left" .. only_draft },
+                                                        content = function()
+                                                            ui.tag { tag = "p", content = _ "Youtube video" }
+                                                        --                      ui.tag{tag="em",content=  _"Draft note"}
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                            ui.container {
+                                                attr = { class = "row-fluid" },
+                                                content = function()
+                                                    ui.container {
+                                                        attr = { class = "span10 offset1 " .. only_draft },
+                                                        content = function()
+                                                            ui.tag {
+                                                                tag = "textarea",
+                                                                attr = { id = "resource", name = "resource" },
+                                                                content = resource
+                                                            }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                        end
                                     end
                                 }
                             end
@@ -603,7 +675,7 @@ ui.form {
                             attr = { class = "row-fluid" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span3 text-center", style = "width: 100%;" },
+                                    attr = { class = "span3 text-center", style = "width:100%;" },
                                     content = function()
                                         ui.container {
                                             attr = { id = "pulsanti", style = "position: relative;" },
@@ -615,7 +687,7 @@ ui.form {
                                                             attr = { class = "row-fluid" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span4 text-center"},
+                                                                    attr = { class = "span4 text-center" },
                                                                     content = function()
                                                                     --pulsante anteprima
                                                                         ui.container {
@@ -725,29 +797,9 @@ ui.form {
 ui.form {
     method = "post",
     attr = { id = "page_bs12_back" },
-    module = 'wizard_private',
-    view = 'page_bs10',
-    params = {
-        issue_id = issue_id,
-        area_id = area_id,
-        unit_id = unit_id,
-        area_name = area_name,
-        unit_name = unit_name,
-        policy_id = policy_id,
-        issue_title = issue_title,
-        issue_brief_description = issue_brief_description,
-        issue_keywords = issue_keywords,
-        problem_description = problem_description,
-        aim_description = aim_description,
-        initiative_title = initiative_title,
-        initiative_brief_description = initiative_brief_description,
-        draft = draft,
-        technical_areas = technical_areas,
-        proposer1 = proposer1,
-        proposer2 = proposer2,
-        proposer3 = proposer3,
-        resource = resource
-    }
+    module = 'wizard',
+    view = back_view,
+    params = back_params
 }
 
 ui.script { static = "js/jquery.tagsinput.js" }

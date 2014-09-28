@@ -44,7 +44,7 @@ ui.heading {
     level = 2,
     content = function()
         if event_image then
-            ui.image { attr = { class = "paper-green" }, static = "icons/16/" .. event_image }
+            ui.image { attr = { class = "" }, static = "icons/16/" .. event_image }
         end
         slot.put(event_name or "")
     end
@@ -52,13 +52,11 @@ ui.heading {
 
 ui.tag {
     tag = "p",
-    attr = { class = "paper-green" },
+    attr = { class = "" },
     content = function()
         if issue.closed then
-            slot.put(" &middot; ")
             ui.tag { content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
         elseif issue.state_time_left then
-            slot.put(" &middot; ")
             if issue.state_time_left:sub(1, 1) == "-" then
                 if issue.state == "admission" then
                     ui.tag { content = _("Discussion starts soon") }
@@ -70,7 +68,7 @@ ui.tag {
                     ui.tag { content = _("Counting starts soon") }
                 end
             else
-                ui.tag { attr = { class = "paper-green" }, content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+                ui.tag { attr = { class = "" }, content = format.interval_text(issue.state_time_left, { mode = "time_left" }) }
             end
         end
     end

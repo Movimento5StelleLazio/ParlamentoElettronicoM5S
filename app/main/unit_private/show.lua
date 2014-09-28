@@ -31,7 +31,7 @@ local open_issues_selector = Issue:new_selector():join("area", nil, "area.id = i
 local closed_issues_selector = Issue:new_selector():join("area", nil, "area.id = issue.area_id"):add_where { "area.unit_id = ?", unit.id }:add_where("issue.closed NOTNULL"):add_order_by("issue.closed DESC")
 
 local tabs = {
-    module = "unit",
+    module = "unit_private",
     view = "show",
     id = unit.id
 }
@@ -39,7 +39,7 @@ local tabs = {
 tabs[#tabs + 1] = {
     name = "areas",
     label = _ "Areas",
-    module = "area",
+    module = "area_private",
     view = "_list",
     params = { areas_selector = areas_selector, member = app.session.member }
 }
@@ -55,7 +55,7 @@ tabs[#tabs + 1] = {
 tabs[#tabs + 1] = {
     name = "open",
     label = _ "Open issues",
-    module = "issue",
+    module = "issue_private",
     view = "_list",
     params = {
         for_state = "open",
