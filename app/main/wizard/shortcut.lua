@@ -131,7 +131,7 @@ ui.form {
         error = {
             mode = 'redirect',
             module = 'wizard',
-            view = 'page_bs12',
+            view = 'shortcut',
             params = {
                 issue_id = issue_id,
                 area_id = area_id,

@@ -188,7 +188,7 @@ ui.form {
                                                                 ui.heading {
                                                                     attr = { class = "span12 text-center" },
                                                                     level = 1,
-                                                                    content = _ "Technical competence areas:"
+                                                                    content = _ "Technical competence fields"
                                                                 }
                                                             end
                                                         }

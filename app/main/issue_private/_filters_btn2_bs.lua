@@ -118,7 +118,7 @@ ui.container {
                             content = function()
                                 ui.tag {
                                     tag = "button",
-                                    attr = { datatoggle = "collapse", dataparent = "#contenitore", href = "#filtri", class = "accordion-toggle btn btn-primary active" },
+                                    attr = { datatoggle = "collapse", dataparent = "#contenitore", href = "#filtri", class = "accordion-toggle btn btn-primary" },
                                     content = _ "APPLY FILTERS"
                                 }
                             end

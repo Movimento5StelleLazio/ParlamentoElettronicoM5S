@@ -3,7 +3,7 @@ slot.select('navbar', function()
         attr = { class = "row-fluid" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "span12" },
                 content = function()
                     ui.link {
                         module = 'index',
@@ -11,10 +11,10 @@ slot.select('navbar', function()
                         image = { static = "logo_withe.png" },
                         text = ""
                     }
-                end
-            }
+--                end
+--            }
 
-            --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }]]
+            --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }
             ui.container {
                 attr = { class = "span2 spaceline " },
                 content = function()
@@ -39,32 +39,25 @@ slot.select('navbar', function()
             }
             if app.session.member then
                 ui.container {
-                    attr = { class = "offset1 span2 spaceline " },
+                    attr = { class = "span2 spaceline " },
                     content = function()
                         ui.link {
                             module = 'index',
                             view = 'search',
                             content = function()
-                                ui.heading {
-                                    level = 3,
-                                    attr = { style = "width:100%; text-align: center; color: #ff9900" },
-                                    content = function()
-                                        ui.image { attr = { style = "width: 15%" }, static = "png/search.png" }
-                                        slot.put(_ "Search")
-                                    end
-                                }
+                                        ui.image { static = "png/search.png" }
                             end
                         }
                     end
                 }
             end
-
-            ui.container {
-                attr = { class = "span2 nav pull-right" },
-                content = function()
+]]
+--            ui.container {
+ --               attr = { class = "span6 nav pull-right" },
+--                content = function()
                     ui.tag {
                         tag = "a",
-                        attr = { datatoggle = "dropdown", class = "text-center spaceline label label-warning fixclick btn-dropdown-toggle" },
+                        attr = { datatoggle = "dropdown", class = "pull-right spaceline label label-warning fixclick btn-dropdown-toggle" },
                         module = "index",
                         view = "menu_ext",
                         content = function()

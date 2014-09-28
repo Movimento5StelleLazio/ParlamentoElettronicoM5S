@@ -13,7 +13,90 @@ local ftl_btns = param.get("ftl_btns", atom.boolean) or false
 app.html_title.title = area.name
 app.html_title.subtitle = _("Area")
 
-util.help("area.show")
+ui.title(function()
+    ui.container {
+        attr = { class = "row-fluid text-left" },
+        content = function()
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        module = "area_private",
+                        id = area.id,
+                        view = "filters_bs",
+                        params = { create = create },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            ui.heading {
+                level = 1,
+                attr = { class = "span8 spaceline2 text-center" },
+                content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login) })
+            }
+        end
+    }
+    ui.container {
+        attr = { class = "row-fluid spaceline-bottom" },
+        content = function()
+            ui.container {
+                attr = { class = "span11 text-center" },
+                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid spaceline" },
+                        content = function()
+                            ui.container {
+                                attr = { class = "span4 text-right" },
+                                content = function()
+                                    ui.heading { level = 3, content = _ "Ti trovi nell' area tematica:" }
+                                end
+                            }
+                            local area_id = area.id
+                            local name = area.name
+                            ui.container {
+                                attr = { class = "span8 text-left" },
+                                content = function()
+                                    ui.heading { level = 3, content = name }
+                                end
+                            }
+                        end
+                    }
+                end
+            }
+            ui.container {
+                attr = { class = "span1 text-center " },
+                content = function()
+                    ui.field.popover {
+                        attr = {
+                            dataplacement = "left",
+                            datahtml = "true";
+                            datatitle = _ "Box di aiuto per la pagina",
+                            datacontent = _ "Sei nell'elenco delle QUESTIONI presentate per questa area tematica, puoi applicare i filtri per selezionare con maggior precisione quelle di tuo interesse, o scorrere le QUESTIONI ed entrare nei dettagli.",
+                            datahtml = "true",
+                            class = "text-center"
+                        },
+                        content = function()
+                            ui.image { static = "png/tutor.png" }
+                        end
+                    }
+                end
+            }
+        end
+    }
+    ui.container {
+        attr = { class = "row-fluid" },
+        content = function()
+            ui.container {
+                attr = { class = "span12 text-center spaceline" },
+                content = function()
+                    ui.heading { level = 2, attr = { class = "label label-warning" }, content = _ "Scegli la questione da esaminare:" }
+                end
+            }
+        end
+    }
+end)
 
 -- Determines the desc order button text
 local inv_txt
@@ -73,123 +156,6 @@ else
     issues_desc = _ "Unknown"
 end
 
-ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
-        ui.container {
-            attr = { class = "well span12" },
-            content = function()
-                ui.container {
-                    attr = { class = "row-fluid spaceline" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span3" },
-                            content = function()
-                                ui.link {
-                                    attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                                    module = "area_private",
-                                    id = area.id,
-                                    view = "filters_bs",
-                                    params = { create = create },
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(_ "Back to previous page")
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span8" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.heading { level = 1, attr = { class = "fittext0" }, content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = (member.realname ~= "" and member.realname or member.login) }) }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center spaceline" },
-                                            content = function()
-                                                ui.heading { level = 2, attr = { class = "label label-warning" }, content = _ "Scegli la questione da esaminare:" }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.container {
-                                                    attr = { class = "row-fluid spaceline" },
-                                                    content = function()
-                                                        ui.container {
-                                                            attr = { class = "span5 text-right" },
-                                                            content = function()
-                                                                ui.heading { level = 3, content = _ "Ti trovi nell' area tematica:" }
-                                                            end
-                                                        }
-                                                        local area_id = area.id
-                                                        local name = area.name
-                                                        ui.container {
-                                                            attr = { class = "span6 text-left" },
-                                                            content = function()
-                                                                ui.heading { level = 3, content = name }
-                                                            end
-                                                        }
-                                                    end
-                                                }
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                        ui.container {
-                            attr = { class = "span1 text-center " },
-                            content = function()
-                                ui.field.popover {
-                                    attr = {
-                                        dataplacement = "left",
-                                        datahtml = "true";
-                                        datatitle = _ "Box di aiuto per la pagina",
-                                        datacontent = _ "Sei nell' elenco delle QUESTIONI presentate per questa area tematica, puoi applicare i filtri per selezionare con maggior precisione quelle di tuo interesse, o scorrere le QUESTIONI ed entrare nei dettagli.",
-                                        datahtml = "true",
-                                        class = "text-center"
-                                    },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "row-fluid" },
-                                            content = function()
-                                                ui.image { static = "png/tutor.png" }
-                                            --								    ui.heading{level=3 , content= _"What you want to do?"}
-                                            end
-                                        }
-                                    end
-                                }
-                            end
-                        }
-                    end
-                }
-            end
-        }
-    end
-}
-
 if state == "development" or state == "verification" or state == "discussion" or state == "voting" or state == "committee" then
     btns = {
         default_state = 'development',
@@ -210,20 +176,21 @@ elseif state == "admission" then
         interest = { { "any", "not_interested", "interested", "initiated" }, { "supported", "potentially_supported", "voted" } }
     }
 end
-
-execute.chunk {
-    module = "issue_private",
-    chunk = "_filters_btn2_bs",
-    id = area.id,
-    params = {
-        state = state,
-        orderby = orderby,
-        desc = desc,
-        interest = interest,
-        btns = btns,
-        ftl_btns = ftl_btns
+if state == "development" then
+    execute.chunk {
+        module = "issue_private",
+        chunk = "_filters_btn2_bs",
+        id = area.id,
+        params = {
+            state = state,
+            orderby = orderby,
+            desc = desc,
+            interest = interest,
+            btns = btns,
+            ftl_btns = ftl_btns
+        }
     }
-}
+end
 
 ui.container {
     attr = { class = "row-fluid text-center" },

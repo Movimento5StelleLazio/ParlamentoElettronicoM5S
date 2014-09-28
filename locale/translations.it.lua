@@ -279,7 +279,8 @@ return {
     ["Collective opinion of supporters"] = "Opinione dei sostenitori";
     ["Commit suggestion"] = "Invia emendamento";
     ["Commission phase"] = "in Commissione";
-    ["Compare"] = "Compara";
+    ["Compare"] = "Confronta";
+    ["Compare initiatives"] = "Confronta proposte";
     ["Configuration"] = "Configurazione";
     ["Configure notifications now"] = "Configura notifiche adesso";
     ["Confirm"] = "Conferma";
