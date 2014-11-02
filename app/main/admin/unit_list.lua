@@ -15,7 +15,7 @@ ui.title(function()
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
                         module = "admin",
                         view = "index",
-                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
                 end

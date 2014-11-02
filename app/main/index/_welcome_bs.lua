@@ -32,7 +32,7 @@ if not app.session.member_id then
                                     ui.heading {
                                         level = 5,
                                         content = function()
-                                            ui.tag { attr = { class = "pull-right" }, tag = "small", content = "Versione 0.3" }
+                                            ui.tag { attr = { class = "pull-right" }, tag = "small", content = "Versione 0.5" }
                                         end
                                     }
                                 end
@@ -48,6 +48,10 @@ end
 if app.session.member_id then
     --util.help("index.index", _"Home")
     local member = Member:by_id(app.session.member.id)
+    execute.view {
+        module = "index",
+        view = "_notifications"
+    }
 
     ui.container {
         attr = { class = "row-fluid" },
@@ -358,7 +362,7 @@ if app.session.member_id then
                                 module = "index",
                                 view = "homepage_bs",
                                 content = function()
-                                    ui.heading { level = 3, content = _ "REGIONE LAZIO ASSEMBLY" }
+                                    ui.heading { level = 3, content = _ "PUBLIC ASSEMBLY" }
                                 end
                             }
                         end
@@ -372,7 +376,7 @@ if app.session.member_id then
                                 module = "index",
                                 view = "homepage_private_bs",
                                 content = function()
-                                    ui.heading { level = 3, content = _ "5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY" }
+                                    ui.heading { level = 3, content = _ "INTERNAL ASSEMBLY" }
                                 end
                             }
                         end

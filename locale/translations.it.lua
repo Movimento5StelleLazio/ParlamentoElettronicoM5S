@@ -152,9 +152,9 @@ return {
     ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"] = "SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
     ["5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO"] = "ASSEMBLEA REGIONE LAZIO";
     ["Are you a Lazio citizen and you want to register? Here's how to do:"] = "Sei un cittadino del Lazio e vuoi iscriverti? Ecco come fare:";
-    ["5 STARS MOVEMENT LAZIO INTERNAL ASSEMBLY"] = "INTERNA";
+    ["INTERNAL ASSEMBLY"] = "ASSEMBLEA INTERNA";
     ["REGISTRATION GUIDE"] = "GUIDA ALLA ISCRIZIONE";
-    ["REGIONE LAZIO ASSEMBLY"] = "REGIONE LAZIO";
+    ["PUBLIC ASSEMBLY"] = "ASSEMBLEA PUBBLICA";
     ["(new window)"] = "(nuova finestra)";
     [")) == "] = false;
     ["+ #{weight}"] = false;

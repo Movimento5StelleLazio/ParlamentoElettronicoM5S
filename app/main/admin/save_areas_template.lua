@@ -23,7 +23,7 @@ ui.title(function()
                         view = 'area_list',
                         id = param.get("unit_id"),
                         params = { unit_name = param.get("name"), unit_id = param.get("unit_id") },
-                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
                 end

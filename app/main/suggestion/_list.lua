@@ -9,8 +9,8 @@ if true or not show_filter then
 end
 
 ui.container {
-    attr={class="row-fluid"},
-    content=function()
+    attr = { class = "row-fluid" },
+    content = function()
         ui.container {
             attr = { class = "span6 offset3 label label-warning" },
             content = function()

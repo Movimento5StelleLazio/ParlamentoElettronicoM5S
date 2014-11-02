@@ -133,12 +133,12 @@ ui.container {
                 end
 
                 if initiator == member then
-                    if member.accepted == nil then
+                    if initiator.accepted == nil then
                         slot.put(_ "Invited")
-                    elseif member.accepted == false then
+                    elseif initiator.accepted == false then
                         slot.put(_ "Rejected")
                     end
-                    if member.is_informed == false then
+                    if initiator.is_informed == false then
                         local text = _ "Member has not approved latest draft"
                         ui.image {
                             attr = { alt = text, title = text },

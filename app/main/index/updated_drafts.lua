@@ -9,6 +9,6 @@ slot.put("<br />")
 
 execute.view {
     module = "initiative",
-    view = "_list",
+    view = "_list_ext_bs",
     params = { initiatives_selector = initiatives_selector }
 }

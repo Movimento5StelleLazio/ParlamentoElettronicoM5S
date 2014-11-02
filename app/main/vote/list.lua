@@ -271,12 +271,12 @@ ui.field.popover {
         class = "offset11 span1"
     },
     content = function()
---        ui.container {
---            attr = { class = "row-fluid" },
---            content = function()
-                ui.image { attr = { class = "" }, static = "png/tutor.png" }
---            end
---        }
+    --        ui.container {
+    --            attr = { class = "row-fluid" },
+    --            content = function()
+        ui.image { attr = { class = "" }, static = "png/tutor.png" }
+    --            end
+    --        }
     end
 }
 ui.container {

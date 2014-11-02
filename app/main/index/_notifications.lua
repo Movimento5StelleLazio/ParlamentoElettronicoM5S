@@ -2,7 +2,8 @@ local notification_links = {}
 
 if app.session.member.notify_email_unconfirmed then
     notification_links[#notification_links + 1] = {
-        module = "index",
+        attr = { class = "btn btn-primary text-center" },
+	module = "index",
         view = "email_unconfirmed",
         text = _ "Please confirm your email address"
     }
@@ -10,6 +11,7 @@ end
 
 if app.session.member.notify_level == nil then
     notification_links[#notification_links + 1] = {
+	attr = { class = "btn btn-primary text-center" },
         module = "member",
         view = "settings_notification",
         text = _ "Please select your preferred notification level"
@@ -20,6 +22,7 @@ local broken_delegations_count = Delegation:selector_for_broken(app.session.memb
 
 if broken_delegations_count > 0 then
     notification_links[#notification_links + 1] = {
+	attr = { class = "btn btn-primary text-center" },
         module = "index",
         view = "broken_delegations",
         text = _("#{count} of your outgoing delegation(s) are broken", { count = broken_delegations_count })
@@ -31,6 +34,7 @@ local selector = Issue:new_selector():join("area", nil, "area.id = issue.area_id
 local issues_to_vote_count = selector:count()
 if issues_to_vote_count > 0 then
     notification_links[#notification_links + 1] = {
+	attr = { class = "btn btn-primary text-center" },
         module = "index",
         view = "index",
         params = {
@@ -48,6 +52,7 @@ local initiator_invites_count = Initiator:selector_for_invites(app.session.membe
 
 if initiator_invites_count > 0 then
     notification_links[#notification_links + 1] = {
+	attr = { class = "btn btn-primary text-center" },
         module = "index",
         view = "initiator_invites",
         text = _("You are invited to #{count} initiative(s)", { count = initiator_invites_count })
@@ -58,6 +63,7 @@ updated_drafts_count = Initiative:selector_for_updated_drafts(app.session.member
 
 if updated_drafts_count > 0 then
     notification_links[#notification_links + 1] = {
+	attr = { class = "btn btn-primary text-center" },
         module = "index",
         view = "updated_drafts",
         text = _("New drafts for #{count} initiative(s) you are supporting", { count = updated_drafts_count })
@@ -66,7 +72,7 @@ end
 
 if #notification_links > 0 then
     ui.container {
-        attr = { class = "notifications" },
+        attr = { class = "notifications spaceline-bottom" },
         content = function()
             ui.tag {
                 tag = "ul",

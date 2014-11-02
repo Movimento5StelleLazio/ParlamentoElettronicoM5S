@@ -40,15 +40,15 @@ ui.container {
                         ui.tag { tag = "strong", content = "  " .. format.timestamp(issue.created) }
                     end
                 }
---                slot.put("<br>")
---                ui.heading {
---                    level = 3,
---                    attr = { class = "spaceline" },
---                    content = function()
---                        ui.tag { content = _ "Time limit to reach the next phase:" }
---                        ui.tag { tag = "strong", content = "  " .. format.interval_text(issue.state_time_left, { mode = "time_left" }) }
---                    end
---                }
+            --                slot.put("<br>")
+            --                ui.heading {
+            --                    level = 3,
+            --                    attr = { class = "spaceline" },
+            --                    content = function()
+            --                        ui.tag { content = _ "Time limit to reach the next phase:" }
+            --                        ui.tag { tag = "strong", content = "  " .. format.interval_text(issue.state_time_left, { mode = "time_left" }) }
+            --                    end
+            --                }
             end
         }
         ui.container {
