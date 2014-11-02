@@ -5,7 +5,7 @@ ui.title(_ "Initiatives that invited you to become initiator:")
 if initiatives_selector:count() > 0 then
     execute.view {
         module = "initiative",
-        view = "_list",
+        view = "_list_ext_bs",
         params = { initiatives_selector = initiatives_selector }
     }
 else

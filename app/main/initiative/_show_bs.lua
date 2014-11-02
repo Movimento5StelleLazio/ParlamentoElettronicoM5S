@@ -19,15 +19,16 @@ if app.session.member_id then
 end
 
 
-local initiators_members_selector = initiative:get_reference_selector("initiating_members"):add_field("initiator.accepted", "accepted"):add_order_by("member.name")
+local initiators_members_selector = initiative:get_reference_selector("initiating_members")
+  :add_field("initiator.accepted", "accepted")
+  :add_order_by("member.name")
 if initiator and initiator.accepted then
-    initiators_members_selector:add_where("initiator.accepted ISNULL OR initiator.accepted")
+  initiators_members_selector:add_where("initiator.accepted ISNULL OR initiator.accepted")
 else
-    initiators_members_selector:add_where("initiator.accepted")
+  initiators_members_selector:add_where("initiator.accepted")
 end
 
 local initiators = initiators_members_selector:exec()
-
 
 local initiatives_selector = initiative.issue:get_reference_selector("initiatives")
 --[[ slot.select("head", function()
@@ -290,7 +291,7 @@ ui.container {
                             attr = { class = "span12" },
                             content = function()
                                 if app.session.member then
-                                    if not issue.closed and not issue.fully_frozen and not initiative.revoked then
+                                    if not issue.closed and not initiative.revoked then
                                         ui.container {
                                             attr = { class = "row-fluid" },
                                             content = function()
@@ -362,33 +363,6 @@ ui.container {
                                                                     }
                                                                 end
                                                             }
-                                                            if initiator then
-                                                                ui.container {
-                                                                    attr = { class = "row-fluid" },
-                                                                    content = function()
-                                                                        ui.container {
-                                                                            attr = { class = "span12" },
-                                                                            content = function()
-                                                                                ui.tag { tag = "hr" }
-                                                                            end
-                                                                        }
-                                                                    end
-                                                                }
-                                                                ui.container {
-                                                                    attr = { class = "row-fluid text-center" },
-                                                                    content = function()
-                                                                        ui.link {
-                                                                            attr = { class = "btn btn-primary offset5 span2 spaceline-bottom" },
-                                                                            content = _ "Revoke initiative",
-                                                                            module = "initiative",
-                                                                            view = "revoke",
-                                                                            id = initiative.id,
-                                                                            image = { attr = { class = "span3" }, static = "png/cross.png" },
-                                                                            content = _ "Revoke initiative"
-                                                                        }
-                                                                    end
-                                                                }
-                                                            end
                                                         end
                                                     }
                                                 end
@@ -575,12 +549,13 @@ ui.container {
                                                                     view = "page_bs9",
                                                                     mode = "put",
                                                                     params = {
-                                                                    draft_id = initiative.current_draft.id,
-                                                                    initiative_id=initiative.id,
-                                                                    area_id = initiative.issue.area_id,
-                                                                    unit_id = initiative.issue.area.unit_id,
-                                                                    area_name = initiative.issue.area.name,
-                                                                    unit_name = initiative.issue.area.unit.name }
+                                                                        draft_id = initiative.current_draft.id,
+                                                                        initiative_id = initiative.id,
+                                                                        area_id = initiative.issue.area_id,
+                                                                        unit_id = initiative.issue.area.unit_id,
+                                                                        area_name = initiative.issue.area.name,
+                                                                        unit_name = initiative.issue.area.unit.name
+                                                                    }
                                                                 }
 
                                                                 if drafts_count > 1 then
@@ -771,7 +746,7 @@ ui.container {
                         attr = { class = "row-fluid" },
                         content = function()
                             ui.container {
-                                attr = { class = "span12 well" },
+                                attr = { class = "span12 well-inside paper" },
                                 content = function()
                                     if #initiators > 0 then
                                         ui.container {
@@ -779,24 +754,19 @@ ui.container {
                                             content = function()
                                                 if #initiators > 1 then
                                                     ui.container {
-                                                        attr = { class = "span12 well-inside paper" },
+                                                        attr = { class = "span12" },
                                                         content = function()
                                                             for i, initiator in ipairs(initiators) do
-                                                                if issue.member_id then
-                                                                    execute.view {
-                                                                        module = "member",
-                                                                        view = "_show_thumb",
-                                                                        params = {
-                                                                            member = initiator,
-                                                                            initiative = initiative,
-                                                                            issue = issue,
-                                                                            initiator = initiator
-                                                                        }
+                                                                execute.view {
+                                                                    module = "member",
+                                                                    view = "_show_thumb",
+                                                                    params = {
+                                                                        member = initiator,
+                                                                        initiative = initiative,
+                                                                        issue = issue,
+                                                                        initiator = initiator
                                                                     }
-                                                                end
-                                                                if not initiator.accepted then
-                                                                    ui.tag { attr = { title = _ "Not accepted yet" }, content = "?" }
-                                                                end
+                                                                }
                                                             end
                                                         end
                                                     }
@@ -831,32 +801,84 @@ ui.container {
                                                         }
                                                     end
                                                 }
+-- invited as initiator
+  if initiator and initiator.accepted == nil and not initiative.issue.half_frozen and not initiative.issue.closed then
+    ui.container{
+      attr = { class = "initiator_invite_info" },
+      content = function()
+        slot.put(_"You are invited to become initiator of this initiative.")
+        slot.put(" ")
+        ui.link{
+	  attr = { class = "btn btn-primary text-center" },
+          image  = { static = "icons/16/tick.png" },
+          text   = _"Accept invitation",
+          module = "initiative",
+          action = "accept_invitation",
+          id     = initiative.id,
+          routing = {
+            default = {
+              mode = "redirect",
+              module = request.get_module(),
+              view = request.get_view(),
+              id = param.get_id_cgi(),
+              params = param.get_all_cgi()
+            }
+          }
+        }
+        slot.put(" ")
+        ui.link{
+	  attr = { class = "btn btn-primary text-center" },
+          image  = { static = "icons/16/cross.png" },
+          text   = _"Refuse invitation",
+          module = "initiative",
+          action = "reject_initiator_invitation",
+          params = {
+            initiative_id = initiative.id,
+            member_id = app.session.member.id
+          },
+          routing = {
+            default = {
+              mode = "redirect",
+              module = request.get_module(),
+              view = request.get_view(),
+              id = param.get_id_cgi(),
+              params = param.get_all_cgi()
+            }
+          }
+        }
+      end
+    }
+  end
                                                 if initiator and initiator.accepted and not initiative.issue.fully_frozen and not initiative.issue.closed and not initiative.revoked then
                                                     ui.link {
-                                                        attr = { class = "span2 text-center btn btn-primary" },
-                                                        content = _ "Invite initiator",
+                                                        attr = { class = "action btn btn-primary text-center" },
+                                                        content = function()
+                                                            slot.put(_ "Invite initiator")
+                                                        end,
                                                         module = "initiative",
                                                         view = "add_initiator",
                                                         params = { initiative_id = initiative.id }
                                                     }
                                                     if #initiators > 1 then
+							slot.put(" ")
                                                         ui.link {
-                                                            content = _ "Remove initiator",
-                                                            attr = { class = "span2 btn btn-primary text-center spaceline-bottom" },
+							    attr = { class = "btn btn-primary text-center" },
+                                                            content = function()
+                                                                slot.put(_ "Remove initiator")
+                                                            end,
                                                             module = "initiative",
                                                             view = "remove_initiator",
                                                             params = { initiative_id = initiative.id }
                                                         }
                                                     end
                                                 end
-
-
                                                 if initiator and initiator.accepted == false then
+						    slot.put(" ")
                                                     ui.link {
+							attr = { class = "btn btn-primary text-center" },
                                                         text = _ "Cancel refuse of invitation",
                                                         module = "initiative",
                                                         action = "remove_initiator",
-                                                        attr = { class = "offset1 span2 text-center btn btn-primary" },
                                                         params = {
                                                             initiative_id = initiative.id,
                                                             member_id = app.session.member.id
@@ -874,12 +896,13 @@ ui.container {
                                                 if (initiative.discussion_url and #initiative.discussion_url > 0) then
                                                     if initiative.discussion_url:find("^https?://") then
                                                         if initiative.discussion_url and #initiative.discussion_url > 0 then
+							    slot.put(" ")
                                                             ui.link {
                                                                 attr = {
+								    class = "btn btn-primary text-center",
                                                                     target = "_blank",
                                                                     title = _ "Discussion with initiators"
                                                                 },
-                                                                attr = { class = "offset1 span2 text-center btn btn-primary" },
                                                                 text = _ "Discuss with initiators",
                                                                 external = initiative.discussion_url
                                                             }
@@ -888,15 +911,26 @@ ui.container {
                                                         slot.put(encode.html(initiative.discussion_url))
                                                     end
                                                 end
-                                            --                                                if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
-                                            --                                                    ui.link {
-                                            --                                                        text = _ "change discussion URL",
-                                            --                                                        module = "initiative",
-                                            --                                                        attr = { class = "offset1 span2 text-center btn btn-primary" },
-                                            --                                                        view = "edit",
-                                            --                                                        id = initiative.id
-                                            --                                                    }
-                                            --                                                end
+                                                if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
+						    slot.put(" ")
+                                                    ui.link {
+							attr = { class = "btn btn-primary text-center" },
+                                                        text = _ "change discussion URL",
+                                                        module = "initiative",
+                                                        view = "edit",
+                                                        id = initiative.id
+                                                    }
+						    slot.put(" ")
+						    ui.link {
+                                                        attr = { class = "btn btn-primary text-center" },
+                                                        content = _ "Revoke initiative",
+                                                        module = "initiative",
+                                                        view = "revoke",
+                                                        id = initiative.id,
+                                                        image = { attr = { class = "span3" }, static = "png/cross.png" },
+                                                        content = _ "Revoke initiative"
+                                                    }
+                                                end
                                             end
                                         }
                                     else

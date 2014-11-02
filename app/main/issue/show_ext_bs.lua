@@ -22,21 +22,21 @@ local init_ord = param.get("init_ord") or "supporters"
 local area = Area:by_id(issue.area_id)
 local unit = Unit:by_id(area.unit_id)
 if not unit.public then
-	if app.session then
-		request.redirect {
-			module = "issue_private",
-			view = "show_ext_bs",
-			id = param.get_id(),
-			params = param.get_all_cgi()
-		}
-	else
-    execute.view {
-        module = "index",
-        view = "index"
-    }
-    slot.put_into("error", "You must be loggen in to have access to the private area.")
-    return
-  end
+    if app.session then
+        request.redirect {
+            module = "issue_private",
+            view = "show_ext_bs",
+            id = param.get_id(),
+            params = param.get_all_cgi()
+        }
+    else
+        execute.view {
+            module = "index",
+            view = "index"
+        }
+        slot.put_into("error", "You must be loggen in to have access to the private area.")
+        return
+    end
 end
 
 local function round(num, idp)
@@ -785,20 +785,20 @@ ui.container {
                                                                 }
                                                             end
                                                         }
-                                                        if #issue.initiatives >1 then
-                                                        ui.container {
-                                                            attr = { class = "row-fluid spaceline" },
-                                                            content = function()
-                                                                ui.link {
-                                                                    attr = { class = "span3 offset9 btn btn-primary btn-large large_btn fixclick text-center" },
-                                                                    module = "initiative",
-                                                                    view = "compare",
-                                                                    params = { issue_id = param.get_id() },
-																	image = { static = "png/diff.png" },
-                                                                    content = _ "Compare initiatives"
-                                                                }
-                                                            end
-                                                        }
+                                                        if #issue.initiatives > 1 then
+                                                            ui.container {
+                                                                attr = { class = "row-fluid spaceline" },
+                                                                content = function()
+                                                                    ui.link {
+                                                                        attr = { class = "span3 offset9 btn btn-primary btn-large large_btn fixclick text-center" },
+                                                                        module = "initiative",
+                                                                        view = "compare",
+                                                                        params = { issue_id = param.get_id() },
+                                                                        image = { static = "png/diff.png" },
+                                                                        content = _ "Compare initiatives"
+                                                                    }
+                                                                end
+                                                            }
                                                         end
                                                     end
                                                 }

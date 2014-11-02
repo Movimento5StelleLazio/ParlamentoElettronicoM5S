@@ -166,7 +166,7 @@ if draft_id ~= 0 then
     progresso = _ "FASE <strong>1</strong> di 1"
     draft_node = Draft:by_id(draft_id)
     draft = Draft:by_id(draft_id).content
-    trace.debug("Initiative id: ".. tostring(draft_node.initiative_id))
+    trace.debug("Initiative id: " .. tostring(draft_node.initiative_id))
     back_module = 'initiative'
     back_view = 'show'
     back_params = { initiative_id = draft_node.initiative_id }

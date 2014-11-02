@@ -77,7 +77,7 @@ ui.form {
                     content = function(record)
                         if record.initiators then
                             local authors = ""
-                            for i,initiator in ipairs(record.initiators) do
+                            for i, initiator in ipairs(record.initiators) do
                                 authors = authors .. initiator.member.name .. ";"
                             end
                             return ui.field.text {

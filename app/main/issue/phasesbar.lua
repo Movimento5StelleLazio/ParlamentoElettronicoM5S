@@ -43,16 +43,16 @@ ui.container {
                 if state == "finished_without_winner" or state == "finished_with_winner" then
                     state = "closed"
                 end
-                ui.image { attr = {class = "phase_bar"}, static = "png/bar_"..state..".png" }
---                ui.image { attr = { class = "phase_arrow", style = "margin-left: " .. arrow_offset .. "px;" .. "margin-top:" .. arrow_margintop .. "px;" }, static = "png/phase_arrow.png" }
---                ui.image { attr = { class = "phases_bar", }, static = "png/phases_bar_it.png" }
---                ui.image { attr = { class = "admission", style = admission_offset }, static = "png/admission.png" }
---                ui.image { attr = { class = "discussion", style = discussion_offset }, static = "png/discussion.png" }
---                ui.image { attr = { class = "verification", style = verification_offset }, static = "png/verification.png" }
---                ui.image { attr = { class = "voting", style = voting_offset }, static = "png/voting.png" }
---                ui.image { attr = { class = "committee", style = committee_offset }, static = "png/committee.png" }
---                ui.image { attr = { class = "committee_voting", style = committee_voting_offset }, static = "png/voting.png" }
---                ui.image { attr = { class = "finished", style = finished_offset }, static = "png/finished.png" }
+                ui.image { attr = { class = "phase_bar" }, static = "png/bar_" .. state .. ".png" }
+            --                ui.image { attr = { class = "phase_arrow", style = "margin-left: " .. arrow_offset .. "px;" .. "margin-top:" .. arrow_margintop .. "px;" }, static = "png/phase_arrow.png" }
+            --                ui.image { attr = { class = "phases_bar", }, static = "png/phases_bar_it.png" }
+            --                ui.image { attr = { class = "admission", style = admission_offset }, static = "png/admission.png" }
+            --                ui.image { attr = { class = "discussion", style = discussion_offset }, static = "png/discussion.png" }
+            --                ui.image { attr = { class = "verification", style = verification_offset }, static = "png/verification.png" }
+            --                ui.image { attr = { class = "voting", style = voting_offset }, static = "png/voting.png" }
+            --                ui.image { attr = { class = "committee", style = committee_offset }, static = "png/committee.png" }
+            --                ui.image { attr = { class = "committee_voting", style = committee_voting_offset }, static = "png/voting.png" }
+            --                ui.image { attr = { class = "finished", style = finished_offset }, static = "png/finished.png" }
             end
         }
     end

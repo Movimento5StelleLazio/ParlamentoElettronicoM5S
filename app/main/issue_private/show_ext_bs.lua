@@ -2,13 +2,13 @@ slot.set_layout("custom")
 
 local issue_id = param.get_id()
 if issue_id == 0 then
-	local tmp = param.get("issue_id", atom.integer)
-	if tmp and tmp ~= 0 then
-		issue_id = tmp
-	end
+    local tmp = param.get("issue_id", atom.integer)
+    if tmp and tmp ~= 0 then
+        issue_id = tmp
+    end
 end
 
-trace.debug("issue "..tostring(issue_id))
+trace.debug("issue " .. tostring(issue_id))
 local issue = Issue:by_id(issue_id)
 local state = param.get("state")
 local orderby = param.get("orderby") or ""
@@ -776,20 +776,20 @@ ui.container {
                                                                 }
                                                             end
                                                         }
-                                                        if #issue.initiatives >1 then
-                                                        ui.container {
-                                                            attr = { class = "row-fluid spaceline" },
-                                                            content = function()
-                                                                ui.link {
-                                                                    attr = { class = "span3 offset9 btn btn-primary btn-large large_btn fixclick text-center" },
-                                                                    module = "initiative",
-                                                                    view = "compare",
-                                                                    params = { issue_id = param.get_id() },
-																	image = { static = "png/diff.png" },
-                                                                    content = _ "Compare initiatives"
-                                                                }
-                                                            end
-                                                        }
+                                                        if #issue.initiatives > 1 then
+                                                            ui.container {
+                                                                attr = { class = "row-fluid spaceline" },
+                                                                content = function()
+                                                                    ui.link {
+                                                                        attr = { class = "span3 offset9 btn btn-primary btn-large large_btn fixclick text-center" },
+                                                                        module = "initiative",
+                                                                        view = "compare",
+                                                                        params = { issue_id = param.get_id() },
+                                                                        image = { static = "png/diff.png" },
+                                                                        content = _ "Compare initiatives"
+                                                                    }
+                                                                end
+                                                            }
                                                         end
                                                     end
                                                 }

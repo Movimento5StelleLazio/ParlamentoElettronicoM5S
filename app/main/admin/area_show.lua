@@ -20,7 +20,7 @@ ui.title(function()
                         module = "admin",
                         view = "area_list",
                         params = { unit_id = area.unit_id },
-                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
                 end

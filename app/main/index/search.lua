@@ -16,14 +16,14 @@ ui.title(function()
             ui.container {
                 attr = { class = "span3" },
                 content = function()
-                    local redirect_data = request.get_redirect_data() or {module = "index", view = "index", id = "0", params = {} }
+                    local redirect_data = request.get_redirect_data() or { module = "index", view = "index", id = "0", params = {} }
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick" },
                         module = redirect_data.module,
                         view = redirect_data.view,
                         id = redirect_data.id,
                         params = redirect_data.params,
-                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
                 end

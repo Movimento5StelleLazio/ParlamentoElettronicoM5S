@@ -15,7 +15,7 @@ ui.title(function()
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
                         module = "admin",
                         view = "member_list",
-                        image = {attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
                         content = _ "Back to previous page"
                     }
                 end
@@ -40,11 +40,11 @@ end)
 
 local units_selector = Unit:new_selector()
 
-if member then
+--[[if member then
     units_selector:left_join("privilege", nil, { "privilege.member_id = ? AND privilege.unit_id = unit.id", member.id }):add_field("privilege.voting_right", "voting_right")
-end
+end]]
 
-local units = units_selector:exec()
+local units = Unit:get_flattened_tree{member_id = member.id} --units_selector:exec()
 
 ui.form {
     attr = { class = "vertical" },
@@ -82,6 +82,29 @@ ui.form {
                 value = unit.voting_right
             }
         end
+        ui.list {
+					records = units,
+					columns = {
+						  {
+						      content = function(unit)
+						          for i = 1, unit.depth - 1 do
+						              slot.put("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+						          end
+						          local style = ""
+						          if not unit.active then
+						              style = "text-decoration: line-through;"
+						          end
+						          ui.link {
+						              attr = { style = "font-weight: bold;" .. style },
+						              text = unit.name,
+						              module = "admin",
+						              view = "unit_edit",
+						              id = unit.id
+						          }
+						      end
+						  }
+					}
+			}
         slot.put("<br /><br />")
 
         if not member or not member.activated then
