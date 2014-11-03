@@ -8,6 +8,9 @@ if member then
     member.notify_email_secret = nil
     member.notify_email_secret_expiry = nil
     member.notify_email_lock_expiry = nil
+    if member.lqfb_access == false then
+    	member.lqfb_access = true
+    end
     member:save()
     slot.put_into("notice", _ "Email address is confirmed now")
 else
