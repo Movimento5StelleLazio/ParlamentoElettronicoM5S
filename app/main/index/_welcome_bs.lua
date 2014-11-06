@@ -300,7 +300,7 @@ if app.session.member_id then
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
+                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica ed Interna, prima di procedere alla navigazione dei contenuti, dovete attivare le notifiche tramite il pulsante arancio in alto a dx di questa pagina, sulle impostazione del vostro profilo, inoltre per poter navigare nelle aree tematiche, dovete andare sia nell' area pubblica che interna su leggi, e successivamente selezionare tutte le aree, dove troverete l' elenco delle aree tematiche alle quali dovete indicare il vostro interesse.",
                             class = "text-center"
                         },
                         content = function()
