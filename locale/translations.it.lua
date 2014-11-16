@@ -264,6 +264,7 @@ return {
     ["Change order"] = "Cambia ordine";
     ["Change password"] = "Cambia password";
     ["Change unit delegation"] = "Cambia delega per l'unità";
+    ["Change video url"] = "Cambia il video";
     ["Change vote"] = "Cambia voto";
     ["Change your login"] = "Cambia nome utente";
     ["Change your notification email address"] = "Cambia indirizzo di notifica eMail";
@@ -368,6 +369,7 @@ return {
     ["Edit my page"] = "Modifica la mia pagina";
     ["Edit my profile"] = "Modifica il mio profilo";
     ["Edit profile"] = "Modifica profilo";
+    ["Edit the video link for this initiative"] = "Modifica il video per questa proposta";
     ["Elected M5S"] = "ELETTI";
     ["Eligible as winner"] = "Potenziali vincitori";
     ["Eligible voters"] = "Potenziali votanti";
@@ -888,6 +890,7 @@ return {
     ["Verification starts soon"] = "Fase di verifica imminente";
     ["Verification time"] = "Tempo di verifica";
     ["Version"] = "Versione";
+    ["Video url changed"] = "Video modificato correttamente.";
     ["Vote now"] = "Vota";
     ["Voted"] = "Votata";
     ["Voted no"] = "Votato NO";
@@ -954,6 +957,7 @@ return {
     ["You have not voted #{count} issue(s) you were interested in"] = "Non hai ancora votato #{count} questione(i) di tuo interesse";
     ["You have to mark 'Are you sure' to revoke!"] = "Devi spuntare 'Sei sicuro' per revocare!";
     ["You have voting privileges for this unit"] = "Hai diritto di voto in questa unità";
+    ["You must be an initiatior to update the video url."] = "Devi essere un autore della proposta per poter modificare il video.";
     ["You need to be logged in, to use all features of this system."] = "Eseguire l'accesso per utilizzare tutte le funzioni di questo sistema.";
     ["You were interested"] = "Eri interessato";
     ["You were potential supporter"] = "Eri un potenziale sostenitore";
@@ -974,6 +978,7 @@ return {
     ["Your support has been updated to the latest draft"] = "Il tuo supporto è stato aggiornato all'ultima bozza";
     ["Your vote has been discarded. Delegation rules apply if set."] = "Il tuo voto è stato ritirato. Dove applicabile sarà attiva la delega.";
     ["Your Voting"] = "Le tue Votazioni";
+    ["Youtube link"] = "Indirizzo Youtube del video";
     ["Z-A"] = false;
     ["[Name of Language]"] = "Italiano";
     ["[No voting privilege]"] = "[Nessun privilegio di voto]";

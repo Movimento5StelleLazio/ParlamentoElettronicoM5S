@@ -443,9 +443,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "new"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
@@ -474,9 +479,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "accepted"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
@@ -505,9 +515,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "half_frozen"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
@@ -541,9 +556,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "frozen"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
@@ -572,9 +592,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "finished"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
@@ -603,9 +628,14 @@ if app.session.member_id then
                                                                                 end
                                                                             }
                                                                             ui.link {
-                                                                                module = "unit",
-                                                                                view = "show_ext_bs",
-                                                                                params = { filter = "my_areas" },
+                                                                                module = "issue",
+                                                                                view = "list",
+                                                                                params = {
+                                                                                	filter_unit = "my_areas",
+                                                                                	tab = "open",
+                                                                                	filter_interest = "area",
+                                                                                	filter = "canceled"
+                                                                                },
                                                                                 attr = { class = "span9 text-center spaceline" },
                                                                                 content = function()
                                                                                     ui.heading {
