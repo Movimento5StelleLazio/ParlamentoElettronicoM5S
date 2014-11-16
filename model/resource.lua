@@ -19,5 +19,5 @@ function Resource:all_resources(initiative_id)
 end
 
 function Resource:all_resources_by_type(initiative_id, resource_type)
-    return self:new_selector():add_where { "initiative_id = ? AND type = LIKE ?", initiative_id, resource_type }:optional_object_mode():exec()
+    return self:new_selector():add_where { "initiative_id = ? AND type = ?", initiative_id, resource_type }:optional_object_mode():exec()
 end

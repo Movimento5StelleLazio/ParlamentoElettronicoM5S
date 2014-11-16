@@ -625,6 +625,15 @@ ui.container {
                                                                         else
                                                                             ui.image { static = "png/video-player.png" }
                                                                         end
+                                                                    		if initiator and initiator.accepted and not initiative.issue.half_frozen and not initiative.issue.closed and not initiative.revoked then
+				                                                                	ui.link {
+				                                                                		module = "initiative",
+				                                                                		view = "edit_video",
+				                                                                		params = { initiative_id = initiative.id },
+				                                                                		attr = { class = "btn btn-primary btn-large large_btn" },
+				                                                                		text = _"Change video url"
+				                                                                	}
+                                                                    	end
                                                                     end
                                                                 }
                                                             end
