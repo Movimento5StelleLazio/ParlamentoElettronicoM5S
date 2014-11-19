@@ -20,6 +20,7 @@ ui.container {
                                             module = "wizard",
                                             view = "shortcut",
                                             params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
+                                        		image = {static = "png/logo_regione_lazio.png"},
                                             attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
                                             content = function()
                                                 ui.heading { level = 3, content = _ "AREA " .. area.id }
@@ -31,6 +32,7 @@ ui.container {
                                             view = "page_bs1",
                                             params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
                                             attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
+                                        		image = {static = "png/logo_regione_lazio.png"},
                                             content = function()
                                                 ui.heading { level = 3, content = _ "AREA " .. area.id }
                                             end
@@ -42,6 +44,7 @@ ui.container {
                                         view = "filters_bs",
                                         id = area.id,
                                         attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
+                                        image = {static = "png/logo_regione_lazio.png"},
                                         content = function()
                                             ui.heading { level = 3, content = _ "AREA " .. area.id }
                                         end
