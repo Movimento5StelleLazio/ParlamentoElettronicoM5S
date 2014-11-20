@@ -10,7 +10,7 @@ ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
-                            attr = { class = "span3 text-center" },
+                            attr = { class = "span4 text-center" },
                             content = function()
                                 execute.view {
                                     module = "member_image",
@@ -25,7 +25,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span9" },
+                            attr = { class = "span6 offset2" },
                             content = function()
                                 ui.form {
                                     method = "post",
@@ -52,7 +52,7 @@ ui.container {
                                             attr = { class = "row-fluid" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span9 spaceline2" },
+                                                    attr = { class = "span12 spaceline2 spaceline-bottom" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 3,

@@ -197,7 +197,7 @@ a:focus{color:#000000;text-decoration:underline;}
 .container:before,
 .container:after{display:table;content:"";line-height:0;}
 .container:after{clear:both;}
-.container-fluid{padding-right:20px;padding-left:20px;*zoom:1;max-width:1450px;margin:0 auto;}
+.container-fluid{padding-right:20px;padding-left:20px;*zoom:1;max-width:1200px;margin:0 auto;}
 .container-fluid:before,
 .container-fluid:after{display:table;content:"";line-height:0;}
 .container-fluid:after{clear:both;}
@@ -276,7 +276,7 @@ dd{margin-left:12.5px;}
 .dl-horizontal:after{clear:both;}
 .dl-horizontal dt{float:left;width:160px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .dl-horizontal dd{margin-left:180px;}
-hr{margin:25px 0;border:0;border-top:2px solid #AE8F7F;border-bottom:2px solid #AE8F7F;}
+hr{margin:25px 0;border:0;border-top:2px solid #808080;border-bottom:2px solid #0B0B0B;}
 abbr[title],
 abbr[data-original-title]{cursor:help;border-bottom:1px dotted #999999;}
 abbr.initialism{font-size:90%;text-transform:uppercase;}
@@ -1069,7 +1069,7 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 .navbar .nav > li > .dropdown-menu.pull-right:after{left:auto;right:13px;}
 .navbar .pull-right > li > .dropdown-menu .dropdown-menu,
 .navbar .nav > li > .dropdown-menu.pull-right .dropdown-menu{left:auto;right:100%;margin-left:0;margin-right:-1px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
-.navbar-inverse .navbar-inner{background:rgb(63, 63, 63);background:-moz-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-webkit-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-o-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-ms-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:linear-gradient(180deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);}
+.navbar-inverse .navbar-inner{background:rgb(63, 63, 63);background:-moz-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-webkit-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-o-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:-ms-linear-gradient(90deg, rgb(63, 63, 63) 0%, rgb(2, 2, 2) 100%);background:linear-gradient(180deg, #ffffff 0%, #c9c9c9 100%);}
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a{color:#ffffff;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);}
 .navbar-inverse .brand:hover,
@@ -1500,7 +1500,7 @@ div.tagsinput input{width:100% 100%;margin:0px;border:1px solid transparent;padd
 div.tagsinput div{display:block;float:left;}
 .tags_clear{clear:both;width:100%;height:0px;}
 .not_valid{background:#FBD8DB !important;color:#90111A !important;}
-body{margin:0;font-family: Arial, sans-serif;background-color:#F9EAD6;font-weight:normal;}
+body{margin:0;font-family: Arial, sans-serif;font-weight:normal;}
 a{color:#000000;text-decoration:none !important;}
 a.label:hover,
 a.label:focus,
@@ -1529,7 +1529,7 @@ h6{margin:6.25px 10px;}
 .badge{padding:6px 15px;line-height:20px;white-space:normal;}
 .footer,
 .push{height:3em;}
-#default{margin-top:100px;}
+#default{margin-top:67px;height:106px;background:url(https://www.parelon.com/images/bg_par.jpg);}
 .vtable{display:table;height:100%;}
 .table-cell{display:table-cell;vertical-align:middle;}
 .inline-block{display:inline-block;}
@@ -1631,10 +1631,10 @@ h6{margin:6.25px 10px;}
 .arrow_big{vertical-align:middle;height:70px;width:70px;padding-left:10px;padding-right:10px;}
 .arrow_medium{vertical-align:middle;height:46px;width:60px;padding-left:10px;padding-right:10px;}
 .arrow_small{vertical-align:middle;height:50px;width:50px;padding-left:8px;padding-right:8px;}
-.pen_paper{vertical-align:middle;margin-top:10px;max-height:75px;}
+.pen_paper{vertical-align:middle;margin-top:1px;max-height:75px;margin-left:10px;}
 .issue_see_det_btn{margin-bottom:15px;}
 .issue_box{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;padding:10px;}
-#issue_url_box{width:66%;float:left;margin-right:10px;margin-top:10px;height:36px;}
+#issue_url_box{width:66%;float:left;margin-right:10px;margin-top:10px;height:40px;}
 #social_box{margin-left:0;}
 .phases_box,
 .phases_bar,
@@ -1682,3 +1682,4 @@ a.delegation_info:focus{background-color:#ddd;}
 .uneditable-input[class*="collapse"],
 .row-fluid [class*="collapse"]{float:none;display:block;width:100%;margin-left:0;}
 }
+.parelon{font-size:13px;color:#333333;margin-left:30px;}
