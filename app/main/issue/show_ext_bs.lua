@@ -185,14 +185,25 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row-fluid spaceline" },
                     content = function()
                         ui.container {
-                            attr = { class = "span3 well-warning" },
+                            attr = { class = "span6 well-inside paper" },
                             content = function()
                                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
                             end
                         }
+                            end
+                        }                                       
+                ui.container {
+                    attr = { class = "row-fluid" },
+                    content = function()
+                                        ui.container {
+                                            attr = { class = "span1" },
+                                            content = function()
+ 																																															ui.image { static = "spacer.png" }
+                                            end
+                                        }                    
                         ui.container {
                             attr = { class = "span9" },
                             content = function()
@@ -580,7 +591,7 @@ ui.container {
                                                     attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span8 spaceline text-justify" },
+                                                            attr = { class = "span7 spaceline text-justify" },
                                                             content = function()
                                                                 if #issue.initiatives == 1 then
                                                                     content = _ "initiative"
@@ -601,7 +612,7 @@ ui.container {
                                                         }
 
                                                         ui.container {
-                                                            attr = { class = "span3 offset1" },
+                                                            attr = { class = "span4 offset1" },
                                                             content = function()
                                                                 local area = Area:by_id(issue.area_id)
                                                                 local unit = Unit:by_id(area.unit_id)

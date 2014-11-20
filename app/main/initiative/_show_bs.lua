@@ -222,30 +222,24 @@ ui.container {
                             }
                         end
                     end
-                }
+                }                  
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row-fluid spaceline" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 well-blue spaceline" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid" },
+                            attr = { class = "span12 well-blue" },
+                            content = function()                              
+                																ui.container {
+                                    attr = { class = "row-fluid spaceline" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span2 well-warning" },
+                                            attr = { class = "span6 well-inside paper" },
                                             content = function()
                                                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span9" },
-                                            content = function()
-                                                execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
-                                            end
-                                        }
-                                        ui.container {
-                                            attr = { class = "span1 text-center" },
+                                            attr = { class = "span2 text-center offset3" },
                                             content = function()
                                                 ui.field.popover {
                                                     attr = {
@@ -257,16 +251,33 @@ ui.container {
                                                         class = "text-center"
                                                     },
                                                     content = function()
-                                                        ui.container {
-                                                            attr = { class = "row-fluid" },
-                                                            content = function()
+
                                                                 ui.image { static = "png/tutor.png" }
-                                                            end
-                                                        }
+
                                                     end
                                                 }
                                             end
                                         }
+                                        end
+                                    }
+
+
+                                ui.container {
+                                    attr = { class = "row-fluid" },
+                                    content = function()
+                                        ui.container {
+                                            attr = { class = "span1" },
+                                            content = function()
+ 																																															ui.image { static = "spacer.png" }
+                                            end
+                                        }
+                                        ui.container {
+                                            attr = { class = "span9" },
+                                            content = function()
+                                                execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
+                                            end
+                                        }
+
                                     end
                                 }
                             end
@@ -936,7 +947,7 @@ ui.container {
                                                         module = "initiative",
                                                         view = "revoke",
                                                         id = initiative.id,
-                                                        image = { attr = { class = "span3" }, static = "png/cross.png" },
+                                                        image = { attr = { class = "span2" }, static = "png/cross.png" },
                                                         content = _ "Revoke initiative"
                                                     }
                                                 end
