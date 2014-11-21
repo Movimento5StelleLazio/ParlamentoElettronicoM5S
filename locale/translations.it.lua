@@ -589,7 +589,7 @@ return {
     ["New passwords does not match."] = "Le password non corrispondono.";
     ["New passwords is too short."] = "Password troppo corta.";
     ["New phase"] = "Nuovo";
-    ["New suggestion"] = "EMENDA";
+    ["New suggestion"] = "Emendamento";
     ["Newest"] = "Ultimo";
     ["Next Phase"] = "AVANTI";
     ["No"] = false;
