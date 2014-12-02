@@ -464,6 +464,11 @@ a.delegation_info:hover, a.delegation_info:focus {
     color: #000;
 }
 
+.active {
+  background-color: #444;
+  color: #fff;
+}
+
 .ui_paginate_head {
     display: none;
     margin-bottom: 1ex;
