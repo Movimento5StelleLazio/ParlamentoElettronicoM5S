@@ -13,24 +13,26 @@ else
     areas_selector:add_field("0", "issues_to_vote_count")
 end
 
-areas = areas_selector:exec()
-
-if #areas == 0 then
-    ui.container {
-        attr = { class = "row-fluid" },
-        content = function()
-            ui.container {
-                attr = { class = "span12 alert alert-simple text-center" },
-                content = function()
-                    ui.heading { level = 4, content = _ "There are no enabled areas in this unit." }
-                end
-            }
-        end
-    }
-end
-
-
-for i, area in ipairs(areas) do
-    execute.view { module = "area", view = "_list_entry_ext_bs", params = { area = area, member = member, create = create } }
-end 
-
+ui.paginate {
+		selector = areas_selector,
+		per_page = 15,
+		content = function()
+			areas = areas_selector:exec()
+			if #areas == 0 then
+					ui.container {
+						  attr = { class = "row-fluid" },
+						  content = function()
+						      ui.container {
+						          attr = { class = "span12 alert alert-simple text-center" },
+						          content = function()
+						              ui.heading { level = 4, content = _ "There are no enabled areas in this unit." }
+						          end
+						      }
+						  end
+					}
+			end
+			for i, area in ipairs(areas) do
+					execute.view { module = "area", view = "_list_entry_ext_bs", params = { area = area, member = member, create = create } }
+			end
+		end
+}

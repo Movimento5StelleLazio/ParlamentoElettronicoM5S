@@ -300,7 +300,7 @@ if app.session.member_id then
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica ed Interna, prima di procedere alla navigazione dei contenuti, dovete attivare le notifiche tramite il pulsante arancio in alto a dx di questa pagina, sulle impostazione del vostro profilo, inoltre per poter navigare nelle aree tematiche, dovete andare sia nell' area pubblica che interna su leggi, e successivamente selezionare tutte le aree, dove troverete l' elenco delle aree tematiche alle quali dovete indicare il vostro interesse.",
+                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
                             class = "text-center"
                         },
                         content = function()
@@ -678,7 +678,13 @@ else
     ui.container {
         attr = { class = "row-fluid" },
         content = function()
-            ui.form {
+        		ui.container {
+        				attr = { class = "well span6" },
+        				content = function()
+        						execute.view {  module = 'index', view = 'login', params = { module = 'index', view = 'index', id = param.get_id() } }
+        				end
+        		}
+            --[[ui.form {
                 attr = { id = "login_div", class = "well span6" },
                 module = 'index',
                 action = 'login',
@@ -723,7 +729,7 @@ else
                                 content = function()
                                     ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'Password' }
                                     ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { type = "password", placeholder = _ 'Password', class = "span8 input-large", name = "password" }, content = '' }
+                                    ui.tag { tag = "input", attr = { id = "password_field", type = "password", placeholder = _ 'Password', class = "span8 input-large", name = "password" }, content = '' }
                                 end
                             }
                             
@@ -732,7 +738,7 @@ else
                                 content = function()
                                     ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'OTP' }
                                     ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { disabled="true", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
+                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
                                 end
                             }
 
@@ -742,10 +748,18 @@ else
                                     ui.container {
                                         attr = { class = "span6 offset3" },
                                         content = function()
-                                            ui.tag {
+                                            --[ [ui.tag {
                                                 tag = "button",
                                                 attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
                                                 content = function()
+                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
+                                                end
+                                            }] ]
+                                            ui.script { static = "js/auth.js" }
+                                            ui.tag {
+                                            		tag = "a",
+                                            		attr = { href = "#", onclick="checkOtpToken();", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
+                                            		content = function()
                                                     ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
                                                 end
                                             }
@@ -756,7 +770,7 @@ else
                         end
                     }
                 end
-            }
+            }]]
             ui.container {
                 attr = { id = "registration-info", class = "span6" },
                 content = function()
