@@ -29,7 +29,7 @@ else
     ui.tag { tag = "p", content = _ "Closed user group, please login to participate." }
 end
 
-ui.form {
+--[[ui.form {
     attr = { class = "login" },
     module = 'index',
     action = 'login',
@@ -62,5 +62,93 @@ ui.form {
         ui.submit {
             text = _ 'Login'
         }
+    end
+}]]
+
+ui.form {
+    attr = { id = "login_div", class = "login" },
+    module = 'index',
+    action = 'login',
+    routing = {
+        ok = {
+            mode = 'redirect',
+            module = param.get("redirect_module") or "index",
+            view = param.get("redirect_view") or "index",
+            id = param.get("redirect_id"),
+        },
+        error = {
+            mode = 'forward',
+            module = 'index',
+            view = 'login',
+        }
+    },
+    content = function()
+        ui.tag {
+                        tag = "fieldset",
+                        content = function()
+                            ui.container {
+                                attr = { class = "row-fluid" },
+                                content = function()
+                                    ui.tag { tag = "legend", attr = { class = "span12 text-center" }, content = _ "Insert user name and password to access:" }
+                                end
+                            }
+
+                            ui.container {
+                                attr = { class = "row-fluid" },
+                                content = function()
+                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'login name' }
+                                    ui.tag {
+                                        tag = "input",
+                                        attr = { id = "username_field", type = "text", placeholder = _ 'login name', class = "span8 input-large", name = "login" },
+                                        content = ''
+                                    }
+                                end
+                            }
+
+                            ui.container {
+                                attr = { class = "row-fluid" },
+                                content = function()
+                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'Password' }
+                                    ui.script { script = 'document.getElementById("username_field").focus();' }
+                                    ui.tag { tag = "input", attr = { id = "password_field", type = "password", placeholder = _ 'Password', class = "span8 input-large", name = "password" }, content = '' }
+                                end
+                            }
+                            
+                            ui.container {
+                                attr = { class = "row-fluid" },
+                                content = function()
+                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'OTP' }
+                                    ui.script { script = 'document.getElementById("username_field").focus();' }
+                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
+                                end
+                            }
+
+                            ui.container {
+                                attr = { class = "row-fluid text-center" },
+                                content = function()
+                                    ui.container {
+                                        attr = { class = "span6 offset3" },
+                                        content = function()
+                                            --[[ui.tag {
+                                                tag = "button",
+                                                attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
+                                                content = function()
+                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
+                                                end
+                                            }]]
+                                            ui.script { static = "js/auth.js" }
+                                            ui.tag {
+                                            		tag = "a",
+                                            		attr = { href = "javascript:void(0)", onclick="checkOtpToken();", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
+                                            		content = function()
+                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                             }
+                        end
+                    }
     end
 }
