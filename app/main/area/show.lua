@@ -1,3 +1,4 @@
+slot.set_layout("custom")
 local area = Area:by_id(param.get_id())
 
 

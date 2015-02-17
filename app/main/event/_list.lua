@@ -101,7 +101,7 @@ filters.content = function()
                         else
                             days_ago_text = _("#{date} at #{time}", { date = format.date(event.occurrence.date), time = format.time(event.occurrence, { hide_seconds = true }) })
                         end
-                        ui.tag { attr = { class = "event_name" }, content = event_name }
+                        ui.tag { attr = { class = "event_name row-fluid label label-warning" }, content = event_name }
                         slot.put("<br />")
                         ui.tag { content = days_ago_text }
                         --[[      if event.time_ago > 1 then
@@ -112,7 +112,7 @@ filters.content = function()
                               --]]
                         if app.session:has_access("authors_pseudonymous") and event.member_id then
                             slot.put("<br />")
-                            slot.put("<br />")
+                                                    slot.put("<br />")
                             if app.session.member_id then
                                 ui.link {
                                     content = function()
@@ -145,12 +145,12 @@ filters.content = function()
                 }
 
                 ui.container {
-                    attr = { class = "issue" },
+                    attr = { class = "issue paper" },
                     content = function()
 
-                        execute.view { module = "delegation", view = "_info", params = { issue = event.issue, member = for_member } }
+                                               execute.view { module = "delegation", view = "_info", params = { issue = event.issue, member = for_member } }
 
-                        ui.container {
+ ui.container {
                             attr = { class = "content" },
                             content = function()
                                 ui.link {
@@ -169,7 +169,7 @@ filters.content = function()
                                     text = event.issue.area.name
                                 }
                             end
-                        }
+                        } 
 
                         ui.container {
                             attr = { class = "title" },
@@ -239,7 +239,7 @@ filters.content = function()
 
     if #events > 0 then
         ui.link {
-            attr = { class = "more_events_links" },
+            attr = { class = "label label-warning" },
             text = _ "Show older events",
             module = request.get_module(),
             view = request.get_view(),
