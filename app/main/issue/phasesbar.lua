@@ -10,25 +10,25 @@ local svgz = ""
 --local svgz = "z"
 
 if state == "admission" then
-    admission_offset = "margin-top: 29px;"
+    admission_offset = ""
 elseif state == "discussion" then
-    discussion_offset = "margin-top: 25px;"
+    discussion_offset = ""
     arrow_offset = 83
 elseif state == "verification" then
-    verification_offset = "margin-top: 42px;height: 27px;margin-left: 168px;"
+    verification_offset = ""
     arrow_offset = 146
 elseif state == "voting" then
-    voting_offset = "margin-top: 35px;"
+    voting_offset = ""
     arrow_offset = 209
 elseif state == "committee" then
-    committee_offset = "margin-top: 36px;"
+    committee_offset = ""
     arrow_offset = 281
 elseif state == "committee_voting" then
-    committee_voting_offset = "margin-top: 38px;"
+    committee_voting_offset = ""
     arrow_offset = 344
     arrow_margintop = -8
 else
-    finished_offset = "margin-top: 38px;margin-left: 432px;height: 41px;"
+    finished_offset = ""
     arrow_offset = 416
 end
 

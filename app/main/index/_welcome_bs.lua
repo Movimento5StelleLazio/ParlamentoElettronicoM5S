@@ -4,7 +4,7 @@ if not app.session.member_id then
     ui.container {
         attr = { class = "row-fluid" },
         content = function()
-            ui.container {
+            --[[ui.container {
                 attr = { class = "text-center span8 offset2 well-title" },
                 content = function()
                     ui.container {
@@ -40,7 +40,7 @@ if not app.session.member_id then
                         end
                     }
                 end
-            }
+            } ]]
         end
     }
 end

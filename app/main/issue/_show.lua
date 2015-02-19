@@ -23,7 +23,7 @@ elseif vote_comment_able then
 end
 
 
-local class = "issue"
+local class = "issue paper"
 if issue.is_interested then
     class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
@@ -57,7 +57,7 @@ ui.container {
                     }
                 end
             }
-        end
+        end 
 
         ui.container {
             attr = { class = "title" },
