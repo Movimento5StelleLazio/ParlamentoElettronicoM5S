@@ -29,42 +29,6 @@ else
     ui.tag { tag = "p", content = _ "Closed user group, please login to participate." }
 end
 
---[[ui.form {
-    attr = { class = "login" },
-    module = 'index',
-    action = 'login',
-    routing = {
-        ok = {
-            mode = 'redirect',
-            module = param.get("redirect_module") or "index",
-            view = param.get("redirect_view") or "index",
-            id = param.get("redirect_id"),
-        },
-        error = {
-            mode = 'forward',
-            module = 'index',
-            view = 'login',
-        }
-    },
-    content = function()
-        ui.field.text {
-            attr = { id = "username_field" },
-            label = _ 'login name',
-            html_name = 'login',
-            value = ''
-        }
-        ui.script { script = 'document.getElementById("username_field").focus();' }
-        ui.field.password {
-            label = _ 'Password',
-            html_name = 'password',
-            value = ''
-        }
-        ui.submit {
-            text = _ 'Login'
-        }
-    end
-}]]
-
 ui.form {
     attr = { id = "login_div", class = "login" },
     module = 'index',
@@ -129,13 +93,6 @@ ui.form {
                                     ui.container {
                                         attr = { class = "span6 offset3" },
                                         content = function()
-                                            --[[ui.tag {
-                                                tag = "button",
-                                                attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
-                                                content = function()
-                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
-                                                end
-                                            }]]
                                             ui.script { static = "js/auth.js" }
                                             ui.tag {
                                             		tag = "a",

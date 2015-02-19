@@ -16,7 +16,7 @@ if not app.session.member_id then
                                     ui.heading {
                                         level = 1,
                                         content = function()
-                                            slot.put(_ "5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO")
+                                            slot.put(_ "PARLAMENTO ELETTRONICO ONLINE")
                                         end
                                     }
                                 end
@@ -300,7 +300,7 @@ if app.session.member_id then
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Regione Lazio ed Interna, siamo ancora in dubbio se lasciare un' assemblea interna, lo sperimenteremo con voi, per ora vi invito ad andare sull' Assemblea della Regione Lazio e seguire poi il Tutorial.",
+                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica e Assemblea Interna.",
                             class = "text-center"
                         },
                         content = function()
@@ -684,93 +684,6 @@ else
         						execute.view {  module = 'index', view = 'login', params = { module = 'index', view = 'index', id = param.get_id() } }
         				end
         		}
-            --[[ui.form {
-                attr = { id = "login_div", class = "well span6" },
-                module = 'index',
-                action = 'login',
-                routing = {
-                    ok = {
-                        mode = 'redirect',
-                        module = param.get("redirect_module") or "index",
-                        view = param.get("redirect_view") or "index",
-                        id = param.get("redirect_id"),
-                    },
-                    error = {
-                        mode = 'forward',
-                        module = 'index',
-                        view = 'index',
-                    }
-                },
-                content = function()
-                    ui.tag {
-                        tag = "fieldset",
-                        content = function()
-                            ui.container {
-                                attr = { class = "row-fluid" },
-                                content = function()
-                                    ui.tag { tag = "legend", attr = { class = "span12 text-center" }, content = _ "Insert user name and password to access:" }
-                                end
-                            }
-
-                            ui.container {
-                                attr = { class = "row-fluid" },
-                                content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'login name' }
-                                    ui.tag {
-                                        tag = "input",
-                                        attr = { id = "username_field", type = "text", placeholder = _ 'login name', class = "span8 input-large", name = "login" },
-                                        content = ''
-                                    }
-                                end
-                            }
-
-                            ui.container {
-                                attr = { class = "row-fluid" },
-                                content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'Password' }
-                                    ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { id = "password_field", type = "password", placeholder = _ 'Password', class = "span8 input-large", name = "password" }, content = '' }
-                                end
-                            }
-                            
-                            ui.container {
-                                attr = { class = "row-fluid" },
-                                content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'OTP' }
-                                    ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
-                                end
-                            }
-
-                            ui.container {
-                                attr = { class = "row-fluid text-center" },
-                                content = function()
-                                    ui.container {
-                                        attr = { class = "span6 offset3" },
-                                        content = function()
-                                            --[ [ui.tag {
-                                                tag = "button",
-                                                attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
-                                                content = function()
-                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
-                                                end
-                                            }] ]
-                                            ui.script { static = "js/auth.js" }
-                                            ui.tag {
-                                            		tag = "a",
-                                            		attr = { href = "#", onclick="checkOtpToken();", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
-                                            		content = function()
-                                                    ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
-                                                end
-                                            }
-                                        end
-                                    }
-                                end
-                            }
-                        end
-                    }
-                end
-            }]]
             ui.container {
                 attr = { id = "registration-info", class = "span6" },
                 content = function()

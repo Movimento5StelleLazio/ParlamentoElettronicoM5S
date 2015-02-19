@@ -92,7 +92,7 @@ return {
     ["Back to previous page"] = "Indietro";
     ["Back to issue listing"] = "Indietro";
     ["Back to homepage"] = "Homepage";
-    ["#{realname}, you are now in the Regione Lazio Assembly"] = "#{realname}, Ti Trovi Nell'Assemblea Della Regione Lazio";
+    ["#{realname}, you are now in the Regione Lazio Assembly"] = "#{realname}, Ti Trovi Nell'Assemblea Pubblica";
     ["INITIATIVES LOOKING FOR SUPPORTERS"] = "NUOVE PROPOSTE";
     ["INITIATIVES NOW IN DISCUSSION"] = "IN DISCUSSIONE";
     ["COMPLETED OR RETIRED INITIATIVES"] = "COMPLETATE O RITIRATE";
@@ -113,8 +113,8 @@ return {
     ["FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:"] = "FILTRA LE PROPOSTE MOSTRANDO SOLO QUELLE NELLA FASE:";
     ["FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:"] = "FILTRA LE PROPOSTE A CUI PARTECIPO MOSTRANDO SOLO QUELLE NELLA CATEGORIA:";
     ["SHOW ONLY THE FOLLOWING UNITS:"] = "MOSTRA SOLO LE SEGUENTI UNITA':";
-    ["#{realname}, you are now in the Regione Lazio Assembly"] = "#{realname}, ti trovi nell'Assemblea della Regione Lazio";
-    ["#{realname}, you are now in the Regione Lazio Internal Assembly"] = "#{realname}, ti trovi nell'Assemblea Interna della Regione Lazio";
+    ["#{realname}, you are now in the Regione Lazio Assembly"] = "#{realname}, ti trovi nell'Assemblea Pubblica";
+    ["#{realname}, you are now in the Regione Lazio Internal Assembly"] = "#{realname}, ti trovi nell'Assemblea Interna";
     ["You are now inside the Digital Assembly for Public Affairs."] = "Ti trovi nell'assemblea dedicata alla cosa pubblica.";
     ["Here laws and measures for Region and his citizens are being discussed."] = "Qui si discutono le leggi e provvedimenti che riguardano la tua regione e i suoi cittadini.";
     ["What you want to do?"] = "Cosa puoi fare:";
@@ -150,8 +150,8 @@ return {
     ["There are no issues that match the selection criteria."] = "Nesssuna proposta corrisponde ai criteri di selezione.";
     ["(#{more_count} duplicates removed)"] = "(rimossi #{more_count} duplicati)";
     ["CHOOSE THE ASSEMBLY YOU WANT TO PARTECIPATE TO:"] = "SCEGLI L'ASSEMBLEA ALLA QUALE VUOI PARTECIPARE:";
-    ["5 STARS MOVEMENT E-PARLIAMENT REGIONE LAZIO"] = "ASSEMBLEA REGIONE LAZIO";
-    ["Are you a Lazio citizen and you want to register? Here's how to do:"] = "Sei un cittadino del Lazio e vuoi iscriverti? Ecco come fare:";
+    ["PARLAMENTO ELETTRONICO ONLINE"] = "PARLAMENTO ELETTRONICO ONLINE";
+    ["Are you a Lazio citizen and you want to register? Here's how to do:"] = "Vuoi iscriverti? Ecco come fare:";
     ["INTERNAL ASSEMBLY"] = "ASSEMBLEA INTERNA";
     ["REGISTRATION GUIDE"] = "GUIDA ALLA ISCRIZIONE";
     ["PUBLIC ASSEMBLY"] = "ASSEMBLEA PUBBLICA";
