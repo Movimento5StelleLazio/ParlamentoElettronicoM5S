@@ -302,7 +302,7 @@ form.unit_selector {
 }
 
 .issue .content.actions {
-    margin-bottom: 1ex;
+    margin-bottom: 3ex;
 }
 
 .area_head {
@@ -357,11 +357,13 @@ form.unit_selector {
 .unit_link {
     background-color: #009900;
     color: #fff;
+    font-size:22px;
 }
 
 .area_link {
     background-color: #FF4646;
     color: #FFFFFF;
+    font-size:22px;
 }
 
 .delegation_info {
@@ -465,7 +467,7 @@ a.delegation_info:hover, a.delegation_info:focus {
 }
 
 .active {
-  background-color: #444;
+  /*background-color: #444;*/
   color: #fff;
 }
 
