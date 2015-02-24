@@ -1,3 +1,4 @@
+slot.set_layout("custom")
 local voting_right_unit_id
 local current_trustee_id
 local current_trustee_name
