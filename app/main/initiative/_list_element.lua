@@ -136,7 +136,7 @@ ui.container {
             }
         end
 
-        ui.container {
+       ui.container {
             attr = { class = "name initiative_link label label-warning" },
             content = function()
                 local link_class = "initiative_link"
