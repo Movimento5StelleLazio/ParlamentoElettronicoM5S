@@ -95,7 +95,7 @@ ui.form {
             tag = "input",
             attr = {
                 type = "submit",
-                class = "offset4 btn btn-primary btn-large large_btn",
+                class = "offset4 btn btn-primary large_btn",
                 value = _ "Save"
             }
         }
