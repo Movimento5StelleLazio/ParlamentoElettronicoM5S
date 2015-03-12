@@ -708,7 +708,7 @@ ui.container {
                                                                                 end
 
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset2 text-center" .. btna },
+                                                                                    attr = { class = "span4 offset2 text-center" },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),
