@@ -420,13 +420,13 @@ ui.container {
                                                                                     params = { issue_id = issue.id },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "span6  btn btn-primary " },
+                                                                                            attr = { class = "span6  btn btn-primary spaceline" },
                                                                                             content = function()
                                                                                                 ui.container {
                                                                                                     attr = { class = "row-fluid" },
                                                                                                     content = function()
                                                                                                         ui.container {
-                                                                                                            attr = { class = "span6" },
+                                                                                                            attr = { class = "span4 offset1" },
                                                                                                             content = function()
                                                                                                                 ui.image { static = "png/voting.png" }
                                                                                                             end
