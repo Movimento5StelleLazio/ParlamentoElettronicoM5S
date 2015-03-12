@@ -52,7 +52,7 @@ ui.container {
                         module = "area",
                         view = "show",
                         id = issue.area_id,
-                        attr = { class = "label label-inverse" },
+                        attr = { class = "label label-warning" },
                         text = issue.area.name
                     }
                 end
@@ -110,6 +110,7 @@ ui.container {
         if vote_link_text then
             links[#links + 1] = {
                 content = vote_link_text,
+                attr = { class = "btn btn-primary large_btn filter_btn" },
                 module = "vote",
                 view = "list",
                 params = { issue_id = issue.id }
@@ -120,6 +121,7 @@ ui.container {
             if not issue.member_info.non_voter then
                 links[#links + 1] = {
                     content = _ "Do not vote directly",
+                    attr = { class = "btn btn-primary large_btn filter_btn" },
                     module = "vote",
                     action = "non_voter",
                     params = { issue_id = issue.id },
@@ -138,6 +140,7 @@ ui.container {
                 links[#links + 1] = {
                     in_brackets = true,
                     content = _ "Cancel [nullify]",
+             				   attr = { class = "btn btn-primary large_btn filter_btn" },
                     module = "vote",
                     action = "non_voter",
                     params = { issue_id = issue.id, delete = true },
@@ -160,9 +163,15 @@ ui.container {
 
                 if issue.member_info.own_participation then
                     if issue.closed then
-                        links[#links + 1] = { content = _ "You were interested" }
+                        links[#links + 1] = { 
+                        content = _ "You were interested",
+                        attr = { class = "label label-inverse" },
+                        }
                     else
-                        links[#links + 1] = { content = _ "You are interested" }
+                        links[#links + 1] = { 
+                        content = _ "You are interested",
+                        attr = { class = "label label-success" },
+                        }
                     end
                 end
                 if not issue.closed and not issue.fully_frozen then

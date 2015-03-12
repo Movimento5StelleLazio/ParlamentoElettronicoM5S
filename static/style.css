@@ -467,7 +467,7 @@ a.delegation_info:hover, a.delegation_info:focus {
 }
 
 .active {
-  /*background-color: #444;*/
+  background-color: #444;
   color: #fff;
 }
 
