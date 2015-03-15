@@ -96,7 +96,7 @@ ui.form {
                                             ui.script { static = "js/auth.js" }
                                             ui.tag {
                                             		tag = "a",
-                                            		attr = { href = "javascript:void(0)", onclick="checkOtpToken();", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
+                                            		attr = { href = "javascript:void(0)", onclick="checkOtpToken();", class = "btn btn-primary large_btn spaceline fixclick" },
                                             		content = function()
                                                     ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
                                                 end

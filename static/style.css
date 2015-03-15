@@ -174,7 +174,7 @@ form.unit_selector {
     margin-top: 1ex;
 }
 
-.slot_head {
+/*.slot_head {
     background-color: #fffcd3;
     border: 0;
     margin: 20px;
@@ -193,7 +193,7 @@ form.unit_selector {
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeed', endColorstr='#fffffcd3', GradientType=0);
     padding-bottom: 15px;
-}
+}*/
 
 .slot_head-inside {
     -webkit-box-shadow: inset 0px 2px 7px rgba(0, 0, 0, .35);
