@@ -1,3 +1,4 @@
+slot.set_layout("custom")
 local issue = Issue:by_id(param.get_id())
 if app.session.member_id then
     issue:load_everything_for_member_id(app.session.member_id)
