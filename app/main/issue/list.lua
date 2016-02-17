@@ -1,4 +1,3 @@
-slot.set_layout("custom")
 local issues_selector = Issue:new_selector()
 
 execute.view {

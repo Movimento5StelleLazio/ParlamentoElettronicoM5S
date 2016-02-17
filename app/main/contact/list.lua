@@ -13,7 +13,7 @@ ui.title(function()
                 attr = { class = "span3 text-left" },
                 content = function()
                     ui.link {
-                        attr = { class = "btn btn-primary large_btn fixclick btn-back" },
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
                         module = "member",
                         view = "show",
                         id = app.session.member_id,
@@ -93,7 +93,7 @@ ui.paginate {
                         content = function(record)
                             if record.public then
                                 ui.link {
-                                    attr = { class = "action btn btn-primary large_btn fixclick" },
+                                    attr = { class = "action btn btn-primary btn-large large_btn fixclick" },
                                     text = _ "Hide",
                                     module = "contact",
                                     action = "add_member",
@@ -111,7 +111,7 @@ ui.paginate {
                                 }
                             else
                                 ui.link {
-                                    attr = { class = "action btn btn-primary large_btn fixclick" },
+                                    attr = { class = "action btn btn-primary btn-large large_btn fixclick" },
                                     text = _ "Publish",
                                     module = "contact",
                                     action = "add_member",
@@ -135,7 +135,7 @@ ui.paginate {
                         label_attr = { class = "span3 text-center" },
                         content = function(record)
                             ui.link {
-                                attr = { class = "action btn btn-primary large_btn fixclick" },
+                                attr = { class = "action btn btn-primary btn-large large_btn fixclick" },
                                 text = _ "Remove",
                                 module = "contact",
                                 action = "remove_member",

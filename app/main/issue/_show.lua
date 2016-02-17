@@ -23,7 +23,7 @@ elseif vote_comment_able then
 end
 
 
-local class = "issue paper"
+local class = "issue"
 if issue.is_interested then
     class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
@@ -52,12 +52,12 @@ ui.container {
                         module = "area",
                         view = "show",
                         id = issue.area_id,
-                        attr = { class = "label label-warning" },
+                        attr = { class = "label label-inverse" },
                         text = issue.area.name
                     }
                 end
             }
-        end 
+        end
 
         ui.container {
             attr = { class = "title" },
@@ -110,7 +110,6 @@ ui.container {
         if vote_link_text then
             links[#links + 1] = {
                 content = vote_link_text,
-                attr = { class = "btn btn-primary large_btn filter_btn" },
                 module = "vote",
                 view = "list",
                 params = { issue_id = issue.id }
@@ -121,7 +120,6 @@ ui.container {
             if not issue.member_info.non_voter then
                 links[#links + 1] = {
                     content = _ "Do not vote directly",
-                    attr = { class = "btn btn-primary large_btn filter_btn" },
                     module = "vote",
                     action = "non_voter",
                     params = { issue_id = issue.id },
@@ -140,7 +138,6 @@ ui.container {
                 links[#links + 1] = {
                     in_brackets = true,
                     content = _ "Cancel [nullify]",
-             				   attr = { class = "btn btn-primary large_btn filter_btn" },
                     module = "vote",
                     action = "non_voter",
                     params = { issue_id = issue.id, delete = true },
@@ -163,15 +160,9 @@ ui.container {
 
                 if issue.member_info.own_participation then
                     if issue.closed then
-                        links[#links + 1] = { 
-                        content = _ "You were interested",
-                        attr = { class = "label label-inverse" },
-                        }
+                        links[#links + 1] = { content = _ "You were interested" }
                     else
-                        links[#links + 1] = { 
-                        content = _ "You are interested",
-                        attr = { class = "label label-success" },
-                        }
+                        links[#links + 1] = { content = _ "You are interested" }
                     end
                 end
                 if not issue.closed and not issue.fully_frozen then

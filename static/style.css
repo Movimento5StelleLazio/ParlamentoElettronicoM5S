@@ -174,7 +174,7 @@ form.unit_selector {
     margin-top: 1ex;
 }
 
-/*.slot_head {
+.slot_head {
     background-color: #fffcd3;
     border: 0;
     margin: 20px;
@@ -193,7 +193,7 @@ form.unit_selector {
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffeed', endColorstr='#fffffcd3', GradientType=0);
     padding-bottom: 15px;
-}*/
+}
 
 .slot_head-inside {
     -webkit-box-shadow: inset 0px 2px 7px rgba(0, 0, 0, .35);
@@ -294,11 +294,11 @@ form.unit_selector {
 }
 
 .page_head .actions:last-child, .page_head .unit_head .content:last-child, .page_head .area_head .content:last-child, .issue .content:last-child, .initiative_head .content:last-child, .area_list .unit_head .content:last-child, .area_list .area .content:last-child {
-    padding: 5px 10px 7px 25px;
+    padding: 5px 10px 7px 10px;
 }
 
 .page_head .initiative_list, .issue .initiative_list {
-    padding-left: 130px;
+    padding-left: 8px;
 }
 
 .issue .content.actions {
@@ -349,9 +349,9 @@ form.unit_selector {
 .unit_link, .area_link {
     float: left;
     margin-top: 5px;
-    padding: 0px 10px;
+    padding: 0px 5px;
     line-height: 170%;
-    margin-left: 15px;
+    margin-right: 8px;
 }
 
 .unit_link {
@@ -467,7 +467,7 @@ a.delegation_info:hover, a.delegation_info:focus {
 }
 
 .active {
-  background-color: #444;
+  /*background-color: #444;*/
   color: #fff;
 }
 

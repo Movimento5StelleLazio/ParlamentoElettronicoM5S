@@ -3,7 +3,7 @@ slot.select('navbar', function()
         attr = { class = "row-fluid" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "span6" },
                 content = function()
                     ui.link {
                         module = 'index',
@@ -11,49 +11,10 @@ slot.select('navbar', function()
                         image = { static = "logo_withe.png" },
                         text = ""
                     }
-                    --                end
-                    --            }
-
-                    --[[ui.container { attr={class="span2 addthis_horizontal_follow_toolbox"}, content = function() slot.put('') end }
-                    ui.container {
-                        attr = { class = "span2 spaceline " },
-                        content = function()
-                            slot.put('<a href="http://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2"')
-                            ui.link {
-                                content = function()
-                                    ui.image { static = "donate.png" }
-                                end
-                            }
-                        end
-                    }
-                    ui.container {
-                        attr = { class = "span2 spaceline " },
-                        content = function()
-                            slot.put('<a href="http://www.parelon.com/adesione.html"')
-                            ui.link {
-                                content = function()
-                                    ui.image { static = "png/iscriviti.png" }
-                                end
-                            }
-                        end
-                    }
-                    if app.session.member then
-                        ui.container {
-                            attr = { class = "span2 spaceline " },
-                            content = function()
-                                ui.link {
-                                    module = 'index',
-                                    view = 'search',
-                                    content = function()
-                                                ui.image { static = "png/search.png" }
-                                    end
-                                }
-                            end
-                        }
                     end
-        ]]
+            }               
                     ui.container {
-                        attr = { class = "nav pull-right" },
+                        attr = { class = "nav pull-right span3 offset3" },
                         content = function()
                             ui.tag {
                                 tag = "a",
@@ -82,8 +43,7 @@ slot.select('navbar', function()
                             execute.view { module = "index", view = "_menu_ext" }
                         end
                     }
-                end
-            }
+
         end
     }
 end)

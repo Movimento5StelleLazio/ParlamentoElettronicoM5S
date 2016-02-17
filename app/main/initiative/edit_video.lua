@@ -1,6 +1,6 @@
 slot.set_layout("custom")
 
-local initiative = Initiative:by_id(param.get("initiative_id"))
+local initiative = Initiative:by_id(param.get_id())
 local resource = Resource:all_resources_by_type(initiative.id, "video")
 local link = resource.url
 
@@ -67,6 +67,12 @@ ui.form {
             mode = "redirect",
             module = "initiative",
             view = "show",
+            id = initiative.id
+        },
+        error = {
+        	mode = "redirect",
+            module = "initiative",
+            view = "edit_video",
             id = initiative.id
         }
     },

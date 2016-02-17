@@ -1,6 +1,6 @@
 slot.set_layout("custom")
 
-local initiative = Initiative:by_id(param.get("initiative_id"))
+local initiative = Initiative:by_id(param.get("initiative_id", atom.integer))
 
 ui.title(function()
     ui.container {
@@ -95,7 +95,7 @@ ui.form {
             tag = "input",
             attr = {
                 type = "submit",
-                class = "offset4 btn btn-primary large_btn",
+                class = "offset4 btn btn-primary btn-large large_btn",
                 value = _ "Save"
             }
         }

@@ -13,16 +13,8 @@ trace.debug("area = " .. tostring(area.id))
 local unit = Unit:by_id(area.unit_id)
 trace.debug("unit = " .. tostring(unit.id))
 
-if app.session.member or unit.public then
-    execute.view {
-        module = "initiative",
-        view = "_show_bs",
-        params = { initiative = initiative }
-    }
-else
-    slot.put_into("error", "You must be logged in to have access to the private area.")
-    execute.view {
-        module = "index",
-        view = "index"
-    }
-end
+execute.view {
+    module = "initiative",
+    view = "_show_bs",
+    params = { initiative = initiative }
+}

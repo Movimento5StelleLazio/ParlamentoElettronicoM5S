@@ -197,7 +197,7 @@ a:focus{color:#000000;text-decoration:underline;}
 .container:before,
 .container:after{display:table;content:"";line-height:0;}
 .container:after{clear:both;}
-.container-fluid{padding-right:20px;padding-left:20px;*zoom:1;max-width:1200px;margin:0 auto;}
+.container-fluid{padding-right:20px;padding-left:20px;*zoom:1;max-width:1450px;margin:0 auto;}
 .container-fluid:before,
 .container-fluid:after{display:table;content:"";line-height:0;}
 .container-fluid:after{clear:both;}
@@ -276,7 +276,7 @@ dd{margin-left:12.5px;}
 .dl-horizontal:after{clear:both;}
 .dl-horizontal dt{float:left;width:160px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .dl-horizontal dd{margin-left:180px;}
-hr{margin:25px 0;border:0;border-top:2px solid #808080;border-bottom:2px solid #0B0B0B;}
+hr{margin:25px 0;border:0;border-top:2px solid #AE8F7F;border-bottom:2px solid #AE8F7F;}
 abbr[title],
 abbr[data-original-title]{cursor:help;border-bottom:1px dotted #999999;}
 abbr.initialism{font-size:90%;text-transform:uppercase;}
@@ -1529,7 +1529,7 @@ h6{margin:6.25px 10px;}
 .badge{padding:6px 15px;line-height:20px;white-space:normal;}
 .footer,
 .push{height:3em;}
-#default{margin-top:67px;height:106px;background:url(https://www.parelon.com/images/bg_par.jpg);}
+#default{margin-top:100px;}
 .vtable{display:table;height:100%;}
 .table-cell{display:table-cell;vertical-align:middle;}
 .inline-block{display:inline-block;}
@@ -1631,10 +1631,10 @@ h6{margin:6.25px 10px;}
 .arrow_big{vertical-align:middle;height:70px;width:70px;padding-left:10px;padding-right:10px;}
 .arrow_medium{vertical-align:middle;height:46px;width:60px;padding-left:10px;padding-right:10px;}
 .arrow_small{vertical-align:middle;height:50px;width:50px;padding-left:8px;padding-right:8px;}
-.pen_paper{vertical-align:middle;margin-top:1px;max-height:75px;margin-left:10px;}
+.pen_paper{vertical-align:middle;margin-top:10px;max-height:75px;}
 .issue_see_det_btn{margin-bottom:15px;}
 .issue_box{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;padding:10px;}
-#issue_url_box{width:66%;float:left;margin-right:10px;margin-top:10px;height:40px;}
+#issue_url_box{width:66%;float:left;margin-right:10px;margin-top:10px;}
 #social_box{margin-left:0;}
 .phases_box,
 .phases_bar,
@@ -1682,5 +1682,4 @@ a.delegation_info:focus{background-color:#ddd;}
 .uneditable-input[class*="collapse"],
 .row-fluid [class*="collapse"]{float:none;display:block;width:100%;margin-left:0;}
 }
-.parelon{font-size:13px;color:#333333;margin-left:30px;}
-.title{ font-size:24px; }
+.page_head {display:none;}

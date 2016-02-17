@@ -278,10 +278,16 @@ function Member:build_selector(args)
     if args.order then
         if args.order == "id" then
             selector:add_order_by("id")
+        elseif args.order == "id DESC" then
+            selector:add_order_by("id DESC")
         elseif args.order == "identification" then
             selector:add_order_by("identification")
+        elseif args.order == "identification DESC" then
+            selector:add_order_by("identification DESC")
         elseif args.order == "name" then
             selector:add_order_by("name")
+        elseif args.order == "name DESC" then
+            selector:add_order_by("name DESC")
         else
             error("invalid order")
         end
@@ -438,7 +444,7 @@ function Member.object:send_invitation(template_file, subject)
   		       slot.put(_"If this link is not working, please open following url in your web browser:\n\n")
   		       slot.put("https://test.parelon.com/lf/index/register.html\n\n")
   		       slot.put(_"On that page please enter the invite key:\n\n")
-  		       slot.put(self.invite_code.."\n")
+  		       slot.put("*"..self.invite_code.."*\n")
   		       slot.put(_"The invite code will expire in two days: after that, you will need a new invite code generated from your auditor.\n\nBest wishes.\n\nParelon Team")
     end)
   end

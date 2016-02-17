@@ -33,19 +33,13 @@ local selector = Issue:new_selector():join("area", nil, "area.id = issue.area_id
 
 local issues_to_vote_count = selector:count()
 if issues_to_vote_count > 0 then
-    notification_links[#notification_links + 1] = {
-	attr = { class = "btn btn-primary text-center" },
-        module = "index",
-        view = "index",
-        params = {
-            tab = "open",
-            filter = "frozen",
-            filter_interest = "issue",
-            filter_delegation = "direct",
-            filter_voting = "not_voted"
-        },
-        text = _("You have not voted #{count} issue(s) you were interested in", { count = issues_to_vote_count })
-    }
+    notification_links[#notification_links+1] = {
+    module = "index", view = "index",
+    params = {
+      tab = "open", filter = "frozen", filter_interest = "issue", filter_delegation = "direct", filter_voting = "not_voted"
+    },
+    text = _("You have not voted #{count} issue(s) you were interested in", { count = issues_to_vote_count })
+  }
 end
 
 local initiator_invites_count = Initiator:selector_for_invites(app.session.member_id):count()

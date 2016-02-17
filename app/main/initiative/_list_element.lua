@@ -136,8 +136,8 @@ ui.container {
             }
         end
 
-       ui.container {
-            attr = { class = "name initiative_link label label-warning" },
+        ui.container {
+            attr = { class = "name initiative_link" },
             content = function()
                 local link_class = "initiative_link"
                 if initiative.revoked then

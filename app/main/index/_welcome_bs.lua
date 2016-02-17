@@ -1,17 +1,26 @@
 slot.set_layout("custom")
 
 if not app.session.member_id then
-    ui.container {
-        attr = { class = "row-fluid" },
-        content = function()
-            --[[ui.container {
-                attr = { class = "text-center span8 offset2 well-title" },
-                content = function()
+                    ui.container {
+                        attr = { class = "row-fluid minustop" },
+                        content = function()
+                             ui.container {
+                                attr = { class = "span4 offset4 text-center" },
+                                content = function()
+												ui.image {
+                                			attr = { class = "" },
+                                			static = "parlamento_icon_small.png"
+                            			}
+                                end
+                            }
+                                end
+                            }
                     ui.container {
                         attr = { class = "row-fluid" },
                         content = function()
+                            
                             ui.container {
-                                attr = { class = "span12" },
+                                attr = { class = "span8 offset2 text-center" },
                                 content = function()
                                     ui.heading {
                                         level = 1,
@@ -40,10 +49,7 @@ if not app.session.member_id then
                         end
                     }
                 end
-            } ]]
-        end
-    }
-end
+
 
 if app.session.member_id then
     --util.help("index.index", _"Home")
@@ -300,7 +306,7 @@ if app.session.member_id then
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica e Assemblea Interna.".." <h3><a href='https://www.parelon.com/it/caratterisitche/tutorial.html'>Vedi i Tutorial</a></h3>",
+                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica e Assemblea Interna.<br>".."<a class ='btn btn-primary large_btn fixclick'  href='https://www.parelon.com/?project=primo-accesso&lang=it' tarfet='_blank'><h3>Vai ai Tutorial</h3></a>",
                             class = "text-center"
                         },
                         content = function()
@@ -415,7 +421,7 @@ if app.session.member_id then
                                                     local issues_voting_count = 0.0
                                                     local issues_finished_count = 0.0
                                                     local issues_canceled_count = 0.0
-                                                    local status_selector = db:new_selector():from("area"):add_field("area.id"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'admission')", "issues_new_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'discussion')", "issues_discussion_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'verification')", "issues_frozen_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'voting')", "issues_voting_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen NOTNULL AND issue.closed NOTNULL)", "issues_finished_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen ISNULL AND issue.closed NOTNULL)", "issues_canceled_count"):join("issue", nil, { "area.id = issue.area_id AND area.active = TRUE" }):join("unit", nil, "unit.id = area.unit_id AND unit.public "):join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", app.session.member.id }):add_group_by("area.id"):exec()
+                                                    local status_selector = db:new_selector():from("area"):add_field("area.id"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'admission')", "issues_new_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'discussion')", "issues_discussion_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'verification')", "issues_frozen_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.state = 'voting')", "issues_voting_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen NOTNULL AND issue.closed NOTNULL)", "issues_finished_count"):add_field("(SELECT COUNT(*) FROM issue WHERE issue.area_id = area.id AND issue.fully_frozen ISNULL AND issue.closed NOTNULL)", "issues_canceled_count"):join("issue", nil, { "area.id = issue.area_id AND area.active = TRUE" }):join("unit", nil, "unit.id = area.unit_id"):join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", app.session.member.id }):add_group_by("area.id"):exec()
                                                     for i, k in ipairs(status_selector) do
                                                         issues_new_count = issues_new_count + k.issues_new_count
                                                         issues_discussion_count = issues_discussion_count + k.issues_discussion_count
@@ -700,7 +706,7 @@ else
                                             ui.tag {
                                                 attr = { class = "span12 text-center" },
                                                 content = function()
-                                                    ui.tag { tag = "p", content = _ "Possiedi gia' un codice di invito? Clicca qui:" }
+                                                    ui.tag { tag = "p", content = _ "Non sei ancora registrato? Clicca qui:" }
                                                 end
                                             }
                                         end
@@ -709,14 +715,11 @@ else
                                         attr = { class = "row-fluid text-center" },
                                         content = function()
                                             ui.container {
-                                                attr = { id = "registration", class = "span12 spaceline" },
+                                                attr = { class = "span12 spaceline" },
                                                 content = function()
                                                     ui.link {
-                                                        attr = { class = "btn btn-primary btn-large large_btn fixclick" },
-                                                        module = "index",
-                                                        view = "register",
                                                         content = function()
-                                                            ui.heading { level = 3, content = _ "Registrati" }
+                                                            slot.put(_"<a class ='btn btn-primary large_btn fixclick' href='https://www.parelon.com/?project=sincronizzare-il-token&lang=it' target='_blank'><h3>Registrati</h3></a>")
                                                         end
                                                     }
                                                 end
@@ -757,6 +760,42 @@ else
                                                         view = 'reset_password',
                                                         content = function()
                                                             ui.heading { level = 3, content = "Ripristina" }
+                                                        end
+                                                    }
+                                                end
+                                            }
+                                        end
+                                    }
+                                end
+                            }
+                        end
+                    }
+                    ui.container {
+                        attr = { class = "row-fluid text-center" },
+                        content = function()
+                            ui.container {
+                                attr = { id = "lost_password", class = "span12 well" },
+                                content = function()
+                                    ui.container {
+                                        attr = { class = "row-fluid text-center" },
+                                        content = function()
+                                            ui.tag {
+                                                attr = { class = "span12 text-center" },
+                                                content = function()
+                                                    ui.tag { tag = "p", content = _ "Son più di due mesi che non ti vediamo qui, devi risincronizzare il token:" }
+                                                end
+                                            }
+                                        end
+                                    }
+                                    ui.container {
+                                        attr = { class = "row-fluid text-center" },
+                                        content = function()
+                                            ui.container {
+                                                attr = { class = "span12 spaceline" },
+                                                content = function()
+                                                    ui.link {
+                                                        content = function()
+                                                            slot.put(_"<a class ='btn btn-primary large_btn fixclick' href='https://www.parelon.com/?page_id=604&lang=it' target='_blank'><h3>Sincronizza</h3></a>")
                                                         end
                                                     }
                                                 end

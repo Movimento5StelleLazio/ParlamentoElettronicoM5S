@@ -1,5 +1,3 @@
-slot.set_layout("custom")
-
 execute.view { module = "index", view = "_lang_chooser" }
 
 local step = param.get("step", atom.integer)
@@ -7,40 +5,6 @@ local code = param.get("code")
 local notify_email = param.get("notify_email")
 local name = param.get("name")
 local login = param.get("login")
-
-ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
-ui.container {
-    attr = { class = "span9" },
-    content = function()
- ui.tag {
-                tag = "h2",
-                content = _ "Prima di procedere leggi questa breve guida clikkando l' icona qui a fianco, nonostante i nostri sforzi per semplificare il tuo ingresso, è sempre utile una buona guida passo passo."
-            }
-                                    end
-                    }
-ui.container {
-    attr = { class = "span3" },
-    content = function()
-                                ui.field.popover {
-                        attr = {
-                            dataplacement = "left",
-                            datahtml = "true";
-                            datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Benvenuto!, questo è l' accesso alla democrazia diretta, e dovrai fare un paio di operazioni prima di essere attivo,<br />Il codice di invito è un codice autogenerato dal sistema e dovrai usalro solo in questo primo passaggio, non usarlo per la tua username o password, quelli sono dati personali e segreti.<br />Di seguito un paio di cose da fare: <ul><li>Procedere con la registrazione in tre fasi, iniziando da qui</li><li>dopo l' autenticazione attivare il token QUI:".." <a href='https://autenticazione.parelon.com/' target='_blank'>[Autentica il token]</a></li></ul><br />Infine puoi sempre visualizzare e farti guidare dai tutorial qui".." <a href='https://www.parelon.com/it/caratterisitche/tutorial.html' target='_blank'>[Vedi i Tutorial]</a> , dove troverai anche un calendario per i meeting di formazione al quale puoi partecipare liberamente",
-                            class = "text-center"
-                        },
-                        content = function()
-
-                            ui.image { static = "png/tutor.png" }
-                        --								    ui.heading{level=3 , content= _"What you want to do?"}
-                        end
-                    }
-                        end
-}
-    end
-}
 
 ui.form {
     attr = { class = "vertical" },

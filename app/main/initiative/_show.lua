@@ -27,7 +27,9 @@ slot.select("head", function()
     }
 end)
 
-local initiators_members_selector = initiative:get_reference_selector("initiating_members"):add_field("initiator.accepted", "accepted"):add_order_by("member.name")
+local initiators_members_selector = initiative:get_reference_selector("initiating_members")
+:add_field("initiator.accepted", "accepted")
+:add_order_by("member.name")
 if initiator and initiator.accepted then
     initiators_members_selector:add_where("initiator.accepted ISNULL OR initiator.accepted")
 else
