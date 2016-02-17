@@ -3,13 +3,9 @@ slot.set_layout("custom")
 local filter = param.get("filter")
 local create = param.get("create", atom.boolean) or false
 
-if not app.session.member_id then
-    return false
-end
-
 local member = app.session.member
 areas_selector = Area:build_selector { active = true }
-areas_selector:add_order_by("member_weight DESC")
+areas_selector:add_order_by("id ASC")
 
 if filter == "my_areas" then
     areas_selector:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", member.id })

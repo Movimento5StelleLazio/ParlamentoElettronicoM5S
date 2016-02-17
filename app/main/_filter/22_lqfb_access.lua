@@ -17,12 +17,12 @@ local restricted = not ((module == 'index'
         or view == "menu"
         or action == "set_lang"
         or view == "404"))
-        or module == "issue" and view == "show_ext_bs"
-        or module == "initiative" and view == "show"
+        or module == "issue"
+        or module == "initiative"
         or module == 'auditor'
         or module == 'idcard_scan')
 trace.debug("restricted: " .. tostring(restricted))
-if restricted and not (app.session.member.lqfb_access or app.session.member.admin) then
+if restricted and app.session.member_id ~= nil and not app.session.member.lqfb_access then
     --error('The administrator has disabled the access to this module')
     slot.put_into("error", _ "Your not able to access restricted areas yet: usually this means that you forgot to confirm your email address in your personal page. If you already confirmed your email, please contact your auditor.")
     trace.debug("lqfb access refused")

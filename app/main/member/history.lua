@@ -1,4 +1,3 @@
-slot.set_layout("custom")
 local member = Member:by_id(param.get_id())
 
 slot.select("head", function()

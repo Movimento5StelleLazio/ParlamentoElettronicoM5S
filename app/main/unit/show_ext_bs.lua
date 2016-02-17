@@ -9,7 +9,7 @@ end
 
 local member = app.session.member
 areas_selector = Area:build_selector { active = true }
-areas_selector:add_order_by("member_weight DESC")
+areas_selector:add_order_by("id")
 
 if filter == "my_areas" then
     areas_selector:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", member.id })

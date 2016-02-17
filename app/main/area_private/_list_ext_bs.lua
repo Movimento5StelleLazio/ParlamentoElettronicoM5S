@@ -13,6 +13,7 @@ else
     areas_selector:add_field("0", "issues_to_vote_count")
 end
 
+areas_selector:add_order_by("id")
 areas = areas_selector:exec()
 
 if #areas == 0 then

@@ -1,5 +1,5 @@
 slot.set_layout("custom")
-
+trace.debug("requested redirect")
 local issue_id = param.get_id()
 if issue_id == 0 then
     local tmp = param.get("issue_id", atom.integer)
@@ -19,24 +19,14 @@ local view = param.get("view")
 local ftl_btns = param.get("ftl_btns", atom.boolean)
 local init_ord = param.get("init_ord") or "supporters"
 
-local area = Area:by_id(issue.area_id)
-local unit = Unit:by_id(area.unit_id)
-if not unit.public then
-    if app.session then
-        request.redirect {
-            module = "issue_private",
-            view = "show_ext_bs",
-            id = param.get_id(),
-            params = param.get_all_cgi()
-        }
-    else
-        execute.view {
-            module = "index",
-            view = "index"
-        }
-        slot.put_into("error", "You must be loggen in to have access to the private area.")
-        return
-    end
+if issue.area.unit.public == false then
+    request.redirect {
+        module = "issue_private",
+        view = "show_ext_bs",
+        id = param.get_id(),
+        params = param.get_all_cgi()
+    }
+    return
 end
 
 local function round(num, idp)
@@ -185,25 +175,14 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid spaceline" },
+                    attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
-                            attr = { class = "span6 well-inside paper" },
+                            attr = { class = "span3 well-warning" },
                             content = function()
                                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
                             end
                         }
-                            end
-                        }                                       
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                                        ui.container {
-                                            attr = { class = "span1" },
-                                            content = function()
- 																																															ui.image { static = "spacer.png" }
-                                            end
-                                        }                    
                         ui.container {
                             attr = { class = "span9" },
                             content = function()
@@ -223,7 +202,13 @@ ui.container {
                         }
                     end
                 }
-
+                --[[slot.put("<span class='st_sharethis_vcount' displayText='ShareThis'></span>\n"..
+                          "<span class='st_facebook_vcount' displayText='Facebook'></span>\n"..
+                          "<span class='st_twitter_vcount' displayText='Tweet'></span>\n"..
+                          "<span class='st_plusone_vcount' displayText='Google +1'></span>\n"..
+                          "<span class='st_linkedin_vcount' displayText='LinkedIn'></span>\n"..
+                          "<span class='st_pinterest_vcount' displayText='Pinterest'></span>\n"..
+                          "<span class='st_email_vcount' displayText='Email'></span>")]]
                 ui.container {
                     attr = { class = "row-fluid spaceline2" },
                     content = function()
@@ -591,7 +576,7 @@ ui.container {
                                                     attr = { class = "row-fluid" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span7 spaceline text-justify" },
+                                                            attr = { class = "span8 spaceline text-justify" },
                                                             content = function()
                                                                 if #issue.initiatives == 1 then
                                                                     content = _ "initiative"
@@ -612,7 +597,7 @@ ui.container {
                                                         }
 
                                                         ui.container {
-                                                            attr = { class = "span4 offset1" },
+                                                            attr = { class = "span3 offset1" },
                                                             content = function()
                                                                 local area = Area:by_id(issue.area_id)
                                                                 local unit = Unit:by_id(area.unit_id)
@@ -708,7 +693,7 @@ ui.container {
                                                                                 end
 
                                                                                 ui.link {
-                                                                                    attr = { class = "span4 offset2 text-center" },
+                                                                                    attr = { class = "span4 offset2 text-center" .. btna },
                                                                                     module = request.get_module(),
                                                                                     id = issue.id,
                                                                                     view = request.get_view(),

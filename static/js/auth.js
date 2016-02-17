@@ -19,8 +19,8 @@ function checkOtpToken() {
 				if( data.result.status && data.result.value ) {
 					$("#login_div").submit();
 				} else {
-					$("#layout_error").text = "L'OTP inserito non è valido: riprova subito o aspetta un minuto.";
-					alert("L'OTP inserito non è valido: riprova subito o aspetta un minuto.");
+					$("#layout_error").text = "L'OTP inserito non è valido: riprova subito o aspetta che venga generato il prossimo.";
+					alert("L'OTP inserito non è valido: riprova subito o aspetta che venga generato il prossimo.");
 				}
 			},
 			error: function (jqXHR, textStatus, errorThrown) {

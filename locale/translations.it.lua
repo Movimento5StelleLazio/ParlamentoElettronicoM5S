@@ -589,7 +589,7 @@ return {
     ["New passwords does not match."] = "Le password non corrispondono.";
     ["New passwords is too short."] = "Password troppo corta.";
     ["New phase"] = "Nuovo";
-    ["New suggestion"] = "Emendamento";
+    ["New suggestion"] = "EMENDA";
     ["Newest"] = "Ultimo";
     ["Next Phase"] = "AVANTI";
     ["No"] = false;
@@ -663,7 +663,7 @@ return {
     ["Phases"] = "Fasi";
     ["Phone"] = "Telefono";
     ["Photo"] = "Foto";
-    ["Please choose a login name. This name will not be shown to others and is used only by you to login into the system. The login name is case sensitive."] = "Scegliere una Username. Questo nome non verrà mostrato ad altri e viene utilizzato solo per effettuare l'accesso a Parelon. Attenzione ai caratteri maiuscoli e minuscoli.";
+    ["Please choose a login name. This name will not be shown to others and is used only by you to login into the system. The login name is case sensitive."] = "Scegliere un nome di login. Questo nome non verrà mostrato ad altri e viene utilizzato solo per effettuare il login nel sistema. Attenzione ai caratteri maiuscoli e minuscoli.";
     ["Please choose a member"] = "Selezionare un utente";
     ["Please choose a name, i.e. your real name or your nick name. This name will be shown to others to identify you."] = "Scegliere un nome, ad esempio il tuo vero nome o il tuo nick name. Questo nome verrà mostrato agli altri per identificarti.";
     ["Please choose a password and enter it twice. The password is case sensitive."] = "Scegliere una password ed inserirla due volte. Attenzione ai caratteri maiuscoli e minuscoli.";
@@ -771,7 +771,7 @@ return {
     ["Show help text"] = "Mostra testo di aiuto";
     ["Show inactive units"] = "Visualizza unità disattivate";
     ["Show members"] = "Visualizza iscritti";
-    ["Show member history"] = "Cronologia utente";
+    ["Show member history"] = "Visualizza cronologia utente";
     ["Show older events"] = "Mostra eventi meno recenti";
     ["Show only events which match... (or associtated)"] = "Mostra solo eventi che corrispondono... (o associati)";
     ["Show policies in use"] = "Mostra regole in uso";

@@ -2,6 +2,8 @@ local area = param.get("area", "table")
 local member = param.get("member", "table")
 local create = param.get("create", atom.boolean) or false
 
+local imgPath = area.unit.name:sub(1, area.unit.name:find("-") - 2)
+
 ui.container {
     attr = { class = "row-fluid" },
     content = function()
@@ -21,6 +23,7 @@ ui.container {
                                             view = "shortcut",
                                             params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
                                             attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
+				                            image = {static = "png/"..imgPath..".png"},
                                             content = function()
                                                 ui.heading { level = 3, content = _ "AREA " .. area.id }
                                             end
@@ -31,6 +34,7 @@ ui.container {
                                             view = "page_bs1",
                                             params = { area_id = area.id, unit_id = area.unit_id, area_name = area.name, unit_name = Unit:by_id(area.unit_id).name },
                                             attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
+				                                    image = {static = "png/"..imgPath..".png"},
                                             content = function()
                                                 ui.heading { level = 3, content = _ "AREA " .. area.id }
                                             end
@@ -42,6 +46,7 @@ ui.container {
                                         view = "filters_bs",
                                         id = area.id,
                                         attr = { class = "btn btn-primary btn-large btn_margin fixclick" },
+				                        image = {static = "png/"..imgPath..".png"},
                                         content = function()
                                             ui.heading { level = 3, content = _ "AREA " .. area.id }
                                         end

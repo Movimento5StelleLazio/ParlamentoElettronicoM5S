@@ -1,4 +1,10 @@
-slot.set_layout("custom")
+trace.debug("requesting redirect")
+execute.view {
+  module = "issue",  -- module name
+  view   = "show_ext_bs",    -- view name
+  id     = param.get_id(),      -- optional id for view
+  params = param.get_all_cgi()   -- optional view parameters
+}--[[
 local issue = Issue:by_id(param.get_id())
 if app.session.member_id then
     issue:load_everything_for_member_id(app.session.member_id)
@@ -45,5 +51,5 @@ end
 if issue.snapshot then
     slot.put("<br />")
     ui.field.timestamp { label = _ "Last snapshot:", value = issue.snapshot }
-end
+end]]
 

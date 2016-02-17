@@ -21,7 +21,7 @@ ui.title(function()
             ui.tag {
                 tag = "strong",
                 attr = { class = "span9 text-center" },
-                content = _ "Member list"
+                content = _ "Member list" .. ": " .. tostring((db:query("SELECT total_count FROM member_count")[1]).total_count)
             }
         end
     }
@@ -43,7 +43,7 @@ end
 
 local members_selector = Member:build_selector {
     admin_search = search,
-    order = "identification"
+    order = "id DESC"
 }
 
 ui.paginate {
@@ -54,19 +54,22 @@ ui.paginate {
             records = members_selector:exec(),
             columns = {
                 {
-                    field_attr = { style = "text-align: right;" },
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     label = _ "Id",
                     name = "id"
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     label = _ "Identification",
                     name = "identification"
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     label = _ "Screen name",
                     name = "name"
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     label = _ "Admin?",
                     content = function(record)
                         if record.admin then
@@ -75,6 +78,7 @@ ui.paginate {
                     end
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     content = function(record)
                         if not record.activated then
                             ui.field.text { value = "not activated" }
@@ -86,6 +90,7 @@ ui.paginate {
                     end
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     content = function(record)
                         if record.locked then
                             ui.field.text { value = "locked" }
@@ -93,6 +98,7 @@ ui.paginate {
                     end
                 },
                 {
+                    field_attr = { style = "text-align: center; padding:0px 10px 0px 10px" },
                     content = function(record)
                         ui.link {
                             attr = { class = "action admin_only" },
