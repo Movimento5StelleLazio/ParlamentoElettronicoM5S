@@ -48,7 +48,7 @@ ui.paginate {
         end
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "" },
             content = function()
                 for i, issue in ipairs(issues) do
                     execute.view {

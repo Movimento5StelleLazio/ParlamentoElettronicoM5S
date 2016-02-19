@@ -771,7 +771,7 @@ return {
     ["Show help text"] = "Mostra testo di aiuto";
     ["Show inactive units"] = "Visualizza unità disattivate";
     ["Show members"] = "Visualizza iscritti";
-    ["Show member history"] = "Visualizza cronologia utente";
+    ["Show member history"] = "Cronologia utente";
     ["Show older events"] = "Mostra eventi meno recenti";
     ["Show only events which match... (or associtated)"] = "Mostra solo eventi che corrispondono... (o associati)";
     ["Show policies in use"] = "Mostra regole in uso";
@@ -939,7 +939,7 @@ return {
     ["You are not participating in any of the #{count} areas in this unit"] = "Non stai partecipando a nessuna delle #{count} aree di questa divisione";
     ["You are not participating in the only area of the unit"] = "Non stai partecipando all'unica area di questa divisione";
     ["You are now initiator of this initiative"] = "Adesso sei autore di questa proposta";
-    ["You are participating in this area"] = "Stai partecipando a questa area tematica";
+    ["You are participating in this area"] = "Partecipi in questa area";
     ["You are potential supporter"] = "Sei un potenziale sostenitore";
     ["You are potential supporter of this initiative"] = "Sei un potenziale sostenitore della proposta";
     ["You are potential supporter of this initiative via delegation"] = "Sei un potenziale sostenitore della proposta tramite delega";

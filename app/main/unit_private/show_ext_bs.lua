@@ -3,9 +3,13 @@ slot.set_layout("custom")
 local filter = param.get("filter")
 local create = param.get("create", atom.boolean) or false
 
+if not app.session.member_id then
+    return false
+end
+
 local member = app.session.member
 areas_selector = Area:build_selector { active = true }
-areas_selector:add_order_by("id ASC")
+areas_selector:add_order_by("id")
 
 if filter == "my_areas" then
     areas_selector:join("membership", nil, { "membership.area_id = area.id AND membership.member_id = ?", member.id })
@@ -13,7 +17,7 @@ else
     areas_selector:join("privilege", nil, { "privilege.unit_id = area.unit_id AND privilege.member_id = ? AND privilege.voting_right", member.id })
 end
 
-areas_selector:join("unit", nil, "unit.id = area.unit_id AND NOT unit.public ")
+areas_selector:join("unit", nil, "unit.id = area.unit_id AND unit.public ")
 
 ui.title(function()
     ui.container {
@@ -25,7 +29,7 @@ ui.title(function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn btn-back" },
                         module = "index",
-                        view = "homepage_private_bs",
+                        view = "homepage_bs",
                         content = _ "Back to previous page",
                         image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
                     }
@@ -40,7 +44,7 @@ ui.title(function()
                             ui.container {
                                 attr = { class = "span12 text-center" },
                                 content = function()
-                                    ui.heading { level = 1, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", { realname = member.realname }) }
+                                    ui.heading { level = 1, content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = member.realname }) }
                                 end
                             }
                         end
@@ -115,7 +119,7 @@ ui.container {
                         ui.tag {
                             tag = "h3",
                             attr = { class = "span12 text-center" },
-                            content = _ "M5S MEMBERS THEMATIC AREAS" or _ "THEMATIC AREAS"
+                            content = _ "CITIZENS THEMATIC AREAS" or _ "THEMATIC AREAS"
                         }
                     end
                 }

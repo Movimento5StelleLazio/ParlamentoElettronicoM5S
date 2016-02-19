@@ -34,9 +34,8 @@ end
 -- Uncomment the following to use svgz instead of svg
 local svgz = ""
 --local svgz = "z"
-
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "span12 well-blue" },
     content = function()
         ui.container {
             attr = { class = "span10 offset1 well-blue spaceline paper-green" },
@@ -44,33 +43,21 @@ ui.container {
                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
             end
         }
-    end
-}
-ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
         ui.container {
             attr = { class = "span9 phasesheight" },
             content = function()
                 execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
             end
         }
-    end
-}
-
-
-ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
         ui.container {
-            attr = { class = "span12 well-blue" },
+            attr = { class = "span12" },
             content = function()
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
                         ui.tag {
                             tag = "strong",
-                            attr = { class = "offset3 span6 label label-warning text-center" },
+                            attr = { class = "span12 label label-warning text-center" },
                             content = function()
                                 ui.heading { level = 3, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
                             end
@@ -123,9 +110,6 @@ ui.container {
                 }
                 --        local links = {}
 
-                ui.container {
-                    attr = { class = "row-fluid spaceline2" },
-                    content = function()
                         ui.container {
                             attr = { class = "span12" },
                             content = function()
@@ -138,8 +122,6 @@ ui.container {
                                 ui.heading { level = 3, attr = { class = "label label-warning" }, content = content }
                             end
                         }
-                    end
-                }
 
                 ui.container {
                     attr = { class = "row-fluid" },
@@ -172,9 +154,7 @@ ui.container {
                     end
                 }
 
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
+
                     --                        if app.session.member_id and direct_voter then
                     --                            ui.container {
                     --                                attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
@@ -229,15 +209,14 @@ ui.container {
                             end
                         }
                     end
-                }
-            end
-        }
+        }   
+   end
+}
         ui.container {
             attr = { class = "row-fluid spaceline2" },
             content = function()
                 ui.tag { tag = "hr", attr = { class = "" } }
             end
         }
-    end
-}
+
 

@@ -3,7 +3,7 @@ slot.select('navbar', function()
         attr = { class = "row-fluid" },
         content = function()
             ui.container {
-                attr = { class = "span6" },
+                attr = { class = "span5" },
                 content = function()
                     ui.link {
                         module = 'index',
@@ -11,14 +11,27 @@ slot.select('navbar', function()
                         image = { static = "logo_withe.png" },
                         text = ""
                     }
-                    end
-            }               
+					end
+				}
+            ui.container {
+                attr = { class = "span4 text-right spaceline" },
+                content = function()
+						ui.link {
+							content = function()
+							slot.put(_"<a class='color-menu' href='https://www.parelon.com/?project=sincronizzare-il-token&lang=it' target='_blank'>Registrati</a><a class='color-menu' href='https://www.parelon.com' target='_blank'> | Chi siamo</a><a class='color-menu'  href='https://www.parelon.com/?project=primo-accesso&lang=it' target='_blank'> | Tutorial</a><a class='color-menu'  href='https://www.kapipal.com/d92dbc7a90f540d7b98f55c11ba15ab2' target='_blank'> | Fai una donazione</a>")
+						end
+						}
+					end
+				}
+            ui.container {
+                attr = { class = "span3" },
+                content = function()
                     ui.container {
-                        attr = { class = "nav pull-right span3 offset3" },
+                        attr = { class = "nav pull-left" },
                         content = function()
                             ui.tag {
                                 tag = "a",
-                                attr = { datatoggle = "dropdown", class = "pull-right spaceline label label-warning fixclick btn-dropdown-toggle" },
+                                attr = { datatoggle = "dropdown", class = "pull-left spaceline label label-warning fixclick btn-dropdown-toggle" },
                                 module = "index",
                                 view = "menu_ext",
                                 content = function()
@@ -43,9 +56,13 @@ slot.select('navbar', function()
                             execute.view { module = "index", view = "_menu_ext" }
                         end
                     }
+                        end
+                    }
 
-        end
-    }
+
+                end
+            }
+
 end)
 
 slot.select("footer_bs", function()

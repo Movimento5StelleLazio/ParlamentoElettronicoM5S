@@ -34,7 +34,7 @@ ui.container {
         if show_content then
 
             ui.container {
-                attr = { class = "content" },
+                attr = { class = "content spaceline" },
                 content = function()
 
                 -- actions (members with appropriate voting right only)
@@ -50,8 +50,9 @@ ui.container {
                                 slot.put(" ")
                                 ui.tag {
                                     content = function()
-                                        slot.put("(")
+                                        slot.put("")
                                         ui.link {
+														  attr = { class = "label label-inverse" },
                                             text = _ "Withdraw",
                                             module = "membership",
                                             action = "update",
@@ -66,7 +67,7 @@ ui.container {
                                                 }
                                             }
                                         }
-                                        slot.put(")")
+                                        slot.put("")
                                     end
                                 }
                             else
@@ -94,23 +95,33 @@ ui.container {
 
                         if app.session.member_id == member.id and app.session.member:has_voting_right_for_unit_id(area.unit_id) then
 
-                            slot.put(" &middot; ")
+                            slot.put("")
                             if area.delegation_info.own_delegation_scope ~= "area" then
-                                ui.link { text = _ "Delegate area", module = "delegation", view = "show", params = { area_id = area.id } }
+                                ui.link {
+												attr = { class = "btn btn-primary large_btn margin_line text-center" }, 
+												text = _ "Delegate area", 
+												module = "delegation", 
+												view = "show", 
+												params = { area_id = area.id } }
                             else
-                                ui.link { text = _ "Change area delegation", module = "delegation", view = "show", params = { area_id = area.id } }
+                                ui.link {
+												attr = { class = "btn btn-primary large_btn margin_line text-center" }, 
+												text = _ "Change area delegation",
+												module = "delegation", 
+												view = "show", 
+												params = { area_id = area.id } }
                             end
-                            slot.put(" &middot; ")
+                            slot.put("")
 
-                            ui.link {
-                                attr = { class = "label label-warning" },
-                                content = function()
-                                    slot.put(_ "Create new issue")
-                                end,
-                                module = "initiative",
-                                view = "new",
-                                params = { area_id = area.id }
-                            }
+		                         ui.link {
+		                             attr = { class = "btn btn-primary large_btn margin_line text-center" },
+		                             content = function()
+		                                 slot.put(_ "Create new issue")
+		                             end,
+		                             module = "initiative",
+		                             view = "new",
+		                             params = { area_id = area.id }
+		                         }
                         end
                     end
                 end

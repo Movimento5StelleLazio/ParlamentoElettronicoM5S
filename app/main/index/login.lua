@@ -119,7 +119,7 @@ ui.form {
                                 content = function()
                                     ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'OTP' }
                                     ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span4 offset1 input-large", name = "otp" }, content = '' }
+                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
                                 end
                             }
 

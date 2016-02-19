@@ -23,7 +23,7 @@ elseif vote_comment_able then
 end
 
 
-local class = "issue"
+local class = "issue paper"
 if issue.is_interested then
     class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
@@ -44,7 +44,7 @@ ui.container {
                         module = "unit_private",
                         view = "show",
                         id = issue.area.unit_id,
-                        attr = { class = "unit_link" },
+                        attr = { class = "label label-success" },
                         text = issue.area.unit.name
                     }
                     slot.put(" ")
@@ -52,7 +52,7 @@ ui.container {
                         module = "area_private",
                         view = "show",
                         id = issue.area_id,
-                        attr = { class = "area_link" },
+                        attr = { class = "label label-warning" },
                         text = issue.area.name
                     }
                 end
@@ -168,7 +168,7 @@ ui.container {
                 if not issue.closed and not issue.fully_frozen then
                     if issue.member_info.own_participation then
                         links[#links + 1] = {
-                            attr = { class = "label label-inverse", style = "margin-right: 50px;" },
+                            attr = { class = "label label-inverse filter_btn", style = "margin-right: 50px;" },
                             in_brackets = true,
                             text = _ "Withdraw",
                             module = "interest",
@@ -186,7 +186,7 @@ ui.container {
                         }
                     elseif app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
                         links[#links + 1] = {
-                            attr = { class = "btn btn-primary btn_size_fix fixclick" },
+                            attr = { class = "btn btn-primary large_btn filter_btn fixclick" },
                             text = _ "Add my interest",
                             module = "interest",
                             action = "update",
@@ -206,9 +206,9 @@ ui.container {
 
                 if not issue.closed and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
                     if issue.member_info.own_delegation_scope ~= "issue" then
-                        links[#links + 1] = { attr = { class = "btn btn-primary btn_size_fix fixclick" }, text = _ "Delegate issue", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
+                        links[#links + 1] = { attr = { class = "btn btn-primary large_btn filter_btn fixclick" }, text = _ "Delegate issue", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
                     else
-                        links[#links + 1] = { attr = { class = "btn btn-primary btn_size_fix fixclick" }, text = _ "Change issue delegation", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
+                        links[#links + 1] = { attr = { class = "btn btn-primary large_btn filter_btn fixclick" }, text = _ "Change issue delegation", module = "delegation", view = "show", params = { issue_id = issue.id, initiative_id = for_initiative_id } }
                     end
                 end
             end
@@ -234,7 +234,7 @@ ui.container {
             if app.session.member_id and app.session.member:has_voting_right_for_unit_id(issue.area.unit_id) then
                 if not issue.fully_frozen and not issue.closed then
                     links[#links + 1] = {
-                        attr = { class = "btn btn-primary btn_size_fix fixclick action" },
+                        attr = { class = "btn btn-primary large_btn filter_btn fixclick action" },
                         text = _ "Create alternative initiative",
                         module = "initiative",
                         view = "new",
@@ -249,9 +249,9 @@ ui.container {
             content = function()
                 for i, link in ipairs(links) do
                     if link.in_brackets then
-                        slot.put(" (")
+                        slot.put("")
                     elseif i > 1 then
-                        slot.put(" &middot; ")
+                        slot.put("")
                     end
                     if link.module or link.external then
                         ui.link(link)
@@ -259,7 +259,7 @@ ui.container {
                         ui.tag(link)
                     end
                     if link.in_brackets then
-                        slot.put(")")
+                        slot.put("")
                     end
                 end
             end
