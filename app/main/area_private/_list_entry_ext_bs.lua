@@ -8,7 +8,7 @@ ui.container {
     attr = { class = "row-fluid" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside" },
+            attr = { class = "span12 well-inside paper" },
             content = function()
                 ui.container {
                     attr = { class = "row-fluid" },

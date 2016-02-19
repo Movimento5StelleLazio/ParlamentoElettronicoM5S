@@ -129,25 +129,25 @@ local issues_desc
 if state == "admission" then
     issues_desc = _ "Citizens Initiatives Looking For Supporters" or Issue:get_state_name_for_state('admission')
 elseif state == "development" then
-    issues_desc = _ "M5S Members Initiatives In Discussion" or _ "Development"
+    issues_desc = _ "Citizens Initiatives In Discussion" or _ "Development"
 elseif state == "discussion" then
-    issues_desc = _ "M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('discussion')
+    issues_desc = _ "Citizens Initiatives In Discussion" or Issue:get_state_name_for_state('discussion')
 elseif state == "voting" then
-    issues_desc = _ "M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('voting')
+    issues_desc = _ "Citizens Initiatives In Discussion" or Issue:get_state_name_for_state('voting')
 elseif state == "verification" then
-    issues_desc = _ "M5S Members Initiatives In Discussion" or Issue:get_state_name_for_state('verification')
+    issues_desc = _ "Citizens Initiatives In Discussion" or Issue:get_state_name_for_state('verification')
 elseif state == "committee" then
-    issues_desc = _ "M5S Members Initiatives In Discussion" or _ "Committee"
+    issues_desc = _ "Citizens Initiatives In Discussion" or _ "Committee"
 elseif state == "closed" then
-    issues_desc = _ "M5S Members Initiatives Completed or Retired" or _ "Closed"
+    issues_desc = _ "Citizens Initiatives Completed or Retired" or _ "Closed"
 elseif state == "canceled" then
-    issues_desc = _ "M5S Members Initiatives Completed or Retired" or _ "Canceled"
+    issues_desc = _ "Citizens Initiatives Completed or Retired" or _ "Canceled"
 elseif state == "finished" then
-    issues_desc = _ "M5S Members Initiatives Completed or Retired" or _ "Finished"
+    issues_desc = _ "Citizens Initiatives Completed or Retired" or _ "Finished"
 elseif state == "finished_with_winner" then
-    issues_desc = _ "M5S Members Initiatives Completed or Retired" or _ "Finished (with winner)"
+    issues_desc = _ "Citizens Initiatives Completed or Retired" or _ "Finished (with winner)"
 elseif state == "finished_without_winner" then
-    issues_desc = _ "M5S Members Initiatives Completed or Retired" or _ "Finished (without winner)"
+    issues_desc = _ "Citizens Initiatives Completed or Retired" or _ "Finished (without winner)"
 elseif state == "open" then
     issues_desc = _ "Open"
 elseif state == "any" then

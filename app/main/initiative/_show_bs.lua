@@ -211,7 +211,6 @@ ui.container {
                         end
                     end
                 }
-
                 ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
@@ -222,13 +221,19 @@ ui.container {
                                     attr = { class = "row-fluid" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span6 offset3 well-warning" },
+                                            attr = { class = "span2 well-warning" },
                                             content = function()
                                                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span2 text-center" },
+                                            attr = { class = "span9" },
+                                            content = function()
+                                                execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
+                                            end
+                                        }
+                                        ui.container {
+                                            attr = { class = "span1 text-center" },
                                             content = function()
                                                 ui.field.popover {
                                                     attr = {
@@ -250,31 +255,8 @@ ui.container {
                                                 }
                                             end
                                         }
-
                                     end
                                 }
-                             ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-
-                                        ui.container {
-                                            attr = { class = "span9 offset1" },
-                                            content = function()
-                                                execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
-                                            end
-                                        }
-                    ui.container {
-                        attr = { class = "span1 text-center" },
-                        content = function()
-                            ui.image {
-                                attr = { class = "" },
-                                static = "divider.png"
-                            }
-                        end
-                    }
-                                    end
-                                }
-
                             end
                         }
                     end

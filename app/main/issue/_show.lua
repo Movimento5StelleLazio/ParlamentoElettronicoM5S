@@ -23,7 +23,7 @@ elseif vote_comment_able then
 end
 
 
-local class = "issue"
+local class = "issue paper"
 if issue.is_interested then
     class = class .. " interested"
 elseif issue.is_interested_by_delegation_to_member_id then
@@ -52,7 +52,7 @@ ui.container {
                         module = "area",
                         view = "show",
                         id = issue.area_id,
-                        attr = { class = "label label-inverse" },
+                        attr = { class = "label label-warning" },
                         text = issue.area.name
                     }
                 end

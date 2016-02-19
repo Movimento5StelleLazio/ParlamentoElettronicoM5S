@@ -17,7 +17,7 @@ ui.title(function()
                 attr = { class = "span3 text-left" },
                 content = function()
                     ui.link {
-                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        attr = { class = "btn btn-primary btn-large large_btn fixclick" },
                         module = "index",
                         view = "index",
                         image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
@@ -69,7 +69,7 @@ ui.title(function()
         attr = { class = "row-fluid spaceline" },
         content = function()
             ui.link {
-                attr = { class = "offset2 span2 btn btn-primary btn_size_fix fixclick" },
+                attr = { class = " span3 btn btn-primary btn_size_fix fixclick" },
                 content = _ "Show member history",
                 module = "member",
                 view = "history",
@@ -77,13 +77,13 @@ ui.title(function()
             }
             if not member.active then
                 ui.tag {
-                    attr = { class = "span2 interest deactivated_member_info" },
+                    attr = { class = "span3 interest deactivated_member_info" },
                     content = _ "This member is inactive"
                 }
             end
             if member.locked then
                 ui.tag {
-                    attr = { class = "span2 interest deactivated_member_info" },
+                    attr = { class = "span3 interest deactivated_member_info" },
                     content = _ "This member is locked"
                 }
             end
@@ -92,7 +92,7 @@ ui.title(function()
                 local contact = Contact:by_pk(app.session.member.id, member.id)
                 if contact then
                     ui.link {
-                        attr = { class = "span2 btn btn-primary btn_size_fix fixclick" },
+                        attr = { class = "span3 btn btn-primary fixclick" },
                         text = _ "Remove from contacts",
                         module = "contact",
                         action = "remove_member",
@@ -109,7 +109,7 @@ ui.title(function()
                     }
                 elseif member.activated then
                     ui.link {
-                        attr = { class = "span2 btn btn-primary btn_size_fix fixclick" },
+                        attr = { class = "span3 btn btn-primary fixclick" },
                         text = _ "Add to my contacts",
                         module = "contact",
                         action = "add_member",
@@ -128,11 +128,11 @@ ui.title(function()
                 local ignored_member = IgnoredMember:by_pk(app.session.member.id, member.id)
                 if ignored_member then
                     ui.tag {
-                        attr = { class = "span2 interest" },
+                        attr = { class = "span3 interest" },
                         content = _ "You have ignored this member"
                     }
                     ui.link {
-                        attr = { class = "span2 btn btn-primary btn_size_fix fixclick" },
+                        attr = { class = "span3 btn btn-primary fixclick" },
                         text = _ "Stop ignoring member",
                         module = "member",
                         action = "update_ignore_member",
@@ -150,7 +150,7 @@ ui.title(function()
                     }
                 elseif member.activated then
                     ui.link {
-                        attr = { class = "span2 interest btn btn-primary btn_size_fix fixclick" },
+                        attr = { class = "span3 interest btn btn-primary fixclick" },
                         text = _ "Ignore member",
                         module = "member",
                         action = "update_ignore_member",
@@ -169,13 +169,13 @@ ui.title(function()
             end
             if member.id == app.session.member_id then
                 ui.link {
-                    attr = { class = "offset2 span2 btn btn-primary btn_size_fix fixclick" },
+                    attr = { class = "span3 btn btn-primary fixclick" },
                     content = _ "Edit profile",
                     module = "member",
                     view = "edit"
                 }
                 ui.link {
-                    attr = { class = "span2 btn btn-primary btn_size_fix fixclick" },
+                    attr = { class = "span3 btn btn-primary  fixclick" },
                     content = _ "Upload avatar/photo",
                     module = "member",
                     view = "edit_images"

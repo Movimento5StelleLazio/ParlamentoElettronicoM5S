@@ -42,7 +42,7 @@ filters.content = function()
             issues:load_everything_for_member_id(member and member.id or nil)
 
             ui.container {
-                attr = { class = "issues" },
+                attr = { class = " row-fluid issues" },
                 content = function()
 
                     for i, issue in ipairs(issues) do

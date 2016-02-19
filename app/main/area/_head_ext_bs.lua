@@ -25,7 +25,7 @@ ui.container {
                     attr = { class = "row-fluid" },
                     content = function()
                         ui.container {
-                            attr = { class = "span11" },
+                            attr = { class = "span11 spaceline" },
                             content = function()
                                 ui.link {
                                     module = "area",
@@ -48,7 +48,7 @@ ui.container {
                         attr = { class = "row-fluid" },
                         content = function()
                             ui.container {
-                                attr = { class = "span12" },
+                                attr = { class = "span12 spaceline spaceline-bottom" },
                                 content = function()
 
                                 -- actions (members with appropriate voting right only)
@@ -64,8 +64,9 @@ ui.container {
                                                 slot.put(" ")
                                                 ui.tag {
                                                     content = function()
-                                                        slot.put("(")
+                                                        slot.put("")
                                                         ui.link {
+																				attr = { class = "label label-inverse" },
                                                             text = _ "Withdraw",
                                                             module = "membership",
                                                             action = "update",
@@ -80,7 +81,7 @@ ui.container {
                                                                 }
                                                             }
                                                         }
-                                                        slot.put(")")
+                                                        slot.put("")
                                                     end
                                                 }
                                             else
@@ -89,7 +90,7 @@ ui.container {
 
                                         elseif app.session.member_id == member.id and member:has_voting_right_for_unit_id(area.unit_id) then
                                             ui.link {
-                                                attr = { class = "label label-warning" },
+                                                attr = { class = "btn btn-primary large_btn margin_line text-center" },
                                                 text = _ "Participate in this area",
                                                 module = "membership",
                                                 action = "update",
@@ -108,7 +109,7 @@ ui.container {
 
                                         if app.session.member_id == member.id and app.session.member:has_voting_right_for_unit_id(area.unit_id) then
 
-                                            slot.put(" &middot; ")
+                                            slot.put("")
                                             --[[
                                             if area.delegation_info.own_delegation_scope ~= "area" then
                                               ui.link{ text = _"Delegate area", module = "delegation", view = "show", params = { area_id = area.id } }
@@ -119,7 +120,7 @@ ui.container {
                                             --]]
 
                                             ui.link {
-                                                attr = { class = "label label-warning" },
+                                                attr = { class = "btn btn-primary large_btn margin_line text-center" },
                                                 content = function()
                                                     slot.put(_ "Create new issue")
                                                 end,

@@ -306,7 +306,7 @@ if app.session.member_id then
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica e Assemblea Interna.<br>".."<a class ='btn btn-primary large_btn fixclick'  href='https://www.parelon.com/?project=primo-accesso&lang=it' tarfet='_blank'><h3>Vai ai Tutorial</h3></a>",
+                            datacontent = _ "Se sei su queste pagine per la prima volta, BENVENUTO! Per poter comprendere e navigare nei contenuti di Parelon, in ogni box troverai l'icona di aiuto, che ti supporterà con suggerimenti e tutorial, anche video. In questa prima pagina trovi due pulsanti principali, Assemblea Pubblica e Assemblea Interna.<br>".."<a class ='btn btn-primary large_btn fixclick'  href='https://www.parelon.com/?project=primo-accesso&lang=it' target='_blank'><h3>Vai ai Tutorial</h3></a>",
                             class = "text-center"
                         },
                         content = function()
@@ -461,7 +461,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} new", { count = issues_new_count })
                                                                                     }
                                                                                 end
@@ -497,7 +497,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} in discussion", { count = issues_discussion_count })
                                                                                     }
                                                                                 end
@@ -533,7 +533,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} in verification", { count = issues_frozen_count })
                                                                                     }
                                                                                 end
@@ -574,7 +574,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} in voting", { count = issues_voting_count })
                                                                                     }
                                                                                 end
@@ -610,7 +610,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} finished", { count = issues_finished_count })
                                                                                     }
                                                                                 end
@@ -646,7 +646,7 @@ if app.session.member_id then
                                                                                 content = function()
                                                                                     ui.heading {
                                                                                         level = 4,
-                                                                                        attr = { class = "btn btn-primary large_btn" },
+                                                                                        attr = { class = "btn btn-primary large_btn_console" },
                                                                                         content = _("#{count} canceled", { count = issues_canceled_count })
                                                                                     }
                                                                                 end

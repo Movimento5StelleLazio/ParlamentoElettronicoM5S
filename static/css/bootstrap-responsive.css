@@ -87,8 +87,13 @@
     }
 
     .large_btn {
-        width: 140px;
+        width: 190px;
     }
+
+   .large_btn_console {
+ 		 width: 108px;
+       height: 56px;
+	}
 
     h3 {
         font-size: 18px;
@@ -318,8 +323,8 @@
         float: left;
         width: 100%;
         min-height: 30px;
-        margin-left: 2.564102564102564%;
-        *margin-left: 2.5109110747408616%;
+        margin-left: 0.564102564102564%;
+        *margin-left: 0.5109110747408616%;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
