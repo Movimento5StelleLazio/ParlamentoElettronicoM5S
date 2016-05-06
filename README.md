@@ -13,9 +13,7 @@ PROTOCOLLO CERTIFICAZIONE UTENTI: https://pdfzen.com/f8c491
 
 GRUPPO DISCUSSIONE PUBBLICO: https://www.facebook.com/groups/discussione.parlamento.m5slazio/
 
-SITO WEB: http://www.parelon.lazio.it/
-
-BLOG: http://parlamentoelettronicom5s.blogspot.it/
+SITO WEB: http://www.parelon.it/
 
 PAGINA UFFICIALE FACEBOOK: https://www.facebook.com/ParlamentoElettronicoOnline
 
