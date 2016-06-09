@@ -18,10 +18,10 @@ areas = areas_selector:exec()
 
 if #areas == 0 then
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12 alert alert-simple text-center" },
+                attr = { class = "col-md-12 alert alert-simple text-center" },
                 content = function()
                     ui.heading { level = 4, content = _ "There are no enabled areas in this unit." }
                 end

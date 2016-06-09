@@ -1,15 +1,15 @@
 slot.set_layout("custom")
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 text-center" },
+                            attr = { class = "col-md-12 text-center" },
                             content = function()
                                 ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Auditor Panel" .. " ID:" .. app.session.member_id }
                                 ui.heading { level = 3, attr = { class = "" }, content = _ "Your certified users" }
@@ -18,7 +18,7 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid text-center" },
+                    attr = { class = "row text-center" },
                     content = function()
 
                         ui.container {
@@ -68,10 +68,10 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "row-fluid spaceline2" },
+    attr = { class = "row spaceline2" },
     content = function()
         ui.container {
-            attr = { class = "span12 alert alert-simple issue_box paper text-center" },
+            attr = { class = "col-md-12 alert alert-simple issue_box paper text-center" },
             content = function()
                 local members_selector = Member:new_selector()
                 members_selector:add_where { "certifier_id = ?", app.session.member_id }

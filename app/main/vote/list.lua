@@ -67,10 +67,10 @@ else
 
     ui.title(function()
         ui.container {
-            attr = { class = "row-fluid spaceline" },
+            attr = { class = "row spaceline" },
             content = function()
                 ui.container {
-                    attr = { class = "span8 offset2 label label-warning text-center" },
+                    attr = { class = "col-md-8 col-md-offset-2 label label-warning text-center" },
                     content = function()
                         ui.heading { level = 1, content = _ "You are voting for the issue:" }
                         local issue_id = issue.id
@@ -80,7 +80,7 @@ else
                     end
                 }
                 ui.container {
-                    attr = { class = "span1 text-center " },
+                    attr = { class = "col-md-1 text-center " },
                     content = function()
                         ui.field.popover {
                             attr = {
@@ -93,9 +93,9 @@ else
                             },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
-                                        ui.image { static = "png/tutor.png" }
+                                        ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                                     end
                                 }
                             end
@@ -108,16 +108,16 @@ else
 
     ui.actions(function()
         ui.container {
-            attr = { class = "row-fluid spaceline2" },
+            attr = { class = "row spaceline2" },
             content = function()
                 ui.container {
-                    attr = { class = "offset1 span10" },
+                    attr = { class = "col-md-offset-1 col-md-10" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.link {
-                                    attr = { class = "span3 btn btn-primary fixclick" },
+                                    attr = { class = "col-md-3 btn btn-primary fixclick" },
                                     module = "issue",
                                     view = "show_ext_bs",
                                     id = issue.id,
@@ -132,14 +132,14 @@ else
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "offset2 span2" },
+                                    attr = { class = "col-md-offset-2 col-md-2" },
                                     content = function()
                                         ui.image { static = "png/voting.png" }
                                     end
                                 }
                                 if direct_voter then
                                     ui.link {
-                                        attr = { class = "offset2 span3 btn btn-primary fixclick" },
+                                        attr = { class = "col-md-offset-2 col-md-3 btn btn-primary fixclick" },
                                         module = "vote",
                                         action = "update",
                                         params = {
@@ -267,12 +267,12 @@ ui.field.popover {
         datatitle = _ "Box di aiuto per la pagina",
         datacontent = _ "Use arrows to order initiatives from the one you agree most to the one you disagree most.",
         datahtml = "true",
-        div_attr = { class = "row-fluid" },
-        class = "offset11 span1"
+        div_attr = { class = "row" },
+        class = "col-md-offset-11 col-md-1"
     },
     content = function()
     --        ui.container {
-    --            attr = { class = "row-fluid" },
+    --            attr = { class = "row" },
     --            content = function()
         ui.image { attr = { class = "" }, static = "png/tutor.png" }
     --            end
@@ -280,10 +280,10 @@ ui.field.popover {
     end
 }
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside paper spaceline" },
+            attr = { class = "col-md-12 well-inside paper spaceline" },
             content = function()
                 ui.form {
                     record = direct_voter,
@@ -327,13 +327,13 @@ ui.container {
                             }
                             -- TODO abstrahieren
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row" },
                                 content = function()
                                     ui.tag {
                                         tag = "input",
                                         attr = {
                                             type = "submit",
-                                            class = "offset5 span2 voting_done1 btn btn-primary btn-large large_btn",
+                                            class = "col-md-offset-5 col-md-2 voting_done1 btn btn-primary btn-large large_btn",
                                             value = submit_button_text
                                         }
                                     }
@@ -341,10 +341,10 @@ ui.container {
                             }
                         end
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "offset1 span10" },
+                                    attr = { class = "col-md-offset-1 col-md-10" },
                                     content = function()
                                         ui.container {
                                             attr = { id = "voting" },
@@ -591,12 +591,12 @@ ui.container {
                                                         datatitle = _ "Box di aiuto per la pagina",
                                                         datacontent = _ "If you'd like to do so, you can post a comment to your vote. To remove a previous comment just leave this space blank and click on <i>Register</i>.",
                                                         datahtml = "true",
-                                                        div_attr = { class = "row-fluid" },
-                                                        class = "offset11 span1"
+                                                        div_attr = { class = "row" },
+                                                        class = "col-md-offset-11 col-md-1"
                                                     },
                                                     content = function()
                                                     --        ui.container {
-                                                    --            attr = { class = "row-fluid" },
+                                                    --            attr = { class = "row" },
                                                     --            content = function()
                                                         ui.image { attr = { class = "" }, static = "png/tutor.png" }
                                                     --            end
@@ -626,7 +626,7 @@ ui.container {
                                             end
 
                                             ui.container {
-                                                attr = { class = "row-fluid" },
+                                                attr = { class = "row" },
                                                 content = function()
                                                     if not readonly or direct_voter then
                                                         ui.tag {
@@ -635,7 +635,7 @@ ui.container {
                                                                 type = "submit",
                                                                 name = "preview",
                                                                 value = _ "Preview voting comment",
-                                                                class = "preview text-center span5 btn btn-primary btn-large large_btn"
+                                                                class = "preview text-center col-md-5 btn btn-primary btn-large large_btn"
                                                             }
                                                         }
                                                     end
@@ -644,7 +644,7 @@ ui.container {
                                                             tag = "input",
                                                             attr = {
                                                                 type = "submit",
-                                                                class = "offset4 voting_done2 btn btn-primary btn-large large_btn",
+                                                                class = "col-md-offset-4 voting_done2 btn btn-primary btn-large large_btn",
                                                                 value = submit_button_text
                                                             }
                                                         }

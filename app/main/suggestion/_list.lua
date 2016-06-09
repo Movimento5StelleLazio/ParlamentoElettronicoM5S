@@ -9,16 +9,16 @@ if true or not show_filter then
 end
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span6 offset3 label label-warning" },
+            attr = { class = "col-md-6 col-md-offset-3 label label-fix-size" },
             content = function()
                 ui.tag { tag = "h1", attr = { class = "text-center", name = "suggestions" }, content = _ "Suggestions" }
             end
         }
         ui.container {
-            attr = { class = "span1 offset1 text-right " },
+            attr = { class = "col-md-1 col-md-offset-1 text-right " },
             content = function()
                 ui.field.popover {
                     attr = {
@@ -31,9 +31,9 @@ ui.container {
                     },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
-                                ui.image { static = "png/tutor.png" }
+                                ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                             --								    ui.heading{level=3 , content= _"What you want to do?"}
                             end
                         }
@@ -45,13 +45,13 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "row-fluid spaceline" },
+    attr = { class = "row spaceline" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside paper" },
+            attr = { class = "col-md-12 well-inside paper" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid spaceline" },
+                    attr = { class = "row spaceline" },
                     content = function()
                         ui.paginate {
                             selector = suggestions_selector,
@@ -135,10 +135,10 @@ ui.container {
                         and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id)
                 then
                     ui.container {
-                        attr = { class = "row-fluid text-center" },
+                        attr = { class = "row text-center" },
                         content = function()
                             ui.container {
-                                attr = { class = "span6 offset3 text-center spaceline-bottom" },
+                                attr = { class = "col-md-6 col-md-offset-3 text-center spaceline-bottom" },
                                 content = function()
                                     ui.link {
                                         attr = { class = "btn btn-primary btn_size_fix fixclick" },

@@ -1,7 +1,7 @@
 local initiative = param.get("initiative", "table")
 
 ui.form {
-    attr = { class = "span10 offset1" },
+    attr = { class = "col-md-10 col-md-offset-1" },
     record = initiative,
     readonly = true,
     content = function()

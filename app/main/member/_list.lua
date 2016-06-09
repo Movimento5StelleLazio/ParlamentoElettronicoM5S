@@ -27,6 +27,7 @@ if issue or initiative then
 end
 
 filter[#filter + 1] = {
+    attr = { class = "btn btn-primary" },
     name = "newest",
     label = _ "Newest",
     selector_modifier = function(selector) selector:add_order_by("activated DESC, id DESC") end
@@ -58,10 +59,10 @@ if issue or initiative then
     end
 end
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside paper" },
+            attr = { class = "col-md-12 well-inside paper" },
             content = function()
                 ui_filters {
                     label = _ "Change order",

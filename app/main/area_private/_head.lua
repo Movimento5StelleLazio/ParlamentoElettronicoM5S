@@ -76,7 +76,7 @@ ui.container {
 
                         elseif app.session.member_id == member.id and member:has_voting_right_for_unit_id(area.unit_id) then
                             ui.link {
-                                attr = { class = "label label-warning" },
+                                attr = { class = "btn btn-primary large_btn margin_line text-center" },
                                 text = _ "Participate in this area",
                                 module = "membership",
                                 action = "update",

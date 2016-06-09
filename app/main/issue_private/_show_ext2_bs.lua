@@ -35,43 +35,79 @@ end
 local svgz = ""
 --local svgz = "z"
 ui.container {
-    attr = { class = "span12 well-blue" },
+    attr = { class = "col-md-12 well-blue" },
     content = function()
-        ui.container {
-            attr = { class = "span10 offset1 well-blue spaceline paper-green" },
-            content = function()
-                execute.view { module = "issue_private", view = "info_box", params = { issue = issue } }
-            end
-        }
-        ui.container {
-            attr = { class = "span9 phasesheight" },
-            content = function()
-                execute.view { module = "issue_private", view = "phasesbar", params = { state = issue.state } }
-            end
-        }
-        ui.container {
-            attr = { class = "span12" },
-            content = function()
+    
+    
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row label label-warning text-center" },
                     content = function()
-                        ui.tag {
-                            tag = "strong",
-                            attr = { class = "span12 label label-warning text-center" },
+                        ui.link {
                             content = function()
                                 ui.heading { level = 3, content = "Q" .. issue.id .. " - " .. (issue.title or _ "No title for this issue") }
                             end
                         }
                     end
-                }
+                }    
+    
+    
+					  ui.container {
+						   attr = { class = "row spaceline2" },
+						   content = function()
+					  ui.container {
+						   attr = { class = "col-md-12 well-inside  paper" },
+						   content = function()
+						       execute.view { module = "issue_private", view = "info_box", params = { issue = issue } }
+						   end
+					  }
+            end
+        }
+                                        ui.container {
+				                              attr = { class = "row spaceline5 hidden-sm hidden-xs" },
+				                              content = function()
+
+												end
+										  }
+										  										 ui.container {
+				                              attr = { class = "row spaceline3 hidden-lg hidden-md" },
+				                              content = function()
+
+												end
+										  }
+        ui.container {
+            attr = { class = "row hidden-xs hidden-sm" },
+            content = function()
+					  ui.container {
+						   attr = { class = "col-md-2" },
+						   content = function()
+						       ui.image { static = "spacer.png" }
+						   end
+					  }
+					  ui.container {
+						   attr = { class = "col-md-9 phasesheight" },
+						   content = function()
+						       execute.view { module = "issue", view = "phasesbar", params = { state = issue.state } }
+						   end
+					  }
+					  ui.container {
+						   attr = { class = "col-md-1" },
+						   content = function()
+						       ui.image { static = "spacer.png" }
+						   end
+					  }
+            end
+        }
+        ui.container {
+            attr = { class = "col-md-12" },
+            content = function()
 
                 --                ui.container {
-                --                    attr = { class = "row-fluid" },
+                --                    attr = { class = "row" },
                 --                    content = function()
                 --                        ui.container {
-                --                            attr = { class = "span12 well" },
+                --                            attr = { class = "col-md-12 well" },
                 --                            content = function()
-                --                                execute.view { module = "issue_private", view = "info_data", params = { issue = issue } }
+                --                                execute.view { module = "issue", view = "info_data", params = { issue = issue } }
                 --                            end
                 --                        }
                 --                    end
@@ -79,10 +115,10 @@ ui.container {
 
 
                 --                ui.container {
-                --                    attr = { class = "row-fluid" },
+                --                    attr = { class = "row" },
                 --                    content = function()
                 --                        ui.container {
-                --                            attr = { class = "span12" },
+                --                            attr = { class = "col-md-12" },
                 --                            content = function()
                 --                                execute.view { module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
                 --                            end
@@ -91,19 +127,19 @@ ui.container {
                 --                }
 
                 ui.container {
-                    attr = { class = "row-fluid spaceline" },
+                    attr = { class = "row spaceline hidden-xs hidden-sm" },
                     content = function()
                         ui.container {
-                            attr = { class = "span7" },
+                            attr = { class = "col-md-7" },
                             content = function()
                                 ui.heading { level = 3, attr = { class = "label label-warning" }, content = "Breve descrizione" }
                             end
                         }
 
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
-                                ui.tag { tag = "p", attr = { class = "span12 well-inside paper" }, content = issue.brief_description or _ "No description available" }
+                                ui.tag { tag = "p", attr = { class = "col-md-12 well-inside paper" }, content = issue.brief_description or _ "No description available" }
                             end
                         }
                     end
@@ -111,7 +147,7 @@ ui.container {
                 --        local links = {}
 
                         ui.container {
-                            attr = { class = "span12" },
+                            attr = { class = "col-md-12" },
                             content = function()
                                 local content
                                 --if #issue.initiatives == 1 then
@@ -124,10 +160,10 @@ ui.container {
                         }
 
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 well-inside" },
+                            attr = { class = "col-md-12 well-inside paper" },
                             content = function()
                                 local initiatives_selector = issue:get_reference_selector("initiatives")
                                 local highlight_string = param.get("highlight_string")
@@ -157,7 +193,7 @@ ui.container {
 
                     --                        if app.session.member_id and direct_voter then
                     --                            ui.container {
-                    --                                attr = { id = "issue_vote_box_" .. issue.id, class = "span8 issue_vote_box" },
+                    --                                attr = { id = "issue_vote_box_" .. issue.id, class = "col-md-8 issue_vote_box" },
                     --                                content = function()
                     --                                --local initiative = Initiative:new_selector():add_where("issue_id="..issue.id):exec()
                     --
@@ -185,10 +221,10 @@ ui.container {
                     --                            }
                     --                        end
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.link {
-                                    attr = { id = "issue_see_det_" .. issue.id, class = "span4 offset4 text-center" },
+                                    attr = { id = "issue_see_det_" .. issue.id, class = "col-md-12 text-center" },
                                     module = "issue_private",
                                     view = "show_ext_bs",
                                     id = issue.id,
@@ -211,9 +247,9 @@ ui.container {
                     end
         }   
    end
-}
+ }
         ui.container {
-            attr = { class = "row-fluid spaceline2" },
+            attr = { class = "row spaceline2" },
             content = function()
                 ui.tag { tag = "hr", attr = { class = "" } }
             end

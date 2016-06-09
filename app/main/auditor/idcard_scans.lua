@@ -13,16 +13,16 @@ if member and member.certifier_id ~= app.session.member_id then
 end
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span3 text-center" },
+                            attr = { class = "col-md-3 text-center" },
                             content = function()
                                 ui.link {
                                     attr = { class = "btn btn-primary btn-large fixclick" },
@@ -42,7 +42,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span9 text-center" },
+                            attr = { class = "col-md-9 text-center" },
                             content = function()
                                 ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Auditor Panel" .. " ID:" .. app.session.member_id }
                                 ui.heading {
@@ -62,13 +62,13 @@ ui.container {
     end
 }
 ui.container {
-    attr = { class = "row-fluid spaceline2" },
+    attr = { class = "row spaceline2" },
     content = function()
         ui.container {
-            attr = { class = "span12 alert alert-simple issue_box paper text-center" },
+            attr = { class = "col-md-12 alert alert-simple issue_box paper text-center" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid text-center" },
+                    attr = { class = "row text-center" },
                     content = function()
                         ui.container {
                             attr = { class = "inline-block text-left" },
@@ -130,10 +130,10 @@ ui.container {
                         ui.field.image { field_name = "health_insurance", label = _ "Health Insurance card scan" }
 
                         ui.container {
-                            attr = { class = "row-fluid text-center spaceline2" },
+                            attr = { class = "row text-center spaceline2" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span6 offset3" },
+                                    attr = { class = "col-md-6 col-md-offset-3" },
                                     content = function()
                                         ui.tag {
                                             tag = "button",

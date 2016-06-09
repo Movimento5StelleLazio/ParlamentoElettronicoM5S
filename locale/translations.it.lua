@@ -6,7 +6,7 @@ return {
     ["#{count} canceled"] = "#{count} cancellate";
     ["#{count} days ago"] = "#{count} giorni fa";
     ["#{count} finished"] = "#{count} concluse";
-    ["#{count} in discussion"] = "#{count} in discussione";
+    ["#{count} in discussion"] = "#{count} discussioni";
     ["#{count} in verification"] = "#{count} congelate";
     ["#{count} in voting"] = "#{count} in votazione";
     ["#{count} more areas in this unit"] = "#{count} altre aree tematiche in questa unità organizzativa";
@@ -86,8 +86,8 @@ return {
     ["ORDER BY NUMBER OF SUPPORTERS"] = "NUMERO DI SOSTENITORI";
     ["ORDER BY DATE OF CREATION"] = "DATA DI IMMISSIONE";
     ["ORDER BY LAST EVENT DATE"] = "DATA ULTIMO EVENTO";
-    ["INVERT ORDER FROM DESCENDING TO ASCENDING"] = "INVERTI ORDINE";
-    ["INVERT ORDER FROM ASCENDING TO DESCENDING"] = "INVERTI ORDINE";
+    ["INVERT ORDER FROM DESCENDING TO ASCENDING"] = "INVERTI ORDINE IMMISSIONE";
+    ["INVERT ORDER FROM ASCENDING TO DESCENDING"] = "INVERTI ORDINE IMMISSIONE";
     ["#{issues_to_vote_count} issue(s)"] = "#{issues_to_vote_count} questione(i)";
     ["Back to previous page"] = "Indietro";
     ["Back to issue listing"] = "Indietro";
@@ -543,7 +543,7 @@ return {
     ["Member has been removed from initiators"] = "Utente rimosso dagli autori";
     ["Member has been removed from your contacts"] = "Utente rimosso dai contatti personali";
     ["Member has not approved latest draft"] = "Il sostenitore non ha approvato l'ultima bozza";
-    ["Member has voting privileges for this unit"] = "Unità in cui l'utente ha diritto di voto";
+    ["Member has voting privileges for this unit"] = "L'utente ha diritto di voto";
     ["Member inactive?"] = "Utente inattivo?";
     ["Member is already saved in your contacts!"] = "Utente già presente nei contatti personali!";
     ["Member is not participating in any of the #{count} areas in this unit"] = "L'utente non sta partecipando a nessuna delle #{count} aree in questa unità";
@@ -940,10 +940,10 @@ return {
     ["You are not participating in the only area of the unit"] = "Non stai partecipando all'unica area di questa divisione";
     ["You are now initiator of this initiative"] = "Adesso sei autore di questa proposta";
     ["You are participating in this area"] = "Partecipi in questa area";
-    ["You are potential supporter"] = "Sei un potenziale sostenitore";
+    ["You are potential supporter"] = "<br />Sei un potenziale sostenitore";
     ["You are potential supporter of this initiative"] = "Sei un potenziale sostenitore della proposta";
     ["You are potential supporter of this initiative via delegation"] = "Sei un potenziale sostenitore della proposta tramite delega";
-    ["You are supporter"] = "Sei sostenitore";
+    ["You are supporter"] = "<br />Sei sostenitore";
     ["You are supporter of this initiative"] = "Sei sostenitore di questa proposta";
     ["You are supporter of this initiative via delegation"] = "Sei sostenitore di questa proposta tramite delega";
     ["You are voting for the issue:"] = "Sei nel box di voto per la questione:";
@@ -960,8 +960,8 @@ return {
     ["You must be an initiatior to update the video url."] = "Devi essere un autore della proposta per poter modificare il video.";
     ["You need to be logged in, to use all features of this system."] = "Eseguire l'accesso per utilizzare tutte le funzioni di questo sistema.";
     ["You were interested"] = "Eri interessato";
-    ["You were potential supporter"] = "Eri un potenziale sostenitore";
-    ["You were supporter"] = "Eri sostenitore";
+    ["You were potential supporter"] = "<br />Eri un potenziale sostenitore";
+    ["You were supporter"] = "<br />Eri sostenitore";
     ["You've successfully registered and you can login now with your login and password!"] = "Registrazione completata correttamente, ora puoi accedere con il tuo nome utente e password!";
     ["Your not able to access restricted areas yet: usually this means that you forgot to confirm your email address in your personal page. If you already confirmed your email, please contact your auditor."] = "Non sei ancora abilitato all'accesso alle aree ristrette: questo di solito è dovuto al fatto che non hai ancora confermato il tuo indirizzo email nella tua pagina personale. Se lo hai già confermato e non riesci ancora ad accedere alle aree ristrette contatta il tuo certificatore.";
     ["Your email address has been changed, please check for confirmation email with activation link!"] = "Indirizzo eMail modificato, controllare la posta per la conferma tramite link di attivazione!";

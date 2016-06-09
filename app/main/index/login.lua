@@ -87,51 +87,51 @@ ui.form {
                         tag = "fieldset",
                         content = function()
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row" },
                                 content = function()
-                                    ui.tag { tag = "legend", attr = { class = "span12 text-center" }, content = _ "Insert user name and password to access:" }
+                                    ui.tag { tag = "legend", attr = { class = "col-md-12 text-center" }, content = _ "Insert user name and password to access:" }
                                 end
                             }
 
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row spaceline" },
                                 content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'login name' }
+                                    ui.tag { tag = "label", attr = { class = "col-md-4" }, content = _ 'login name' }
                                     ui.tag {
                                         tag = "input",
-                                        attr = { id = "username_field", type = "text", placeholder = _ 'login name', class = "span8 input-large", name = "login" },
+                                        attr = { id = "username_field", type = "text", placeholder = _ 'login name', class = "col-md-8 input-large", name = "login" },
                                         content = ''
                                     }
                                 end
                             }
 
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row spaceline" },
                                 content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'Password' }
+                                    ui.tag { tag = "label", attr = { class = "col-md-4" }, content = _ 'Password' }
                                     ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { id = "password_field", type = "password", placeholder = _ 'Password', class = "span8 input-large", name = "password" }, content = '' }
+                                    ui.tag { tag = "input", attr = { id = "password_field", type = "password", placeholder = _ 'Password', class = "col-md-8 input-large", name = "password" }, content = '' }
                                 end
                             }
                             
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row spaceline" },
                                 content = function()
-                                    ui.tag { tag = "label", attr = { class = "span4" }, content = _ 'OTP' }
+                                    ui.tag { tag = "label", attr = { class = "col-md-4" }, content = _ 'OTP' }
                                     ui.script { script = 'document.getElementById("username_field").focus();' }
-                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "span8 input-large", name = "otp" }, content = '' }
+                                    ui.tag { tag = "input", attr = { id = "otp_field", type = "otp", placeholder = _ 'OTP', class = "col-md-8 input-large", name = "otp" }, content = '' }
                                 end
                             }
 
                             ui.container {
-                                attr = { class = "row-fluid text-center" },
+                                attr = { class = "row text-center  spaceline" },
                                 content = function()
                                     ui.container {
-                                        attr = { class = "span6 offset3" },
+                                        attr = { class = "col-md-6 col-md-offset-3" },
                                         content = function()
                                             ui.tag {
                                                 tag = "button",
-                                                attr = { type = "submit", class = "btn btn-primary btn-large large_btn spaceline fixclick" },
+                                                attr = { type = "submit", class = "btn btn-primary btn-large spaceline fixclick" },
                                                 content = function()
                                                     ui.heading { level = 3, attr = { class = "inline-block" }, content = _ "Login" }
                                                 end

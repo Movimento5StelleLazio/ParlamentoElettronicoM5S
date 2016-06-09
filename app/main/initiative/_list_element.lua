@@ -2,7 +2,7 @@ local initiative = param.get("initiative", "table")
 local selected = param.get("selected", atom.boolean)
 local for_member = param.get("for_member", "table") or app.session.member
 
-local class = "initiative"
+local class = ""
 
 if selected then
     class = class .. " selected"
@@ -16,23 +16,14 @@ ui.container {
     attr = { class = class },
     content = function()
 
-        ui.container {
-            attr = { class = "rank" },
+--                ui.container {
+  --          attr = { class = "col-md-4 spaceline3" },
+    --        content = function()
+                ui.container {
+            attr = { class = "row spaceline2" },
             content = function()
-                if initiative.issue.fully_frozen and initiative.issue.closed
-                        or initiative.admitted == false
-                then
-                    ui.field.rank { attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
-                elseif not initiative.issue.closed then
-                    ui.image { static = "icons/16/script.png" }
-                else
-                    ui.image { static = "icons/16/cross.png" }
-                end
-            end
-        }
-
         ui.container {
-            attr = { class = "bar" },
+            attr = { class = "col-md-2 spaceline2" },
             content = function()
                 if initiative.issue.fully_frozen and initiative.issue.closed then
                     if initiative.negative_votes and initiative.positive_votes then
@@ -47,7 +38,7 @@ ui.container {
                             }
                         }
                     else
-                        slot.put("&nbsp;")
+                        slot.put("")
                     end
                 else
                     local max_value = initiative.issue.population or 0
@@ -65,16 +56,29 @@ ui.container {
                         bars = {
                             { color = "#0a5", value = (initiative.satisfied_supporter_count or 0) },
                             { color = "#aaa", value = (initiative.supporter_count or 0) - (initiative.satisfied_supporter_count or 0) },
-                            { color = "#fff", value = max_value - (initiative.supporter_count or 0) },
+                          { color = "#fff", value = max_value - (initiative.supporter_count or 0) },
                         }
                     }
                 end
             end
         }
-
+			ui.container {
+            attr = { class = "col-md-2 text-center col-md-offset-1" },
+            content = function()
+              if initiative.issue.fully_frozen and initiative.issue.closed
+                        or initiative.admitted == false
+                then
+                    ui.field.rank { attr = { class = "" }, value = initiative.rank, eligible = initiative.eligible }
+                elseif not initiative.issue.closed then
+                    ui.image { static = "icons/16/script.png" }
+                else
+                    ui.image { static = "icons/16/cross.png" }
+                end
+            end
+        }
         if app.session.member_id then
             ui.container {
-                attr = { class = "interest" },
+                attr = { class = "col-md-2 text-center" },
                 content = function()
                     if initiative.member_info.initiated then
                         local label
@@ -134,10 +138,22 @@ ui.container {
                     end
                 end
             }
-        end
 
+        end
+            end
+        }
+       --     end
+       -- }
+    end
+}
+            ui.container {
+          attr = { class = "row" },
+       content = function()
+                ui.container {
+            attr = { class = "col-md-8 spaceline2 text-left" },
+            content = function()
         ui.container {
-            attr = { class = "name initiative_link" },
+            attr = { class = "label" },
             content = function()
                 local link_class = "initiative_link"
                 if initiative.revoked then
@@ -161,5 +177,8 @@ ui.container {
                 }
             end
         }
-    end
-}
+            end
+        }
+     end
+ }
+

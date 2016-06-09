@@ -43,14 +43,14 @@ trace.debug("resource: " .. (resource and resource or "none"))
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
 
                     ui.container {
-                        attr = { class = "span10 offset1 text-center" },
+                        attr = { class = "col-md-10 col-md-offset-1 text-center" },
                         content = function()
                             ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                             ui.heading {
@@ -69,7 +69,7 @@ ui.title(function()
                         end
                     }
                     ui.container {
-                        attr = { class = "span1 text-center " },
+                        attr = { class = "col-md-1 text-center " },
                         content = function()
                             ui.field.popover {
                                 attr = {
@@ -82,9 +82,9 @@ ui.title(function()
                                 },
                                 content = function()
                                     ui.container {
-                                        attr = { class = "row-fluid" },
+                                        attr = { class = "row" },
                                         content = function()
-                                            ui.image { static = "png/tutor.png" }
+                                            ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                                         --								    ui.heading{level=3 , content= _"What you want to do?"}
                                         end
                                     }
@@ -95,10 +95,10 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "row-fluid" },
+                attr = { class = "row" },
                 content = function()
                     ui.image {
-                        attr = { class = "span12" },
+                        attr = { class = "img-responsive" },
                         static = "png/step_3_f4.png"
                     }
                 end
@@ -135,16 +135,16 @@ ui.form {
     },
     content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well-blue" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span6 offset3 text-center spaceline" },
+                                    attr = { class = "col-md-6 col-md-offset-3 text-center spaceline" },
                                     content = function()
                                         ui.heading {
                                             level = 3,
@@ -158,10 +158,10 @@ ui.form {
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span6 offset3 text-center" },
+                                    attr = { class = "col-md-6 col-md-offset-3 text-center" },
                                     content = function()
                                         ui.heading { level = 4, attr = { class = "uppercase" }, content = _ "Give keywords that describe the issue" }
                                     end
@@ -169,16 +169,16 @@ ui.form {
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 well-inside paper spaceline" },
+                                    attr = { class = "col-md-12 well-inside paper spaceline" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                            attr = { class = "row spaceline spaceline-bottom" },
                                             content = function()
                                                 ui.heading {
-                                                    attr = { class = "span12 text-center" },
+                                                    attr = { class = "col-md-12 text-center" },
                                                     level = 1,
                                                     content = _ "Keywords"
                                                 }
@@ -186,11 +186,11 @@ ui.form {
                                         }
 
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline" },
+                                            attr = { class = "row spaceline" },
                                             content = function()
 
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 spaceline-bottom", style = "height:4em;" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 spaceline-bottom", style = "height:4em;" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "input",
@@ -205,10 +205,10 @@ ui.form {
                                 }
                                 -- Pulsante "Indietro"
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span3 offset1 text-center spaceline" },
+                                            attr = { class = "col-md-3 col-md-offset-1 col-sm-6 col-xs-12 text-left" },
                                             content = function()
                                                 ui.tag {
                                                     tag = "a",
@@ -227,7 +227,7 @@ ui.form {
                                         }
                                         -- Pulsante "Avanti"
                                         ui.container {
-                                            attr = { class = "span3 offset4 text-center spaceline" },
+                                            attr = { class = "col-md-3 col-md-offset-4 col-sm-6 col-xs-12 text-right" },
                                             content = function()
                                                 ui.tag {
                                                     tag = "a",

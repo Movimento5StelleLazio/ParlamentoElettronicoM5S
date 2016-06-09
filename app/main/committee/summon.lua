@@ -26,31 +26,31 @@ ui.form {
     content = function()
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well" },
                     content = function()
                         ui.container {
                             content = function()
 
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span3 offset1" },
+                                            attr = { class = "col-md-3 col-md-offset-1" },
                                             content = function()
                                                 ui.image { static = "png/committee_big.png" }
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span8 text-center" },
+                                            attr = { class = "col-md-8 text-center" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline3" },
+                                                    attr = { class = "row spaceline3" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span8 uppercase offset2 label label-warning text-center" },
+                                                            attr = { class = "col-md-8 uppercase col-md-offset-2 label label-warning text-center" },
                                                             content = function()
                                                                 ui.heading { level = 1, attr = { class = "uppercase" }, content = function() slot.put(_ "TECHNICAL COMMITTEE REPORT") end }
                                                             end
@@ -59,7 +59,7 @@ ui.form {
                                                 }
 
                                                 ui.container {
-                                                    attr = { class = "row-fluid text-center spaceline2" },
+                                                    attr = { class = "row text-center spaceline2" },
                                                     content = function()
                                                         ui.heading { level = 2, content = function() slot.put(_ "- No technical committee summoned yet for this initiative -") end }
                                                     end
@@ -67,15 +67,15 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12" },
+                                                    attr = { class = "col-md-12" },
                                                     content = function()
                                                         if not requested then
-                                                            ui.image { attr = { class = "span12", }, static = "png/commission_step_2.png" }
+                                                            ui.image { attr = { class = "col-md-12", }, static = "png/commission_step_2.png" }
                                                         else
-                                                            ui.image { attr = { class = "span12", }, static = "png/commission_step_3.png" }
+                                                            ui.image { attr = { class = "col-md-12", }, static = "png/commission_step_3.png" }
                                                         end
                                                     end
                                                 }
@@ -92,20 +92,20 @@ ui.form {
         if not requested then
 
             ui.container {
-                attr = { class = "row-fluid text-center" },
+                attr = { class = "row text-center" },
                 content = function()
                     ui.container {
-                        attr = { class = "span12 text-left" },
+                        attr = { class = "col-md-12 text-left" },
                         content = function()
                             ui.heading { level = 6, content = _ "You decided to summon a technical committee to examin this initiative. In the following you have to specify which competences are needed. You can either leave the ones selected from the author of the initiative or substitute some of them with others you prefer." }
                         end
                     }
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.tag {
                                 tag = "textarea",
-                                attr = { class = "span12" },
+                                attr = { class = "col-md-12" },
                                 id = "competences",
                                 content = technical_keywords or ""
                             }
@@ -114,10 +114,10 @@ ui.form {
                 end
             }
             ui.container {
-                attr = { class = "row-fluid" },
+                attr = { class = "row" },
                 content = function()
                     ui.container {
-                        attr = { class = "offset2 span4" },
+                        attr = { class = "col-md-offset-2 col-md-4" },
                         content = function()
                             ui.link {
                                 attr = { class = "btn btn-primary" },
@@ -130,7 +130,7 @@ ui.form {
                     }
 
                     ui.container {
-                        attr = { class = "offset2 span4" },
+                        attr = { class = "col-md-offset-2 col-md-4" },
                         content = function()
                             ui.tag {
                                 tag = "a",
@@ -144,14 +144,14 @@ ui.form {
 
         else
             ui.container {
-                attr = { class = "row-fluid" },
+                attr = { class = "row" },
                 content = function()
-                    ui.heading { attr = { class = "span12 text-center" }, level = 3, content = _ "Waiting for the quorum to be reached" }
+                    ui.heading { attr = { class = "col-md-12 text-center" }, level = 3, content = _ "Waiting for the quorum to be reached" }
                     ui.container {
-                        attr = { class = "span4" },
+                        attr = { class = "col-md-4" },
                         content = function()
                             ui.container {
-                                attr = { class = "row-fluid" },
+                                attr = { class = "row" },
                                 content = function()
                                     local quorum_percent = 20 --issue.policy.issue_quorum_num * 100 / issue.policy.issue_quorum_den
                                     local quorum_supporters
@@ -162,7 +162,7 @@ ui.form {
                                     --end
 
                                     ui.container {
-                                        attr = { class = "span2 offset2" },
+                                        attr = { class = "col-md-2 col-md-offset-2" },
                                         content = function()
                                             ui.container {
                                                 attr = { class = "initiative_quorum_out_box" },
@@ -188,7 +188,7 @@ ui.form {
                     }
 
                     ui.container {
-                        attr = { class = "span7" },
+                        attr = { class = "col-md-7" },
                         content = function()
                             ui.heading {
                                 level = 6,

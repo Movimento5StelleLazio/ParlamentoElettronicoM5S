@@ -6,10 +6,10 @@ local member = Member:by_id(id)
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -23,13 +23,13 @@ ui.title(function()
             if member then
                 ui.tag {
                     tag = "strong",
-                    attr = { class = "span9 text-center" },
+                    attr = { class = "col-md-9 text-center" },
                     content = _("Member: '#{identification}' (#{name})", { identification = member.identification, name = member.name })
                 }
             else
                 ui.tag {
                     tag = "strong",
-                    attr = { class = "span9 text-center" },
+                    attr = { class = "col-md-9 text-center" },
                     content = _ "Register new member"
                 }
             end

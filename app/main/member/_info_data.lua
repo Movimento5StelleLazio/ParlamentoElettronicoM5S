@@ -1,16 +1,16 @@
 local member = Member:by_id(param.get_id())
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12" },
+            attr = { class = "col-md-12" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span4 text-center" },
+                            attr = { class = "col-md-4 text-center" },
                             content = function()
                                 execute.view {
                                     module = "member_image",
@@ -25,7 +25,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span6 offset2" },
+                            attr = { class = "col-md-6 col-md-offset-2" },
                             content = function()
                                 ui.form {
                                     method = "post",
@@ -49,23 +49,23 @@ ui.container {
                                     },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12 spaceline2 spaceline-bottom" },
+                                                    attr = { class = "col-md-12 spaceline2 spaceline-bottom" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 3,
                                                             content = function()
                                                                 ui.tag { content = _ "Name" .. ": " }
-                                                                ui.tag { tag = "strong", content = member.realname }
+                                                                ui.tag { tag = "h3", content = member.realname }
                                                             end
                                                         }
                                                         ui.heading {
                                                             level = 3,
                                                             content = function()
                                                                 ui.tag { content = _ "NIN" .. ": " }
-                                                                ui.tag { tag = "strong", content = member.nin }
+                                                                ui.tag { tag = "h3", content = member.nin }
                                                             end
                                                         }
                                                     --                                        ui.heading {

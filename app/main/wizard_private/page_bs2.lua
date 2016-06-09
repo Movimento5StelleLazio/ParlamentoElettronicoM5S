@@ -43,16 +43,16 @@ trace.debug("resource: " .. (resource and resource or "none"))
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span10 offset1 text-center" },
+                                attr = { class = "col-md-10 col-md-offset-1 text-center" },
                                 content = function()
                                     ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                     ui.heading {
@@ -73,9 +73,9 @@ ui.title(function()
                         end
                     }
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
-                            ui.image { attr = { class = "span12" }, static = "png/step_2_f2.png" }
+                            ui.image { attr = { class = "img-responsive" }, static = "png/step_2_f2.png" }
                         end
                     }
                 end
@@ -112,16 +112,16 @@ ui.form {
     },
     content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well-blue" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid spaceline" },
+                            attr = { class = "row spaceline" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 text-center" },
+                                    attr = { class = "col-md-12 text-center" },
                                     content = function()
                                         ui.heading {
                                             level = 3,
@@ -134,16 +134,16 @@ ui.form {
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12 well-inside paper spaceline" },
+                                            attr = { class = "col-md-12 well-inside paper spaceline" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span12 text-center spaceline spaceline-bottom" },
+                                                            attr = { class = "col-md-12 text-center spaceline spaceline-bottom" },
                                                             content = function()
                                                                 ui.heading {
                                                                     level = 1,
@@ -154,10 +154,10 @@ ui.form {
                                                     end
                                                 }
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline-bottom" },
+                                                    attr = { class = "row spaceline-bottom" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span10 offset1 text-center" },
+                                                            attr = { class = "col-md-10 col-md-offset-1 text-center" },
                                                             content = function()
                                                                 ui.field.text {
                                                                     attr = {
@@ -179,10 +179,10 @@ ui.form {
                         }
                         -- Pulsante "Indietro"
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span3 offset1 text-center spaceline" },
+                                    attr = { class = "col-md-3 col-md-offset-1 col-sm-6 col-xs-12 text-left spaceline" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",
@@ -201,7 +201,7 @@ ui.form {
                                 }
                                 -- Pulsante "Avanti"
                                 ui.container {
-                                    attr = { class = "span3 offset4 text-center spaceline" },
+                                    attr = { class = "col-md-3 col-md-offset-4  col-sm-6 col-xs-12 text-right spaceline" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",

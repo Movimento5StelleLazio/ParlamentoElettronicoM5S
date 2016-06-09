@@ -327,7 +327,6 @@ form.unit_selector {
 
 .page_head .area_head .content, .page_head .area_head .content a, .page_head .issue .content.actions, .page_head .issue .content.actions a, .issues .issue .content.actions, .issues .issue .content.actions a, .area_list .area .content, .area_list .area .content a {
     color: #000;
-    font-size: 22px;
 }
 
 .unit_head {
@@ -357,14 +356,14 @@ form.unit_selector {
 }
 
 .unit_link {
-    background-color: #009900;
-    color: #fff;
+    /*background-color: #009900;
+    color: #fff;*/
     font-size:22px;
 }
 
 .area_link {
-    background-color: #FF4646;
-    color: #FFFFFF;
+   /* background-color: #FF4646;
+    color: #FFFFFF;*/
     font-size:22px;
 }
 
@@ -442,31 +441,7 @@ a.delegation_info:hover, a.delegation_info:focus {
     border-bottom: none;
 }
 
-.ui_filter a {
-    font-weight: bold;
-    margin-right: 0;
-    background-color: #fff;
-    padding: 0.5ex 0.5em;
-    border-radius: 8px;
-    border: 1px solid #bbb;
-    font-size: 120%;
-}
 
-.ui_filter_head a.active {
-    border-color: #ffc14b #ffc14b #fea700;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color: #ffc14b;
-    text-decoration: none;
-    background: -webkit-linear-gradient(top, #f0ee8d, #ffc14b);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #666),
-    color-stop(100%, #222));
-    background: -moz-linear-gradient(#f0ee8d, #ffc14b);
-    background: -ms-linear-gradient(#f0ee8d, #ffc14b);
-    background: -o-linear-gradient(#f0ee8d, #ffc14b);
-    background: linear-gradient(#f0ee8d, #ffc14b);
-    background-color: #444;
-    color: #000;
-}
 
 .active {
   /*background-color: #444;*/
@@ -831,30 +806,26 @@ text-alin
 
 .initiative .bar {
     margin-right: 0.3em;
-    border: 1px solid #F4C87E;
     padding: 0.1em;
     height: 1.3ex;
 }
 
 .initiative .rank, .initiative .bar, .initiative .interest {
     float: left;
-    margin-right: 0.3em;
 }
 
 .initiative .rank {
-    width: 2.5em;
+    max-width: 56px;
 }
 
 .initiative .interest {
-    width: 20px;
-    height: 16px;
-    line-height: 100%;
+    max-width: 56px;
 }
 
 .initiative .name {
     line-height: 130%;
-    margin-left: 168px;
-    font-size: 115%;
+    margin-left: 180px;
+    font-size: 130%;
 }
 
 .initiative.selected .name {
@@ -934,7 +905,7 @@ x.initiative_link.potentially_supported {
 
 .member_thumb {
     text-decoration: none;
-    width: 252px;
+    width: 418px;
     height: 65px;
     display: block;
     float: left;

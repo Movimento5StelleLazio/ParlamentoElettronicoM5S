@@ -35,7 +35,7 @@ if app.session:has_access("all_pseudonymous") then
     ui.container { attr = { class = "heading" }, content = _ "Details" }
 
     execute.view {
-        module = "issue",
+        module = "issue_private",
         view = "_details",
         params = { issue = issue }
     }

@@ -25,20 +25,20 @@ local routing = {
     }
 }
 ui.container {
-    attr = { class = "span4 spaceline" },
+    attr = { class = "col-md-4 spaceline" },
     content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 if not initiative.issue.fully_frozen and not initiative.issue.closed then
                     if supporter then
                         if not supporter:has_critical_opinion() then
                             ui.tag {
-                                attr = { class = "span7" },
+                                attr = { class = "col-md-7" },
                                 content = function()
                                     ui.image {
-                                        attr = { style = "height: 50px" },
-                                        static = "png/thumb_up.png"
+                                        attr = { style = "height: 70px" },
+                                        static = "thumb_up.png"
                                     }
                                     if initiative.issue.closed then
                                         slot.put(_ "You were supporter")
@@ -49,10 +49,10 @@ ui.container {
                             }
                         else
                             ui.tag {
-                                attr = { class = "span7 potential_supporter" },
+                                attr = { class = "col-md-7 potential_supporter" },
                                 content = function()
                                     ui.image {
-                                        static = "icons/16/thumb_up.png"
+                                        static = "thumb_up.png"
                                     }
                                     if initiative.issue.closed then
                                         slot.put(_ "You were potential supporter")
@@ -64,7 +64,7 @@ ui.container {
                         end
                         --slot.put(" (")
                         ui.link {
-                            attr = { class = "span5 btn btn-primary btn_size_fix fixclick" },
+                            attr = { class = "col-md-5 label label-inverse fixclick spaceline" },
                             text = _ "Withdraw",
                             module = "initiative",
                             action = "remove_support",
@@ -77,7 +77,7 @@ ui.container {
                         local params = param.get_all_cgi()
                         params.dyn = nil
                         ui.link {
-                            attr = { class = "btn btn-primary btn_size_fix fixclick" },
+                            attr = { class = "btn btn-primary btn_size_fix fixclick h3" },
                             text = _ "Support this initiative",
                             module = "initiative",
                             action = "add_support",
@@ -94,7 +94,7 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "span4 spaceline" },
+    attr = { class = "col-md-4 spaceline" },
     content = function()
         if not initiative.issue.closed then
             --[[ if not initiative.issue.fully_frozen and app.session.member:has_voting_right_for_unit_id(initiative.issue.area.unit_id) then
@@ -107,7 +107,7 @@ ui.container {
                 }
                 --    slot.put(" (")
                 ui.link {
-                    attr = { class = "btn btn-primary btn_size_fix fixclick" },
+                    attr = { class = "btn btn-primary btn_size_fix fixclick h3" },
                     text = _ "Non ignorare",
                     module = "initiative",
                     action = "update_ignore",
@@ -126,7 +126,7 @@ ui.container {
                 --    slot.put(")")
             else
                 ui.link {
-                    attr = { class = "btn btn-primary btn_size_fix fixclick" },
+                    attr = { class = "btn btn-primary btn_size_fix fixclick h3" },
                     text = _ "Ignore initiative",
                     module = "initiative",
                     action = "update_ignore",

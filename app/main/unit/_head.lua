@@ -8,15 +8,15 @@ if app.session.member_id then
 end
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
 
         execute.view { module = "delegation", view = "_info", params = { unit = unit, member = member } }
 			 ui.container {
-						   attr = { class = "row-fluid" },
+						   attr = { class = "row" },
             				content = function()                    
 									ui.container {
-						               attr = { class = "span5 text-center" },
+						               attr = { class = "col-md-5 text-center" },
 						               content = function()
 						                   ui.image {
 						                       attr = { class = "img_assembly_small" },
@@ -27,10 +27,10 @@ ui.container {
                         end
                     }
  ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
         ui.container {
-            attr = { class = "span3 offset1 label label-warning text-center" },
+            attr = { class = "col-md-3 col-md-offset-1 label label-fix-size text-center h2" },
             content = function()
                 if not config.single_unit_id then
                     ui.link {
@@ -56,12 +56,12 @@ ui.container {
 
         if show_content then
             ui.container {
-                attr = { class = "content row-fluid" },
+                attr = { class = "content row" },
                 content = function()
                     if member and member:has_voting_right_for_unit_id(unit.id) then
                         if app.session.member_id == member.id then
 											ui.container {
-												 attr = { class = "span4 offset1 label label-success text-center spaceline spaceline-bottom" },
+												 attr = { class = "col-md-4 col-md-offset-1 label label-success text-center spaceline spaceline-bottom" },
 												 content = function()                            
 														ui.tag { 
 														content = _ "You have voting privileges for this unit" }	
@@ -70,7 +70,7 @@ ui.container {
                             slot.put("")
                             if unit.delegation_info.first_trustee_id == nil then
                                 ui.container {
-												 attr = { class = "span4 offset1 text-center" },
+												 attr = { class = "col-md-4 col-md-offset-1 text-center" },
 												 content = function()
 														ui.link { 
 															attr = { class = "btn btn-primary large_btn margin_line text-center spaceline  spaceline-bottom" },												
@@ -82,7 +82,7 @@ ui.container {
 												  }
                             else
                                 ui.container {
-												 attr = { class = "span4 offset1 text-center" },
+												 attr = { class = "col-md-4 col-md-offset-1 text-center" },
 												 content = function()
 						                       ui.link {
 															attr = { class = "btn btn-primary large_btn margin_line text-center spaceline  spaceline-bottom" }, 

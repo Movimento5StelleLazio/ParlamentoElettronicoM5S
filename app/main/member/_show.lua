@@ -97,17 +97,17 @@ tabs[#tabs + 1] = {
 }
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span11" },
+            attr = { class = "col-md-11" },
             content = function()
                 ui.tabs(tabs)
             end
         }
 
         ui.container {
-            attr = { class = "span1 text-center spaceline" },
+            attr = { class = "col-md-1 text-center spaceline" },
             content = function()
                 ui.field.popover {
                     attr = {
@@ -119,7 +119,7 @@ ui.container {
                         class = "text-center"
                     },
                     content = function()
-                        ui.image { static = "png/tutor.png" }
+                        ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                     end
                 }
             end

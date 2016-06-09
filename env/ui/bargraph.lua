@@ -8,7 +8,7 @@ function ui.bargraph(args)
     end
     ui.container {
         attr = {
-            class = args.class or "bargraph spaceline",
+            class = args.class or "bargraph",
             title = tostring(text)
         },
         content = function()

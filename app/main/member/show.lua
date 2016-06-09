@@ -11,10 +11,10 @@ app.html_title.subtitle = _("Member")
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span3 text-left" },
+                attr = { class = "col-md-3 text-left" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick" },
@@ -26,13 +26,13 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span8 spaceline2" },
+                attr = { class = "col-md-8 spaceline2" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span12 label label-warning text-center" },
+                                attr = { class = "col-md-12 label text-center" },
                                 content = function()
                                     ui.heading {
                                         level = 1,
@@ -46,7 +46,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span1 text-center spaceline" },
+                attr = { class = "col-md-1 text-center spaceline" },
                 content = function()
                     ui.field.popover {
                         attr = {
@@ -58,7 +58,7 @@ ui.title(function()
                             class = "text-center"
                         },
                         content = function()
-                            ui.image { static = "png/tutor.png" }
+                            ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                         end
                     }
                 end
@@ -66,10 +66,10 @@ ui.title(function()
         end
     }
     ui.container {
-        attr = { class = "row-fluid spaceline" },
+        attr = { class = "row spaceline" },
         content = function()
             ui.link {
-                attr = { class = " span3 btn btn-primary btn_size_fix fixclick" },
+                attr = { class = " col-md-3 btn btn-primary btn_size_fix fixclick" },
                 content = _ "Show member history",
                 module = "member",
                 view = "history",
@@ -77,13 +77,13 @@ ui.title(function()
             }
             if not member.active then
                 ui.tag {
-                    attr = { class = "span3 interest deactivated_member_info" },
+                    attr = { class = "col-md-3 interest deactivated_member_info" },
                     content = _ "This member is inactive"
                 }
             end
             if member.locked then
                 ui.tag {
-                    attr = { class = "span3 interest deactivated_member_info" },
+                    attr = { class = "col-md-3 interest deactivated_member_info" },
                     content = _ "This member is locked"
                 }
             end
@@ -92,7 +92,7 @@ ui.title(function()
                 local contact = Contact:by_pk(app.session.member.id, member.id)
                 if contact then
                     ui.link {
-                        attr = { class = "span3 btn btn-primary fixclick" },
+                        attr = { class = "col-md-3 btn btn-primary fixclick" },
                         text = _ "Remove from contacts",
                         module = "contact",
                         action = "remove_member",
@@ -109,7 +109,7 @@ ui.title(function()
                     }
                 elseif member.activated then
                     ui.link {
-                        attr = { class = "span3 btn btn-primary fixclick" },
+                        attr = { class = "col-md-3 btn btn-primary fixclick" },
                         text = _ "Add to my contacts",
                         module = "contact",
                         action = "add_member",
@@ -128,11 +128,11 @@ ui.title(function()
                 local ignored_member = IgnoredMember:by_pk(app.session.member.id, member.id)
                 if ignored_member then
                     ui.tag {
-                        attr = { class = "span3 interest" },
+                        attr = { class = "col-md-3 interest" },
                         content = _ "You have ignored this member"
                     }
                     ui.link {
-                        attr = { class = "span3 btn btn-primary fixclick" },
+                        attr = { class = "col-md-3 btn btn-primary fixclick" },
                         text = _ "Stop ignoring member",
                         module = "member",
                         action = "update_ignore_member",
@@ -150,7 +150,7 @@ ui.title(function()
                     }
                 elseif member.activated then
                     ui.link {
-                        attr = { class = "span3 interest btn btn-primary fixclick" },
+                        attr = { class = "col-md-3 interest btn btn-primary fixclick" },
                         text = _ "Ignore member",
                         module = "member",
                         action = "update_ignore_member",
@@ -169,13 +169,13 @@ ui.title(function()
             end
             if member.id == app.session.member_id then
                 ui.link {
-                    attr = { class = "span3 btn btn-primary fixclick" },
+                    attr = { class = "col-md-3 btn btn-primary fixclick" },
                     content = _ "Edit profile",
                     module = "member",
                     view = "edit"
                 }
                 ui.link {
-                    attr = { class = "span3 btn btn-primary  fixclick" },
+                    attr = { class = "col-md-3 btn btn-primary  fixclick" },
                     content = _ "Upload avatar/photo",
                     module = "member",
                     view = "edit_images"

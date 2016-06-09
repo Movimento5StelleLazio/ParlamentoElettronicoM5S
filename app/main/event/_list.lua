@@ -101,7 +101,7 @@ filters.content = function()
                         else
                             days_ago_text = _("#{date} at #{time}", { date = format.date(event.occurrence.date), time = format.time(event.occurrence, { hide_seconds = true }) })
                         end
-                        ui.tag { attr = { class = "event_name row-fluid label label-warning" }, content = event_name }
+                        ui.tag { attr = { class = "event_name row label label-warning" }, content = event_name }
                         slot.put("<br />")
                         ui.tag { content = days_ago_text }
                         --[[      if event.time_ago > 1 then

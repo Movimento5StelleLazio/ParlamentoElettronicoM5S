@@ -69,13 +69,13 @@ ui.form {
     },
     content = function()
         ui.container {
-            attr = { class = "row-fluid well" },
+            attr = { class = "row well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 text-center" },
+                            attr = { class = "col-md-12 text-center" },
                             content = function()
                                 ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                 ui.heading { level = 2, attr = { class = "spaceline" }, content = function() slot.put(_ "Unit" .. ": " .. "<strong>" .. unit_name .. "</strong>") end }
@@ -88,11 +88,11 @@ ui.form {
         }
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
-                ui.heading { level = 4, attr = { class = "span4 offset1" }, content = "Se lo hai fatto, puoi inserire il link di un video youtube relativo alla tua proposta" }
+                ui.heading { level = 4, attr = { class = "col-md-4 col-md-offset-1" }, content = "Se lo hai fatto, puoi inserire il link di un video youtube relativo alla tua proposta" }
                 ui.field.text {
-                    attr = { id = "resource", class = "span6" },
+                    attr = { id = "resource", class = "col-md-6" },
                     name = "resource",
                     value = resource
                 }
@@ -100,11 +100,11 @@ ui.form {
         }
 
         ui.container {
-            attr = { class = "row-fluid spaceline" },
+            attr = { class = "row spaceline" },
             content = function()
             -- Pulsante "Indietro"
                 ui.container {
-                    attr = { class = "span3 offset1 text-center" },
+                    attr = { class = "col-md-3 col-md-offset-1 col-sm-6 col-xs-12 text-left" },
                     content = function()
                         ui.tag {
                             tag = "a",
@@ -123,7 +123,7 @@ ui.form {
                 }
                 -- Pulsante "Avanti"
                 ui.container {
-                    attr = { class = "span3 offset4 text-center" },
+                    attr = { class = "col-md-3 col-md-offset-4 text-center" },
                     content = function()
                         ui.tag {
                             tag = "a",

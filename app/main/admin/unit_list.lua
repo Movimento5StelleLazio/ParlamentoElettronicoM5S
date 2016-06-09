@@ -6,10 +6,10 @@ local units = Unit:get_flattened_tree { include_inactive = inactive }
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -22,7 +22,7 @@ ui.title(function()
             }
             ui.tag {
                 tag = "strong",
-                attr = { class = "span9 text-center" },
+                attr = { class = "col-md-9 text-center" },
                 content = _ "Unit list"
             }
         end
@@ -31,20 +31,20 @@ end)
 
 ui.actions(function()
     ui.container {
-        attr = { class = "row-fluid spaceline2" },
+        attr = { class = "row spaceline2" },
         content = function()
             ui.link {
                 text = _ "Create new unit",
                 module = "admin",
                 view = "unit_edit",
-                attr = { class = "offset4 span2 btn btn-primary text-center" }
+                attr = { class = "col-md-offset-4 col-md-2 btn btn-primary text-center" }
             }
             if inactive then
                 ui.link {
                     text = _ "Hide active units",
                     module = "admin",
                     view = "unit_list",
-                    attr = { class = "offset1 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-1 col-md-2 btn btn-primary text-center" }
                 }
             else
                 ui.link {
@@ -52,7 +52,7 @@ ui.actions(function()
                     module = "admin",
                     view = "unit_list",
                     params = { inactive = true },
-                    attr = { class = "offset1 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-1 col-md-2 btn btn-primary text-center" }
                 }
             end
         end

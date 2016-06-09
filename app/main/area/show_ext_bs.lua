@@ -15,10 +15,10 @@ app.html_title.subtitle = _("Area")
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -33,22 +33,22 @@ ui.title(function()
             }
             ui.heading {
                 level = 1,
-                attr = { class = "span8 spaceline2 text-center" },
+                attr = { class = "col-md-8 spaceline2 text-center" },
                 content = _("#{realname}, you are now in the Regione Lazio Assembly", { realname = (app.session.member.realname ~= "" and app.session.member.realname or app.session.member.login) })
             }
         end
     }
     ui.container {
-        attr = { class = "row-fluid spaceline-bottom" },
+        attr = { class = "row spaceline-bottom" },
         content = function()
             ui.container {
-                attr = { class = "span11 text-center" },
+                attr = { class = "col-md-11 text-center" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid spaceline" },
+                        attr = { class = "row spaceline" },
                         content = function()
                             ui.container {
-                                attr = { class = "span4 text-right" },
+                                attr = { class = "col-md-4 text-right" },
                                 content = function()
                                     ui.heading { level = 3, content = _ "Ti trovi nell' area tematica:" }
                                 end
@@ -56,7 +56,7 @@ ui.title(function()
                             local area_id = area.id
                             local name = area.name
                             ui.container {
-                                attr = { class = "span8 text-left" },
+                                attr = { class = "col-md-8 text-left" },
                                 content = function()
                                     ui.heading { level = 3, content = name }
                                 end
@@ -66,7 +66,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span1 text-center " },
+                attr = { class = "col-md-1 text-center " },
                 content = function()
                     ui.field.popover {
                         attr = {
@@ -78,7 +78,7 @@ ui.title(function()
                             class = "text-center"
                         },
                         content = function()
-                            ui.image { static = "png/tutor.png" }
+                            ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                         end
                     }
                 end
@@ -86,10 +86,10 @@ ui.title(function()
         end
     }
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12 text-center spaceline" },
+                attr = { class = "col-md-12 text-center spaceline" },
                 content = function()
                     ui.heading { level = 2, attr = { class = "label label-warning" }, content = _ "Scegli la questione da esaminare:" }
                 end
@@ -193,10 +193,10 @@ if state == "development" then
 end
 
 ui.container {
-    attr = { class = "row-fluid text-center" },
+    attr = { class = "row text-center" },
     content = function()
         ui.container {
-            attr = { class = "span12 text-center" },
+            attr = { class = "col-md-12 text-center" },
             content = function()
                 ui.image { attr = { id = "parlamento_img" }, static = "parlamento_icon_small.png" }
             end
@@ -205,16 +205,16 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 text-center" },
+                            attr = { class = "col-md-12 text-center" },
                             content = function()
                                 ui.heading { level = 3, content = _(issues_desc) or "Initiatives:" }
                             end
@@ -222,16 +222,16 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 well-inside paper" },
+                            attr = { class = "col-md-12 well-inside paper" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span6 offset3" },
+                                            attr = { class = "col-md-6 col-md-offset-3" },
                                             content = function()
                                                 ui.heading {
                                                     level = 3,
@@ -256,16 +256,16 @@ ui.container {
                                     btnd = " active"
                                 end
                                 ui.container {
-                                    attr = { class = "row-fluid spaceline" },
+                                    attr = { class = "row spaceline" },
                                     content = function()
                                     --          local btn_style = "width:25%;"
                                         if not app.session.member.elected then
                                             --            btn_style = "width:25%;"
                                             ui.container {
-                                                attr = { class = "span3 text-center spaceline  spaceline-bottom" },
+                                                attr = { class = "col-md-3 text-center spaceline  spaceline-bottom" },
                                                 content = function()
                                                     ui.link {
-                                                        attr = { class = "btn btn-primary large_btn fixclick" .. btna, style = btn_style },
+                                                        attr = { class = "btn btn-primary filter_btn fixclick" .. btna, style = btn_style },
                                                         module = "area",
                                                         view = "show_ext_bs",
                                                         id = area.id,
@@ -278,10 +278,10 @@ ui.container {
                                             }
                                         end
                                         ui.container {
-                                            attr = { class = "span3 text-center spaceline  spaceline-bottom" },
+                                            attr = { class = "col-md-3 text-center spaceline  spaceline-bottom" },
                                             content = function()
                                                 ui.link {
-                                                    attr = { class = "btn btn-primary large_btn fixclick" .. btnb, style = btn_style },
+                                                    attr = { class = "btn btn-primary filter_btn fixclick" .. btnb, style = btn_style },
                                                     module = "area",
                                                     view = "show_ext_bs",
                                                     id = area.id,
@@ -293,10 +293,10 @@ ui.container {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span3 text-center spaceline  spaceline-bottom" },
+                                            attr = { class = "col-md-3 text-center spaceline  spaceline-bottom" },
                                             content = function()
                                                 ui.link {
-                                                    attr = { class = "btn btn-primary large_btn fixclick" .. btnc, style = btn_style },
+                                                    attr = { class = "btn btn-primary filter_btn fixclick" .. btnc, style = btn_style },
                                                     module = "area",
                                                     view = "show_ext_bs",
                                                     id = area.id,
@@ -308,10 +308,10 @@ ui.container {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span3 text-center spaceline  spaceline-bottom" },
+                                            attr = { class = "col-md-3 text-center spaceline  spaceline-bottom" },
                                             content = function()
                                                 ui.link {
-                                                    attr = { class = "btn btn-primary large_btn_filter fixclick" .. btnd, style = btn_style },
+                                                    attr = { class = "btn btn-primary filter_btn_filter fixclick" .. btnd, style = btn_style },
                                                     module = "area",
                                                     view = "show_ext_bs",
                                                     id = area.id,
@@ -329,7 +329,7 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { id = "issues_box", class = "row-fluid spaceline" },
+                    attr = { id = "issues_box", class = "row spaceline" },
                     content = function()
                         execute.view {
                             module = "issue",

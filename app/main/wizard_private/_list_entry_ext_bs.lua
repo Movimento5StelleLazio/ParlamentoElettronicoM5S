@@ -3,16 +3,16 @@ local member = param.get("member", "table")
 trace.debug("view: _list_entry_ext_bs.lua")
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside" },
+            attr = { class = "col-md-12 well-inside" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span2" },
+                            attr = { class = "col-md-2" },
                             content = function()
                                 ui.link {
                                     module = "wizard_private",
@@ -26,7 +26,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span10" },
+                            attr = { class = "col-md-10" },
                             content = function()
                                 execute.view { module = "wizard_private", view = "_head_ext_bs", params = { area = area, hide_unit = true, show_content = true, member = member } }
                                 ui.tag { content = _ "Issues:" }

@@ -14,7 +14,7 @@ else
 end
 
 ui.container {
-    attr = { class = "span12" },
+    attr = { class = "col-md-12" },
     content = function()
         local i = 0
         local areas = areas_selector:exec()

@@ -9,7 +9,7 @@ end
 
 local class = ""
 if for_details then
-    class = "initiative_box well-inside paper"
+    class = "well-inside paper"
 end
 
 local function round(num, idp)
@@ -17,13 +17,13 @@ local function round(num, idp)
 end
 
 ui.container {
-    attr = { class = "row-fluid spaceline" },
+    attr = { class = "row spaceline" },
     content = function()
         ui.container {
-            attr = { class = "span12" .. class },
+            attr = { class = "col-md-12 " .. class },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         local span = 2
                         if for_details and app.session.member then
@@ -48,7 +48,7 @@ ui.container {
                             local unchecked_events = Event:new_selector():add_where { "event.initiative_id = ? AND event.occurrence > ? AND event.id NOT IN (" .. chkids .. ")", initiative.id, app.session.member.activated }:exec()
 
                             ui.container {
-                                attr = { class = "span2 text-center spaceline2" },
+                                attr = { class = "col-md-3 text-center spaceline" },
                                 content = function()
                                     ui.link {
                                         attr = { class = "btn btn-primary btn_read_initiative" },
@@ -98,7 +98,6 @@ ui.container {
                                     }
                                 end
                             }
-
                             -- Check events
                             execute.action { module = "event", action = "check", params = { unchecked_events = unchecked_events, member_id = for_member.id } }
                         else
@@ -106,13 +105,13 @@ ui.container {
                         end
 
                         ui.container {
-                            attr = { class = "span" .. span .. " spaceline" },
+                            attr = { class = "col-md- col-xs-" .. span .. "" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12" },
+                                            attr = { class = "col-md-12" },
                                             content = function()
                                                 if initiative.issue.fully_frozen and initiative.issue.closed then
                                                     if initiative.negative_votes and initiative.positive_votes then
@@ -128,13 +127,13 @@ ui.container {
                                                         if c > 0 then cp = round(c * 100 / max_value, 2) else cp = 0 end
 
                                                         ui.container {
-                                                            attr = { class = "row-fluid" },
+                                                            attr = { class = "row" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span12" },
+                                                                    attr = { class = "col-md-12" },
                                                                     content = function()
                                                                         ui.container {
-                                                                            attr = { class = "progress progress-striped active" },
+                                                                            attr = { class = "progress progress-striped active spaceline" },
                                                                             content = function()
                                                                                 ui.container {
                                                                                     attr = { class = "progress_bar_txt" },
@@ -153,10 +152,10 @@ ui.container {
                                                         }
                                                         if for_details then
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             ui.heading { level = 6, attr = { class = "votes_count_txt" }, content = a .. " " .. _ "Yes" .. " / " .. c .. " " .. _ "No" }
                                                                         end
@@ -197,10 +196,10 @@ ui.container {
                                                     if c > 0 then cp = round(c * 100 / max_value, 2) else cp = 0 end
 
                                                     ui.container {
-                                                        attr = { class = "row-fluid" },
+                                                        attr = { class = "row" },
                                                         content = function()
                                                             ui.container {
-                                                                attr = { class = "span12" },
+                                                                attr = { class = "col-md-12" },
                                                                 content = function()
 
                                                                     ui.container {
@@ -223,10 +222,10 @@ ui.container {
                                                     }
                                                     if for_details then
                                                         ui.container {
-                                                            attr = { class = "row-fluid" },
+                                                            attr = { class = "row" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span12 text-center" },
+                                                                    attr = { class = "col-md-12 text-center" },
                                                                     content = function()
                                                                         local supp_txt
                                                                         local pot_supp_txt
@@ -274,7 +273,7 @@ ui.container {
                         }
 
                         ui.container {
-                            attr = { class = "span6" },
+                            attr = { class = "col-md-6 col-xs-6 text-center" },
                             content = function()
                                 ui.link {
                                     content = function()
@@ -285,7 +284,7 @@ ui.container {
                                             name = encode.html(initiative.shortened_name)
                                         end
                                         ui.heading {
-                                            level = 6,
+                                            level = 4,
                                             content = function()
                                                 local class = ""
                                                 if initiative.revoked then
@@ -305,19 +304,19 @@ ui.container {
                                 }
 
                                 --if request.get_view() == "show_ext_bs" then
-                                if for_details then
-                                    ui.tag { tag = "p", content = initiative.brief_description }
-                                end
+                                --if for_details then
+                                  --  ui.tag { tag = "p", content = initiative.brief_description }
+                                --end
                             end
                         }
                         ui.container {
-                            attr = { class = "span1" },
+                            attr = { class = "col-md-1 col-xs-1 pull-right" },
                             content = function()
                                 if initiative.revoked then
                                     ui.container {
                                         attr = { class = "vertical" },
                                         content = function()
-                                            ui.image { static = "png/delete.png" }
+                                            ui.image { attr = { class = "icon-small" }, static = "png/delete.png" }
                                             slot.put(_ "Revoked by authors")
                                         end
                                     }

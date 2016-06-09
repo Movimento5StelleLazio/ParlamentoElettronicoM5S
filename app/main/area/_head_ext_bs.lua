@@ -12,26 +12,17 @@ end
 --  execute.view{ module = "unit", view = "_head", params = { unit = area.unit, member = member } }
 --end
 
-ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
-        ui.container {
-            attr = { class = "span12" },
-            content = function()
 
             --    execute.view{ module = "delegation", view = "_info_bs", params = { area = area, member = member } }
 
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
                         ui.container {
-                            attr = { class = "span11 spaceline" },
+                            attr = { class = "col-md-9 spaceline" },
                             content = function()
                                 ui.link {
                                     module = "area",
                                     view = "filters_bs",
                                     params = { create = create },
-                                    attr = { class = "label label-area fixclick" },
+                                    attr = { class = "label label-warning fixclick" },
                                     id = area.id,
                                     content = function()
                                         ui.tag { tag = "strong", content = area.name }
@@ -39,16 +30,10 @@ ui.container {
                                 }
                             end
                         }
-                    end
-                }
 
                 if show_content then
-
-                    ui.container {
-                        attr = { class = "row-fluid" },
-                        content = function()
                             ui.container {
-                                attr = { class = "span12 spaceline spaceline-bottom" },
+                                attr = { class = "col-md-9 spaceline spaceline-bottom" },
                                 content = function()
 
                                 -- actions (members with appropriate voting right only)
@@ -60,13 +45,13 @@ ui.container {
                                         if membership then
 
                                             if app.session.member_id == member.id then
-                                                ui.tag { attr = { class = "label label-success" }, content = _ "You are participating in this area" }
+                                                ui.tag { attr = { class = "label label-success spaceline-bottom" }, content = _ "You are participating in this area" }
                                                 slot.put(" ")
                                                 ui.tag {
                                                     content = function()
                                                         slot.put("")
                                                         ui.link {
-																				attr = { class = "label label-inverse" },
+																				attr = { class = "label label-inverse spaceline-bottom" },
                                                             text = _ "Withdraw",
                                                             module = "membership",
                                                             action = "update",
@@ -90,7 +75,7 @@ ui.container {
 
                                         elseif app.session.member_id == member.id and member:has_voting_right_for_unit_id(area.unit_id) then
                                             ui.link {
-                                                attr = { class = "btn btn-primary large_btn margin_line text-center" },
+                                                attr = { class = "btn btn-primary btn_large margin_line text-center spaceline spaceline-bottom" },
                                                 text = _ "Participate in this area",
                                                 module = "membership",
                                                 action = "update",
@@ -120,7 +105,7 @@ ui.container {
                                             --]]
 
                                             ui.link {
-                                                attr = { class = "btn btn-primary large_btn margin_line text-center" },
+                                                attr = { class = "btn btn-primary btn_large margin_line text-center" },
                                                 content = function()
                                                     slot.put(_ "Create new issue")
                                                 end,
@@ -132,13 +117,7 @@ ui.container {
                                     end
                                 end
                             }
-                        end
-                    }
 
                 else
                     slot.put("<br />")
                 end
-            end
-        }
-    end
-}

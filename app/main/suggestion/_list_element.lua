@@ -33,13 +33,13 @@ if true or not show_filter then
     ui_filters = function(args) args.content() end
 end
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside paper" },
+            attr = { class = "col-md-12 well-inside paper" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.paginate {
                             selector = suggestions_selector,

@@ -49,16 +49,16 @@ end
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span10 offset1 text-center" },
+                                attr = { class = "col-md-10 col-md-offset-1 text-center" },
                                 content = function()
                                     ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                     ui.heading {
@@ -77,22 +77,22 @@ ui.title(function()
                                 end
                             }
                             ui.container {
-                                attr = { class = "span1 text-center " },
+                                attr = { class = "col-md-1 text-center " },
                                 content = function()
                                     ui.field.popover {
                                         attr = {
                                             dataplacement = "left",
                                             datahtml = "true";
                                             datatitle = _ "Give a brief description for your initiative to solve the problem",
-                                            datacontent = _ "Initiative short note",
+                                            datacontent = _ "<iframe width='560' height='315' src='https://www.youtube.com/embed/EECcVB93Wv4' frameborder='0' allowfullscreen></iframe>",
                                             datahtml = "true",
                                             class = "text-center"
                                         },
                                         content = function()
                                             ui.container {
-                                                attr = { class = "row-fluid" },
+                                                attr = { class = "row" },
                                                 content = function()
-                                                    ui.image { static = "png/tutor.png" }
+                                                    ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                                                 --								    ui.heading{level=3 , content= _"What you want to do?"}
                                                 end
                                             }
@@ -103,12 +103,12 @@ ui.title(function()
                         end
                     }
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span12" },
+                                attr = { class = "col-sm-12" },
                                 content = function()
-                                    ui.image { static = "png/step_6_f8.png" }
+                                    ui.image { attr = { class = "img-responsive" },static = "png/step_6_f8.png" }
                                 end
                             }
                         end
@@ -153,22 +153,22 @@ ui.form {
         end
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12" },
+                                    attr = { class = "col-md-12" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span6 offset3 text-center spaceline" },
+                                                    attr = { class = "col-md-6 col-md-offset-3 text-center spaceline" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 3,
@@ -183,30 +183,30 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline text-center" },
+                                            attr = { class = "row spaceline text-center" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12 well-inside paper" },
+                                                    attr = { class = "col-md-12 well-inside paper" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                                            attr = { class = "row spaceline spaceline-bottom" },
                                                             content = function()
                                                                 ui.heading {
-                                                                    attr = { class = "span12 text-center" },
+                                                                    attr = { class = "col-md-12 text-center" },
                                                                     level = 1,
                                                                     content = _ "Initiative short description"
                                                                 }
                                                             end
                                                         }
                                                         ui.container {
-                                                            attr = { class = "row-fluid spaceline text-center" },
+                                                            attr = { class = "row spaceline text-center" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span10 offset1" },
+                                                                    attr = { class = "col-md-10 col-md-offset-1" },
                                                                     content = function()
                                                                         ui.tag {
                                                                             tag = "textarea",
-                                                                            attr = { id = "initiative_brief_description", name = "initiative_brief_description", style = "resize:none;height:260px;", class = "span12" },
+                                                                            attr = { id = "initiative_brief_description", name = "initiative_brief_description", style = "resize:none;height:260px;", class = "col-md-12" },
                                                                             content = initiative_brief_description
                                                                         }
                                                                     end
@@ -219,7 +219,7 @@ ui.form {
                                         }
 
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline" },
+                                            attr = { class = "row spaceline" },
                                             content = function()
                                             end
                                         }
@@ -227,7 +227,7 @@ ui.form {
                                 }
                                 -- Pulsante "Indietro"
                                 ui.container {
-                                    attr = { class = "span3 offset1 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-1 col-sm-6 col-xs-12 text-left" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",
@@ -246,7 +246,7 @@ ui.form {
                                 }
                                 -- Pulsante "Avanti"
                                 ui.container {
-                                    attr = { class = "span3 offset4 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-4 col-sm-6 col-xs-12 text-right" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",

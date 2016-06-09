@@ -23,71 +23,67 @@ elseif vote_comment_able then
 end
 
 
-local class = "issue paper"
+local class = "row"
 if issue.is_interested then
-    class = class .. " interested"
+    class = class .. "row"
 elseif issue.is_interested_by_delegation_to_member_id then
     class = class .. " interested_by_delegation"
 end
 
 ui.container {
-    attr = { class = class },
+    attr = { class = "well-inside paper" },
     content = function()
 
         execute.view { module = "delegation", view = "_info", params = { issue = issue, member = for_member } }
 
         if for_listing then
+
+        ui.container {
+            attr = { class = "row" },
+            content = function()
+
+
             ui.container {
-                attr = { class = "content" },
+                attr = { class = "col-md-8 col-md-offset-2 text-center h2" },
                 content = function()
                     ui.link {
                         module = "unit",
                         view = "show",
                         id = issue.area.unit_id,
-                        attr = { class = "label label-success" },
+                        attr = { class = "" },
                         text = issue.area.unit.name
                     }
-                    slot.put(" ")
+                    slot.put("")
                     ui.link {
                         module = "area",
                         view = "show",
                         id = issue.area_id,
-                        attr = { class = "label label-warning" },
+                        attr = { class = "" },
                         text = issue.area.name
                     }
                 end
             }
         end
+            }
+        end
 
         ui.container {
-            attr = { class = "title" },
+            attr = { class = "row spaceline" },
             content = function()
-
-                ui.link {
-                    attr = { class = "issue_id" },
-                    text = _("#{policy_name} ##{issue_id}", {
-                        policy_name = issue.policy.name,
-                        issue_id = issue.id
-                    }),
-                    module = "issue",
-                    view = "show",
-                    id = issue.id
-                }
+					  ui.container {
+						   attr = { class = "col-md-4" },
+						   content = function()
+                ui.tag { attr = { class = "label label-success" }, content = issue.state_name }
             end
         }
-
-        ui.tag {
-            attr = { class = "content issue_policy_info" },
-            tag = "div",
-            content = function()
-
-                ui.tag { attr = { class = "event_name" }, content = issue.state_name }
-
+					  ui.container {
+						   attr = { class = "col-md-4" },
+						   content = function()
                 if issue.closed then
-                    slot.put(" &middot; ")
+                    slot.put("")
                     ui.tag { content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
                 elseif issue.state_time_left then
-                    slot.put(" &middot; ")
+                    slot.put("")
                     if issue.state_time_left:sub(1, 1) == "-" then
                         if issue.state == "admission" then
                             ui.tag { content = _("Discussion starts soon") }
@@ -104,11 +100,28 @@ ui.container {
                 end
             end
         }
+                ui.link {
+                    attr = { class = "col-md-4" },
+                    text = _("#{policy_name} ##{issue_id}", {
+                        policy_name = issue.policy.name,
+                        issue_id = issue.id
+                    }),
+                    module = "issue",
+                    view = "show",
+                    id = issue.id
+                }
+            end
+        }
 
+        ui.container {
+            attr = { class = "row spaceline" },
+            content = function()
         local links = {}
 
         if vote_link_text then
+
             links[#links + 1] = {
+					 attr = { class = "btn btn-primary xlarge_btn filter_btn fixclick" }, 
                 content = vote_link_text,
                 module = "vote",
                 view = "list",
@@ -119,6 +132,7 @@ ui.container {
         if voteable and not direct_voter then
             if not issue.member_info.non_voter then
                 links[#links + 1] = {
+					     attr = { class = "btn btn-primary xlarge_btn filter_btn fixclick" }, 
                     content = _ "Do not vote directly",
                     module = "vote",
                     action = "non_voter",
@@ -136,6 +150,7 @@ ui.container {
             else
                 links[#links + 1] = { attr = { class = "action" }, content = _ "Do not vote directly" }
                 links[#links + 1] = {
+					     attr = { class = "btn btn-primary xlarge_btn filter_btn fixclick" }, 
                     in_brackets = true,
                     content = _ "Cancel [nullify]",
                     module = "vote",
@@ -151,6 +166,8 @@ ui.container {
                         }
                     }
                 }
+
+
             end
         end
 
@@ -160,15 +177,15 @@ ui.container {
 
                 if issue.member_info.own_participation then
                     if issue.closed then
-                        links[#links + 1] = { content = _ "You were interested" }
+                        links[#links + 1] = {attr = { class = "label label-success", style = "margin-right: 10px;" },content = _ "You were interested" }
                     else
-                        links[#links + 1] = { content = _ "You are interested" }
+                        links[#links + 1] = { attr = { class = "label label-success", style = "margin-right: 10px;" },content = _ "You are interested" }
                     end
                 end
                 if not issue.closed and not issue.fully_frozen then
                     if issue.member_info.own_participation then
                         links[#links + 1] = {
-                            attr = { class = "label label-inverse filter_btn", style = "margin-right: 50px;" },
+                            attr = { class = "label label-inverse filter_btn", style = "margin-right: 10px;" },
                             in_brackets = true,
                             text = _ "Withdraw",
                             module = "interest",
@@ -245,7 +262,7 @@ ui.container {
         end
 
         ui.container {
-            attr = { class = "content actions text-center spaceline" },
+            attr = { class = "col-md-12 spaceline" },
             content = function()
                 for i, link in ipairs(links) do
                     if link.in_brackets then
@@ -279,31 +296,33 @@ ui.container {
                 }
             end
         end
+				end
+			}
+					  ui.container {
+						   attr = { class = "row" },
+						   content = function()
 
-        ui.container {
-            attr = { class = "initiative_list content" },
-            content = function()
+						       local initiatives_selector = issue:get_reference_selector("initiatives")
+						       local highlight_string = param.get("highlight_string")
+						       if highlight_string then
+						           initiatives_selector:add_field({ '"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
+						       end
+						       execute.view {
+						           module = "initiative",
+						           view = "_list",
+						           params = {
+						               issue = issue,
+						               initiatives_selector = initiatives_selector,
+						               highlight_initiative = for_initiative,
+						               highlight_string = highlight_string,
+						               no_sort = true,
+						               limit = (for_listing or for_initiative) and 5 or nil,
+						               for_member = for_member
+						           }
+						       }
+						   end
+					  }
 
-                local initiatives_selector = issue:get_reference_selector("initiatives")
-                local highlight_string = param.get("highlight_string")
-                if highlight_string then
-                    initiatives_selector:add_field({ '"highlight"("initiative"."name", ?)', highlight_string }, "name_highlighted")
-                end
-                execute.view {
-                    module = "initiative",
-                    view = "_list",
-                    params = {
-                        issue = issue,
-                        initiatives_selector = initiatives_selector,
-                        highlight_initiative = for_initiative,
-                        highlight_string = highlight_string,
-                        no_sort = true,
-                        limit = (for_listing or for_initiative) and 5 or nil,
-                        for_member = for_member
-                    }
-                }
-            end
-        }
     end
 }
 

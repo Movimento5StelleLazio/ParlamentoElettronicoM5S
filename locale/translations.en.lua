@@ -267,6 +267,9 @@ return {
     ["Initiative ##{id}"] = false;
     ["Initiative events"] = false;
     ["Initiative i#{id}: #{name}"] = false;
+    ["Homepage read new issues"] = "READ";
+    ["Homepage write new issue"] = "WRITE";
+    ["Back to previous page"] = "Back";
     ["Initiative is revoked now"] = false;
     ["Initiative quorum"] = false;
     ["Initiative quorum denumerator"] = false;
@@ -512,6 +515,17 @@ return {
     ["Select language"] = false;
     ["Select language \"#{langcode}\""] = false;
     ["Send invite?"] = false;
+    ["SHOW ALL AREAS"] = "ALL AREAS";
+    ["SHOW ONLY PARTECIPATED AREAS"] = "YOUR AREAS";
+    ["Back Phase"] = "Back";
+    ["Next Phase"] = "NEXT";
+    ["ORDER BY NUMBER OF SUPPORTERS"] = "NUMBER OF SUPPORTERS";
+    ["ORDER BY DATE OF CREATION"] = "DATE OF CREATION";
+    ["ORDER BY LAST EVENT DATE"] = "LAST EVENT DATE";
+    ["INVERT ORDER FROM DESCENDING TO ASCENDING"] = "INVERT ORDER";
+    ["INVERT ORDER FROM ASCENDING TO DESCENDING"] = "INVERT ORDER";
+    ["Back to previous page"] = "BACK";
+    ["Back to issue listing"] = "BACK";
     ["Set URL"] = false;
     ["Set delegation for Area '#{name}'"] = false;
     ["Set delegation for Issue ##{number} in Area '#{area_name}'"] = false;

@@ -33,19 +33,19 @@ trace.debug("disable: " .. disable .. "; only_draft: " .. only_draft)
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid spaceline" },
+        attr = { class = "row spaceline" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span3" },
+                                attr = { class = "col-md-3" },
                                 content = function()
                                     ui.link {
-                                        attr = { id = "btnPreviuos", class = "span9 btn btn-primary large_btn fixclick" },
+                                        attr = { id = "btnPreviuos", class = "col-md-9 btn btn-primary large_btn fixclick" },
                                         module = module_back,
                                         view = view_back,
                                         params = params_back,
@@ -63,7 +63,7 @@ ui.title(function()
                                 end
                             }
                             ui.container {
-                                attr = { class = "span8" },
+                                attr = { class = "col-md-8" },
                                 content = function()
                                     ui.heading { level = 1, content = _ "WIZARD SHORTCUT HEADER" }
                                     ui.heading { level = 3, content = _ "WIZARD SHORTCUT" }
@@ -74,10 +74,10 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "row-fluid" },
+                attr = { class = "row" },
                 content = function()
                     ui.container {
-                        attr = { class = "span12 text-center" },
+                        attr = { class = "col-md-12 text-center" },
                         content = function()
                             ui.heading {
                                 level = 2,
@@ -158,16 +158,16 @@ ui.form {
     },
     content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 text-center well-inside paper" },
+                                    attr = { class = "col-md-12 text-center well-inside paper" },
                                     content = function()
                                     --Selezione policy
                                         ui.container {
@@ -184,10 +184,10 @@ ui.form {
                                                     attr = { class = "formSelect" .. disable },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "row-fluid spaceline1 spaceline-bottom " },
+                                                            attr = { class = "row spaceline1 spaceline-bottom " },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span12" },
+                                                                    attr = { class = "col-md-12" },
                                                                     content = function()
                                                                         ui.container {
                                                                             attr = { class = "inline-block" },
@@ -196,7 +196,7 @@ ui.form {
                                                                                     attr = { class = "text-left" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "row-fluid" },
+                                                                                            attr = { class = "row" },
                                                                                             content = function()
                                                                                             --policy selezionata cambiata
                                                                                                 ui.field.hidden {
@@ -233,17 +233,17 @@ ui.form {
                         }
                         -- Box questione
                         ui.container {
-                            attr = { class = "row-fluid spaceline3 " .. disable },
+                            attr = { class = "row spaceline3 " .. disable },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 well-blue", style = "padding-bottom:30px" },
+                                    attr = { class = "col-md-12 well-blue", style = "padding-bottom:30px" },
                                     content = function()
                                     --Titolo box questione
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline " },
+                                            attr = { class = "row spaceline " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1  offset3 label label-warning " },
+                                                    attr = { class = "col-md-10 col-md-offset-1  col-md-offset-3 label label-warning " },
                                                     content = function()
                                                         ui.heading { level = 1, attr = { class = "uppercase text-center" }, content = _ "QUESTIONE" }
                                                     end
@@ -252,13 +252,13 @@ ui.form {
                                         }
                                         --Titolo questione
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline " },
+                                            attr = { class = "row spaceline " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid spaceline " },
+                                                    attr = { class = "row spaceline " },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span10 offset1 text-left" },
+                                                            attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                             content = function()
                                                                 ui.tag { tag = "label", content = _ "Problem Title" }
                                                             end
@@ -266,10 +266,10 @@ ui.form {
                                                     end
                                                 }
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span10 offset1 text-left spaceline" },
+                                                            attr = { class = "col-md-10 col-md-offset-1 text-left spaceline" },
                                                             content = function()
                                                                 ui.tag { tag = "input", attr = { id = "issue_title", name = "issue_title", value = issue_title, style = "width:70%;" }, content = "" }
                                                             end
@@ -280,10 +280,10 @@ ui.form {
                                         }
                                         -- Descrizione breve questione
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
+                                            attr = { class = "row spaceline3 " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Brief description" }
                                                     --									ui.tag{tag="em",content=  _"Description note"}
@@ -292,10 +292,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid " },
+                                            attr = { class = "row " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 issue_brief_span" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 issue_brief_span" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -308,10 +308,10 @@ ui.form {
                                         }
                                         -- Keywords
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
+                                            attr = { class = "row spaceline3 " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Keywords" }
                                                     --                     ui.tag{tag="em",content=  _"Keywords note"}
@@ -320,10 +320,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 collapse", style = "height:60px;" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 collapse", style = "height:60px;" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -336,10 +336,10 @@ ui.form {
                                         }
                                         -- Descrizione del problema
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
+                                            attr = { class = "row spaceline3 " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left issue_desc" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left issue_desc" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Problem description" }
                                                     --                      ui.tag{tag="em",content=  _"Problem note"}
@@ -348,10 +348,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 issue_desc" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 issue_desc" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -364,10 +364,10 @@ ui.form {
                                         }
                                         -- Descrizione dell'obiettivo
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                            attr = { class = "row spaceline3 " .. only_draft },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left aim_desc" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left aim_desc" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Target description" }
                                                     --                      ui.tag{tag="em",content=  _"Target note"}
@@ -376,10 +376,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1  aim_desc" },
+                                                    attr = { class = "col-md-10 col-md-offset-1  aim_desc" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -397,17 +397,17 @@ ui.form {
 
                         -- Box proposta
                         ui.container {
-                            attr = { class = "row-fluid spaceline3 " },
+                            attr = { class = "row spaceline3 " },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 well", style = "padding-bottom:30px" },
+                                    attr = { class = "col-md-12 well", style = "padding-bottom:30px" },
                                     content = function()
                                     -- Titolo box proposta
                                         ui.container {
-                                            attr = { class = "row-fluid" .. only_draft },
+                                            attr = { class = "row" .. only_draft },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span6 offset3 label label-warning text-center" },
+                                                    attr = { class = "col-md-6 col-md-offset-3 label label-warning text-center" },
                                                     content = function()
                                                         ui.heading { level = 1, content = _ "PROPOSTA" }
                                                     end
@@ -416,10 +416,10 @@ ui.form {
                                         }
                                         -- Titolo proposta
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                            attr = { class = "row spaceline3 " .. only_draft },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                     content = function()
                                                         ui.tag { tag = "label", content = _ "Initiative Title" }
                                                     end
@@ -427,10 +427,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 " },
+                                                    attr = { class = "col-md-10 col-md-offset-1 " },
                                                     content = function()
                                                         ui.tag { tag = "input", attr = { id = "initiative_title", name = "initiative_title", value = initiative_title or "", style = "width:100%;" }, content = "" }
                                                     end
@@ -439,10 +439,10 @@ ui.form {
                                         }
                                         -- Descrizione breve proposta
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                            attr = { class = "row spaceline3 " .. only_draft },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left init_brief" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left init_brief" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Initiative short description" }
                                                     --                      ui.tag{tag="em",content=  _"Initiative short note"}
@@ -451,10 +451,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1  init_brief" },
+                                                    attr = { class = "col-md-10 col-md-offset-1  init_brief" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -468,10 +468,10 @@ ui.form {
 
                                         -- Testo della proposta
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
+                                            attr = { class = "row spaceline3 " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left draft" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left draft" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Draft text" }
                                                     --                      ui.tag{tag="em",content=  _"Draft note"}
@@ -480,10 +480,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1  draft" },
+                                                    attr = { class = "col-md-10 col-md-offset-1  draft" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -496,10 +496,10 @@ ui.form {
                                         }
                                         -- Keywords competenze tecniche
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " .. only_draft },
+                                            attr = { class = "row spaceline3 " .. only_draft },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Keywords" }
                                                     --                     ui.tag{tag="em",content=  _"Keywords note"}
@@ -508,10 +508,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 collapse", style = "height:60px;" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 collapse", style = "height:60px;" },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -524,10 +524,10 @@ ui.form {
                                         }
                                         -- link youtube
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline3 " },
+                                            attr = { class = "row spaceline3 " },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 text-left" },
+                                                    attr = { class = "col-md-10 col-md-offset-1 text-left" },
                                                     content = function()
                                                         ui.tag { tag = "p", content = _ "Youtube video" }
                                                     --                      ui.tag{tag="em",content=  _"Draft note"}
@@ -536,10 +536,10 @@ ui.form {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span10 offset1 " },
+                                                    attr = { class = "col-md-10 col-md-offset-1 " },
                                                     content = function()
                                                         ui.tag {
                                                             tag = "textarea",
@@ -558,22 +558,22 @@ ui.form {
 
                         -- Pulsanti
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span3 text-center", style = "width:100%;" },
+                                    attr = { class = "col-md-3 text-center", style = "width:100%;" },
                                     content = function()
                                         ui.container {
                                             attr = { id = "pulsanti", style = "position: relative;" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "row-fluid" },
+                                                            attr = { class = "row" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span4 text-center" },
+                                                                    attr = { class = "col-md-4 text-center" },
                                                                     content = function()
                                                                     --pulsante anteprima
                                                                         ui.container {
@@ -586,10 +586,10 @@ ui.form {
                                                                                     attr = { class = "fittext_btn_wiz" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "row-fluid" },
+                                                                                            attr = { class = "row" },
                                                                                             content = function()
                                                                                                 ui.container {
-                                                                                                    attr = { class = "span12" },
+                                                                                                    attr = { class = "col-md-12" },
                                                                                                     content = function()
                                                                                                         slot.put(_ "Show preview")
                                                                                                     end
@@ -604,7 +604,7 @@ ui.form {
                                                                 }
                                                                 --pulsante "Save preview"
                                                                 ui.container {
-                                                                    attr = { class = "span4 text-center" },
+                                                                    attr = { class = "col-md-4 text-center" },
                                                                     content = function()
                                                                         ui.container {
                                                                             attr = { id = "btnSalvaPreview", class = "btn btn-primary large_btn fixclick", disabled = "true", style = "opacity:0.5;" },
@@ -616,10 +616,10 @@ ui.form {
                                                                                     attr = { class = "fittext_btn_wiz" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "row-fluid" },
+                                                                                            attr = { class = "row" },
                                                                                             content = function()
                                                                                                 ui.container {
-                                                                                                    attr = { class = "span12" },
+                                                                                                    attr = { class = "col-md-12" },
                                                                                                     content = function()
                                                                                                         slot.put(_ "Save preview")
                                                                                                     end
@@ -634,7 +634,7 @@ ui.form {
                                                                 }
                                                                 --pulsante Save
                                                                 ui.container {
-                                                                    attr = { class = "span4 text-center" },
+                                                                    attr = { class = "col-md-4 text-center" },
                                                                     content = function()
                                                                         ui.tag {
                                                                             tag = "a",
@@ -645,10 +645,10 @@ ui.form {
                                                                                     attr = { class = "fittext_btn_wiz" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "row-fluid" },
+                                                                                            attr = { class = "row" },
                                                                                             content = function()
                                                                                                 ui.container {
-                                                                                                    attr = { class = "span12" },
+                                                                                                    attr = { class = "col-md-12" },
                                                                                                     content = function()
                                                                                                         slot.put(_ "Save issue")
                                                                                                     end
