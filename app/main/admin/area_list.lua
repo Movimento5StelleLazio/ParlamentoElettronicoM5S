@@ -9,10 +9,10 @@ local areas = Area:build_selector { unit_id = unit_id, active = not show_not_in_
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -25,7 +25,7 @@ ui.title(function()
             }
             ui.tag {
                 tag = "strong",
-                attr = { class = "span9 text-center" },
+                attr = { class = "col-md-9 text-center" },
                 content = _("Area list of '#{unit_name}'", { unit_name = unit.name })
             }
         end
@@ -34,7 +34,7 @@ end)
 
 ui.actions(function()
     ui.container {
-        attr = { class = "row-fluid spaceline2" },
+        attr = { class = "row spaceline2" },
         content = function()
             if show_not_in_use then
                 ui.link {
@@ -42,7 +42,7 @@ ui.actions(function()
                     module = "admin",
                     view = "area_list",
                     params = { unit_id = unit_id },
-                    attr = { class = "offset2 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-2 col-md-2 btn btn-primary text-center" }
                 }
 
             else
@@ -51,7 +51,7 @@ ui.actions(function()
                     module = "admin",
                     view = "area_show",
                     params = { unit_id = unit_id },
-                    attr = { class = "offset2 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-2 col-md-2 btn btn-primary text-center" }
                 }
 
                 ui.link {
@@ -59,7 +59,7 @@ ui.actions(function()
                     module = "admin",
                     view = "area_list",
                     params = { show_not_in_use = true, unit_id = unit_id },
-                    attr = { class = "span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-2 btn btn-primary text-center" }
                 }
 
                 ui.link {
@@ -67,7 +67,7 @@ ui.actions(function()
                     module = "admin",
                     view = "save_areas_template",
                     params = { unit_name = unit.name, unit_id = unit_id, areas = areas },
-                    attr = { class = "span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-2 btn btn-primary text-center" }
                 }
 
                 ui.link {
@@ -75,7 +75,7 @@ ui.actions(function()
                     module = "admin",
                     view = "paste_areas_template",
                     params = { unit_name = unit.name, unit_id = unit_id, areas = areas },
-                    attr = { class = "span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-2 btn btn-primary text-center" }
                 }
             end
         end

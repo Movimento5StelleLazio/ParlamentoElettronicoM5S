@@ -105,16 +105,16 @@ trace.debug("id:" .. (id or "none") .. ", state:" .. (state or "none") .. ", int
 trace.debug("default interest:" .. (btns.default_interest or "none"))
 
 ui.container {
-    attr = { id = "contenitore", class = "accordion" },
+    attr = { id = "contenitore", class = "panel-group" },
     content = function()
         ui.container {
-            attr = { class = "accordion-group" },
+            attr = { class = "panel panel-default" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "accordion-heading span12 text-center" },
+                            attr = { class = "panel-heading col-md-12 text-center" },
                             content = function()
                                 ui.tag {
                                     tag = "button",
@@ -126,26 +126,26 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { id = "filtri", class = "accordion-body collapse" .. collapse },
+                    attr = { id = "filtri", class = "panel-collapse collapse" .. collapse },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 text-center" },
+                                    attr = { class = "col-md-12 text-center" },
                                     content = function()
                                         if btns['state'] then
                                             ui.container {
-                                                attr = { id = "state_flt", class = "row-fluid spaceline" },
+                                                attr = { id = "state_flt", class = "row spaceline" },
                                                 content = function()
                                                     ui.container {
-                                                        attr = { class = "span12 text-center" },
+                                                        attr = { class = "col-md-12 text-center" },
                                                         content = function()
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             ui.heading { level = 3, content = _ "FILTER INITIATIVES SHOWING ONLY THOSE IN PHASE:" }
                                                                         end
@@ -153,17 +153,17 @@ ui.container {
                                                                 end
                                                             }
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             for i = 1, #btns.state do
                                                                                 ui.container {
-                                                                                    attr = { class = "row-fluid" },
+                                                                                    attr = { class = "row" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "span12 text-center" },
+                                                                                            attr = { class = "col-md-12 text-center" },
                                                                                             content = function()
                                                                                                 ui.container {
                                                                                                     attr = { class = "btn-group" },
@@ -204,16 +204,16 @@ ui.container {
 
                                         if btns['interest'] then
                                             ui.container {
-                                                attr = { id = "interest_flt", class = "row-fluid spaceline" },
+                                                attr = { id = "interest_flt", class = "row spaceline" },
                                                 content = function()
                                                     ui.container {
-                                                        attr = { class = "span12 text-center" },
+                                                        attr = { class = "col-md-12 text-center" },
                                                         content = function()
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             ui.heading { level = 3, content = _ "FILTER INITIATIVES SHOWING ONLY THOSE IN CATEGORY:" }
                                                                         end
@@ -221,17 +221,17 @@ ui.container {
                                                                 end
                                                             }
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             for i = 1, #btns.interest do
                                                                                 ui.container {
-                                                                                    attr = { class = "row-fluid" },
+                                                                                    attr = { class = "row" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "span12 text-center" },
+                                                                                            attr = { class = "col-md-12 text-center" },
                                                                                             content = function()
                                                                                                 ui.container {
                                                                                                     attr = { class = "btn-group" },
@@ -268,16 +268,16 @@ ui.container {
 
                                         if btns['scope'] then
                                             ui.container {
-                                                attr = { id = "scope_flt", class = "row-fluid spaceline" },
+                                                attr = { id = "scope_flt", class = "row spaceline" },
                                                 content = function()
                                                     ui.container {
-                                                        attr = { class = "span12 text-center" },
+                                                        attr = { class = "col-md-12 text-center" },
                                                         content = function()
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             ui.heading { level = 3, content = _ "SHOW ONLY THE FOLLOWING UNITS:" }
                                                                         end
@@ -285,17 +285,17 @@ ui.container {
                                                                 end
                                                             }
                                                             ui.container {
-                                                                attr = { class = "row-fluid" },
+                                                                attr = { class = "row" },
                                                                 content = function()
                                                                     ui.container {
-                                                                        attr = { class = "span12 text-center" },
+                                                                        attr = { class = "col-md-12 text-center" },
                                                                         content = function()
                                                                             for i = 1, #btns.scope do
                                                                                 ui.container {
-                                                                                    attr = { class = "row-fluid" },
+                                                                                    attr = { class = "row" },
                                                                                     content = function()
                                                                                         ui.container {
-                                                                                            attr = { class = "span12 text-center" },
+                                                                                            attr = { class = "col-md-12 text-center" },
                                                                                             content = function()
                                                                                                 ui.container {
                                                                                                     attr = { class = "btn-group" },

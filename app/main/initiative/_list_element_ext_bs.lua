@@ -3,16 +3,16 @@ local selected = param.get("selected", atom.boolean)
 local for_member = param.get("for_member", "table") or app.session.member
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 initiative_list_box" },
+            attr = { class = "col-md-12 initiative_list_box" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span1" },
+                            attr = { class = "col-md-1" },
                             content = function()
                                 if initiative.issue.fully_frozen and initiative.issue.closed or initiative.admitted == false then
                                     ui.field.rank { attr = { class = "rank" }, value = initiative.rank, eligible = initiative.eligible }
@@ -24,7 +24,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span11" },
+                            attr = { class = "col-md-11" },
                             content = function()
                                 if initiative.issue.fully_frozen and initiative.issue.closed then
                                     if initiative.negative_votes and initiative.positive_votes then
@@ -110,10 +110,10 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12" },
+                            attr = { class = "col-md-12" },
                             content = function()
                                 ui.link {
                                     content = function()

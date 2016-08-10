@@ -1,10 +1,10 @@
-if cgi.cookies.parelon_session then
-    app.session = Session:by_ident(cgi.cookies.parelon_session)
+if cgi.cookies.parelon_session_demo then
+    app.session = Session:by_ident(cgi.cookies.parelon_session_demo)
 end
 if not app.session then
     app.session = Session:new()
     request.set_cookie {
-        name = "parelon_session",
+        name = "parelon_session_demo",
         value = app.session.ident
     }
 end

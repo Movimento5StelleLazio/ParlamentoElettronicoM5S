@@ -6,10 +6,10 @@ local policies = Policy:build_selector { active = not show_not_in_use }:exec()
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -22,7 +22,7 @@ ui.title(function()
             }
             ui.tag {
                 tag = "strong",
-                attr = { class = "span9 text-center" },
+                attr = { class = "col-md-9 text-center" },
                 content = _ "Policy list"
             }
         end
@@ -30,14 +30,14 @@ ui.title(function()
 end)
 ui.actions(function()
     ui.container {
-        attr = { class = "row-fluid spaceline2" },
+        attr = { class = "row spaceline2" },
         content = function()
             if show_not_in_use then
                 ui.link {
                     text = _ "Show policies in use",
                     module = "admin",
                     view = "policy_list",
-                    attr = { class = "offset4 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-4 col-md-2 btn btn-primary text-center" }
                 }
 
             else
@@ -45,13 +45,13 @@ ui.actions(function()
                     text = _ "Create new policy",
                     module = "admin",
                     view = "policy_show",
-                    attr = { class = "offset4 span2 btn btn-primary text-center" }
+                    attr = { class = "col-md-offset-4 col-md-2 btn btn-primary text-center" }
                 }
                 ui.link {
                     text = _ "Show policies not in use",
                     module = "admin",
                     view = "policy_list",
-                    attr = { class = "offset1 span2 btn btn-primary text-center" },
+                    attr = { class = "col-md-offset-1 col-md-2 btn btn-primary text-center" },
                     params = { show_not_in_use = true }
                 }
             end

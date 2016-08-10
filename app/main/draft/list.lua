@@ -4,10 +4,10 @@ local initiative = Initiative:by_id(param.get("initiative_id", atom.number))
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span3 text-left" },
+                attr = { class = "col-md-3 text-left" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -20,7 +20,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span8 text-center spaceline2 label label-warning fittext1" },
+                attr = { class = "col-md-8 text-center spaceline2 label label-warning fittext1" },
                 content = function()
                     ui.heading {
                         level = 1,
@@ -29,7 +29,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span1 text-center" },
+                attr = { class = "col-md-1 text-center" },
                 content = function()
                     ui.field.popover {
                         attr = {
@@ -41,7 +41,7 @@ ui.title(function()
                             class = "text-center"
                         },
                         content = function()
-                            ui.image { static = "png/tutor.png" }
+                            ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                         end
                     }
                 end
@@ -61,8 +61,8 @@ ui.form {
             columns = {
                 {
                     label = _ "Created at",
-                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
-                    label_attr = { class = "span2 text-center" },
+                    field_attr = { class = "col-md-2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "col-md-2 text-center" },
                     content = function(record)
                         ui.field.text {
                             readonly = true,
@@ -72,8 +72,8 @@ ui.form {
                 },
                 {
                     label = _ "Authors",
-                    field_attr = { class = "span5 text-center spaceline spaceline-bottom" },
-                    label_attr = { class = "span5 text-center" },
+                    field_attr = { class = "col-md-5 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "col-md-5 text-center" },
                     content = function(record)
                         if record.author then
                             return record.author:ui_field_text()
@@ -81,8 +81,8 @@ ui.form {
                     end
                 },
                 {
-                    field_attr = { class = "span1 text-center spaceline spaceline-bottom" },
-                    label_attr = { class = "span1 text-center" },
+                    field_attr = { class = "col-md-1 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "col-md-1 text-center" },
                     content = function(record)
                         ui.link {
                             attr = { class = "action" },
@@ -95,8 +95,8 @@ ui.form {
                     end
                 },
                 {
-                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
-                    label_attr = { class = "span2 text-center" },
+                    field_attr = { class = "col-md-2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "col-md-2 text-center" },
                     label = _ "New draft",
                     content = function(record)
                         ui.field.parelon_radio {
@@ -110,8 +110,8 @@ ui.form {
                     end
                 },
                 {
-                    field_attr = { class = "span2 text-center spaceline spaceline-bottom" },
-                    label_attr = { class = "span2 text-center" },
+                    field_attr = { class = "col-md-2 text-center spaceline spaceline-bottom" },
+                    label_attr = { class = "col-md-2 text-center" },
                     label = _ "Old draft",
                     content = function(record)
                         ui.field.parelon_radio {
@@ -127,13 +127,13 @@ ui.form {
             }
         }
         ui.container {
-            attr = { class = "row-fluid spaceline" },
+            attr = { class = "row spaceline" },
             content = function()
                 ui.tag {
                     tag = "input",
                     attr = {
                         type = "submit",
-                        class = "btn btn-primary span2 offset10",
+                        class = "btn btn-primary col-md-2 col-md-offset-10",
                         value = _ "Compare",
                     }
                 }

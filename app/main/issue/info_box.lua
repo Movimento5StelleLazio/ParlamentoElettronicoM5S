@@ -39,20 +39,21 @@ elseif issue.closed then
         event_name = _ "Canceled (no initiative admitted)"
     end
 end
-
-ui.heading {
-    level = 2,
+    ui.container {
+    attr = { class = "col-md-4 col-md-offset-2 col-sm-12 col-xs-12  label label-info spaceline spaceline-bottom text-center" },
     content = function()
-        if event_image then
-            ui.image { attr = { class = "" }, static = "icons/16/" .. event_image }
-        end
-        slot.put(event_name or "")
+			ui.tag {
+				 content = function()
+
+				  slot.put(event_name or "")
+				 end
+			}
+
     end
 }
-
 ui.tag {
-    tag = "p",
-    attr = { class = "" },
+    tag = "div",
+    attr = { class = "col-md-4 col-sm-12 col-xs-12   label label-info spaceline text-center spaceline-bottom " },
     content = function()
         if issue.closed then
             ui.tag { content = format.interval_text(issue.closed_ago, { mode = "ago" }) }
@@ -73,5 +74,3 @@ ui.tag {
         end
     end
 }
-
-

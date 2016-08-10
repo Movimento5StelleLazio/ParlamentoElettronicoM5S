@@ -67,10 +67,30 @@ else
 
     ui.title(function()
         ui.container {
-            attr = { class = "row-fluid spaceline" },
+            attr = { class = "row spaceline" },
             content = function()
                 ui.container {
-                    attr = { class = "span8 offset2 label label-warning text-center" },
+                    attr = { class = "col-md-3 col-xs-12 col-sm-12 text-center" },
+                    content = function()
+                        ui.link {
+                           attr = { class = "btn btn-primary btn-back fixclick" },
+                           module = "issue",
+                           view = "show_ext_bs",
+                           id = issue.id,
+                           content = function()
+                               ui.heading {
+                                   level = 3,
+                                   content = function()
+                                       ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
+                                       slot.put(_ "Back to previous page")
+                                   end
+                               }
+                           end
+                       }
+                    end
+                }
+                ui.container {
+                    attr = { class = "col-md-6 well-inside paper text-center col-xs-12 col-sm-12" },
                     content = function()
                         ui.heading { level = 1, content = _ "You are voting for the issue:" }
                         local issue_id = issue.id
@@ -80,22 +100,22 @@ else
                     end
                 }
                 ui.container {
-                    attr = { class = "span1 text-center " },
+                    attr = { class = "col-md-1 col-md-offset-2 text-center hidden-xs hidden-sm" },
                     content = function()
                         ui.field.popover {
                             attr = {
                                 dataplacement = "left",
                                 datahtml = "true";
                                 datatitle = _ "Box di aiuto per la pagina",
-                                datacontent = _ "This is the vote box. You can: <i>go back</i>; <i>cast</i>, <i>modify</i> or <i>discard</i> your vote; <i>post</i> or <i>edit</i> a comment to your vote.",
+                                datacontent = _ "<h2>Come si Vota</h2>" .."<iframe width='560' height='315' src='https://www.youtube.com/embed/videoseries?list=PLLVi3WpqQgKQY0SARzvwvhNr46NkuIDWm' frameborder='0' allowfullscreen></iframe>".."<p>All inizio della votazione tutti i voti saranno impostati su Astensione.Si raccomanda di iniziare dalla proposta favorita e spostare il voto su Favorevole.<br>Dopodiché selezionare le proposte che si ritiene accettabili spostando il voto su:<strong>Favorevole</strong> se si vuole approvarla come alternativa fra Astensione e Favorevole se si vuole approvarla come seconda scelta.</p><p>Continuando in questo modo è possibile definire una lista di preferenze per le varie proposte alternative. </p><p>Definire successivamente la lista delle iniziative disapprovate, anche in questo caso è possibile definire una priorità fra le scelte disapprovate, una sorta di male minore.</p><h3> Attenzione </h3><p>Abbandonare la pagina con il pulsante Registra voto, è possibile cambiare il voto fino alla chiusura del periodo di votazione!</p><p>Durante la votazione non verrà visualizzato nessun risultato parziale. Le informazioni sul supporto della singola iniziativa non sono indicate per effettuare una comparazione fra diverse iniziative e non contengono informazioni sulle preferenze.</p><p> Inoltre il gruppo di partecipanti alla discussione può essere molto diverso da quelli che effettivamente votano.</p><em>Nota: Su alcune piattaforme per es. smartphone o tablet computer la funzione di trascinamento non è possibile. In questi casi utilizzare le freccie su e giu per ogni proposta.</em>",
                                 datahtml = "true",
                                 class = "text-center"
                             },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
-                                        ui.image { static = "png/tutor.png" }
+                                        ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                                     end
                                 }
                             end
@@ -105,72 +125,35 @@ else
             end
         }
     end)
-
     ui.actions(function()
-        ui.container {
-            attr = { class = "row-fluid spaceline2" },
-            content = function()
-                ui.container {
-                    attr = { class = "offset1 span10" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.link {
-                                    attr = { class = "span3 btn btn-primary fixclick" },
-                                    module = "issue",
-                                    view = "show_ext_bs",
-                                    id = issue.id,
-                                    content = function()
-                                        ui.heading {
-                                            level = 3,
-                                            content = function()
-                                                ui.image { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" }
-                                                slot.put(_ "Back to previous page")
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "offset2 span2" },
-                                    content = function()
-                                        ui.image { static = "png/voting.png" }
-                                    end
-                                }
-                                if direct_voter then
-                                    ui.link {
-                                        attr = { class = "offset2 span3 btn btn-primary fixclick" },
-                                        module = "vote",
-                                        action = "update",
-                                        params = {
-                                            issue_id = issue.id,
-                                            discard = true
-                                        },
-                                        routing = {
-                                            default = {
-                                                mode = "redirect",
-                                                module = "issue",
-                                                view = "show_ext_bs",
-                                                id = issue.id
-                                            }
-                                        },
-                                        content = function()
-                                            ui.heading {
-                                                level = 3,
-                                                content = function()
-                                                    ui.image { attr = { class = "" }, static = "png/delete.png" }
-                                                    slot.put(_ "Discard voting")
-                                                end
-                                            }
-                                        end
-                                    }
-                                end
-                            end
-                        }
-                    end
-                }
-            end
-        }
+	     if direct_voter then
+         ui.link {
+             attr = { class = "col-md-4 col-md-offset-4 col-sm-6 col-md-offset-3 col-xs-8 col-xs-offset-2 btn btn-primary large_btn fixclick spaceline" },
+             module = "vote",
+             action = "update",
+             params = {
+                 issue_id = issue.id,
+                 discard = true
+             },
+             routing = {
+                 default = {
+                     mode = "redirect",
+                     module = "issue",
+                     view = "show_ext_bs",
+                     id = issue.id
+                 }
+             },
+             content = function()
+                 ui.heading {
+                     level = 3,
+                     content = function()
+                         ui.image { attr = { class = "icon-small" }, static = "png/delete.png" }
+                         slot.put(_ "Discard voting")
+                     end
+                 }
+             end
+         }
+     end
     end)
 end
 
@@ -260,404 +243,381 @@ ui.script {
             "voting_text_disapproval_multi             = ", encode.json(_ "Disapproval [many entries]"), ";\n")
     end
 }
-ui.field.popover {
-    attr = {
-        dataplacement = "left",
-        datahtml = "true";
-        datatitle = _ "Box di aiuto per la pagina",
-        datacontent = _ "Use arrows to order initiatives from the one you agree most to the one you disagree most.",
-        datahtml = "true",
-        div_attr = { class = "row-fluid" },
-        class = "offset11 span1"
-    },
-    content = function()
-    --        ui.container {
-    --            attr = { class = "row-fluid" },
-    --            content = function()
-        ui.image { attr = { class = "" }, static = "png/tutor.png" }
-    --            end
-    --        }
-    end
-}
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well-inside paper spaceline" },
+            attr = { class = "col-md-12 well spaceline" },
             content = function()
-                ui.form {
-                    record = direct_voter,
-                    attr = {
-                        id = "voting_form",
-                        class = readonly and "voting_form_readonly" or "voting_form_active"
-                    },
-                    module = "vote",
-                    action = "update",
-                    params = { issue_id = issue.id },
-                    content = function()
-                        if not readonly or preview then
-                            local scoring = param.get("scoring")
-                            if not scoring then
-                                for i, initiative in ipairs(initiatives) do
-                                    local vote = initiative.vote
-                                    if vote then
-                                        tempvotings[initiative.id] = vote.grade
-                                    else
-                                        tempvotings[initiative.id] = 0
-                                    end
-                                end
-                                local tempvotings_list = {}
-                                for key, val in pairs(tempvotings) do
-                                    tempvotings_list[#tempvotings_list + 1] = tostring(key) .. ":" .. tostring(val)
-                                end
-                                if #tempvotings_list > 0 then
-                                    scoring = table.concat(tempvotings_list, ";")
-                                else
-                                    scoring = ""
-                                end
-                            end
-
-                            ui.tag {
-                                tag = "input",
-                                attr = {
-                                    type = "hidden",
-                                    name = "scoring",
-                                    value = scoring
-                                }
-                            }
-                            -- TODO abstrahieren
-                            ui.container {
-                                attr = { class = "row-fluid" },
-                                content = function()
-                                    ui.tag {
-                                        tag = "input",
-                                        attr = {
-                                            type = "submit",
-                                            class = "offset5 span2 voting_done1 btn btn-primary btn-large large_btn",
-                                            value = submit_button_text
-                                        }
-                                    }
-                                end
-                            }
-                        end
-                        ui.container {
-                            attr = { class = "row-fluid" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "offset1 span10" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { id = "voting" },
-                                            content = function()
-                                                local approval_index, disapproval_index = 0, 0
-                                                for grade = max_grade, min_grade, -1 do
-                                                    local entries = sections[grade]
-                                                    local class
-                                                    if grade > 0 then
-                                                        class = "approval"
-                                                    elseif grade < 0 then
-                                                        class = "disapproval"
-                                                    else
-                                                        class = "abstention"
-                                                    end
-                                                    if
-                                                    #entries > 0 or
-                                                            (grade == 1 and not approval_used) or
-                                                            (grade == -1 and not disapproval_used) or
-                                                            grade == 0
-                                                    then
-                                                        ui.container {
-                                                            attr = { class = class },
-                                                            content = function()
-                                                                local heading
-                                                                if class == "approval" then
-                                                                    approval_used = true
-                                                                    approval_index = approval_index + 1
-                                                                    if approval_count > 1 then
-                                                                        if approval_index == 1 then
-                                                                            if #entries == 1 then
-                                                                                heading = _ "Approval (first preference) [single entry]"
-                                                                            else
-                                                                                heading = _ "Approval (first preference) [many entries]"
-                                                                            end
-                                                                        elseif approval_index == 2 then
-                                                                            if #entries == 1 then
-                                                                                heading = _ "Approval (second preference) [single entry]"
-                                                                            else
-                                                                                heading = _ "Approval (second preference) [many entries]"
-                                                                            end
-                                                                        elseif approval_index == 3 then
-                                                                            if #entries == 1 then
-                                                                                heading = _ "Approval (third preference) [single entry]"
-                                                                            else
-                                                                                heading = _ "Approval (third preference) [many entries]"
-                                                                            end
-                                                                        else
-                                                                            if #entries == 1 then
-                                                                                heading = _ "Approval (#th preference) [single entry]"
-                                                                            else
-                                                                                heading = _ "Approval (#th preference) [many entries]"
-                                                                            end
-                                                                        end
-                                                                    else
-                                                                        if #entries == 1 then
-                                                                            heading = _ "Approval [single entry]"
-                                                                        else
-                                                                            heading = _ "Approval [many entries]"
-                                                                        end
-                                                                    end
-                                                                elseif class == "abstention" then
-                                                                    if #entries == 1 then
-                                                                        heading = _ "Abstention [single entry]"
-                                                                    else
-                                                                        heading = _ "Abstention [many entries]"
-                                                                    end
-                                                                elseif class == "disapproval" then
-                                                                    disapproval_used = true
-                                                                    disapproval_index = disapproval_index + 1
-                                                                    if disapproval_count > disapproval_index + 1 then
-                                                                        if #entries == 1 then
-                                                                            heading = _ "Disapproval (prefer to lower blocks) [single entry]"
-                                                                        else
-                                                                            heading = _ "Disapproval (prefer to lower blocks) [many entries]"
-                                                                        end
-                                                                    elseif disapproval_count == 2 and disapproval_index == 1 then
-                                                                        if #entries == 1 then
-                                                                            heading = _ "Disapproval (prefer to lower block) [single entry]"
-                                                                        else
-                                                                            heading = _ "Disapproval (prefer to lower block) [many entries]"
-                                                                        end
-                                                                    elseif disapproval_index == disapproval_count - 1 then
-                                                                        if #entries == 1 then
-                                                                            heading = _ "Disapproval (prefer to last block) [single entry]"
-                                                                        else
-                                                                            heading = _ "Disapproval (prefer to last block) [many entries]"
-                                                                        end
-                                                                    else
-                                                                        if #entries == 1 then
-                                                                            heading = _ "Disapproval [single entry]"
-                                                                        else
-                                                                            heading = _ "Disapproval [many entries]"
-                                                                        end
-                                                                    end
-                                                                end
-                                                                ui.tag {
-                                                                    tag = "div",
-                                                                    attr = { class = "cathead" },
-                                                                    content = heading
-                                                                }
-                                                                for i, initiative in ipairs(entries) do
-                                                                    ui.container {
-                                                                        attr = {
-                                                                            class = "movable",
-                                                                            id = "entry_" .. tostring(initiative.id)
-                                                                        },
-                                                                        content = function()
-                                                                            local initiators_selector = initiative:get_reference_selector("initiating_members"):add_where("accepted")
-                                                                            local initiators = initiators_selector:exec()
-                                                                            local initiator_names = {}
-                                                                            for i, initiator in ipairs(initiators) do
-                                                                                initiator_names[#initiator_names + 1] = initiator.name
-                                                                            end
-                                                                            local initiator_names_string = table.concat(initiator_names, ", ")
-                                                                            ui.container {
-                                                                                attr = { style = "float: right; position: relative;" },
-                                                                                content = function()
-                                                                                    ui.link {
-                                                                                        attr = { class = "clickable" },
-                                                                                        content = _ "Show",
-                                                                                        module = "initiative",
-                                                                                        view = "show",
-                                                                                        id = initiative.id
-                                                                                    }
-                                                                                    slot.put(" ")
-                                                                                    ui.link {
-                                                                                        attr = { class = "clickable", target = "_blank" },
-                                                                                        content = _ "(new window)",
-                                                                                        module = "initiative",
-                                                                                        view = "show",
-                                                                                        id = initiative.id
-                                                                                    }
-                                                                                    if not readonly then
-                                                                                        slot.put(" ")
-                                                                                        ui.image { attr = { class = "grabber" }, static = "icons/grabber.png" }
-                                                                                    end
-                                                                                end
-                                                                            }
-                                                                            if not readonly then
-                                                                                ui.container {
-                                                                                    attr = { style = "float: left; position: relative;" },
-                                                                                    content = function()
-                                                                                        ui.tag {
-                                                                                            tag = "input",
-                                                                                            attr = {
-                                                                                                onclick = "if (jsFail) return true; voting_moveUp(this.parentNode.parentNode); return(false);",
-                                                                                                name = "move_up_" .. tostring(initiative.id),
-                                                                                                class = not disabled and "clickable" or nil,
-                                                                                                type = "image",
-                                                                                                src = encode.url { static = "icons/move_up.png" },
-                                                                                                alt = _ "Move up"
-                                                                                            }
-                                                                                        }
-                                                                                        slot.put("&nbsp;")
-                                                                                        ui.tag {
-                                                                                            tag = "input",
-                                                                                            attr = {
-                                                                                                onclick = "if (jsFail) return true; voting_moveDown(this.parentNode.parentNode); return(false);",
-                                                                                                name = "move_down_" .. tostring(initiative.id),
-                                                                                                class = not disabled and "clickable" or nil,
-                                                                                                type = "image",
-                                                                                                src = encode.url { static = "icons/move_down.png" },
-                                                                                                alt = _ "Move down"
-                                                                                            }
-                                                                                        }
-                                                                                        slot.put("&nbsp;")
-                                                                                    end
-                                                                                }
-                                                                            end
-                                                                            ui.container {
-                                                                                content = function()
-                                                                                    ui.tag { content = "i" .. initiative.id .. ": " }
-                                                                                    ui.tag { content = initiative.shortened_name }
-                                                                                    slot.put("<br />")
-                                                                                    for i, initiator in ipairs(initiators) do
-                                                                                        ui.link {
-                                                                                            attr = { class = "clickable" },
-                                                                                            content = function()
-                                                                                                execute.view {
-                                                                                                    module = "member_image",
-                                                                                                    view = "_show",
-                                                                                                    params = {
-                                                                                                        member = initiator,
-                                                                                                        image_type = "avatar",
-                                                                                                        show_dummy = true,
-                                                                                                        class = "micro_avatar",
-                                                                                                        popup_text = text
-                                                                                                    }
-                                                                                                }
-                                                                                            end,
-                                                                                            module = "member",
-                                                                                            view = "show",
-                                                                                            id = initiator.id
-                                                                                        }
-                                                                                        slot.put(" ")
-                                                                                        ui.tag { content = initiator.name }
-                                                                                        slot.put(" ")
-                                                                                    end
-                                                                                end
-                                                                            }
-                                                                        end
-                                                                    }
-                                                                end
-                                                            end
-                                                        }
-                                                    end
-                                                end
-                                            end
-                                        }
-                                        if app.session.member_id and preview then
-                                            local formatting_engine = param.get("formatting_engine")
-                                            local comment = param.get("comment")
-                                            local rendered_comment = format.wiki_text(comment, formatting_engine)
-                                            slot.put(rendered_comment)
-                                        end
-                                        if (readonly or direct_voter and direct_voter.comment) and not preview then
-                                            local text
-                                            if direct_voter and direct_voter.comment_changed then
-                                                text = _("Voting comment (last updated: #{timestamp})", { timestamp = format.timestamp(direct_voter.comment_changed) })
-                                            elseif direct_voter and direct_voter.comment then
-                                                text = _ "Voting comment"
-                                            end
-                                            if text then
-                                                ui.heading { level = "2", content = text }
-                                            end
-                                            if direct_voter and direct_voter.comment then
-                                                local rendered_comment = direct_voter:get_content('html')
-                                                ui.container {
-                                                    attr = { class = "member_statement" },
-                                                    content = function()
-                                                        slot.put(rendered_comment)
-                                                    end
-                                                }
-                                                slot.put("<br />")
-                                            end
-                                        end
-                                        if app.session.member_id and app.session.member_id == member.id then
-                                            if not readonly or direct_voter then
-                                                ui.field.popover {
-                                                    attr = {
-                                                        dataplacement = "left",
-                                                        datahtml = "true";
-                                                        datatitle = _ "Box di aiuto per la pagina",
-                                                        datacontent = _ "If you'd like to do so, you can post a comment to your vote. To remove a previous comment just leave this space blank and click on <i>Register</i>.",
-                                                        datahtml = "true",
-                                                        div_attr = { class = "row-fluid" },
-                                                        class = "offset11 span1"
-                                                    },
-                                                    content = function()
-                                                    --        ui.container {
-                                                    --            attr = { class = "row-fluid" },
-                                                    --            content = function()
-                                                        ui.image { attr = { class = "" }, static = "png/tutor.png" }
-                                                    --            end
-                                                    --        }
-                                                    end
-                                                }
-                                                ui.field.hidden { name = "update_comment", value = param.get("update_comment") or issue.closed and "1" }
-                                                ui.field.select {
-                                                    label = _ "Wiki engine for statement",
-                                                    name = "formatting_engine",
-                                                    foreign_records = {
-                                                        { id = "rocketwiki", name = "RocketWiki" },
-                                                        { id = "compat", name = _ "Traditional wiki syntax" }
-                                                    },
-                                                    attr = { id = "formatting_engine" },
-                                                    foreign_id = "id",
-                                                    foreign_name = "name",
-                                                    value = param.get("formatting_engine") or direct_voter and direct_voter.formatting_engine
-                                                }
-                                                ui.field.text {
-                                                    label = _ "Voting comment (optional)",
-                                                    name = "comment",
-                                                    multiline = true,
-                                                    value = param.get("comment") or direct_voter and direct_voter.comment,
-                                                    attr = { style = "height: 20ex;" },
-                                                }
-                                            end
-
-                                            ui.container {
-                                                attr = { class = "row-fluid" },
-                                                content = function()
-                                                    if not readonly or direct_voter then
-                                                        ui.tag {
-                                                            tag = "input",
-                                                            attr = {
-                                                                type = "submit",
-                                                                name = "preview",
-                                                                value = _ "Preview voting comment",
-                                                                class = "preview text-center span5 btn btn-primary btn-large large_btn"
-                                                            }
-                                                        }
-                                                    end
-                                                    if not readonly or preview or direct_voter then
-                                                        ui.tag {
-                                                            tag = "input",
-                                                            attr = {
-                                                                type = "submit",
-                                                                class = "offset4 voting_done2 btn btn-primary btn-large large_btn",
-                                                                value = submit_button_text
-                                                            }
-                                                        }
-                                                    end
-                                                end
-                                            }
-                                        end
-                                    end
-                                }
-                            end
-                        }
-                    end
-                }
+					ui.container {
+					    attr = { class = "row" },
+					    content = function()
+					        ui.container {
+					            attr = { class = "col-md-12 well-inside paper spaceline" },
+					            content = function()
+					                ui.form {
+					                    record = direct_voter,
+					                    attr = {
+					                        id = "voting_form",
+					                        class = readonly and "voting_form_readonly" or "voting_form_active"
+					                    },
+					                    module = "vote",
+					                    action = "update",
+					                    params = { issue_id = issue.id },
+					                    content = function()
+					                        if not readonly or preview then
+					                            local scoring = param.get("scoring")
+					                            if not scoring then
+					                                for i, initiative in ipairs(initiatives) do
+					                                    local vote = initiative.vote
+					                                    if vote then
+					                                        tempvotings[initiative.id] = vote.grade
+					                                    else
+					                                        tempvotings[initiative.id] = 0
+					                                    end
+					                                end
+					                                local tempvotings_list = {}
+					                                for key, val in pairs(tempvotings) do
+					                                    tempvotings_list[#tempvotings_list + 1] = tostring(key) .. ":" .. tostring(val)
+					                                end
+					                                if #tempvotings_list > 0 then
+					                                    scoring = table.concat(tempvotings_list, ";")
+					                                else
+					                                    scoring = ""
+					                                end
+					                            end
+					
+					                            ui.tag {
+					                                tag = "input",
+					                                attr = {
+					                                    type = "hidden",
+					                                    name = "scoring",
+					                                    value = scoring
+					                                }
+					                            }
+					                            -- TODO abstrahieren
+					                            ui.container {
+					                                attr = { class = "row" },
+					                                content = function()
+								                            ui.container {
+								                                attr = { class = "col-md-offset-4 col-md-4 text-center " },
+								                                content = function()
+								                                    ui.tag {
+								                                        tag = "input",
+								                                        attr = {
+								                                            type = "submit",
+								                                            class = "voting_done1 btn btn-primary large_btn",
+								                                            value = submit_button_text
+								                                        }
+								                                    }
+							                                    end
+						                                    }
+					                                end
+					                            }
+					                        end
+					                        ui.container {
+					                            attr = { class = "row" },
+					                            content = function()
+					                                ui.container {
+					                                    attr = { class = "col-md-offset-1 col-md-10" },
+					                                    content = function()
+					                                        ui.container {
+					                                            attr = { id = "voting" },
+					                                            content = function()
+					                                                local approval_index, disapproval_index = 0, 0
+					                                                for grade = max_grade, min_grade, -1 do
+					                                                    local entries = sections[grade]
+					                                                    local class
+					                                                    if grade > 0 then
+					                                                        class = "approval"
+					                                                    elseif grade < 0 then
+					                                                        class = "disapproval"
+					                                                    else
+					                                                        class = "abstention"
+					                                                    end
+					                                                    if
+					                                                    #entries > 0 or
+					                                                            (grade == 1 and not approval_used) or
+					                                                            (grade == -1 and not disapproval_used) or
+					                                                            grade == 0
+					                                                    then
+					                                                        ui.container {
+					                                                            attr = { class = class },
+					                                                            content = function()
+					                                                                local heading
+					                                                                if class == "approval" then
+					                                                                    approval_used = true
+					                                                                    approval_index = approval_index + 1
+					                                                                    if approval_count > 1 then
+					                                                                        if approval_index == 1 then
+					                                                                            if #entries == 1 then
+					                                                                                heading = _ "Approval (first preference) [single entry]"
+					                                                                            else
+					                                                                                heading = _ "Approval (first preference) [many entries]"
+					                                                                            end
+					                                                                        elseif approval_index == 2 then
+					                                                                            if #entries == 1 then
+					                                                                                heading = _ "Approval (second preference) [single entry]"
+					                                                                            else
+					                                                                                heading = _ "Approval (second preference) [many entries]"
+					                                                                            end
+					                                                                        elseif approval_index == 3 then
+					                                                                            if #entries == 1 then
+					                                                                                heading = _ "Approval (third preference) [single entry]"
+					                                                                            else
+					                                                                                heading = _ "Approval (third preference) [many entries]"
+					                                                                            end
+					                                                                        else
+					                                                                            if #entries == 1 then
+					                                                                                heading = _ "Approval (#th preference) [single entry]"
+					                                                                            else
+					                                                                                heading = _ "Approval (#th preference) [many entries]"
+					                                                                            end
+					                                                                        end
+					                                                                    else
+					                                                                        if #entries == 1 then
+					                                                                            heading = _ "Approval [single entry]"
+					                                                                        else
+					                                                                            heading = _ "Approval [many entries]"
+					                                                                        end
+					                                                                    end
+					                                                                elseif class == "abstention" then
+					                                                                    if #entries == 1 then
+					                                                                        heading = _ "Abstention [single entry]"
+					                                                                    else
+					                                                                        heading = _ "Abstention [many entries]"
+					                                                                    end
+					                                                                elseif class == "disapproval" then
+					                                                                    disapproval_used = true
+					                                                                    disapproval_index = disapproval_index + 1
+					                                                                    if disapproval_count > disapproval_index + 1 then
+					                                                                        if #entries == 1 then
+					                                                                            heading = _ "Disapproval (prefer to lower blocks) [single entry]"
+					                                                                        else
+					                                                                            heading = _ "Disapproval (prefer to lower blocks) [many entries]"
+					                                                                        end
+					                                                                    elseif disapproval_count == 2 and disapproval_index == 1 then
+					                                                                        if #entries == 1 then
+					                                                                            heading = _ "Disapproval (prefer to lower block) [single entry]"
+					                                                                        else
+					                                                                            heading = _ "Disapproval (prefer to lower block) [many entries]"
+					                                                                        end
+					                                                                    elseif disapproval_index == disapproval_count - 1 then
+					                                                                        if #entries == 1 then
+					                                                                            heading = _ "Disapproval (prefer to last block) [single entry]"
+					                                                                        else
+					                                                                            heading = _ "Disapproval (prefer to last block) [many entries]"
+					                                                                        end
+					                                                                    else
+					                                                                        if #entries == 1 then
+					                                                                            heading = _ "Disapproval [single entry]"
+					                                                                        else
+					                                                                            heading = _ "Disapproval [many entries]"
+					                                                                        end
+					                                                                    end
+					                                                                end
+					                                                                ui.tag {
+					                                                                    tag = "div",
+					                                                                    attr = { class = "cathead" },
+					                                                                    content = heading
+					                                                                }
+					                                                                for i, initiative in ipairs(entries) do
+					                                                                    ui.container {
+					                                                                        attr = {
+					                                                                            class = "movable",
+					                                                                            id = "entry_" .. tostring(initiative.id)
+					                                                                        },
+					                                                                        content = function()
+					                                                                            local initiators_selector = initiative:get_reference_selector("initiating_members"):add_where("accepted")
+					                                                                            local initiators = initiators_selector:exec()
+					                                                                            local initiator_names = {}
+					                                                                            for i, initiator in ipairs(initiators) do
+					                                                                                initiator_names[#initiator_names + 1] = initiator.name
+					                                                                            end
+					                                                                            local initiator_names_string = table.concat(initiator_names, ", ")
+					                                                                            ui.container {
+					                                                                                attr = { style = "float: right; position: relative;" },
+					                                                                                content = function()
+					                                                                                    ui.link {
+					                                                                                        attr = { class = "clickable" },
+					                                                                                        content = _ "Show",
+					                                                                                        module = "initiative",
+					                                                                                        view = "show",
+					                                                                                        id = initiative.id
+					                                                                                    }
+					                                                                                    slot.put(" ")
+					                                                                                    ui.link {
+					                                                                                        attr = { class = "clickable", target = "_blank" },
+					                                                                                        content = _ "(new window)",
+					                                                                                        module = "initiative",
+					                                                                                        view = "show",
+					                                                                                        id = initiative.id
+					                                                                                    }
+					                                                                                    if not readonly then
+					                                                                                        slot.put(" ")
+					                                                                                        ui.image { attr = { class = "grabber" }, static = "icons/grabber.png" }
+					                                                                                    end
+					                                                                                end
+					                                                                            }
+					                                                                            if not readonly then
+					                                                                                ui.container {
+					                                                                                    attr = { style = "float: left; position: relative;" },
+					                                                                                    content = function()
+					                                                                                        ui.tag {
+					                                                                                            tag = "input",
+					                                                                                            attr = {
+					                                                                                                onclick = "if (jsFail) return true; voting_moveUp(this.parentNode.parentNode); return(false);",
+					                                                                                                name = "move_up_" .. tostring(initiative.id),
+					                                                                                                class = not disabled and "clickable icon-small" or nil,
+					                                                                                                type = "image",
+					                                                                                                src = encode.url { attr = { class = "icon-small" },static = "icons/move_up.png" },
+					                                                                                                alt = _ "Move up"
+					                                                                                            }
+					                                                                                        }
+					                                                                                        slot.put("&nbsp;")
+					                                                                                        ui.tag {
+					                                                                                            tag = "input",
+					                                                                                            attr = {
+					                                                                                                onclick = "if (jsFail) return true; voting_moveDown(this.parentNode.parentNode); return(false);",
+					                                                                                                name = "move_down_" .. tostring(initiative.id),
+					                                                                                                class = not disabled and "clickable icon-small" or nil,
+					                                                                                                type = "image",
+					                                                                                                src = encode.url { attr = { class = "icon-small" },static = "icons/move_down.png" },
+					                                                                                                alt = _ "Move down"
+					                                                                                            }
+					                                                                                        }
+					                                                                                        slot.put("&nbsp;")
+					                                                                                    end
+					                                                                                }
+					                                                                            end
+					                                                                            ui.container {
+					                                                                                content = function()
+					                                                                                    ui.tag { content = "Proposta N: " .. initiative.id .. ": " }
+					                                                                                    ui.tag { content = initiative.shortened_name }
+					                                                                                    slot.put("<br />")
+					                                                                                    for i, initiator in ipairs(initiators) do
+					                                                                                        ui.link {
+					                                                                                            attr = { class = "clickable" },
+					                                                                                            content = function()
+					                                                                                                execute.view {
+					                                                                                                    module = "member_image",
+					                                                                                                    view = "_show",
+					                                                                                                    params = {
+					                                                                                                        member = initiator,
+					                                                                                                        image_type = "avatar",
+					                                                                                                        show_dummy = true,
+					                                                                                                        class = "micro_avatar",
+					                                                                                                        popup_text = text
+					                                                                                                    }
+					                                                                                                }
+					                                                                                            end,
+					                                                                                            module = "member",
+					                                                                                            view = "show",
+					                                                                                            id = initiator.id
+					                                                                                        }
+					                                                                                        slot.put(" ")
+					                                                                                        ui.tag { content = initiator.name }
+					                                                                                        slot.put(" ")
+					                                                                                    end
+					                                                                                end
+					                                                                            }
+					                                                                        end
+					                                                                    }
+					                                                                end
+					                                                            end
+					                                                        }
+					                                                    end
+					                                                end
+					                                            end
+					                                        }
+					                                        if app.session.member_id and preview then
+					                                            local formatting_engine = param.get("formatting_engine")
+					                                            local comment = param.get("comment")
+					                                            local rendered_comment = format.wiki_text(comment, formatting_engine)
+					                                            slot.put(rendered_comment)
+					                                        end
+					                                        if (readonly or direct_voter and direct_voter.comment) and not preview then
+					                                            local text
+					                                            if direct_voter and direct_voter.comment_changed then
+					                                                text = _("Voting comment (last updated: #{timestamp})", { timestamp = format.timestamp(direct_voter.comment_changed) })
+					                                            elseif direct_voter and direct_voter.comment then
+					                                                text = _ "Voting comment"
+					                                            end
+					                                            if text then
+					                                                ui.heading { level = "2", content = text }
+					                                            end
+					                                            if direct_voter and direct_voter.comment then
+					                                                local rendered_comment = direct_voter:get_content('html')
+					                                                ui.container {
+					                                                    attr = { class = "member_statement" },
+					                                                    content = function()
+					                                                        slot.put(rendered_comment)
+					                                                    end
+					                                                }
+					                                                slot.put("<br />")
+					                                            end
+					                                        end
+					                                        if app.session.member_id and app.session.member_id == member.id then
+					                                            if not readonly or direct_voter then
+					                                                ui.field.hidden { name = "update_comment", value = param.get("update_comment") or issue.closed and "1" }
+					                                                ui.field.select {
+					                                                    label = _ "Wiki engine for statement",
+					                                                    name = "formatting_engine",
+					                                                    foreign_records = {
+					                                                        { id = "rocketwiki", name = "RocketWiki" },
+					                                                        { id = "compat", name = _ "Traditional wiki syntax" }
+					                                                    },
+					                                                    attr = { id = "formatting_engine" },
+					                                                    foreign_id = "id",
+					                                                    foreign_name = "name",
+					                                                    value = param.get("formatting_engine") or direct_voter and direct_voter.formatting_engine
+					                                                }
+					                                                ui.field.text {
+					                                                    label = _ "Voting comment (optional)",
+					                                                    name = "comment",
+					                                                    multiline = true,
+					                                                    value = param.get("comment") or direct_voter and direct_voter.comment,
+					                                                    attr = { style = "height: 20ex;" },
+					                                                }
+					                                            end
+					
+					                                            ui.container {
+					                                                attr = { class = "row" },
+					                                                content = function()
+					                                                    if not readonly or direct_voter then
+					                                                        ui.tag {
+					                                                            tag = "input",
+					                                                            attr = {
+					                                                                type = "submit",
+					                                                                name = "preview",
+					                                                                value = _ "Preview voting comment",
+					                                                                class = "preview text-center col-md-5 btn btn-primary btn-large"
+					                                                            }
+					                                                        }
+					                                                    end
+					                                                    if not readonly or preview or direct_voter then
+					                                                        ui.tag {
+					                                                            tag = "input",
+					                                                            attr = {
+					                                                                type = "submit",
+					                                                                class = "col-md-offset-4 voting_done2 btn btn-primary btn-large",
+					                                                                value = submit_button_text
+					                                                            }
+					                                                        }
+					                                                    end
+					                                                end
+					                                            }
+					                                        end
+					                                    end
+					                                }
+					                            end
+					                        }
+					                    end
+					                }
+					            end
+					        }
+					    end
+					}
             end
         }
     end

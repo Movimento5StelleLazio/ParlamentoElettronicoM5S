@@ -20,16 +20,16 @@ if app.session.member_id then
 end
 
 ui.container {
-    attr = { class = "row-fluid well" },
+    attr = { class = "row well" },
     content = function()
         ui.container {
-            attr = { class = "span12" },
+            attr = { class = "col-md-12" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span7 well-blue spaceline paper-green" },
+                            attr = { class = "col-md-7 well-blue spaceline paper-green" },
                             content = function()
                                 execute.view { module = "issue", view = "info_box", params = { issue = issue } }
                             end
@@ -37,14 +37,14 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12 alert alert-simple issue_box paper" },
+                            attr = { class = "col-md-12 alert alert-simple issue_box paper" },
                             content = function()
 
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
                                             attr = { class = "alert alert-simple issue_box paper" },
@@ -61,10 +61,10 @@ ui.container {
                                 }
 
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12" },
+                                            attr = { class = "col-md-12" },
                                             content = function()
                                                 execute.view { module = "issue", view = "info_data", params = { issue = issue } }
                                             end
@@ -73,10 +73,10 @@ ui.container {
                                 }
 
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12" },
+                                            attr = { class = "col-md-12" },
                                             content = function()
                                             --           local initiatives_selector = issue:get_reference_selector("initiatives")
                                             --          local highlight_string = param.get("highlight_string")
@@ -105,10 +105,10 @@ ui.container {
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12 text-center" },
+                                            attr = { class = "col-md-12 text-center" },
                                             content = function()
                                                 ui.link {
                                                     attr = { id = "issue_see_det_" .. issue.id, class = "btn btn-primary issue_see_det_btn" },

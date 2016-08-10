@@ -97,31 +97,12 @@ tabs[#tabs + 1] = {
 }
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span11" },
+            attr = { class = "col-md-12" },
             content = function()
                 ui.tabs(tabs)
-            end
-        }
-
-        ui.container {
-            attr = { class = "span1 text-center spaceline" },
-            content = function()
-                ui.field.popover {
-                    attr = {
-                        dataplacement = "left",
-                        datahtml = "true";
-                        datatitle = _ "Box di aiuto per la pagina",
-                        datacontent = _ "Ognuno dei pulsanti a sinistra elenca un aspetto diverso dell'attività e del profilo dell'utente: clicca su l'aspetto che ti interessa vedere.",
-                        datahtml = "true",
-                        class = "text-center"
-                    },
-                    content = function()
-                        ui.image { static = "png/tutor.png" }
-                    end
-                }
             end
         }
     end

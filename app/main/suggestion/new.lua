@@ -4,10 +4,10 @@ local initiative_id = param.get("initiative_id")
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span3 text-left" },
+                attr = { class = "col-md-3 text-left" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -21,7 +21,7 @@ ui.title(function()
             }
 
             ui.container {
-                attr = { class = "span8 spaceline2 text-center label label-warning" },
+                attr = { class = "col-md-8 spaceline2 text-center label label-warning" },
                 content = function()
                     ui.heading {
                         level = 1,
@@ -31,7 +31,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span1 text-center spaceline" },
+                attr = { class = "col-md-1 text-center spaceline" },
                 content = function()
                     ui.field.popover {
                         attr = {
@@ -43,7 +43,7 @@ ui.title(function()
                             class = "text-center"
                         },
                         content = function()
-                            ui.image { static = "png/tutor.png" }
+                            ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                         end
                     }
                 end
@@ -138,7 +138,7 @@ ui.form {
             tag = "input",
             attr = {
                 type = "submit",
-                class = "offset4 btn btn-primary btn-large large_btn",
+                class = "col-md-offset-4 btn btn-primary btn-large large_btn",
                 value = _ "Commit suggestion"
             }
         }

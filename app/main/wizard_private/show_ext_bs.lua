@@ -20,16 +20,16 @@ end
 areas_selector:join("unit", nil, "unit.id = area.unit_id' ")
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "well span12" },
+            attr = { class = "well col-md-12" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span3" },
+                            attr = { class = "col-md-3" },
                             content = function()
                                 ui.link {
                                     attr = { class = "btn btn-primary btn-large large_btn table-cell" },
@@ -49,13 +49,13 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span9 text-center" },
+                            attr = { class = "col-md-9 text-center" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12 text-center" },
+                                            attr = { class = "col-md-12 text-center" },
                                             content = function()
                                                 ui.heading { level = 1, attr = { class = "fittext0" }, content = _("#{realname}, you are now in the Regione Lazio Internal Assembly", { realname = member.realname }) }
                                             end
@@ -63,10 +63,10 @@ ui.container {
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12 text-center" },
+                                            attr = { class = "col-md-12 text-center" },
                                             content = function()
                                                 ui.heading { level = 2, attr = { class = "fittext0" }, content = _ "CHOOSE THE THEMATIC AREA" }
                                             end
@@ -83,10 +83,10 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "row-fluid text-center" },
+    attr = { class = "row text-center" },
     content = function()
         ui.container {
-            attr = { class = "span4 offset4 text-center" },
+            attr = { class = "col-md-4 col-md-offset-4 text-center" },
             content = function()
                 ui.image { static = "parlamento_icon_small.png" }
             end
@@ -105,26 +105,26 @@ end
 
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.tag {
                             tag = "h3",
-                            attr = { class = "span12 text-center" },
+                            attr = { class = "col-md-12 text-center" },
                             content = _ "M5S MEMBERS THEMATIC AREAS" or _ "THEMATIC AREAS"
                         }
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span4 offset2" },
+                            attr = { class = "col-md-4 col-md-offset-2" },
                             content = function()
                                 ui.link {
                                     attr = { class = btn1 },
@@ -138,7 +138,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span4 offset1" },
+                            attr = { class = "col-md-4 col-md-offset-1" },
                             content = function()
                                 ui.link {
                                     attr = { class = btn2 },
@@ -155,15 +155,15 @@ ui.container {
                     end
                 }
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
-                        ui.container { attr = { class = "span2" }, content = "" }
+                        ui.container { attr = { class = "col-md-2" }, content = "" }
                     end
                 }
 
 
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         execute.view {
                             module = "wizard_private",

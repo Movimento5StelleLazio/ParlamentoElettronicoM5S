@@ -1,8 +1,8 @@
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span7 offset1 text-right reg_txt" },
+            attr = { class = "col-md-7 col-md-offset-1 text-right reg_txt" },
             content = function()
                 ui.container {
                     attr = { class = "vtable" },
@@ -20,7 +20,7 @@ ui.container {
             end
         }
         ui.container {
-            attr = { class = "span3 text-right reg_txt" },
+            attr = { class = "col-md-3 text-right reg_txt" },
             content = function()
                 ui.container {
                     attr = { class = "vtable" },

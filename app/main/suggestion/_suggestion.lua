@@ -1,9 +1,9 @@
 local suggestion = param.get("suggestion", "table")
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.form {
                     attr = { class = "text-center" },
@@ -11,13 +11,13 @@ ui.container {
                     readonly = true,
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span8 offset1 label label-warning" },
+                                    attr = { class = "col-md-8 col-md-offset-1 label label-warning" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span6" },
+                                            attr = { class = "col-md-6" },
                                             content = function()
                                                 if suggestion.author then
                                                     suggestion.author:ui_field_text { label = _ "Author" }
@@ -25,7 +25,7 @@ ui.container {
                                             end
                                         }
                                         ui.container {
-                                            attr = { class = "span6" },
+                                            attr = { class = "col-md-6" },
                                             content = function()
                                                 ui.field.text { label = _ "Title", name = "name" }
                                             end
@@ -33,7 +33,7 @@ ui.container {
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "span1 offset1 text-right " },
+                                    attr = { class = "col-md-1 col-md-offset-1 text-right " },
                                     content = function()
                                         ui.field.popover {
                                             attr = {
@@ -46,9 +46,9 @@ ui.container {
                                             },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row" },
                                                     content = function()
-                                                        ui.image { static = "png/tutor.png" }
+                                                        ui.image { attr = { class = "icon-medium" },static = "png/tutor.png" }
                                                     --								    ui.heading{level=3 , content= _"What you want to do?"}
                                                     end
                                                 }
@@ -59,10 +59,10 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid spaceline spaceline-bottom text-left" },
+                            attr = { class = "row spaceline spaceline-bottom text-left" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12 well-inside paper" },
+                                    attr = { class = "col-md-12 well-inside paper" },
                                     content = function()
                                         slot.put(suggestion:get_content("html"))
                                     end

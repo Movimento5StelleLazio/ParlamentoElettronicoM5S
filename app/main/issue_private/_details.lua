@@ -4,7 +4,7 @@ local policy = issue.policy
 ui.form {
     record = issue,
     readonly = true,
-    attr = { class = "vertical" },
+    attr = { class = "text-left" },
     content = function()
         ui.field.text { label = _ "Population", name = "population" }
         ui.field.timestamp { label = _ "Created at", name = "created" }

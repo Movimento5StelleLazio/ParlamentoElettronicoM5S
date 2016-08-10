@@ -148,7 +148,7 @@
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;fill:#888888;fill-opacity:1;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
          y="360.59683"
          x="-84.826309"
-         id="tspan3782"
+         id="tcol-md-3782"
          sodipodi:role="line">Passo 2</tspan></text>
     <text
        sodipodi:linespacing="125%"
@@ -160,11 +160,11 @@
          y="400.98676"
          x="-83.486977"
          sodipodi:role="line"
-         id="tspan3786">Attesa del Raggiungimento</tspan><tspan
+         id="tcol-md-3786">Attesa del Raggiungimento</tspan><tspan
          y="428.13586"
          x="-83.486977"
          sodipodi:role="line"
-         id="tspan3788">del Quorum di Richieste</tspan></text>
+         id="tcol-md-3788">del Quorum di Richieste</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40.6758194px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
@@ -173,7 +173,7 @@
        id="text3790"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3792"
+         id="tcol-md-3792"
          x="-380.94897"
          y="360.59683">Passo 1</tspan></text>
     <text
@@ -186,11 +186,11 @@
          sodipodi:role="line"
          x="-379.60995"
          y="400.98676"
-         id="tspan3796">Scelta delle Aree di</tspan><tspan
+         id="tcol-md-3796">Scelta delle Aree di</tspan><tspan
          sodipodi:role="line"
          x="-379.60995"
          y="428.13586"
-         id="tspan3798">Competenza</tspan></text>
+         id="tcol-md-3798">Competenza</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path3800"
@@ -205,7 +205,7 @@
        id="text3802"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3804"
+         id="tcol-md-3804"
          x="233.65968"
          y="360.59683">Passo 3</tspan></text>
     <text
@@ -218,11 +218,11 @@
          sodipodi:role="line"
          x="234.9987"
          y="400.98676"
-         id="tspan3808">Convocazione dei membri</tspan><tspan
+         id="tcol-md-3808">Convocazione dei membri</tspan><tspan
          sodipodi:role="line"
          x="234.9987"
          y="428.13586"
-         id="tspan3810">della commissione</tspan></text>
+         id="tcol-md-3810">della commissione</tspan></text>
     <path
        sodipodi:nodetypes="ccccccc"
        style="fill:#fef5e6;fill-opacity:1;stroke:#ffffff;stroke-width:8.49295235;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -238,7 +238,7 @@
        xml:space="preserve"><tspan
          y="360.59683"
          x="530.91302"
-         id="tspan3816"
+         id="tcol-md-3816"
          sodipodi:role="line">Passo 4</tspan></text>
     <text
        sodipodi:linespacing="125%"
@@ -247,14 +247,14 @@
        x="532.25195"
        style="font-size:21.7193203px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#888888;fill-opacity:1;stroke:none;font-family:Oregon LDO;-inkscape-font-specification:Oregon LDO Medium"
        xml:space="preserve"><tspan
-         id="tspan3820"
+         id="tcol-md-3820"
          y="400.98676"
          x="532.25195"
          sodipodi:role="line">Esame della Proposta</tspan><tspan
          y="428.13586"
          x="532.25195"
          sodipodi:role="line"
-         id="tspan3822">da parte della Commissione</tspan></text>
+         id="tcol-md-3822">da parte della Commissione</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path3824"
@@ -269,7 +269,7 @@
        id="text3826"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3828"
+         id="tcol-md-3828"
          x="860.01489"
          y="360.59683">Passo 5</tspan></text>
     <text
@@ -282,10 +282,10 @@
          sodipodi:role="line"
          x="861.35388"
          y="400.98676"
-         id="tspan3832">Pubblicazione del Rapporto</tspan><tspan
+         id="tcol-md-3832">Pubblicazione del Rapporto</tspan><tspan
          sodipodi:role="line"
          x="861.35388"
          y="428.13586"
-         id="tspan3834">della Commissiome</tspan></text>
+         id="tcol-md-3834">della Commissiome</tspan></text>
   </g>
 </svg>

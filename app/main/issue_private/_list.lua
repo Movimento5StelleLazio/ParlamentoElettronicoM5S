@@ -1,3 +1,4 @@
+slot.set_layout("custom")
 local issues_selector = param.get("issues_selector", "table")
 local member = param.get("for_member", "table") or app.session.member
 local for_member = param.get("for_member", "table")
@@ -42,8 +43,11 @@ filters.content = function()
             issues:load_everything_for_member_id(member and member.id or nil)
 
             ui.container {
-                attr = { class = "issues" },
+                attr = { class = "row" },
                 content = function()
+            ui.container {
+                attr = { class = "col-md-12 well" },
+                content = function() 
 
                     for i, issue in ipairs(issues) do
 
@@ -60,6 +64,8 @@ filters.content = function()
                 end
             }
         end
+     }
+     end
     }
 end
 

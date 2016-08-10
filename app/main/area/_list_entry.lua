@@ -2,7 +2,7 @@ local area = param.get("area", "table")
 local member = param.get("member", "table")
 
 ui.container {
-    attr = { class = "area row-fluid" },
+    attr = { class = "area row" },
     content = function()
 
         execute.view { module = "area", view = "_head", params = { area = area, hide_unit = true, show_content = true, member = member } }

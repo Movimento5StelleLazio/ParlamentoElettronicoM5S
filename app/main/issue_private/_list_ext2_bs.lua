@@ -29,10 +29,10 @@ ui.paginate {
 
         if #issues == 0 then
             ui.container {
-                attr = { class = "row-fluid" },
+                attr = { class = "row" },
                 content = function()
                     ui.container {
-                        attr = { class = "span12 text-center" },
+                        attr = { class = "col-md-12 text-center" },
                         content = function()
                             if list == "voted" then
                                 ui.heading { level = 4, content = _ "You didn't vote any issue yet." }
@@ -48,7 +48,7 @@ ui.paginate {
         end
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "" },
             content = function()
                 for i, issue in ipairs(issues) do
                     execute.view {

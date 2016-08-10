@@ -12,10 +12,10 @@ end
 --end
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 spaceline" },
+            attr = { class = "col-md-12 spaceline" },
             content = function()
 
                 execute.view { module = "delegation", view = "_info_bs", params = { area = area, member = member } }

@@ -4,10 +4,10 @@ local search = param.get("search")
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid text-left" },
+        attr = { class = "row text-left" },
         content = function()
             ui.container {
-                attr = { class = "span3" },
+                attr = { class = "col-md-3" },
                 content = function()
                     ui.link {
                         attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
@@ -20,12 +20,22 @@ ui.title(function()
             }
             ui.tag {
                 tag = "strong",
-                attr = { class = "span9 text-center" },
+                attr = { class = "col-md-9 text-center" },
                 content = _ "Member list" .. ": " .. tostring((db:query("SELECT total_count FROM member_count")[1]).total_count)
             }
         end
     }
 end)
+
+ui.actions(function()
+  ui.link{
+    attr = { class = { "admin_only" } },
+    text = _"Register new member",
+    module = "admin",
+    view = "member_edit"
+  }
+end)
+
 
 ui.form {
     module = "admin",
@@ -43,7 +53,7 @@ end
 
 local members_selector = Member:build_selector {
     admin_search = search,
-    order = "id DESC"
+    order = "identification"
 }
 
 ui.paginate {

@@ -1,7 +1,7 @@
 local initiative = param.get("initiative", "table")
 
-ui.form {
-    attr = { class = "span10 offset1" },
+--[[ ui.form {
+    attr = { class = "col-md-10 col-md-offset-1" },
     record = initiative,
     readonly = true,
     content = function()
@@ -43,6 +43,6 @@ ui.form {
             ui.field.boolean { label = _ "Eligible as winner", value = initiative.eligible }
         end
     end
-}
+} ]]
 
 execute.view { module = "issue", view = "_details", params = { issue = initiative.issue } }

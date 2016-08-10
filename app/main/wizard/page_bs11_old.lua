@@ -40,10 +40,10 @@ local next_page = page + 1
 
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 text-center" },
+            attr = { class = "col-md-12 text-center" },
             content = function()
                 ui.heading {
                     level = 3,
@@ -57,17 +57,17 @@ ui.container {
     end
 }
 ui.container {
-    attr = { class = "row-fluid spaceline3" },
+    attr = { class = "row spaceline3" },
     content = function()
         ui.container {
-            attr = { class = "span12 text-center" },
+            attr = { class = "col-md-12 text-center" },
             content = function()
             --------------------------------------------------------
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12" },
+                            attr = { class = "col-md-12" },
                             content = function()
                                 ui.form
                                     {
@@ -127,10 +127,10 @@ ui.container {
                                             end
 
                                             ui.container {
-                                                attr = { class = "row-fluid spaceline2" },
+                                                attr = { class = "row spaceline2" },
                                                 content = function()
                                                     ui.container {
-                                                        attr = { class = "span12 text-left" },
+                                                        attr = { class = "col-md-12 text-left" },
                                                         content = function()
 
 
@@ -193,10 +193,10 @@ ui.script { static = "js/wizard_checkbox.js" }
 
 
 ui.container {
-    attr = { class = "row-fluid btn_box_bottom spaceline3" },
+    attr = { class = "row btn_box_bottom spaceline3" },
     content = function()
         ui.container {
-            attr = { class = "span12 text-center" },
+            attr = { class = "col-md-12 text-center" },
             content = function()
                 execute.view {
                     module = "wizard",

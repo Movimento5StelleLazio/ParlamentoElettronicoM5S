@@ -50,16 +50,16 @@ end
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span10 offset1 text-center" },
+                                attr = { class = "col-md-10 col-md-offset-1 text-center" },
                                 content = function()
                                     ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                     ui.heading {
@@ -78,22 +78,22 @@ ui.title(function()
                                 end
                             }
                             ui.container {
-                                attr = { class = "span1 text-center " },
+                                attr = { class = "col-md-1 text-center " },
                                 content = function()
                                     ui.field.popover {
                                         attr = {
                                             dataplacement = "left",
                                             datahtml = "true";
                                             datatitle = _ "Box di aiuto per la pagina",
-                                            datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol>",
+                                            datacontent = _ "Sei nell'area Creazione Questioni e Proposte per risolverle.<br />La barra di avanzamento ti indica esattamente dove e cosa stai facendo, divisa in 3 step:<ol><li>Il tempo</li><li>La Questione sollevata</li><li>La Proposta per dare risoluzione alla Questione</li></ol><iframe width='560' height='315' src='https://www.youtube.com/embed/ZOvCO69iA1w' frameborder='0' allowfullscreen></iframe>",
                                             datahtml = "true",
                                             class = "text-center"
                                         },
                                         content = function()
                                             ui.container {
-                                                attr = { class = "row-fluid" },
+                                                attr = { class = "row" },
                                                 content = function()
-                                                    ui.image { static = "png/tutor.png" }
+                                                    ui.image {attr = { class = "icon-medium" }, static = "png/tutor.png" }
                                                 --								    ui.heading{level=3 , content= _"What you want to do?"}
                                                 end
                                             }
@@ -104,9 +104,9 @@ ui.title(function()
                         end
                     }
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
-                            ui.image { attr = { class = "span12" }, static = "png/step_1_f1.png" }
+                            ui.image { attr = { class = "img-responsive" }, static = "png/step_1_f1.png" }
                         end
                     }
                 end
@@ -143,22 +143,22 @@ ui.form {
     },
     content = function()
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12" },
+                                    attr = { class = "col-md-12" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12 text-center spaceline" },
+                                                    attr = { class = "col-md-12 text-center spaceline" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 3,
@@ -171,10 +171,10 @@ ui.form {
                                                     end
                                                 }
                                                 ui.container {
-                                                    attr = { class = "row-fluid" },
+                                                    attr = { class = "row" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "span12 spaceline well-inside paper text-center" },
+                                                            attr = { class = "col-md-12 spaceline well-inside paper text-center" },
                                                             content = function()
                                                             --valore selezionato
                                                                 ui.field.hidden {
@@ -185,7 +185,7 @@ ui.form {
 
                                                                 --radio-button group
                                                                 ui.container {
-                                                                    attr = { class = "row-fluid" },
+                                                                    attr = { class = "row" },
                                                                     content = function()
                                                                         ui.field.parelon_group_radio {
                                                                             id = "policy_id",
@@ -208,10 +208,10 @@ ui.form {
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid spaceline" },
+                            attr = { class = "row spaceline" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span3 offset1 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-1 text-center" },
                                     content = function()
                                         ui.link {
                                             attr = { id = "btnPreviuos", class = "btn btn-primary large_btn fixclick" },
@@ -233,7 +233,7 @@ ui.form {
                                 }
 
                                 ui.container {
-                                    attr = { class = "span3 offset4 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-4 text-center" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",

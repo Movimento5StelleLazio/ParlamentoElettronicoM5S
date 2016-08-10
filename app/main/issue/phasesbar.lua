@@ -33,7 +33,6 @@ else
 end
 
 -- local class = 
-
 ui.container {
     attr = { class = "phases_in_box " },
     content = function()
@@ -43,7 +42,7 @@ ui.container {
                 if state == "finished_without_winner" or state == "finished_with_winner" then
                     state = "closed"
                 end
-                ui.image { attr = { class = "phase_bar" }, static = "png/bar_" .. state .. ".png" }
+                ui.image { attr = { class = "phase_bar img-responsive" }, static = "png/bar_" .. state .. ".png" }
             --                ui.image { attr = { class = "phase_arrow", style = "margin-left: " .. arrow_offset .. "px;" .. "margin-top:" .. arrow_margintop .. "px;" }, static = "png/phase_arrow.png" }
             --                ui.image { attr = { class = "phases_bar", }, static = "png/phases_bar_it.png" }
             --                ui.image { attr = { class = "admission", style = admission_offset }, static = "png/admission.png" }
@@ -57,7 +56,6 @@ ui.container {
         }
     end
 }
-
 ui.script { static = "js/jquery.sizes.js" }
 ui.script { static = "js/jquery.scalebar.js" }
 ui.script { script = "jQuery('.phasesbar_autoresize').scalebar(); " }

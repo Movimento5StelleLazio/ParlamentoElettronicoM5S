@@ -10,7 +10,7 @@
 
 
             var resizer = function () {
-                var parent_width = $this.closest('.span9').width()
+                var parent_width = $this.closest('.col-md-9').width()
 
                 // Calculate the resize ratio based on parent div
                 var ratio = parent_width / phases_bar_width

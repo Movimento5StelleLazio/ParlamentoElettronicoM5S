@@ -67,16 +67,16 @@ local params_back = {
 
 ui.title(function()
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12" },
+                attr = { class = "col-md-12" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span12 text-center" },
+                                attr = { class = "col-md-12 text-center" },
                                 content = function()
                                     ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Create new issue" }
                                     ui.heading {
@@ -97,12 +97,11 @@ ui.title(function()
                         end
                     }
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
-                            ui.container {
-                                attr = { class = "span12" },
+                            ui.container {                                
                                 content = function()
-                                    ui.image { static = "png/step_6_f7.png" }
+                                    ui.image { attr = { class = "img-responsive" }, static = "png/step_6_f7.png" }
                                 end
                             }
                         end
@@ -150,22 +149,22 @@ ui.form {
         end
 
         ui.container {
-            attr = { class = "row-fluid" },
+            attr = { class = "row" },
             content = function()
                 ui.container {
-                    attr = { class = "span12 well" },
+                    attr = { class = "col-md-12 well" },
                     content = function()
                         ui.container {
-                            attr = { class = "row-fluid" },
+                            attr = { class = "row" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span12" },
+                                    attr = { class = "col-md-12" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "row-fluid" },
+                                            attr = { class = "row" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12 text-center spaceline" },
+                                                    attr = { class = "col-md-12 text-center spaceline" },
                                                     content = function()
                                                         ui.heading {
                                                             level = 3,
@@ -181,26 +180,26 @@ ui.form {
                                         }
 
                                         ui.container {
-                                            attr = { class = "row-fluid spaceline text-center" },
+                                            attr = { class = "row spaceline text-center" },
                                             content = function()
                                                 ui.container {
-                                                    attr = { class = "span12 well-inside paper" },
+                                                    attr = { class = "col-md-12 well-inside paper" },
                                                     content = function()
                                                         ui.container {
-                                                            attr = { class = "row-fluid spaceline spaceline-bottom" },
+                                                            attr = { class = "row spaceline spaceline-bottom" },
                                                             content = function()
                                                                 ui.heading {
-                                                                    attr = { class = "span12 text-center" },
+                                                                    attr = { class = "col-md-12 text-center" },
                                                                     level = 1,
                                                                     content = _ "Initiative Title"
                                                                 }
                                                             end
                                                         }
                                                         ui.container {
-                                                            attr = { class = "row-fluid" },
+                                                            attr = { class = "row" },
                                                             content = function()
                                                                 ui.container {
-                                                                    attr = { class = "span10 offset1" },
+                                                                    attr = { class = "col-md-10 col-md-offset-1" },
                                                                     content = function()
                                                                         ui.field.text {
                                                                             attr = { id = "initiative_title", style = " font-size: 25px;height: 4em;" },
@@ -220,11 +219,11 @@ ui.form {
                             end
                         }
                         ui.container {
-                            attr = { class = "row-fluid spaceline" },
+                            attr = { class = "row spaceline" },
                             content = function()
                             -- Pulsante "Indietro"
                                 ui.container {
-                                    attr = { class = "span3 offset1 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-1 text-center" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",
@@ -243,7 +242,7 @@ ui.form {
                                 }
                                 -- Pulsante "Avanti"
                                 ui.container {
-                                    attr = { class = "span3 offset4 text-center" },
+                                    attr = { class = "col-md-3 col-md-offset-4 text-center" },
                                     content = function()
                                         ui.tag {
                                             tag = "a",

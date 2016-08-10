@@ -8,16 +8,16 @@ local desc = param.get("desc", atom.boolean) or false
 local interest = param.get("interest") or "any"
 local member = app.session.member
 local ftl_btns = param.get("ftl_btns", atom.boolean) or false
-
 ui.title(function()
+
     ui.container {
-        attr = { class = "row-fluid" },
-        content = function()
+        attr = { class = "row" },
+        content = function()                
             ui.container {
-                attr = { class = "span3 text-left" },
+                attr = { class = "col-md-3 text-center hidden-xs col-sm-4" },
                 content = function()
                     ui.link {
-                        attr = { class = "btn btn-primary btn-large large_btn fixclick btn-back" },
+                        attr = { class = "btn btn-primary fixclick btn-back" },
                         module = "index",
                         view = "index",
                         params = { initiative_id = param.get_id() },
@@ -27,7 +27,7 @@ ui.title(function()
                 end
             }
             ui.container {
-                attr = { class = "span8 text-center" },
+                attr = { class = "spaceline col-md-6 well-inside paper text-center col-xs-12 col-sm-8" },
                 content = function()
                     ui.heading {
                         level = 1,
@@ -36,24 +36,38 @@ ui.title(function()
                         end
                     }
 
-                    ui.heading { level = 6, content = _ "You are now inside the Digital Assembly for Public Affairs." }
-                    ui.heading { level = 6, content = _ "Here laws and measures for Region and his citizens are being discussed." }
+                    ui.heading { level = 6, content = _("Ti trovi ora nell' Assemblea pubblica", { realname = (app.session.member.realname and app.session.member.realname or app.session.member.login) }) }
                 end
             }
+            --[[ mobile button-back ]]
+             ui.container {
+                attr = { class = "col-md-12 text-center hidden-sm hidden-md hidden-lg" },
+                content = function()
+                    ui.link {
+                        attr = { class = "btn btn-primary fixclick btn-back" },
+                        module = "index",
+                        view = "index",
+                        params = { initiative_id = param.get_id() },
+                        image = { attr = { class = "arrow_medium" }, static = "svg/arrow-left.svg" },
+                        content = _ "Back to previous page"
+                    }
+                end
+            }
+            --[[ End mobile button-back ]]
             ui.container {
-                attr = { class = "span1 text-center " },
+                attr = { class = "col-md-3 col-sm-12 hidden-xs text-right" },
                 content = function()
                     ui.field.popover {
                         attr = {
                             dataplacement = "left",
                             datahtml = "true";
                             datatitle = _ "Box di aiuto per la pagina",
-                            datacontent = _ "Choose by pressing one of the following buttons:",
+                            datacontent = _ "<h3 class='spaceline-bottom'>Video tutorial</h3><iframe width='560' height='315' src='https://www.youtube.com/embed/OfUpzqDV7Pc' frameborder='0' allowfullscreen></iframe>",
                             datahtml = "true",
                             class = "text-center"
                         },
                         content = function()
-                            ui.image { static = "png/tutor.png" }
+                            ui.image { attr = { class = "icon-medium " },static = "png/tutor.png" }
                         end
                     }
                 end
@@ -108,36 +122,36 @@ else
 end
 --]]
 
-ui.container {
-    attr = { class = "row-fluid" },
+ ui.container {
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well text-center" },
+            attr = { class = "col-md-12 well text-center" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span12" },
+                            attr = { class = "col-md-12" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "row-fluid" },
+                                    attr = { class = "row" },
                                     content = function()
                                         ui.container {
-                                            attr = { class = "span12" },
+                                            attr = { class = "col-md-12 well-inside paper" },
                                             content = function()
                                                 ui.heading { level = 2, content = _ "What you want to do?" }
-                                                ui.heading { level = 6, content = _ "Choose by pressing one of the following buttons:" }
+                                                ui.heading { level = 6, content = _ "Puoi leggere, valutare ed integrare le proposte redatte dai cittadini, presentare una tua proposta, votare quelle attualmente in discussione:" }
                                             end
                                         }
                                     end
                                 }
                                 ui.container {
-                                    attr = { class = "row-fluid text-center spaceline-bottom" },
+                                    attr = { class = "row text-center spaceline-bottom" },
                                     content = function()
 
                                         ui.container {
-                                            attr = { class = "span6 spaceline" },
+                                            attr = { class = "col-md-6 col-sm-6 col-xs-12 spaceline" },
                                             content = function()
                                                 ui.link {
                                                     attr = { class = "btn btn-primary large_btn" },
@@ -152,7 +166,7 @@ ui.container {
                                         }
 
                                         ui.container {
-                                            attr = { class = "span6 spaceline" },
+                                            attr = { class = "col-md-6 col-sm-6 col-xs-12 spaceline" },
                                             content = function()
                                                 ui.link {
                                                     attr = { class = "btn btn-primary large_btn" },
@@ -208,8 +222,8 @@ btns = {
 }
 
 
---[[ui.container{attr={class="row-fluid"},content=function()
-  ui.container{attr={class="span12 text-center"},content=function()
+--[[ui.container{attr={class="row"},content=function()
+  ui.container{attr={class="col-md-12 text-center"},content=function()
     execute.chunk{
       module = "issue" ,
       chunk = "_filters_btn2_bs" ,
@@ -228,129 +242,122 @@ end }]]
 if not issues_selector_voted or not issues_selector_myinitiatives then
     return true
 end
-
 ui.container {
-    attr = { class = "row-fluid" },
-    content = function()
-        ui.container {
-            attr = { class = "span6" },
-            content = function()
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 text-center" },
-                            content = function()
-                                ui.image { static = "parlamento_icon_small.png" }
-                            end
-                        }
-                    end
-                }
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 well" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.heading { level = 3, attr = { class = "uppercase" }, content = _ "Your Voting" }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                    --        ui.container{attr={class="span12 well-inside"},content=function()
-                                        execute.view {
-                                            module = "issue",
-                                            view = "_list_ext2_bs",
-                                            params = {
-                                                state = state,
-                                                orderby = orderby,
-                                                desc = desc,
-                                                scope = scope,
-                                                interest = interest,
-                                                list = "voted",
-                                                ftl_btns = ftl_btns,
-                                                for_member = member,
-                                                for_details = false,
-                                                selector = issues_selector_voted
-                                            }
-                                        }
-                                    --          end }
-                                    end
-                                }
-                            end
-                        }
-                    end
-                }
-            end
-        }
-        ui.container {
-            attr = { class = "span6" },
-            content = function()
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 text-center" },
-                            content = function()
-                                ui.image { static = "parlamento_icon_small.png" }
-                            end
-                        }
-                    end
-                }
-                ui.container {
-                    attr = { class = "row-fluid" },
-                    content = function()
-                        ui.container {
-                            attr = { class = "span12 well" },
-                            content = function()
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                        ui.container {
-                                            attr = { class = "span12 text-center" },
-                                            content = function()
-                                                ui.heading { level = 3, attr = { class = "uppercase" }, content = _ "Your Proposals" }
-                                            end
-                                        }
-                                    end
-                                }
-                                ui.container {
-                                    attr = { class = "row-fluid" },
-                                    content = function()
-                                    --          ui.container{attr={class="well-inside span12"},content=function()
-                                        execute.view {
-                                            module = "issue",
-                                            view = "_list_ext2_bs",
-                                            params = {
-                                                state = state,
-                                                orderby = orderby,
-                                                desc = desc,
-                                                scope = scope,
-                                                interest = interest,
-                                                list = "proposals",
-                                                ftl_btns = ftl_btns,
-                                                for_member = member,
-                                                for_details = false,
-                                                selector = issues_selector_myinitiatives
-                                            }
-                                        }
-                                    end
-                                }
-                            --        end }
-                            end
-                        }
-                    end
-                }
-            end
-        }
-    end
+	attr = { class = "row" },
+	content = function()
+	ui.container {
+		attr = { class = "col-lg-6 col-md-6 col-sm-12 col-xs-12" },
+		content = function()
+			ui.container {
+				attr = { class = "panel-group", id = "accordion", role = "tablist", ariamultiselectable = "true" },
+				content = function()
+					ui.container {
+						attr = { class = "panel panel-default"},
+						content = function()	  
+							ui.container {
+								attr = { class = "btn btn-primary large_btn ", role="tab", id="headingOne"},
+								content = function()						                     
+								ui.heading { 
+									level = 3, attr = { datatoggle="collapse", class = "panel-title", href="#issue_voted", ariaexpanded="true", ariacontrols="issue_voted"},  
+									}
+									ui.image { static = "png/arrow-down-icon.png" }					                                   
+									ui.link {content = _ " LE TUE VOTAZIONI"}
+									
+							end
+							}
+							ui.container {
+									attr = { id="issue_voted", class="panel-collapse collapse",  role="tabpanel", arialabelledby="headingOne"},
+									content = function()
+										ui.container {
+												attr = { class="panel-body"},
+												content = function()
+			                                ui.container {
+			                                    attr = { class = "row" },
+			                                    content = function()
+			                                        execute.view {
+			                                            module = "issue",
+			                                            view = "_list_ext2_bs",
+			                                            params = {
+			                                                state = state,
+			                                                orderby = orderby,
+			                                                desc = desc,
+			                                                scope = scope,
+			                                                interest = interest,
+			                                                list = "voted",
+			                                                ftl_btns = ftl_btns,
+			                                                for_member = member,
+			                                                for_details = false,
+			                                                selector = issues_selector_voted
+			                                            }
+			                                        }
+			                                  end
+			                               }
+											 end
+										 }   
+							   end
+						   } 					                    
+					  end
+					}
+			  end 
+			}
+	  end
+	}
+	ui.container {
+		attr = { class = "col-lg-6 col-md-6 col-sm-12 col-xs-12 spaceline spaceline-bottom" },
+		content = function()
+			ui.container {
+				attr = { class = "panel-group", id = "accordion", role = "tablist", ariamultiselectable = "true" },
+				content = function()
+					ui.container {
+						attr = { class = "panel panel-default"},
+						content = function()	  
+							ui.container {
+								attr = { class = "btn btn-primary large_btn", role="tab", id="headingTwo"},
+								content = function()						                     
+								ui.heading { 
+									level = 3, attr = { datatoggle="collapse", class = "panel-title", href="#issue_proposal", ariaexpanded="true", ariacontrols="issue_proposal"},  
+									}
+									ui.image { static = "png/arrow-down-icon.png" }					                                   
+									ui.link {content = _ " LE TUE PROPOSTE"}
+									
+							end
+							}
+							ui.container {
+									attr = { id="issue_proposal", class="panel-collapse collapse",  role="tabpanel", arialabelledby="headingTwo"},
+									content = function()
+									ui.container {
+											attr = { class="panel-body"},
+											content = function()
+	                                ui.container {
+	                                    attr = { class = "row" },
+	                                    content = function()
+	                                        execute.view {
+	                                            module = "issue",
+	                                            view = "_list_ext2_bs",
+	                                            params = {
+	                                                state = state,
+	                                                orderby = orderby,
+	                                                desc = desc,
+	                                                scope = scope,
+	                                                interest = interest,
+	                                                list = "proposals",
+	                                                ftl_btns = ftl_btns,
+	                                                for_member = member,
+	                                                for_details = false,
+	                                                selector = issues_selector_myinitiatives
+	                                            }
+	                                        }
+	                                    end
+	                                }
+										end
+									}   
+								end
+								}					                    
+					end
+					}
+			end 
+			}
+		end
+	}
+	end
 }

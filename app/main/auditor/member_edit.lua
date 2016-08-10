@@ -37,16 +37,16 @@ if (not member or not member_data) and
     end
 
     ui.container {
-        attr = { class = "row-fluid" },
+        attr = { class = "row" },
         content = function()
             ui.container {
-                attr = { class = "span12 well" },
+                attr = { class = "col-md-12 well" },
                 content = function()
                     ui.container {
-                        attr = { class = "row-fluid" },
+                        attr = { class = "row" },
                         content = function()
                             ui.container {
-                                attr = { class = "span3 text-center" },
+                                attr = { class = "col-md-3 text-center" },
                                 content = function()
                                     ui.link {
                                         attr = { class = "btn btn-primary btn-large fixclick" },
@@ -66,7 +66,7 @@ if (not member or not member_data) and
                                 end
                             }
                             ui.container {
-                                attr = { class = "span9 text-center" },
+                                attr = { class = "col-md-9 text-center" },
                                 content = function()
                                     ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Auditor Panel" .. " ID:" .. app.session.member_id }
                                     ui.heading { level = 3, attr = { class = "uppercase" }, content = _ "Dichiarazioni obbligatorie" }
@@ -80,10 +80,10 @@ if (not member or not member_data) and
     }
 
     ui.container {
-        attr = { class = "row-fluid spaceline2" },
+        attr = { class = "row spaceline2" },
         content = function()
             ui.container {
-                attr = { class = "span12 alert alert-simple issue_box paper" },
+                attr = { class = "col-md-12 alert alert-simple issue_box paper" },
                 content = function()
                     ui.form {
                         attr = { class = "", role = "form" },
@@ -93,10 +93,10 @@ if (not member or not member_data) and
                         readonly = not app.session.member.auditor,
                         content = function()
                             ui.container {
-                                attr = { class = "row-fluid text-center spaceline2" },
+                                attr = { class = "row text-center spaceline2" },
                                 content = function()
                                     ui.container {
-                                        attr = { class = "span12" },
+                                        attr = { class = "col-md-12" },
                                         content = function()
                                             ui.heading { level = 1, content = _("Tu #{realname}, in qualita' di certificatore per il P.E.O. attesti che il cittadino che si vuole registrare:", { realname = app.session.member.realname }) }
                                             ui.field.boolean { style = "radio", label_attr = { class = "auditor_confirm_label spaceline2" }, label = _ "E' (o era) presente fisicamente insieme a te al momento della registrazione e il suo aspetto fisico corrisponde alla Foto e alla Descrizione del Documento di Identita' presentato", name = "confirm_box1" }
@@ -128,16 +128,16 @@ end
 
 
 ui.container {
-    attr = { class = "row-fluid" },
+    attr = { class = "row" },
     content = function()
         ui.container {
-            attr = { class = "span12 well" },
+            attr = { class = "col-md-12 well" },
             content = function()
                 ui.container {
-                    attr = { class = "row-fluid" },
+                    attr = { class = "row" },
                     content = function()
                         ui.container {
-                            attr = { class = "span3 text-center" },
+                            attr = { class = "col-md-3 text-center" },
                             content = function()
                                 ui.link {
                                     attr = { class = "btn btn-primary btn-large fixclick" },
@@ -157,7 +157,7 @@ ui.container {
                             end
                         }
                         ui.container {
-                            attr = { class = "span9 text-center" },
+                            attr = { class = "col-md-9 text-center" },
                             content = function()
                                 ui.heading { level = 1, attr = { class = "uppercase" }, content = _ "Auditor Panel" .. " ID:" .. app.session.member_id }
                                 ui.heading {
@@ -182,10 +182,10 @@ ui.container {
 }
 
 ui.container {
-    attr = { class = "row-fluid spaceline2" },
+    attr = { class = "row spaceline2" },
     content = function()
         ui.container {
-            attr = { class = "span12 alert alert-simple issue_box paper" },
+            attr = { class = "col-md-12 alert alert-simple issue_box paper" },
             content = function()
                 ui.form {
                     module = "auditor",
@@ -403,10 +403,10 @@ ui.container {
                         --]]
 
                         ui.container {
-                            attr = { class = "row-fluid text-center spaceline2" },
+                            attr = { class = "row text-center spaceline2" },
                             content = function()
                                 ui.container {
-                                    attr = { class = "span6 offset3" },
+                                    attr = { class = "col-md-6 col-md-offset-3" },
                                     content = function()
                                         ui.tag {
                                             tag = "button",
